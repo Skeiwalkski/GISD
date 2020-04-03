@@ -71,13 +71,13 @@ Basedata    <- Kreise_INKAR %>% select(Kennziffer) %>% mutate(Jahr=2014)
 #         2. Jahresvariable generiert (2014)
 
 # Load INKAR datasets
-inputdataset <- list.files("INKAR_1998_2014")
+inputdataset <- list.files("Data/INKAR_1998_2014")
 # es wird eine Variablenliste auf Grundlage des Inhalts des Ordners "INKAR_1998_2014" generiert
 
 
 # for testing file<-inputdataset[1]
 for(file in inputdataset){
-  myimport <- read_excel(paste0("INKAR_1998_2014/",file), skip = 1, sheet = "Daten", col_types = c("text"))
+  myimport <- read_excel(paste0("Data/INKAR_1998_2014/",file), skip = 1, sheet = "Daten", col_types = c("text"))
   names(myimport)[1] <- "Kennziffer"
   myimport[3] <- NULL
   myimport[2] <- NULL
@@ -138,7 +138,7 @@ Basedata_Kreisebene <- Basedata %>% select(Kennziffer,Jahr,listofdeterminants) %
 Workfile <- as.data.frame(expand.grid("Kennziffer"=Gemeinden_INKAR %>% pull(Kennziffer),"Jahr"=seq(min(Basedata$Jahr):max(Basedata$Jahr)) + min(Basedata$Jahr)-1)) %>%
    mutate(Kreiskennziffer=floor(as.numeric(Kennziffer)/1000)) %>% as.tibble() %>%
    left_join(. , Gemeinden_INKAR,by=c("Kennziffer")) %>%
-   select(Gemeindekennziffer=Kennziffer,Kreis=Kreiskennziffer,Gemeindeverband="Kennziffer Gemeindeverband",Jahr,Bevoelkerung=BevÃ¶lkerung) %>% 
+   select(Gemeindekennziffer=Kennziffer,Kreis=Kreiskennziffer,Gemeindeverband="Kennziffer Gemeindeverband",Jahr,Bevoelkerung=Bevölkerung) %>% 
       arrange(Gemeindekennziffer,Jahr) %>% # Join Metadata
    left_join(. , Basedata_Kreisebene,by=c("Kreis","Jahr")) %>% # Join Indicators for Level: Kreis
    left_join(. , Basedata_Gemeindeverbandsebene,by=c("Gemeindeverband","Jahr")) %>%  # Join Indicators for Level: Gemeindeverband 
@@ -439,7 +439,7 @@ for(mykennziffer in exportlist$Kennziffern) {
 
 
 # Output Postcode Data
-load("PLZ/GEM_Zipcode_Intersections_2015.RData") # AGS/Postcode-Intersections-Dataset in sf format
+load("Data/SHP/GEM_Zipcode_Intersections.RData") # AGS/Postcode-Intersections-Dataset in sf format
 
 
 for (mykennziffer in c("PLZ2","PLZ3","PLZ4","PLZ5")) {
