@@ -4,6 +4,7 @@ author: "Niels Michalski"
 date: "04 04 2020"
 output: 
   html_document:
+    keep_md: true
     toc: true
     toc_float: false
     toc_depth: 2
