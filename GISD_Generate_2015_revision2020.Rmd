@@ -1,0 +1,82 @@
+---
+title: "GISD - German Index of Socio-Economic Deprivation"
+author: "Niels Michalski"
+date: "04 04 2020"
+output: 
+  html_document:
+    toc: true
+    toc_float: false
+    toc_depth: 2
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Intro
+...
+
+## Fehlerbehebung
+
+Fehlerbehebung in der Revision 2019  
+von Niels Michalski
+
+Hintergrund Fehlerbehebung:
+In der Revision 2019 der GISD-Daten tauchten zum Teil starke Abweichungen zur Revision 2018 auf.Bei der Addition der Teildimensionen ging die Bildungsdimension in umgekehrter Richtung in den GISD ein. Mehrere Faktoren spielten dabei eine Rolle:
+
+1. Die Struktur der Faktorladungen der Bildungsindikatoren ist nicht robust gegenüber Datenschwankungen. 
+  * Der erste Faktor bildet die intendierte Kompomente ab. Es gibt allerdings einen zweiten Faktor mit Eigenwert über 1. 
+  * Die Gewichte der Faktorladungen der Indikatoren BeschaeftigteohneAbschluss und Schulgaengerohneabschluss variieren sehr stark zwischen den Revisionen 2018 und 2019 
+2. Die Indikatoren BeschaeftigteohneAbschluss und BeschaeftigtemitHochschulabschluss dieser Teildimension weisen die höchsten Anteile an MissingData auf (75%).
+3. Ausschlaggebend ist am Ende eine negative Korrelation der Bildungsdimension mit dem Anteil Arbeitsloser, der zur Umkehrung des Faktors führt. Der Anteil Arbeitsloser wird als Markerindikator verwendet. 
+
+Eine Möglichkeit: Der Indikator BeschäftigteohneAbschluss wird durch SchulabgängermitHochschulreife ersetzt.
+
+## SOP for Revision (nach Lars Kroll)
+1. Obtain new Data and Reference Files from INKAR (manually) -> check format
+2. Change Year in GISD_generate_postcodes.R according to INKAR Regional Date and execute
+3. Execute GISD_Generate.R (there should be no edits required)
+
+
+# Beschreibung der Syntax
+## Benötigte Pakete
+
+```{r, results = "hide"}
+
+library("tidyverse") # Tidyverse Methods
+library("readxl") # Read Excel
+library("imputeTS") # Impute Missing Features
+library("haven") # write Stata-dta
+library("sf") # write Stata-dta
+
+# Create Output directories in working directory if necessary
+dir.create("Outfiles")
+dir.create("Outfiles/2019")
+dir.create("Outfiles/2019/Bund")
+dir.create("Outfiles/2019/Other")
+dir.create("Outfiles/2019/Stata")
+```
+
+
+
+## I.  Generierung eines ID-Datensatzes
+## II. Erzeugen eines Datensatzes mit Kennziffern als ID unabhÃ¤ngig von Ebene 
+## III.Imputation fehlender Werte
+## IV. Faktorenanalyse (Hauptkomponentenanalyse) inklusive Generierung der Faktorscores
+## V.  Datenexport - Erstellung der DatensÃ¤tze 
+
+
+
+
+
+
+
+## Beispiel-Code Plots einbetten
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
