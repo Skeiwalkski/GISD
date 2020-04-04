@@ -375,9 +375,9 @@ summary {
 <li><a href="#sop-for-revision-nach-lars-kroll">SOP for Revision (nach Lars Kroll)</a></li>
 </ul></li>
 <li><a href="#beschreibung-der-syntax">Beschreibung der Syntax</a><ul>
-<li><a href="#benötigte-pakete">Benötigte Pakete</a></li>
+<li><a href="#benötigte-pakete">0. Benötigte Pakete</a></li>
 <li><a href="#i.-generierung-eines-id-datensatzes">I. Generierung eines ID-Datensatzes</a></li>
-<li><a href="#ii.-erzeugen-eines-datensatzes-mit-kennziffern-als-id-unabhãngig-von-ebene">II. Erzeugen eines Datensatzes mit Kennziffern als ID unabhÃ¤ngig von Ebene</a></li>
+<li><a href="#ii.-erzeugen-eines-datensatzes-mit-kennziffern-als-id-unabhängig-von-der-ebene">II. Erzeugen eines Datensatzes mit Kennziffern als ID unabhängig von der Ebene</a></li>
 <li><a href="#iii.imputation-fehlender-werte">III.Imputation fehlender Werte</a></li>
 <li><a href="#iv.-faktorenanalyse-hauptkomponentenanalyse-inklusive-generierung-der-faktorscores">IV. Faktorenanalyse (Hauptkomponentenanalyse) inklusive Generierung der Faktorscores</a></li>
 <li><a href="#v.-datenexport---erstellung-der-datensãtze">V. Datenexport - Erstellung der DatensÃ¤tze</a></li>
@@ -419,25 +419,14 @@ von Niels Michalski</p>
 <div id="beschreibung-der-syntax" class="section level1">
 <h1>Beschreibung der Syntax</h1>
 <div id="benötigte-pakete" class="section level2">
-<h2>Benötigte Pakete</h2>
-<pre class="r"><code>library(&quot;tidyverse&quot;) # Tidyverse Methods</code></pre>
-<pre><code>## -- Attaching packages -------------------------------------------------------- tidyverse 1.3.0 --</code></pre>
-<pre><code>## v ggplot2 3.2.1     v purrr   0.3.3
-## v tibble  2.1.3     v dplyr   0.8.4
-## v tidyr   1.0.2     v stringr 1.4.0
-## v readr   1.3.1     v forcats 0.4.0</code></pre>
-<pre><code>## -- Conflicts ----------------------------------------------------------- tidyverse_conflicts() --
-## x dplyr::filter() masks stats::filter()
-## x dplyr::lag()    masks stats::lag()</code></pre>
-<pre class="r"><code>library(&quot;readxl&quot;) # Read Excel
-library(&quot;imputeTS&quot;) # Impute Missing Features</code></pre>
-<pre><code>## Registered S3 method overwritten by &#39;quantmod&#39;:
-##   method            from
-##   as.zoo.data.frame zoo</code></pre>
-<pre class="r"><code>library(&quot;haven&quot;) # write Stata-dta
-library(&quot;sf&quot;) # write Stata-dta</code></pre>
-<pre><code>## Linking to GEOS 3.6.1, GDAL 2.2.3, PROJ 4.9.3</code></pre>
-<pre class="r"><code># Create Output directories in working directory if necessary
+<h2>0. Benötigte Pakete</h2>
+<pre class="r"><code>library(&quot;tidyverse&quot;) # Tidyverse Methods
+library(&quot;readxl&quot;) # Read Excel
+library(&quot;imputeTS&quot;) # Impute Missing Features
+library(&quot;haven&quot;) # write Stata-dta
+library(&quot;sf&quot;) # write Stata-dta
+
+# Create Output directories in working directory if necessary
 dir.create(&quot;Outfiles&quot;)
 dir.create(&quot;Outfiles/2019&quot;)
 dir.create(&quot;Outfiles/2019/Bund&quot;)
@@ -446,9 +435,198 @@ dir.create(&quot;Outfiles/2019/Stata&quot;)</code></pre>
 </div>
 <div id="i.-generierung-eines-id-datensatzes" class="section level2">
 <h2>I. Generierung eines ID-Datensatzes</h2>
+<p>Generierung eines Datensatzes in dem den kleinsten regionalen Einheiten (Gemeinden) alle übergeordneten regionalen Einheiten und deren Regionalkennziffern zugeordnet werden. Datenquelle ist die Gebietsstandsreferenz von Destatis.</p>
+<pre class="r"><code>Gemeinden_INKAR &lt;- read_excel(&quot;Data/Referenz/Referenz_1998_2015.xlsx&quot;, sheet = &quot;Gemeinden&quot;, na = &quot;NA&quot;, skip = 2) %&gt;% 
+  rename(Kennziffer=gem15,&quot;Kennziffer Gemeindeverband&quot;=&quot;Gemeindeverband, Stand 31.12.2015&quot;) %&gt;% filter(!is.na(Kennziffer))
+# Pipes: 
+# 1. rename von zwei Variablen; &quot; um Leerzeichen zu berÃ¼cksichtigen; 
+# 2. Gemeinden ohne Missing auf der Kennziffervariablen
+
+Gemeindeverbaende_INKAR &lt;- read_excel(&quot;Data/Referenz/Referenz_1998_2015.xlsx&quot;, sheet = &quot;GVB 2015&quot;, na = &quot;NA&quot;, skip = 2) %&gt;% 
+  select(&quot;Kennziffer Gemeindeverband&quot;=gvb15,&quot;Name des Gemeindeverbands&quot;) %&gt;% filter(!is.na(&quot;Kennziffer Gemeindeverband&quot;)) 
+# das ganze nochmal für Gemeindeverbaende  
+# Pipes: 
+# 1. nur die Variablen gvb15 und Name des Gemeindeverbands ausgewÃ¤hlt 
+# 2. Missing herausfiltern
+
+Kreise_INKAR &lt;- read_excel(&quot;Data/Referenz/Referenz_1998_2015.xlsx&quot;, sheet = &quot;Kreise&quot;, skip = 2) %&gt;%
+ mutate(Kennziffer = as.numeric(krs15)/1000) %&gt;% filter(!is.na(Kennziffer))
+# und für Kreise
+# Pipes: 
+# 1. neue Variable generieren, die die Kreisvariable auf den FÃ¼nfsteller reduzieren
+# 2. Missing herausfiltern
+
+
+# Die drei Datensätze werden nun ausgehend vom Gemeindedatensatz zu einem ID-Datensatz zusammmengefügt
+id_dataset &lt;- Gemeinden_INKAR %&gt;% 
+              select(Gemeindekennziffer=Kennziffer,&quot;Name der Gemeinde&quot;=`Gemeindename 2015`,&quot;Kennziffer Gemeindeverband&quot;) %&gt;% 
+              mutate(Kreiskennziffer=floor(Gemeindekennziffer/1000)) %&gt;%
+              left_join(.,Kreise_INKAR %&gt;% select(Kreiskennziffer=krs15,
+                                                  &quot;Name des Kreises&quot;=krs15name,
+                                                  &quot;Raumordnungsregion Nr&quot;=ROR11,
+                                                  Raumordnungsregion=ROR11name,
+                                                  NUTS2,
+                                                  &quot;NUTS2 Name&quot;=NUTS2name,
+                                                  Bundesland=...24) %&gt;% 
+                          mutate(Kreiskennziffer=floor(Kreiskennziffer/1000)),by=&quot;Kreiskennziffer&quot;) %&gt;%
+              left_join(.,Gemeindeverbaende_INKAR, by=&quot;Kennziffer Gemeindeverband&quot;)
+
+# Pipes:  1. (select) Variablenauswahl (gkz, Gemeindename, Gemeindeverband)[wieso hier ``?]
+#         2. die Kreiskennziffer wird aus der Gemeindekennziffer generiert; floor rundet nach unten auf ganze Ziffern ab
+#         3. leftjoin spielt Kreisdaten über Kreiskennziffer an
+#         3.1 select wählt, die anzupielenden Variablen aus, darunter auch NUTS und ROR und Bundesland, dessen Variablenname beim       #             Einlesen zu lang war (...24)
+#         3.2 die Kreiskennziffer wurde vor dem leftjoin im Using-Datensatz generiert
+#         4. als letztes werden die Gemeindeverbandskennziffern angespielt</code></pre>
 </div>
-<div id="ii.-erzeugen-eines-datensatzes-mit-kennziffern-als-id-unabhãngig-von-ebene" class="section level2">
-<h2>II. Erzeugen eines Datensatzes mit Kennziffern als ID unabhÃ¤ngig von Ebene</h2>
+<div id="ii.-erzeugen-eines-datensatzes-mit-kennziffern-als-id-unabhängig-von-der-ebene" class="section level2">
+<h2>II. Erzeugen eines Datensatzes mit Kennziffern als ID unabhängig von der Ebene</h2>
+<p>Die Information für die Indikatoren, die für die Berechnung des GISD verwendet werden, liegt auf unterschiedlichen Ebenen vor. Die Faktorenanalyse soll auf Gemeindeebene durchgeführt werden. Percentile aus dem Index sollen am Ende für jede regionale Ebene separat berechnet werden können. Datenbasis sind die INKAR-Daten der jeweiligen Indikatoren im Excel-Format</p>
+<pre class="r"><code># Basis erzeugen: Ausgangspunkt Kreisdaten
+# all levels of input will be added, Kreise is just a starting point.
+Basedata    &lt;- Kreise_INKAR %&gt;% select(Kennziffer) %&gt;% mutate(Jahr=2015)
+# Datensatz zum Anspielen der Daten generieren
+# Ausgangspunkt Kreisdatensatz
+# Pipes:  1. nur Kreiskennzifern ausgewÃ¤hlt
+#         2. Jahresvariable generiert (2015)
+
+# Liste der Variablen generieren
+inputdataset &lt;- list.files(&quot;Data/INKAR_1998_2015&quot;) # Variablenliste der Dateinamen im Ordner
+
+
+
+# Einlesen der einzelnen Excelfiles zu den Daten (Schleife) 
+# for testing file&lt;-inputdataset[1]
+for(file in inputdataset){
+  myimport &lt;- read_excel(paste0(&quot;Data/INKAR_1998_2015/&quot;,file), skip = 1, sheet = &quot;Daten&quot;, col_types = c(&quot;text&quot;))
+  names(myimport)[1] &lt;- &quot;Kennziffer&quot;
+  myimport[3] &lt;- NULL
+  myimport[2] &lt;- NULL
+  myimport &lt;- myimport %&gt;% gather(key = &quot;Jahr&quot;, value = &quot;Value&quot; , -&quot;Kennziffer&quot;, convert=T, na.rm = T) %&gt;%
+    mutate(Kennziffer=as.numeric(as.character(Kennziffer)), Value=as.numeric(Value)) 
+  names(myimport)[3] &lt;- unlist(strsplit(unlist(strsplit(file,&quot;_&quot;))[2],&quot;[.]&quot;))[1]
+  Basedata &lt;- full_join(Basedata,myimport,by=c(&quot;Kennziffer&quot;,&quot;Jahr&quot;))
+}
+# Schleife fÃ¼r jedes Excel-File
+# 1. Einlesen der Exceldatei; jeweils das Sheet &quot;Daten&quot;; erste Zeile wird geskippt,  die Daten werden als Text eingelesen
+# 2. fÃ¼r die erste Spalte wird die Kennziffer importiert; fÃ¼r die zweite und dritte Spalte nichts
+# 3. die Daten werde reshaped, um die Jahresinfos im langen Format zu speichern; convert konvertiert das Datenformat automatisch;
+# rm.na entfert missing value Zeilen; -&quot;Kennziffer&quot; sorgt dafÃ¼r, dass die Variable Kennziffer nicht doppelt erzeugt wird
+# 4. mutate definiert die Variablentypen 
+# 5. von innen nach auÃen 
+# 5.1 das innere strsplit(file, &quot;_&quot;) teilt den Filenamen inkl. Dateiendung beim &quot;_&quot;
+# 5.2 das innerste unlist generiert einen Vektor mit den Elementen aus dem strsplit
+# 5.3 das Ã¤uÃere strsplit das zweite Vektorelement beim &quot;.&quot;, sodass nur noch der Variablenname Ã¼brig bleibt
+# 5.4 das Ã¤uÃere unlist weist auf das erste Vektorelement 
+# 5.5 names(import)[3] nimmt dieses Vektorelement als Variablennamen fÃ¼r die dritte Spalte
+# 6. jedes file der Schleife wird an Basedata gejoint Ã¼ber Kennziffer und Jahr; full_join Ã¼bernimmt dabei jede Zeile und Spalte jeder Seite,
+# auch wenn die Werte auf einer Seite missing enthalten
+
+rm(inputdataset) 
+
+
+# Liste der Indikatoren erstellen
+listofdeterminants &lt;- names(Basedata)[3:length(Basedata)]
+
+# Regionale Tiefe der Indikatoren 
+ind_level &lt;- c(&quot;Gemeindeverband&quot;,&quot;Gemeindeverband&quot;,&quot;Kreis&quot;, &quot;Kreis&quot;, &quot;Kreis&quot;, &quot;Kreis&quot;, &quot;Kreis&quot;, &quot;Gemeinde&quot;, &quot;Kreis&quot;, &quot;Kreis&quot;)
+level_table &lt;- cbind(listofdeterminants,ind_level)
+# Tabelle der Indikatoren mit regionaler Tiefe
+knitr::kable(level_table)</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">listofdeterminants</th>
+<th align="left">ind_level</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Arbeitslosigkeit</td>
+<td align="left">Gemeindeverband</td>
+</tr>
+<tr class="even">
+<td align="left">Beschaeftigtenquote</td>
+<td align="left">Gemeindeverband</td>
+</tr>
+<tr class="odd">
+<td align="left">Bruttoverdienst</td>
+<td align="left">Kreis</td>
+</tr>
+<tr class="even">
+<td align="left">BeschaeftigtemitakadAbschluss</td>
+<td align="left">Kreis</td>
+</tr>
+<tr class="odd">
+<td align="left">BeschaeftigteohneAbschluss</td>
+<td align="left">Kreis</td>
+</tr>
+<tr class="even">
+<td align="left">SchulabgaengermitHochschulreife</td>
+<td align="left">Kreis</td>
+</tr>
+<tr class="odd">
+<td align="left">SchulabgaengerohneAbschluss</td>
+<td align="left">Kreis</td>
+</tr>
+<tr class="even">
+<td align="left">Einkommenssteuer</td>
+<td align="left">Gemeinde</td>
+</tr>
+<tr class="odd">
+<td align="left">Haushaltseinkommen</td>
+<td align="left">Kreis</td>
+</tr>
+<tr class="even">
+<td align="left">Schuldnerquote</td>
+<td align="left">Kreis</td>
+</tr>
+</tbody>
+</table>
+<pre class="r"><code># Datensatz für die Gemeindeverbandsebene generieren
+Basedata_Gemeindeverbandsebene &lt;- Basedata %&gt;% dplyr::select(Kennziffer,Jahr,Arbeitslosigkeit,Beschaeftigtenquote,Einkommenssteuer) %&gt;%   
+  gather(key,value,3:5) %&gt;% filter(!is.na(value)) %&gt;% spread(key,value) %&gt;% filter(Jahr&gt;=1998) %&gt;% rename(&quot;Gemeindeverband&quot;=Kennziffer)
+# Pipes:  1. Auswahl der Variablen 
+#         2. Reshape der Daten wide nach long      
+#         3. Auswahl von Non-Missing 
+#         4. Reshape von long nach wide 
+#         5. Auswahl der Daten Jahr&gt;=1998
+#         6. Umbenennung der Kennziffervariable
+
+# Datensatz fÃ¼r die Kreisebene generieren 
+Basedata_Kreisebene &lt;- Basedata %&gt;% select(krs15=Kennziffer,Jahr,listofdeterminants) %&gt;% 
+  select(-Arbeitslosigkeit,-Einkommenssteuer,-Beschaeftigtenquote) %&gt;% rename(Kreis=krs15)
+# Pipes:  1. neben der Kennziffer, die einen anderen Namen bekommt wird das Jahr und die Variablenliste ausgewÃ¤hlt
+#         2. drei Variablen werden aus der Auswahl ausgeschlossen
+#         3. die Kreisvariable wird in Kreis umbenannt, weil im nÃ¤chsten Schritt Kreisinfos an die Gemeinden angespielt werden
+
+# Join different levels
+# Nun werden die Daten bezogen auf die Ebenen gemergt
+Workfile &lt;- as.data.frame(expand.grid(&quot;Kennziffer&quot;=Gemeinden_INKAR %&gt;% pull(Kennziffer),&quot;Jahr&quot;=seq(min(Basedata$Jahr):max(Basedata$Jahr)) + min(Basedata$Jahr)-1)) %&gt;%
+   mutate(Kreiskennziffer=floor(as.numeric(Kennziffer)/1000)) %&gt;% as_tibble() %&gt;%
+   left_join(. , Gemeinden_INKAR,by=c(&quot;Kennziffer&quot;))  %&gt;%
+   select(Gemeindekennziffer=Kennziffer,Kreis=Kreiskennziffer,Gemeindeverband=&quot;Kennziffer Gemeindeverband&quot;,Jahr,Bevoelkerung=`Bevölkerung 31.12.2015`) %&gt;% 
+      arrange(Gemeindekennziffer,Jahr) %&gt;% # Join Metadata
+   left_join(. , Basedata_Kreisebene,by=c(&quot;Kreis&quot;,&quot;Jahr&quot;)) %&gt;% # Hier wird Ã¼ber Kreis gematched
+   left_join(. , Basedata_Gemeindeverbandsebene,by=c(&quot;Gemeindeverband&quot;,&quot;Jahr&quot;)) %&gt;%  # Join Indicators for Level: Gemeindeverband 
+   filter(Jahr&gt;=1998)
+
+# als erstes wird ein data.frame erzeugt (Workfile); der alle Gemeindewellen (1998-201x) in den Zeilen stehen hat
+# 1. expand.grid erzeugt ein tibble mit allen Kombinationen von Kennziffern und Jahren
+#     pull erzeugt einen Vektor fÃ¼r die Variablenwerte von Kennziffer aus dem Datensatz
+#     + min(...) wird zu der Sequenz von Jahren aus dem Basedata addiert (1 bis X) damit auch Jahreswerte weitergeben werden
+# 2. mutate generiert eine Kreiskennziffer
+# 3. as.tibble erzeugt einen tibble, damit left_join genutzt werden kann
+# 4. erstes left_join spielt die Gemeindedaten Ã¼ber Kennziffer an, das geht so, weil Gemeinden_INKAR als tibble gespeichert ist
+# 5. select, wählt die inhaltlichen Variablen aus, und Ã¤ndert die Variablennamen; 
+# 6. arrange im select sortiert nach Gemeindekennziffer und Jahr
+# 7. zweites left_join spielt die Daten der Kreisebene via Kreis und Jahr an
+# 8. drittes left_join spielt die Daten der Gemeindeverbandsebene via Gemeindeverband und Jahr an
+# Notiz: . in den Befehlen bezieht sich auf den tibble bzw. data.frame der in der Pipe bearbeitet wird
+
+# Stata-Datensatz rausschreiben
+write_dta(Workfile, paste0(&quot;Outfiles/2019/Stata/workfile.dta&quot;))
+
+# Ende Generierung Basisdatensatz</code></pre>
 </div>
 <div id="iii.imputation-fehlender-werte" class="section level2">
 <h2>III.Imputation fehlender Werte</h2>
