@@ -157,7 +157,6 @@ for(file in inputdataset){
 
 rm(inputdataset) 
 
-
 # Liste der Indikatoren erstellen
 listofdeterminants <- names(Basedata)[3:length(Basedata)]
 
@@ -165,23 +164,22 @@ listofdeterminants <- names(Basedata)[3:length(Basedata)]
 ind_level <- c("Gemeindeverband","Gemeindeverband","Kreis", "Kreis", "Kreis", "Kreis", "Kreis", "Gemeinde", "Kreis", "Kreis")
 level_table <- cbind(listofdeterminants,ind_level)
 # Tabelle der Indikatoren mit regionaler Tiefe
-knitr::kable(level_table)
+level_table
 ```
 
-
-
-listofdeterminants                ind_level       
---------------------------------  ----------------
-Arbeitslosigkeit                  Gemeindeverband 
-Beschaeftigtenquote               Gemeindeverband 
-Bruttoverdienst                   Kreis           
-BeschaeftigtemitakadAbschluss     Kreis           
-BeschaeftigteohneAbschluss        Kreis           
-SchulabgaengermitHochschulreife   Kreis           
-SchulabgaengerohneAbschluss       Kreis           
-Einkommenssteuer                  Gemeinde        
-Haushaltseinkommen                Kreis           
-Schuldnerquote                    Kreis           
+```
+##       listofdeterminants                ind_level        
+##  [1,] "Arbeitslosigkeit"                "Gemeindeverband"
+##  [2,] "Beschaeftigtenquote"             "Gemeindeverband"
+##  [3,] "Bruttoverdienst"                 "Kreis"          
+##  [4,] "BeschaeftigtemitakadAbschluss"   "Kreis"          
+##  [5,] "BeschaeftigteohneAbschluss"      "Kreis"          
+##  [6,] "SchulabgaengermitHochschulreife" "Kreis"          
+##  [7,] "SchulabgaengerohneAbschluss"     "Kreis"          
+##  [8,] "Einkommenssteuer"                "Gemeinde"       
+##  [9,] "Haushaltseinkommen"              "Kreis"          
+## [10,] "Schuldnerquote"                  "Kreis"
+```
 
 ```r
 # Datensatz für die Gemeindeverbandsebene generieren
