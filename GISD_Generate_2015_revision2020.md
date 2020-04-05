@@ -67,21 +67,21 @@ Datenquelle ist die Gebietsstandsreferenz von Destatis.
 Gemeinden_INKAR <- read_excel("Data/Referenz/Referenz_1998_2015.xlsx", sheet = "Gemeinden", na = "NA", skip = 2) %>% 
   rename(Kennziffer=gem15,"Kennziffer Gemeindeverband"="Gemeindeverband, Stand 31.12.2015") %>% filter(!is.na(Kennziffer))
 # Pipes: 
-# 1. rename von zwei Variablen; " um Leerzeichen zu berÃ¼cksichtigen; 
+# 1. rename von zwei Variablen; " um Leerzeichen zu berücksichtigen; 
 # 2. Gemeinden ohne Missing auf der Kennziffervariablen
 
 Gemeindeverbaende_INKAR <- read_excel("Data/Referenz/Referenz_1998_2015.xlsx", sheet = "GVB 2015", na = "NA", skip = 2) %>% 
   select("Kennziffer Gemeindeverband"=gvb15,"Name des Gemeindeverbands") %>% filter(!is.na("Kennziffer Gemeindeverband")) 
 # das ganze nochmal für Gemeindeverbaende  
 # Pipes: 
-# 1. nur die Variablen gvb15 und Name des Gemeindeverbands ausgewÃ¤hlt 
+# 1. nur die Variablen gvb15 und Name des Gemeindeverbands ausgewählt 
 # 2. Missing herausfiltern
 
 Kreise_INKAR <- read_excel("Data/Referenz/Referenz_1998_2015.xlsx", sheet = "Kreise", skip = 2) %>%
  mutate(Kennziffer = as.numeric(krs15)/1000) %>% filter(!is.na(Kennziffer))
 # und für Kreise
 # Pipes: 
-# 1. neue Variable generieren, die die Kreisvariable auf den FÃ¼nfsteller reduzieren
+# 1. neue Variable generieren, die die Kreisvariable auf den Fünfsteller reduzieren
 # 2. Missing herausfiltern
 
 
@@ -165,23 +165,22 @@ listofdeterminants <- names(Basedata)[3:length(Basedata)]
 ind_level <- c("Gemeindeverband","Gemeindeverband","Kreis", "Kreis", "Kreis", "Kreis", "Kreis", "Gemeinde", "Kreis", "Kreis")
 level_table <- cbind(listofdeterminants,ind_level)
 # Tabelle der Indikatoren mit regionaler Tiefe
-knitr::kable(level_table)
+level_table
 ```
 
-
-
-listofdeterminants                ind_level       
---------------------------------  ----------------
-Arbeitslosigkeit                  Gemeindeverband 
-Beschaeftigtenquote               Gemeindeverband 
-Bruttoverdienst                   Kreis           
-BeschaeftigtemitakadAbschluss     Kreis           
-BeschaeftigteohneAbschluss        Kreis           
-SchulabgaengermitHochschulreife   Kreis           
-SchulabgaengerohneAbschluss       Kreis           
-Einkommenssteuer                  Gemeinde        
-Haushaltseinkommen                Kreis           
-Schuldnerquote                    Kreis           
+```
+##       listofdeterminants                ind_level        
+##  [1,] "Arbeitslosigkeit"                "Gemeindeverband"
+##  [2,] "Beschaeftigtenquote"             "Gemeindeverband"
+##  [3,] "Bruttoverdienst"                 "Kreis"          
+##  [4,] "BeschaeftigtemitakadAbschluss"   "Kreis"          
+##  [5,] "BeschaeftigteohneAbschluss"      "Kreis"          
+##  [6,] "SchulabgaengermitHochschulreife" "Kreis"          
+##  [7,] "SchulabgaengerohneAbschluss"     "Kreis"          
+##  [8,] "Einkommenssteuer"                "Gemeinde"       
+##  [9,] "Haushaltseinkommen"              "Kreis"          
+## [10,] "Schuldnerquote"                  "Kreis"
+```
 
 ```r
 # Datensatz für die Gemeindeverbandsebene generieren
@@ -218,7 +217,7 @@ Workfile <- as.data.frame(expand.grid("Kennziffer"=Gemeinden_INKAR %>% pull(Kenn
 #     + min(...) wird zu der Sequenz von Jahren aus dem Basedata addiert (1 bis X) damit auch Jahreswerte weitergeben werden
 # 2. mutate generiert eine Kreiskennziffer
 # 3. as.tibble erzeugt einen tibble, damit left_join genutzt werden kann
-# 4. erstes left_join spielt die Gemeindedaten Ã¼ber Kennziffer an, das geht so, weil Gemeinden_INKAR als tibble gespeichert ist
+# 4. erstes left_join spielt die Gemeindedaten über Kennziffer an, das geht so, weil Gemeinden_INKAR als tibble gespeichert ist
 # 5. select, wählt die inhaltlichen Variablen aus, und Ã¤ndert die Variablennamen; 
 # 6. arrange im select sortiert nach Gemeindekennziffer und Jahr
 # 7. zweites left_join spielt die Daten der Kreisebene via Kreis und Jahr an
@@ -234,6 +233,217 @@ write_dta(Workfile, paste0("Outfiles/2019/Stata/workfile.dta"))
 
 
 ## III.Imputation fehlender Werte
+
+
+
+```r
+# Anzahl der Missings Ã¼ber die Indikatoren
+summary(Workfile %>% select(listofdeterminants))
+```
+
+```
+##  Arbeitslosigkeit Beschaeftigtenquote Bruttoverdienst
+##  Min.   :  0.00   Min.   :  0.00      Min.   :1419   
+##  1st Qu.: 33.61   1st Qu.: 49.29      1st Qu.:1847   
+##  Median : 46.54   Median : 52.82      Median :2023   
+##  Mean   : 57.87   Mean   : 52.84      Mean   :2053   
+##  3rd Qu.: 69.20   3rd Qu.: 56.56      3rd Qu.:2229   
+##  Max.   :500.00   Max.   :102.03      Max.   :4288   
+##                   NA's   :34596       NA's   :22332  
+##  BeschaeftigtemitakadAbschluss BeschaeftigteohneAbschluss
+##  Min.   : 3.33                 Min.   : 3.44             
+##  1st Qu.: 6.42                 1st Qu.: 9.46             
+##  Median : 7.92                 Median :11.99             
+##  Mean   : 8.51                 Mean   :10.93             
+##  3rd Qu.: 9.99                 3rd Qu.:13.32             
+##  Max.   :31.85                 Max.   :20.51             
+##  NA's   :156324                NA's   :156324            
+##  SchulabgaengermitHochschulreife SchulabgaengerohneAbschluss Einkommenssteuer  
+##  Min.   : 0.00                   Min.   : 1.126              Min.   :  -1.326  
+##  1st Qu.:17.51                   1st Qu.: 5.773              1st Qu.: 186.993  
+##  Median :22.50                   Median : 7.679              Median : 253.012  
+##  Mean   :23.16                   Mean   : 7.849              Mean   : 257.310  
+##  3rd Qu.:27.87                   3rd Qu.: 9.714              3rd Qu.: 329.460  
+##  Max.   :70.32                   Max.   :21.249              Max.   :1163.686  
+##                                                              NA's   :1316      
+##  Haushaltseinkommen Schuldnerquote 
+##  Min.   : 995       Min.   : 3.00  
+##  1st Qu.:1344       1st Qu.: 7.00  
+##  Median :1498       Median : 8.00  
+##  Mean   :1515       Mean   : 8.28  
+##  3rd Qu.:1678       3rd Qu.:10.00  
+##  Max.   :3260       Max.   :20.00  
+##  NA's   :22332      NA's   :66996
+```
+
+```r
+sapply(Workfile  %>% select(listofdeterminants) , function(x) sum(is.na(x)))
+```
+
+```
+##                Arbeitslosigkeit             Beschaeftigtenquote 
+##                               0                           34596 
+##                 Bruttoverdienst   BeschaeftigtemitakadAbschluss 
+##                           22332                          156324 
+##      BeschaeftigteohneAbschluss SchulabgaengermitHochschulreife 
+##                          156324                               0 
+##     SchulabgaengerohneAbschluss                Einkommenssteuer 
+##                               0                            1316 
+##              Haushaltseinkommen                  Schuldnerquote 
+##                           22332                           66996
+```
+
+```r
+# Imputation
+imputationsliste <- subset(listofdeterminants , 
+                           !(listofdeterminants %in%                              c('Arbeitslosigkeit','SchulabgaengermitHochschulreife','SchulabgaengerohneAbschluss')))
+# Variablenliste für die Regressionsimputation wird erstellt
+# das betrifft alle Variablen, außer die im angebenen Vektor
+# letztere sind frei von Missings und können im Imputationsmodell genutzt werden 
+
+Impdata <-  Workfile %>%  dplyr::filter(Jahr>=1998, Bevoelkerung>0) %>% 
+  gather(key,value,6:15) %>% mutate(value=ifelse(value<0,NA,value)) %>% spread(key,value)
+# Imputationsdatensatz generieren: Jahr>=1998, Bevoelkerung>0 
+# gather und spread identifiziern key-Variablen automatisch 
+# es geht aber nur darum Werten<0 ein NA zuzordnen
+
+summary(Impdata %>% select(listofdeterminants))
+```
+
+```
+##  Arbeitslosigkeit   Beschaeftigtenquote Bruttoverdienst
+##  Min.   :  0.3747   Min.   :  0.00      Min.   :1419   
+##  1st Qu.: 33.8561   1st Qu.: 49.29      1st Qu.:1846   
+##  Median : 46.7480   Median : 52.82      Median :2021   
+##  Mean   : 58.2550   Mean   : 52.84      Mean   :2052   
+##  3rd Qu.: 69.4340   3rd Qu.: 56.57      3rd Qu.:2229   
+##  Max.   :299.8205   Max.   :102.03      Max.   :4288   
+##                     NA's   :33276       NA's   :22184  
+##  BeschaeftigtemitakadAbschluss BeschaeftigteohneAbschluss
+##  Min.   : 3.33                 Min.   : 3.44             
+##  1st Qu.: 6.42                 1st Qu.: 9.38             
+##  Median : 7.92                 Median :11.99             
+##  Mean   : 8.51                 Mean   :10.92             
+##  3rd Qu.:10.01                 3rd Qu.:13.32             
+##  Max.   :31.85                 Max.   :20.51             
+##  NA's   :155288                NA's   :155288            
+##  SchulabgaengermitHochschulreife SchulabgaengerohneAbschluss Einkommenssteuer
+##  Min.   : 0.00                   Min.   : 1.126              Min.   :   0.0  
+##  1st Qu.:17.53                   1st Qu.: 5.776              1st Qu.: 187.0  
+##  Median :22.53                   Median : 7.681              Median : 253.0  
+##  Mean   :23.19                   Mean   : 7.853              Mean   : 257.3  
+##  3rd Qu.:27.89                   3rd Qu.: 9.715              3rd Qu.: 329.5  
+##  Max.   :70.32                   Max.   :21.249              Max.   :1163.7  
+##                                                              NA's   :5       
+##  Haushaltseinkommen Schuldnerquote 
+##  Min.   : 995       Min.   : 3.00  
+##  1st Qu.:1343       1st Qu.: 7.00  
+##  Median :1498       Median : 8.00  
+##  Mean   :1514       Mean   : 8.28  
+##  3rd Qu.:1677       3rd Qu.:10.00  
+##  Max.   :3260       Max.   :20.00  
+##  NA's   :22184      NA's   :66552
+```
+
+```r
+sapply(Impdata  %>% select(listofdeterminants) , function(x) sum(is.na(x)))
+```
+
+```
+##                Arbeitslosigkeit             Beschaeftigtenquote 
+##                               0                           33276 
+##                 Bruttoverdienst   BeschaeftigtemitakadAbschluss 
+##                           22184                          155288 
+##      BeschaeftigteohneAbschluss SchulabgaengermitHochschulreife 
+##                          155288                               0 
+##     SchulabgaengerohneAbschluss                Einkommenssteuer 
+##                               0                               5 
+##              Haushaltseinkommen                  Schuldnerquote 
+##                           22184                           66552
+```
+
+```r
+# Einige Missings basierten auf Gebietsständen ohne Bevölkerung, diese sind entfernt 
+# Damit käme auch die Einkommenssteuer als PrÃ¤diktor im Imputationsmodell in Frage
+
+# Als erstes wird die Imputationsfunktion erstellt (hier werden noch keine Daten generiert)
+# Impute_function (NOT FOR GROUPED DATA!)
+my_ts_imputer <- function(data,outcome_name){
+  mydata   <- data %>% group_by(Gemeindekennziffer) %>% select(Gemeindekennziffer,Jahr,Arbeitslosigkeit,SchulabgaengerohneAbschluss,SchulabgaengermitHochschulreife,"Outcome"=paste(outcome_name)) %>% 
+    mutate(MEAN=mean(Outcome , na.rm=T)) %>% ungroup()
+  mymodell <- lm(Outcome ~
+                   I(Jahr*Jahr*MEAN)+I(Jahr*MEAN) + Arbeitslosigkeit + 
+                   SchulabgaengerohneAbschluss ,
+                   data = mydata  , na.action="na.exclude")
+  mydata %>% select(Outcome) %>% mutate(Imputed = predict(mymodell, newdata =mydata )) %>%
+    mutate(Outcome=ifelse(is.na(Outcome),Imputed,Outcome)) %>% 
+    mutate(Outcome=ifelse(Outcome<0,0,Outcome)) %>% pull(Outcome)
+  }
+# Hier wird eine Funktion generiert, die im Datensatz (data) fehlende Daten für ausgewählte Variablen (outcome_name) imputiert
+# 1. zunächst werden Mittelwerte für das Outcome (siehe select) jeweils für die Gemeinde generiert, d.h. über alle Wellen aggregiert
+# 2. mymodell definiert das Modell (lm); "I()" sichert ab, dass der Operator * erkannt wird und dass ein Spaltenvektor in die Formel eingeht
+# 3. zweites mydata: es wird eine Variable Imputed generiert, die sich aus der prediction aus mymodell ergibt
+#    während der vorherige Befehl (mymodell) die Koeffizienten generiert, werden nun auf Basis dieses Modells predictions generiert, 
+#    und zwar auch für Fälle mit Missing auf den Outcomes
+# 4. fehlende Werte in den Outcomes werden durch Werte auf der Variable Imputed ersetzt
+# 5. Für einige Fälle erzeugt die prediction unplausible Werte (negative Outcomes), diese werden auf 0 gesetzt
+# 6. pull kreiert einen Vektor (hier Variable Outcome), die im nÃ¤chsten Befehl verwendet wird
+
+# Test Function if necessary
+# Impdata %>% mutate(Test=my_ts_imputer(.,"Bruttoverdienst")) %>% select(Gemeindekennziffer,Jahr,Bruttoverdienst,Test) %>% head()
+
+Impdata.imputed <- Impdata %>% mutate(
+  Beschaeftigtenquote=my_ts_imputer(.,"Beschaeftigtenquote"),
+  Bruttoverdienst=my_ts_imputer(.,"Bruttoverdienst"),
+  BeschaeftigtemitakadAbschluss=my_ts_imputer(.,"BeschaeftigtemitakadAbschluss"),
+  BeschaeftigteohneAbschluss=my_ts_imputer(.,"BeschaeftigteohneAbschluss"),
+  Einkommenssteuer=my_ts_imputer(.,"Einkommenssteuer"),
+  Haushaltseinkommen=my_ts_imputer(.,"Haushaltseinkommen"),
+  Schuldnerquote=my_ts_imputer(.,"Schuldnerquote")           
+  )
+# hier wird der Datensatz mit den imputierten Werten generiert. Die Funktion my_ts_imputer wird auf jeden Indikator mit Missings angewendet
+
+# Result of Imputation
+summary(as.data.frame(Impdata.imputed) %>% ungroup()  %>% select(listofdeterminants))
+```
+
+```
+##  Arbeitslosigkeit   Beschaeftigtenquote Bruttoverdienst
+##  Min.   :  0.3747   Min.   :  0.00      Min.   :1369   
+##  1st Qu.: 33.8561   1st Qu.: 47.96      1st Qu.:1803   
+##  Median : 46.7480   Median : 51.75      Median :1992   
+##  Mean   : 58.2550   Mean   : 51.82      Mean   :2020   
+##  3rd Qu.: 69.4340   3rd Qu.: 55.74      3rd Qu.:2206   
+##  Max.   :299.8205   Max.   :102.03      Max.   :4288   
+##  BeschaeftigtemitakadAbschluss BeschaeftigteohneAbschluss
+##  Min.   : 1.338                Min.   : 3.44             
+##  1st Qu.: 3.830                1st Qu.:10.06             
+##  Median : 5.379                Median :13.32             
+##  Mean   : 5.923                Mean   :12.23             
+##  3rd Qu.: 7.391                3rd Qu.:15.02             
+##  Max.   :31.846                Max.   :23.92             
+##  SchulabgaengermitHochschulreife SchulabgaengerohneAbschluss Einkommenssteuer
+##  Min.   : 0.00                   Min.   : 1.126              Min.   :   0.0  
+##  1st Qu.:17.53                   1st Qu.: 5.776              1st Qu.: 187.0  
+##  Median :22.53                   Median : 7.681              Median : 253.0  
+##  Mean   :23.19                   Mean   : 7.853              Mean   : 257.3  
+##  3rd Qu.:27.89                   3rd Qu.: 9.715              3rd Qu.: 329.5  
+##  Max.   :70.32                   Max.   :21.249              Max.   :1163.7  
+##  Haushaltseinkommen Schuldnerquote  
+##  Min.   : 929.8     Min.   : 3.000  
+##  1st Qu.:1297.0     1st Qu.: 7.000  
+##  Median :1464.0     Median : 8.602  
+##  Mean   :1480.4     Mean   : 8.473  
+##  3rd Qu.:1648.0     3rd Qu.:10.000  
+##  Max.   :3260.0     Max.   :20.579
+```
+
+```r
+# Stata-Datensatz rausschreiben
+# write_dta(Impdata.imputed, paste0("Outfiles/2019/Stata/impdata.dta"))
+```
+
+
 ## IV. Faktorenanalyse (Hauptkomponentenanalyse) inklusive Generierung der Faktorscores
 ## V.  Datenexport - Erstellung der DatensÃ¤tze 
 

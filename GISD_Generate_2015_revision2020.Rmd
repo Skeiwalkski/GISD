@@ -69,21 +69,21 @@ Datenquelle ist die Gebietsstandsreferenz von Destatis.
 Gemeinden_INKAR <- read_excel("Data/Referenz/Referenz_1998_2015.xlsx", sheet = "Gemeinden", na = "NA", skip = 2) %>% 
   rename(Kennziffer=gem15,"Kennziffer Gemeindeverband"="Gemeindeverband, Stand 31.12.2015") %>% filter(!is.na(Kennziffer))
 # Pipes: 
-# 1. rename von zwei Variablen; " um Leerzeichen zu berÃ¼cksichtigen; 
+# 1. rename von zwei Variablen; " um Leerzeichen zu berücksichtigen; 
 # 2. Gemeinden ohne Missing auf der Kennziffervariablen
 
 Gemeindeverbaende_INKAR <- read_excel("Data/Referenz/Referenz_1998_2015.xlsx", sheet = "GVB 2015", na = "NA", skip = 2) %>% 
   select("Kennziffer Gemeindeverband"=gvb15,"Name des Gemeindeverbands") %>% filter(!is.na("Kennziffer Gemeindeverband")) 
 # das ganze nochmal für Gemeindeverbaende  
 # Pipes: 
-# 1. nur die Variablen gvb15 und Name des Gemeindeverbands ausgewÃ¤hlt 
+# 1. nur die Variablen gvb15 und Name des Gemeindeverbands ausgewählt 
 # 2. Missing herausfiltern
 
 Kreise_INKAR <- read_excel("Data/Referenz/Referenz_1998_2015.xlsx", sheet = "Kreise", skip = 2) %>%
  mutate(Kennziffer = as.numeric(krs15)/1000) %>% filter(!is.na(Kennziffer))
 # und für Kreise
 # Pipes: 
-# 1. neue Variable generieren, die die Kreisvariable auf den FÃ¼nfsteller reduzieren
+# 1. neue Variable generieren, die die Kreisvariable auf den Fünfsteller reduzieren
 # 2. Missing herausfiltern
 
 
@@ -167,7 +167,7 @@ listofdeterminants <- names(Basedata)[3:length(Basedata)]
 ind_level <- c("Gemeindeverband","Gemeindeverband","Kreis", "Kreis", "Kreis", "Kreis", "Kreis", "Gemeinde", "Kreis", "Kreis")
 level_table <- cbind(listofdeterminants,ind_level)
 # Tabelle der Indikatoren mit regionaler Tiefe
-knitr::kable(level_table)
+level_table
 
 # Datensatz für die Gemeindeverbandsebene generieren
 Basedata_Gemeindeverbandsebene <- Basedata %>% dplyr::select(Kennziffer,Jahr,Arbeitslosigkeit,Beschaeftigtenquote,Einkommenssteuer) %>%   
@@ -203,7 +203,7 @@ Workfile <- as.data.frame(expand.grid("Kennziffer"=Gemeinden_INKAR %>% pull(Kenn
 #     + min(...) wird zu der Sequenz von Jahren aus dem Basedata addiert (1 bis X) damit auch Jahreswerte weitergeben werden
 # 2. mutate generiert eine Kreiskennziffer
 # 3. as.tibble erzeugt einen tibble, damit left_join genutzt werden kann
-# 4. erstes left_join spielt die Gemeindedaten Ã¼ber Kennziffer an, das geht so, weil Gemeinden_INKAR als tibble gespeichert ist
+# 4. erstes left_join spielt die Gemeindedaten über Kennziffer an, das geht so, weil Gemeinden_INKAR als tibble gespeichert ist
 # 5. select, wählt die inhaltlichen Variablen aus, und Ã¤ndert die Variablennamen; 
 # 6. arrange im select sortiert nach Gemeindekennziffer und Jahr
 # 7. zweites left_join spielt die Daten der Kreisebene via Kreis und Jahr an
@@ -219,6 +219,77 @@ write_dta(Workfile, paste0("Outfiles/2019/Stata/workfile.dta"))
 
 
 ## III.Imputation fehlender Werte
+
+
+```{r}
+# Anzahl der Missings Ã¼ber die Indikatoren
+summary(Workfile %>% select(listofdeterminants))
+sapply(Workfile  %>% select(listofdeterminants) , function(x) sum(is.na(x)))
+
+# Imputation
+imputationsliste <- subset(listofdeterminants , 
+                           !(listofdeterminants %in%                              c('Arbeitslosigkeit','SchulabgaengermitHochschulreife','SchulabgaengerohneAbschluss')))
+# Variablenliste für die Regressionsimputation wird erstellt
+# das betrifft alle Variablen, außer die im angebenen Vektor
+# letztere sind frei von Missings und können im Imputationsmodell genutzt werden 
+
+Impdata <-  Workfile %>%  dplyr::filter(Jahr>=1998, Bevoelkerung>0) %>% 
+  gather(key,value,6:15) %>% mutate(value=ifelse(value<0,NA,value)) %>% spread(key,value)
+# Imputationsdatensatz generieren: Jahr>=1998, Bevoelkerung>0 
+# gather und spread identifiziern key-Variablen automatisch 
+# es geht aber nur darum Werten<0 ein NA zuzordnen
+
+summary(Impdata %>% select(listofdeterminants))
+sapply(Impdata  %>% select(listofdeterminants) , function(x) sum(is.na(x)))
+# Einige Missings basierten auf Gebietsständen ohne Bevölkerung, diese sind entfernt 
+# Damit käme auch die Einkommenssteuer als PrÃ¤diktor im Imputationsmodell in Frage
+
+# Als erstes wird die Imputationsfunktion erstellt (hier werden noch keine Daten generiert)
+# Impute_function (NOT FOR GROUPED DATA!)
+my_ts_imputer <- function(data,outcome_name){
+  mydata   <- data %>% group_by(Gemeindekennziffer) %>% select(Gemeindekennziffer,Jahr,Arbeitslosigkeit,SchulabgaengerohneAbschluss,SchulabgaengermitHochschulreife,"Outcome"=paste(outcome_name)) %>% 
+    mutate(MEAN=mean(Outcome , na.rm=T)) %>% ungroup()
+  mymodell <- lm(Outcome ~
+                   I(Jahr*Jahr*MEAN)+I(Jahr*MEAN) + Arbeitslosigkeit + 
+                   SchulabgaengerohneAbschluss ,
+                   data = mydata  , na.action="na.exclude")
+  mydata %>% select(Outcome) %>% mutate(Imputed = predict(mymodell, newdata =mydata )) %>%
+    mutate(Outcome=ifelse(is.na(Outcome),Imputed,Outcome)) %>% 
+    mutate(Outcome=ifelse(Outcome<0,0,Outcome)) %>% pull(Outcome)
+  }
+# Hier wird eine Funktion generiert, die im Datensatz (data) fehlende Daten für ausgewählte Variablen (outcome_name) imputiert
+# 1. zunächst werden Mittelwerte für das Outcome (siehe select) jeweils für die Gemeinde generiert, d.h. über alle Wellen aggregiert
+# 2. mymodell definiert das Modell (lm); "I()" sichert ab, dass der Operator * erkannt wird und dass ein Spaltenvektor in die Formel eingeht
+# 3. zweites mydata: es wird eine Variable Imputed generiert, die sich aus der prediction aus mymodell ergibt
+#    während der vorherige Befehl (mymodell) die Koeffizienten generiert, werden nun auf Basis dieses Modells predictions generiert, 
+#    und zwar auch für Fälle mit Missing auf den Outcomes
+# 4. fehlende Werte in den Outcomes werden durch Werte auf der Variable Imputed ersetzt
+# 5. Für einige Fälle erzeugt die prediction unplausible Werte (negative Outcomes), diese werden auf 0 gesetzt
+# 6. pull kreiert einen Vektor (hier Variable Outcome), die im nÃ¤chsten Befehl verwendet wird
+
+# Test Function if necessary
+# Impdata %>% mutate(Test=my_ts_imputer(.,"Bruttoverdienst")) %>% select(Gemeindekennziffer,Jahr,Bruttoverdienst,Test) %>% head()
+
+Impdata.imputed <- Impdata %>% mutate(
+  Beschaeftigtenquote=my_ts_imputer(.,"Beschaeftigtenquote"),
+  Bruttoverdienst=my_ts_imputer(.,"Bruttoverdienst"),
+  BeschaeftigtemitakadAbschluss=my_ts_imputer(.,"BeschaeftigtemitakadAbschluss"),
+  BeschaeftigteohneAbschluss=my_ts_imputer(.,"BeschaeftigteohneAbschluss"),
+  Einkommenssteuer=my_ts_imputer(.,"Einkommenssteuer"),
+  Haushaltseinkommen=my_ts_imputer(.,"Haushaltseinkommen"),
+  Schuldnerquote=my_ts_imputer(.,"Schuldnerquote")           
+  )
+# hier wird der Datensatz mit den imputierten Werten generiert. Die Funktion my_ts_imputer wird auf jeden Indikator mit Missings angewendet
+
+# Result of Imputation
+summary(as.data.frame(Impdata.imputed) %>% ungroup()  %>% select(listofdeterminants))
+
+
+# Stata-Datensatz rausschreiben
+# write_dta(Impdata.imputed, paste0("Outfiles/2019/Stata/impdata.dta"))
+```
+
+
 ## IV. Faktorenanalyse (Hauptkomponentenanalyse) inklusive Generierung der Faktorscores
 ## V.  Datenexport - Erstellung der DatensÃ¤tze 
 
