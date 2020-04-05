@@ -523,6 +523,7 @@ for(file in inputdataset){
 
 rm(inputdataset) 
 
+
 # Liste der Indikatoren erstellen
 listofdeterminants &lt;- names(Basedata)[3:length(Basedata)]
 
@@ -530,18 +531,57 @@ listofdeterminants &lt;- names(Basedata)[3:length(Basedata)]
 ind_level &lt;- c(&quot;Gemeindeverband&quot;,&quot;Gemeindeverband&quot;,&quot;Kreis&quot;, &quot;Kreis&quot;, &quot;Kreis&quot;, &quot;Kreis&quot;, &quot;Kreis&quot;, &quot;Gemeinde&quot;, &quot;Kreis&quot;, &quot;Kreis&quot;)
 level_table &lt;- cbind(listofdeterminants,ind_level)
 # Tabelle der Indikatoren mit regionaler Tiefe
-level_table</code></pre>
-<pre><code>##       listofdeterminants                ind_level        
-##  [1,] &quot;Arbeitslosigkeit&quot;                &quot;Gemeindeverband&quot;
-##  [2,] &quot;Beschaeftigtenquote&quot;             &quot;Gemeindeverband&quot;
-##  [3,] &quot;Bruttoverdienst&quot;                 &quot;Kreis&quot;          
-##  [4,] &quot;BeschaeftigtemitakadAbschluss&quot;   &quot;Kreis&quot;          
-##  [5,] &quot;BeschaeftigteohneAbschluss&quot;      &quot;Kreis&quot;          
-##  [6,] &quot;SchulabgaengermitHochschulreife&quot; &quot;Kreis&quot;          
-##  [7,] &quot;SchulabgaengerohneAbschluss&quot;     &quot;Kreis&quot;          
-##  [8,] &quot;Einkommenssteuer&quot;                &quot;Gemeinde&quot;       
-##  [9,] &quot;Haushaltseinkommen&quot;              &quot;Kreis&quot;          
-## [10,] &quot;Schuldnerquote&quot;                  &quot;Kreis&quot;</code></pre>
+knitr::kable(level_table)</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">listofdeterminants</th>
+<th align="left">ind_level</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Arbeitslosigkeit</td>
+<td align="left">Gemeindeverband</td>
+</tr>
+<tr class="even">
+<td align="left">Beschaeftigtenquote</td>
+<td align="left">Gemeindeverband</td>
+</tr>
+<tr class="odd">
+<td align="left">Bruttoverdienst</td>
+<td align="left">Kreis</td>
+</tr>
+<tr class="even">
+<td align="left">BeschaeftigtemitakadAbschluss</td>
+<td align="left">Kreis</td>
+</tr>
+<tr class="odd">
+<td align="left">BeschaeftigteohneAbschluss</td>
+<td align="left">Kreis</td>
+</tr>
+<tr class="even">
+<td align="left">SchulabgaengermitHochschulreife</td>
+<td align="left">Kreis</td>
+</tr>
+<tr class="odd">
+<td align="left">SchulabgaengerohneAbschluss</td>
+<td align="left">Kreis</td>
+</tr>
+<tr class="even">
+<td align="left">Einkommenssteuer</td>
+<td align="left">Gemeinde</td>
+</tr>
+<tr class="odd">
+<td align="left">Haushaltseinkommen</td>
+<td align="left">Kreis</td>
+</tr>
+<tr class="even">
+<td align="left">Schuldnerquote</td>
+<td align="left">Kreis</td>
+</tr>
+</tbody>
+</table>
 <pre class="r"><code># Datensatz für die Gemeindeverbandsebene generieren
 Basedata_Gemeindeverbandsebene &lt;- Basedata %&gt;% dplyr::select(Kennziffer,Jahr,Arbeitslosigkeit,Beschaeftigtenquote,Einkommenssteuer) %&gt;%   
   gather(key,value,3:5) %&gt;% filter(!is.na(value)) %&gt;% spread(key,value) %&gt;% filter(Jahr&gt;=1998) %&gt;% rename(&quot;Gemeindeverband&quot;=Kennziffer)

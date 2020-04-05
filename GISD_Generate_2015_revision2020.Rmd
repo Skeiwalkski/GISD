@@ -159,6 +159,7 @@ for(file in inputdataset){
 
 rm(inputdataset) 
 
+
 # Liste der Indikatoren erstellen
 listofdeterminants <- names(Basedata)[3:length(Basedata)]
 
@@ -166,7 +167,7 @@ listofdeterminants <- names(Basedata)[3:length(Basedata)]
 ind_level <- c("Gemeindeverband","Gemeindeverband","Kreis", "Kreis", "Kreis", "Kreis", "Kreis", "Gemeinde", "Kreis", "Kreis")
 level_table <- cbind(listofdeterminants,ind_level)
 # Tabelle der Indikatoren mit regionaler Tiefe
-level_table
+knitr::kable(level_table)
 
 # Datensatz für die Gemeindeverbandsebene generieren
 Basedata_Gemeindeverbandsebene <- Basedata %>% dplyr::select(Kennziffer,Jahr,Arbeitslosigkeit,Beschaeftigtenquote,Einkommenssteuer) %>%   
