@@ -5,6 +5,7 @@ date: "04 04 2020"
 output: 
   html_document:
     keep_md: true
+    code_folding: hide
     toc: true
     toc_float: false
     toc_depth: 2
@@ -95,9 +96,7 @@ id_dataset <- Gemeinden_INKAR %>%
                                                   Raumordnungsregion=ROR11name,
                                                   NUTS2,
                                                   "NUTS2 Name"=NUTS2name,
-                                                  Bundesland=...24) %>% 
-                          mutate(Kreiskennziffer=floor(Kreiskennziffer/1000)),by="Kreiskennziffer") %>%
-              left_join(.,Gemeindeverbaende_INKAR, by="Kennziffer Gemeindeverband")
+                                                  Bundesland=...24) %>% mutate(Kreiskennziffer=floor(Kreiskennziffer/1000)),by="Kreiskennziffer") %>% left_join(.,Gemeindeverbaende_INKAR, by="Kennziffer Gemeindeverband")
 
 # Pipes:  1. (select) Variablenauswahl (gkz, Gemeindename, Gemeindeverband)[wieso hier ``?]
 #         2. die Kreiskennziffer wird aus der Gemeindekennziffer generiert; floor rundet nach unten auf ganze Ziffern ab
@@ -116,7 +115,7 @@ Datenbasis sind die INKAR-Daten der jeweiligen Indikatoren im Excel-Format
 
 ```r
 # Basis erzeugen: Ausgangspunkt Kreisdaten
-# all levels of input will be added, Kreise is just a starting point.
+# Es werden Indikatoren allen Ebenen angespielt, als erstes die Kreise.
 Basedata    <- Kreise_INKAR %>% select(Kennziffer) %>% mutate(Jahr=2015)
 # Datensatz zum Anspielen der Daten generieren
 # Ausgangspunkt Kreisdatensatz
@@ -125,7 +124,6 @@ Basedata    <- Kreise_INKAR %>% select(Kennziffer) %>% mutate(Jahr=2015)
 
 # Liste der Variablen generieren
 inputdataset <- list.files("Data/INKAR_1998_2015") # Variablenliste der Dateinamen im Ordner
-
 
 
 # Einlesen der einzelnen Excelfiles zu den Daten (Schleife) 
@@ -140,19 +138,19 @@ for(file in inputdataset){
   names(myimport)[3] <- unlist(strsplit(unlist(strsplit(file,"_"))[2],"[.]"))[1]
   Basedata <- full_join(Basedata,myimport,by=c("Kennziffer","Jahr"))
 }
-# Schleife fÃ¼r jedes Excel-File
+# Schleife für jedes Excel-File
 # 1. Einlesen der Exceldatei; jeweils das Sheet "Daten"; erste Zeile wird geskippt,  die Daten werden als Text eingelesen
-# 2. fÃ¼r die erste Spalte wird die Kennziffer importiert; fÃ¼r die zweite und dritte Spalte nichts
+# 2. für die erste Spalte wird die Kennziffer importiert; für die zweite und dritte Spalte nichts
 # 3. die Daten werde reshaped, um die Jahresinfos im langen Format zu speichern; convert konvertiert das Datenformat automatisch;
-# rm.na entfert missing value Zeilen; -"Kennziffer" sorgt dafÃ¼r, dass die Variable Kennziffer nicht doppelt erzeugt wird
+# rm.na entfert missing value Zeilen; -"Kennziffer" sorgt dafür, dass die Variable Kennziffer nicht doppelt erzeugt wird
 # 4. mutate definiert die Variablentypen 
-# 5. von innen nach auÃen 
+# 5. von innen nach außen 
 # 5.1 das innere strsplit(file, "_") teilt den Filenamen inkl. Dateiendung beim "_"
 # 5.2 das innerste unlist generiert einen Vektor mit den Elementen aus dem strsplit
-# 5.3 das Ã¤uÃere strsplit das zweite Vektorelement beim ".", sodass nur noch der Variablenname Ã¼brig bleibt
-# 5.4 das Ã¤uÃere unlist weist auf das erste Vektorelement 
-# 5.5 names(import)[3] nimmt dieses Vektorelement als Variablennamen fÃ¼r die dritte Spalte
-# 6. jedes file der Schleife wird an Basedata gejoint Ã¼ber Kennziffer und Jahr; full_join Ã¼bernimmt dabei jede Zeile und Spalte jeder Seite,
+# 5.3 das äußere strsplit das zweite Vektorelement beim ".", sodass nur noch der Variablenname übrig bleibt
+# 5.4 das äußere unlist weist auf das erste Vektorelement 
+# 5.5 names(import)[3] nimmt dieses Vektorelement als Variablennamen für die dritte Spalte
+# 6. jedes file der Schleife wird an Basedata gejoint über Kennziffer und Jahr; full_join übernimmt dabei jede Zeile und Spalte jeder Seite,
 # auch wenn die Werte auf einer Seite missing enthalten
 
 rm(inputdataset) 
@@ -165,22 +163,24 @@ listofdeterminants <- names(Basedata)[3:length(Basedata)]
 ind_level <- c("Gemeindeverband","Gemeindeverband","Kreis", "Kreis", "Kreis", "Kreis", "Kreis", "Gemeinde", "Kreis", "Kreis")
 level_table <- cbind(listofdeterminants,ind_level)
 # Tabelle der Indikatoren mit regionaler Tiefe
-level_table
+ind_col = c("Indikator","Tiefe des Indikators")
+knitr::kable(level_table, col.names = ind_col)
 ```
 
-```
-##       listofdeterminants                ind_level        
-##  [1,] "Arbeitslosigkeit"                "Gemeindeverband"
-##  [2,] "Beschaeftigtenquote"             "Gemeindeverband"
-##  [3,] "Bruttoverdienst"                 "Kreis"          
-##  [4,] "BeschaeftigtemitakadAbschluss"   "Kreis"          
-##  [5,] "BeschaeftigteohneAbschluss"      "Kreis"          
-##  [6,] "SchulabgaengermitHochschulreife" "Kreis"          
-##  [7,] "SchulabgaengerohneAbschluss"     "Kreis"          
-##  [8,] "Einkommenssteuer"                "Gemeinde"       
-##  [9,] "Haushaltseinkommen"              "Kreis"          
-## [10,] "Schuldnerquote"                  "Kreis"
-```
+
+
+Indikator                         Tiefe des Indikators 
+--------------------------------  ---------------------
+Arbeitslosigkeit                  Gemeindeverband      
+Beschaeftigtenquote               Gemeindeverband      
+Bruttoverdienst                   Kreis                
+BeschaeftigtemitakadAbschluss     Kreis                
+BeschaeftigteohneAbschluss        Kreis                
+SchulabgaengermitHochschulreife   Kreis                
+SchulabgaengerohneAbschluss       Kreis                
+Einkommenssteuer                  Gemeinde             
+Haushaltseinkommen                Kreis                
+Schuldnerquote                    Kreis                
 
 ```r
 # Datensatz für die Gemeindeverbandsebene generieren
@@ -193,12 +193,12 @@ Basedata_Gemeindeverbandsebene <- Basedata %>% dplyr::select(Kennziffer,Jahr,Arb
 #         5. Auswahl der Daten Jahr>=1998
 #         6. Umbenennung der Kennziffervariable
 
-# Datensatz fÃ¼r die Kreisebene generieren 
+# Datensatz für die Kreisebene generieren 
 Basedata_Kreisebene <- Basedata %>% select(krs15=Kennziffer,Jahr,listofdeterminants) %>% 
   select(-Arbeitslosigkeit,-Einkommenssteuer,-Beschaeftigtenquote) %>% rename(Kreis=krs15)
-# Pipes:  1. neben der Kennziffer, die einen anderen Namen bekommt wird das Jahr und die Variablenliste ausgewÃ¤hlt
+# Pipes:  1. neben der Kennziffer, die einen anderen Namen bekommt wird das Jahr und die Variablenliste ausgewählt
 #         2. drei Variablen werden aus der Auswahl ausgeschlossen
-#         3. die Kreisvariable wird in Kreis umbenannt, weil im nÃ¤chsten Schritt Kreisinfos an die Gemeinden angespielt werden
+#         3. die Kreisvariable wird in Kreis umbenannt, weil im nächsten Schritt Kreisinfos an die Gemeinden angespielt werden
 
 # Join different levels
 # Nun werden die Daten bezogen auf die Ebenen gemergt
@@ -207,18 +207,18 @@ Workfile <- as.data.frame(expand.grid("Kennziffer"=Gemeinden_INKAR %>% pull(Kenn
    left_join(. , Gemeinden_INKAR,by=c("Kennziffer"))  %>%
    select(Gemeindekennziffer=Kennziffer,Kreis=Kreiskennziffer,Gemeindeverband="Kennziffer Gemeindeverband",Jahr,Bevoelkerung=`Bevölkerung 31.12.2015`) %>% 
       arrange(Gemeindekennziffer,Jahr) %>% # Join Metadata
-   left_join(. , Basedata_Kreisebene,by=c("Kreis","Jahr")) %>% # Hier wird Ã¼ber Kreis gematched
+   left_join(. , Basedata_Kreisebene,by=c("Kreis","Jahr")) %>% # Hier wird über Kreis gematched
    left_join(. , Basedata_Gemeindeverbandsebene,by=c("Gemeindeverband","Jahr")) %>%  # Join Indicators for Level: Gemeindeverband 
    filter(Jahr>=1998)
 
 # als erstes wird ein data.frame erzeugt (Workfile); der alle Gemeindewellen (1998-201x) in den Zeilen stehen hat
 # 1. expand.grid erzeugt ein tibble mit allen Kombinationen von Kennziffern und Jahren
-#     pull erzeugt einen Vektor fÃ¼r die Variablenwerte von Kennziffer aus dem Datensatz
+#     pull erzeugt einen Vektor für die Variablenwerte von Kennziffer aus dem Datensatz
 #     + min(...) wird zu der Sequenz von Jahren aus dem Basedata addiert (1 bis X) damit auch Jahreswerte weitergeben werden
 # 2. mutate generiert eine Kreiskennziffer
 # 3. as.tibble erzeugt einen tibble, damit left_join genutzt werden kann
 # 4. erstes left_join spielt die Gemeindedaten über Kennziffer an, das geht so, weil Gemeinden_INKAR als tibble gespeichert ist
-# 5. select, wählt die inhaltlichen Variablen aus, und Ã¤ndert die Variablennamen; 
+# 5. select, wählt die inhaltlichen Variablen aus, und ändert die Variablennamen; 
 # 6. arrange im select sortiert nach Gemeindekennziffer und Jahr
 # 7. zweites left_join spielt die Daten der Kreisebene via Kreis und Jahr an
 # 8. drittes left_join spielt die Daten der Gemeindeverbandsebene via Gemeindeverband und Jahr an
@@ -237,7 +237,7 @@ write_dta(Workfile, paste0("Outfiles/2019/Stata/workfile.dta"))
 
 
 ```r
-# Anzahl der Missings Ã¼ber die Indikatoren
+# Anzahl der Missings über die Indikatoren
 summary(Workfile %>% select(listofdeterminants))
 ```
 
@@ -364,7 +364,7 @@ sapply(Impdata  %>% select(listofdeterminants) , function(x) sum(is.na(x)))
 
 ```r
 # Einige Missings basierten auf Gebietsständen ohne Bevölkerung, diese sind entfernt 
-# Damit käme auch die Einkommenssteuer als PrÃ¤diktor im Imputationsmodell in Frage
+# Damit käme auch die Einkommenssteuer als Prädiktor im Imputationsmodell in Frage
 
 # Als erstes wird die Imputationsfunktion erstellt (hier werden noch keine Daten generiert)
 # Impute_function (NOT FOR GROUPED DATA!)
@@ -387,7 +387,7 @@ my_ts_imputer <- function(data,outcome_name){
 #    und zwar auch für Fälle mit Missing auf den Outcomes
 # 4. fehlende Werte in den Outcomes werden durch Werte auf der Variable Imputed ersetzt
 # 5. Für einige Fälle erzeugt die prediction unplausible Werte (negative Outcomes), diese werden auf 0 gesetzt
-# 6. pull kreiert einen Vektor (hier Variable Outcome), die im nÃ¤chsten Befehl verwendet wird
+# 6. pull kreiert einen Vektor (hier Variable Outcome), die im nächsten Befehl verwendet wird
 
 # Test Function if necessary
 # Impdata %>% mutate(Test=my_ts_imputer(.,"Bruttoverdienst")) %>% select(Gemeindekennziffer,Jahr,Bruttoverdienst,Test) %>% head()
@@ -447,7 +447,7 @@ summary(as.data.frame(Impdata.imputed) %>% ungroup()  %>% select(listofdetermina
 ## IV. Faktorenanalyse (Hauptkomponentenanalyse) inklusive Generierung der Faktorscores
 
 ```r
-# Variablenliste fÃ¼r die Faktorenanalyse 
+# Variablenliste für die Faktorenanalyse 
 print(listofdeterminants)
 ```
 
@@ -462,15 +462,15 @@ print(listofdeterminants)
 ```r
 TS_Arbeitswelt <- Impdata.imputed %>% dplyr::select(Beschaeftigtenquote,Arbeitslosigkeit,Bruttoverdienst) 
 TS_Einkommen   <- Impdata.imputed %>% dplyr::select(Einkommenssteuer,Haushaltseinkommen,Schuldnerquote) 
-# fÃ¼r den Vergleich der Ergebnisse wird zunÃ¤chst ein Datensatz fÃ¼r die ursprÃ¼ngliche Variablenauswahl der Revision 2019 generiert
+# für den Vergleich der Ergebnisse wird zunächst ein Datensatz für die ursprüngliche Variablenauswahl der Revision 2019 generiert
 TS_Bildung_old  <- Impdata.imputed %>% dplyr::select(BeschaeftigtemitakadAbschluss,BeschaeftigteohneAbschluss,SchulabgaengerohneAbschluss) 
 # dann die aktuelle InterimslÃ¶sung
 TS_Bildung <- Impdata.imputed %>% dplyr::select(BeschaeftigtemitakadAbschluss,SchulabgaengermitHochschulreife,SchulabgaengerohneAbschluss) 
 # hier wurde die Variable BeschaeftigteohneAbschluss durch SchulabgaengermitHochschulreife ersetzt
 
 
-# Faktorenanalyse basierend auf Hauptkomponentenanalyse fÃ¼r jede der drei Subscalen
-# Arbeitswelt: zunÃ¤chst Analyse der FaktorlÃ¶sung
+# Faktorenanalyse basierend auf Hauptkomponentenanalyse für jede der drei Subscalen
+# Arbeitswelt: zunächst Analyse der FaktorlÃ¶sung
 TS_Arbeitswelt.pca <- prcomp(TS_Arbeitswelt, center = TRUE, scale. = TRUE, retx=TRUE)
 	# Option retx erzeugt rotierte LÃ¶sung
 head(TS_Arbeitswelt.pca$sdev)
@@ -481,8 +481,8 @@ head(TS_Arbeitswelt.pca$sdev)
 ```
 
 ```r
-# nur die erste Komponente mit Eigenwert Ã¼ber 1
-	# (prcomp gibt standardmÃ¤Ãig Sdev statt Varianz aus)
+# nur die erste Komponente mit Eigenwert über 1
+	# (prcomp gibt standardmäßig Sdev statt Varianz aus)
 plot(TS_Arbeitswelt.pca)
 ```
 
@@ -505,11 +505,11 @@ TS_Arbeitswelt.pca
 ```
 
 ```r
-# die Faktorladungen der drei Hauptkomponenten fÃ¼r Arbeitswelt 
+# die Faktorladungen der drei Hauptkomponenten für Arbeitswelt 
 # die Ladungen der ersten Komponente enstprechen der Erwartung
 
 TS_Arbeitswelt.pca <- prcomp(TS_Arbeitswelt, center = TRUE, scale. = TRUE, retx=TRUE, rank. = 1)
-# die Option rank erlaubt die BeschrÃ¤nkung der ANzahl an Komponenten (Faktoren)
+# die Option rank erlaubt die Beschränkung der ANzahl an Komponenten (Faktoren)
 TS_Arbeitswelt.pca
 ```
 
@@ -525,7 +525,7 @@ TS_Arbeitswelt.pca
 ```
 
 ```r
-# Hauptkomponentenanalyse fÃ¼r die Einkommensdimension
+# Hauptkomponentenanalyse für die Einkommensdimension
 TS_Einkommen.pca <- prcomp(TS_Einkommen, center = TRUE, scale. = TRUE, retx=TRUE) 
 TS_Einkommen.pca <- prcomp(TS_Einkommen, center = TRUE, scale. = TRUE, retx=TRUE, rank. = 1) 
 TS_Einkommen.pca
@@ -543,12 +543,12 @@ TS_Einkommen.pca
 ```
 
 ```r
-# Hauptkomponentenanalyse fÃ¼r die Bildungsdimension
+# Hauptkomponentenanalyse für die Bildungsdimension
 TS_Bildung_old.pca <- prcomp(TS_Bildung, center = TRUE, scale. = TRUE, retx=TRUE) 
-# fÃ¼r die Bildung deutet die Analyse eher auf zwei Komponenten hin
-# die Faktorladung fÃ¼r SchulabgaengerohneAbschluss ist auf dem ersten Faktor schwach, 
-# die Faktorladung fÃ¼r BeschaeftigtemitakadAbschluss auf dem zweiten
-# es wird die Komponente ausgewÃ¤hlt, bei der Beschaeftigte mit akad Abschluss positiv korreliert und 
+# für die Bildung deutet die Analyse eher auf zwei Komponenten hin
+# die Faktorladung für SchulabgaengerohneAbschluss ist auf dem ersten Faktor schwach, 
+# die Faktorladung für BeschaeftigtemitakadAbschluss auf dem zweiten
+# es wird die Komponente ausgewählt, bei der Beschaeftigte mit akad Abschluss positiv korreliert und 
 # BeschaeftigteohneAbschluss und SchulabgaengerohneAbschluss negativ
 # regionale Deprivation als Merkmal geringer Anteile von Akademikern bei gleichzeitigen hohen Anteilen 
 # von Beschaeftigten ohne Abschluss und Schulabgaengern ohne Abschluss
@@ -596,7 +596,7 @@ TS_Bildung.pca
 ```
 
 ```r
-# Es wurde auÃerdem eine Komponentenanalyse mit allen vier Bildungsindikatoren durchgefÃ¼hrt. 
+# Es wurde außerdem eine Komponentenanalyse mit allen vier Bildungsindikatoren durchgeführt. 
 # Aber auch hier bestand das Problem, der inkonsistenten Korrelationen zwischen den Teildimensionen.
 
 # Nun wird die Generierung der Faktorscores vorbereitet.
@@ -607,18 +607,18 @@ GISD_Komponents <- cbind("Teildimension"="Arbeitswelt","Anteil"=TS_Arbeitswelt.p
 GISD_Komponents <- rbind(GISD_Komponents,cbind("Teildimension"="Einkommen","Anteil"=TS_Einkommen.pca$rotation^2,"Score"=TS_Einkommen.pca$rotation)) 
 # rbind erstellt Zeilenvektoren, diese werden hier in die bereits vorhandenen Spaltenvektoren eingebunden
 GISD_Komponents <- rbind(GISD_Komponents,cbind("Teildimension"="Bildung","Anteil"=TS_Bildung.pca$rotation^2,"Score"=TS_Bildung.pca$rotation)) 
-# auch fÃ¼r die Teildimension Bildung werden Zeilenvektoren eingebunden
+# auch für die Teildimension Bildung werden Zeilenvektoren eingebunden
 GISD_Komponents <- cbind("Variables"=as.data.frame(rownames(GISD_Komponents)),as.data.frame(GISD_Komponents))
-# als letztes wird die Matrix in einen Dataframe Ã¼bersetzt
+# als letztes wird die Matrix in einen Dataframe übersetzt
 
 rownames(GISD_Komponents) <- NULL
-# die Ã¼berflÃ¼ssigen Zeilennamen werden gestrichen
+# die überflüssigen Zeilennamen werden gestrichen
 colnames(GISD_Komponents) <- c("Variable","Dimension","Anteil","Score")
-# aussagekrÃ¤ftige Spaltennamen vergeben
+# aussagekräftige Spaltennamen vergeben
 GISD_Komponents$GISD <- "GISD"
-# eine weitere Spalte wird eingefÃ¼gt mit dem String "GISD" in jeder Zeile
+# eine weitere Spalte wird eingefügt mit dem String "GISD" in jeder Zeile
 GISD_Komponents$Proportion <- round(as.numeric(as.character(GISD_Komponents$Anteil))*100,digits=1)
-# eine weitere Spalte Proportion wird eingefÃ¼gt mit prozentualen Anteilswerten (eine Nachkommastelle)
+# eine weitere Spalte Proportion wird eingefügt mit prozentualen Anteilswerten (eine Nachkommastelle)
 
 # Hier findet die Prediction der Scores statt
 Resultdataset <- Impdata.imputed
@@ -640,7 +640,7 @@ summary(Resultdataset %>% dplyr::select(TS_Arbeitswelt, TS_Einkommen, TS_Bildung
 ```
 
 ```r
-# Korrelationen Ã¼berprÃ¼fen
+# Korrelationen überprüfen
 Resultdataset %>% dplyr::select(Arbeitslosigkeit,TS_Arbeitswelt,TS_Einkommen,TS_Bildung)  %>% cor( use="pairwise.complete.obs")  
 ```
 
@@ -653,7 +653,7 @@ Resultdataset %>% dplyr::select(Arbeitslosigkeit,TS_Arbeitswelt,TS_Einkommen,TS_
 ```
 
 ```r
-# die Richtung der Skala der Scores ist nach der Generierung willkÃ¼rlich 
+# die Richtung der Skala der Scores ist nach der Generierung willkürlich 
 # sie werden nun anhand der Variable Arbeitslosigkeit ausgerichtet,
 # d.h. sie werden so gepolt, dass sie positiv mit Arbeitslosigkeit korrelieren, um Deprivation abzubilden:
 
@@ -667,7 +667,7 @@ if (cor(Resultdataset$Arbeitslosigkeit, Resultdataset$TS_Einkommen,use="pairwise
   Resultdataset$TS_Einkommen <- Resultdataset$TS_Einkommen*-1
 }
 
-# Korrelationen erneut Ã¼berprÃ¼fen
+# Korrelationen erneut überprüfen
 Resultdataset %>% dplyr::select(Arbeitslosigkeit,TS_Arbeitswelt,TS_Einkommen,TS_Bildung) %>% cor( use="pairwise.complete.obs")
 ```
 
@@ -771,7 +771,7 @@ exportlist$Label <- c("Gemeinde","Kreis","Gemeindeverband","Raumordnungsregion",
 
 
 # Es folgt eine sehr lange Schleife
-# fÃ¼r alle Regionalkennziffern (siehe Vektor) werden DatensÃ¤tze generiert und in Ordnern abgelegt
+# für alle Regionalkennziffern (siehe Vektor) werden Datensätze generiert und in Ordnern abgelegt
 for(mykennziffer in exportlist$Kennziffern) {
   myname <-  exportlist$Namen[exportlist$Kennziffern==mykennziffer]
   mylabel<-  exportlist$Label[exportlist$Kennziffern==mykennziffer]
@@ -791,8 +791,8 @@ for(mykennziffer in exportlist$Kennziffern) {
     dplyr::select(Group,Jahr,"Bevoelkerung",GISD_Score) %>% 
     summarise(GISD_Score = weighted.mean(GISD_Score, Bevoelkerung), 
               Bevoelkerung = sum(Bevoelkerung))
-  # hier werden die bevoelkerungsgewichteten Mittelwerte Ã¼ber die regionalen Einheiten gebildet
-  # Achtung: Referenzrahmen fÃ¼r den BevÃ¶lkerungsstand ist das Referenzjahr. Die Varianz der BevÃ¶lkerung Ã¼ber die Jahre wird nicht berÃ¼cksichtigt.
+  # hier werden die bevoelkerungsgewichteten Mittelwerte über die regionalen Einheiten gebildet
+  # Achtung: Referenzrahmen für den BevÃ¶lkerungsstand ist das Referenzjahr. Die Varianz der BevÃ¶lkerung über die Jahre wird nicht berücksichtigt.
   
   # Daten bereinigen
   names(outputdata.agg)[1] <- mykennziffer
@@ -825,7 +825,7 @@ for(mykennziffer in exportlist$Kennziffern) {
   names(mydata) <- gsub("\\?","ss",names(mydata))
   write_dta(mydata, paste0("Outfiles/2019/Bund/",mylabel,"/",mylabel,"_long.dta"))
   
-  # Ausgabe Bundeslandspezifisch ohne Stadtstaaten und nur fÃ¼r Ebenen Kreis und Gemeindeverband
+  # Ausgabe Bundeslandspezifisch ohne Stadtstaaten und nur für Ebenen Kreis und Gemeindeverband
   if (mylabel %in% c("Gemeindeverband","Kreis")) {
   outputdata.agg <- outputdata.agg %>% ungroup() %>% filter(!(Bundesland %in% c("Bremen","Hamburg","Berlin"))) %>% dplyr::select(-GISD_k,-GISD_5,-GISD_10) %>% group_by(Jahr,Bundesland) 
   
@@ -838,7 +838,7 @@ for(mykennziffer in exportlist$Kennziffern) {
                                                GISD_k = findInterval(GISD_5, c(1,2,5))) 
   summary(outputdata)
   
-  # Ausgabe BundelÃ¤nder
+  # Ausgabe Bundeländer
   ListeBula <- unique(outputdata$Bundesland)
   dir.create("Outfiles/2019/Bundesland")  
   for(myland in ListeBula) {
@@ -870,6 +870,14 @@ for(mykennziffer in exportlist$Kennziffern) {
 
 ```
 ## [1] "Level: Name des Kreises Label: Kreis"
+```
+
+```
+## Warning in dir.create("Outfiles/2019/Bundesland"): 'Outfiles\2019\Bundesland'
+## existiert bereits
+```
+
+```
 ## [1] "Level: Name des Gemeindeverbands Label: Gemeindeverband"
 ```
 
