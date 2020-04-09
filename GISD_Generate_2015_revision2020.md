@@ -1,6 +1,6 @@
 ---
 title: "GISD - German Index of Socio-Economic Deprivation"
-author: "Niels Michalski"
+author: "Niels Michalski auf Basis der Syntax von Lars Kroll"
 date: "04 04 2020"
 output: 
   html_document:
@@ -16,27 +16,14 @@ output:
 # Intro
 ...
 
-## Fehlerbehebung
+## Fehleranalyse
+In der Revision 2019 der GISD-Daten tauchten zum Teil starke Abweichungen zur Revision 2018 auf.Bei der Addition der Teildimensionen ging die Bildungsdimension in umgekehrter Richtung in den GISD ein. 
+Ausschlaggebend ist eine negative Korrelation der Bildungsdimension mit dem Anteil Arbeitsloser, die im Code der vergangenen Revisionen zu einer Umpolung des Teilscores führt. Der Anteil Arbeitsloser wird als Markerindikator verwendet. 
 
-Fehlerbehebung in der Revision 2019  
-von Niels Michalski
-
-Hintergrund Fehlerbehebung:
-In der Revision 2019 der GISD-Daten tauchten zum Teil starke Abweichungen zur Revision 2018 auf.Bei der Addition der Teildimensionen ging die Bildungsdimension in umgekehrter Richtung in den GISD ein. Mehrere Faktoren spielten dabei eine Rolle:
-
-1. Die Struktur der Faktorladungen der Bildungsindikatoren ist nicht robust gegenüber Datenschwankungen. 
-  * Der erste Faktor bildet die intendierte Kompomente ab. Es gibt allerdings einen zweiten Faktor mit Eigenwert über 1. 
-  * Die Gewichte der Faktorladungen der Indikatoren BeschaeftigteohneAbschluss und Schulgaengerohneabschluss variieren sehr stark zwischen den Revisionen 2018 und 2019 
-2. Die Indikatoren BeschaeftigteohneAbschluss und BeschaeftigtemitHochschulabschluss dieser Teildimension weisen die höchsten Anteile an MissingData auf (75%).
-3. Ausschlaggebend ist am Ende eine negative Korrelation der Bildungsdimension mit dem Anteil Arbeitsloser, der zur Umkehrung des Faktors führt. Der Anteil Arbeitsloser wird als Markerindikator verwendet. 
-
-Eine Möglichkeit: Der Indikator BeschäftigteohneAbschluss wird durch SchulabgängermitHochschulreife ersetzt.
-
-## SOP for Revision (nach Lars Kroll)
+## SOP für die Revision (nach Lars Kroll)
 1. Obtain new Data and Reference Files from INKAR (manually) -> check format
 2. Change Year in GISD_generate_postcodes.R according to INKAR Regional Date and execute
 3. Execute GISD_Generate.R (there should be no edits required)
-
 
 # Beschreibung der Syntax
 ## 0. Benötigte Pakete
@@ -943,7 +930,24 @@ for(mykennziffer in exportlist$Kennziffern) {
 #   }
 ```
 
+# Anknüpfungungspunkte für eine grundsätzliche Überarbeitung der GISD-Generierung 
 
+Es gibt gute Gründe dafür am Konzept Bildung, Einkommen und Arbeitsweltindikatoren im GISD zu vereinen, auch wenn die Korrelation der Teildimensionen mit Einzelindikatoren der anderen Teildimensionen nur gering korrelieren. 
+Es gibt andererseits Möglichkeiten den GISD weiter zu verbessern. Einzelne Schwachstellen sollen hier kurz erwähnt werden.
+
+1. Missing Data 
+* Hoher Anteil an Missing Data in den frühen Wellen
+* Umgang mit Missing Data kann verbessert werden
+2. Faktorenanalyse
+* Bisher wird die Faktorenanalyse per pcf-Verfahren durchgeführt. Hier wäre zu diskutieren
+
+1. Die Struktur der Faktorladungen der Bildungsindikatoren ist nicht robust gegenüber Datenschwankungen. 
+  * Der erste Faktor bildet die intendierte Kompomente ab. Es gibt einen zweiten Faktor mit Eigenwert über 1. 
+  * Die Gewichte der Faktorladungen der Indikatoren BeschaeftigteohneAbschluss und Schulgaengerohneabschluss variieren sehr stark zwischen den Revisionen 2018 und 2019 
+2. Die Indikatoren BeschaeftigteohneAbschluss und BeschaeftigtemitHochschulabschluss dieser Teildimension weisen die höchsten Anteile an MissingData auf (75%).
+
+
+Eine Möglichkeit: Der Indikator BeschäftigteohneAbschluss wird durch SchulabgängermitHochschulreife ersetzt.
 
 
 

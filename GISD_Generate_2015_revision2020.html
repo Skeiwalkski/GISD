@@ -9,7 +9,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="Niels Michalski" />
+<meta name="author" content="Niels Michalski auf Basis der Syntax von Lars Kroll" />
 
 
 <title>GISD - German Index of Socio-Economic Deprivation</title>
@@ -434,7 +434,7 @@ summary {
 
 
 <h1 class="title toc-ignore">GISD - German Index of Socio-Economic Deprivation</h1>
-<h4 class="author">Niels Michalski</h4>
+<h4 class="author">Niels Michalski auf Basis der Syntax von Lars Kroll</h4>
 <h4 class="date">04 04 2020</h4>
 
 </div>
@@ -442,8 +442,8 @@ summary {
 <div id="TOC">
 <ul>
 <li><a href="#intro">Intro</a><ul>
-<li><a href="#fehlerbehebung">Fehlerbehebung</a></li>
-<li><a href="#sop-for-revision-nach-lars-kroll">SOP for Revision (nach Lars Kroll)</a></li>
+<li><a href="#fehleranalyse">Fehleranalyse</a></li>
+<li><a href="#sop-für-die-revision-nach-lars-kroll">SOP für die Revision (nach Lars Kroll)</a></li>
 </ul></li>
 <li><a href="#beschreibung-der-syntax">Beschreibung der Syntax</a><ul>
 <li><a href="#benötigte-pakete">0. Benötigte Pakete</a></li>
@@ -453,6 +453,8 @@ summary {
 <li><a href="#iv.-faktorenanalyse-hauptkomponentenanalyse-inklusive-generierung-der-faktorscores">IV. Faktorenanalyse (Hauptkomponentenanalyse) inklusive Generierung der Faktorscores</a></li>
 <li><a href="#v.-datenexport---erstellung-der-datensätze">V. Datenexport - Erstellung der Datensätze</a></li>
 <li><a href="#vi.-datensätze-für-plz-generieren">VI. Datensätze für PLZ generieren</a></li>
+</ul></li>
+<li><a href="#anknüpfungungspunkte-für-eine-grundsätzliche-überarbeitung-der-gisd-generierung">Anknüpfungungspunkte für eine grundsätzliche Überarbeitung der GISD-Generierung</a><ul>
 <li><a href="#beispiel-code-plots-einbetten">Beispiel-Code Plots einbetten</a></li>
 </ul></li>
 </ul>
@@ -461,26 +463,12 @@ summary {
 <div id="intro" class="section level1">
 <h1>Intro</h1>
 <p>…</p>
-<div id="fehlerbehebung" class="section level2">
-<h2>Fehlerbehebung</h2>
-<p>Fehlerbehebung in der Revision 2019<br />
-von Niels Michalski</p>
-<p>Hintergrund Fehlerbehebung: In der Revision 2019 der GISD-Daten tauchten zum Teil starke Abweichungen zur Revision 2018 auf.Bei der Addition der Teildimensionen ging die Bildungsdimension in umgekehrter Richtung in den GISD ein. Mehrere Faktoren spielten dabei eine Rolle:</p>
-<ol style="list-style-type: decimal">
-<li>Die Struktur der Faktorladungen der Bildungsindikatoren ist nicht robust gegenüber Datenschwankungen.</li>
-</ol>
-<ul>
-<li>Der erste Faktor bildet die intendierte Kompomente ab. Es gibt allerdings einen zweiten Faktor mit Eigenwert über 1.</li>
-<li>Die Gewichte der Faktorladungen der Indikatoren BeschaeftigteohneAbschluss und Schulgaengerohneabschluss variieren sehr stark zwischen den Revisionen 2018 und 2019</li>
-</ul>
-<ol start="2" style="list-style-type: decimal">
-<li>Die Indikatoren BeschaeftigteohneAbschluss und BeschaeftigtemitHochschulabschluss dieser Teildimension weisen die höchsten Anteile an MissingData auf (75%).</li>
-<li>Ausschlaggebend ist am Ende eine negative Korrelation der Bildungsdimension mit dem Anteil Arbeitsloser, der zur Umkehrung des Faktors führt. Der Anteil Arbeitsloser wird als Markerindikator verwendet.</li>
-</ol>
-<p>Eine Möglichkeit: Der Indikator BeschäftigteohneAbschluss wird durch SchulabgängermitHochschulreife ersetzt.</p>
+<div id="fehleranalyse" class="section level2">
+<h2>Fehleranalyse</h2>
+<p>In der Revision 2019 der GISD-Daten tauchten zum Teil starke Abweichungen zur Revision 2018 auf.Bei der Addition der Teildimensionen ging die Bildungsdimension in umgekehrter Richtung in den GISD ein. Ausschlaggebend ist eine negative Korrelation der Bildungsdimension mit dem Anteil Arbeitsloser, die im Code der vergangenen Revisionen zu einer Umpolung des Teilscores führt. Der Anteil Arbeitsloser wird als Markerindikator verwendet.</p>
 </div>
-<div id="sop-for-revision-nach-lars-kroll" class="section level2">
-<h2>SOP for Revision (nach Lars Kroll)</h2>
+<div id="sop-für-die-revision-nach-lars-kroll" class="section level2">
+<h2>SOP für die Revision (nach Lars Kroll)</h2>
 <ol style="list-style-type: decimal">
 <li>Obtain new Data and Reference Files from INKAR (manually) -&gt; check format</li>
 <li>Change Year in GISD_generate_postcodes.R according to INKAR Regional Date and execute</li>
@@ -1257,6 +1245,34 @@ for(mykennziffer in exportlist$Kennziffern) {
 #   write_dta(mydata, paste0(&quot;Revisions/2019/Bund/&quot;,mylabel,&quot;/&quot;,mylabel,&quot;_long.dta&quot;))
 #   }</code></pre>
 </div>
+</div>
+<div id="anknüpfungungspunkte-für-eine-grundsätzliche-überarbeitung-der-gisd-generierung" class="section level1">
+<h1>Anknüpfungungspunkte für eine grundsätzliche Überarbeitung der GISD-Generierung</h1>
+<p>Es gibt gute Gründe dafür am Konzept Bildung, Einkommen und Arbeitsweltindikatoren im GISD zu vereinen, auch wenn die Korrelation der Teildimensionen mit Einzelindikatoren der anderen Teildimensionen nur gering korrelieren. Es gibt andererseits Möglichkeiten den GISD weiter zu verbessern. Einzelne Schwachstellen sollen hier kurz erwähnt werden.</p>
+<ol style="list-style-type: decimal">
+<li>Missing Data</li>
+</ol>
+<ul>
+<li>Hoher Anteil an Missing Data in den frühen Wellen</li>
+<li>Umgang mit Missing Data kann verbessert werden</li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li>Faktorenanalyse</li>
+</ol>
+<ul>
+<li>Bisher wird die Faktorenanalyse per pcf-Verfahren durchgeführt. Hier wäre zu diskutieren</li>
+</ul>
+<ol style="list-style-type: decimal">
+<li>Die Struktur der Faktorladungen der Bildungsindikatoren ist nicht robust gegenüber Datenschwankungen.</li>
+</ol>
+<ul>
+<li>Der erste Faktor bildet die intendierte Kompomente ab. Es gibt einen zweiten Faktor mit Eigenwert über 1.</li>
+<li>Die Gewichte der Faktorladungen der Indikatoren BeschaeftigteohneAbschluss und Schulgaengerohneabschluss variieren sehr stark zwischen den Revisionen 2018 und 2019</li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li>Die Indikatoren BeschaeftigteohneAbschluss und BeschaeftigtemitHochschulabschluss dieser Teildimension weisen die höchsten Anteile an MissingData auf (75%).</li>
+</ol>
+<p>Eine Möglichkeit: Der Indikator BeschäftigteohneAbschluss wird durch SchulabgängermitHochschulreife ersetzt.</p>
 <div id="beispiel-code-plots-einbetten" class="section level2">
 <h2>Beispiel-Code Plots einbetten</h2>
 <p>You can also embed plots, for example:</p>
