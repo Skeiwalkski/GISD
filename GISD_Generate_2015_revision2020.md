@@ -93,8 +93,7 @@ id_dataset <- Gemeinden_INKAR %>%
 
 ## II. Erzeugen eines Datensatzes mit Kennziffern als ID unabhängig von der Ebene 
 
-Die Information für die Indikatoren, die für die Berechnung des GISD verwendet werden, liegt auf unterschiedlichen Ebenen vor. Die Faktorenanalyse soll auf Gemeindeebene durchgeführt werden. Percentile aus dem Index sollen am Ende für jede regionale Ebene separat berechnet werden können. 
-Datenbasis sind die INKAR-Daten der jeweiligen Indikatoren im Excel-Format
+In diesem Abschnitt werden die INKAR-Daten zu den Indikatoren in einem Datensatz zusammengeführt. Die Information für die Indikatoren, die für die Berechnung des GISD verwendet werden, liegt auf unterschiedlichen Ebenen vor. Die Faktorenanalyse soll auf Gemeindeebene durchgeführt werden, weshalb Information der Kreisebene an die Gemeinden innerhalb der Kreise angespielt werden. Percentile aus dem Index könen später für jede regionale Ebene separat berechnet werden. Datenbasis sind die INKAR-Daten der jeweiligen Indikatoren im Excel-Format
 
 
 ```r
@@ -426,6 +425,8 @@ summary(as.data.frame(Impdata.imputed) %>% ungroup()  %>% select(listofdetermina
 # Stata-Datensatz rausschreiben
 # write_dta(Impdata.imputed, paste0("Outfiles/2019/Stata/impdata.dta"))
 ```
+
+
 
 
 ## IV. Faktorenanalyse (Hauptkomponentenanalyse) inklusive Generierung der Faktorscores
@@ -944,3 +945,11 @@ Es gibt andererseits Möglichkeiten den GISD weiter zu verbessern. Einzelne Schw
 * Bisher wird die Faktorenanalyse per pcf-Verfahren durchgeführt. Hier wäre zu prüfen, ob Common Factor-Verfahren oder konfirmatorische Faktorenanalyse zu einer Verbesserung führen könnten.
 3.Indikatorenauswahl 
 * Die Struktur der Faktorladungen der Bildungsindikatoren ist nicht robust gegenüber Datenschwankungen. Der erste Faktor bildet die intendierte Kompomente ab. Es gibt einen zweiten Faktor mit Eigenwert über 1. Die Gewichte der Faktorladungen der Indikatoren BeschaeftigteohneAbschluss und Schulgaengerohneabschluss variieren sehr stark zwischen den Revisionen 2018 und 2019. Hier könnte man über eine andere Auswahl von Indikatoren nachdenken. Die bisherigen Indikatoren BeschaeftigteohneAbschluss und BeschaeftigtemitHochschulabschluss dieser Teildimension weisen die höchsten Anteile an MissingData auf (75%). Zudem wurde bisher noch nicht berücksichtigt, dass die  zwischenzeitliche Verkürzung der Schulzeit für das Abitur (G8 Reform) und die spätere Rücknahme dieser Reform in einigen Bundesländern im Untersuchungszeitraum zu statistischen Artefakten in den Schulabgängerquoten führt.
+4. Methodologische Grundlagen
+* Diskussion der dem Messmodell zugrunde liegende Kausalmechanismen 
+Dimensionen sozioökonomischer Deprivation auf räumlicher Ebene: Einkommen, Arbeitswelt, Bildung
+- Einkommen: (HH-Einkommen, Steueraufkommen, Schuldnerquote)
+- Kaufkraft berücksichtigen, Vermögen berücksichtigen
+- betrifft Handlungsspielräume der Kommunen, Proxy für Wirtschaftskraft der Kommunen
+
+
