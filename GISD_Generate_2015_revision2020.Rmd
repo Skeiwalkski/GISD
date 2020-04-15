@@ -274,7 +274,7 @@ summary(as.data.frame(Impdata.imputed) %>% ungroup()  %>% select(listofdetermina
 ```
 
 
-```{r Histograms for List of Determinants, message=TRUE, include=FALSE, results="HIDE"}
+```{r Histograms for List of Determinants, message=TRUE, include=FALSE}
 
 library(ggplot2)
 for(i in listofdeterminants){
