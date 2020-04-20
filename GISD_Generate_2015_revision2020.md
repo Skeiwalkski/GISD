@@ -127,11 +127,11 @@ for(file in inputdataset){
 # 3. die Daten werde reshaped, um die Jahresinfos im langen Format zu speichern; convert konvertiert das Datenformat automatisch;
 # rm.na entfert missing value Zeilen; -"Kennziffer" sorgt dafür, dass die Variable Kennziffer nicht doppelt erzeugt wird
 # 4. mutate definiert die Variablentypen 
-# 5. von innen nach außen 
+# 5. von innen nach auÃen 
 # 5.1 das innere strsplit(file, "_") teilt den Filenamen inkl. Dateiendung beim "_"
 # 5.2 das innerste unlist generiert einen Vektor mit den Elementen aus dem strsplit
-# 5.3 das äußere strsplit das zweite Vektorelement beim ".", sodass nur noch der Variablenname übrig bleibt
-# 5.4 das äußere unlist weist auf das erste Vektorelement 
+# 5.3 das äuÃere strsplit das zweite Vektorelement beim ".", sodass nur noch der Variablenname übrig bleibt
+# 5.4 das äuÃere unlist weist auf das erste Vektorelement 
 # 5.5 names(import)[3] nimmt dieses Vektorelement als Variablennamen für die dritte Spalte
 # 6. jedes file der Schleife wird an Basedata gejoint über Kennziffer und Jahr; full_join übernimmt dabei jede Zeile und Spalte jeder Seite,
 # auch wenn die Werte auf einer Seite missing enthalten
@@ -241,22 +241,22 @@ summary(Workfile %>% select(listofdeterminants))
 ##  3rd Qu.: 9.99                 3rd Qu.:13.32             
 ##  Max.   :31.85                 Max.   :20.51             
 ##  NA's   :156324                NA's   :156324            
-##  SchulabgaengermitHochschulreife SchulabgaengerohneAbschluss Einkommenssteuer  
-##  Min.   : 0.00                   Min.   : 1.126              Min.   :  -1.326  
-##  1st Qu.:17.51                   1st Qu.: 5.773              1st Qu.: 186.993  
-##  Median :22.50                   Median : 7.679              Median : 253.012  
-##  Mean   :23.16                   Mean   : 7.849              Mean   : 257.310  
-##  3rd Qu.:27.87                   3rd Qu.: 9.714              3rd Qu.: 329.460  
-##  Max.   :70.32                   Max.   :21.249              Max.   :1163.686  
-##                                                              NA's   :1316      
-##  Haushaltseinkommen Schuldnerquote 
-##  Min.   : 995       Min.   : 3.00  
-##  1st Qu.:1344       1st Qu.: 7.00  
-##  Median :1498       Median : 8.00  
-##  Mean   :1515       Mean   : 8.28  
-##  3rd Qu.:1678       3rd Qu.:10.00  
-##  Max.   :3260       Max.   :20.00  
-##  NA's   :22332      NA's   :66996
+##  SchulabgaengermitHochschulreife SchulabgaengerohneAbschluss
+##  Min.   : 0.00                   Min.   : 1.126             
+##  1st Qu.:17.51                   1st Qu.: 5.773             
+##  Median :22.50                   Median : 7.679             
+##  Mean   :23.16                   Mean   : 7.849             
+##  3rd Qu.:27.87                   3rd Qu.: 9.714             
+##  Max.   :70.32                   Max.   :21.249             
+##                                                             
+##  Einkommenssteuer   Haushaltseinkommen Schuldnerquote 
+##  Min.   :  -1.326   Min.   : 995       Min.   : 3.00  
+##  1st Qu.: 186.993   1st Qu.:1344       1st Qu.: 7.00  
+##  Median : 253.012   Median :1498       Median : 8.00  
+##  Mean   : 257.310   Mean   :1515       Mean   : 8.28  
+##  3rd Qu.: 329.460   3rd Qu.:1678       3rd Qu.:10.00  
+##  Max.   :1163.686   Max.   :3260       Max.   :20.00  
+##  NA's   :1316       NA's   :22332      NA's   :66996
 ```
 
 ```r
@@ -281,7 +281,7 @@ sapply(Workfile  %>% select(listofdeterminants) , function(x) sum(is.na(x)))
 imputationsliste <- subset(listofdeterminants , 
                            !(listofdeterminants %in%                              c('Arbeitslosigkeit','SchulabgaengermitHochschulreife','SchulabgaengerohneAbschluss')))
 # Variablenliste für die Regressionsimputation wird erstellt
-# das betrifft alle Variablen, außer die im angebenen Vektor
+# das betrifft alle Variablen, auÃer die im angebenen Vektor
 # letztere sind frei von Missings und können im Imputationsmodell genutzt werden 
 
 Impdata <-  Workfile %>%  dplyr::filter(Jahr>=1998, Bevoelkerung>0) %>% 
@@ -310,22 +310,22 @@ summary(Impdata %>% select(listofdeterminants))
 ##  3rd Qu.:10.01                 3rd Qu.:13.32             
 ##  Max.   :31.85                 Max.   :20.51             
 ##  NA's   :155288                NA's   :155288            
-##  SchulabgaengermitHochschulreife SchulabgaengerohneAbschluss Einkommenssteuer
-##  Min.   : 0.00                   Min.   : 1.126              Min.   :   0.0  
-##  1st Qu.:17.53                   1st Qu.: 5.776              1st Qu.: 187.0  
-##  Median :22.53                   Median : 7.681              Median : 253.0  
-##  Mean   :23.19                   Mean   : 7.853              Mean   : 257.3  
-##  3rd Qu.:27.89                   3rd Qu.: 9.715              3rd Qu.: 329.5  
-##  Max.   :70.32                   Max.   :21.249              Max.   :1163.7  
-##                                                              NA's   :5       
-##  Haushaltseinkommen Schuldnerquote 
-##  Min.   : 995       Min.   : 3.00  
-##  1st Qu.:1343       1st Qu.: 7.00  
-##  Median :1498       Median : 8.00  
-##  Mean   :1514       Mean   : 8.28  
-##  3rd Qu.:1677       3rd Qu.:10.00  
-##  Max.   :3260       Max.   :20.00  
-##  NA's   :22184      NA's   :66552
+##  SchulabgaengermitHochschulreife SchulabgaengerohneAbschluss
+##  Min.   : 0.00                   Min.   : 1.126             
+##  1st Qu.:17.53                   1st Qu.: 5.776             
+##  Median :22.53                   Median : 7.681             
+##  Mean   :23.19                   Mean   : 7.853             
+##  3rd Qu.:27.89                   3rd Qu.: 9.715             
+##  Max.   :70.32                   Max.   :21.249             
+##                                                             
+##  Einkommenssteuer Haushaltseinkommen Schuldnerquote 
+##  Min.   :   0.0   Min.   : 995       Min.   : 3.00  
+##  1st Qu.: 187.0   1st Qu.:1343       1st Qu.: 7.00  
+##  Median : 253.0   Median :1498       Median : 8.00  
+##  Mean   : 257.3   Mean   :1514       Mean   : 8.28  
+##  3rd Qu.: 329.5   3rd Qu.:1677       3rd Qu.:10.00  
+##  Max.   :1163.7   Max.   :3260       Max.   :20.00  
+##  NA's   :5        NA's   :22184      NA's   :66552
 ```
 
 ```r
@@ -405,20 +405,20 @@ summary(as.data.frame(Impdata.imputed) %>% ungroup()  %>% select(listofdetermina
 ##  Mean   : 5.923                Mean   :12.23             
 ##  3rd Qu.: 7.391                3rd Qu.:15.02             
 ##  Max.   :31.846                Max.   :23.92             
-##  SchulabgaengermitHochschulreife SchulabgaengerohneAbschluss Einkommenssteuer
-##  Min.   : 0.00                   Min.   : 1.126              Min.   :   0.0  
-##  1st Qu.:17.53                   1st Qu.: 5.776              1st Qu.: 187.0  
-##  Median :22.53                   Median : 7.681              Median : 253.0  
-##  Mean   :23.19                   Mean   : 7.853              Mean   : 257.3  
-##  3rd Qu.:27.89                   3rd Qu.: 9.715              3rd Qu.: 329.5  
-##  Max.   :70.32                   Max.   :21.249              Max.   :1163.7  
-##  Haushaltseinkommen Schuldnerquote  
-##  Min.   : 929.8     Min.   : 3.000  
-##  1st Qu.:1297.0     1st Qu.: 7.000  
-##  Median :1464.0     Median : 8.602  
-##  Mean   :1480.4     Mean   : 8.473  
-##  3rd Qu.:1648.0     3rd Qu.:10.000  
-##  Max.   :3260.0     Max.   :20.579
+##  SchulabgaengermitHochschulreife SchulabgaengerohneAbschluss
+##  Min.   : 0.00                   Min.   : 1.126             
+##  1st Qu.:17.53                   1st Qu.: 5.776             
+##  Median :22.53                   Median : 7.681             
+##  Mean   :23.19                   Mean   : 7.853             
+##  3rd Qu.:27.89                   3rd Qu.: 9.715             
+##  Max.   :70.32                   Max.   :21.249             
+##  Einkommenssteuer Haushaltseinkommen Schuldnerquote  
+##  Min.   :   0.0   Min.   : 929.8     Min.   : 3.000  
+##  1st Qu.: 187.0   1st Qu.:1297.0     1st Qu.: 7.000  
+##  Median : 253.0   Median :1464.0     Median : 8.602  
+##  Mean   : 257.3   Mean   :1480.4     Mean   : 8.473  
+##  3rd Qu.: 329.5   3rd Qu.:1648.0     3rd Qu.:10.000  
+##  Max.   :1163.7   Max.   :3260.0     Max.   :20.579
 ```
 
 ```r
@@ -449,15 +449,15 @@ TS_Arbeitswelt <- Impdata.imputed %>% dplyr::select(Beschaeftigtenquote,Arbeitsl
 TS_Einkommen   <- Impdata.imputed %>% dplyr::select(Einkommenssteuer,Haushaltseinkommen,Schuldnerquote) 
 # für den Vergleich der Ergebnisse wird zunächst ein Datensatz für die ursprüngliche Variablenauswahl der Revision 2019 generiert
 TS_Bildung_old  <- Impdata.imputed %>% dplyr::select(BeschaeftigtemitakadAbschluss,BeschaeftigteohneAbschluss,SchulabgaengerohneAbschluss) 
-# dann die aktuelle InterimslÃ¶sung
+# dann die aktuelle InterimslÃÂ¶sung
 TS_Bildung <- Impdata.imputed %>% dplyr::select(BeschaeftigtemitakadAbschluss,SchulabgaengermitHochschulreife,SchulabgaengerohneAbschluss) 
 # hier wurde die Variable BeschaeftigteohneAbschluss durch SchulabgaengermitHochschulreife ersetzt
 
 
 # Faktorenanalyse basierend auf Hauptkomponentenanalyse für jede der drei Subscalen
-# Arbeitswelt: zunächst Analyse der FaktorlÃ¶sung
+# Arbeitswelt: zunächst Analyse der FaktorlÃÂ¶sung
 TS_Arbeitswelt.pca <- prcomp(TS_Arbeitswelt, center = TRUE, scale. = TRUE, retx=TRUE)
-	# Option retx erzeugt rotierte LÃ¶sung
+	# Option retx erzeugt rotierte LÃÂ¶sung
 head(TS_Arbeitswelt.pca$sdev)
 ```
 
@@ -467,7 +467,7 @@ head(TS_Arbeitswelt.pca$sdev)
 
 ```r
 # nur die erste Komponente mit Eigenwert über 1
-	# (prcomp gibt standardmäßig Sdev statt Varianz aus)
+	# (prcomp gibt standardmäÃig Sdev statt Varianz aus)
 plot(TS_Arbeitswelt.pca)
 ```
 
@@ -564,7 +564,7 @@ TS_Bildung_old.pca$rotation
 ```
 
 ```r
-# InterimslÃ¶sung Bildungskomponente mit BeschaeftigtemitakadAbschluss,SchulabgaengermitHochschulreife,SchulabgaengerohneAbschluss
+# InterimslÃÂ¶sung Bildungskomponente mit BeschaeftigtemitakadAbschluss,SchulabgaengermitHochschulreife,SchulabgaengerohneAbschluss
 TS_Bildung.pca <- prcomp(TS_Bildung, center = TRUE, scale. = TRUE, retx=TRUE, rank. = 1) 
 TS_Bildung.pca
 ```
@@ -581,7 +581,7 @@ TS_Bildung.pca
 ```
 
 ```r
-# Es wurde außerdem eine Komponentenanalyse mit allen vier Bildungsindikatoren durchgeführt. 
+# Es wurde auÃerdem eine Komponentenanalyse mit allen vier Bildungsindikatoren durchgeführt. 
 # Aber auch hier bestand das Problem, der inkonsistenten Korrelationen zwischen den Teildimensionen.
 
 # Nun wird die Generierung der Faktorscores vorbereitet.
@@ -667,7 +667,7 @@ Resultdataset %>% dplyr::select(Arbeitslosigkeit,TS_Arbeitswelt,TS_Einkommen,TS_
 ```r
 # nun sind alle Korrelationen positiv
 # wenngleich die Korrelation der Bildungsdimension mit Arbeitslosigkeit sehr gering ist
-# inhaltlich ist das nicht unplausibel (hÃ¶here Abiturquoten in strukturschwachen Regionen)
+# inhaltlich ist das nicht unplausibel (hÃÂ¶here Abiturquoten in strukturschwachen Regionen)
 
 GISD_Komponents
 ```
@@ -777,7 +777,7 @@ for(mykennziffer in exportlist$Kennziffern) {
     summarise(GISD_Score = weighted.mean(GISD_Score, Bevoelkerung), 
               Bevoelkerung = sum(Bevoelkerung))
   # hier werden die bevoelkerungsgewichteten Mittelwerte über die regionalen Einheiten gebildet
-  # Achtung: Referenzrahmen für den BevÃ¶lkerungsstand ist das Referenzjahr. Die Varianz der BevÃ¶lkerung über die Jahre wird nicht berücksichtigt.
+  # Achtung: Referenzrahmen für den BevÃÂ¶lkerungsstand ist das Referenzjahr. Die Varianz der BevÃÂ¶lkerung über die Jahre wird nicht berücksichtigt.
   
   # Daten bereinigen
   names(outputdata.agg)[1] <- mykennziffer
@@ -858,8 +858,8 @@ for(mykennziffer in exportlist$Kennziffern) {
 ```
 
 ```
-## Warning in dir.create("Outfiles/2019/Bundesland"): 'Outfiles\2019\Bundesland'
-## existiert bereits
+## Warning in dir.create("Outfiles/2019/Bundesland"):
+## 'Outfiles\2019\Bundesland' existiert bereits
 ```
 
 ```
@@ -867,8 +867,8 @@ for(mykennziffer in exportlist$Kennziffern) {
 ```
 
 ```
-## Warning in dir.create("Outfiles/2019/Bundesland"): 'Outfiles\2019\Bundesland'
-## existiert bereits
+## Warning in dir.create("Outfiles/2019/Bundesland"):
+## 'Outfiles\2019\Bundesland' existiert bereits
 ```
 
 ```
@@ -933,7 +933,7 @@ for(mykennziffer in exportlist$Kennziffern) {
 2. Postleitzahlen in GISD_generate_postcodes.R anhand der Gebietsstandsdatei überprüfen.
 3. GISD_Generate.R ausführen
 
-# Anknüpfungungspunkte für eine grundsätzliche Überarbeitung der GISD-Generierung 
+# Anknüpfungungspunkte für eine grundsätzliche Ãberarbeitung der GISD-Generierung 
 
 Es gibt gute Gründe dafür am Konzept Bildung, Einkommen und Arbeitsweltindikatoren im GISD zu vereinen, auch wenn die Korrelation der Teildimensionen mit Einzelindikatoren der anderen Teildimensionen nur gering korrelieren. 
 Es gibt andererseits Möglichkeiten den GISD weiter zu verbessern. Einzelne Schwachstellen sollen hier kurz erwähnt werden.

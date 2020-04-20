@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
 
 <meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
@@ -390,7 +391,6 @@ summary {
   border: none;
   display: inline-block;
   border-radius: 4px;
-  background-color: transparent;
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li {
@@ -454,7 +454,7 @@ summary {
 <li><a href="#vi.-datensätze-für-plz-generieren">VI. Datensätze für PLZ generieren</a></li>
 </ul></li>
 <li><a href="#allgemeine-sop-für-die-revision-nach-lars-kroll">Allgemeine SOP für die Revision (nach Lars Kroll)</a></li>
-<li><a href="#anknüpfungungspunkte-für-eine-grundsätzliche-überarbeitung-der-gisd-generierung">Anknüpfungungspunkte für eine grundsätzliche Überarbeitung der GISD-Generierung</a></li>
+<li><a href="#anknüpfungungspunkte-für-eine-grundsätzliche-ãberarbeitung-der-gisd-generierung">Anknüpfungungspunkte für eine grundsätzliche Ãberarbeitung der GISD-Generierung</a></li>
 </ul>
 </div>
 
@@ -559,11 +559,11 @@ for(file in inputdataset){
 # 3. die Daten werde reshaped, um die Jahresinfos im langen Format zu speichern; convert konvertiert das Datenformat automatisch;
 # rm.na entfert missing value Zeilen; -&quot;Kennziffer&quot; sorgt dafür, dass die Variable Kennziffer nicht doppelt erzeugt wird
 # 4. mutate definiert die Variablentypen 
-# 5. von innen nach außen 
+# 5. von innen nach auÃen 
 # 5.1 das innere strsplit(file, &quot;_&quot;) teilt den Filenamen inkl. Dateiendung beim &quot;_&quot;
 # 5.2 das innerste unlist generiert einen Vektor mit den Elementen aus dem strsplit
-# 5.3 das äußere strsplit das zweite Vektorelement beim &quot;.&quot;, sodass nur noch der Variablenname übrig bleibt
-# 5.4 das äußere unlist weist auf das erste Vektorelement 
+# 5.3 das äuÃere strsplit das zweite Vektorelement beim &quot;.&quot;, sodass nur noch der Variablenname übrig bleibt
+# 5.4 das äuÃere unlist weist auf das erste Vektorelement 
 # 5.5 names(import)[3] nimmt dieses Vektorelement als Variablennamen für die dritte Spalte
 # 6. jedes file der Schleife wird an Basedata gejoint über Kennziffer und Jahr; full_join übernimmt dabei jede Zeile und Spalte jeder Seite,
 # auch wenn die Werte auf einer Seite missing enthalten
@@ -696,22 +696,22 @@ summary(Workfile %&gt;% select(listofdeterminants))</code></pre>
 ##  3rd Qu.: 9.99                 3rd Qu.:13.32             
 ##  Max.   :31.85                 Max.   :20.51             
 ##  NA&#39;s   :156324                NA&#39;s   :156324            
-##  SchulabgaengermitHochschulreife SchulabgaengerohneAbschluss Einkommenssteuer  
-##  Min.   : 0.00                   Min.   : 1.126              Min.   :  -1.326  
-##  1st Qu.:17.51                   1st Qu.: 5.773              1st Qu.: 186.993  
-##  Median :22.50                   Median : 7.679              Median : 253.012  
-##  Mean   :23.16                   Mean   : 7.849              Mean   : 257.310  
-##  3rd Qu.:27.87                   3rd Qu.: 9.714              3rd Qu.: 329.460  
-##  Max.   :70.32                   Max.   :21.249              Max.   :1163.686  
-##                                                              NA&#39;s   :1316      
-##  Haushaltseinkommen Schuldnerquote 
-##  Min.   : 995       Min.   : 3.00  
-##  1st Qu.:1344       1st Qu.: 7.00  
-##  Median :1498       Median : 8.00  
-##  Mean   :1515       Mean   : 8.28  
-##  3rd Qu.:1678       3rd Qu.:10.00  
-##  Max.   :3260       Max.   :20.00  
-##  NA&#39;s   :22332      NA&#39;s   :66996</code></pre>
+##  SchulabgaengermitHochschulreife SchulabgaengerohneAbschluss
+##  Min.   : 0.00                   Min.   : 1.126             
+##  1st Qu.:17.51                   1st Qu.: 5.773             
+##  Median :22.50                   Median : 7.679             
+##  Mean   :23.16                   Mean   : 7.849             
+##  3rd Qu.:27.87                   3rd Qu.: 9.714             
+##  Max.   :70.32                   Max.   :21.249             
+##                                                             
+##  Einkommenssteuer   Haushaltseinkommen Schuldnerquote 
+##  Min.   :  -1.326   Min.   : 995       Min.   : 3.00  
+##  1st Qu.: 186.993   1st Qu.:1344       1st Qu.: 7.00  
+##  Median : 253.012   Median :1498       Median : 8.00  
+##  Mean   : 257.310   Mean   :1515       Mean   : 8.28  
+##  3rd Qu.: 329.460   3rd Qu.:1678       3rd Qu.:10.00  
+##  Max.   :1163.686   Max.   :3260       Max.   :20.00  
+##  NA&#39;s   :1316       NA&#39;s   :22332      NA&#39;s   :66996</code></pre>
 <pre class="r"><code>sapply(Workfile  %&gt;% select(listofdeterminants) , function(x) sum(is.na(x)))</code></pre>
 <pre><code>##                Arbeitslosigkeit             Beschaeftigtenquote 
 ##                               0                           34596 
@@ -727,7 +727,7 @@ summary(Workfile %&gt;% select(listofdeterminants))</code></pre>
 imputationsliste &lt;- subset(listofdeterminants , 
                            !(listofdeterminants %in%                              c(&#39;Arbeitslosigkeit&#39;,&#39;SchulabgaengermitHochschulreife&#39;,&#39;SchulabgaengerohneAbschluss&#39;)))
 # Variablenliste für die Regressionsimputation wird erstellt
-# das betrifft alle Variablen, außer die im angebenen Vektor
+# das betrifft alle Variablen, auÃer die im angebenen Vektor
 # letztere sind frei von Missings und können im Imputationsmodell genutzt werden 
 
 Impdata &lt;-  Workfile %&gt;%  dplyr::filter(Jahr&gt;=1998, Bevoelkerung&gt;0) %&gt;% 
@@ -753,22 +753,22 @@ summary(Impdata %&gt;% select(listofdeterminants))</code></pre>
 ##  3rd Qu.:10.01                 3rd Qu.:13.32             
 ##  Max.   :31.85                 Max.   :20.51             
 ##  NA&#39;s   :155288                NA&#39;s   :155288            
-##  SchulabgaengermitHochschulreife SchulabgaengerohneAbschluss Einkommenssteuer
-##  Min.   : 0.00                   Min.   : 1.126              Min.   :   0.0  
-##  1st Qu.:17.53                   1st Qu.: 5.776              1st Qu.: 187.0  
-##  Median :22.53                   Median : 7.681              Median : 253.0  
-##  Mean   :23.19                   Mean   : 7.853              Mean   : 257.3  
-##  3rd Qu.:27.89                   3rd Qu.: 9.715              3rd Qu.: 329.5  
-##  Max.   :70.32                   Max.   :21.249              Max.   :1163.7  
-##                                                              NA&#39;s   :5       
-##  Haushaltseinkommen Schuldnerquote 
-##  Min.   : 995       Min.   : 3.00  
-##  1st Qu.:1343       1st Qu.: 7.00  
-##  Median :1498       Median : 8.00  
-##  Mean   :1514       Mean   : 8.28  
-##  3rd Qu.:1677       3rd Qu.:10.00  
-##  Max.   :3260       Max.   :20.00  
-##  NA&#39;s   :22184      NA&#39;s   :66552</code></pre>
+##  SchulabgaengermitHochschulreife SchulabgaengerohneAbschluss
+##  Min.   : 0.00                   Min.   : 1.126             
+##  1st Qu.:17.53                   1st Qu.: 5.776             
+##  Median :22.53                   Median : 7.681             
+##  Mean   :23.19                   Mean   : 7.853             
+##  3rd Qu.:27.89                   3rd Qu.: 9.715             
+##  Max.   :70.32                   Max.   :21.249             
+##                                                             
+##  Einkommenssteuer Haushaltseinkommen Schuldnerquote 
+##  Min.   :   0.0   Min.   : 995       Min.   : 3.00  
+##  1st Qu.: 187.0   1st Qu.:1343       1st Qu.: 7.00  
+##  Median : 253.0   Median :1498       Median : 8.00  
+##  Mean   : 257.3   Mean   :1514       Mean   : 8.28  
+##  3rd Qu.: 329.5   3rd Qu.:1677       3rd Qu.:10.00  
+##  Max.   :1163.7   Max.   :3260       Max.   :20.00  
+##  NA&#39;s   :5        NA&#39;s   :22184      NA&#39;s   :66552</code></pre>
 <pre class="r"><code>sapply(Impdata  %&gt;% select(listofdeterminants) , function(x) sum(is.na(x)))</code></pre>
 <pre><code>##                Arbeitslosigkeit             Beschaeftigtenquote 
 ##                               0                           33276 
@@ -836,20 +836,20 @@ summary(as.data.frame(Impdata.imputed) %&gt;% ungroup()  %&gt;% select(listofdet
 ##  Mean   : 5.923                Mean   :12.23             
 ##  3rd Qu.: 7.391                3rd Qu.:15.02             
 ##  Max.   :31.846                Max.   :23.92             
-##  SchulabgaengermitHochschulreife SchulabgaengerohneAbschluss Einkommenssteuer
-##  Min.   : 0.00                   Min.   : 1.126              Min.   :   0.0  
-##  1st Qu.:17.53                   1st Qu.: 5.776              1st Qu.: 187.0  
-##  Median :22.53                   Median : 7.681              Median : 253.0  
-##  Mean   :23.19                   Mean   : 7.853              Mean   : 257.3  
-##  3rd Qu.:27.89                   3rd Qu.: 9.715              3rd Qu.: 329.5  
-##  Max.   :70.32                   Max.   :21.249              Max.   :1163.7  
-##  Haushaltseinkommen Schuldnerquote  
-##  Min.   : 929.8     Min.   : 3.000  
-##  1st Qu.:1297.0     1st Qu.: 7.000  
-##  Median :1464.0     Median : 8.602  
-##  Mean   :1480.4     Mean   : 8.473  
-##  3rd Qu.:1648.0     3rd Qu.:10.000  
-##  Max.   :3260.0     Max.   :20.579</code></pre>
+##  SchulabgaengermitHochschulreife SchulabgaengerohneAbschluss
+##  Min.   : 0.00                   Min.   : 1.126             
+##  1st Qu.:17.53                   1st Qu.: 5.776             
+##  Median :22.53                   Median : 7.681             
+##  Mean   :23.19                   Mean   : 7.853             
+##  3rd Qu.:27.89                   3rd Qu.: 9.715             
+##  Max.   :70.32                   Max.   :21.249             
+##  Einkommenssteuer Haushaltseinkommen Schuldnerquote  
+##  Min.   :   0.0   Min.   : 929.8     Min.   : 3.000  
+##  1st Qu.: 187.0   1st Qu.:1297.0     1st Qu.: 7.000  
+##  Median : 253.0   Median :1464.0     Median : 8.602  
+##  Mean   : 257.3   Mean   :1480.4     Mean   : 8.473  
+##  3rd Qu.: 329.5   3rd Qu.:1648.0     3rd Qu.:10.000  
+##  Max.   :1163.7   Max.   :3260.0     Max.   :20.579</code></pre>
 <pre class="r"><code># Stata-Datensatz rausschreiben
 # write_dta(Impdata.imputed, paste0(&quot;Outfiles/2019/Stata/impdata.dta&quot;))</code></pre>
 </div>
@@ -866,19 +866,19 @@ print(listofdeterminants)</code></pre>
 TS_Einkommen   &lt;- Impdata.imputed %&gt;% dplyr::select(Einkommenssteuer,Haushaltseinkommen,Schuldnerquote) 
 # für den Vergleich der Ergebnisse wird zunächst ein Datensatz für die ursprüngliche Variablenauswahl der Revision 2019 generiert
 TS_Bildung_old  &lt;- Impdata.imputed %&gt;% dplyr::select(BeschaeftigtemitakadAbschluss,BeschaeftigteohneAbschluss,SchulabgaengerohneAbschluss) 
-# dann die aktuelle InterimslÃ¶sung
+# dann die aktuelle InterimslÃÂ¶sung
 TS_Bildung &lt;- Impdata.imputed %&gt;% dplyr::select(BeschaeftigtemitakadAbschluss,SchulabgaengermitHochschulreife,SchulabgaengerohneAbschluss) 
 # hier wurde die Variable BeschaeftigteohneAbschluss durch SchulabgaengermitHochschulreife ersetzt
 
 
 # Faktorenanalyse basierend auf Hauptkomponentenanalyse für jede der drei Subscalen
-# Arbeitswelt: zunächst Analyse der FaktorlÃ¶sung
+# Arbeitswelt: zunächst Analyse der FaktorlÃÂ¶sung
 TS_Arbeitswelt.pca &lt;- prcomp(TS_Arbeitswelt, center = TRUE, scale. = TRUE, retx=TRUE)
-    # Option retx erzeugt rotierte LÃ¶sung
+    # Option retx erzeugt rotierte LÃÂ¶sung
 head(TS_Arbeitswelt.pca$sdev)</code></pre>
 <pre><code>## [1] 1.3561452 0.8791822 0.6228232</code></pre>
 <pre class="r"><code># nur die erste Komponente mit Eigenwert über 1
-    # (prcomp gibt standardmäßig Sdev statt Varianz aus)
+    # (prcomp gibt standardmäÃig Sdev statt Varianz aus)
 plot(TS_Arbeitswelt.pca)</code></pre>
 <p><img src="data:image/png;base64,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" /><!-- --></p>
 <pre class="r"><code>    # screeplot - bei nur drei Variablen wird ein Balkendiagramm angezeigt
@@ -941,7 +941,7 @@ TS_Bildung_old.pca</code></pre>
 ## BeschaeftigtemitakadAbschluss    0.6478416
 ## SchulabgaengermitHochschulreife  0.6230148
 ## SchulabgaengerohneAbschluss     -0.4383535</code></pre>
-<pre class="r"><code># InterimslÃ¶sung Bildungskomponente mit BeschaeftigtemitakadAbschluss,SchulabgaengermitHochschulreife,SchulabgaengerohneAbschluss
+<pre class="r"><code># InterimslÃÂ¶sung Bildungskomponente mit BeschaeftigtemitakadAbschluss,SchulabgaengermitHochschulreife,SchulabgaengerohneAbschluss
 TS_Bildung.pca &lt;- prcomp(TS_Bildung, center = TRUE, scale. = TRUE, retx=TRUE, rank. = 1) 
 TS_Bildung.pca</code></pre>
 <pre><code>## Standard deviations (1, .., p=3):
@@ -952,7 +952,7 @@ TS_Bildung.pca</code></pre>
 ## BeschaeftigtemitakadAbschluss    0.6478416
 ## SchulabgaengermitHochschulreife  0.6230148
 ## SchulabgaengerohneAbschluss     -0.4383535</code></pre>
-<pre class="r"><code># Es wurde außerdem eine Komponentenanalyse mit allen vier Bildungsindikatoren durchgeführt. 
+<pre class="r"><code># Es wurde auÃerdem eine Komponentenanalyse mit allen vier Bildungsindikatoren durchgeführt. 
 # Aber auch hier bestand das Problem, der inkonsistenten Korrelationen zwischen den Teildimensionen.
 
 # Nun wird die Generierung der Faktorscores vorbereitet.
@@ -1020,7 +1020,7 @@ Resultdataset %&gt;% dplyr::select(Arbeitslosigkeit,TS_Arbeitswelt,TS_Einkommen,
 ## TS_Bildung              0.1570911      0.4945504    0.4848497  1.0000000</code></pre>
 <pre class="r"><code># nun sind alle Korrelationen positiv
 # wenngleich die Korrelation der Bildungsdimension mit Arbeitslosigkeit sehr gering ist
-# inhaltlich ist das nicht unplausibel (hÃ¶here Abiturquoten in strukturschwachen Regionen)
+# inhaltlich ist das nicht unplausibel (hÃÂ¶here Abiturquoten in strukturschwachen Regionen)
 
 GISD_Komponents</code></pre>
 <pre><code>##                          Variable   Dimension            Anteil
@@ -1110,7 +1110,7 @@ for(mykennziffer in exportlist$Kennziffern) {
     summarise(GISD_Score = weighted.mean(GISD_Score, Bevoelkerung), 
               Bevoelkerung = sum(Bevoelkerung))
   # hier werden die bevoelkerungsgewichteten Mittelwerte über die regionalen Einheiten gebildet
-  # Achtung: Referenzrahmen für den BevÃ¶lkerungsstand ist das Referenzjahr. Die Varianz der BevÃ¶lkerung über die Jahre wird nicht berücksichtigt.
+  # Achtung: Referenzrahmen für den BevÃÂ¶lkerungsstand ist das Referenzjahr. Die Varianz der BevÃÂ¶lkerung über die Jahre wird nicht berücksichtigt.
   
   # Daten bereinigen
   names(outputdata.agg)[1] &lt;- mykennziffer
@@ -1179,11 +1179,11 @@ for(mykennziffer in exportlist$Kennziffern) {
 <pre><code>## Warning: `as.tibble()` is deprecated, use `as_tibble()` (but mind the new semantics).
 ## This warning is displayed once per session.</code></pre>
 <pre><code>## [1] &quot;Level: Name des Kreises Label: Kreis&quot;</code></pre>
-<pre><code>## Warning in dir.create(&quot;Outfiles/2019/Bundesland&quot;): &#39;Outfiles\2019\Bundesland&#39;
-## existiert bereits</code></pre>
+<pre><code>## Warning in dir.create(&quot;Outfiles/2019/Bundesland&quot;):
+## &#39;Outfiles\2019\Bundesland&#39; existiert bereits</code></pre>
 <pre><code>## [1] &quot;Level: Name des Gemeindeverbands Label: Gemeindeverband&quot;</code></pre>
-<pre><code>## Warning in dir.create(&quot;Outfiles/2019/Bundesland&quot;): &#39;Outfiles\2019\Bundesland&#39;
-## existiert bereits</code></pre>
+<pre><code>## Warning in dir.create(&quot;Outfiles/2019/Bundesland&quot;):
+## &#39;Outfiles\2019\Bundesland&#39; existiert bereits</code></pre>
 <pre><code>## [1] &quot;Level: Raumordnungsregion Label: Raumordnungsregion&quot;
 ## [1] &quot;Level: NUTS2 Name Label: NUTS2&quot;</code></pre>
 </div>
@@ -1244,8 +1244,8 @@ for(mykennziffer in exportlist$Kennziffern) {
 <li>GISD_Generate.R ausführen</li>
 </ol>
 </div>
-<div id="anknüpfungungspunkte-für-eine-grundsätzliche-überarbeitung-der-gisd-generierung" class="section level1">
-<h1>Anknüpfungungspunkte für eine grundsätzliche Überarbeitung der GISD-Generierung</h1>
+<div id="anknüpfungungspunkte-für-eine-grundsätzliche-ãberarbeitung-der-gisd-generierung" class="section level1">
+<h1>Anknüpfungungspunkte für eine grundsätzliche Ãberarbeitung der GISD-Generierung</h1>
 <p>Es gibt gute Gründe dafür am Konzept Bildung, Einkommen und Arbeitsweltindikatoren im GISD zu vereinen, auch wenn die Korrelation der Teildimensionen mit Einzelindikatoren der anderen Teildimensionen nur gering korrelieren. Es gibt andererseits Möglichkeiten den GISD weiter zu verbessern. Einzelne Schwachstellen sollen hier kurz erwähnt werden.</p>
 <ol style="list-style-type: decimal">
 <li>Missing Data</li>
