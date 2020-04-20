@@ -525,52 +525,52 @@ for(mykennziffer in exportlist$Kennziffern) {
 
 ## VI.  Datensätze für PLZ generieren
 
-```{r}
-# #### PLZ Daten noch nicht gecheckt (nm) ### 
-# 
-# # Output Postcode Data
-# load("Data/SHP/GEM_Zipcode_Intersections_2015.RData") # AGS/Postcode-Intersections-Dataset in sf format
-# 
-# 
-# for (mykennziffer in c("PLZ2","PLZ3","PLZ4","PLZ5")) {
-#   myname <-  paste0(mykennziffer)
-#   mylabel<-  paste0(mykennziffer)
-#   print(paste("Level:",myname,"Label:",mylabel))
-#   
-#   # Datensatzerstellung # weighted.mean fehlt wg. Fehler Evaluation error: 'x' and 'w' must have the same length
-#   outputdata <- Resultdataset 
-#   outputdata <- outputdata %>% dplyr::select(AGS=Gemeindekennziffer,Jahr,GISD_Score)
-#   outputdata <- left_join(as.data.frame(PLZ.df) %>% ungroup() %>% mutate(AGS=as.numeric(as.character(AGS))),
-#                           outputdata,by=c("AGS"), all.x = TRUE)
-#   outputdata <- outputdata %>% filter(!is.na(mykennziffer) & !is.na(EW_Area) & !is.na(Jahr) & EW_Area>0)
-#   mycol <- which(mykennziffer %in% names(outputdata))
-#   outputdata <- outputdata %>% group_by(Jahr,AGS) 
-#   outputdata <- outputdata %>% mutate(GISD_Score = weighted.mean(GISD_Score,EW_Area))
-#   names(outputdata)[names(outputdata)=="Jahr"]<- "JAHR" # Seltsames Problem Name "Jahr"
-#   outputdata <- outputdata %>% group_by_at(vars("JAHR",mykennziffer)) %>% 
-#     summarise(GISD_Score = weighted.mean(GISD_Score,EW_Area), Bev?lkerung = sum(EW_Area)) %>%
-#     group_by(JAHR)
-#   
-#   outputdata <- outputdata %>%  mutate(GISD_Score = round((GISD_Score -min(GISD_Score ))/(max(GISD_Score )-min(GISD_Score )), digits=6),
-#                                        GISD_5 = findInterval(GISD_Score, quantile(GISD_Score,   probs=0:5/5 , type=9)),
-#                                        GISD_5 = findInterval(GISD_5, c(1:5)),
-#                                        GISD_10 = findInterval(GISD_Score, quantile(GISD_Score, probs=0:10/10 , type=9)),
-#                                        GISD_10 = findInterval(GISD_10, c(1:10)),
-#                                        GISD_k = findInterval(GISD_5, c(1,2,5))) 
-#   summary(outputdata)            
-#   head(outputdata)
-#   ListeJahre <- unique(outputdata$JAHR)
-#   dir.create( paste0("Revisions/2019/Bund/",mylabel), showWarnings=F)  
-#   mydata <- outputdata %>% ungroup() 
-#   write.csv2(mydata, paste0("Revisions/2019/Bund/",mylabel,"/",mylabel,".csv"))
-#   mydata <- outputdata %>% ungroup() 
-#   names(mydata) <- gsub("\\.","_",make.names(names(mydata)))
-#   names(mydata) <- gsub("\\?","oe",names(mydata))
-#   names(mydata) <- gsub("\\?","ae",names(mydata))
-#   names(mydata) <- gsub("\\?","ue",names(mydata))
-#   names(mydata) <- gsub("\\?","ss",names(mydata))
-#   write_dta(mydata, paste0("Revisions/2019/Bund/",mylabel,"/",mylabel,"_long.dta"))
-#   }
+```{r eval=FALSE, include=FALSE}
+#### PLZ Daten noch nicht gecheckt (nm) ### 
+
+# Output Postcode Data
+load("Data/SHP/GEM_Zipcode_Intersections_2015.RData") # AGS/Postcode-Intersections-Dataset in sf format
+
+
+for (mykennziffer in c("PLZ2","PLZ3","PLZ4","PLZ5")) {
+  myname <-  paste0(mykennziffer)
+  mylabel<-  paste0(mykennziffer)
+  print(paste("Level:",myname,"Label:",mylabel))
+  
+  # Datensatzerstellung # weighted.mean fehlt wg. Fehler Evaluation error: 'x' and 'w' must have the same length
+  outputdata <- Resultdataset 
+  outputdata <- outputdata %>% dplyr::select(AGS=Gemeindekennziffer,Jahr,GISD_Score)
+  outputdata <- left_join(as.data.frame(PLZ.df) %>% ungroup() %>% mutate(AGS=as.numeric(as.character(AGS))),
+                          outputdata,by=c("AGS"), all.x = TRUE)
+  outputdata <- outputdata %>% filter(!is.na(mykennziffer) & !is.na(EW_Area) & !is.na(Jahr) & EW_Area>0)
+  mycol <- which(mykennziffer %in% names(outputdata))
+  outputdata <- outputdata %>% group_by(Jahr,AGS) 
+  outputdata <- outputdata %>% mutate(GISD_Score = weighted.mean(GISD_Score,EW_Area))
+  names(outputdata)[names(outputdata)=="Jahr"]<- "JAHR" # Seltsames Problem Name "Jahr"
+  outputdata <- outputdata %>% group_by_at(vars("JAHR",mykennziffer)) %>% 
+    summarise(GISD_Score = weighted.mean(GISD_Score,EW_Area), Bev?lkerung = sum(EW_Area)) %>%
+    group_by(JAHR)
+  
+  outputdata <- outputdata %>%  mutate(GISD_Score = round((GISD_Score -min(GISD_Score ))/(max(GISD_Score )-min(GISD_Score )), digits=6),
+                                       GISD_5 = findInterval(GISD_Score, quantile(GISD_Score,   probs=0:5/5 , type=9)),
+                                       GISD_5 = findInterval(GISD_5, c(1:5)),
+                                       GISD_10 = findInterval(GISD_Score, quantile(GISD_Score, probs=0:10/10 , type=9)),
+                                       GISD_10 = findInterval(GISD_10, c(1:10)),
+                                       GISD_k = findInterval(GISD_5, c(1,2,5))) 
+  summary(outputdata)            
+  head(outputdata)
+  ListeJahre <- unique(outputdata$JAHR)
+  dir.create( paste0("Revisions/2019/Bund/",mylabel), showWarnings=F)  
+  mydata <- outputdata %>% ungroup() 
+  write.csv2(mydata, paste0("Revisions/2019/Bund/",mylabel,"/",mylabel,".csv"))
+  mydata <- outputdata %>% ungroup() 
+  names(mydata) <- gsub("\\.","_",make.names(names(mydata)))
+  names(mydata) <- gsub("\\?","oe",names(mydata))
+  names(mydata) <- gsub("\\?","ae",names(mydata))
+  names(mydata) <- gsub("\\?","ue",names(mydata))
+  names(mydata) <- gsub("\\?","ss",names(mydata))
+  write_dta(mydata, paste0("Revisions/2019/Bund/",mylabel,"/",mylabel,"_long.dta"))
+  }
 
 
 ```
