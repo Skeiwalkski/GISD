@@ -20,11 +20,10 @@ output:
 Auf diesem Codeblog stelle ich die Generierung des German Index of Socio-Economic Deprivation vor. Dabei handelt es sich um einen Index sozioökonomischer Deprivation auf regionalräumlicher Ebene, der 2016 im Fachgebiet Soziale Determinanten der Gesundheit am RKI entwickelt wurde und seither jährlich aktualisiert wird. Für die Generierung werden Indikatoren der INKAR-Datenbank des BBSR verwendet. Es wird die Revision 2019 vorgestellt, die Daten aus den Jahren 1998 bis 2015 verwendet. 
 In einer früheren Revision für 2019 tauchten zum Teil starke Abweichungen zur Revision 2018 auf. Der Grund dafür, war dass bei der Addition der Teildimensionen die Bildungsdimension in umgekehrter Richtung in den GISD einging. Ausschlaggebend für diesen Fehler war eine negative Korrelation der Bildungsdimension mit dem Anteil Arbeitsloser, die im Code der vergangenen Revisionen zu einer Umpolung des Teilscores führt. Der Anteil Arbeitsloser wird als Markerindikator verwendet. Die folgende Darstellung zeigt und diskutiert die Problematik und stellt eine Lösung vor.
 
-# Kommentierte Darstellung der Syntax {#testreferenz}
+# Kommentierte Darstellung der Syntax
 
 Das folgende Kapitel stellt die Syntax zur Generierung der Daten mit R vor. Der Code ist optional darstellbar und enthält detaillierte Kommentare.
 
-Test der Referenz \@ref(testreferenz)
 
 ## 0. Benötigte Pakete
 
@@ -95,7 +94,7 @@ id_dataset <- Gemeinden_INKAR %>%
 
 ## II. Erzeugen eines Datensatzes mit Kennziffern als ID unabhängig von der Ebene 
 
-In diesem Code-Abschnitt werden die INKAR-Daten zu den Indikatoren in einem Datensatz zusammengeführt. Die Information für die Indikatoren, die für die Berechnung des GISD verwendet werden, liegt auf unterschiedlichen Ebenen vor. Die Faktorenanalysen sollen auf Gemeindeebene durchgeführt werden, weshalb Information der Kreisebene an die Gemeinden innerhalb der Kreise angespielt wird. Percentile des Indexes können so später für jede regionale Ebene separat berechnet werden. Datenbasis sind die INKAR-Daten der jeweiligen Indikatoren im Excel-Format, die zu jeder Revision aus der INKAR-Datenbank heruntergeladen werden. 
+In diesem Code-Abschnitt werden die INKAR-Daten zu den Indikatoren in einem Datensatz zusammengeführt. Die Information für die Indikatoren, die für die Berechnung des GISD verwendet werden, liegt auf unterschiedlichen Ebenen vor. Die Faktorenanalysen sollen auf Gemeindeebene durchgeführt werden, weshalb Information der Kreisebene an die Gemeinden innerhalb der Kreise angespielt wird. Percentile des Indexes können so später für jede regionale Ebene separat berechnet werden. Datenbasis sind die INKAR-Daten der jeweiligen Indikatoren im Excel-Format, die zu jeder Revision aus der INKAR-Datenbank heruntergeladen werden. Tabelle \@ref(tab:indicators) stellt die Indikatoren dar.
 
 
 ```r
@@ -199,9 +198,6 @@ write_dta(Workfile, paste0("Outfiles/2019/Stata/workfile.dta"))
 ```
 
 
-Tabelle \@ref(tab:indicators) stellt die Indikatoren dar.
-
-
 Table: (\#tab:indicators)Liste der Indikatoren
 
 Indikator                         Tiefe des Indikators 
@@ -216,6 +212,10 @@ SchulabgaengerohneAbschluss       Kreis
 Einkommenssteuer                  Gemeinde             
 Haushaltseinkommen                Kreis                
 Schuldnerquote                    Kreis                
+
+Es gibt noch einige Probleme bei der Auswahl der Indikatoren, die erst später zum Tragen kommen. Insbesondere der Bildungsindikator Schulabgänger ohne Abschluss macht Probleme, weil der nicht mit dem Anteil Beschäftigter mit akademischem Bildungsabschluss korreliert. 
+Eine Betrachtung des alternativen Indikators Schulabgänger mit Hochschulreife zeigt, dass dieser besser mit dem Anteil Beschäftigter mit akademischem Bildungsabschluss korreliert, aber dafür recht stark negativ mit dem ANteil der Beschäftigten ohne Abschluss. Das lässt den Schluss zu, dass in Regionen in denen auch ohne Abschluss eine Perspektive besteht 
+
 
 
 ## III.Imputation fehlender Werte
@@ -244,22 +244,22 @@ summary(Workfile %>% select(listofdeterminants))
 ##  3rd Qu.: 9.99                 3rd Qu.:13.32             
 ##  Max.   :31.85                 Max.   :20.51             
 ##  NA's   :156324                NA's   :156324            
-##  SchulabgaengermitHochschulreife SchulabgaengerohneAbschluss
-##  Min.   : 0.00                   Min.   : 1.126             
-##  1st Qu.:17.51                   1st Qu.: 5.773             
-##  Median :22.50                   Median : 7.679             
-##  Mean   :23.16                   Mean   : 7.849             
-##  3rd Qu.:27.87                   3rd Qu.: 9.714             
-##  Max.   :70.32                   Max.   :21.249             
-##                                                             
-##  Einkommenssteuer   Haushaltseinkommen Schuldnerquote 
-##  Min.   :  -1.326   Min.   : 995       Min.   : 3.00  
-##  1st Qu.: 186.993   1st Qu.:1344       1st Qu.: 7.00  
-##  Median : 253.012   Median :1498       Median : 8.00  
-##  Mean   : 257.310   Mean   :1515       Mean   : 8.28  
-##  3rd Qu.: 329.460   3rd Qu.:1678       3rd Qu.:10.00  
-##  Max.   :1163.686   Max.   :3260       Max.   :20.00  
-##  NA's   :1316       NA's   :22332      NA's   :66996
+##  SchulabgaengermitHochschulreife SchulabgaengerohneAbschluss Einkommenssteuer  
+##  Min.   : 0.00                   Min.   : 1.126              Min.   :  -1.326  
+##  1st Qu.:17.51                   1st Qu.: 5.773              1st Qu.: 186.993  
+##  Median :22.50                   Median : 7.679              Median : 253.012  
+##  Mean   :23.16                   Mean   : 7.849              Mean   : 257.310  
+##  3rd Qu.:27.87                   3rd Qu.: 9.714              3rd Qu.: 329.460  
+##  Max.   :70.32                   Max.   :21.249              Max.   :1163.686  
+##                                                              NA's   :1316      
+##  Haushaltseinkommen Schuldnerquote 
+##  Min.   : 995       Min.   : 3.00  
+##  1st Qu.:1344       1st Qu.: 7.00  
+##  Median :1498       Median : 8.00  
+##  Mean   :1515       Mean   : 8.28  
+##  3rd Qu.:1678       3rd Qu.:10.00  
+##  Max.   :3260       Max.   :20.00  
+##  NA's   :22332      NA's   :66996
 ```
 
 ```r
@@ -313,22 +313,22 @@ summary(Impdata %>% select(listofdeterminants))
 ##  3rd Qu.:10.01                 3rd Qu.:13.32             
 ##  Max.   :31.85                 Max.   :20.51             
 ##  NA's   :155288                NA's   :155288            
-##  SchulabgaengermitHochschulreife SchulabgaengerohneAbschluss
-##  Min.   : 0.00                   Min.   : 1.126             
-##  1st Qu.:17.53                   1st Qu.: 5.776             
-##  Median :22.53                   Median : 7.681             
-##  Mean   :23.19                   Mean   : 7.853             
-##  3rd Qu.:27.89                   3rd Qu.: 9.715             
-##  Max.   :70.32                   Max.   :21.249             
-##                                                             
-##  Einkommenssteuer Haushaltseinkommen Schuldnerquote 
-##  Min.   :   0.0   Min.   : 995       Min.   : 3.00  
-##  1st Qu.: 187.0   1st Qu.:1343       1st Qu.: 7.00  
-##  Median : 253.0   Median :1498       Median : 8.00  
-##  Mean   : 257.3   Mean   :1514       Mean   : 8.28  
-##  3rd Qu.: 329.5   3rd Qu.:1677       3rd Qu.:10.00  
-##  Max.   :1163.7   Max.   :3260       Max.   :20.00  
-##  NA's   :5        NA's   :22184      NA's   :66552
+##  SchulabgaengermitHochschulreife SchulabgaengerohneAbschluss Einkommenssteuer
+##  Min.   : 0.00                   Min.   : 1.126              Min.   :   0.0  
+##  1st Qu.:17.53                   1st Qu.: 5.776              1st Qu.: 187.0  
+##  Median :22.53                   Median : 7.681              Median : 253.0  
+##  Mean   :23.19                   Mean   : 7.853              Mean   : 257.3  
+##  3rd Qu.:27.89                   3rd Qu.: 9.715              3rd Qu.: 329.5  
+##  Max.   :70.32                   Max.   :21.249              Max.   :1163.7  
+##                                                              NA's   :5       
+##  Haushaltseinkommen Schuldnerquote 
+##  Min.   : 995       Min.   : 3.00  
+##  1st Qu.:1343       1st Qu.: 7.00  
+##  Median :1498       Median : 8.00  
+##  Mean   :1514       Mean   : 8.28  
+##  3rd Qu.:1677       3rd Qu.:10.00  
+##  Max.   :3260       Max.   :20.00  
+##  NA's   :22184      NA's   :66552
 ```
 
 ```r
@@ -408,26 +408,27 @@ summary(as.data.frame(Impdata.imputed) %>% ungroup()  %>% select(listofdetermina
 ##  Mean   : 5.923                Mean   :12.23             
 ##  3rd Qu.: 7.391                3rd Qu.:15.02             
 ##  Max.   :31.846                Max.   :23.92             
-##  SchulabgaengermitHochschulreife SchulabgaengerohneAbschluss
-##  Min.   : 0.00                   Min.   : 1.126             
-##  1st Qu.:17.53                   1st Qu.: 5.776             
-##  Median :22.53                   Median : 7.681             
-##  Mean   :23.19                   Mean   : 7.853             
-##  3rd Qu.:27.89                   3rd Qu.: 9.715             
-##  Max.   :70.32                   Max.   :21.249             
-##  Einkommenssteuer Haushaltseinkommen Schuldnerquote  
-##  Min.   :   0.0   Min.   : 929.8     Min.   : 3.000  
-##  1st Qu.: 187.0   1st Qu.:1297.0     1st Qu.: 7.000  
-##  Median : 253.0   Median :1464.0     Median : 8.602  
-##  Mean   : 257.3   Mean   :1480.4     Mean   : 8.473  
-##  3rd Qu.: 329.5   3rd Qu.:1648.0     3rd Qu.:10.000  
-##  Max.   :1163.7   Max.   :3260.0     Max.   :20.579
+##  SchulabgaengermitHochschulreife SchulabgaengerohneAbschluss Einkommenssteuer
+##  Min.   : 0.00                   Min.   : 1.126              Min.   :   0.0  
+##  1st Qu.:17.53                   1st Qu.: 5.776              1st Qu.: 187.0  
+##  Median :22.53                   Median : 7.681              Median : 253.0  
+##  Mean   :23.19                   Mean   : 7.853              Mean   : 257.3  
+##  3rd Qu.:27.89                   3rd Qu.: 9.715              3rd Qu.: 329.5  
+##  Max.   :70.32                   Max.   :21.249              Max.   :1163.7  
+##  Haushaltseinkommen Schuldnerquote  
+##  Min.   : 929.8     Min.   : 3.000  
+##  1st Qu.:1297.0     1st Qu.: 7.000  
+##  Median :1464.0     Median : 8.602  
+##  Mean   :1480.4     Mean   : 8.473  
+##  3rd Qu.:1648.0     3rd Qu.:10.000  
+##  Max.   :3260.0     Max.   :20.579
 ```
 
 ```r
 # Stata-Datensatz rausschreiben
 # write_dta(Impdata.imputed, paste0("Outfiles/2019/Stata/impdata.dta"))
 ```
+
 
 
 
