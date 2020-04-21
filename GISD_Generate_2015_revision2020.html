@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 
 <head>
 
 <meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="Niels Michalski auf Basis der Syntax von Lars Kroll" />
+<meta name="author" content="Niels Michalski (Überarbeitung der Syntax von Lars Kroll)" />
 
+<meta name="date" content="2020-04-21" />
 
 <title>GISD - German Index of Socio-Economic Deprivation</title>
 
@@ -391,6 +391,7 @@ summary {
   border: none;
   display: inline-block;
   border-radius: 4px;
+  background-color: transparent;
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li {
@@ -434,17 +435,15 @@ summary {
 
 
 <h1 class="title toc-ignore">GISD - German Index of Socio-Economic Deprivation</h1>
-<h4 class="author">Niels Michalski auf Basis der Syntax von Lars Kroll</h4>
-<h4 class="date">04 04 2020</h4>
+<h4 class="author">Niels Michalski (Überarbeitung der Syntax von Lars Kroll)</h4>
+<h4 class="date">21 April 2020</h4>
 
 </div>
 
 <div id="TOC">
 <ul>
-<li><a href="#intro">Intro</a><ul>
-<li><a href="#fehleranalyse">Fehleranalyse</a></li>
-</ul></li>
-<li><a href="#beschreibung-der-syntax">Beschreibung der Syntax</a><ul>
+<li><a href="#intro">Intro</a></li>
+<li><a href="#testreferenz">Kommentierte Darstellung der Syntax</a><ul>
 <li><a href="#benötigte-pakete">0. Benötigte Pakete</a></li>
 <li><a href="#i.-generierung-eines-id-datensatzes">I. Generierung eines ID-Datensatzes</a></li>
 <li><a href="#ii.-erzeugen-eines-datensatzes-mit-kennziffern-als-id-unabhängig-von-der-ebene">II. Erzeugen eines Datensatzes mit Kennziffern als ID unabhängig von der Ebene</a></li>
@@ -460,16 +459,16 @@ summary {
 
 <div id="intro" class="section level1">
 <h1>Intro</h1>
-<p>…</p>
-<div id="fehleranalyse" class="section level2">
-<h2>Fehleranalyse</h2>
-<p>In der Revision 2019 der GISD-Daten tauchten zum Teil starke Abweichungen zur Revision 2018 auf.Bei der Addition der Teildimensionen ging die Bildungsdimension in umgekehrter Richtung in den GISD ein. Ausschlaggebend ist eine negative Korrelation der Bildungsdimension mit dem Anteil Arbeitsloser, die im Code der vergangenen Revisionen zu einer Umpolung des Teilscores führt. Der Anteil Arbeitsloser wird als Markerindikator verwendet.</p>
+<p>Auf diesem Codeblog stelle ich die Generierung des German Index of Socio-Economic Deprivation vor. Dabei handelt es sich um einen Index sozioökonomischer Deprivation auf regionalräumlicher Ebene, der 2016 im Fachgebiet Soziale Determinanten der Gesundheit am RKI entwickelt wurde und seither jährlich aktualisiert wird. Für die Generierung werden Indikatoren der INKAR-Datenbank des BBSR verwendet. Es wird die Revision 2019 vorgestellt, die Daten aus den Jahren 1998 bis 2015 verwendet.
+In einer früheren Revision für 2019 tauchten zum Teil starke Abweichungen zur Revision 2018 auf. Der Grund dafür, war dass bei der Addition der Teildimensionen die Bildungsdimension in umgekehrter Richtung in den GISD einging. Ausschlaggebend für diesen Fehler war eine negative Korrelation der Bildungsdimension mit dem Anteil Arbeitsloser, die im Code der vergangenen Revisionen zu einer Umpolung des Teilscores führt. Der Anteil Arbeitsloser wird als Markerindikator verwendet. Die folgende Darstellung zeigt und diskutiert die Problematik und stellt eine Lösung vor.</p>
 </div>
-</div>
-<div id="beschreibung-der-syntax" class="section level1">
-<h1>Beschreibung der Syntax</h1>
+<div id="testreferenz" class="section level1">
+<h1>Kommentierte Darstellung der Syntax</h1>
+<p>Das folgende Kapitel stellt die Syntax zur Generierung der Daten mit R vor. Der Code ist optional darstellbar und enthält detaillierte Kommentare.</p>
+<p>Test der Referenz <a href="#testreferenz"><strong>??</strong></a></p>
 <div id="benötigte-pakete" class="section level2">
 <h2>0. Benötigte Pakete</h2>
+<p>Der Code nutzt im Wesentlichen die Pakete des Tidyverse.</p>
 <pre class="r"><code>library(&quot;tidyverse&quot;) # Tidyverse Methods
 library(&quot;readxl&quot;) # Read Excel
 library(&quot;imputeTS&quot;) # Impute Missing Features
@@ -485,7 +484,8 @@ dir.create(&quot;Outfiles/2019/Stata&quot;)</code></pre>
 </div>
 <div id="i.-generierung-eines-id-datensatzes" class="section level2">
 <h2>I. Generierung eines ID-Datensatzes</h2>
-<p>Generierung eines Datensatzes in dem den kleinsten regionalen Einheiten (Gemeinden) alle übergeordneten regionalen Einheiten und deren Regionalkennziffern zugeordnet werden. Datenquelle ist die Gebietsstandsreferenz von Destatis.</p>
+<p>Zunächst muss ein Datensatz generiert werden in dem den kleinsten regionalen Einheiten (Gemeinden) alle
+übergeordneten regionalen Einheiten und deren Regionalkennziffern zugeordnet werden. Datenquelle ist die Gebietsstandsreferenz von Destatis Stand 31.12.2015.</p>
 <pre class="r"><code>Gemeinden_INKAR &lt;- read_excel(&quot;Data/Referenz/Referenz_1998_2015.xlsx&quot;, sheet = &quot;Gemeinden&quot;, na = &quot;NA&quot;, skip = 2) %&gt;% 
   rename(Kennziffer=gem15,&quot;Kennziffer Gemeindeverband&quot;=&quot;Gemeindeverband, Stand 31.12.2015&quot;) %&gt;% filter(!is.na(Kennziffer))
 # Pipes: 
@@ -505,7 +505,6 @@ Kreise_INKAR &lt;- read_excel(&quot;Data/Referenz/Referenz_1998_2015.xlsx&quot;,
 # Pipes: 
 # 1. neue Variable generieren, die die Kreisvariable auf den Fünfsteller reduzieren
 # 2. Missing herausfiltern
-
 
 # Die drei Datensätze werden nun ausgehend vom Gemeindedatensatz zu einem ID-Datensatz zusammmengefügt
 id_dataset &lt;- Gemeinden_INKAR %&gt;% 
@@ -528,7 +527,7 @@ id_dataset &lt;- Gemeinden_INKAR %&gt;%
 </div>
 <div id="ii.-erzeugen-eines-datensatzes-mit-kennziffern-als-id-unabhängig-von-der-ebene" class="section level2">
 <h2>II. Erzeugen eines Datensatzes mit Kennziffern als ID unabhängig von der Ebene</h2>
-<p>In diesem Abschnitt werden die INKAR-Daten zu den Indikatoren in einem Datensatz zusammengeführt. Die Information für die Indikatoren, die für die Berechnung des GISD verwendet werden, liegt auf unterschiedlichen Ebenen vor. Die Faktorenanalyse soll auf Gemeindeebene durchgeführt werden, weshalb Information der Kreisebene an die Gemeinden innerhalb der Kreise angespielt werden. Percentile aus dem Index könen später für jede regionale Ebene separat berechnet werden. Datenbasis sind die INKAR-Daten der jeweiligen Indikatoren im Excel-Format</p>
+<p>In diesem Code-Abschnitt werden die INKAR-Daten zu den Indikatoren in einem Datensatz zusammengeführt. Die Information für die Indikatoren, die für die Berechnung des GISD verwendet werden, liegt auf unterschiedlichen Ebenen vor. Die Faktorenanalysen sollen auf Gemeindeebene durchgeführt werden, weshalb Information der Kreisebene an die Gemeinden innerhalb der Kreise angespielt wird. Percentile des Indexes können so später für jede regionale Ebene separat berechnet werden. Datenbasis sind die INKAR-Daten der jeweiligen Indikatoren im Excel-Format, die zu jeder Revision aus der INKAR-Datenbank heruntergeladen werden.</p>
 <pre class="r"><code># Basis erzeugen: Ausgangspunkt Kreisdaten
 # Es werden Indikatoren allen Ebenen angespielt, als erstes die Kreise.
 Basedata    &lt;- Kreise_INKAR %&gt;% select(Kennziffer) %&gt;% mutate(Jahr=2015)
@@ -579,8 +578,56 @@ ind_level &lt;- c(&quot;Gemeindeverband&quot;,&quot;Gemeindeverband&quot;,&quot;
 level_table &lt;- cbind(listofdeterminants,ind_level)
 # Tabelle der Indikatoren mit regionaler Tiefe
 ind_col = c(&quot;Indikator&quot;,&quot;Tiefe des Indikators&quot;)
-knitr::kable(level_table, col.names = ind_col)</code></pre>
+
+
+# Datensatz für die Gemeindeverbandsebene generieren
+Basedata_Gemeindeverbandsebene &lt;- Basedata %&gt;% dplyr::select(Kennziffer,Jahr,Arbeitslosigkeit,Beschaeftigtenquote,Einkommenssteuer) %&gt;%   
+  gather(key,value,3:5) %&gt;% filter(!is.na(value)) %&gt;% spread(key,value) %&gt;% filter(Jahr&gt;=1998) %&gt;% rename(&quot;Gemeindeverband&quot;=Kennziffer)
+# Pipes:  1. Auswahl der Variablen 
+#         2. Reshape der Daten wide nach long      
+#         3. Auswahl von Non-Missing 
+#         4. Reshape von long nach wide 
+#         5. Auswahl der Daten Jahr&gt;=1998
+#         6. Umbenennung der Kennziffervariable
+
+# Datensatz für die Kreisebene generieren 
+Basedata_Kreisebene &lt;- Basedata %&gt;% select(krs15=Kennziffer,Jahr,listofdeterminants) %&gt;% 
+  select(-Arbeitslosigkeit,-Einkommenssteuer,-Beschaeftigtenquote) %&gt;% rename(Kreis=krs15)
+# Pipes:  1. neben der Kennziffer, die einen anderen Namen bekommt wird das Jahr und die Variablenliste ausgewählt
+#         2. drei Variablen werden aus der Auswahl ausgeschlossen
+#         3. die Kreisvariable wird in Kreis umbenannt, weil im nächsten Schritt Kreisinfos an die Gemeinden angespielt werden
+
+# Join different levels
+# Nun werden die Daten bezogen auf die Ebenen gemergt
+Workfile &lt;- as.data.frame(expand.grid(&quot;Kennziffer&quot;=Gemeinden_INKAR %&gt;% pull(Kennziffer),&quot;Jahr&quot;=seq(min(Basedata$Jahr):max(Basedata$Jahr)) + min(Basedata$Jahr)-1)) %&gt;%
+   mutate(Kreiskennziffer=floor(as.numeric(Kennziffer)/1000)) %&gt;% as_tibble() %&gt;%
+   left_join(. , Gemeinden_INKAR,by=c(&quot;Kennziffer&quot;))  %&gt;%
+   select(Gemeindekennziffer=Kennziffer,Kreis=Kreiskennziffer,Gemeindeverband=&quot;Kennziffer Gemeindeverband&quot;,Jahr,Bevoelkerung=`Bevölkerung 31.12.2015`) %&gt;% 
+      arrange(Gemeindekennziffer,Jahr) %&gt;% # Join Metadata
+   left_join(. , Basedata_Kreisebene,by=c(&quot;Kreis&quot;,&quot;Jahr&quot;)) %&gt;% # Hier wird über Kreis gematched
+   left_join(. , Basedata_Gemeindeverbandsebene,by=c(&quot;Gemeindeverband&quot;,&quot;Jahr&quot;)) %&gt;%  # Join Indicators for Level: Gemeindeverband 
+   filter(Jahr&gt;=1998)
+
+# als erstes wird ein data.frame erzeugt (Workfile); der alle Gemeindewellen (1998-201x) in den Zeilen stehen hat
+# 1. expand.grid erzeugt ein tibble mit allen Kombinationen von Kennziffern und Jahren
+#     pull erzeugt einen Vektor für die Variablenwerte von Kennziffer aus dem Datensatz
+#     + min(...) wird zu der Sequenz von Jahren aus dem Basedata addiert (1 bis X) damit auch Jahreswerte weitergeben werden
+# 2. mutate generiert eine Kreiskennziffer
+# 3. as.tibble erzeugt einen tibble, damit left_join genutzt werden kann
+# 4. erstes left_join spielt die Gemeindedaten über Kennziffer an, das geht so, weil Gemeinden_INKAR als tibble gespeichert ist
+# 5. select, wählt die inhaltlichen Variablen aus, und ändert die Variablennamen; 
+# 6. arrange im select sortiert nach Gemeindekennziffer und Jahr
+# 7. zweites left_join spielt die Daten der Kreisebene via Kreis und Jahr an
+# 8. drittes left_join spielt die Daten der Gemeindeverbandsebene via Gemeindeverband und Jahr an
+# Notiz: . in den Befehlen bezieht sich auf den tibble bzw. data.frame der in der Pipe bearbeitet wird
+
+# Stata-Datensatz rausschreiben
+write_dta(Workfile, paste0(&quot;Outfiles/2019/Stata/workfile.dta&quot;))
+
+# Ende Generierung Basisdatensatz</code></pre>
+<p>Tabelle <a href="#tab:indicators">1</a> stellt die Indikatoren dar.</p>
 <table>
+<caption><span id="tab:indicators">Table 1: </span>Liste der Indikatoren</caption>
 <thead>
 <tr class="header">
 <th align="left">Indikator</th>
@@ -630,51 +677,6 @@ knitr::kable(level_table, col.names = ind_col)</code></pre>
 </tr>
 </tbody>
 </table>
-<pre class="r"><code># Datensatz für die Gemeindeverbandsebene generieren
-Basedata_Gemeindeverbandsebene &lt;- Basedata %&gt;% dplyr::select(Kennziffer,Jahr,Arbeitslosigkeit,Beschaeftigtenquote,Einkommenssteuer) %&gt;%   
-  gather(key,value,3:5) %&gt;% filter(!is.na(value)) %&gt;% spread(key,value) %&gt;% filter(Jahr&gt;=1998) %&gt;% rename(&quot;Gemeindeverband&quot;=Kennziffer)
-# Pipes:  1. Auswahl der Variablen 
-#         2. Reshape der Daten wide nach long      
-#         3. Auswahl von Non-Missing 
-#         4. Reshape von long nach wide 
-#         5. Auswahl der Daten Jahr&gt;=1998
-#         6. Umbenennung der Kennziffervariable
-
-# Datensatz für die Kreisebene generieren 
-Basedata_Kreisebene &lt;- Basedata %&gt;% select(krs15=Kennziffer,Jahr,listofdeterminants) %&gt;% 
-  select(-Arbeitslosigkeit,-Einkommenssteuer,-Beschaeftigtenquote) %&gt;% rename(Kreis=krs15)
-# Pipes:  1. neben der Kennziffer, die einen anderen Namen bekommt wird das Jahr und die Variablenliste ausgewählt
-#         2. drei Variablen werden aus der Auswahl ausgeschlossen
-#         3. die Kreisvariable wird in Kreis umbenannt, weil im nächsten Schritt Kreisinfos an die Gemeinden angespielt werden
-
-# Join different levels
-# Nun werden die Daten bezogen auf die Ebenen gemergt
-Workfile &lt;- as.data.frame(expand.grid(&quot;Kennziffer&quot;=Gemeinden_INKAR %&gt;% pull(Kennziffer),&quot;Jahr&quot;=seq(min(Basedata$Jahr):max(Basedata$Jahr)) + min(Basedata$Jahr)-1)) %&gt;%
-   mutate(Kreiskennziffer=floor(as.numeric(Kennziffer)/1000)) %&gt;% as_tibble() %&gt;%
-   left_join(. , Gemeinden_INKAR,by=c(&quot;Kennziffer&quot;))  %&gt;%
-   select(Gemeindekennziffer=Kennziffer,Kreis=Kreiskennziffer,Gemeindeverband=&quot;Kennziffer Gemeindeverband&quot;,Jahr,Bevoelkerung=`Bevölkerung 31.12.2015`) %&gt;% 
-      arrange(Gemeindekennziffer,Jahr) %&gt;% # Join Metadata
-   left_join(. , Basedata_Kreisebene,by=c(&quot;Kreis&quot;,&quot;Jahr&quot;)) %&gt;% # Hier wird über Kreis gematched
-   left_join(. , Basedata_Gemeindeverbandsebene,by=c(&quot;Gemeindeverband&quot;,&quot;Jahr&quot;)) %&gt;%  # Join Indicators for Level: Gemeindeverband 
-   filter(Jahr&gt;=1998)
-
-# als erstes wird ein data.frame erzeugt (Workfile); der alle Gemeindewellen (1998-201x) in den Zeilen stehen hat
-# 1. expand.grid erzeugt ein tibble mit allen Kombinationen von Kennziffern und Jahren
-#     pull erzeugt einen Vektor für die Variablenwerte von Kennziffer aus dem Datensatz
-#     + min(...) wird zu der Sequenz von Jahren aus dem Basedata addiert (1 bis X) damit auch Jahreswerte weitergeben werden
-# 2. mutate generiert eine Kreiskennziffer
-# 3. as.tibble erzeugt einen tibble, damit left_join genutzt werden kann
-# 4. erstes left_join spielt die Gemeindedaten über Kennziffer an, das geht so, weil Gemeinden_INKAR als tibble gespeichert ist
-# 5. select, wählt die inhaltlichen Variablen aus, und ändert die Variablennamen; 
-# 6. arrange im select sortiert nach Gemeindekennziffer und Jahr
-# 7. zweites left_join spielt die Daten der Kreisebene via Kreis und Jahr an
-# 8. drittes left_join spielt die Daten der Gemeindeverbandsebene via Gemeindeverband und Jahr an
-# Notiz: . in den Befehlen bezieht sich auf den tibble bzw. data.frame der in der Pipe bearbeitet wird
-
-# Stata-Datensatz rausschreiben
-write_dta(Workfile, paste0(&quot;Outfiles/2019/Stata/workfile.dta&quot;))
-
-# Ende Generierung Basisdatensatz</code></pre>
 </div>
 <div id="iii.imputation-fehlender-werte" class="section level2">
 <h2>III.Imputation fehlender Werte</h2>
@@ -855,337 +857,9 @@ summary(as.data.frame(Impdata.imputed) %&gt;% ungroup()  %&gt;% select(listofdet
 </div>
 <div id="iv.-faktorenanalyse-hauptkomponentenanalyse-inklusive-generierung-der-faktorscores" class="section level2">
 <h2>IV. Faktorenanalyse (Hauptkomponentenanalyse) inklusive Generierung der Faktorscores</h2>
-<pre class="r"><code># Variablenliste für die Faktorenanalyse 
-print(listofdeterminants)</code></pre>
-<pre><code>##  [1] &quot;Arbeitslosigkeit&quot;                &quot;Beschaeftigtenquote&quot;            
-##  [3] &quot;Bruttoverdienst&quot;                 &quot;BeschaeftigtemitakadAbschluss&quot;  
-##  [5] &quot;BeschaeftigteohneAbschluss&quot;      &quot;SchulabgaengermitHochschulreife&quot;
-##  [7] &quot;SchulabgaengerohneAbschluss&quot;     &quot;Einkommenssteuer&quot;               
-##  [9] &quot;Haushaltseinkommen&quot;              &quot;Schuldnerquote&quot;</code></pre>
-<pre class="r"><code>TS_Arbeitswelt &lt;- Impdata.imputed %&gt;% dplyr::select(Beschaeftigtenquote,Arbeitslosigkeit,Bruttoverdienst) 
-TS_Einkommen   &lt;- Impdata.imputed %&gt;% dplyr::select(Einkommenssteuer,Haushaltseinkommen,Schuldnerquote) 
-# für den Vergleich der Ergebnisse wird zunächst ein Datensatz für die ursprüngliche Variablenauswahl der Revision 2019 generiert
-TS_Bildung_old  &lt;- Impdata.imputed %&gt;% dplyr::select(BeschaeftigtemitakadAbschluss,BeschaeftigteohneAbschluss,SchulabgaengerohneAbschluss) 
-# dann die aktuelle Interimslösung
-TS_Bildung &lt;- Impdata.imputed %&gt;% dplyr::select(BeschaeftigtemitakadAbschluss,SchulabgaengermitHochschulreife,SchulabgaengerohneAbschluss) 
-# hier wurde die Variable BeschaeftigteohneAbschluss durch SchulabgaengermitHochschulreife ersetzt
-
-
-# Faktorenanalyse basierend auf Hauptkomponentenanalyse für jede der drei Subscalen
-# Arbeitswelt: zunächst Analyse der Faktorlösung
-TS_Arbeitswelt.pca &lt;- prcomp(TS_Arbeitswelt, center = TRUE, scale. = TRUE, retx=TRUE)
-    # Option retx erzeugt rotierte Lösung
-head(TS_Arbeitswelt.pca$sdev)</code></pre>
-<pre><code>## [1] 1.3561452 0.8791822 0.6228232</code></pre>
-<pre class="r"><code># nur die erste Komponente mit Eigenwert über 1
-    # (prcomp gibt standardmäßig Sdev statt Varianz aus)
-plot(TS_Arbeitswelt.pca)</code></pre>
-<p><img src="data:image/png;base64,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" /><!-- --></p>
-<pre class="r"><code>    # screeplot - bei nur drei Variablen wird ein Balkendiagramm angezeigt
-TS_Arbeitswelt.pca</code></pre>
-<pre><code>## Standard deviations (1, .., p=3):
-## [1] 1.3561452 0.8791822 0.6228232
-## 
-## Rotation (n x k) = (3 x 3):
-##                            PC1        PC2        PC3
-## Beschaeftigtenquote  0.4827883  0.8433030  0.2361260
-## Arbeitslosigkeit    -0.5931929  0.5132653 -0.6202265
-## Bruttoverdienst      0.6442342 -0.1593698 -0.7480398</code></pre>
-<pre class="r"><code># die Faktorladungen der drei Hauptkomponenten für Arbeitswelt 
-# die Ladungen der ersten Komponente enstprechen der Erwartung
-
-TS_Arbeitswelt.pca &lt;- prcomp(TS_Arbeitswelt, center = TRUE, scale. = TRUE, retx=TRUE, rank. = 1)
-# die Option rank erlaubt die Beschränkung der ANzahl an Komponenten (Faktoren)
-TS_Arbeitswelt.pca</code></pre>
-<pre><code>## Standard deviations (1, .., p=3):
-## [1] 1.3561452 0.8791822 0.6228232
-## 
-## Rotation (n x k) = (3 x 1):
-##                            PC1
-## Beschaeftigtenquote  0.4827883
-## Arbeitslosigkeit    -0.5931929
-## Bruttoverdienst      0.6442342</code></pre>
-<pre class="r"><code># Hauptkomponentenanalyse für die Einkommensdimension
-TS_Einkommen.pca &lt;- prcomp(TS_Einkommen, center = TRUE, scale. = TRUE, retx=TRUE) 
-TS_Einkommen.pca &lt;- prcomp(TS_Einkommen, center = TRUE, scale. = TRUE, retx=TRUE, rank. = 1) 
-TS_Einkommen.pca</code></pre>
-<pre><code>## Standard deviations (1, .., p=3):
-## [1] 1.4411216 0.8543562 0.4395953
-## 
-## Rotation (n x k) = (3 x 1):
-##                           PC1
-## Einkommenssteuer   -0.6368996
-## Haushaltseinkommen -0.6268504
-## Schuldnerquote      0.4487957</code></pre>
-<pre class="r"><code># Hauptkomponentenanalyse für die Bildungsdimension
-TS_Bildung_old.pca &lt;- prcomp(TS_Bildung, center = TRUE, scale. = TRUE, retx=TRUE) 
-# für die Bildung deutet die Analyse eher auf zwei Komponenten hin
-# die Faktorladung für SchulabgaengerohneAbschluss ist auf dem ersten Faktor schwach, 
-# die Faktorladung für BeschaeftigtemitakadAbschluss auf dem zweiten
-# es wird die Komponente ausgewählt, bei der Beschaeftigte mit akad Abschluss positiv korreliert und 
-# BeschaeftigteohneAbschluss und SchulabgaengerohneAbschluss negativ
-# regionale Deprivation als Merkmal geringer Anteile von Akademikern bei gleichzeitigen hohen Anteilen 
-# von Beschaeftigten ohne Abschluss und Schulabgaengern ohne Abschluss
-TS_Bildung_old.pca &lt;- prcomp(TS_Bildung, center = TRUE, scale. = TRUE, retx=TRUE, rank. = 1) 
-TS_Bildung_old.pca</code></pre>
-<pre><code>## Standard deviations (1, .., p=3):
-## [1] 1.3378311 0.9049775 0.6254788
-## 
-## Rotation (n x k) = (3 x 1):
-##                                        PC1
-## BeschaeftigtemitakadAbschluss    0.6478416
-## SchulabgaengermitHochschulreife  0.6230148
-## SchulabgaengerohneAbschluss     -0.4383535</code></pre>
-<pre class="r"><code>TS_Bildung_old.pca$rotation</code></pre>
-<pre><code>##                                        PC1
-## BeschaeftigtemitakadAbschluss    0.6478416
-## SchulabgaengermitHochschulreife  0.6230148
-## SchulabgaengerohneAbschluss     -0.4383535</code></pre>
-<pre class="r"><code># Interimslösung Bildungskomponente mit BeschaeftigtemitakadAbschluss,SchulabgaengermitHochschulreife,SchulabgaengerohneAbschluss
-TS_Bildung.pca &lt;- prcomp(TS_Bildung, center = TRUE, scale. = TRUE, retx=TRUE, rank. = 1) 
-TS_Bildung.pca</code></pre>
-<pre><code>## Standard deviations (1, .., p=3):
-## [1] 1.3378311 0.9049775 0.6254788
-## 
-## Rotation (n x k) = (3 x 1):
-##                                        PC1
-## BeschaeftigtemitakadAbschluss    0.6478416
-## SchulabgaengermitHochschulreife  0.6230148
-## SchulabgaengerohneAbschluss     -0.4383535</code></pre>
-<pre class="r"><code># Es wurde außerdem eine Komponentenanalyse mit allen vier Bildungsindikatoren durchgeführt. 
-# Aber auch hier bestand das Problem, der inkonsistenten Korrelationen zwischen den Teildimensionen.
-
-# Nun wird die Generierung der Faktorscores vorbereitet.
-
-# Componentoverview
-GISD_Komponents &lt;- cbind(&quot;Teildimension&quot;=&quot;Arbeitswelt&quot;,&quot;Anteil&quot;=TS_Arbeitswelt.pca$rotation^2,&quot;Score&quot;=TS_Arbeitswelt.pca$rotation) 
-# cbind erstellt Spaltenvektoren mit den Infos aus Teildimension, den (rotierten) Faktorladungen und den Components; 
-GISD_Komponents &lt;- rbind(GISD_Komponents,cbind(&quot;Teildimension&quot;=&quot;Einkommen&quot;,&quot;Anteil&quot;=TS_Einkommen.pca$rotation^2,&quot;Score&quot;=TS_Einkommen.pca$rotation)) 
-# rbind erstellt Zeilenvektoren, diese werden hier in die bereits vorhandenen Spaltenvektoren eingebunden
-GISD_Komponents &lt;- rbind(GISD_Komponents,cbind(&quot;Teildimension&quot;=&quot;Bildung&quot;,&quot;Anteil&quot;=TS_Bildung.pca$rotation^2,&quot;Score&quot;=TS_Bildung.pca$rotation)) 
-# auch für die Teildimension Bildung werden Zeilenvektoren eingebunden
-GISD_Komponents &lt;- cbind(&quot;Variables&quot;=as.data.frame(rownames(GISD_Komponents)),as.data.frame(GISD_Komponents))
-# als letztes wird die Matrix in einen Dataframe übersetzt
-
-rownames(GISD_Komponents) &lt;- NULL
-# die überflüssigen Zeilennamen werden gestrichen
-colnames(GISD_Komponents) &lt;- c(&quot;Variable&quot;,&quot;Dimension&quot;,&quot;Anteil&quot;,&quot;Score&quot;)
-# aussagekräftige Spaltennamen vergeben
-GISD_Komponents$GISD &lt;- &quot;GISD&quot;
-# eine weitere Spalte wird eingefügt mit dem String &quot;GISD&quot; in jeder Zeile
-GISD_Komponents$Proportion &lt;- round(as.numeric(as.character(GISD_Komponents$Anteil))*100,digits=1)
-# eine weitere Spalte Proportion wird eingefügt mit prozentualen Anteilswerten (eine Nachkommastelle)
-
-# Hier findet die Prediction der Scores statt
-Resultdataset &lt;- Impdata.imputed
-Resultdataset$TS_Arbeitswelt &lt;- as.numeric(predict(TS_Arbeitswelt.pca, newdata = Impdata.imputed))
-Resultdataset$TS_Einkommen &lt;- as.numeric(predict(TS_Einkommen.pca , newdata = Impdata.imputed))
-Resultdataset$TS_Bildung &lt;- as.numeric(predict(TS_Bildung.pca, newdata = Impdata.imputed))
-
-summary(Resultdataset %&gt;% dplyr::select(TS_Arbeitswelt, TS_Einkommen, TS_Bildung))</code></pre>
-<pre><code>##  TS_Arbeitswelt      TS_Einkommen        TS_Bildung     
-##  Min.   :-5.75213   Min.   :-7.37246   Min.   :-4.2283  
-##  1st Qu.:-0.82308   1st Qu.:-0.92273   1st Qu.:-1.0177  
-##  Median : 0.05911   Median : 0.04721   Median :-0.1026  
-##  Mean   : 0.00000   Mean   : 0.00000   Mean   : 0.0000  
-##  3rd Qu.: 0.91194   3rd Qu.: 0.98654   3rd Qu.: 0.8509  
-##  Max.   : 5.91914   Max.   : 4.34194   Max.   : 8.5131</code></pre>
-<pre class="r"><code># Korrelationen überprüfen
-Resultdataset %&gt;% dplyr::select(Arbeitslosigkeit,TS_Arbeitswelt,TS_Einkommen,TS_Bildung)  %&gt;% cor( use=&quot;pairwise.complete.obs&quot;)  </code></pre>
-<pre><code>##                  Arbeitslosigkeit TS_Arbeitswelt TS_Einkommen TS_Bildung
-## Arbeitslosigkeit        1.0000000     -0.8044557    0.7507066 -0.1570911
-## TS_Arbeitswelt         -0.8044557      1.0000000   -0.8729769  0.4945504
-## TS_Einkommen            0.7507066     -0.8729769    1.0000000 -0.4848497
-## TS_Bildung             -0.1570911      0.4945504   -0.4848497  1.0000000</code></pre>
-<pre class="r"><code># die Richtung der Skala der Scores ist nach der Generierung willkürlich 
-# sie werden nun anhand der Variable Arbeitslosigkeit ausgerichtet,
-# d.h. sie werden so gepolt, dass sie positiv mit Arbeitslosigkeit korrelieren, um Deprivation abzubilden:
-
-if (cor(Resultdataset$Arbeitslosigkeit, Resultdataset$TS_Bildung,use=&quot;pairwise.complete.obs&quot;)&lt;0) {
-   Resultdataset$TS_Bildung &lt;- Resultdataset$TS_Bildung*-1
-   }
-if (cor(Resultdataset$Arbeitslosigkeit, Resultdataset$TS_Arbeitswelt,use=&quot;pairwise.complete.obs&quot;)&lt;0) {
-  Resultdataset$TS_Arbeitswelt &lt;- Resultdataset$TS_Arbeitswelt*-1
-  }
-if (cor(Resultdataset$Arbeitslosigkeit, Resultdataset$TS_Einkommen,use=&quot;pairwise.complete.obs&quot;)&lt;0) {
-  Resultdataset$TS_Einkommen &lt;- Resultdataset$TS_Einkommen*-1
-}
-
-# Korrelationen erneut überprüfen
-Resultdataset %&gt;% dplyr::select(Arbeitslosigkeit,TS_Arbeitswelt,TS_Einkommen,TS_Bildung) %&gt;% cor( use=&quot;pairwise.complete.obs&quot;)</code></pre>
-<pre><code>##                  Arbeitslosigkeit TS_Arbeitswelt TS_Einkommen TS_Bildung
-## Arbeitslosigkeit        1.0000000      0.8044557    0.7507066  0.1570911
-## TS_Arbeitswelt          0.8044557      1.0000000    0.8729769  0.4945504
-## TS_Einkommen            0.7507066      0.8729769    1.0000000  0.4848497
-## TS_Bildung              0.1570911      0.4945504    0.4848497  1.0000000</code></pre>
-<pre class="r"><code># nun sind alle Korrelationen positiv
-# wenngleich die Korrelation der Bildungsdimension mit Arbeitslosigkeit sehr gering ist
-# inhaltlich ist das nicht unplausibel (höhere Abiturquoten in strukturschwachen Regionen)
-
-GISD_Komponents</code></pre>
-<pre><code>##                          Variable   Dimension            Anteil
-## 1             Beschaeftigtenquote Arbeitswelt 0.233084541233513
-## 2                Arbeitslosigkeit Arbeitswelt 0.351877801591055
-## 3                 Bruttoverdienst Arbeitswelt 0.415037657175432
-## 4                Einkommenssteuer   Einkommen 0.405641062139618
-## 5              Haushaltseinkommen   Einkommen 0.392941396618166
-## 6                  Schuldnerquote   Einkommen 0.201417541242217
-## 7   BeschaeftigtemitakadAbschluss     Bildung 0.419698751922249
-## 8 SchulabgaengermitHochschulreife     Bildung  0.38814743706575
-## 9     SchulabgaengerohneAbschluss     Bildung 0.192153811012001
-##                Score GISD Proportion
-## 1  0.482788298567305 GISD       23.3
-## 2 -0.593192887340244 GISD       35.2
-## 3  0.644234163309764 GISD       41.5
-## 4 -0.636899569900638 GISD       40.6
-## 5  -0.62685037817502 GISD       39.3
-## 6  0.448795656443127 GISD       20.1
-## 7  0.647841610212133 GISD       42.0
-## 8  0.623014796827291 GISD       38.8
-## 9 -0.438353522869386 GISD       19.2</code></pre>
-<pre class="r"><code># Tabelle der Komponenten mit den Anteilen ausgeben und gespeichert
-save(GISD_Komponents, file=&quot;Outfiles/2019/GISD_Komponents.RData&quot;)
-
-# Normalization
-Resultdataset$TS_Arbeitswelt &lt;- (Resultdataset$TS_Arbeitswelt -min(Resultdataset$TS_Arbeitswelt ))/(max(Resultdataset$TS_Arbeitswelt )-min(Resultdataset$TS_Arbeitswelt ))
-Resultdataset$TS_Einkommen &lt;- (Resultdataset$TS_Einkommen -min(Resultdataset$TS_Einkommen ))/(max(Resultdataset$TS_Einkommen )-min(Resultdataset$TS_Einkommen ))
-Resultdataset$TS_Bildung &lt;- (Resultdataset$TS_Bildung -min(Resultdataset$TS_Bildung ))/(max(Resultdataset$TS_Bildung )-min(Resultdataset$TS_Bildung ))
-
-
-# GISD
-Resultdataset$GISD_Score &lt;- Resultdataset$TS_Arbeitswelt+Resultdataset$TS_Einkommen+Resultdataset$TS_Bildung
-Resultdataset$GISD_Score &lt;- (Resultdataset$GISD_Score -min(Resultdataset$GISD_Score ))/(max(Resultdataset$GISD_Score )-min(Resultdataset$GISD_Score ))
-
-# Result
-summary(Resultdataset %&gt;% select(TS_Arbeitswelt,TS_Einkommen,TS_Bildung,GISD_Score))</code></pre>
-<pre><code>##  TS_Arbeitswelt    TS_Einkommen      TS_Bildung       GISD_Score    
-##  Min.   :0.0000   Min.   :0.0000   Min.   :0.0000   Min.   :0.0000  
-##  1st Qu.:0.4290   1st Qu.:0.5506   1st Qu.:0.6014   1st Qu.:0.5789  
-##  Median :0.5021   Median :0.6334   Median :0.6762   Median :0.6626  
-##  Mean   :0.5072   Mean   :0.6294   Mean   :0.6681   Mean   :0.6573  
-##  3rd Qu.:0.5777   3rd Qu.:0.7136   3rd Qu.:0.7480   3rd Qu.:0.7421  
-##  Max.   :1.0000   Max.   :1.0000   Max.   :1.0000   Max.   :1.0000</code></pre>
-<pre class="r"><code>str(Resultdataset %&gt;% select(TS_Arbeitswelt,TS_Einkommen,TS_Bildung,GISD_Score))</code></pre>
-<pre><code>## Classes &#39;tbl_df&#39;, &#39;tbl&#39; and &#39;data.frame&#39;:    199656 obs. of  4 variables:
-##  $ TS_Arbeitswelt: num  0.705 0.678 0.643 0.593 0.584 ...
-##  $ TS_Einkommen  : num  0.868 0.872 0.858 0.853 0.849 ...
-##  $ TS_Bildung    : num  0.694 0.659 0.626 0.652 0.663 ...
-##  $ GISD_Score    : num  0.843 0.82 0.787 0.775 0.775 ...</code></pre>
-<pre class="r"><code># Teilscores und GISD-Score in Datensatz speichern
-Resultdataset &lt;- Resultdataset %&gt;% select(Gemeindekennziffer,Jahr,Bevoelkerung,contains(&quot;TS_&quot;),contains(&quot;GISD_Score&quot;))</code></pre>
 </div>
 <div id="v.-datenexport---erstellung-der-datensätze" class="section level2">
 <h2>V. Datenexport - Erstellung der Datensätze</h2>
-<pre class="r"><code># Merge IDs to Resultdataset
-RawResult &lt;- left_join(Resultdataset,id_dataset,by=&quot;Gemeindekennziffer&quot;)
-
-
-# Export by level using for loop
-exportlist&lt;- NULL
-exportlist$Kennziffern &lt;- c(&quot;Gemeindekennziffer&quot;,&quot;Kreiskennziffer&quot;,&quot;Kennziffer Gemeindeverband&quot;,&quot;Raumordnungsregion Nr&quot;,&quot;NUTS2&quot;)
-exportlist$Namen &lt;- c(&quot;Name der Gemeinde&quot;,&quot;Name des Kreises&quot;,&quot;Name des Gemeindeverbands&quot;,&quot;Raumordnungsregion&quot;,&quot;NUTS2 Name&quot;)
-exportlist$Label &lt;- c(&quot;Gemeinde&quot;,&quot;Kreis&quot;,&quot;Gemeindeverband&quot;,&quot;Raumordnungsregion&quot;,&quot;NUTS2&quot;)
-# mykennziffer &lt;-&quot;Gemeindekennziffer&quot; # for testing
-
-
-# Es folgt eine sehr lange Schleife
-# für alle Regionalkennziffern (siehe Vektor) werden Datensätze generiert und in Ordnern abgelegt
-for(mykennziffer in exportlist$Kennziffern) {
-  myname &lt;-  exportlist$Namen[exportlist$Kennziffern==mykennziffer]
-  mylabel&lt;-  exportlist$Label[exportlist$Kennziffern==mykennziffer]
-  print(paste(&quot;Level:&quot;,myname,&quot;Label:&quot;,mylabel))
-  
-  # Datensatzerstellung
-  outputdata &lt;- RawResult 
-  
-  outputdata$Group &lt;- outputdata[[mykennziffer]]
-  mergedataset  &lt;- outputdata %&gt;% dplyr::select(ID=mykennziffer,myname,Bundesland) %&gt;% 
-    group_by(ID) %&gt;% filter(row_number()==1) %&gt;% ungroup() 
-  names(mergedataset)[1]=mykennziffer
-  
-  # Aggregation
-  outputdata.agg &lt;- outputdata %&gt;% 
-    group_by(Group,Jahr) %&gt;% 
-    dplyr::select(Group,Jahr,&quot;Bevoelkerung&quot;,GISD_Score) %&gt;% 
-    summarise(GISD_Score = weighted.mean(GISD_Score, Bevoelkerung), 
-              Bevoelkerung = sum(Bevoelkerung))
-  # hier werden die bevoelkerungsgewichteten Mittelwerte über die regionalen Einheiten gebildet
-  # Achtung: Referenzrahmen für den Bevölkerungsstand ist das Referenzjahr. Die Varianz der Bevölkerung über die Jahre wird nicht berücksichtigt.
-  
-  # Daten bereinigen
-  names(outputdata.agg)[1] &lt;- mykennziffer
-  outputdata.agg &lt;- merge(outputdata.agg,mergedataset,by=mykennziffer) %&gt;%  
-    dplyr::select(mykennziffer,myname,Jahr,Bundesland,&quot;Bevoelkerung&quot;,GISD_Score) %&gt;%
-    group_by(Jahr) %&gt;% as.tibble()
-  
-  # Rekodierung
-  outputdata.agg &lt;- outputdata.agg %&gt;%  mutate(GISD_Score = round((GISD_Score -min(GISD_Score ))/(max(GISD_Score )-min(GISD_Score )), digits=6),
-                                       GISD_5 = findInterval(GISD_Score, quantile(GISD_Score,   probs=0:5/5 , type=9)),
-                                       GISD_5 = findInterval(GISD_5, c(1:5)),
-                                       GISD_10 = findInterval(GISD_Score, quantile(GISD_Score, probs=0:10/10 , type=9)),
-                                       GISD_10 = findInterval(GISD_10, c(1:10)),
-                                       GISD_k = findInterval(GISD_5, c(1,2,5))) 
-  summary(outputdata.agg %&gt;% select(contains(&quot;GISD&quot;)))
-  # hier wird der GISD-Score neu normalisiert und die Quintile gebildet
-  
-  
-  
-  # Ausgabe Bund
-  dir.create(&quot;Outfiles/2019/Bund&quot;, showWarnings=F)  
-  dir.create( paste0(&quot;Outfiles/2019/Bund/&quot;,mylabel), showWarnings=F)  
-  mydata &lt;- outputdata.agg %&gt;% ungroup() %&gt;% dplyr::select(-Bundesland)
-  write.csv(mydata, paste0(&quot;Outfiles/2019/Bund/&quot;,mylabel,&quot;/&quot;,mylabel,&quot;.csv&quot;))
-  
-  names(mydata) &lt;- gsub(&quot;\\.&quot;,&quot;_&quot;,make.names(names(mydata)))
-  names(mydata) &lt;- gsub(&quot;\\?&quot;,&quot;oe&quot;,names(mydata))
-  names(mydata) &lt;- gsub(&quot;\\?&quot;,&quot;ae&quot;,names(mydata))
-  names(mydata) &lt;- gsub(&quot;\\?&quot;,&quot;ue&quot;,names(mydata))
-  names(mydata) &lt;- gsub(&quot;\\?&quot;,&quot;ss&quot;,names(mydata))
-  write_dta(mydata, paste0(&quot;Outfiles/2019/Bund/&quot;,mylabel,&quot;/&quot;,mylabel,&quot;_long.dta&quot;))
-  
-  # Ausgabe Bundeslandspezifisch ohne Stadtstaaten und nur für Ebenen Kreis und Gemeindeverband
-  if (mylabel %in% c(&quot;Gemeindeverband&quot;,&quot;Kreis&quot;)) {
-  outputdata.agg &lt;- outputdata.agg %&gt;% ungroup() %&gt;% filter(!(Bundesland %in% c(&quot;Bremen&quot;,&quot;Hamburg&quot;,&quot;Berlin&quot;))) %&gt;% dplyr::select(-GISD_k,-GISD_5,-GISD_10) %&gt;% group_by(Jahr,Bundesland) 
-  
-  # Rekodierung Bundesland
-  outputdata.agg &lt;- outputdata.agg %&gt;%  mutate(GISD_Score = round((GISD_Score -min(GISD_Score ))/(max(GISD_Score )-min(GISD_Score )), digits=6),
-                                               GISD_5 = findInterval(GISD_Score, quantile(GISD_Score,   probs=0:5/5 , type=9)),
-                                               GISD_5 = findInterval(GISD_5, c(1:5)),
-                                               GISD_10 = findInterval(GISD_Score, quantile(GISD_Score, probs=0:10/10 , type=9)),
-                                               GISD_10 = findInterval(GISD_10, c(1:10)),
-                                               GISD_k = findInterval(GISD_5, c(1,2,5))) 
-  summary(outputdata)
-  
-  # Ausgabe Bundeländer
-  ListeBula &lt;- unique(outputdata$Bundesland)
-  dir.create(&quot;Outfiles/2019/Bundesland&quot;)  
-  for(myland in ListeBula) {
-  dir.create( paste0(&quot;Outfiles/2019/Bundesland/&quot;,myland), showWarnings=F)  
-    dir.create( paste0(&quot;Outfiles/2019/Bundesland/&quot;,myland,&quot;/&quot;,mylabel), showWarnings=F)  
-    mydata &lt;- outputdata %&gt;% filter(Bundesland==myland) %&gt;% ungroup() %&gt;% dplyr::select(-Bundesland)
-    write.csv(mydata, paste0(&quot;Outfiles/2019/Bundesland/&quot;,myland,&quot;/&quot;,mylabel,&quot;/&quot;,mylabel,&quot;.csv&quot;))
-    
-    mydata &lt;- outputdata %&gt;% filter(Bundesland==myland)
-    names(mydata) &lt;- gsub(&quot;\\.&quot;,&quot;_&quot;,make.names(names(mydata)))
-    names(mydata) &lt;- gsub(&quot;\\?&quot;,&quot;oe&quot;,names(mydata))
-    names(mydata) &lt;- gsub(&quot;\\?&quot;,&quot;ae&quot;,names(mydata))
-    names(mydata) &lt;- gsub(&quot;\\?&quot;,&quot;ue&quot;,names(mydata))
-    names(mydata) &lt;- gsub(&quot;\\?&quot;,&quot;ss&quot;,names(mydata))
-    write_dta(mydata, paste0(&quot;Outfiles/2019/Bundesland/&quot;,myland,&quot;/&quot;,mylabel,&quot;/&quot;,mylabel,&quot;.dta&quot;))
-  }
-  }  
-}</code></pre>
-<pre><code>## [1] &quot;Level: Name der Gemeinde Label: Gemeinde&quot;</code></pre>
-<pre><code>## Warning: `as.tibble()` is deprecated, use `as_tibble()` (but mind the new semantics).
-## This warning is displayed once per session.</code></pre>
-<pre><code>## [1] &quot;Level: Name des Kreises Label: Kreis&quot;</code></pre>
-<pre><code>## Warning in dir.create(&quot;Outfiles/2019/Bundesland&quot;):
-## &#39;Outfiles\2019\Bundesland&#39; existiert bereits</code></pre>
-<pre><code>## [1] &quot;Level: Name des Gemeindeverbands Label: Gemeindeverband&quot;</code></pre>
-<pre><code>## Warning in dir.create(&quot;Outfiles/2019/Bundesland&quot;):
-## &#39;Outfiles\2019\Bundesland&#39; existiert bereits</code></pre>
-<pre><code>## [1] &quot;Level: Raumordnungsregion Label: Raumordnungsregion&quot;
-## [1] &quot;Level: NUTS2 Name Label: NUTS2&quot;</code></pre>
 </div>
 <div id="vi.-datensätze-für-plz-generieren" class="section level2">
 <h2>VI. Datensätze für PLZ generieren</h2>
@@ -1201,7 +875,8 @@ for(mykennziffer in exportlist$Kennziffern) {
 </div>
 <div id="anknüpfungungspunkte-für-eine-grundsätzliche-überarbeitung-der-gisd-generierung" class="section level1">
 <h1>Anknüpfungungspunkte für eine grundsätzliche Überarbeitung der GISD-Generierung</h1>
-<p>Es gibt gute Gründe dafür am Konzept Bildung, Einkommen und Arbeitsweltindikatoren im GISD zu vereinen, auch wenn die Korrelation der Teildimensionen mit Einzelindikatoren der anderen Teildimensionen nur gering korrelieren. Es gibt andererseits Möglichkeiten den GISD weiter zu verbessern. Einzelne Schwachstellen sollen hier kurz erwähnt werden.</p>
+<p>Es gibt gute Gründe dafür am Konzept Bildung, Einkommen und Arbeitsweltindikatoren im GISD zu vereinen, auch wenn die Korrelation der Teildimensionen mit Einzelindikatoren der anderen Teildimensionen nur gering korrelieren.
+Es gibt andererseits Möglichkeiten den GISD weiter zu verbessern. Einzelne Schwachstellen sollen hier kurz erwähnt werden.</p>
 <ol style="list-style-type: decimal">
 <li>Missing Data</li>
 </ol>
@@ -1213,14 +888,16 @@ for(mykennziffer in exportlist$Kennziffern) {
 <li>Faktorenanalyse</li>
 </ol>
 <ul>
-<li>Bisher wird die Faktorenanalyse per pcf-Verfahren durchgeführt. Hier wäre zu prüfen, ob Common Factor-Verfahren oder konfirmatorische Faktorenanalyse zu einer Verbesserung führen könnten. 3.Indikatorenauswahl</li>
+<li>Bisher wird die Faktorenanalyse per pcf-Verfahren durchgeführt. Hier wäre zu prüfen, ob Common Factor-Verfahren oder konfirmatorische Faktorenanalyse zu einer Verbesserung führen könnten.
+3.Indikatorenauswahl</li>
 <li>Die Struktur der Faktorladungen der Bildungsindikatoren ist nicht robust gegenüber Datenschwankungen. Der erste Faktor bildet die intendierte Kompomente ab. Es gibt einen zweiten Faktor mit Eigenwert über 1. Die Gewichte der Faktorladungen der Indikatoren BeschaeftigteohneAbschluss und Schulgaengerohneabschluss variieren sehr stark zwischen den Revisionen 2018 und 2019. Hier könnte man über eine andere Auswahl von Indikatoren nachdenken. Die bisherigen Indikatoren BeschaeftigteohneAbschluss und BeschaeftigtemitHochschulabschluss dieser Teildimension weisen die höchsten Anteile an MissingData auf (75%). Zudem wurde bisher noch nicht berücksichtigt, dass die zwischenzeitliche Verkürzung der Schulzeit für das Abitur (G8 Reform) und die spätere Rücknahme dieser Reform in einigen Bundesländern im Untersuchungszeitraum zu statistischen Artefakten in den Schulabgängerquoten führt.</li>
 </ul>
 <ol start="4" style="list-style-type: decimal">
 <li>Methodologische Grundlagen</li>
 </ol>
 <ul>
-<li>Diskussion der dem Messmodell zugrunde liegende Kausalmechanismen Dimensionen sozioökonomischer Deprivation auf räumlicher Ebene: Einkommen, Arbeitswelt, Bildung</li>
+<li>Diskussion der dem Messmodell zugrunde liegende Kausalmechanismen
+Dimensionen sozioökonomischer Deprivation auf räumlicher Ebene: Einkommen, Arbeitswelt, Bildung</li>
 <li>Einkommen: (HH-Einkommen, Steueraufkommen, Schuldnerquote)</li>
 <li>Kaufkraft berücksichtigen, Vermögen berücksichtigen</li>
 <li>betrifft Handlungsspielräume der Kommunen, Proxy für Wirtschaftskraft der Kommunen</li>
