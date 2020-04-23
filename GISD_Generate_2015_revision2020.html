@@ -857,6 +857,106 @@ summary(as.data.frame(Impdata.imputed) %&gt;% ungroup()  %&gt;% select(listofdet
 </div>
 <div id="iv.-faktorenanalyse-hauptkomponentenanalyse-inklusive-generierung-der-faktorscores" class="section level2">
 <h2>IV. Faktorenanalyse (Hauptkomponentenanalyse) inklusive Generierung der Faktorscores</h2>
+<pre><code>##  [1] &quot;Arbeitslosigkeit&quot;                &quot;Beschaeftigtenquote&quot;            
+##  [3] &quot;Bruttoverdienst&quot;                 &quot;BeschaeftigtemitakadAbschluss&quot;  
+##  [5] &quot;BeschaeftigteohneAbschluss&quot;      &quot;SchulabgaengermitHochschulreife&quot;
+##  [7] &quot;SchulabgaengerohneAbschluss&quot;     &quot;Einkommenssteuer&quot;               
+##  [9] &quot;Haushaltseinkommen&quot;              &quot;Schuldnerquote&quot;</code></pre>
+<pre><code>## [1] 1.3561452 0.8791822 0.6228232</code></pre>
+<p><img src="data:image/png;base64,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" /><!-- --></p>
+<pre><code>## Standard deviations (1, .., p=3):
+## [1] 1.3561452 0.8791822 0.6228232
+## 
+## Rotation (n x k) = (3 x 3):
+##                            PC1        PC2        PC3
+## Beschaeftigtenquote  0.4827883  0.8433030  0.2361260
+## Arbeitslosigkeit    -0.5931929  0.5132653 -0.6202265
+## Bruttoverdienst      0.6442342 -0.1593698 -0.7480398</code></pre>
+<pre><code>## Standard deviations (1, .., p=3):
+## [1] 1.3561452 0.8791822 0.6228232
+## 
+## Rotation (n x k) = (3 x 1):
+##                            PC1
+## Beschaeftigtenquote  0.4827883
+## Arbeitslosigkeit    -0.5931929
+## Bruttoverdienst      0.6442342</code></pre>
+<pre><code>## Standard deviations (1, .., p=3):
+## [1] 1.4411216 0.8543562 0.4395953
+## 
+## Rotation (n x k) = (3 x 1):
+##                           PC1
+## Einkommenssteuer   -0.6368996
+## Haushaltseinkommen -0.6268504
+## Schuldnerquote      0.4487957</code></pre>
+<pre><code>## Standard deviations (1, .., p=3):
+## [1] 1.3378311 0.9049775 0.6254788
+## 
+## Rotation (n x k) = (3 x 1):
+##                                        PC1
+## BeschaeftigtemitakadAbschluss    0.6478416
+## SchulabgaengermitHochschulreife  0.6230148
+## SchulabgaengerohneAbschluss     -0.4383535</code></pre>
+<pre><code>##                                        PC1
+## BeschaeftigtemitakadAbschluss    0.6478416
+## SchulabgaengermitHochschulreife  0.6230148
+## SchulabgaengerohneAbschluss     -0.4383535</code></pre>
+<pre><code>## Standard deviations (1, .., p=3):
+## [1] 1.3378311 0.9049775 0.6254788
+## 
+## Rotation (n x k) = (3 x 1):
+##                                        PC1
+## BeschaeftigtemitakadAbschluss    0.6478416
+## SchulabgaengermitHochschulreife  0.6230148
+## SchulabgaengerohneAbschluss     -0.4383535</code></pre>
+<pre><code>##  TS_Arbeitswelt      TS_Einkommen        TS_Bildung     
+##  Min.   :-5.75213   Min.   :-7.37246   Min.   :-4.2283  
+##  1st Qu.:-0.82308   1st Qu.:-0.92273   1st Qu.:-1.0177  
+##  Median : 0.05911   Median : 0.04721   Median :-0.1026  
+##  Mean   : 0.00000   Mean   : 0.00000   Mean   : 0.0000  
+##  3rd Qu.: 0.91194   3rd Qu.: 0.98654   3rd Qu.: 0.8509  
+##  Max.   : 5.91914   Max.   : 4.34194   Max.   : 8.5131</code></pre>
+<pre><code>##                  Arbeitslosigkeit TS_Arbeitswelt TS_Einkommen TS_Bildung
+## Arbeitslosigkeit        1.0000000     -0.8044557    0.7507066 -0.1570911
+## TS_Arbeitswelt         -0.8044557      1.0000000   -0.8729769  0.4945504
+## TS_Einkommen            0.7507066     -0.8729769    1.0000000 -0.4848497
+## TS_Bildung             -0.1570911      0.4945504   -0.4848497  1.0000000</code></pre>
+<pre><code>##                  Arbeitslosigkeit TS_Arbeitswelt TS_Einkommen TS_Bildung
+## Arbeitslosigkeit        1.0000000      0.8044557    0.7507066  0.1570911
+## TS_Arbeitswelt          0.8044557      1.0000000    0.8729769  0.4945504
+## TS_Einkommen            0.7507066      0.8729769    1.0000000  0.4848497
+## TS_Bildung              0.1570911      0.4945504    0.4848497  1.0000000</code></pre>
+<pre><code>##                          Variable   Dimension            Anteil
+## 1             Beschaeftigtenquote Arbeitswelt 0.233084541233513
+## 2                Arbeitslosigkeit Arbeitswelt 0.351877801591055
+## 3                 Bruttoverdienst Arbeitswelt 0.415037657175432
+## 4                Einkommenssteuer   Einkommen 0.405641062139618
+## 5              Haushaltseinkommen   Einkommen 0.392941396618166
+## 6                  Schuldnerquote   Einkommen 0.201417541242217
+## 7   BeschaeftigtemitakadAbschluss     Bildung 0.419698751922249
+## 8 SchulabgaengermitHochschulreife     Bildung  0.38814743706575
+## 9     SchulabgaengerohneAbschluss     Bildung 0.192153811012001
+##                Score GISD Proportion
+## 1  0.482788298567305 GISD       23.3
+## 2 -0.593192887340244 GISD       35.2
+## 3  0.644234163309764 GISD       41.5
+## 4 -0.636899569900638 GISD       40.6
+## 5  -0.62685037817502 GISD       39.3
+## 6  0.448795656443127 GISD       20.1
+## 7  0.647841610212133 GISD       42.0
+## 8  0.623014796827291 GISD       38.8
+## 9 -0.438353522869386 GISD       19.2</code></pre>
+<pre><code>##  TS_Arbeitswelt    TS_Einkommen      TS_Bildung       GISD_Score    
+##  Min.   :0.0000   Min.   :0.0000   Min.   :0.0000   Min.   :0.0000  
+##  1st Qu.:0.4290   1st Qu.:0.5506   1st Qu.:0.6014   1st Qu.:0.5789  
+##  Median :0.5021   Median :0.6334   Median :0.6762   Median :0.6626  
+##  Mean   :0.5072   Mean   :0.6294   Mean   :0.6681   Mean   :0.6573  
+##  3rd Qu.:0.5777   3rd Qu.:0.7136   3rd Qu.:0.7480   3rd Qu.:0.7421  
+##  Max.   :1.0000   Max.   :1.0000   Max.   :1.0000   Max.   :1.0000</code></pre>
+<pre><code>## Classes &#39;tbl_df&#39;, &#39;tbl&#39; and &#39;data.frame&#39;:    199656 obs. of  4 variables:
+##  $ TS_Arbeitswelt: num  0.705 0.678 0.643 0.593 0.584 ...
+##  $ TS_Einkommen  : num  0.868 0.872 0.858 0.853 0.849 ...
+##  $ TS_Bildung    : num  0.694 0.659 0.626 0.652 0.663 ...
+##  $ GISD_Score    : num  0.843 0.82 0.787 0.775 0.775 ...</code></pre>
 </div>
 <div id="v.-datenexport---erstellung-der-datensätze" class="section level2">
 <h2>V. Datenexport - Erstellung der Datensätze</h2>

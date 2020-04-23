@@ -294,7 +294,7 @@ print(hist_over_year)
 ```
 
 ## IV. Faktorenanalyse (Hauptkomponentenanalyse) inklusive Generierung der Faktorscores
-```{r eval=FALSE, include=FALSE}
+```{r echo=FALSE}
 
 # Variablenliste für die Faktorenanalyse 
 print(listofdeterminants)

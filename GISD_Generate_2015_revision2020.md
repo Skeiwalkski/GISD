@@ -435,6 +435,148 @@ summary(as.data.frame(Impdata.imputed) %>% ungroup()  %>% select(listofdetermina
 
 ## IV. Faktorenanalyse (Hauptkomponentenanalyse) inklusive Generierung der Faktorscores
 
+```
+##  [1] "Arbeitslosigkeit"                "Beschaeftigtenquote"            
+##  [3] "Bruttoverdienst"                 "BeschaeftigtemitakadAbschluss"  
+##  [5] "BeschaeftigteohneAbschluss"      "SchulabgaengermitHochschulreife"
+##  [7] "SchulabgaengerohneAbschluss"     "Einkommenssteuer"               
+##  [9] "Haushaltseinkommen"              "Schuldnerquote"
+```
+
+```
+## [1] 1.3561452 0.8791822 0.6228232
+```
+
+![](GISD_Generate_2015_revision2020_files/figure-html/unnamed-chunk-5-1.png)<!-- -->
+
+```
+## Standard deviations (1, .., p=3):
+## [1] 1.3561452 0.8791822 0.6228232
+## 
+## Rotation (n x k) = (3 x 3):
+##                            PC1        PC2        PC3
+## Beschaeftigtenquote  0.4827883  0.8433030  0.2361260
+## Arbeitslosigkeit    -0.5931929  0.5132653 -0.6202265
+## Bruttoverdienst      0.6442342 -0.1593698 -0.7480398
+```
+
+```
+## Standard deviations (1, .., p=3):
+## [1] 1.3561452 0.8791822 0.6228232
+## 
+## Rotation (n x k) = (3 x 1):
+##                            PC1
+## Beschaeftigtenquote  0.4827883
+## Arbeitslosigkeit    -0.5931929
+## Bruttoverdienst      0.6442342
+```
+
+```
+## Standard deviations (1, .., p=3):
+## [1] 1.4411216 0.8543562 0.4395953
+## 
+## Rotation (n x k) = (3 x 1):
+##                           PC1
+## Einkommenssteuer   -0.6368996
+## Haushaltseinkommen -0.6268504
+## Schuldnerquote      0.4487957
+```
+
+```
+## Standard deviations (1, .., p=3):
+## [1] 1.3378311 0.9049775 0.6254788
+## 
+## Rotation (n x k) = (3 x 1):
+##                                        PC1
+## BeschaeftigtemitakadAbschluss    0.6478416
+## SchulabgaengermitHochschulreife  0.6230148
+## SchulabgaengerohneAbschluss     -0.4383535
+```
+
+```
+##                                        PC1
+## BeschaeftigtemitakadAbschluss    0.6478416
+## SchulabgaengermitHochschulreife  0.6230148
+## SchulabgaengerohneAbschluss     -0.4383535
+```
+
+```
+## Standard deviations (1, .., p=3):
+## [1] 1.3378311 0.9049775 0.6254788
+## 
+## Rotation (n x k) = (3 x 1):
+##                                        PC1
+## BeschaeftigtemitakadAbschluss    0.6478416
+## SchulabgaengermitHochschulreife  0.6230148
+## SchulabgaengerohneAbschluss     -0.4383535
+```
+
+```
+##  TS_Arbeitswelt      TS_Einkommen        TS_Bildung     
+##  Min.   :-5.75213   Min.   :-7.37246   Min.   :-4.2283  
+##  1st Qu.:-0.82308   1st Qu.:-0.92273   1st Qu.:-1.0177  
+##  Median : 0.05911   Median : 0.04721   Median :-0.1026  
+##  Mean   : 0.00000   Mean   : 0.00000   Mean   : 0.0000  
+##  3rd Qu.: 0.91194   3rd Qu.: 0.98654   3rd Qu.: 0.8509  
+##  Max.   : 5.91914   Max.   : 4.34194   Max.   : 8.5131
+```
+
+```
+##                  Arbeitslosigkeit TS_Arbeitswelt TS_Einkommen TS_Bildung
+## Arbeitslosigkeit        1.0000000     -0.8044557    0.7507066 -0.1570911
+## TS_Arbeitswelt         -0.8044557      1.0000000   -0.8729769  0.4945504
+## TS_Einkommen            0.7507066     -0.8729769    1.0000000 -0.4848497
+## TS_Bildung             -0.1570911      0.4945504   -0.4848497  1.0000000
+```
+
+```
+##                  Arbeitslosigkeit TS_Arbeitswelt TS_Einkommen TS_Bildung
+## Arbeitslosigkeit        1.0000000      0.8044557    0.7507066  0.1570911
+## TS_Arbeitswelt          0.8044557      1.0000000    0.8729769  0.4945504
+## TS_Einkommen            0.7507066      0.8729769    1.0000000  0.4848497
+## TS_Bildung              0.1570911      0.4945504    0.4848497  1.0000000
+```
+
+```
+##                          Variable   Dimension            Anteil
+## 1             Beschaeftigtenquote Arbeitswelt 0.233084541233513
+## 2                Arbeitslosigkeit Arbeitswelt 0.351877801591055
+## 3                 Bruttoverdienst Arbeitswelt 0.415037657175432
+## 4                Einkommenssteuer   Einkommen 0.405641062139618
+## 5              Haushaltseinkommen   Einkommen 0.392941396618166
+## 6                  Schuldnerquote   Einkommen 0.201417541242217
+## 7   BeschaeftigtemitakadAbschluss     Bildung 0.419698751922249
+## 8 SchulabgaengermitHochschulreife     Bildung  0.38814743706575
+## 9     SchulabgaengerohneAbschluss     Bildung 0.192153811012001
+##                Score GISD Proportion
+## 1  0.482788298567305 GISD       23.3
+## 2 -0.593192887340244 GISD       35.2
+## 3  0.644234163309764 GISD       41.5
+## 4 -0.636899569900638 GISD       40.6
+## 5  -0.62685037817502 GISD       39.3
+## 6  0.448795656443127 GISD       20.1
+## 7  0.647841610212133 GISD       42.0
+## 8  0.623014796827291 GISD       38.8
+## 9 -0.438353522869386 GISD       19.2
+```
+
+```
+##  TS_Arbeitswelt    TS_Einkommen      TS_Bildung       GISD_Score    
+##  Min.   :0.0000   Min.   :0.0000   Min.   :0.0000   Min.   :0.0000  
+##  1st Qu.:0.4290   1st Qu.:0.5506   1st Qu.:0.6014   1st Qu.:0.5789  
+##  Median :0.5021   Median :0.6334   Median :0.6762   Median :0.6626  
+##  Mean   :0.5072   Mean   :0.6294   Mean   :0.6681   Mean   :0.6573  
+##  3rd Qu.:0.5777   3rd Qu.:0.7136   3rd Qu.:0.7480   3rd Qu.:0.7421  
+##  Max.   :1.0000   Max.   :1.0000   Max.   :1.0000   Max.   :1.0000
+```
+
+```
+## Classes 'tbl_df', 'tbl' and 'data.frame':	199656 obs. of  4 variables:
+##  $ TS_Arbeitswelt: num  0.705 0.678 0.643 0.593 0.584 ...
+##  $ TS_Einkommen  : num  0.868 0.872 0.858 0.853 0.849 ...
+##  $ TS_Bildung    : num  0.694 0.659 0.626 0.652 0.663 ...
+##  $ GISD_Score    : num  0.843 0.82 0.787 0.775 0.775 ...
+```
 
 ## V.  Datenexport - Erstellung der Datensätze 
 
