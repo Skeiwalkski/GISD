@@ -352,7 +352,10 @@ summary(as.data.frame(Impdata.imputed) %>% ungroup()  %>% select(listofdetermina
 Impdata.imputed <- Impdata.imputed %>% 
           mutate(Bruttoverdienst2 = findInterval(Bruttoverdienst, quantile(Bruttoverdienst, probs=0:100/100 , type=9)),
           Haushaltseinkommen2 = findInterval(Haushaltseinkommen, quantile(Haushaltseinkommen, probs=0:100/100 , type=9)),
-          Einkommensteuer2 = findInterval(Einkommensteuer, quantile(Einkommensteuer, probs=0:100/100 , type=9))) 
+          Einkommensteuer2 = findInterval(Einkommensteuer, quantile(Einkommensteuer, probs=0:100/100 , type=9)),
+          SchulabgaengermitHochschulreife2 = findInterval(SchulabgaengermitHochschulreife, quantile(SchulabgaengermitHochschulreife, probs=0:100/100 , type=9)),
+          SchulabgaengerohneAbschluss2 = findInterval(SchulabgaengerohneAbschluss, quantile(SchulabgaengerohneAbschluss, probs=0:100/100 , type=9)),
+          BeschaeftigtemitakadAbschluss2 = findInterval(BeschaeftigtemitakadAbschluss, quantile(BeschaeftigtemitakadAbschluss, probs=0:100/100 , type=9))) 
 
 
 
@@ -372,12 +375,19 @@ hist_over_year <- ggplot(data = Impdata.imputed) +
 print(hist_over_year)
 }
 
-hist_over_year <- ggplot(data = Impdata.imputed[Impdata.imputed[,"Kreis"]<11000,]) + geom_histogram(mapping = aes_string(x = "BeschaeftigteohneAbschluss")) + facet_wrap(~Jahr)
-print(hist_over_year)
-hist_over_year <- ggplot(data = Impdata.imputed[Impdata.imputed[,"Kreis"]>=11000,]) + geom_histogram(mapping = aes_string(x = "BeschaeftigteohneAbschluss")) + facet_wrap(~Jahr)
-print(hist_over_year)
-# Es gibt eine bimodale Verteilung bei den Beschäftigten ohne Abschluss, die in Ost- und Westdeutschland jedoch unimodal ist
+hist_over_all <- ggplot(data = Impdata.imputed) + geom_histogram(mapping = aes_string(x = "BeschaeftigteohneAbschluss")) 
+print(hist_over_all)
 
+
+hist_over_westost <- ggplot() +
+  geom_histogram(data = Impdata.imputed[Impdata.imputed[,"Kreis"]<11000,], aes_string(x = "BeschaeftigteohneAbschluss"), fill ='darkblue')  + 
+  geom_histogram(data = Impdata.imputed[Impdata.imputed[,"Kreis"]>=11000,], aes_string(x = "BeschaeftigteohneAbschluss"), fill ='darkred')  
+print(hist_over_westost)
+
+hist_over_year_all <- ggplot(data = Impdata.imputed]) + geom_histogram(mapping = aes_string(x = "BeschaeftigteohneAbschluss")) + facet_wrap(~Jahr)
+print(hist_over_year_all)
+
+# Es gibt eine bimodale Verteilung bei den Beschäftigten ohne Abschluss, die in Ost- und Westdeutschland jedoch unimodal ist
 ```
 
 ## IV. Faktorenanalyse (Hauptkomponentenanalyse) inklusive Generierung der Faktorscores
@@ -444,6 +454,10 @@ TS_Bildung_new.pca <- prcomp(TS_Bildung, center = TRUE, scale. = TRUE, retx=TRUE
 # Check der Bildungskomponente in Revision 2018 (Daten für 2014)
 TS_Bildung_r2014.pca <- prcomp(TS_Bildung_r2014, center = TRUE, scale. = TRUE, retx=TRUE) 
 TS_Bildung_r2014.pca
+
+TS_Bildung_4items.pca <- prcomp(TS_Bildung_4items, center = TRUE, scale. = TRUE, retx=TRUE) 
+plot(TS_Bildung_4items.pca)
+TS_Bildung_4items.pca
 
 
 # für den JoHM Beitrag wird die Bildungsdimension mit den zwei Indikatoren generiert
@@ -755,7 +769,7 @@ Dimensionen sozioökonomischer Deprivation auf räumlicher Ebene: Einkommen, Arb
 # Beschäftigung ohne Abschluss zu verwenden, welche sich systematisch zwischen
 # West und Ost unterscheidet
 TS_Bildung_4items_without_BoA <- Impdata.imputed %>% dplyr::select(BeschaeftigtemitakadAbschluss,SchulabgaengerohneAbschluss, SchulabgaengermitHochschulreife) 
-TS_Bildung_4items_without_BoA.pca <- prcomp(TS_Bildung_4items_without_BoA, center = TRUE, scale. = TRUE, retx=TRUE, rank. = 1) 
+TS_Bildung_4items_without_BoA.pca <- prcomp(TS_Bildung_4items_without_BoA, center = TRUE, scale. = TRUE, retx=TRUE) 
 TS_Bildung_4items_without_BoA.pca
 
 GISD_Komponents <- cbind("Teildimension"="Arbeitswelt","Anteil"=TS_Arbeitswelt.pca$rotation^2,"Score"=TS_Arbeitswelt.pca$rotation) 
