@@ -11,3 +11,4 @@ For details see the [GISD Homepage](https://Skeiwalkski.github.io/GISD).
 
 **Please note:**
 *Currently, we do NOT advise to use the index Revision 2019 due to a limited comparability with the older revisions that we are investigating (with a currently limited capacity)*
+A line I wrote on my local computer
