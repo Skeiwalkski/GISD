@@ -1,0 +1,1 @@
+sapply(Impdata.imputed, function(x) length(unique(x)))
