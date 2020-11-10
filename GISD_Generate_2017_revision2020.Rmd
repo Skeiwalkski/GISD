@@ -588,7 +588,6 @@ for(mykennziffer in exportlist$Kennziffern) {
   # Datensatzerstellung
   outputdata <- RawResult 
   
-  # hier werden die 
   outputdata$Group <- outputdata[[mykennziffer]]
   mergedataset  <- outputdata %>% dplyr::select(ID=mykennziffer,myname,Bundesland) %>% 
     group_by(ID) %>% filter(row_number()==1) %>% ungroup() 
