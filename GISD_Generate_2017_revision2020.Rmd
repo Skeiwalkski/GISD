@@ -19,7 +19,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Intro
 
-Auf diesem Codeblog stelle ich die Generierung des German Index of Socio-Economic Deprivation vor. Dabei handelt es sich um einen Index sozioökonomischer Deprivation auf regionalräumlicher Ebene, der 2016 im Fachgebiet Soziale Determinanten der Gesundheit am RKI entwickelt wurde und seither jährlich aktualisiert wird. Für die Generierung werden Indikatoren der INKAR-Datenbank des BBSR verwendet. Es wird die Revision 2019 vorgestellt, die Daten aus den Jahren 1998 bis 2015 verwendet. 
+Auf diesem Codeblog stelle ich die Generierung des German Index of Socio-Economic Deprivation vor. Dabei handelt es sich um einen Index sozioökonomischer Deprivation auf regionalräumlicher Ebene, der seit 2012 im Fachgebiet Soziale Determinanten der Gesundheit am RKI entwickelt wurde und seither jährlich aktualisiert wird. Für die Generierung werden Indikatoren der INKAR-Datenbank des BBSR verwendet. Es wird die Revision 2020 vorgestellt, die Daten aus den Jahren 1998 bis 2017 verwendet. 
 In einer früheren Revision für 2019 tauchten zum Teil starke Abweichungen zur Revision 2018 auf. Der Grund dafür war, dass bei der Addition der Teildimensionen die Bildungsdimension in umgekehrter Richtung in den GISD einging. Ausschlaggebend für diesen Fehler war eine negative Korrelation der Bildungsdimension mit dem Anteil Arbeitsloser, die im Code der vergangenen Revisionen zu einer Umpolung des Teilscores führt. Der Anteil Arbeitsloser wird als Markerindikator verwendet. Die folgende Darstellung zeigt und diskutiert die Problematik und stellt eine Lösung vor.
 
 # Kommentierte Darstellung der Syntax
@@ -31,7 +31,7 @@ Das folgende Kapitel stellt die Syntax zur Generierung der Daten mit R vor. Der 
 
 Der Code nutzt im Wesentlichen die Pakete des Tidyverse. 
 
-```{r, message = FALSE, warning = FALSE}
+```{r Libraries und Pfade, message=FALSE, warning=FALSE}
 
 library("tidyverse") # Tidyverse Methods
 library("bookdown") 
@@ -53,28 +53,32 @@ dir.create("Outfiles/2020/Stata", showWarnings=F)
 ## I.  Generierung eines ID-Datensatzes
 
 Zunächst muss ein Datensatz generiert werden in dem den kleinsten regionalen Einheiten (Gemeinden) alle übergeordneten regionalen Einheiten und deren Regionalkennziffern zugeordnet werden. Datenquelle ist die Gebietsstandsreferenz von Destatis Stand 31.12.2015.
+Es wird insbesondere geprüft, ob die Referenzdaten Missings auf den Regionalkennziffern oder den Namen der Gebietsstände aufweisen.
+An diesen ID-Datensatz werden später die Indikatoren angespielt. 
 
-```{r, message = FALSE, warning = FALSE}
+```{r ID-Datensatz aus den Referenzdaten generieren , message=FALSE, warning=FALSE}
 
 print_missings = function(data) {
   df = data[-1,]; 
   if(sum(is.na(df))>0){print("Missing observations: "); print(df[!complete.cases(df),])}; 
   df}
-# Eine Funktion die später häufiger verwendet wird. Erklärung der Befehele:
+# Eine Funktion die später häufiger verwendet wird. Erklärung der Befehle:
 # 1. Die erste Zeile des Datensatzes wird entfernt, da es sich dabei nicht um 
 # eine Beobachtung, sondern nur um eine Variablenbeschreibung handelt
 # 2. Wenn es im Datensatz fehlende Werte gibt, werden die dazugehörigen 
 # Beobachtungen ausgegeben
-# 3. Zuletzt wird der Datensatz zur Weiterverarbeitung im Pipe aufgerufen
+# 3. Zuletzt wird der Datensatz aufgerufen damit er in Pipes weiterverarbeitet 
+# werden kann
 
 load_dataset = function(sheet) {
   suppressMessages(
     read_excel("Data/Referenz/Referenz_1998_2017.xlsx", sheet = sheet, na = "NA")
   )
 }
-# Eine Funktion die später häufiger verwendet wird. Hierbei werden Warnmeldungen
-# beim Laden von Datenä?tzen unterdrückt. Man muss beim Aufrufen dieser Funktion
-# den Namen des gewünschten Excel-Blattes als Argument angeben
+# Eine Funktion die später häufiger verwendet wird. Sie dient dazu die einzelnen 
+# Sheets aus Excel einzulesen. Außerdem werden Warnmeldungen beim Laden der 
+# Daten unterdrückt. Zum Aufrufen der Funktion muss der Name des gewünschten
+# Excel-Blattes als Argument angegeben werden.
 
 Gemeinden_INKAR <- load_dataset("Gemeinden-GVB") %>% 
   print_missings() %>% na.omit() %>%
@@ -125,9 +129,9 @@ id_dataset <- Gemeinden_INKAR %>%
 
 ## II. Erzeugen eines Datensatzes mit Kennziffern als ID unabhängig von der Ebene 
 
-In diesem Code-Abschnitt werden die INKAR-Daten zu den Indikatoren in einem Datensatz zusammengeführt. Die Information für die Indikatoren, die für die Berechnung des GISD verwendet werden, liegt auf unterschiedlichen Ebenen vor. Die Faktorenanalysen sollen auf Gemeindeebene durchgeführt werden, weshalb Information der Kreisebene an die Gemeinden innerhalb der Kreise angespielt wird. Percentile des Indexes können so später für jede regionale Ebene separat berechnet werden. Datenbasis sind die INKAR-Daten der jeweiligen Indikatoren im Excel-Format, die zu jeder Revision aus der INKAR-Datenbank heruntergeladen werden. Tabelle \@ref(tab:indicators) stellt die Indikatoren dar.
+In diesem Code-Abschnitt werden die INKAR-Daten zu den Indikatoren in einem Datensatz zusammengeführt. Die Information für die Indikatoren, die für die Berechnung des GISD verwendet werden, liegt auf unterschiedlichen Ebenen vor. Die Faktorenanalysen sollen später auf Gemeindeebene durchgeführt werden, weshalb Information der Kreisebene an alle Gemeinden dieser Kreise angespielt wird. Percentile des Indexes können so später für jede regionale Ebene separat berechnet werden. Datenbasis sind die INKAR-Daten der jeweiligen Indikatoren im Excel-Format, die zu jeder Revision aus der INKAR-Datenbank heruntergeladen werden. Tabelle \@ref(tab:indicators) stellt die Indikatoren dar.
 
-```{r, message = TRUE}
+```{r Indikatoren einlesen und mit dem ID-Datensatz Zusammeführen, message=FALSE}
 
 # Basis erzeugen: Ausgangspunkt Kreisdaten
 # Es werden Indikatoren allen Ebenen angespielt, als erstes die Kreise.
@@ -176,8 +180,6 @@ level_table <- cbind(listofdeterminants,ind_level)
 # Tabelle der Indikatoren mit regionaler Tiefe
 ind_col = c("Indikator","Tiefe des Indikators")
 
-# [Warum gibt es keinen Datensatz auf Gemeindeebene für die teuer?]
-
 # Datensatz für die Gemeindeverbandsebene generieren
 Basedata_Gemeindeverbandsebene <- Basedata %>% select(Kennziffer,Jahr,Arbeitslosigkeit,Beschaeftigtenquote,Einkommensteuer) %>%   
   gather(key,value,3:5) %>% filter(!is.na(value)) %>% spread(key,value) %>% filter(Jahr>=1998) %>% rename("Gemeindeverband"=Kennziffer)
@@ -194,6 +196,8 @@ Basedata_Kreisebene <- Basedata %>% select(krs15=Kennziffer,Jahr,listofdetermina
 # Pipes:  1. neben der Kennziffer, die einen anderen Namen bekommt wird das Jahr und die Variablenliste ausgewählt
 #         2. drei Variablen werden aus der Auswahl ausgeschlossen
 #         3. die Kreisvariable wird in Kreis umbenannt, weil im nächsten Schritt Kreisinfos an die Gemeinden angespielt werden
+
+# Hinweis: für die Gemeindeebene wird kein Basedata-Datensatz erstell, da es keine Infos auf der Gemeindeebene gibt
 
 # Join different levels
 # Nun werden die Daten bezogen auf die Ebenen gemergt
@@ -219,10 +223,10 @@ Workfile <- as.data.frame(expand.grid("Kennziffer"=Gemeinden_INKAR %>% pull(Kenn
 # 8. drittes left_join spielt die Daten der Gemeindeverbandsebene via Gemeindeverband und Jahr an
 # Notiz: . in den Befehlen bezieht sich auf den tibble bzw. data.frame der in der Pipe bearbeitet wird
 
-# [Probleme mit Datensatz: Negative Werte bei der teuer]
+rm(myimport)
 
 # Stata-Datensatz rausschreiben
-write_dta(Workfile, paste0("Outfiles/2020/Stata/workfile.dta"))
+write_dta(Workfile, paste0("S:/OE/FG28/205 Regionale Unterschiede/GISD/Plausibilitätschecks/workfile.dta"))
 
 # Ende Generierung Basisdatensatz
 ```
@@ -232,13 +236,12 @@ knitr::kable(level_table, col.names = ind_col, caption = "Liste der Indikatoren"
 ```
 
 Es gibt noch einige Probleme bei der Auswahl der Indikatoren, die erst später zum Tragen kommen. Insbesondere der Bildungsindikator Schulabgänger ohne Abschluss macht Probleme, weil der nicht mit dem Anteil Beschäftigter mit akademischem Bildungsabschluss korreliert. 
-Eine Betrachtung des alternativen Indikators Schulabgänger mit Hochschulreife zeigt, dass dieser besser mit dem Anteil Beschäftigter mit akademischem Bildungsabschluss korreliert, aber dafür recht stark negativ mit dem Anteil der Beschäftigten ohne Abschluss. Das lässt den Schluss zu, dass in Regionen in denen auch ohne Abschluss eine Perspektive besteht 
-
+Eine Betrachtung des alternativen Indikators Schulabgänger mit Hochschulreife zeigt, dass dieser besser mit dem Anteil Beschäftigter mit akademischem Bildungsabschluss korreliert, aber dafür recht stark negativ mit dem Anteil der Beschäftigten ohne Abschluss. Das kann daran liegen, dass dort wo der Anteil von Personen mit akademischem Abschluss hoch ist, auch der Druck für Schulabgänger einen Abschluss zu machen geringer ist.
 
 
 ## III.Imputation fehlender Werte
 
-Das bisherige Imputationsmodell nutzt Arbeitslosigkeit als Prädiktoren. In den neuen Daten (2016) fehlen für diese Variable 6 Werte.
+Das bisherige Imputationsmodell nutzt Arbeitslosigkeit als Prädiktoren. In den Daten für 2016 fehlen für diese Variable 6 Werte.
 Der Einfachheit halber werden diese interpoliert. 
 
 ```{r Vereinzelte Missings auf den Imputationsvariablen interpolieren}
@@ -256,17 +259,16 @@ predictors_list = predictors_list %>% mutate(Missings=as.integer(Missings))
 predictors_list = predictors_list[order(predictors_list$Missings),]
 predictors_list
 
-
 Missing_on_Imputationsvars <- Workfile %>%  filter(Jahr>=1998, Bevoelkerung>0, is.na(Arbeitslosigkeit) | is.na(SchulabgaengermitHochschulreife))
 Missing_on_Imputationsvars
-# das betrifft nur Arbeitslosigkeit in 6 Gemeinden [Woher kommt diese Aussage?]
+# das betrifft nur Arbeitslosigkeit in 6 Gemeinden in 2016
+# für Schulabgänger mit Hochschulreife 36 Gemeinden in 2016
 
 # Fälle betrachten: Beispiel 5154028 
 TimeSeries_for_Missing <- Workfile %>%  filter(Gemeindekennziffer==5154028 ) %>% select(Gemeindekennziffer, Jahr, Arbeitslosigkeit, SchulabgaengermitHochschulreife) %>% arrange(Gemeindekennziffer, Jahr)
 TimeSeries_for_Missing
 
 # Interpolation der fehlenden Werte über die Zeitreihe (Mittelwert: Vorjahr, Nachjahr)
-# sehr häßliches Coding!! weil ein einfaches replace von Missings nicht möglich ist
 Workfile <- Workfile %>%  filter(Jahr>=1998, Bevoelkerung>0) %>%  group_by(Gemeindeverband) %>% mutate(impu_arblos = na.approx(Arbeitslosigkeit), impu_mA = na.approx(SchulabgaengermitHochschulreife)) %>% select(-Arbeitslosigkeit, -SchulabgaengermitHochschulreife) %>% rename(Arbeitslosigkeit=impu_arblos, SchulabgaengermitHochschulreife=impu_mA) %>% ungroup()
 
 # zweites Problem: drei Landkreise (Bamberg et al.) mit 0.0 auf SchulabgaengermitHochschulreife (kein Problem, wenn Variable erstmal nicht benutzt wird)
@@ -283,7 +285,7 @@ Die Missings auf der Arbeitslosigkeit finden sich in unterschiedlichen Gemeinden
 
 ```{r}
 # Anzahl der Missings über die Indikatoren
-summary(Workfile %>% select(all_of(listofdeterminants)))
+# summary(Workfile %>% select(all_of(listofdeterminants)))
 # sapply(Workfile  %>% select(listofdeterminants) , function(x) sum(is.na(x)))
 
 # Imputation
@@ -293,15 +295,21 @@ imputationsliste <- subset(listofdeterminants , !(listofdeterminants %in%
 # das betrifft alle Variablen, außer die im angebenen Vektor
 # letztere sind frei von Missings und können im Imputationsmodell genutzt werden 
 
+
 Impdata <-  Workfile %>%  dplyr::filter(Jahr>=1998, Bevoelkerung>0) %>% 
-  gather(key,value,6:15) %>% mutate(value=ifelse(value<0,NA,value)) %>% spread(key,value)
+  gather(key,value,6:15) %>% mutate(value=ifelse(value<0.00001,NA,value)) %>% spread(key,value)
 # Imputationsdatensatz generieren: Jahr>=1998, Bevoelkerung>0 
 # gather und spread identifiziern key-Variablen automatisch 
-# es geht aber nur darum Werten<0 ein NA zuzordnen
+# es geht hier vor allem darum Werten<0 ein NA zuzuordnen
+# vor allem auf der Variablen Schulabgänger mit Hochschulreife gibt es ebenfalls viele 0-Werte,
+# Es ist möglich, dass es in manchen Kreisen keine Schulen mit gymnasialer Oberstufe gibt, 
+# das sollte allerdings kein Grund sein, diese im GISD abzustufen. Deshalb werden auch diese Wert auf NA kodiert und 
+# im Folgenden imputiert
+ 
 
-#sapply(Impdata  %>% select(listofdeterminants) , function(x) sum(is.na(x)))
+# sapply(Impdata  %>% select(listofdeterminants) , function(x) sum(is.na(x)))
 # Einige Missings basierten auf Gebietsständen ohne Bevölkerung, diese sind entfernt 
-# Damit käme auch die Einkommensteuer als Prädiktor im Imputationsmodell in Frage
+
 
 # Als erstes wird die Imputationsfunktion erstellt (hier werden noch keine Daten generiert)
 # Impute_function (NOT FOR GROUPED DATA!)
