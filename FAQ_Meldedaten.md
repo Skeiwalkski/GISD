@@ -61,13 +61,15 @@ Update: 22 03 2021
     
   Gibt es noch weitere Dinge zu beachten?
 
-### Wir schauen uns auch regelmäßig die Hospitalisierungen an. Bis jetzt haben wir nur die bestätigten Fälle (ja) genutzt. Die weiteren Kategorien sind -nicht ermittelbar- und -nicht erhoben-. Wie stark werden die wahren Hospitalisierungsraten ungefähr unterschätzt?
+### Was verbirgt sich hinter den Kategorien -nicht ermittelbar- und -nicht erhoben-, die wir in einigen Variablen finden? 
 
-### Ist es sinnvoll Case-Fatality-Rates berechnen?
+### Wir schauen uns auch regelmäßig die Hospitalisierungen an. Bis jetzt haben wir nur die bestätigten Fälle (ja) genutzt. Wegen der Kategorien -nicht ermittelbar- und -nicht erhoben- wird die Anzahl der Hospitalisierungen vermutlich unterschätzt. Kann man sagen, wie stark ungefähr?
 
 ### In der Sero-Auswerungsgruppe fiel die Bemerkung, dass sich die Falldefinition über die Zeit geändert hat. Schlägt das quantitativ durch, so dass man es in den Auswertungen berücksichtigen müsste.
-  
 
+### Gibt es Anhaltspunkte für Unterschiede in der Untererfassung über regionale Einheiten (z.B. Bundesländer) oder für Veränderungen der Untererfassung über die Zeit (z.B. durch Änderungen in der Teststrategie)?
+  
+### Ist es sinnvoll Case-Fatality-Rates berechnen?
 
 
 
