@@ -302,7 +302,7 @@ Die Missings auf der Arbeitslosigkeit finden sich in unterschiedlichen Gemeinden
 
 # Imputation
 imputationsliste <- subset(listofdeterminants , !(listofdeterminants %in%
-                                                    c('Arbeitslosigkeit','SchulabgaengermitHochschulreife','SchulabgaengerohneAbschluss')))
+                                                    c('Arbeitslosigkeit','SchulabgaengerohneAbschluss')))
 # Variablenliste für die Regressionsimputation wird erstellt
 # das betrifft alle Variablen, außer die im angebenen Vektor
 # letztere sind frei von Missings und können im Imputationsmodell genutzt werden 
