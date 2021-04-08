@@ -27,11 +27,11 @@ In einer früheren Revision für 2019 tauchten zum Teil starke Abweichungen zur 
 Das folgende Kapitel stellt die Syntax zur Generierung der Daten mit R vor. Der Code ist optional darstellbar und enthält detaillierte Kommentare.
 
 
-## 0. Benötigte Pakete
+## 0. Benötigte Pakete - 
 
 Der Code nutzt im Wesentlichen die Pakete des Tidyverse. 
 
-```{r Libraries und Pfade, message=FALSE, warning=FALSE}
+```{r Libraries, message=FALSE, warning=FALSE}
 
 library("tidyverse") # Tidyverse Methods
 library("bookdown") 
@@ -41,18 +41,30 @@ library("imputeTS") # Impute Missing Features
 library("haven") # write Stata-dta
 library("sf") # write Stata-dta
 library(pastecs) # descriptive stats
+```
 
+
+``` {r Define Outfiles Path, message=FALSE, warning=FALSE}
+
+home <- getwd()
+# Define Outfiles Directory 
+outfiles_dir <- "S:/OE/FG28/205 Regionale Unterschiede/GISD/"
+setwd(outfiles_dir)
 # Create Output directories in working directory if necessary
-dir.create("Outfiles", showWarnings=F)
-dir.create("Outfiles/2020", showWarnings=F)
-dir.create("Outfiles/2020/Bund", showWarnings=F)
-dir.create("Outfiles/2020/Other", showWarnings=F)
-dir.create("Outfiles/2020/Stata", showWarnings=F)
+dir.create("Outfiles", showWarnings=T)
+dir.create("Outfiles/2021", showWarnings=T)
+dir.create("Outfiles/2021/Bund", showWarnings=T)
+dir.create("Outfiles/2021/Other", showWarnings=T)
+dir.create("Outfiles/2021/Stata", showWarnings=T)
+setwd(home)
+getwd()
+
+
 ```
 
 ## I.  Generierung eines ID-Datensatzes
 
-Zunächst muss ein Datensatz generiert werden in dem den kleinsten regionalen Einheiten (Gemeinden) alle übergeordneten regionalen Einheiten und deren Regionalkennziffern zugeordnet werden. Datenquelle ist die Gebietsstandsreferenz von Destatis Stand 31.12.2015.
+Zunächst wird ein Datensatz generiert in dem den kleinsten regionalen Einheiten (Gemeinden) alle übergeordneten regionalen Einheiten und deren Regionalkennziffern zugeordnet werden. Datenquelle ist die Gebietsstandsreferenz von Destatis Stand 31.12.2017.
 Es wird insbesondere geprüft, ob die Referenzdaten Missings auf den Regionalkennziffern oder den Namen der Gebietsstände aufweisen.
 An diesen ID-Datensatz werden später die Indikatoren angespielt. 
 
@@ -368,7 +380,7 @@ summary(as.data.frame(Impdata.imputed) %>% ungroup()  %>% select(listofdetermina
 
 
 # Stata-Datensatz rausschreiben
-# write_dta(Impdata.imputed, paste0("Outfiles/2020/Stata/impdata.dta"))
+write_dta(Impdata.imputed, paste0("Outfiles/2021/Stata/impdata.dta"))
 ```
 
 
@@ -634,7 +646,7 @@ for(mykennziffer in exportlist$Kennziffern) {
   
   # Aktuelles Referenzmodell 
 
-  
+
   # Ausgabe Bund
   dir.create("Outfiles/", showWarnings=F)
   dir.create("Outfiles/2021/", showWarnings=F)

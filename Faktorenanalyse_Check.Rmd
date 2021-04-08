@@ -4,14 +4,22 @@ author: "Marvin Reis"
 date: "18 3 2021"
 output:
   bookdown::html_document2:
-    fig_caption: yes
     keep_md: true
     code_folding: hide
     toc: true
-    toc_float: false
+    toc_float: true
     toc_depth: 2
     number_sections: false
+    fig_caption: true
+    theme: cerulean
+    highlight: tango    
 ---
+
+# Info
+
+In diesem Codeblog analysieren wir die Faktorenanalyse des GISD. 
+
+
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -26,7 +34,7 @@ library(readxl) # Read Excel
 library(pastecs) # descriptive stats
 library(knitr)
 
-Impdata.imputed <- readRDS("C:/git_projects/GISD/Outfiles/Impdata_check.rds")
+Impdata.imputed <- readRDS("C:/projects_rstudio/GISD/Outfiles/Impdata_check.rds")
 ```
 
 
@@ -49,9 +57,10 @@ TS_Bildung_4items_without_BoA <- Impdata.imputed %>% dplyr::select(Beschaeftigte
 ```
 
 
+# Faktorenanalyse gepoolte Querschnitte
 
+Es werden Hauptkomponentenanalysen für jede der drei Subskalen auf Basis der imputierten Daten geschätzt. 
 
-# Faktorenanalyse basierend auf Hauptkomponentenanalyse für jede der drei Subscalen
 ```{r PCA für die Teilscores}
 
 # PCA für die Arbeitsweltdimension
@@ -113,44 +122,49 @@ TS_Bildung.pca <- prcomp(TS_Bildung, center = TRUE, scale. = TRUE, retx=TRUE, ra
 #colnames(tab_Bildung_4items) <- c("Faktoren für Bildung", "Varianz")
 ```
 
-```{r}
+## Eigenwerte der Komponenten
+
+```{r Plots }
 par(mfrow=c(1, 3))
-plot(TS_Arbeitswelt.pca, main = "Arbeitswelt (Eigenvektoren)")
-plot(TS_Einkommen.pca, main = "Einkommen (Eigenverktoren)")
-plot(TS_Bildung.pca, main = "Bildung (Eigenvektoren)")
+plot(TS_Arbeitswelt.pca, main = "Arbeitswelt (Eigenvektoren)", ylim=c(0,2.2))
+plot(TS_Einkommen.pca, main = "Einkommen (Eigenverktoren)", ylim=c(0,2.2))
+plot(TS_Bildung.pca, main = "Bildung (Eigenvektoren)", ylim=c(0,2.2))
+
 ```
 
+
 ```{r}
-Varianz_tab <- cbind("F_A" = "Faktor1", "Var_A" = round(TS_Arbeitswelt.pca$sdev^2, digits = 3), "F_E" = "Faktor1", "Var_E" = round(TS_Einkommen.pca$sdev^2, digits = 3), "F_B" = "Faktor1", "Var_B" = round(TS_Bildung.pca$sdev^2, digits = 3))
+Varianz_tab <- cbind("F_A" = "Faktor1", "Var_A" = round(TS_Arbeitswelt.pca$sdev^2, digits = 3), "Var_E" = round(TS_Einkommen.pca$sdev^2, digits = 3),  "Var_B" = round(TS_Bildung.pca$sdev^2, digits = 3))
 
 Varianz_tab <- cbind(as.data.frame(Varianz_tab))
 
 Varianz_tab$F_A <- c("Faktor 1", "Faktor 2", "Faktor 3")
 
-Varianz_tab$F_E <- c("Faktor 1", "Faktor 2", "Faktor 3")
-
-Varianz_tab$F_B <- c("Faktor 1", "Faktor 2", "Faktor 3")
-
-colnames(Varianz_tab) <- c("Faktoren Arbeitswelt", "Varianz Arbeitswelt", "Faktoren Einkommen", "Varianz Einkommen", "Faktoren Bildung", "Varianz Bildung")
+colnames(Varianz_tab) <- c("Faktoren", "Varianz Arbeitswelt", "Varianz Einkommen", "Varianz Bildung")
 
 kable(Varianz_tab, caption = "Varianz der Faktoren (Eigenverktoren)")
 ```
+
 Die PCA zeigt drei Hauptkomponenten für die Dimension Arbeitswelt. Nur die erste Komponente hat einen Eigenwert über eins. Die Faktorladungen der drei Variablen (Beschäftigungsquote, Arbeitslosigkeit und Bruttoverdienst) entsprechen dabei den Ertwartungen.
 
 Die PCA zeigt drei Hauptkomponenten für die Dimension Einkommen. Nur die erste Komponente hat einen Eigenwert über zwei. Die Faktorladungen der drei Variablen (Einkommensteuer, Haushaltseinkommen und Schuldnerquote) entsprechen dabei den Ertwartungen.
 
 Die PCA zeigt  drei Hauptkomponenten für die Dimension Bildung. Sowohl die erste al auch die zweite Komponente haben dabei einen Eigenwert über eins. Die Faktorladungen der drei Variablen (Beschäftigte mit Abschluss, Schäftigte ohne Abschlus und Schulabgänger ohne Abschluss) entsprechen somit nicht den Erwartungen.
 
+Fazit: Die Betrachtung der Eigenwerte weist bei der Bildungsdimension auf zwei Hauptkomponenten hin.
+Hier sollte eine detailliertere Analyse folgen. 
+
+## Faktorladungen
 
 ```{r}
 # Componentoverview
-GISD_Komponents <- cbind("Teildimension"="Arbeitswelt","Anteil"=round((TS_Arbeitswelt.pca$rotation*sqrt(abs(TS_Arbeitswelt.pca$sdev^2))), digits = 3),"Score"=round(TS_Arbeitswelt.pca$rotation, digits = 3))
+GISD_Komponents <- cbind("Teildimension"="Arbeitswelt","Faktorladung"=round((TS_Arbeitswelt.pca$rotation*sqrt(abs(TS_Arbeitswelt.pca$sdev^2))), digits = 3),"Component"=round(TS_Arbeitswelt.pca$rotation, digits = 3))
 #cbind erstellt Spaltenvektoren mit den Infos aus Teildimension, den (rotierten) Faktorladungen und den Components
 
-GISD_Komponents <- rbind(GISD_Komponents,cbind("Teildimension"="Einkommen","Anteil"=round((TS_Einkommen.pca$rotation*sqrt(abs(TS_Einkommen.pca$sdev^2))), digits = 3),"Score"=round(TS_Einkommen.pca$rotation, digits = 3)))
+GISD_Komponents <- rbind(GISD_Komponents,cbind("Teildimension"="Einkommen","Faktorladung"=round((TS_Einkommen.pca$rotation*sqrt(abs(TS_Einkommen.pca$sdev^2))), digits = 3),"Component"=round(TS_Einkommen.pca$rotation, digits = 3)))
 # rbind erstellt Zeilenvektoren, diese werden hier in die bereits vorhandenen Spaltenvektoren eingebunden
 
-GISD_Komponents <- rbind(GISD_Komponents,cbind("Teildimension"="Bildung","Anteil"=round((TS_Bildung.pca$rotation*sqrt(abs(TS_Bildung.pca$sdev^2))), digits = 3),"Score"=round(TS_Bildung.pca$rotation, digits = 3)))
+GISD_Komponents <- rbind(GISD_Komponents,cbind("Teildimension"="Bildung","Faktorladung"=round((TS_Bildung.pca$rotation*sqrt(abs(TS_Bildung.pca$sdev^2))), digits = 3),"Component"=round(TS_Bildung.pca$rotation, digits = 3)))
 # auch für die Teildimension Bildung werden Zeilenvektoren eingebunden
 
 GISD_Komponents <- cbind("Variables"=as.data.frame(rownames(GISD_Komponents)),as.data.frame(GISD_Komponents))
@@ -162,23 +176,24 @@ rownames(GISD_Komponents) <- NULL
 colnames(GISD_Komponents) <- c("Variable","Dimension","Faktorladung","Component")
 
 GISD_Komponents$prop_dem <- round(as.numeric(GISD_Komponents$Component)^2*100,digits=1)
-# eine weitere Spalte Proportion wird eingef|gt mit prozentualen Anteilswerten (eine Nachkommastelle)
+# eine weitere Spalte Proportion wird eingefügt mit prozentualen Anteilswerten (eine Nachkommastelle)
 
 GISD_Komponents$prop_GISD <- round(as.numeric(GISD_Komponents$prop_dem)/3, digits = 1)
 
-colnames(GISD_Komponents) <- c("Variable","Dimension","Faktorladung","Component", "Anteil Dimension", "Anteil GISD")
+colnames(GISD_Komponents) <- c("Variable","Dimension","Faktorladung","Component", "Anteil Teilscore", "Anteil GISD")
 
 GISD_Komponents$Variable <- c("Beschäftigtenquote", "Arbeitslosigkeit", "Bruttoverdienst", "Einkommensteuer", "Haushaltseinkommen", "Schuldnerquote", "Beschäftigte mit Abschluss", "Beshäftigte ohne Abschluss", "Schulabgänger ohne Abschluss")
 
-GISD_Komponents$GISD <- "GISD"
-# eine weitere Spalte wird eingef|gt mit dem String "GISD" in jeder Zeile
 
-kable(GISD_Komponents, caption = "Komponenten und Anteile der Dimensionen")
+
+kable(GISD_Komponents, caption = "Faktorladungen und Anteile an den Teilscores sowie am Index")
 ```
 
 
+# Faktorenanalyse nur für Daten des Jahres 2017
 
-# Faktorenanalyse basierend auf Hauptkomponentenanalyse für jede der drei Subscalen für das Jahr 2017
+Es werden Hauptkomponentenanalysen für jede der drei Subskalen auf Basis der imputierten Daten geschätzt, hier nur mit den Daten von 2017.
+
 ```{r}
 # Variablenliste für die Faktorenanalyse mit Einschränkung 2017 
 
@@ -203,36 +218,33 @@ TS_Bildung_17.pca <- prcomp(TS_Bildung_17, center = TRUE, scale. = TRUE, retx=TR
 
 ```{r}
 par(mfrow=c(1, 3))
-plot(TS_Arbeitswelt_17.pca, main = "Arbeitswelt (Eigenvektoren)")
-plot(TS_Einkommen_17.pca, main = "Einkommen (Eigenverktoren)")
-plot(TS_Bildung_17.pca, main = "Bildung (Eigenvektoren)")
+plot(TS_Arbeitswelt_17.pca, main = "Arbeitswelt (Eigenvektoren)", ylim=c(0,2))
+plot(TS_Einkommen_17.pca, main = "Einkommen (Eigenverktoren)", ylim=c(0,2))
+plot(TS_Bildung_17.pca, main = "Bildung (Eigenvektoren)", ylim=c(0,2))
 ```
 
 ```{r}
-Varianz17_tab <- cbind("F_A" = "Faktor1", "Var_A" = round(TS_Arbeitswelt_17.pca$sdev^2, digits = 3), "F_E" = "Faktor1", "Var_E" = round(TS_Einkommen_17.pca$sdev^2, digits = 3), "F_B" = "Faktor1", "Var_B" = round(TS_Bildung_17.pca$sdev^2, digits = 3))
+Varianz17_tab <- cbind("F_A" = "Faktor1", "Var_A" = round(TS_Arbeitswelt_17.pca$sdev^2, digits = 3), "Var_E" = round(TS_Einkommen_17.pca$sdev^2, digits = 3), "Var_B" = round(TS_Bildung_17.pca$sdev^2, digits = 3))
 
 Varianz17_tab <- cbind(as.data.frame(Varianz17_tab))
 
 Varianz17_tab$F_A <- c("Faktor 1", "Faktor 2", "Faktor 3")
 
-Varianz17_tab$F_E <- c("Faktor 1", "Faktor 2", "Faktor 3")
 
-Varianz17_tab$F_B <- c("Faktor 1", "Faktor 2", "Faktor 3")
-
-colnames(Varianz17_tab) <- c("Faktoren Arbeitswelt", "Varianz Arbeitswelt", "Faktoren Einkommen", "Varianz Einkommen", "Faktoren Bildung", "Varianz Bildung")
+colnames(Varianz17_tab) <- c("Faktoren", "Varianz Arbeitswelt", "Varianz Einkommen", "Varianz Bildung")
 
 kable(Varianz17_tab, caption = "Varianz der Faktoren (Eigenverktoren) für 2017")
 ```
 
 ```{r}
 # Componentoverview 2017
-GISD_Komponents_17 <- cbind("Teildimension"="Arbeitswelt","Anteil"=round((TS_Arbeitswelt_17.pca$rotation*sqrt(abs(TS_Arbeitswelt_17.pca$sdev^2))), digits = 3),"Score"=round(TS_Arbeitswelt_17.pca$rotation, digits = 3))
+GISD_Komponents_17 <- cbind("Teildimension"="Arbeitswelt","Faktorladung"=round((TS_Arbeitswelt_17.pca$rotation*sqrt(abs(TS_Arbeitswelt_17.pca$sdev^2))), digits = 3),"Component"=round(TS_Arbeitswelt_17.pca$rotation, digits = 3))
 # cbind erstellt Spaltenvektoren mit den Infos aus Teildimension, den (rotierten) Faktorladungen und den Components
 
-GISD_Komponents_17 <- rbind(GISD_Komponents_17,cbind("Teildimension"="Einkommen","Anteil"=round((TS_Einkommen_17.pca$rotation*sqrt(abs(TS_Einkommen_17.pca$sdev^2))), digits = 3),"Score"=round(TS_Einkommen_17.pca$rotation, digits = 3)))
+GISD_Komponents_17 <- rbind(GISD_Komponents_17,cbind("Teildimension"="Einkommen","Faktorladung"=round((TS_Einkommen_17.pca$rotation*sqrt(abs(TS_Einkommen_17.pca$sdev^2))), digits = 3),"Component"=round(TS_Einkommen_17.pca$rotation, digits = 3)))
 # rbind erstellt Zeilenvektoren, diese werden hier in die bereits vorhandenen Spaltenvektoren eingebunden
 
-GISD_Komponents_17 <- rbind(GISD_Komponents_17,cbind("Teildimension"="Bildung","Anteil"=round((TS_Bildung_17.pca$rotation*sqrt(abs(TS_Bildung_17.pca$sdev^2))), digits = 3),"Score"=round(TS_Bildung_17.pca$rotation, digits = 3)))
+GISD_Komponents_17 <- rbind(GISD_Komponents_17,cbind("Teildimension"="Bildung","Faktorladung"=round((TS_Bildung_17.pca$rotation*sqrt(abs(TS_Bildung_17.pca$sdev^2))), digits = 3),"Component"=round(TS_Bildung_17.pca$rotation, digits = 3)))
 # auch für die Teildimension Bildung werden Zeilenvektoren eingebunden
 
 GISD_Komponents_17 <- cbind("Variables"=as.data.frame(rownames(GISD_Komponents_17)),as.data.frame(GISD_Komponents_17))
@@ -253,7 +265,7 @@ colnames(GISD_Komponents_17) <- c("Variable","Dimension","Faktorladung","Coponen
 GISD_Komponents_17$Variable <- c("Beschäftigtenquote", "Arbeitslosigkeit", "Bruttoverdienst", "Einkommensteuer", "Haushaltseinkommen", "Schuldnerquote", "Beschäftigte mit Abschluss", "Beshäftigte ohne Abschluss", "Schulabgänger ohne Abschluss")
 
 GISD_Komponents_17$GISD <- "GISD"
-# eine weitere Spalte wird eingef|gt mit dem String "GISD" in jeder Zeile
+# eine weitere Spalte wird eingefügt mit dem String "GISD" in jeder Zeile
 
 kable(GISD_Komponents_17, caption = "Komponenten und Anteile der Dimensionen für 2017")
 ```
