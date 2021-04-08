@@ -302,7 +302,7 @@ Die Missings auf der Arbeitslosigkeit finden sich in unterschiedlichen Gemeinden
 
 # Imputation
 imputationsliste <- subset(listofdeterminants , !(listofdeterminants %in%
-                                                    c('Arbeitslosigkeit','SchulabgaengermitHochschulreife','SchulabgaengerohneAbschluss')))
+                                                    c('Arbeitslosigkeit','SchulabgaengerohneAbschluss',             'SchulabgaengermitHochschulreife')))
 # Variablenliste für die Regressionsimputation wird erstellt
 # das betrifft alle Variablen, außer die im angebenen Vektor
 # letztere sind frei von Missings und können im Imputationsmodell genutzt werden 
@@ -336,7 +336,9 @@ my_ts_imputer <- function(data,outcome_name){
   mydata %>% select(Outcome) %>% mutate(Imputed = predict(mymodell, newdata =mydata )) %>%
     mutate(Outcome=ifelse(is.na(Outcome),Imputed,Outcome)) %>% 
     mutate(Outcome=ifelse(Outcome<0,0,Outcome)) %>% pull(Outcome)
-  }
+}
+
+
 # Hier wird eine Funktion generiert, die im Datensatz (data) fehlende Daten für ausgewählte Variablen (outcome_name) imputiert
 # 1. zunächst werden Mittelwerte für das Outcome (siehe select) jeweils für die Gemeinde generiert, d.h. über alle Wellen aggregiert
 # 2. mymodell definiert das Modell (lm); "I()" sichert ab, dass der Operator * erkannt wird und dass ein Spaltenvektor in die Formel eingeht
@@ -358,13 +360,33 @@ Impdata.imputed <- Impdata %>% mutate(
   Einkommensteuer=my_ts_imputer(.,"Einkommensteuer"),
   Haushaltseinkommen=my_ts_imputer(.,"Haushaltseinkommen"),
   Schuldnerquote=my_ts_imputer(.,"Schuldnerquote"),
-  SchulabgaengermitHochschulreife=my_ts_imputer(.,"SchulabgaengermitHochschulreife")    
   )
 # hier wird der Datensatz mit den imputierten Werten generiert. Die Funktion my_ts_imputer wird auf jeden Indikator mit Missings angewendet
 
 # Result of Imputation
 summary(as.data.frame(Impdata.imputed) %>% ungroup()  %>% select(listofdeterminants))
 
+
+
+########Imputation für Schulabgänger mit Hochschulreife
+my_ts_imputer <- function(data,outcome_name){
+  mydata   <- data %>%
+    select(Gemeindekennziffer,Jahr,Arbeitslosigkeit,SchulabgaengerohneAbschluss,Beschaeftigtenquote,Bruttoverdienst,BeschaeftigtemitakadAbschluss,BeschaeftigteohneAbschluss,Einkommensteuer,Haushaltseinkommen,Haushaltseinkommen,"Outcome"=paste(outcome_name)) %>% 
+    mutate(MEAN=mean(Outcome , na.rm=T))
+  mymodell <- lm(Outcome ~
+                  I(Jahr*Jahr*MEAN) + I(Jahr*MEAN) + Arbeitslosigkeit + 
+                   SchulabgaengerohneAbschluss + Beschaeftigtenquote + Bruttoverdienst + BeschaeftigtemitakadAbschluss + BeschaeftigteohneAbschluss + Einkommensteuer + Haushaltseinkommen + Haushaltseinkommen ,
+                   data = mydata  , na.action="na.exclude")
+  mydata %>% select(Outcome) %>% mutate(Imputed = predict(mymodell, newdata =mydata )) %>%
+    mutate(Outcome=ifelse(is.na(Outcome),Imputed,Outcome)) %>% 
+    mutate(Outcome=ifelse(Outcome<0,0,Outcome)) %>% pull(Outcome)
+}
+
+Impdata.imputed <- Impdata.imputed %>% mutate(
+  SchulabgaengermitHochschulreife=my_ts_imputer(.,"SchulabgaengermitHochschulreife")
+  )
+
+summary(Impdata.imputed$SchulabgaengermitHochschulreife)
 
 
 # Percentile für ausgewählte Variablen bilden
@@ -381,6 +403,10 @@ summary(as.data.frame(Impdata.imputed) %>% ungroup()  %>% select(listofdetermina
 
 # Stata-Datensatz rausschreiben
 write_dta(Impdata.imputed, paste0("Outfiles/2021/Stata/impdata.dta"))
+
+# RDS-Datensatz rausschreiben
+write_rds(Impdata.imputed, paste0("Outfiles/impdata.rds"))
+
 ```
 
 
