@@ -33,7 +33,7 @@ library(pastecs) # descriptive stats
 library(knitr)
 library(ggplot2)
 
-Impdata.imputed <- readRDS("C:/git_projects/GISD/Outfiles/impdata.rds")
+Impdata.imputed <- readRDS("C:/projects_rstudio/GISD/Outfiles/impdata.rds")
 ```
 
 
@@ -215,7 +215,8 @@ Table: (\#tab:unnamed-chunk-3)Faktorladungen und Anteile an den Teilscores sowie
 |Beschäftigte mit Abschluss   |Bildung     |0.418        |0.352     |             12.4|         4.1|
 |Beshäftigte ohne Abschluss   |Bildung     |0.585        |0.537     |             28.8|         9.6|
 |Schulabgänger ohne Abschluss |Bildung     |-0.489       |-0.767    |             58.8|        19.6|
-## Faktorenanalyse gepoolte Querschnitte (4 Items Bildung)
+## Faktorenanalyse gepoolte  
+Querschnitte (4 Items Bildung)
 
 ### Eigenwerte der Komponenten
 

@@ -35,7 +35,7 @@ library(pastecs) # descriptive stats
 library(knitr)
 library(ggplot2)
 
-Impdata.imputed <- readRDS("C:/git_projects/GISD/Outfiles/impdata.rds")
+Impdata.imputed <- readRDS("C:/projects_rstudio/GISD/Outfiles/impdata.rds")
 ```
 
 
@@ -188,7 +188,8 @@ GISD_Komponents$Variable <- c("Beschäftigtenquote", "Arbeitslosigkeit", "Brutto
 
 kable(GISD_Komponents, caption = "Faktorladungen und Anteile an den Teilscores sowie am Index")
 ```
-## Faktorenanalyse gepoolte Querschnitte (4 Items Bildung)
+## Faktorenanalyse gepoolte  
+Querschnitte (4 Items Bildung)
 
 ### Eigenwerte der Komponenten
 ```{r, message=FALSE, warning=FALSE}
