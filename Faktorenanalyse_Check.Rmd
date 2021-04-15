@@ -35,7 +35,7 @@ library(pastecs) # descriptive stats
 library(knitr)
 library(ggplot2)
 
-Impdata.imputed <- readRDS("C:/git_projects/GISD/Outfiles/impdata.rds")
+Impdata.imputed <- readRDS("C:/projects_rstudio/GISD/Outfiles/impdata.rds")
 ```
 
 
@@ -47,6 +47,8 @@ TS_Arbeitswelt <- Impdata.imputed  %>% ungroup() %>% dplyr::select(Beschaeftigte
 TS_Einkommen   <- Impdata.imputed %>% dplyr::select(Einkommensteuer,Haushaltseinkommen,Schuldnerquote) 
 # für den Vergleich der Ergebnisse wird zunächst ein Datensatz für die Variablenauswahl der Revision 2019 generiert
 TS_Bildung <- Impdata.imputed %>% dplyr::select(BeschaeftigtemitakadAbschluss,BeschaeftigteohneAbschluss,SchulabgaengerohneAbschluss) 
+
+TS_Bildung_adj <- Impdata.imputed %>% dplyr::select(BeschaeftigtemitakadAbschluss,BeschaeftigteohneAbschluss,SchulabgaengerohneAbschluss) 
 
 # Check dieser Lösung für das 2014er Sample 
 #TS_Bildung_r2014 <- Impdata.imputed %>% filter(Jahr<2015) %>%  #dplyr::select(BeschaeftigtemitakadAbschluss,BeschaeftigteohneAbschluss,SchulabgaengerohneAbschluss) 
@@ -188,7 +190,8 @@ GISD_Komponents$Variable <- c("Beschäftigtenquote", "Arbeitslosigkeit", "Brutto
 
 kable(GISD_Komponents, caption = "Faktorladungen und Anteile an den Teilscores sowie am Index")
 ```
-## Faktorenanalyse gepoolte Querschnitte (4 Items Bildung)
+## Faktorenanalyse gepoolte  
+Querschnitte (4 Items Bildung)
 
 ### Eigenwerte der Komponenten
 ```{r, message=FALSE, warning=FALSE}

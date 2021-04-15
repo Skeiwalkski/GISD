@@ -371,11 +371,10 @@ summary(as.data.frame(Impdata.imputed) %>% ungroup()  %>% select(listofdetermina
 ########Imputation für Schulabgänger mit Hochschulreife
 my_ts_imputer <- function(data,outcome_name){
   mydata   <- data %>%
-    select(Gemeindekennziffer,Jahr,Arbeitslosigkeit,SchulabgaengerohneAbschluss,Beschaeftigtenquote,Bruttoverdienst,BeschaeftigtemitakadAbschluss,BeschaeftigteohneAbschluss,Einkommensteuer,Haushaltseinkommen,Haushaltseinkommen,"Outcome"=paste(outcome_name)) %>% 
-    mutate(MEAN=mean(Outcome , na.rm=T))
+    select(Gemeindekennziffer,Jahr,Arbeitslosigkeit,SchulabgaengerohneAbschluss,Beschaeftigtenquote,Bruttoverdienst,BeschaeftigtemitakadAbschluss,BeschaeftigteohneAbschluss,Einkommensteuer,Haushaltseinkommen,"Outcome"=paste(outcome_name)) %>% mutate(MEAN=mean(Outcome , na.rm=T))
   mymodell <- lm(Outcome ~
                   I(Jahr*Jahr*MEAN) + I(Jahr*MEAN) + Arbeitslosigkeit + 
-                   SchulabgaengerohneAbschluss + Beschaeftigtenquote + Bruttoverdienst + BeschaeftigtemitakadAbschluss + BeschaeftigteohneAbschluss + Einkommensteuer + Haushaltseinkommen + Haushaltseinkommen ,
+                   SchulabgaengerohneAbschluss + Beschaeftigtenquote + Bruttoverdienst + BeschaeftigtemitakadAbschluss + BeschaeftigteohneAbschluss + Einkommensteuer + Haushaltseinkommen ,
                    data = mydata  , na.action="na.exclude")
   mydata %>% select(Outcome) %>% mutate(Imputed = predict(mymodell, newdata =mydata )) %>%
     mutate(Outcome=ifelse(is.na(Outcome),Imputed,Outcome)) %>% 
@@ -399,13 +398,108 @@ summary(Impdata.imputed$SchulabgaengermitHochschulreife)
 #           SchulabgaengerohneAbschluss2 = findInterval(SchulabgaengerohneAbschluss, quantile(SchulabgaengerohneAbschluss, probs=0:100/100 , # type=9)),
 #           BeschaeftigtemitakadAbschluss2 = findInterval(BeschaeftigtemitakadAbschluss, quantile(BeschaeftigtemitakadAbschluss, # probs=0:100/100 , type=9))) 
 # 
+```
+
+```{r Erstellen Variabe zu G8 und Sensibilisierung des Datensatzes}
+Impdata.imputed <- Impdata.imputed %>%
+  mutate(G8 = case_when(Kreis < 2000 & Jahr >= 2016 & Jahr <= 2028 ~ 1,
+                                Kreis > 1999 & Kreis < 3000 & Jahr >= 2010 ~ 1,
+                                Kreis > 2999 & Kreis < 4000 & Jahr >= 2011 & Jahr <= 2024 ~ 1,
+                                Kreis > 3999 & Kreis < 5000 & Jahr >= 2012 ~ 1,
+                                Kreis > 4999 & Kreis < 6000 & Jahr >= 2013 & Jahr <= 2028 ~ 1,
+                                Kreis > 5999 & Kreis < 7000 & Jahr >= 2013 & Jahr <= 2022 ~ 1,
+                                Kreis > 7999 & Kreis < 9000 & Jahr >= 2012 ~ 1,
+                                Kreis > 8999 & Kreis < 10000 & Jahr >= 2011 & Jahr <= 2026 ~ 1,
+                                Kreis > 9999 & Kreis < 11000 & Jahr >= 2009 ~ 1,
+                                Kreis > 10999 & Kreis < 12000 & Jahr >= 2012 ~ 1,
+                                Kreis > 11999 & Kreis < 13000 & Jahr >= 2012 ~ 1,
+                                Kreis > 12999 & Kreis < 14000 & Jahr >= 2008 ~ 1,
+                                Kreis > 13999 & Kreis < 15000 ~ 1,
+                                Kreis > 14999 & Kreis < 16000 & Jahr >= 2007 ~ 1,
+                                Kreis > 15999 ~ 1))
+Impdata.imputed$G8[is.na(Impdata.imputed$G8)] = 0
+
+Impdata.imputed <- Impdata.imputed %>%
+  mutate(G8_jahr = case_when(Kreis < 2000 & Jahr == 2016 ~ 1,
+                                Kreis > 1999 & Kreis < 3000 & Jahr == 2010 ~ 1,
+                                Kreis > 2999 & Kreis < 4000 & Jahr == 2011 ~ 1,
+                                Kreis > 3999 & Kreis < 5000 & Jahr == 2012 ~ 1,
+                                Kreis > 4999 & Kreis < 6000 & Jahr == 2013 ~ 1,
+                                Kreis > 5999 & Kreis < 7000 & Jahr == 2013 ~ 1,
+                                Kreis > 7999 & Kreis < 9000 & Jahr == 2012 ~ 1,
+                                Kreis > 8999 & Kreis < 10000 & Jahr == 2011 ~ 1,
+                                Kreis > 9999 & Kreis < 11000 & Jahr == 2009 ~ 1,
+                                Kreis > 10999 & Kreis < 12000 & Jahr == 2012 ~ 1,
+                                Kreis > 11999 & Kreis < 13000 & Jahr == 2012 ~ 1,
+                                Kreis > 12999 & Kreis < 14000 & Jahr == 2008 ~ 1,
+                                Kreis > 14999 & Kreis < 16000 & Jahr == 2007 ~ 1))
+Impdata.imputed$G8_jahr[is.na(Impdata.imputed$G8_jahr)] = 0
 
 
+#plot(Impdata.imputed$SchulabgaengermitHochschulreife, Impdata.imputed$G8)
+
+#plot(Impdata.imputed$Jahr, Impdata.imputed$G8_jahr)
+
+
+adj_G8 <- function(data,outcome_name){
+  mydata   <- data %>%
+    group_by(Gemeindekennziffer) %>% 
+    select(Gemeindekennziffer, Jahr, G8, "Outcome"=paste(outcome_name)) %>% 
+    mutate(MEAN=mean(Outcome , na.rm=T)) %>% ungroup()
+  
+  mymodell <- lm(Outcome ~
+                  I(Jahr*Jahr*MEAN) + I(Jahr*MEAN) + G8, data = mydata  , na.action="na.exclude")
+  
+  mydata %>% select(Outcome, G8) %>% mutate(pred_var = predict(mymodell, newdata = mydata)) %>%
+    mutate(Outcome=ifelse(G8 == 1,pred_var,Outcome)) %>% 
+    mutate(Outcome=ifelse(Outcome<0,0,Outcome)) %>% 
+    pull(Outcome)
+}
+
+Impdata.imputed <- Impdata.imputed %>% 
+  mutate(SchulabgaengermitHochschulreife_mr = ifelse(G8 == 1,adj_G8(.,"SchulabgaengermitHochschulreife"), SchulabgaengermitHochschulreife),
+         SchulabgaengerohneAbschluss_mr = ifelse(G8 == 1,adj_G8(.,"SchulabgaengerohneAbschluss"), SchulabgaengerohneAbschluss))
+
+
+
+
+
+
+adj_G8_jahr <- function(data,outcome_name){
+  mydata   <- data %>%
+    group_by(Gemeindekennziffer) %>% 
+    select(Gemeindekennziffer, Jahr, G8_jahr, "Outcome"=paste(outcome_name)) %>% 
+    mutate(MEAN=mean(Outcome , na.rm=T)) %>% ungroup()
+  
+    mymodell <- lm(Outcome ~
+                  I(Jahr*Jahr*MEAN) + I(Jahr*MEAN) + G8_jahr, data = mydata  , na.action="na.exclude")
+  
+  
+    mydata %>% mutate(coef = summary(mymodell)$coefficients[4,1]) %>%
+      mutate(Outcome = ifelse(G8_jahr == 1, Outcome - coef, Outcome)) %>%
+      pull(Outcome)
+}
+
+Impdata.imputed <- Impdata.imputed %>% 
+  mutate(SchulabgaengermitHochschulreife_adj = adj_G8_jahr(.,"SchulabgaengermitHochschulreife"),
+         SchulabgaengerohneAbschluss_adj = adj_G8_jahr(.,"SchulabgaengerohneAbschluss"))
+```
+
+
+
+
+
+
+
+
+
+
+```{r}
 # Stata-Datensatz rausschreiben
 write_dta(Impdata.imputed, paste0("Outfiles/2021/Stata/impdata.dta"))
 
 # RDS-Datensatz rausschreiben
-write_rds(Impdata.imputed, paste0("Outfiles/impdata.rds"))
+write_rds(Impdata.imputed, paste0("Outfiles/Impdata_check.rds"))
 
 ```
 
@@ -703,22 +797,22 @@ for(mykennziffer in exportlist$Kennziffern) {
   summary(outputdata)
 
 
-  # Ausgabe Bundesländer
-  ListeBula <- unique(outputdata$Bundesland)
-  dir.create("Outfiles/2021/Bundesland", showWarnings=F)  
-  for(myland in ListeBula) {
-  dir.create( paste0("Outfiles/2021/Bundesland/",myland), showWarnings=F)  
-    dir.create( paste0("Outfiles/2021/Bundesland/",myland,"/",mylabel), showWarnings=F)  
-    mydata <- outputdata %>% filter(Bundesland==myland) %>% ungroup() %>% dplyr::select(-Bundesland)
-    write.csv(mydata, paste0("Outfiles/2021/Bundesland/",myland,"/",mylabel,"/",mylabel,".csv"))
-    
-    mydata <- outputdata %>% filter(Bundesland==myland)
-    names(mydata) <- gsub("\\.","_",make.names(names(mydata)))
-    names(mydata) <- gsub("\\?","oe",names(mydata))
-    names(mydata) <- gsub("\\?","ae",names(mydata))
-    names(mydata) <- gsub("\\?","ue",names(mydata))
-    names(mydata) <- gsub("\\?","ss",names(mydata))
-    write_dta(mydata, paste0("Outfiles/2021/Bundesland/",myland,"/",mylabel,"/",mylabel,".dta"))
+#  # Ausgabe Bundesländer
+#  ListeBula <- unique(outputdata$Bundesland)
+#  dir.create("Outfiles/2021/Bundesland", showWarnings=F)  
+#  for(myland in ListeBula) {
+#  dir.create( paste0("Outfiles/2021/Bundesland/",myland), showWarnings=F)  
+#    dir.create( paste0("Outfiles/2021/Bundesland/",myland,"/",mylabel), showWarnings=F)  
+#    mydata <- outputdata %>% filter(Bundesland==myland) %>% ungroup() %>% dplyr::select(-Bundesland)
+#    write.csv(mydata, paste0("Outfiles/2021/Bundesland/",myland,"/",mylabel,"/",mylabel,".csv"))
+#    
+#    mydata <- outputdata %>% filter(Bundesland==myland)
+#    names(mydata) <- gsub("\\.","_",make.names(names(mydata)))
+#    names(mydata) <- gsub("\\?","oe",names(mydata))
+#    names(mydata) <- gsub("\\?","ae",names(mydata))
+#    names(mydata) <- gsub("\\?","ue",names(mydata))
+#    names(mydata) <- gsub("\\?","ss",names(mydata))
+#    write_dta(mydata, paste0("Outfiles/2021/Bundesland/",myland,"/",mylabel,"/",mylabel,".dta"))
   }
   }  
 }
@@ -732,53 +826,53 @@ for(mykennziffer in exportlist$Kennziffern) {
 #### PLZ Daten noch nicht gecheckt (nm) ### 
 
 # Output Postcode Data
-load("Data/SHP/GEM_Zipcode_Intersections_2015.RData") # AGS/Postcode-Intersections-Dataset in sf format
-
-
-for (mykennziffer in c("PLZ2","PLZ3","PLZ4","PLZ5")) {
-  myname <-  paste0(mykennziffer)
-  mylabel<-  paste0(mykennziffer)
-  print(paste("Level:",myname,"Label:",mylabel))
-  
-  # Datensatzerstellung # weighted.mean fehlt wg. Fehler Evaluation error: 'x' and 'w' must have the same length
-  outputdata <- Resultdataset 
-  outputdata <- outputdata %>% dplyr::select(AGS=Gemeindekennziffer,Jahr,GISD_Score)
-  outputdata <- left_join(as.data.frame(PLZ.df) %>% ungroup() %>% mutate(AGS=as.numeric(as.character(AGS))),
-                          outputdata,by=c("AGS"), all.x = TRUE)
-  outputdata <- outputdata %>% filter(!is.na(mykennziffer) & !is.na(EW_Area) & !is.na(Jahr) & EW_Area>0)
-  mycol <- which(mykennziffer %in% names(outputdata))
-  outputdata <- outputdata %>% group_by(Jahr,AGS) 
-  outputdata <- outputdata %>% mutate(GISD_Score = weighted.mean(GISD_Score,EW_Area))
-  names(outputdata)[names(outputdata)=="Jahr"]<- "JAHR" # Seltsames Problem Name "Jahr"
-  outputdata <- outputdata %>% group_by_at(vars("JAHR",mykennziffer)) %>% 
-    summarise(GISD_Score = weighted.mean(GISD_Score,EW_Area), Bevölkerung = sum(EW_Area)) %>%
-    group_by(JAHR)
-  
-  outputdata <- outputdata %>%  mutate(GISD_Score = round((GISD_Score -min(GISD_Score ))/(max(GISD_Score )-min(GISD_Score )), digits=6),
-                                       GISD_5 = findInterval(GISD_Score, quantile(GISD_Score,   probs=0:5/5 , type=9)),
-                                       GISD_5 = findInterval(GISD_5, c(1:5)),
-                                       GISD_10 = findInterval(GISD_Score, quantile(GISD_Score, probs=0:10/10 , type=9)),
-                                       GISD_10 = findInterval(GISD_10, c(1:10)),
-                                       GISD_k = findInterval(GISD_5, c(1,2,5))) 
-  summary(outputdata)            
-  head(outputdata)
-  ListeJahre <- unique(outputdata$JAHR)
-  dir.create( paste0("Revisions/"), showWarnings=F)
-  dir.create( paste0("Revisions/2020/"), showWarnings=F) 
-  dir.create( paste0("Revisions/2020/Bund/"), showWarnings=F) 
-  dir.create( paste0("Revisions/2020/Bund/",mylabel), showWarnings=F) 
-  mydata <- outputdata %>% ungroup() 
-  write.csv2(mydata, paste0("Revisions/2020/Bund/",mylabel,"/",mylabel,".csv"))
-  mydata <- outputdata %>% ungroup() 
-  names(mydata) <- gsub("\\.","_",make.names(names(mydata)))
-  names(mydata) <- gsub("\\?","oe",names(mydata))
-  names(mydata) <- gsub("\\?","ae",names(mydata))
-  names(mydata) <- gsub("\\?","ue",names(mydata))
-  names(mydata) <- gsub("\\?","ss",names(mydata))
-  write_dta(mydata, paste0("Revisions/2020/Bund/",mylabel,"/",mylabel,"_long.dta"))
-  }
-
-
+#load("Data/SHP/GEM_Zipcode_Intersections_2015.RData") # AGS/Postcode-Intersections-Dataset in sf format
+#
+#
+#for (mykennziffer in c("PLZ2","PLZ3","PLZ4","PLZ5")) {
+#  myname <-  paste0(mykennziffer)
+#  mylabel<-  paste0(mykennziffer)
+#  print(paste("Level:",myname,"Label:",mylabel))
+#  
+#  # Datensatzerstellung # weighted.mean fehlt wg. Fehler Evaluation error: 'x' and 'w' must have the same length
+#  outputdata <- Resultdataset 
+#  outputdata <- outputdata %>% dplyr::select(AGS=Gemeindekennziffer,Jahr,GISD_Score)
+#  outputdata <- left_join(as.data.frame(PLZ.df) %>% ungroup() %>% mutate(AGS=as.numeric(as.character(AGS))),
+#                          outputdata,by=c("AGS"), all.x = TRUE)
+#  outputdata <- outputdata %>% filter(!is.na(mykennziffer) & !is.na(EW_Area) & !is.na(Jahr) & EW_Area>0)
+#  mycol <- which(mykennziffer %in% names(outputdata))
+#  outputdata <- outputdata %>% group_by(Jahr,AGS) 
+#  outputdata <- outputdata %>% mutate(GISD_Score = weighted.mean(GISD_Score,EW_Area))
+#  names(outputdata)[names(outputdata)=="Jahr"]<- "JAHR" # Seltsames Problem Name "Jahr"
+#  outputdata <- outputdata %>% group_by_at(vars("JAHR",mykennziffer)) %>% 
+#    summarise(GISD_Score = weighted.mean(GISD_Score,EW_Area), Bevölkerung = sum(EW_Area)) %>%
+#    group_by(JAHR)
+#  
+#  outputdata <- outputdata %>%  mutate(GISD_Score = round((GISD_Score -min(GISD_Score ))/(max(GISD_Score #)-min(GISD_Score )), digits=6),
+#                                       GISD_5 = findInterval(GISD_Score, quantile(GISD_Score,   probs=0:5/5 , #type=9)),
+#                                       GISD_5 = findInterval(GISD_5, c(1:5)),
+#                                       GISD_10 = findInterval(GISD_Score, quantile(GISD_Score, probs=0:10/10 , #type=9)),
+#                                       GISD_10 = findInterval(GISD_10, c(1:10)),
+#                                       GISD_k = findInterval(GISD_5, c(1,2,5))) 
+#  summary(outputdata)            
+#  head(outputdata)
+#  ListeJahre <- unique(outputdata$JAHR)
+#  dir.create( paste0("Revisions/"), showWarnings=F)
+#  dir.create( paste0("Revisions/2020/"), showWarnings=F) 
+#  dir.create( paste0("Revisions/2020/Bund/"), showWarnings=F) 
+#  dir.create( paste0("Revisions/2020/Bund/",mylabel), showWarnings=F) 
+#  mydata <- outputdata %>% ungroup() 
+#  write.csv2(mydata, paste0("Revisions/2020/Bund/",mylabel,"/",mylabel,".csv"))
+#  mydata <- outputdata %>% ungroup() 
+#  names(mydata) <- gsub("\\.","_",make.names(names(mydata)))
+#  names(mydata) <- gsub("\\?","oe",names(mydata))
+#  names(mydata) <- gsub("\\?","ae",names(mydata))
+#  names(mydata) <- gsub("\\?","ue",names(mydata))
+#  names(mydata) <- gsub("\\?","ss",names(mydata))
+#  write_dta(mydata, paste0("Revisions/2020/Bund/",mylabel,"/",mylabel,"_long.dta"))
+#  }
+#
+#
 ```
 
 # Allgemeine SOP für die Revision (nach Lars Kroll)
