@@ -12,7 +12,7 @@ output:
     number_sections: false
     theme: cerulean
     highlight: tango
-        
+  
 ---
 
 # Info
@@ -26,14 +26,14 @@ In diesem Codeblog analysieren wir die Faktorenanalyse des GISD.
 
 
 ```r
-library("tidyverse") # Tidyverse Methods
+library(tidyverse) # Tidyverse Methods
 library(bookdown) 
 library(readxl) # Read Excel
 library(pastecs) # descriptive stats
 library(knitr)
 library(ggplot2)
 
-Impdata.imputed <- readRDS("C:/projects_rstudio/GISD/Outfiles/impdata.rds")
+Impdata.imputed <- readRDS("C:/git_projects/GISD/Outfiles/Impdata_check.rds")
 ```
 
 
@@ -41,15 +41,17 @@ Impdata.imputed <- readRDS("C:/projects_rstudio/GISD/Outfiles/impdata.rds")
 ```r
 # Variablenliste für die Faktorenanalyse 
 #print(listofdeterminants)
-TS_Arbeitswelt <- Impdata.imputed  %>% ungroup() %>% dplyr::select(Beschaeftigtenquote,Arbeitslosigkeit,Bruttoverdienst) 
-TS_Einkommen   <- Impdata.imputed %>% dplyr::select(Einkommensteuer,Haushaltseinkommen,Schuldnerquote) 
+TS_Arbeitswelt <- Impdata.imputed  %>% ungroup() %>% select(Beschaeftigtenquote,Arbeitslosigkeit,Bruttoverdienst) 
+TS_Einkommen   <- Impdata.imputed %>% select(Einkommensteuer,Haushaltseinkommen,Schuldnerquote) 
 # für den Vergleich der Ergebnisse wird zunächst ein Datensatz für die Variablenauswahl der Revision 2019 generiert
-TS_Bildung <- Impdata.imputed %>% dplyr::select(BeschaeftigtemitakadAbschluss,BeschaeftigteohneAbschluss,SchulabgaengerohneAbschluss) 
+TS_Bildung <- Impdata.imputed %>% select(BeschaeftigtemitakadAbschluss,BeschaeftigteohneAbschluss,SchulabgaengerohneAbschluss) 
+
+TS_Bildung_adj <- Impdata.imputed %>% select(BeschaeftigtemitakadAbschluss,BeschaeftigteohneAbschluss,SchulabgaengerohneAbschluss_adj) 
 
 # Check dieser Lösung für das 2014er Sample 
 #TS_Bildung_r2014 <- Impdata.imputed %>% filter(Jahr<2015) %>%  #dplyr::select(BeschaeftigtemitakadAbschluss,BeschaeftigteohneAbschluss,SchulabgaengerohneAbschluss) 
 
-TS_Bildung_4items <- Impdata.imputed %>% dplyr::select(BeschaeftigtemitakadAbschluss,BeschaeftigteohneAbschluss,SchulabgaengerohneAbschluss, SchulabgaengermitHochschulreife)
+TS_Bildung_4items <- Impdata.imputed %>% select(BeschaeftigtemitakadAbschluss,BeschaeftigteohneAbschluss,SchulabgaengerohneAbschluss, SchulabgaengermitHochschulreife)
 
 #TS_Bildung_4items_without_BoA <- Impdata.imputed %>% #dplyr::select(BeschaeftigtemitakadAbschluss,SchulabgaengerohneAbschluss, SchulabgaengermitHochschulreife) 
 ```
@@ -111,7 +113,7 @@ TS_Bildung.pca <- prcomp(TS_Bildung, center = TRUE, scale. = TRUE, retx=TRUE, ra
 #TS_Bildung_r2014.pca <- prcomp(TS_Bildung_r2014, center = TRUE, scale. = TRUE, retx=TRUE) 
 #TS_Bildung_r2014.pca
 # 
-TS_Bildung_4items.pca <- prcomp(TS_Bildung_4items, center = TRUE, scale. = TRUE, retx=TRUE)
+TS_Bildung_4items.pca <- prcomp(TS_Bildung_4items, center = TRUE, scale. = TRUE, retx=TRUE, rank. =1 )
 # plot(TS_Bildung_4items.pca)
 # TS_Bildung_4items.pca
 
@@ -119,6 +121,8 @@ TS_Bildung_4items.pca <- prcomp(TS_Bildung_4items, center = TRUE, scale. = TRUE,
 #tab_Bildung_4items <- cbind(as.data.frame(tab_Bildung_4items))
 #tab_Bildung_4items$Faktor <- c("Faktor 1", "Faktor 2", "Faktor 3")
 #colnames(tab_Bildung_4items) <- c("Faktoren für Bildung", "Varianz")
+
+TS_Bildung_adj.pca <- prcomp(TS_Bildung_adj, center = TRUE, scale. = TRUE, retx=TRUE, rank. =1 ) 
 ```
 
 ### Eigenwerte der Komponenten
@@ -215,6 +219,88 @@ Table: (\#tab:unnamed-chunk-3)Faktorladungen und Anteile an den Teilscores sowie
 |Beschäftigte mit Abschluss   |Bildung     |0.418        |0.352     |             12.4|         4.1|
 |Beshäftigte ohne Abschluss   |Bildung     |0.585        |0.537     |             28.8|         9.6|
 |Schulabgänger ohne Abschluss |Bildung     |-0.489       |-0.767    |             58.8|        19.6|
+
+## Faktoranalyse gepoolte Querschnitte
+(Mit adjusteted Bildungskomponente)
+
+### Eigenwerte der Komponenten
+
+```r
+par(mfrow=c(1, 3))
+plot(TS_Arbeitswelt.pca, main = "Arbeitswelt (Eigenvektoren)", ylim=c(0,2.2))
+plot(TS_Einkommen.pca, main = "Einkommen (Eigenverktoren)", ylim=c(0,2.2))
+plot(TS_Bildung_adj.pca, main = "Bildung adj. (Eigenvektoren)", ylim=c(0,2.2))
+```
+
+![](Faktorenanalyse_Check_files/figure-html/unnamed-chunk-4-1.png)<!-- -->
+
+```r
+Varianz_tab <- cbind("F_A" = "Faktor1", "Var_A" = round(TS_Arbeitswelt.pca$sdev^2, digits = 3), "Var_E" = round(TS_Einkommen.pca$sdev^2, digits = 3),  "Var_B" = round(TS_Bildung_adj.pca$sdev^2, digits = 3))
+
+Varianz_tab <- cbind(as.data.frame(Varianz_tab))
+
+Varianz_tab$F_A <- c("Faktor 1", "Faktor 2", "Faktor 3")
+
+colnames(Varianz_tab) <- c("Faktoren", "Varianz Arbeitswelt", "Varianz Einkommen", "Varianz Bildung (adj.)")
+
+kable(Varianz_tab, caption = "Varianz der Faktoren (Eigenverktoren)")
+```
+
+
+
+Table: (\#tab:unnamed-chunk-5)Varianz der Faktoren (Eigenverktoren)
+
+|Faktoren |Varianz Arbeitswelt |Varianz Einkommen |Varianz Bildung (adj.) |
+|:--------|:-------------------|:-----------------|:----------------------|
+|Faktor 1 |1.913               |2.041             |1.391                  |
+|Faktor 2 |0.722               |0.783             |1.186                  |
+|Faktor 3 |0.365               |0.177             |0.423                  |
+
+### Faktoradungen
+
+```r
+# Componentoverview
+GISD_Komponents <- cbind("Teildimension"="Arbeitswelt","Faktorladung"=round((TS_Arbeitswelt.pca$rotation*sqrt(abs(TS_Arbeitswelt.pca$sdev^2))), digits = 3),"Component"=round(TS_Arbeitswelt.pca$rotation, digits = 3))
+
+GISD_Komponents <- rbind(GISD_Komponents,cbind("Teildimension"="Einkommen","Faktorladung"=round((TS_Einkommen.pca$rotation*sqrt(abs(TS_Einkommen.pca$sdev^2))), digits = 3),"Component"=round(TS_Einkommen.pca$rotation, digits = 3)))
+
+GISD_Komponents <- rbind(GISD_Komponents,cbind("Teildimension"="Bildung","Faktorladung"=round((TS_Bildung_adj.pca$rotation*sqrt(abs(TS_Bildung_adj.pca$sdev^2))), digits = 3),"Component"=round(TS_Bildung_adj.pca$rotation, digits = 3)))
+
+GISD_Komponents <- cbind("Variables"=as.data.frame(rownames(GISD_Komponents)),as.data.frame(GISD_Komponents))
+
+rownames(GISD_Komponents) <- NULL
+
+colnames(GISD_Komponents) <- c("Variable","Dimension","Faktorladung","Component")
+
+GISD_Komponents$prop_dem <- round(as.numeric(GISD_Komponents$Component)^2*100,digits=1)
+
+GISD_Komponents$prop_GISD <- round(as.numeric(GISD_Komponents$prop_dem)/3, digits = 1)
+
+colnames(GISD_Komponents) <- c("Variable","Dimension","Faktorladung","Component", "Anteil Teilscore", "Anteil GISD")
+
+GISD_Komponents$Variable <- c("Beschäftigtenquote", "Arbeitslosigkeit", "Bruttoverdienst", "Einkommensteuer", "Haushaltseinkommen", "Schuldnerquote", "Beschäftigte mit Abschluss", "Beshäftigte ohne Abschluss", "Schulabgänger ohne Abschluss (adj.)")
+
+kable(GISD_Komponents, caption = "Faktorladungen und Anteile an den Teilscores sowie am Index")
+```
+
+
+
+Table: (\#tab:unnamed-chunk-6)Faktorladungen und Anteile an den Teilscores sowie am Index
+
+|Variable                            |Dimension   |Faktorladung |Component | Anteil Teilscore| Anteil GISD|
+|:-----------------------------------|:-----------|:------------|:---------|----------------:|-----------:|
+|Beschäftigtenquote                  |Arbeitswelt |0.713        |0.516     |             26.6|         8.9|
+|Arbeitslosigkeit                    |Arbeitswelt |-0.485       |-0.571    |             32.6|        10.9|
+|Bruttoverdienst                     |Arbeitswelt |0.386        |0.639     |             40.8|        13.6|
+|Einkommensteuer                     |Einkommen   |0.925        |0.647     |             41.9|        14.0|
+|Haushaltseinkommen                  |Einkommen   |0.565        |0.638     |             40.7|        13.6|
+|Schuldnerquote                      |Einkommen   |-0.175       |-0.417    |             17.4|         5.8|
+|Beschäftigte mit Abschluss          |Bildung     |0.408        |0.346     |             12.0|         4.0|
+|Beshäftigte ohne Abschluss          |Bildung     |0.586        |0.538     |             28.9|         9.6|
+|Schulabgänger ohne Abschluss (adj.) |Bildung     |-0.5         |-0.768    |             59.0|        19.7|
+
+
+
 ## Faktorenanalyse gepoolte  
 Querschnitte (4 Items Bildung)
 
@@ -227,7 +313,7 @@ plot(TS_Einkommen.pca, main = "Einkommen (Eigenverktoren)", ylim=c(0,2.2))
 plot(TS_Bildung_4items.pca, main = "Bildung (Eigenvektoren)", ylim=c(0,2.2))
 ```
 
-![](Faktorenanalyse_Check_files/figure-html/unnamed-chunk-4-1.png)<!-- -->
+![](Faktorenanalyse_Check_files/figure-html/unnamed-chunk-7-1.png)<!-- -->
 
 
 ```r
@@ -247,7 +333,7 @@ kable(Varianz_B4_tab, caption = "Varianz der Faktoren (Eigenverktoren)")
 
 
 
-Table: (\#tab:unnamed-chunk-5)Varianz der Faktoren (Eigenverktoren)
+Table: (\#tab:unnamed-chunk-8)Varianz der Faktoren (Eigenverktoren)
 
 |Faktoren |Varianz Arbeitswelt |Varianz Einkommen |Varianz Bildung |
 |:--------|:-------------------|:-----------------|:---------------|
@@ -292,7 +378,7 @@ kable(GISD_Komponents_4, caption = "Faktorladungen und Anteile an den Teilscores
 
 
 
-Table: (\#tab:unnamed-chunk-6)Faktorladungen und Anteile an den Teilscores sowie am Index
+Table: (\#tab:unnamed-chunk-9)Faktorladungen und Anteile an den Teilscores sowie am Index
 
 |Variable                         |Dimension   |Faktorladung |Component | Anteil Teilscore| Anteil GISD|
 |:--------------------------------|:-----------|:------------|:---------|----------------:|-----------:|
@@ -343,7 +429,7 @@ plot(TS_Einkommen_17.pca, main = "Einkommen (Eigenverktoren)", ylim=c(0,2))
 plot(TS_Bildung_17.pca, main = "Bildung (Eigenvektoren)", ylim=c(0,2))
 ```
 
-![](Faktorenanalyse_Check_files/figure-html/unnamed-chunk-7-1.png)<!-- -->
+![](Faktorenanalyse_Check_files/figure-html/unnamed-chunk-10-1.png)<!-- -->
 
 
 ```r
@@ -361,7 +447,7 @@ kable(Varianz17_tab, caption = "Varianz der Faktoren (Eigenverktoren) für 2017"
 
 
 
-Table: (\#tab:unnamed-chunk-8)Varianz der Faktoren (Eigenverktoren) für 2017
+Table: (\#tab:unnamed-chunk-11)Varianz der Faktoren (Eigenverktoren) für 2017
 
 |Faktoren |Varianz Arbeitswelt |Varianz Einkommen |Varianz Bildung |
 |:--------|:-------------------|:-----------------|:---------------|
@@ -405,7 +491,7 @@ kable(GISD_Komponents_17, caption = "Komponenten und Anteile der Dimensionen fü
 
 
 
-Table: (\#tab:unnamed-chunk-9)Komponenten und Anteile der Dimensionen für 2017
+Table: (\#tab:unnamed-chunk-12)Komponenten und Anteile der Dimensionen für 2017
 
 |Variable                     |Dimension   |Faktorladung |Coponent | Anteil Dimension| Anteil GISD|
 |:----------------------------|:-----------|:------------|:--------|----------------:|-----------:|
@@ -442,6 +528,7 @@ Resultdataset$TS_Arbeitswelt <- as.numeric(predict(TS_Arbeitswelt.pca, newdata =
 Resultdataset$TS_Einkommen <- as.numeric(predict(TS_Einkommen.pca , newdata = Resultdataset))
 Resultdataset$TS_Bildung <- as.numeric(predict(TS_Bildung.pca, newdata = Resultdataset))
 Resultdataset$TS_Bildung_4items <- as.numeric(predict(TS_Bildung_4items.pca, newdata = Resultdataset))
+Resultdataset$TS_Bildung_adj <- as.numeric(predict(TS_Bildung_adj.pca, newdata = Resultdataset))
 
 #summary(Resultdataset %>% select(TS_Arbeitswelt_17, TS_Einkommen_17, TS_Bildung_17))
 #descs <- stat.desc(Resultdataset[, -5])
@@ -460,7 +547,7 @@ plot(d_TS_Einkommen_17, main = "Density Einkommen")
 plot(d_TS_Bildung_17, main = "Density Bildung")
 ```
 
-![](Faktorenanalyse_Check_files/figure-html/unnamed-chunk-12-1.png)<!-- -->
+![](Faktorenanalyse_Check_files/figure-html/unnamed-chunk-15-1.png)<!-- -->
 
 
 ```r
@@ -506,7 +593,7 @@ kable(cor_tab_pol, caption = "Korrelation von Arbeitslosigkeit und Faktoren (gep
 
 
 
-Table: (\#tab:unnamed-chunk-14)Korrelation von Arbeitslosigkeit und Faktoren (gepolt)
+Table: (\#tab:unnamed-chunk-17)Korrelation von Arbeitslosigkeit und Faktoren (gepolt)
 
 |                   | Arbeitslosigkeit| Faktor Arbeitswelt| Faktor Einkommen| Faktor Bildung|
 |:------------------|----------------:|------------------:|----------------:|--------------:|
@@ -546,7 +633,7 @@ plot(d_TS_Bildung_17_norm, main = "Density Bildung")
 plot(d_GISD_Score_17_norm, main = "Density GISD Score 2017")
 ```
 
-![](Faktorenanalyse_Check_files/figure-html/unnamed-chunk-15-1.png)<!-- -->
+![](Faktorenanalyse_Check_files/figure-html/unnamed-chunk-18-1.png)<!-- -->
 
 
 ```r
@@ -596,23 +683,46 @@ Resultdataset$GISD_Score_B4 <- (Resultdataset$GISD_Score_B4 -min(Resultdataset$G
 
 
 ```r
-cor_tab_GISDscore <- Resultdataset %>% select(GISD_Score_17, GISD_Score, GISD_Score_B4)  %>% cor( use="pairwise.complete.obs")
+if (cor(Resultdataset$TS_Bildung_adj, Resultdataset$TS_Bildung_adj,use="pairwise.complete.obs")<0) {
+  Resultdataset$TS_Bildung_adj <- Resultdataset$TS_Bildung_adj*-1
+     }
+if (cor(Resultdataset$TS_Arbeitswelt, Resultdataset$TS_Arbeitswelt,use="pairwise.complete.obs")<0) {
+  Resultdataset$TS_Arbeitswelt <- Resultdataset$TS_Arbeitswelt*-1
+  }
+if (cor(Resultdataset$TS_Einkommen, Resultdataset$TS_Einkommen,use="pairwise.complete.obs")<0) {
+  Resultdataset$TS_Einkommen <- Resultdataset$TS_Einkommen*-1
+}
+
+#Normalization
+Resultdataset$TS_Arbeitswelt <- (Resultdataset$TS_Arbeitswelt -min(Resultdataset$TS_Arbeitswelt ))/(max(Resultdataset$TS_Arbeitswelt )-min(Resultdataset$TS_Arbeitswelt ))
+Resultdataset$TS_Einkommen <- (Resultdataset$TS_Einkommen -min(Resultdataset$TS_Einkommen ))/(max(Resultdataset$TS_Einkommen )-min(Resultdataset$TS_Einkommen ))
+Resultdataset$TS_Bildung_adj <- (Resultdataset$TS_Bildung_adj -min(Resultdataset$TS_Bildung_adj ))/(max(Resultdataset$TS_Bildung_adj )-min(Resultdataset$TS_Bildung_adj ))
+
+
+# GISD
+Resultdataset$GISD_Score_adj <- Resultdataset$TS_Arbeitswelt+Resultdataset$TS_Einkommen+Resultdataset$TS_Bildung_adj
+Resultdataset$GISD_Score_adj <- (Resultdataset$GISD_Score_adj -min(Resultdataset$GISD_Score_adj ))/(max(Resultdataset$GISD_Score_adj )-min(Resultdataset$GISD_Score_adj ))
+```
+
+
+
+```r
+cor_tab_GISDscore <- Resultdataset %>% select(GISD_Score_17, GISD_Score, GISD_Score_adj, GISD_Score_B4)  %>% cor( use="pairwise.complete.obs")
 
 cor_tab_GISDscore <- cbind(as.data.frame(cor_tab_GISDscore))
 
-colnames(cor_tab_GISDscore) <- c("GISD Score 2017", "GISD Score alle Jahre", "GISD Score alle Jahre (Bildung 4 Items)")
-
-rownames(cor_tab_GISDscore) <- c("GISD Score 2017", "GISD Score alle Jahre", "GISD Score alle Jahre (Bildung 4 Items)")
+colnames(cor_tab_GISDscore) <- c("GISD Score 2017", "GISD Score alle Jahre", "GISD Score alle Jahre (adj. Bildung)", "GISD Score alle Jahre (Bildung 4 Items)")
 
 kable(cor_tab_GISDscore, caption = "Korrelation der verschiedenen GISD Scores")
 ```
 
 
 
-Table: (\#tab:unnamed-chunk-16)Korrelation der verschiedenen GISD Scores
+Table: (\#tab:unnamed-chunk-19)Korrelation der verschiedenen GISD Scores
 
-|                                        | GISD Score 2017| GISD Score alle Jahre| GISD Score alle Jahre (Bildung 4 Items)|
-|:---------------------------------------|---------------:|---------------------:|---------------------------------------:|
-|GISD Score 2017                         |       1.0000000|            -0.9589435|                              -0.7460925|
-|GISD Score alle Jahre                   |      -0.9589435|             1.0000000|                               0.8931512|
-|GISD Score alle Jahre (Bildung 4 Items) |      -0.7460925|             0.8931512|                               1.0000000|
+|               | GISD Score 2017| GISD Score alle Jahre| GISD Score alle Jahre (adj. Bildung)| GISD Score alle Jahre (Bildung 4 Items)|
+|:--------------|---------------:|---------------------:|------------------------------------:|---------------------------------------:|
+|GISD_Score_17  |       1.0000000|            -0.9589435|                           -0.9607615|                              -0.7460925|
+|GISD_Score     |      -0.9589435|             1.0000000|                            0.9990167|                               0.8931512|
+|GISD_Score_adj |      -0.9607615|             0.9990167|                            1.0000000|                               0.8859515|
+|GISD_Score_B4  |      -0.7460925|             0.8931512|                            0.8859515|                               1.0000000|

@@ -415,9 +415,11 @@ Impdata.imputed <- Impdata.imputed %>%
                                 Kreis > 11999 & Kreis < 13000 & Jahr >= 2012 ~ 1,
                                 Kreis > 12999 & Kreis < 14000 & Jahr >= 2008 ~ 1,
                                 Kreis > 13999 & Kreis < 15000 ~ 1,
-                                Kreis > 14999 & Kreis < 16000 & Jahr >= 2007 ~ 1,
-                                Kreis > 15999 ~ 1))
+                                Kreis > 14999 & Kreis < 16000 & Jahr <= 2001 & Jahr >= 2007 ~ 1,
+                                Kreis > 15999 ~ 1),
+         TH = ifelse(Jahr < 2004 & Kreis > 15999, 1, 0))
 Impdata.imputed$G8[is.na(Impdata.imputed$G8)] = 0
+Impdata.imputed$TH[is.na(Impdata.imputed$TH)] = 0
 
 Impdata.imputed <- Impdata.imputed %>%
   mutate(G8_jahr = case_when(Kreis < 2000 & Jahr == 2016 ~ 1,
@@ -432,9 +434,10 @@ Impdata.imputed <- Impdata.imputed %>%
                                 Kreis > 10999 & Kreis < 12000 & Jahr == 2012 ~ 1,
                                 Kreis > 11999 & Kreis < 13000 & Jahr == 2012 ~ 1,
                                 Kreis > 12999 & Kreis < 14000 & Jahr == 2008 ~ 1,
-                                Kreis > 14999 & Kreis < 16000 & Jahr == 2007 ~ 1))
+                                Kreis > 14999 & Kreis < 16000 & Jahr == 2007 ~ 1),
+         SN_KA = ifelse(Jahr == 2001 & Kreis > 14999 & Kreis < 16000, 1, 0))
 Impdata.imputed$G8_jahr[is.na(Impdata.imputed$G8_jahr)] = 0
-
+Impdata.imputed$SN_KA[is.na(Impdata.imputed$SN_KA)] = 0
 
 #plot(Impdata.imputed$SchulabgaengermitHochschulreife, Impdata.imputed$G8)
 
@@ -444,14 +447,14 @@ Impdata.imputed$G8_jahr[is.na(Impdata.imputed$G8_jahr)] = 0
 adj_G8 <- function(data,outcome_name){
   mydata   <- data %>%
     group_by(Gemeindekennziffer) %>% 
-    select(Gemeindekennziffer, Jahr, G8, "Outcome"=paste(outcome_name)) %>% 
+    select(Gemeindekennziffer, Jahr, G8, TH, "Outcome"=paste(outcome_name)) %>% 
     mutate(MEAN=mean(Outcome , na.rm=T)) %>% ungroup()
   
   mymodell <- lm(Outcome ~
-                  I(Jahr*Jahr*MEAN) + I(Jahr*MEAN) + G8, data = mydata  , na.action="na.exclude")
+                  I(Jahr*Jahr*MEAN) + I(Jahr*MEAN) + G8 + TH, data = mydata  , na.action="na.exclude")
   
-  mydata %>% select(Outcome, G8) %>% mutate(pred_var = predict(mymodell, newdata = mydata)) %>%
-    mutate(Outcome=ifelse(G8 == 1,pred_var,Outcome)) %>% 
+  mydata %>% select(Outcome, G8, TH) %>% mutate(pred_var = predict(mymodell, newdata = mydata)) %>%
+    mutate(Outcome=ifelse(G8 == 1 | TH == 1,pred_var,Outcome)) %>% 
     mutate(Outcome=ifelse(Outcome<0,0,Outcome)) %>% 
     pull(Outcome)
 }
@@ -468,15 +471,15 @@ Impdata.imputed <- Impdata.imputed %>%
 adj_G8_jahr <- function(data,outcome_name){
   mydata   <- data %>%
     group_by(Gemeindekennziffer) %>% 
-    select(Gemeindekennziffer, Jahr, G8_jahr, "Outcome"=paste(outcome_name)) %>% 
+    select(Gemeindekennziffer, Jahr, G8_jahr, SN_KA, TH, "Outcome"=paste(outcome_name)) %>% 
     mutate(MEAN=mean(Outcome , na.rm=T)) %>% ungroup()
   
     mymodell <- lm(Outcome ~
-                  I(Jahr*Jahr*MEAN) + I(Jahr*MEAN) + G8_jahr, data = mydata  , na.action="na.exclude")
+                  I(Jahr*Jahr*MEAN) + I(Jahr*MEAN) + G8_jahr + SN_KA + TH, data = mydata  , na.action="na.exclude")
   
   
-    mydata %>% mutate(coef = summary(mymodell)$coefficients[4,1]) %>%
-      mutate(Outcome = ifelse(G8_jahr == 1, Outcome - coef, Outcome)) %>%
+    mydata %>% mutate(coef = summary(mymodell)$coefficients[4,1], coef_SH = summary(mymodell)$coefficients[5,1], coef_TH = summary(mymodell)$coefficients[6,1]) %>%
+      mutate(Outcome = ifelse(G8_jahr == 1, Outcome - coef, Outcome), Outcome = ifelse(SN_KA == 1, Outcome - coef_SH, Outcome), Outcome = ifelse(TH == 1, Outcome - coef_TH, Outcome)) %>%
       pull(Outcome)
 }
 
