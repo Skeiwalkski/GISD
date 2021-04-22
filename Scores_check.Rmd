@@ -34,7 +34,6 @@ knitr::opts_chunk$set(echo = TRUE)
 Impdata.imputed <- readRDS("C:/git_projects/GISD/Outfiles/Impdata_check.rds")
 Resultdataset <- read.csv("C:/git_projects/GISD/Outfiles/2021/Bund/Gemeinde/Gemeinde.csv")
 
-
 Corr_data <- left_join(as.data.frame(Impdata.imputed), Resultdataset, all.x = TRUE)
 
 Corr_data <- Corr_data %>% mutate(Jahr=as.factor(Jahr))
@@ -116,8 +115,8 @@ ggplot(Corr_data, aes(GISD_Score, Jahr, color = SchulabgaengermitHochschulreife_
   theme_rki() + theme(legend.position="bottom") + 
   scale_color_gradientn(colours = rainbow(5), limits=c(0,70)) + scale_y_discrete(limits=rev) + 
   scale_x_continuous(position = "top") +
-  labs(colour = "Anteil der Schulabgänger mit Hochschulreife (re-predicted)", x = "GISD Score")
-ggsave("Outfiles/anteilabi_adj_jahr.png")
+  labs(colour = "Anteil der Schulabgänger mit Hochschulreife (adj. duch pred.)", x = "GISD Score")
+ggsave("Outfiles/anteilabi_adjGISD.png")
 
 ggplot(Corr_data, aes(GISD_Score, Jahr, color = SchulabgaengerohneAbschluss)) + geom_tile(alpha = 0.5, size =0.5) + 
   theme_rki() + theme(legend.position="bottom") + 
@@ -136,8 +135,8 @@ ggplot(Corr_data, aes(GISD_Score, Jahr, color = SchulabgaengerohneAbschluss_mr))
   theme_rki() + theme(legend.position="bottom") + 
   scale_color_gradientn(colours = rainbow(5), limits=c(0,25)) + scale_y_discrete(limits=rev) + 
   scale_x_continuous(position = "top") +
-  labs(colour = "Anteil der Schulabgänger ohne Abschluss (re-predicted)", x = "GISD Score") 
-ggsave("Outfiles/anteilohneab_adj_jahr.png")
+  labs(colour = "Anteil der Schulabgänger ohne Abschluss (adj. druch pred.)", x = "GISD Score") 
+ggsave("Outfiles/anteilohneab_adjGISD.png")
 
 ggplot(Corr_data, aes(GISD_Score, Jahr, color = Schuldnerquote)) + geom_tile(alpha = 0.5, size =0.5) + 
   theme_rki() + theme(legend.position="bottom") + 
