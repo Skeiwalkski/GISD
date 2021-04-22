@@ -53,76 +53,78 @@ ggplot(Corr_data, aes(GISD_Score, Jahr, color = Arbeitslosigkeit)) + geom_tile(a
   theme_rki() + theme(legend.position="bottom") + 
   scale_color_gradientn(colours = rainbow(5)) + scale_y_discrete(limits=rev) + 
   scale_x_continuous(position = "top") +
-  labs(colour = "Arbeitslose pro 1000 EW im Erwerbsalter", x = "GISD Score", title = "Arbeitslose in den GISD-Scores") 
+  labs(colour = "Arbeitslose pro 1000 EW im Erwerbsalter", x = "GISD Score", title = "Verteilung von Arbitslosigkeit auf den GISD-Score") 
 ggsave("Outfiles/alos.png")
 
 ggplot(Corr_data, aes(GISD_Score, Jahr, color = BeschaeftigtemitakadAbschluss)) + geom_tile(alpha = 0.5, size = 0.5) +
   theme_rki() + theme(legend.position="bottom") + 
   scale_color_gradientn(colours = rainbow(5)) + scale_y_discrete(limits=rev) + 
   scale_x_continuous(position = "top") +
-  labs(colour = "Anteil Beschäftigter mit akademischem Abschluss", x = "GISD Score") 
+  labs(colour = "Anteil Beschäftigter mit akademischem Abschluss", x = "GISD Score", title = "Verteilung von akadem. Beschäftigten uaf den GISD-Score") 
 ggsave("Outfiles/beschAkad.png")
 
 ggplot(Corr_data, aes(GISD_Score, Jahr, color = Beschaeftigtenquote)) + geom_tile(alpha = 0.5, size = 0.5) + 
   theme_rki() + theme(legend.position="bottom") + 
   scale_color_gradientn(colours = rainbow(5), limits=c(0,100)) + scale_y_discrete(limits=rev) + 
   scale_x_continuous(position = "top") +
-  labs(colour = "Beschäftigtenquote", x = "GISD Score") 
+  labs(colour = "Beschäftigtenquote", x = "GISD Score", title = "Verteilung der Beschäftigtenquote auf den GISD-Score") 
 ggsave("Outfiles/beschquote.png")
 
 ggplot(Corr_data, aes(GISD_Score, Jahr, color = Beschaeftigtenquote_adj)) + geom_tile(alpha = 0.5, size = 0.5) + 
   theme_rki() + theme(legend.position="bottom") + 
   scale_color_gradientn(colours = rainbow(5), limits=c(0,100)) + scale_y_discrete(limits=rev) + 
   scale_x_continuous(position = "top") +
-  labs(colour = "Beschäftigtenquote (Gedeckelt bei 80 Prozent)", x = "GISD Score") 
+  labs(colour = "Beschäftigtenquote (Gedeckelt bei 80 Prozent)", x = "GISD Score", title = "Verteilung der adj. Beschäftigtenquote auf den GISD-Score") 
 ggsave("Outfiles/beschquote_adj.png")
 
 ggplot(Corr_data, aes(GISD_Score, Jahr, color = BeschaeftigteohneAbschluss)) + geom_tile(alpha = 0.5, size =0.5) + 
   theme_rki() + theme(legend.position="bottom") + 
   scale_color_gradientn(colours = rainbow(5)) + scale_y_discrete(limits=rev) + 
   scale_x_continuous(position = "top") +
-  labs(colour = "Anteil Beschäftigter ohne Abschluss", x = "GISD Score") 
+  labs(colour = "Anteil Beschäftigter ohne Abschluss", x = "GISD Score", title = "Verteilung der Beschäftigten ohne Abschluss auf den GISD-Score") 
 ggsave("Outfiles/beschoA.png")
 
 ggplot(Corr_data, aes(GISD_Score, Jahr, color = Bruttoverdienst)) + geom_tile(alpha = 0.5, size = 0.5) + 
   theme_rki() + theme(legend.position="bottom") + 
   scale_color_gradientn(colours = rainbow(5)) + scale_y_discrete(limits=rev) + 
   scale_x_continuous(position = "top") +
-  labs(colour = "durchschnittlichter Bruttoverdienst in Euro", x = "GISD Score") 
+  labs(colour = "durchschnittlichter Bruttoverdienst in Euro", x = "GISD Score", title = "Verteilung des Bruttoverdienst auf den GISD-Score") 
 ggsave("Outfiles/bruttoverdienst.png")
 
 ggplot(Corr_data, aes(GISD_Score, Jahr, color = Einkommensteuer)) + geom_tile(alpha = 0.5, size =0.5) + 
   theme_rki() + theme(legend.position="bottom") + 
   scale_color_gradientn(colours = rainbow(5)) + scale_y_discrete(limits=rev) + 
   scale_x_continuous(position = "top") +
-  labs(colour = "Durchschnittliche Einkommenssteuer pro Kopf", x = "GISD Score") 
+  labs(colour = "Durchschnittliche Einkommenssteuer pro Kopf", x = "GISD Score", title = "Verteilung der Einkommensteuer auf den GISD-Score") 
 ggsave("Outfiles/einkommensteuer.png")
 
-ggplot(Corr_data, aes(GISD_Score, Jahr, color = log(Einkommensteuer))) + geom_tile(alpha = 0.5, size =0.5) + 
+Corr_data <- Corr_data %>% mutate(Einkommensteuer_ln = ifelse(Einkommensteuer > 0, log(Einkommensteuer), 1))
+
+ggplot(Corr_data, aes(GISD_Score, Jahr, color = Einkommensteuer_ln)) + geom_tile(alpha = 0.5, size =0.5) + 
   theme_rki() + theme(legend.position="bottom") + 
   scale_color_gradientn(colours = rainbow(5)) + scale_y_discrete(limits=rev) + 
   scale_x_continuous(position = "top") +
-  labs(colour = "Durchschnittliche Einkommenssteuer pro Kopf (logarithmiert)", x = "GISD Score")
+  labs(colour = "Durchschnittliche Einkommenssteuer pro Kopf (logarithmiert)", x = "GISD Score", title = "Verteilung der log. Einkommensteuer auf den GISD-Score")
 ggsave("Outfiles/einkommensteuer_log.png")
 
 ggplot(Corr_data, aes(GISD_Score, Jahr, color = Haushaltseinkommen)) + geom_tile(alpha = 0.5, size =0.5) + 
   theme_rki() + theme(legend.position="bottom") + 
   scale_color_gradientn(colours = rainbow(5)) + scale_y_discrete(limits=rev) + 
   scale_x_continuous(position = "top") +
-  labs(colour = "durchschnittliches Haushaltseinkommen", x = "GISD Score") 
+  labs(colour = "durchschnittliches Haushaltseinkommen", x = "GISD Score", title = "Verteilung des Haushalteinkommen auf den GISD-Score") 
 ggsave("Outfiles/hheink.png")
 
 ggplot(Corr_data, aes(GISD_Score, Jahr, color = SchulabgaengermitHochschulreife)) + geom_tile(alpha = 0.5, size =0.5) + theme_rki() + theme(legend.position="bottom") + 
   scale_color_gradientn(colours = rainbow(5), limits=c(0,70)) + scale_y_discrete(limits=rev) + 
   scale_x_continuous(position = "top") +
-  labs(colour = "Anteil der Schulabgänger mit Hochschulreife", x = "GISD Score") 
+  labs(colour = "Anteil der Schulabgänger mit Hochschulreife", x = "GISD Score", title = "Verteilung der Schulabg. mit Hochschulreife auf den GISD-Score") 
 ggsave("Outfiles/anteilabi.png")
 
 ggplot(Corr_data, aes(GISD_Score, Jahr, color = SchulabgaengermitHochschulreife_adj)) + geom_tile(alpha = 0.5, size =0.5) +
   theme_rki() + theme(legend.position="bottom") + 
   scale_color_gradientn(colours = rainbow(5), limits=c(0,70)) + scale_y_discrete(limits=rev) + 
   scale_x_continuous(position = "top") +
-  labs(colour = "Anteil der Schulabgänger mit Hochschulreife (adjusted)", x = "GISD Score")
+  labs(colour = "Anteil der Schulabgänger mit Hochschulreife (adjusted)", x = "GISD Score", title = "Verteilung der Schulabg. mit Hochschulreife (adj.) auf den GISD-Score")
 ggsave("Outfiles/anteilabi_adj.png")
 
 ggplot(Corr_data, aes(GISD_Score, Jahr, color = SchulabgaengermitHochschulreife_mr)) + geom_tile(alpha = 0.5, size =0.5) +
@@ -136,13 +138,13 @@ ggplot(Corr_data, aes(GISD_Score, Jahr, color = SchulabgaengerohneAbschluss)) + 
   theme_rki() + theme(legend.position="bottom") + 
   scale_color_gradientn(colours = rainbow(5), limits=c(0,25)) + scale_y_discrete(limits=rev) + 
   scale_x_continuous(position = "top") +
-  labs(colour = "Anteil der Schulabgänger ohne Abschluss", x = "GISD Score") 
+  labs(colour = "Anteil der Schulabgänger ohne Abschluss", x = "GISD Score", title = "Verteilung der Schulabgänger ohne Abschluss auf den GISD-Score") 
 ggsave("Outfiles/anteilohneab.png")
 
 ggplot(Corr_data, aes(GISD_Score, Jahr, color = SchulabgaengerohneAbschluss_adj)) + geom_tile(alpha = 0.5, size =0.5) + theme_rki() + theme(legend.position="bottom") + 
   scale_color_gradientn(colours = rainbow(5), limits=c(0,25)) + scale_y_discrete(limits=rev) + 
   scale_x_continuous(position = "top") +
-  labs(colour = "Anteil der Schulabgänger ohne Abschluss (adjusted)", x = "GISD Score") 
+  labs(colour = "Anteil der Schulabgänger ohne Abschluss (adjusted)", x = "GISD Score", title = "Verteilung der Schulabgänger ohne Abschluss (adj.) auf den GISD-Score") 
 ggsave("Outfiles/anteilohneab_adj.png")
 
 ggplot(Corr_data, aes(GISD_Score, Jahr, color = SchulabgaengerohneAbschluss_mr)) + geom_tile(alpha = 0.5, size =0.5) + 
@@ -156,7 +158,7 @@ ggplot(Corr_data, aes(GISD_Score, Jahr, color = Schuldnerquote)) + geom_tile(alp
   theme_rki() + theme(legend.position="bottom") + 
   scale_color_gradientn(colours = rainbow(5)) + scale_y_discrete(limits=rev) + 
   scale_x_continuous(position = "top") +
-  labs(colour = "Schuldnerquote", x = "GISD Score") 
+  labs(colour = "Schuldnerquote", x = "GISD Score", title = "Verteilung der Schuldnerquote auf den GISD-Score") 
 ggsave("Outfiles/schuldner.png")
 
 ```
@@ -188,6 +190,77 @@ Corr_data$outl[Corr_data$Kreis %in% c("9184", "11000", "7317")] <- "Ausreißer"
 ggplot(Corr_data, aes(GISD_Score, Jahr)) + geom_tile(aes(color = outl), alpha = 0.5, size =0.5) + 
   theme_rki() + theme(legend.position="bottom") + scale_y_discrete(limits=rev) + 
   scale_x_continuous(position = "top") +
-  labs(colour = "Ausreißer", x = "GISD Score")
+  labs(colour = "Ausreißer", x = "GISD Score", "Ausreißer im GISD-Score")
 ggsave("Outfiles/Outliers.png")
+
+
+Corr_data$outl <- "Andere Kreise"
+Corr_data$outl[Corr_data$Kreis %in% c("9184")] <- "München"
+
+ggplot(Corr_data, aes(GISD_Score, Jahr)) + geom_tile(aes(color = outl), alpha = 0.5, size =0.5) + 
+  theme_rki() + theme(legend.position="bottom") + scale_y_discrete(limits=rev) + 
+  scale_x_continuous(position = "top") +
+  labs(colour = "Ausreißer", x = "GISD Score")
+ggsave("Outfiles/Outliers_München.png")
+
+
+Corr_data$outl <- "Andere Kreise"
+Corr_data$outl[Corr_data$Kreis %in% c("11000")] <- "Berlin"
+
+ggplot(Corr_data, aes(GISD_Score, Jahr)) + geom_tile(aes(color = outl), alpha = 0.5, size =0.5) + 
+  theme_rki() + theme(legend.position="bottom") + scale_y_discrete(limits=rev) + 
+  scale_x_continuous(position = "top") +
+  labs(colour = "Ausreißer", x = "GISD Score")
+ggsave("Outfiles/Outliers_Berlin.png")
+
+
+Corr_data$outl <- "Andere Kreise"
+Corr_data$outl[Corr_data$Kreis %in% c("7317")] <- "Primasens"
+
+ggplot(Corr_data, aes(GISD_Score, Jahr)) + geom_tile(aes(color = outl), alpha = 0.5, size =0.5) + 
+  theme_rki() + theme(legend.position="bottom") + scale_y_discrete(limits=rev) + 
+  scale_x_continuous(position = "top") +
+  labs(colour = "Ausreißer", x = "GISD Score")
+ggsave("Outfiles/Outliers_Primasens.png")
+
 ```
+
+## Verteilung des GISD
+```{r}
+Corr_data$ow <- "Ost"
+Corr_data$ow[Corr_data$Kreis < 11000] <- "West"
+
+ggplot(Corr_data, aes(GISD_Score, Jahr)) + geom_tile(aes(color = ow), alpha = 0.5, size =0.5) + 
+  theme_rki() + theme(legend.position="bottom") + scale_y_discrete(limits=rev) + 
+  scale_x_continuous(position = "top") +
+  labs(colour = "Ost und west", x = "GISD Score", title = "GISD-Score nach ost- und westdeutschen Landkreisen")
+ggsave("Outfiles/OstWest.png")
+
+Corr_data$BL <- "Schleswig-Holstein"
+Corr_data$BL[Corr_data$Kreis == 2000] <- "Hamburg"
+Corr_data$BL[Corr_data$Kreis > 2999 & Corr_data$Kreis < 4000] <- "Niedersachsen"
+Corr_data$BL[Corr_data$Kreis > 3999 & Corr_data$Kreis < 5000] <- "Bremen"
+Corr_data$BL[Corr_data$Kreis > 4999 & Corr_data$Kreis < 6000] <- "Nordrhein-Westfalen"
+Corr_data$BL[Corr_data$Kreis > 5999 & Corr_data$Kreis < 7000] <- "Hessen"
+Corr_data$BL[Corr_data$Kreis > 6999 & Corr_data$Kreis < 8000] <- "Rheinland-Pfalz"
+Corr_data$BL[Corr_data$Kreis > 7999 & Corr_data$Kreis < 9000] <- "Baden-Würtemberg"
+Corr_data$BL[Corr_data$Kreis > 8999 & Corr_data$Kreis < 10000] <- "Bayern"
+Corr_data$BL[Corr_data$Kreis > 9999 & Corr_data$Kreis < 11000] <- "Saarland"
+Corr_data$BL[Corr_data$Kreis > 10999 & Corr_data$Kreis < 12000] <- "Berlin"
+Corr_data$BL[Corr_data$Kreis > 11999 & Corr_data$Kreis < 13000] <- "Brandenburg"
+Corr_data$BL[Corr_data$Kreis > 12999 & Corr_data$Kreis < 14000] <- "Mecklenburg-Vorpommern"
+Corr_data$BL[Corr_data$Kreis > 13999 & Corr_data$Kreis < 15000] <- "Sachsen"
+Corr_data$BL[Corr_data$Kreis > 14999 & Corr_data$Kreis < 16000] <- "Sachsen-Anhalt"
+Corr_data$BL[Corr_data$Kreis > 15999] <- "Thüringen"
+
+
+ggplot(Corr_data, aes(GISD_Score, Jahr)) + geom_tile(aes(color = BL), alpha = 0.5, size =0.5) + 
+  theme_rki() + scale_y_discrete(limits=rev) + 
+  scale_x_continuous(position = "top") +
+  labs(colour = "Bundesland", x = "GISD Score", title = "GISD-Score nach Bundesland")
+ggsave("Outfiles/Bundesland.png")
+
+```
+
+
+
