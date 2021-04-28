@@ -9,7 +9,7 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## 0. Benötigte Pakete - 
+## 0. Benötigte Pakete  
 
 Der Code nutzt im Wesentlichen die Pakete des Tidyverse. 
 
@@ -351,6 +351,9 @@ summary(as.data.frame(Impdata.imputed) %>% ungroup()  %>% select(listofdetermina
 
 
 ########Imputation für Schulabgänger mit Hochschulreife
+# Die Schulabgänger mit Hochschulreife werden separat imputiert und durch alle Kovariaten informiert
+# (@Marvin: Eine Korrektur für G8 wird hier nicht vorgenommen. Es geht nur darum die Missings zu imputieren )
+
 my_ts_imputer <- function(data,outcome_name){
   mydata   <- data %>%
     select(Gemeindekennziffer,Jahr,Arbeitslosigkeit,SchulabgaengerohneAbschluss,Beschaeftigtenquote,Bruttoverdienst,BeschaeftigtemitakadAbschluss,BeschaeftigteohneAbschluss,Einkommensteuer,Haushaltseinkommen,"Outcome"=paste(outcome_name)) %>% mutate(MEAN=mean(Outcome , na.rm=T))
@@ -383,6 +386,10 @@ summary(Impdata.imputed$SchulabgaengermitHochschulreife)
 ```
 
 ```{r Erstellen Variabe zu G8 und Sensibilisierung des Datensatzes}
+# Die Bildungsvariablen Anteil der Schulabgänger mit Hochschulreife und Anteil der Schulabgänger ohne Abschluss werden als Quote relativ zur Gesamtanzahl der Schulabgänger berechnet. Durch die G8-Schulreformen und ihre Zurücknahme ergeben sich deshalb in den Bundesländern zu verschiedenen Zeitpunkten Verzerrungen. 
+# Diese Verzerrung wird über eine Regressionsmodell herausgerechnet.
+
+# Generierung der Variablen zur Identifikation der Reformen (G8), Rückker zu G9 (SN_KA) und abweichender Anerkennung von Abschlüssen für GymnasiastInnen (THvor2004).
 Impdata.imputed <- Impdata.imputed %>%
   mutate(G8 = case_when(Kreis < 2000 & Jahr >= 2016 & Jahr <= 2028 ~ 1,
                                 Kreis > 1999 & Kreis < 3000 & Jahr >= 2010 ~ 1,
@@ -399,9 +406,9 @@ Impdata.imputed <- Impdata.imputed %>%
                                 Kreis > 13999 & Kreis < 15000 ~ 1,
                                 Kreis > 14999 & Kreis < 16000 & Jahr <= 2001 & Jahr >= 2007 ~ 1,
                                 Kreis > 15999 ~ 1),
-         TH = ifelse(Jahr < 2004 & Kreis > 15999, 1, 0))
+         THvor2004 = ifelse(Jahr < 2004 & Kreis > 15999, 1, 0))
 Impdata.imputed$G8[is.na(Impdata.imputed$G8)] = 0
-Impdata.imputed$TH[is.na(Impdata.imputed$TH)] = 0
+Impdata.imputed$THvor2004[is.na(Impdata.imputed$THvor2004)] = 0
 
 Impdata.imputed <- Impdata.imputed %>%
   mutate(G8_jahr = case_when(Kreis < 2000 & Jahr == 2016 ~ 1,
@@ -426,20 +433,38 @@ Impdata.imputed$SN_KA[is.na(Impdata.imputed$SN_KA)] = 0
 #plot(Impdata.imputed$Jahr, Impdata.imputed$G8_jahr)
 
 
+# testdata   <- Impdata.imputed %>%
+#     group_by(Gemeindekennziffer) %>% 
+#     select(Gemeindekennziffer, Jahr, G8, THvor2004, SN_KA, G8_jahr, SchulabgaengermitHochschulreife) %>% 
+#     mutate(MEAN=mean(SchulabgaengermitHochschulreife , na.rm=T)) %>% ungroup()
+# 
+# reg1 <- lm(SchulabgaengermitHochschulreife ~ I(Jahr*Jahr*MEAN) + I(Jahr*MEAN) + G8 + THvor2004, data=testdata, # na.action="na.exclude")
+# 
+# 
+# testdata   <- Impdata.imputed %>%
+#     group_by(Gemeindekennziffer) %>% 
+#     select(Gemeindekennziffer, Jahr, G8, THvor2004, SN_KA, G8_jahr, SchulabgaengerohneAbschluss) %>% 
+#     mutate(MEAN=mean(SchulabgaengerohneAbschluss , na.rm=T)) %>% ungroup()
+# 
+# reg2 <- lm(SchulabgaengerohneAbschluss ~ I(Jahr*Jahr*MEAN) + I(Jahr*MEAN) + G8_jahr + SN_KA + THvor2004, data = testdata  , # na.action="na.exclude")
+
+
+# Anpassung1: Ersetzen der Werte in den durch Verzerrungen betroffene Fälle durch Prediction aus Kovariaten und Zeitreihe.
 adj_G8 <- function(data,outcome_name){
   mydata   <- data %>%
     group_by(Gemeindekennziffer) %>% 
-    select(Gemeindekennziffer, Jahr, G8, TH, "Outcome"=paste(outcome_name)) %>% 
+    select(Gemeindekennziffer, Jahr, G8, THvor2004,  "Outcome"=paste(outcome_name)) %>% 
     mutate(MEAN=mean(Outcome , na.rm=T)) %>% ungroup()
   
-  mymodell <- lm(Outcome ~
-                  I(Jahr*Jahr*MEAN) + I(Jahr*MEAN) + G8 + TH, data = mydata  , na.action="na.exclude")
-  
-  mydata %>% select(Outcome, G8, TH) %>% mutate(pred_var = predict(mymodell, newdata = mydata)) %>%
-    mutate(Outcome=ifelse(G8 == 1 | TH == 1,pred_var,Outcome)) %>% 
+  mymodell1 <- lm(Outcome ~
+                  I(Jahr*Jahr*MEAN) + I(Jahr*MEAN) + G8 + THvor2004, data = mydata  , na.action="na.exclude")
+  print(mymodell1)
+  mydata %>% select(Outcome, G8, THvor2004) %>% mutate(pred_var = predict(mymodell1, newdata = mydata)) %>%
+    mutate(Outcome=ifelse(G8 == 1 | THvor2004 == 1,pred_var,Outcome)) %>% 
     mutate(Outcome=ifelse(Outcome<0,0,Outcome)) %>% 
     pull(Outcome)
 }
+
 
 Impdata.imputed <- Impdata.imputed %>% 
   mutate(SchulabgaengermitHochschulreife_mr = ifelse(G8 == 1,adj_G8(.,"SchulabgaengermitHochschulreife"), SchulabgaengermitHochschulreife),
@@ -447,31 +472,36 @@ Impdata.imputed <- Impdata.imputed %>%
 
 
 
-
-
-
+# Anpassung2: Ersetzen der Werte in den von Verzerrungen betroffenen Fälle durch um Reformeffekte bereinigte Quoten.
 adj_G8_jahr <- function(data,outcome_name){
   mydata   <- data %>%
     group_by(Gemeindekennziffer) %>% 
-    select(Gemeindekennziffer, Jahr, G8_jahr, SN_KA, TH, "Outcome"=paste(outcome_name)) %>% 
+    select(Gemeindekennziffer, Jahr, G8_jahr, SN_KA, THvor2004, "Outcome"=paste(outcome_name)) %>% 
     mutate(MEAN=mean(Outcome , na.rm=T)) %>% ungroup()
   
-    mymodell <- lm(Outcome ~
-                  I(Jahr*Jahr*MEAN) + I(Jahr*MEAN) + G8_jahr + SN_KA + TH, data = mydata  , na.action="na.exclude")
-  
-  
-    mydata %>% mutate(coef = summary(mymodell)$coefficients[4,1], coef_SH = summary(mymodell)$coefficients[5,1], coef_TH = summary(mymodell)$coefficients[6,1]) %>%
-      mutate(Outcome = ifelse(G8_jahr == 1, Outcome - coef, Outcome), Outcome = ifelse(SN_KA == 1, Outcome - coef_SH, Outcome), Outcome = ifelse(TH == 1, Outcome - coef_TH, Outcome)) %>%
+    mymodell2 <- lm(Outcome ~
+                  I(Jahr*Jahr*MEAN) + I(Jahr*MEAN) + G8_jahr + SN_KA + THvor2004, data = mydata  , na.action="na.exclude")
+  print(mymodell2)  
+    mydata %>% mutate(coef = summary(mymodell2)$coefficients[4,1], coef_SH = summary(mymodell2)$coefficients[5,1], coef_TH = summary(mymodell2)$coefficients[6,1]) %>%
+      mutate(Outcome = ifelse(G8_jahr == 1, Outcome - coef, Outcome), Outcome = ifelse(SN_KA == 1, Outcome - coef_SH, Outcome), Outcome = ifelse(THvor2004 == 1, Outcome - coef_TH, Outcome)) %>%
       pull(Outcome)
 }
+
+
 
 Impdata.imputed <- Impdata.imputed %>% 
   mutate(SchulabgaengermitHochschulreife_adj = adj_G8_jahr(.,"SchulabgaengermitHochschulreife"),
          SchulabgaengerohneAbschluss_adj = adj_G8_jahr(.,"SchulabgaengerohneAbschluss"))
 ```
 
-```{r Gedeckelte Beschäftigungsquote}
+```{r Weitere Anpassungen}
 Impdata.imputed <- Impdata.imputed %>% mutate(Beschaeftigtenquote_adj = ifelse(Beschaeftigtenquote > 80, 80, Beschaeftigtenquote))
+
+Impdata.imputed <- Impdata.imputed %>% mutate(Einkommensteuer_ln= ifelse(Einkommensteuer==0, 0.75, log(Einkommensteuer)))
+
+Impdata.imputed <- Impdata.imputed %>% mutate(Haushaltseinkommen_ln=log(Haushaltseinkommen))
+
+
 ```
 
 ```{r}
@@ -515,8 +545,10 @@ print(hist_over_year_all)
 
 # Variablenliste für die Faktorenanalyse 
 print(listofdeterminants)
-TS_Arbeitswelt <- Impdata.imputed  %>% ungroup() %>% dplyr::select(Beschaeftigtenquote,Arbeitslosigkeit,Bruttoverdienst) 
+TS_Arbeitswelt <- Impdata.imputed  %>% ungroup() %>% dplyr::select(Beschaeftigtenquote,Arbeitslosigkeit,Bruttoverdienst)
+TS_Arbeitswelt_adj <- Impdata.imputed  %>% ungroup() %>% dplyr::select(Beschaeftigtenquote_adj,Arbeitslosigkeit,Bruttoverdienst) 
 TS_Einkommen   <- Impdata.imputed %>% dplyr::select(Einkommensteuer,Haushaltseinkommen,Schuldnerquote) 
+TS_Einkommen_adj   <- Impdata.imputed %>% dplyr::select(Einkommensteuer_ln,Haushaltseinkommen_ln,Schuldnerquote) 
 # für den Vergleich der Ergebnisse wird zunächst ein Datensatz für die Variablenauswahl der Revision 2019 generiert
 TS_Bildung_adj <- Impdata.imputed %>% dplyr::select(BeschaeftigtemitakadAbschluss,BeschaeftigteohneAbschluss,SchulabgaengerohneAbschluss_adj) 
 
@@ -552,11 +584,24 @@ TS_Arbeitswelt.pca <- prcomp(TS_Arbeitswelt, center = TRUE, scale. = TRUE, retx=
 # die Option rank erlaubt die Beschränkung der Anzahl an Komponenten (Faktoren)
 TS_Arbeitswelt.pca
 
+TS_Arbeitswelt_adj.pca <- prcomp(TS_Arbeitswelt_adj, center = TRUE, scale. = TRUE, retx=TRUE)
+plot(TS_Arbeitswelt_adj.pca)
+TS_Arbeitswelt_adj.pca <- prcomp(TS_Arbeitswelt_adj, center = TRUE, scale. = TRUE, retx=TRUE, rank. = 1)
+# die Option rank erlaubt die Beschränkung der Anzahl an Komponenten (Faktoren)
+TS_Arbeitswelt_adj.pca
+
+
 # PCA für die Einkommensdimension
 TS_Einkommen.pca <- prcomp(TS_Einkommen, center = TRUE, scale. = TRUE, retx=TRUE) 
 plot(TS_Einkommen.pca)
 TS_Einkommen.pca <- prcomp(TS_Einkommen, center = TRUE, scale. = TRUE, retx=TRUE, rank. = 1) 
 TS_Einkommen.pca
+
+TS_Einkommen_adj.pca <- prcomp(TS_Einkommen_adj, center = TRUE, scale. = TRUE, retx=TRUE) 
+plot(TS_Einkommen_adj.pca)
+TS_Einkommen_adj.pca <- prcomp(TS_Einkommen_adj, center = TRUE, scale. = TRUE, retx=TRUE, rank. = 1) 
+TS_Einkommen_adj.pca
+
 
 # PCA für die Bildungsdimension
 TS_Bildung_adj.pca <- prcomp(TS_Bildung_adj, center = TRUE, scale. = TRUE, retx=TRUE) 
@@ -604,9 +649,9 @@ TS_Bildung_r2014.pca
 # Nun wird die Generierung der Faktorscores vorbereitet.
 ```{r Generierung der Faktorscores, echo=FALSE}
 # Componentoverview
-GISD_Komponents <- cbind("Teildimension"="Arbeitswelt","Anteil"=TS_Arbeitswelt.pca$rotation^2,"Score"=TS_Arbeitswelt.pca$rotation) 
+GISD_Komponents <- cbind("Teildimension"="Arbeitswelt","Anteil"=TS_Arbeitswelt_adj.pca$rotation^2,"Score"=TS_Arbeitswelt_adj.pca$rotation) 
 # cbind erstellt Spaltenvektoren mit den Infos aus Teildimension, den (rotierten) Faktorladungen und den Components; 
-GISD_Komponents <- rbind(GISD_Komponents,cbind("Teildimension"="Einkommen","Anteil"=TS_Einkommen.pca$rotation^2,"Score"=TS_Einkommen.pca$rotation)) 
+GISD_Komponents <- rbind(GISD_Komponents,cbind("Teildimension"="Einkommen","Anteil"=TS_Einkommen_adj.pca$rotation^2,"Score"=TS_Einkommen_adj.pca$rotation)) 
 
 # rbind erstellt Zeilenvektoren, diese werden hier in die bereits vorhandenen Spaltenvektoren eingebunden
 GISD_Komponents <- rbind(GISD_Komponents,cbind("Teildimension"="Bildung (adj.)","Anteil"=TS_Bildung_adj.pca$rotation^2,"Score"=TS_Bildung_adj.pca$rotation)) 
@@ -626,16 +671,16 @@ GISD_Komponents$Proportion <- round(as.numeric(as.character(GISD_Komponents$Ante
 
 # Hier findet die Prediction der Scores statt
 Resultdataset <- Impdata.imputed
-Resultdataset$TS_Arbeitswelt <- as.numeric(predict(TS_Arbeitswelt.pca, newdata = Impdata.imputed))
-Resultdataset$TS_Einkommen <- as.numeric(predict(TS_Einkommen.pca , newdata = Impdata.imputed))
+Resultdataset$TS_Arbeitswelt_adj <- as.numeric(predict(TS_Arbeitswelt_adj.pca, newdata = Impdata.imputed))
+Resultdataset$TS_Einkommen_adj <- as.numeric(predict(TS_Einkommen_adj.pca , newdata = Impdata.imputed))
 Resultdataset$TS_Bildung_adj <- as.numeric(predict(TS_Bildung_adj.pca, newdata = Impdata.imputed))
 
 
-summary(Resultdataset %>% dplyr::select(TS_Arbeitswelt, TS_Einkommen, TS_Bildung_adj))
+summary(Resultdataset %>% dplyr::select(TS_Arbeitswelt_adj, TS_Einkommen_adj, TS_Bildung_adj))
 descs <- stat.desc(Resultdataset[, -5])
 
 # Korrelationen überprüfen
-Resultdataset %>% dplyr::select(Arbeitslosigkeit,TS_Arbeitswelt,TS_Einkommen,TS_Bildung_adj)  %>% cor( use="pairwise.complete.obs")  
+Resultdataset %>% dplyr::select(Arbeitslosigkeit,TS_Arbeitswelt_adj,TS_Einkommen_adj,TS_Bildung_adj)  %>% cor( use="pairwise.complete.obs")  
 # die Richtung der Skala der Scores ist nach der Generierung willkürlich 
 # sie werden nun anhand der Variable Arbeitslosigkeit ausgerichtet,
 # d.h. sie werden so gepolt, dass sie positiv mit Arbeitslosigkeit korrelieren, um Deprivation abzubilden:
@@ -643,15 +688,15 @@ Resultdataset %>% dplyr::select(Arbeitslosigkeit,TS_Arbeitswelt,TS_Einkommen,TS_
 if (cor(Resultdataset$Arbeitslosigkeit, Resultdataset$TS_Bildung_adj,use="pairwise.complete.obs")<0) {
    Resultdataset$TS_Bildung_adj <- Resultdataset$TS_Bildung_adj*-1
    }
-if (cor(Resultdataset$Arbeitslosigkeit, Resultdataset$TS_Arbeitswelt,use="pairwise.complete.obs")<0) {
-  Resultdataset$TS_Arbeitswelt <- Resultdataset$TS_Arbeitswelt*-1
+if (cor(Resultdataset$Arbeitslosigkeit, Resultdataset$TS_Arbeitswelt_adj,use="pairwise.complete.obs")<0) {
+  Resultdataset$TS_Arbeitswelt_adj <- Resultdataset$TS_Arbeitswelt_adj*-1
   }
-if (cor(Resultdataset$Arbeitslosigkeit, Resultdataset$TS_Einkommen,use="pairwise.complete.obs")<0) {
-  Resultdataset$TS_Einkommen <- Resultdataset$TS_Einkommen*-1
+if (cor(Resultdataset$Arbeitslosigkeit, Resultdataset$TS_Einkommen_adj,use="pairwise.complete.obs")<0) {
+  Resultdataset$TS_Einkommen_adj <- Resultdataset$TS_Einkommen_adj*-1
 }
 
 # Korrelationen erneut überprüfen
-Resultdataset %>% dplyr::select(Arbeitslosigkeit,TS_Arbeitswelt,TS_Einkommen,TS_Bildung_adj) %>% cor( use="pairwise.complete.obs")
+Resultdataset %>% dplyr::select(Arbeitslosigkeit,TS_Arbeitswelt_adj,TS_Einkommen_adj,TS_Bildung_adj) %>% cor( use="pairwise.complete.obs")
 # nun sind alle Korrelationen positiv
 # wenngleich die Korrelation der Bildungsdimension mit Arbeitslosigkeit sehr gering ist
 # inhaltlich ist das nicht unplausibel (hvhere Abiturquoten in strukturschwachen Regionen)
@@ -663,18 +708,18 @@ save(GISD_Komponents, file="Outfiles/2019/GISD_Komponents.RData")
 # [Warum das hier plötzlich?]
 
 # Normalization
-Resultdataset$TS_Arbeitswelt <- (Resultdataset$TS_Arbeitswelt -min(Resultdataset$TS_Arbeitswelt ))/(max(Resultdataset$TS_Arbeitswelt )-min(Resultdataset$TS_Arbeitswelt ))
-Resultdataset$TS_Einkommen <- (Resultdataset$TS_Einkommen -min(Resultdataset$TS_Einkommen ))/(max(Resultdataset$TS_Einkommen )-min(Resultdataset$TS_Einkommen ))
+Resultdataset$TS_Arbeitswelt_adj <- (Resultdataset$TS_Arbeitswelt_adj -min(Resultdataset$TS_Arbeitswelt_adj ))/(max(Resultdataset$TS_Arbeitswelt_adj )-min(Resultdataset$TS_Arbeitswelt_adj ))
+Resultdataset$TS_Einkommen_adj <- (Resultdataset$TS_Einkommen_adj -min(Resultdataset$TS_Einkommen_adj ))/(max(Resultdataset$TS_Einkommen_adj )-min(Resultdataset$TS_Einkommen_adj ))
 Resultdataset$TS_Bildung_adj <- (Resultdataset$TS_Bildung_adj -min(Resultdataset$TS_Bildung_adj ))/(max(Resultdataset$TS_Bildung_adj )-min(Resultdataset$TS_Bildung_adj ))
 
 
 # GISD
-Resultdataset$GISD_Score <- Resultdataset$TS_Arbeitswelt+Resultdataset$TS_Einkommen+Resultdataset$TS_Bildung_adj
+Resultdataset$GISD_Score <- Resultdataset$TS_Arbeitswelt_adj+Resultdataset$TS_Einkommen_adj+Resultdataset$TS_Bildung_adj
 Resultdataset$GISD_Score <- (Resultdataset$GISD_Score -min(Resultdataset$GISD_Score ))/(max(Resultdataset$GISD_Score )-min(Resultdataset$GISD_Score ))
 
 # Result
-summary(Resultdataset %>% select(TS_Arbeitswelt,TS_Einkommen,TS_Bildung_adj,GISD_Score))
-str(Resultdataset %>% select(TS_Arbeitswelt,TS_Einkommen,TS_Bildung_adj,GISD_Score))
+summary(Resultdataset %>% select(TS_Arbeitswelt_adj,TS_Einkommen_adj,TS_Bildung_adj,GISD_Score))
+str(Resultdataset %>% select(TS_Arbeitswelt_adj,TS_Einkommen_adj,TS_Bildung_adj,GISD_Score))
 
 # Teilscores und GISD-Score in Datensatz speichern
 Resultdataset <- Resultdataset %>% select(Gemeindekennziffer,Jahr,Bevoelkerung,contains("TS_"),contains("GISD_Score"))

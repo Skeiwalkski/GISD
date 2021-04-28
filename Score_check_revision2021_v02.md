@@ -22,7 +22,7 @@ output:
 
 
 
-## Deskription: Wie verteilt sich die Variation der Indikatoren in den GISD-Scores über die Zeit und Gemeinden?
+## Deskription: Wie verteilt sich die Variation der Indikatoren in den GISD-Scores über die Zeit und über die Gemeinden?
 
 
 
@@ -147,6 +147,7 @@ Besonderheit Thüringen vor 2004
 
 ```r
 Corr_data$outl <- "Kein Ausreißer"
+# Ausreißer: München, Berlin, Pirmasens
 Corr_data$outl[Corr_data$Kreis %in% c("9184", "11000", "7317")] <- "Ausreißer"
 
 ggplot(Corr_data, aes(GISD_Score, Jahr)) + geom_tile(aes(color = outl), alpha = 0.5, size =0.5) + 
@@ -225,7 +226,7 @@ ggsave("Outfiles/Outliers_Primasens.png")
 ## Saving 7 x 5 in image
 ```
 
-## verteilung des GISD
+## Verteilung des GISD
 
 ```r
 Corr_data$ow <- "Ost"

@@ -1,0 +1,190 @@
+---
+title: "Faktorenanalyse_Check"
+author: "Marvin Reis"
+date: "18 3 2021"
+output:
+  bookdown::html_document2:
+    fig_caption: yes
+    keep_md: true
+    code_folding: hide
+    toc: true
+    toc_float: false
+    toc_depth: 2
+    number_sections: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r Libraries und Pfade, message=FALSE, warning=FALSE}
+
+library("tidyverse") # Tidyverse Methods
+library(bookdown) 
+library(readxl) # Read Excel
+library(pastecs) # descriptive stats
+library(knitr)
+
+Impdata.imputed <- readRDS("C:/projects_rstudio/GISD/Outfiles/Impdata_check.rds")
+```
+
+
+```{r Tibbles für die Teilscores generieren, echo=FALSE}
+
+# Variablenliste für die Faktorenanalyse 
+#print(listofdeterminants)
+TS_Arbeitswelt <- Impdata.imputed  %>% ungroup() %>% dplyr::select(Beschaeftigtenquote,Arbeitslosigkeit,Bruttoverdienst) 
+TS_Einkommen   <- Impdata.imputed %>% dplyr::select(Einkommensteuer,Haushaltseinkommen,Schuldnerquote) 
+# für den Vergleich der Ergebnisse wird zunächst ein Datensatz für die Variablenauswahl der Revision 2019 generiert
+TS_Bildung <- Impdata.imputed %>% dplyr::select(BeschaeftigtemitakadAbschluss,BeschaeftigteohneAbschluss,SchulabgaengerohneAbschluss) 
+
+# Check dieser Lösung für das 2014er Sample 
+TS_Bildung_r2014 <- Impdata.imputed %>% filter(Jahr<2015) %>%  dplyr::select(BeschaeftigtemitakadAbschluss,BeschaeftigteohneAbschluss,SchulabgaengerohneAbschluss) 
+
+TS_Bildung_4items <- Impdata.imputed %>% dplyr::select(BeschaeftigtemitakadAbschluss,BeschaeftigteohneAbschluss,SchulabgaengerohneAbschluss, SchulabgaengermitHochschulreife)
+
+TS_Bildung_4items_without_BoA <- Impdata.imputed %>% dplyr::select(BeschaeftigtemitakadAbschluss,SchulabgaengerohneAbschluss, SchulabgaengermitHochschulreife) 
+
+```
+
+
+
+
+# Faktorenanalyse basierend auf Hauptkomponentenanalyse für jede der drei Subscalen
+```{r PCA für die Teilscores}
+
+# PCA für die Arbeitsweltdimension
+TS_Arbeitswelt.pca <- prcomp(TS_Arbeitswelt, center = TRUE, scale. = TRUE, retx=TRUE)
+#TS_Arbeitswelt.pca
+	# Option retx erzeugt rotierte Lösung
+
+TS_Arbeitswelt.pca <- prcomp(TS_Arbeitswelt, center = TRUE, scale. = TRUE, retx=TRUE, rank. = 1)
+# die Option rank erlaubt die Beschränkung der Anzahl an Komponenten (Faktoren)
+#TS_Arbeitswelt.pca
+# nur die erste Komponente mit Eigenwert über 1
+	# (prcomp gibt standardmäßig Sdev statt Varianz aus)
+#plot(TS_Arbeitswelt.pca, main = "Varianz der Faktoren für Arbeitswelt")
+
+tab_Arbeitswelt <- cbind("Faktor" = "F", "SD" = TS_Arbeitswelt.pca$sdev^2)
+tab_Arbeitswelt <- cbind(as.data.frame(tab_Arbeitswelt))
+tab_Arbeitswelt$Faktor <- c("Faktor 1", "Faktor 2", "Faktor 3")
+colnames(tab_Arbeitswelt) <- c("Faktoren für Arbeitswelt", "Varianz")
+
+	# screeplot - bei nur drei Variablen wird ein Balkendiagramm angezeigt
+# die Faktorladungen der drei Hauptkomponenten für Arbeitswelt 
+# die Ladungen der ersten Komponente enstprechen der Erwartung
+
+
+
+# PCA für die Einkommensdimension
+TS_Einkommen.pca <- prcomp(TS_Einkommen, center = TRUE, scale. = TRUE, retx=TRUE) 
+#plot(TS_Einkommen.pca)
+TS_Einkommen.pca <- prcomp(TS_Einkommen, center = TRUE, scale. = TRUE, retx=TRUE, rank. = 1) 
+#TS_Einkommen.pca
+
+tab_Einkommen <- cbind("Faktor" = "F", "SD" = TS_Einkommen.pca$sdev^2)
+tab_Einkommen <- cbind(as.data.frame(tab_Einkommen))
+tab_Einkommen$Faktor <- c("Faktor 1", "Faktor 2", "Faktor 3")
+colnames(tab_Einkommen) <- c("Faktoren für Einkommen", "Varianz")
+
+
+
+# PCA für die Bildungsdimension
+TS_Bildung.pca <- prcomp(TS_Bildung, center = TRUE, scale. = TRUE, retx=TRUE) 
+#plot(TS_Bildung.pca)
+TS_Bildung.pca <- prcomp(TS_Bildung, center = TRUE, scale. = TRUE, retx=TRUE, rank. =1 ) 
+#TS_Bildung.pca
+
+tab_Bildung <- cbind("Faktor" = "F", "SD" = TS_Bildung.pca$sdev^2)
+tab_Bildung <- cbind(as.data.frame(tab_Bildung))
+tab_Bildung$Faktor <- c("Faktor 1", "Faktor 2", "Faktor 3")
+colnames(tab_Bildung) <- c("Faktoren für Bildung", "Varianz")
+
+
+# Alternativ Bildungskomponente mit BeschaeftigtemitakadAbschluss,SchulabgaengermitHochschulreife,SchulabgaengerohneAbschluss
+#TS_Bildung_new.pca <- prcomp(TS_Bildung_4items_without_BoA, center = TRUE, scale. = TRUE, retx=TRUE, rank. = 1) 
+
+# für die Bildung deutet die Analyse eher auf zwei Komponenten hin
+# die Faktorladung für SchulabgaengerohneAbschluss ist auf dem zweiten Faktor schwach
+# es wird die Komponente ausgewählt, bei der Beschaeftigte mit akad Abschluss positiv korreliert und 
+# BeschaeftigteohneAbschluss und SchulabgaengerohneAbschluss negativ
+# regionale Deprivation als Merkmal geringer Anteile von Akademikern bei gleichzeitigen hohen Anteilen 
+# von Beschaeftigten ohne Abschluss und Schulabgaengern ohne Abschluss
+
+
+
+
+# Check der Bildungskomponente in Revision 2018 (Daten für 2014)
+#TS_Bildung_r2014.pca <- prcomp(TS_Bildung_r2014, center = TRUE, scale. = TRUE, retx=TRUE) 
+#TS_Bildung_r2014.pca
+# 
+#TS_Bildung_4items.pca <- prcomp(TS_Bildung_4items, center = TRUE, scale. = TRUE, retx=TRUE)
+# plot(TS_Bildung_4items.pca)
+# TS_Bildung_4items.pca
+
+#tab_Bildung_4items <- cbind("Faktor" = "F", "SD" = TS_Bildung_4items.pca$sdev^2)
+#tab_Bildung_4items <- cbind(as.data.frame(tab_Bildung_4items))
+#tab_Bildung_4items$Faktor <- c("Faktor 1", "Faktor 2", "Faktor 3")
+#colnames(tab_Bildung_4items) <- c("Faktoren für Bildung", "Varianz")
+```
+
+
+```{r}
+plot(TS_Arbeitswelt.pca, main = "Varianz der Faktoren für Arbeitswelt")
+kable(tab_Arbeitswelt, caption = "Vaianz der Faktoren für Arbeitswelt")
+```
+Die PCA zeigt drei Hauptkomponenten für die Dimension Arbeitswelt. Nur die erste Komponente hat einen Eigenwert über eins. Die Faktorladungen der drei Variablen (Beschäftigungsquote, Arbeitslosigkeit und Bruttoverdienst) entsprechen dabei den Ertwartungen.
+
+
+```{r}
+plot(TS_Einkommen.pca, main = "Varianz der Faktoren für Einkommen")
+kable(tab_Einkommen, caption = "Varianz der Faktoren für Einkommen")
+```
+Die PCA zeigt drei Hauptkomponenten für die Dimension Einkommen. Nur die erste Komponente hat einen Eigenwert über zwei. Die Faktorladungen der drei Variablen (Einkommensteuer, Haushaltseinkommen und Schuldnerquote) entsprechen dabei den Ertwartungen.
+
+
+```{r}
+plot(TS_Bildung.pca, main = "Varianz der Faktoren für Bildung")
+kable(tab_Bildung, caption = "Varianz der Faktoren für Bildung")
+
+#plot(TS_Bildung_4items.pca, main = "Varianz der Faktoren für Bildung + Schulabgänger mit Hochschulreife")
+#tab_Bildung_4items
+```
+Die PCA zeigt  drei Hauptkomponenten für die Dimension Bildung. Sowohl die erste al auch die zweite Komponente haben dabei einen Eigenwert über eins. Die Faktorladungen der drei Variablen (Beschäftigte mit Abschluss, Schäftigte ohne Abschlus und Schulabgänger ohne Abschluss) entsprechen somit nicht den Erwartungen.
+
+
+```{r}
+# Componentoverview
+GISD_Komponents <- cbind("Teildimension"="Arbeitswelt","Anteil"=sqrt(abs(TS_Arbeitswelt.pca$rotation)),"Score"=TS_Arbeitswelt.pca$rotation)
+# cbind erstellt Spaltenvektoren mit den Infos aus Teildimension, den (rotierten) Faktorladungen und den Components
+
+GISD_Komponents <- rbind(GISD_Komponents,cbind("Teildimension"="Einkommen","Anteil"=sqrt(abs(TS_Einkommen.pca$rotation)),"Score"=TS_Einkommen.pca$rotation)) 
+# rbind erstellt Zeilenvektoren, diese werden hier in die bereits vorhandenen Spaltenvektoren eingebunden
+
+GISD_Komponents <- rbind(GISD_Komponents,cbind("Teildimension"="Bildung","Anteil"=sqrt(abs(TS_Bildung.pca$rotation)),"Score"=TS_Bildung.pca$rotation)) 
+# auch für die Teildimension Bildung werden Zeilenvektoren eingebunden
+
+GISD_Komponents <- cbind("Variables"=as.data.frame(rownames(GISD_Komponents)),as.data.frame(GISD_Komponents))
+# als letztes wird die Matrix in einen Dataframe übersetzt
+
+rownames(GISD_Komponents) <- NULL
+# die überflüssigen Zeilennamen werden gestrichen
+
+
+colnames(GISD_Komponents) <- c("Variable","Dimension","Anteil","Score")
+# aussagekräftige Spaltennamen vergeben
+
+GISD_Komponents$Variable <- c("Beschäftigtenquote", "Arbeitslosigkeit", "Bruttoverdienst", "Einkommensteuer", "Haushaltseinkommen", "Schuldnerquote", "Beschäftigte mit Abschluss", "Beshäftigte ohne Abschluss", "Schulabgänger ohne Abschluss")
+
+GISD_Komponents$GISD <- "GISD"
+# eine weitere Spalte wird eingef|gt mit dem String "GISD" in jeder Zeile
+GISD_Komponents$Proportion <- round(as.numeric(GISD_Komponents$Anteil)*100,digits=2)
+# eine weitere Spalte Proportion wird eingef|gt mit prozentualen Anteilswerten (eine Nachkommastelle)
+
+kable(GISD_Komponents, caption = "Komponenten und Anteile der Dimensionen")
+```
+
+
+
+
