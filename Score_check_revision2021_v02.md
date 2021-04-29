@@ -58,44 +58,6 @@ output:
 ### Einkommensdimension
 
 ```r
-ggplot(Corr_data, aes(GISD_Score, Jahr, color = Bruttoverdienst)) + geom_tile(alpha = 0.5, size = 0.5) + 
-  theme_rki() + theme(legend.position="bottom") + 
-  scale_color_gradientn(colours = rainbow(5)) + scale_y_discrete(limits=rev) + 
-  scale_x_continuous(position = "top") +
-  labs(colour = "durchschnittlichter Bruttoverdienst in Euro", x = "GISD Score", title = "Verteilung des Bruttoverdienst auf den GISD-Score") 
-```
-
-![](Score_check_revision2021_v02_files/figure-html/Einkommensdimension Plots-1.png)<!-- -->
-
-```r
-ggsave("Outfiles/bruttoverdienst.png")
-```
-
-```
-## Saving 7 x 5 in image
-```
-
-```r
-Corr_data <- Corr_data %>% mutate(Bruttoverdienst_ln = log(Bruttoverdienst))
-
-ggplot(Corr_data, aes(GISD_Score, Jahr, color = Bruttoverdienst_ln)) + geom_tile(alpha = 0.5, size = 0.5) + 
-  theme_rki() + theme(legend.position="bottom") + 
-  scale_color_gradientn(colours = rainbow(5)) + scale_y_discrete(limits=rev) + 
-  scale_x_continuous(position = "top") +
-  labs(colour = "durchschnittlichter Bruttoverdienst in Euro (logarithmiert)", x = "GISD Score", title = "Verteilung des log. Bruttoverdienst auf den GISD-Score") 
-```
-
-![](Score_check_revision2021_v02_files/figure-html/Einkommensdimension Plots-2.png)<!-- -->
-
-```r
-ggsave("Outfiles/bruttoverdienst_log.png")
-```
-
-```
-## Saving 7 x 5 in image
-```
-
-```r
 ggplot(Corr_data, aes(GISD_Score, Jahr, color = Einkommensteuer)) + geom_tile(alpha = 0.5, size =0.5) + 
   theme_rki() + theme(legend.position="bottom") + 
   scale_color_gradientn(colours = rainbow(5)) + scale_y_discrete(limits=rev) + 
@@ -103,7 +65,7 @@ ggplot(Corr_data, aes(GISD_Score, Jahr, color = Einkommensteuer)) + geom_tile(al
   labs(colour = "Durchschnittliche Einkommenssteuer pro Kopf", x = "GISD Score", title = "Verteilung der Einkommensteuer auf den GISD-Score") 
 ```
 
-![](Score_check_revision2021_v02_files/figure-html/Einkommensdimension Plots-3.png)<!-- -->
+![](Score_check_revision2021_v02_files/figure-html/Einkommensdimension Plots-1.png)<!-- -->
 
 ```r
 ggsave("Outfiles/einkommensteuer.png")
@@ -123,7 +85,7 @@ ggplot(Corr_data, aes(GISD_Score, Jahr, color = Einkommensteuer_ln)) + geom_tile
   labs(colour = "Durchschnittliche Einkommenssteuer pro Kopf (logarithmiert)", x = "GISD Score", title = "Verteilung der log. Einkommensteuer auf den GISD-Score")
 ```
 
-![](Score_check_revision2021_v02_files/figure-html/Einkommensdimension Plots-4.png)<!-- -->
+![](Score_check_revision2021_v02_files/figure-html/Einkommensdimension Plots-2.png)<!-- -->
 
 ```r
 ggsave("Outfiles/einkommensteuer_log.png")
@@ -141,7 +103,7 @@ ggplot(Corr_data, aes(GISD_Score, Jahr, color = Haushaltseinkommen)) + geom_tile
   labs(colour = "durchschnittliches Haushaltseinkommen", x = "GISD Score", title = "Verteilung des Haushalteinkommen auf den GISD-Score") 
 ```
 
-![](Score_check_revision2021_v02_files/figure-html/Einkommensdimension Plots-5.png)<!-- -->
+![](Score_check_revision2021_v02_files/figure-html/Einkommensdimension Plots-3.png)<!-- -->
 
 ```r
 ggsave("Outfiles/hheink.png")
@@ -161,7 +123,7 @@ ggplot(Corr_data, aes(GISD_Score, Jahr, color = Haushaltseinkommen_ln)) + geom_t
   labs(colour = "durchschnittliches Haushaltseinkommen (logarithmiert)", x = "GISD Score", title = "Verteilung des log. Haushalteinkommen auf den GISD-Score") 
 ```
 
-![](Score_check_revision2021_v02_files/figure-html/Einkommensdimension Plots-6.png)<!-- -->
+![](Score_check_revision2021_v02_files/figure-html/Einkommensdimension Plots-4.png)<!-- -->
 
 ```r
 ggsave("Outfiles/hheink_log.png")
@@ -179,7 +141,7 @@ ggplot(Corr_data, aes(GISD_Score, Jahr, color = Schuldnerquote)) + geom_tile(alp
   labs(colour = "Schuldnerquote", x = "GISD Score", title = "Verteilung der Schuldnerquote auf den GISD-Score") 
 ```
 
-![](Score_check_revision2021_v02_files/figure-html/Einkommensdimension Plots-7.png)<!-- -->
+![](Score_check_revision2021_v02_files/figure-html/Einkommensdimension Plots-5.png)<!-- -->
 
 ```r
 ggsave("Outfiles/schuldner.png")
@@ -192,13 +154,84 @@ ggsave("Outfiles/schuldner.png")
 ### Bildungsdimension
 
 ```r
+ggplot(Corr_data, aes(GISD_Score, Jahr, color = BeschaeftigtemitakadAbschluss)) + geom_tile(alpha = 0.5, size = 0.5) +
+  theme_rki() + theme(legend.position="bottom") + 
+  scale_color_gradientn(colours = rainbow(5)) + scale_y_discrete(limits=rev) + 
+  scale_x_continuous(position = "top") +
+  labs(colour = "Anteil Beschäftigter mit akademischem Abschluss", x = "GISD Score", title = "Verteilung von akadem. Beschäftigten auf den GISD-Score") 
+```
+
+![](Score_check_revision2021_v02_files/figure-html/Bildungsdimension Plots-1.png)<!-- -->
+
+```r
+ggsave("Outfiles/beschAkad.png")
+```
+
+```
+## Saving 7 x 5 in image
+```
+
+```r
+ggplot(Corr_data, aes(GISD_Score, Jahr, color = BeschaeftigteohneAbschluss)) + geom_tile(alpha = 0.5, size =0.5) + 
+  theme_rki() + theme(legend.position="bottom") + 
+  scale_color_gradientn(colours = rainbow(5)) + scale_y_discrete(limits=rev) + 
+  scale_x_continuous(position = "top") +
+  labs(colour = "Anteil Beschäftigter ohne Abschluss", x = "GISD Score", title = "Verteilung der Beschäftigten ohne Abschluss auf den GISD-Score") 
+```
+
+![](Score_check_revision2021_v02_files/figure-html/Bildungsdimension Plots-2.png)<!-- -->
+
+```r
+ggsave("Outfiles/beschoA.png")
+```
+
+```
+## Saving 7 x 5 in image
+```
+
+```r
+ggplot(Corr_data, aes(GISD_Score, Jahr, color = SchulabgaengerohneAbschluss)) + geom_tile(alpha = 0.5, size =0.5) + 
+  theme_rki() + theme(legend.position="bottom") + 
+  scale_color_gradientn(colours = rainbow(5), limits=c(0,25)) + scale_y_discrete(limits=rev) + 
+  scale_x_continuous(position = "top") +
+  labs(colour = "Anteil der Schulabgänger ohne Abschluss", x = "GISD Score", title = "Verteilung der Schulabgänger ohne Abschluss auf den GISD-Score") 
+```
+
+![](Score_check_revision2021_v02_files/figure-html/Bildungsdimension Plots-3.png)<!-- -->
+
+```r
+ggsave("Outfiles/anteilohneab.png")
+```
+
+```
+## Saving 7 x 5 in image
+```
+
+```r
+ggplot(Corr_data, aes(GISD_Score, Jahr, color = SchulabgaengerohneAbschluss_adj)) + geom_tile(alpha = 0.5, size =0.5) + theme_rki() + theme(legend.position="bottom") + 
+  scale_color_gradientn(colours = rainbow(5), limits=c(0,25)) + scale_y_discrete(limits=rev) + 
+  scale_x_continuous(position = "top") +
+  labs(colour = "Anteil der Schulabgänger ohne Abschluss (adjusted)", x = "GISD Score", title = "Verteilung der Schulabgänger ohne Abschluss (adj.) auf den GISD-Score") 
+```
+
+![](Score_check_revision2021_v02_files/figure-html/Bildungsdimension Plots-4.png)<!-- -->
+
+```r
+ggsave("Outfiles/anteilohneab_adj.png")
+```
+
+```
+## Saving 7 x 5 in image
+```
+
+```r
 ggplot(Corr_data, aes(GISD_Score, Jahr, color = SchulabgaengermitHochschulreife)) + geom_tile(alpha = 0.5, size =0.5) + theme_rki() + theme(legend.position="bottom") + 
   scale_color_gradientn(colours = rainbow(5), limits=c(0,70)) + scale_y_discrete(limits=rev) + 
   scale_x_continuous(position = "top") +
   labs(colour = "Anteil der Schulabgänger mit Hochschulreife", x = "GISD Score", title = "Verteilung der Schulabg. mit Hochschulreife auf den GISD-Score") 
 ```
 
-![](Score_check_revision2021_v02_files/figure-html/Bildungsdimension Plots-1.png)<!-- -->
+![](Score_check_revision2021_v02_files/figure-html/Bildungsdimension Plots-5.png)<!-- -->
 
 ```r
 ggsave("Outfiles/anteilabi.png")
@@ -216,81 +249,10 @@ ggplot(Corr_data, aes(GISD_Score, Jahr, color = SchulabgaengermitHochschulreife_
   labs(colour = "Anteil der Schulabgänger mit Hochschulreife (adjusted)", x = "GISD Score", title = "Verteilung der Schulabg. mit Hochschulreife (adj.) auf den GISD-Score")
 ```
 
-![](Score_check_revision2021_v02_files/figure-html/Bildungsdimension Plots-2.png)<!-- -->
-
-```r
-ggsave("Outfiles/anteilabi_adj.png")
-```
-
-```
-## Saving 7 x 5 in image
-```
-
-```r
-ggplot(Corr_data, aes(GISD_Score, Jahr, color = SchulabgaengermitHochschulreife_mr)) + geom_tile(alpha = 0.5, size =0.5) +
-  theme_rki() + theme(legend.position="bottom") + 
-  scale_color_gradientn(colours = rainbow(5), limits=c(0,70)) + scale_y_discrete(limits=rev) + 
-  scale_x_continuous(position = "top") +
-  labs(colour = "Anteil der Schulabgänger mit Hochschulreife (adj. duch pred.)", x = "GISD Score")
-```
-
-![](Score_check_revision2021_v02_files/figure-html/Bildungsdimension Plots-3.png)<!-- -->
-
-```r
-ggsave("Outfiles/anteilabi_mr.png")
-```
-
-```
-## Saving 7 x 5 in image
-```
-
-```r
-ggplot(Corr_data, aes(GISD_Score, Jahr, color = SchulabgaengerohneAbschluss)) + geom_tile(alpha = 0.5, size =0.5) + 
-  theme_rki() + theme(legend.position="bottom") + 
-  scale_color_gradientn(colours = rainbow(5), limits=c(0,25)) + scale_y_discrete(limits=rev) + 
-  scale_x_continuous(position = "top") +
-  labs(colour = "Anteil der Schulabgänger ohne Abschluss", x = "GISD Score", title = "Verteilung der Schulabgänger ohne Abschluss auf den GISD-Score") 
-```
-
-![](Score_check_revision2021_v02_files/figure-html/Bildungsdimension Plots-4.png)<!-- -->
-
-```r
-ggsave("Outfiles/anteilohneab.png")
-```
-
-```
-## Saving 7 x 5 in image
-```
-
-```r
-ggplot(Corr_data, aes(GISD_Score, Jahr, color = SchulabgaengerohneAbschluss_adj)) + geom_tile(alpha = 0.5, size =0.5) + theme_rki() + theme(legend.position="bottom") + 
-  scale_color_gradientn(colours = rainbow(5), limits=c(0,25)) + scale_y_discrete(limits=rev) + 
-  scale_x_continuous(position = "top") +
-  labs(colour = "Anteil der Schulabgänger ohne Abschluss (adjusted)", x = "GISD Score", title = "Verteilung der Schulabgänger ohne Abschluss (adj.) auf den GISD-Score") 
-```
-
-![](Score_check_revision2021_v02_files/figure-html/Bildungsdimension Plots-5.png)<!-- -->
-
-```r
-ggsave("Outfiles/anteilohneab_adj.png")
-```
-
-```
-## Saving 7 x 5 in image
-```
-
-```r
-ggplot(Corr_data, aes(GISD_Score, Jahr, color = SchulabgaengerohneAbschluss_mr)) + geom_tile(alpha = 0.5, size =0.5) + 
-  theme_rki() + theme(legend.position="bottom") + 
-  scale_color_gradientn(colours = rainbow(5), limits=c(0,25)) + scale_y_discrete(limits=rev) + 
-  scale_x_continuous(position = "top") +
-  labs(colour = "Anteil der Schulabgänger ohne Abschluss (adj. druch pred.)", x = "GISD Score") 
-```
-
 ![](Score_check_revision2021_v02_files/figure-html/Bildungsdimension Plots-6.png)<!-- -->
 
 ```r
-ggsave("Outfiles/anteilohneab_mr.png")
+ggsave("Outfiles/anteilabi_adj.png")
 ```
 
 ```
