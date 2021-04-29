@@ -28,11 +28,11 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ```{r libraries und Datengeniererung, include=FALSE}
 
-#Impdata.imputed <- readRDS("C:/projects_rstudio/GISD/Outfiles/Impdata_check.rds")
-#Resultdataset <- read.csv("C:/projects_rstudio/GISD/Outfiles/2021/Bund/Gemeinde/Gemeinde.csv")
+Impdata.imputed <- readRDS("C:/projects_rstudio/GISD/Outfiles/Impdata_check.rds")
+Resultdataset <- readRDS("C:/projects_rstudio/GISD/Outfiles/Resultdataset.rds")
 
-Impdata.imputed <- readRDS("C:/git_projects/GISD/Outfiles/Impdata_check.rds")
-Resultdataset <- readRDS("C:/git_projects/GISD/Outfiles/Resultdataset.rds")
+# Impdata.imputed <- readRDS("C:/git_projects/GISD/Outfiles/Impdata_check.rds")
+# Resultdataset <- readRDS("C:/git_projects/GISD/Outfiles/Resultdataset.rds")
 
 Corr_data <- left_join(as.data.frame(Impdata.imputed), Resultdataset, all.x = TRUE)
 
@@ -42,7 +42,30 @@ Corr_data <- Corr_data %>% mutate(Jahr=as.factor(Jahr))
 Corr_data <- Corr_data %>%  mutate(alos_q = findInterval(Arbeitslosigkeit, quantile(Arbeitslosigkeit,   probs=0:100/100, type=9)), alos_q = findInterval(alos_q, c(1:100)), beschAkad_q = findInterval(BeschaeftigtemitakadAbschluss, quantile(BeschaeftigtemitakadAbschluss,   probs=0:100/100 , type=9)),  beschAkad_q = findInterval(beschAkad_q, c(1:100)))
 ```
 
+<<<<<<< HEAD
 ## Deskription: Wie verteilt sich die Variation der Indikatoren in den GISD-Scores über die Zeit und Gemeinden? {.tabset}
+=======
+## Deskription: Wie verteilt sich die Variation der Indikatoren in den GISD-Scores über die Zeit und über die Gemeinden?
+
+
+
+
+
+```{r Plots, echo=FALSE}
+ggplot(Corr_data, aes(GISD_Score, Jahr, color = Arbeitslosigkeit)) + geom_tile(alpha = 0.5, size = 0.5) + 
+  theme_rki() + theme(legend.position="bottom") + 
+  scale_color_gradientn(colours = rainbow(5)) + scale_y_discrete(limits=rev) + 
+  scale_x_continuous(position = "top") +
+  labs(colour = "Arbeitslose pro 1000 EW im Erwerbsalter", x = "GISD Score", title = "Verteilung von Arbeitslosigkeit auf den GISD-Score") 
+ggsave("Outfiles/alos.png")
+
+ggplot(Corr_data, aes(GISD_Score, Jahr, color = BeschaeftigtemitakadAbschluss)) + geom_tile(alpha = 0.5, size = 0.5) +
+  theme_rki() + theme(legend.position="bottom") + 
+  scale_color_gradientn(colours = rainbow(5)) + scale_y_discrete(limits=rev) + 
+  scale_x_continuous(position = "top") +
+  labs(colour = "Anteil Beschäftigter mit akademischem Abschluss", x = "GISD Score", title = "Verteilung von akadem. Beschäftigten auf den GISD-Score") 
+ggsave("Outfiles/beschAkad.png")
+>>>>>>> upstream/master
 
 ### Arbeitsdimension
 ```{r Arbeitsdimension Plots, echo=FALSE}
@@ -192,6 +215,7 @@ Besonderheit Thüringen vor 2004
 ## Identifikation von Ausreißern
 ```{r Ausreißer}
 Corr_data$outl <- "Kein Ausreißer"
+# Ausreißer: München, Berlin, Pirmasens
 Corr_data$outl[Corr_data$Kreis %in% c("9184", "11000", "7317")] <- "Ausreißer"
 
 ggplot(Corr_data, aes(GISD_Score, Jahr)) + geom_tile(aes(color = outl), alpha = 0.5, size =0.5) + 
