@@ -41,8 +41,6 @@ Impdata.imputed <- readRDS("C:/git_projects/GISD/Outfiles/Impdata_check.rds")
 # Variablenliste für die Faktorenanalyse 
 #print(listofdeterminants)
 
-Impdata.imputed <- Impdata.imputed %>% mutate(Beschaeftigtenquote_adj = ifelse(Beschaeftigtenquote > 80, 80, Beschaeftigtenquote), Bruttoverdienst_ln = log(Bruttoverdienst), Einkommensteuer_ln = ifelse(Einkommensteuer <= 0, 1, log(Einkommensteuer)), Haushaltseinkommen_ln = log(Haushaltseinkommen))
-
 TS_Arbeitswelt <- Impdata.imputed  %>% ungroup() %>% 
   select(Beschaeftigtenquote_adj,Arbeitslosigkeit,Bruttoverdienst_ln)
 
@@ -511,10 +509,10 @@ Table: (\#tab:unnamed-chunk-13)Korrelation von Arbeitslosigkeit und Faktoren (ge
 
 |                   | Arbeitslosigkeit| Faktor Arbeitswelt| Faktor Einkommen| Faktor Bildung|
 |:------------------|----------------:|------------------:|----------------:|--------------:|
-|Arbeitslosigkeit   |        1.0000000|          0.9158724|        0.7904142|      0.6932822|
-|Faktor Arbeitswelt |        0.9158724|          1.0000000|        0.9110856|      0.6823345|
-|Faktor Einkommen   |        0.7904142|          0.9110856|        1.0000000|      0.6507448|
-|Faktor Bildung     |        0.6932822|          0.6823345|        0.6507448|      1.0000000|
+|Arbeitslosigkeit   |        1.0000000|          0.9158724|        0.7904195|      0.6932822|
+|Faktor Arbeitswelt |        0.9158724|          1.0000000|        0.9110880|      0.6823345|
+|Faktor Einkommen   |        0.7904195|          0.9110880|        1.0000000|      0.6507439|
+|Faktor Bildung     |        0.6932822|          0.6823345|        0.6507439|      1.0000000|
 
 
 ```r
@@ -613,9 +611,9 @@ Table: (\#tab:unnamed-chunk-15)Korrelation der verschiedenen GISD Scores
 
 |              | GISD Score 2017| GISD Score alle Jahre| GISD Score alle Jahre (Bildung 4 Items)|
 |:-------------|---------------:|---------------------:|---------------------------------------:|
-|GISD_Score_17 |       1.0000000|            -0.9675478|                              -0.8040761|
-|GISD_Score    |      -0.9675478|             1.0000000|                               0.9220866|
-|GISD_Score_B4 |      -0.8040761|             0.9220866|                               1.0000000|
+|GISD_Score_17 |       1.0000000|            -0.9675478|                              -0.8040772|
+|GISD_Score    |      -0.9675478|             1.0000000|                               0.9220874|
+|GISD_Score_B4 |      -0.8040772|             0.9220874|                               1.0000000|
 
 ```r
 write_rds(Resultdataset, paste0("Outfiles/Resultdata_FaktorCheck.rds"))

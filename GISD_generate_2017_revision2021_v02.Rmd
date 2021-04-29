@@ -497,10 +497,11 @@ Impdata.imputed <- Impdata.imputed %>%
 ```{r Weitere Anpassungen}
 Impdata.imputed <- Impdata.imputed %>% mutate(Beschaeftigtenquote_adj = ifelse(Beschaeftigtenquote > 80, 80, Beschaeftigtenquote))
 
-Impdata.imputed <- Impdata.imputed %>% mutate(Einkommensteuer_ln= ifelse(Einkommensteuer==0, 0.75, log(Einkommensteuer)))
+Impdata.imputed <- Impdata.imputed %>% mutate(Einkommensteuer_ln = ifelse(Einkommensteuer==0, 0.75, log(Einkommensteuer)))
 
-Impdata.imputed <- Impdata.imputed %>% mutate(Haushaltseinkommen_ln=log(Haushaltseinkommen))
+Impdata.imputed <- Impdata.imputed %>% mutate(Haushaltseinkommen_ln = log(Haushaltseinkommen))
 
+Impdata.imputed <- Impdata.imputed %>% mutate(Bruttoverdienst_ln = log(Bruttoverdienst))
 
 ```
 
@@ -545,8 +546,8 @@ print(hist_over_year_all)
 
 # Variablenliste für die Faktorenanalyse 
 print(listofdeterminants)
-TS_Arbeitswelt <- Impdata.imputed  %>% ungroup() %>% dplyr::select(Beschaeftigtenquote,Arbeitslosigkeit,Bruttoverdienst)
-TS_Arbeitswelt_adj <- Impdata.imputed  %>% ungroup() %>% dplyr::select(Beschaeftigtenquote_adj,Arbeitslosigkeit,Bruttoverdienst) 
+TS_Arbeitswelt <- Impdata.imputed  %>% ungroup() %>% dplyr::select(Beschaeftigtenquote,Arbeitslosigkeit,Bruttoverdienst_ln)
+TS_Arbeitswelt_adj <- Impdata.imputed  %>% ungroup() %>% dplyr::select(Beschaeftigtenquote_adj,Arbeitslosigkeit,Bruttoverdienst_ln) 
 TS_Einkommen   <- Impdata.imputed %>% dplyr::select(Einkommensteuer,Haushaltseinkommen,Schuldnerquote) 
 TS_Einkommen_adj   <- Impdata.imputed %>% dplyr::select(Einkommensteuer_ln,Haushaltseinkommen_ln,Schuldnerquote) 
 # für den Vergleich der Ergebnisse wird zunächst ein Datensatz für die Variablenauswahl der Revision 2019 generiert
@@ -563,7 +564,6 @@ TS_Bildung_4items_without_BoA <- Impdata.imputed %>% dplyr::select(Beschaeftigte
 
 # Faktorenanalyse basierend auf Hauptkomponentenanalyse für jede der drei Subscalen
 ```{r PCA für die Teilscores, echo=FALSE}
-
 
 
 # PCA für die Arbeitsweltdimension

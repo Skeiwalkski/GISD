@@ -39,11 +39,8 @@ Impdata.imputed <- readRDS("C:/git_projects/GISD/Outfiles/Impdata_check.rds")
 
 
 ```{r Tibbles für die Teilscores generieren, message=FALSE, warning=FALSE}
-
 # Variablenliste für die Faktorenanalyse 
 #print(listofdeterminants)
-
-Impdata.imputed <- Impdata.imputed %>% mutate(Beschaeftigtenquote_adj = ifelse(Beschaeftigtenquote > 80, 80, Beschaeftigtenquote), Bruttoverdienst_ln = log(Bruttoverdienst), Einkommensteuer_ln = ifelse(Einkommensteuer <= 0, 1, log(Einkommensteuer)), Haushaltseinkommen_ln = log(Haushaltseinkommen))
 
 TS_Arbeitswelt <- Impdata.imputed  %>% ungroup() %>% 
   select(Beschaeftigtenquote_adj,Arbeitslosigkeit,Bruttoverdienst_ln)

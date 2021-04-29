@@ -22,11 +22,7 @@ output:
 
 
 
-<<<<<<< HEAD
 ## Deskription: Wie verteilt sich die Variation der Indikatoren in den GISD-Scores über die Zeit und Gemeinden? {.tabset}
-=======
-## Deskription: Wie verteilt sich die Variation der Indikatoren in den GISD-Scores über die Zeit und über die Gemeinden?
->>>>>>> upstream/master
 
 ### Arbeitsdimension
 ![](Score_check_revision2021_v02_files/figure-html/Arbeitsdimension Plots-1.png)<!-- -->
@@ -287,7 +283,6 @@ Besonderheit Thüringen vor 2004
 
 ```r
 Corr_data$outl <- "Kein Ausreißer"
-# Ausreißer: München, Berlin, Pirmasens
 Corr_data$outl[Corr_data$Kreis %in% c("9184", "11000", "7317")] <- "Ausreißer"
 
 ggplot(Corr_data, aes(GISD_Score, Jahr)) + geom_tile(aes(color = outl), alpha = 0.5, size =0.5) + 
