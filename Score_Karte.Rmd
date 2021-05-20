@@ -1,5 +1,5 @@
 ---
-title: "Score_Karte"
+title: "Karte des GISD Scores"
 author: "Marvin Reis"
 date: "20 5 2021"
 output:
@@ -29,30 +29,43 @@ Resultdataset <- readRDS("C:/git_projects/GISD/Outfiles/Resultdataset.rds")
 
 Impdata.imputed <- readRDS("C:/git_projects/GISD/Outfiles/Impdata_check.rds")
 
-GISD_data <- left_join(Resultdataset, Impdata.imputed, by = c("Gemeindekennziffer", "Jahr")) %>% lazy_dt() %>% select(Kreis, GISD_Score) %>% distinct(Kreis, .keep_all = TRUE) %>% unique() %>% lazy_dt()
+GISD_data_Kreis <- left_join(Resultdataset, Impdata.imputed, by = c("Gemeindekennziffer", "Jahr")) %>% lazy_dt() %>% select(Kreis, GISD_Score) %>% distinct(Kreis, .keep_all = TRUE) %>% unique() %>% lazy_dt()
 
-Kreise_data <- readRDS("C:/git_projects/GISD/kreise_bkg.rds") %>% lazy_dt() %>% mutate(Kreis = as.numeric(id)) %>% select(-id) %>% left_join(GISD_data, by = "Kreis") %>% lazy_dt()
+Kreise_data <- readRDS("C:/git_projects/GISD/kreise_bkg.rds") %>% lazy_dt() %>% mutate(Kreis = as.numeric(id)) %>% select(-id) %>% left_join(GISD_data_Kreis, by = "Kreis") %>% lazy_dt()
 
 Kreise_data <- as_tibble(Kreise_data)
 
+GISD_data_Gem <- Resultdataset %>% lazy_dt() %>% select(Gemeindekennziffer, GISD_Score) %>% distinct(Gemeindekennziffer, .keep_all = TRUE) %>% unique() %>% lazy_dt()
+
+Gemeinden_data <- readRDS("C:/git_projects/GISD/BRD_Gemeinden.rds") %>% lazy_dt() %>% mutate(Gemeindekennziffer = as.numeric(id)) %>% select(-id) %>% left_join(GISD_data_Gem, by = "Gemeindekennziffer") %>% lazy_dt()
+
+Gemeinden_data <- as_tibble(Gemeinden_data)
+
+
+
+Länder_data <- readRDS("C:/git_projects/GISD/ROR_map.rds")
 ```
 
+## GISD-Score auf Gemeindeebene
+```{r}
+ggplot(Gemeinden_data, aes(long, lat, group = group)) +
+  geom_polygon() +
+  coord_equal() +
+  theme_rki_void() +
+  labs(fill = "GISD-Score")
+```
 
 ## GISD-Score auf Kreisebene
 ```{r}
 ggplot(Kreise_data, aes(long, lat, group = group, fill=GISD_Score)) +
-  geom_polygon(col = "black", size = 0.05) +
-  scale_color_rki() +
+  geom_polygon() +
   coord_equal() +
-  theme_void() +
+  theme_rki_void() +
   labs(fill = "GISD-Score")
 ```
 
-```{r}
-ROR_data <- readRDS("C:/git_projects/GISD/ROR_map.rds")
 
+## GISD-Score auf Länderebene
 
-
-```
 
 
