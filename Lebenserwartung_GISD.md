@@ -25,7 +25,7 @@ Resultdataset <- readRDS("C:/git_projects/GISD/Outfiles/Resultdataset.rds") %>% 
 
 Impdata.imputed <- readRDS("C:/git_projects/GISD/Outfiles/Impdata_check.rds") %>% filter(Jahr == 2017)
 
-GISD_data_Kreis <- left_join(Resultdataset, Impdata.imputed, by = "Gemeindekennziffer") %>% select(Kreis, GISD_Score)
+GISD_data_Kreis <- left_join(Resultdataset, Impdata.imputed, by = "Gemeindekennziffer") %>% select(Kreis, GISD_Score) %>% distinct(Kreis, .keep_all = TRUE) %>% unique()
 
 GISD_Lebenserw_Kreis <- left_join(GISD_data_Kreis, Lebenserwartung_dat, by = "Kreis") %>% select(-Aggregat)
 ```
@@ -33,7 +33,7 @@ GISD_Lebenserw_Kreis <- left_join(GISD_data_Kreis, Lebenserwartung_dat, by = "Kr
 
 ```r
 ggplot(GISD_Lebenserw_Kreis, aes(x = GISD_Score, y = Lebenserwartung)) +
-  geom_point(size = 1.5, alpha = 0.25, col = "navy") +
+  geom_point(size = 1.5, alpha = 0.5, col = "navy") +
   geom_rug(size = 0.5) + 
   labs(x = "GISD-Score", title = "Lebenserwartung der Landkreise zum GISD", subtitle = "im Jahr 2017") +
   theme_rki()
@@ -44,7 +44,7 @@ ggplot(GISD_Lebenserw_Kreis, aes(x = GISD_Score, y = Lebenserwartung)) +
 
 ```r
 ggplot(GISD_Lebenserw_Kreis, aes(x = GISD_Score, y = Lebenserwartung)) +
-  geom_point(size = 1.5, alpha = 0.25, col = "navy") +
+  geom_point(size = 1.5, alpha = 0.5, col = "navy") +
   geom_rug(size = 0.5) +
   geom_smooth(method = loess, col = "red", linetype = "dashed", fill = "grey50", alpha = 0.5) +
   labs(x = "GISD-Score", title = "Lebenserwartung der Landkreise zum GISD", subtitle =  "im Jahr 2017, mit Regressionslinie (Loess)",
@@ -61,7 +61,7 @@ ggplot(GISD_Lebenserw_Kreis, aes(x = GISD_Score, y = Lebenserwartung)) +
 
 ```r
 ggplot(GISD_Lebenserw_Kreis, aes(x = GISD_Score, y = Lebenserwartung)) +
-  geom_point(size = 1.5, alpha = 0.25, col = "navy") +
+  geom_point(size = 1.5, alpha = 0.5, col = "navy") +
   geom_rug(size = 0.5) +
   geom_smooth(method = lm,col = "red", linetype = "dashed", fill = "grey50", alpha = 0.5) +
   labs(x = "GISD-Score", title = "Lebenserwartung der Landkreise zum GISD", subtitle = "im jahr 2017, mit Regressionslinie (Linear)",
@@ -78,8 +78,8 @@ ggplot(GISD_Lebenserw_Kreis, aes(x = GISD_Score, y = Lebenserwartung)) +
 
 ```r
 ggplot(GISD_Lebenserw_Kreis, aes(x = GISD_Score, y = Lebenserwartung)) +
-  geom_point(size = 0.75, alpha = 0.25) +
-  geom_density2d(size = 1, col = "navy", alpha = 0.75) +
+  geom_point(size = 1, alpha = 0.5) +
+  geom_density2d(size = 1, col = "navy", alpha = 0.5) +
   labs(x = "GISD-Score", title = "Lebenserwartung der Landkreise zum GISD (Density)", subtitle = "im Jahr 2017",
        y = "Lebenserwartung in Jahren") +
   theme_rki()
