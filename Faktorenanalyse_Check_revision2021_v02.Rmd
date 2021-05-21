@@ -46,7 +46,7 @@ TS_Arbeitswelt <- Impdata.imputed  %>% ungroup() %>%
   select(Beschaeftigtenquote_adj,Arbeitslosigkeit,Bruttoverdienst_ln)
 
 TS_Einkommen   <- Impdata.imputed %>% select(Einkommensteuer_ln,Haushaltseinkommen_ln,Schuldnerquote) 
-# für den Vergleich der Ergebnisse wird zunächst ein Datensatz für die Variablenauswahl der Revision 2019 generiert
+# Für den Vergleich der Ergebnisse wird zunächst ein Datensatz für die Variablenauswahl der Revision 2019 generiert
 
 TS_Bildung <- Impdata.imputed %>% select(BeschaeftigtemitakadAbschluss,BeschaeftigteohneAbschluss,SchulabgaengerohneAbschluss_adj) 
 
@@ -132,7 +132,7 @@ TS_Bildung_4items.pca <- prcomp(TS_Bildung_4items, center = TRUE, scale. = TRUE,
 ```{r , message=FALSE, warning=FALSE}
 par(mfrow=c(1, 3))
 plot(TS_Arbeitswelt.pca, main = "Arbeitswelt (Eigenvektoren)", ylim=c(0,2.2))
-plot(TS_Einkommen.pca, main = "Einkommen (Eigenverktoren)", ylim=c(0,2.2))
+plot(TS_Einkommen.pca, main = "Einkommen (Eigenvektoren)", ylim=c(0,2.2))
 plot(TS_Bildung.pca, main = "Bildung (Eigenvektoren)", ylim=c(0,2.2))
 ```
 
@@ -145,14 +145,14 @@ Varianz_tab$F_A <- c("Faktor 1", "Faktor 2", "Faktor 3")
 
 colnames(Varianz_tab) <- c("Faktoren", "Varianz Arbeitswelt", "Varianz Einkommen", "Varianz Bildung")
 
-kable(Varianz_tab, caption = "Varianz der Faktoren (Eigenverktoren)")
+kable(Varianz_tab, caption = "Varianz der Faktoren (Eigenvektoren)")
 ```
 
 Die PCA zeigt drei Hauptkomponenten für die Dimension Arbeitswelt. Nur die erste Komponente hat einen Eigenwert über eins. Die Faktorladungen der drei Variablen (Beschäftigungsquote, Arbeitslosigkeit und Bruttoverdienst) entsprechen dabei den Ertwartungen.
 
-Die PCA zeigt drei Hauptkomponenten für die Dimension Einkommen. Nur die erste Komponente hat einen Eigenwert über zwei. Die Faktorladungen der drei Variablen (Einkommensteuer, Haushaltseinkommen und Schuldnerquote) entsprechen dabei den Ertwartungen.
+Die PCA zeigt drei Hauptkomponenten für die Dimension Einkommen. Nur die erste Komponente hat einen Eigenwert über zwei. Die Faktorladungen der drei Variablen (Einkommensteuer, Haushaltseinkommen und Schuldnerquote) entsprechen dabei den Erwartungen.
 
-Die PCA zeigt  drei Hauptkomponenten für die Dimension Bildung. Sowohl die erste al auch die zweite Komponente haben dabei einen Eigenwert über eins. Die Faktorladungen der drei Variablen (Beschäftigte mit Abschluss, Schäftigte ohne Abschlus und Schulabgänger ohne Abschluss) entsprechen somit nicht den Erwartungen.
+Die PCA zeigt  drei Hauptkomponenten für die Dimension Bildung. Sowohl die erste als auch die zweite Komponente haben dabei einen Eigenwert über eins. Die Faktorladungen der drei Variablen (Beschäftigte mit akad. Abschluss, Beschäftigte ohne Abschlus und Schulabgänger ohne Abschluss) entsprechen somit nicht den Erwartungen.
 
 Fazit: Die Betrachtung der Eigenwerte weist bei der Bildungsdimension auf zwei Hauptkomponenten hin.
 Hier sollte eine detailliertere Analyse folgen. 
@@ -185,20 +185,20 @@ GISD_Komponents$prop_GISD <- round(as.numeric(GISD_Komponents$prop_dem)/3, digit
 
 colnames(GISD_Komponents) <- c("Variable","Dimension","Faktorladung","Component", "Anteil Teilscore", "Anteil GISD")
 
-GISD_Komponents$Variable <- c("Beschäftigtenquote (gedeckelt)", "Arbeitslosigkeit", "Bruttoverdienst (log.)", "Einkommensteuer (log.)", "Haushaltseinkommen (log.)", "Schuldnerquote", "Beschäftigte mit Abschluss", "Beschäftigte ohne Abschluss", "Schulabgänger ohne Abschluss (adj.)")
+GISD_Komponents$Variable <- c("Beschäftigtenquote (gedeckelt)", "Arbeitslosigkeit", "Bruttoverdienst (log.)", "Einkommensteuer (log.)", "Haushaltseinkommen (log.)", "Schuldnerquote", "Beschäftigte mit akad. Abschluss", "Beschäftigte ohne Abschluss", "Schulabgänger ohne Abschluss (adj.)")
 
 kable(GISD_Komponents, caption = "Faktorladungen und Anteile an den Teilscores sowie am Index")
 ```
 
 
-## Faktorenanalyse gepoolte  
-Querschnitte (4 Items Bildung)
+## Faktorenanalyse (4 Items Bildung)
+gepoolte Querschnitte (4 Items Bildung)
 
 ### Eigenwerte der Komponenten
 ```{r, message=FALSE, warning=FALSE}
 par(mfrow=c(1, 3))
 plot(TS_Arbeitswelt.pca, main = "Arbeitswelt (Eigenvektoren)", ylim=c(0,2.2))
-plot(TS_Einkommen.pca, main = "Einkommen (Eigenverktoren)", ylim=c(0,2.2))
+plot(TS_Einkommen.pca, main = "Einkommen (Eigenvektoren)", ylim=c(0,2.2))
 plot(TS_Bildung_4items.pca, main = "Bildung (Eigenvektoren)", ylim=c(0,2.2))
 ```
 
@@ -214,7 +214,7 @@ Varianz_B4_tab$F_A <- c("Faktor 1", "Faktor 2", "Faktor 3", "Faktor 4")
 
 colnames(Varianz_B4_tab) <- c("Faktoren", "Varianz Arbeitswelt", "Varianz Einkommen", "Varianz Bildung")
 
-kable(Varianz_B4_tab, caption = "Varianz der Faktoren (Eigenverktoren)")
+kable(Varianz_B4_tab, caption = "Varianz der Faktoren (Eigenvektoren)")
 ```
 
 ### Faktorladungen
@@ -245,7 +245,7 @@ GISD_Komponents_4$prop_GISD <- round(as.numeric(GISD_Komponents_4$prop_dem)/3, d
 
 colnames(GISD_Komponents_4) <- c("Variable","Dimension","Faktorladung","Component", "Anteil Teilscore", "Anteil GISD")
 
-GISD_Komponents_4$Variable <- c("Beschäftigtenquote (gedeckelt)", "Arbeitslosigkeit", "Bruttoverdienst (log.)", "Einkommensteuer (log.)", "Haushaltseinkommen (log.)", "Schuldnerquote", "Beschäftigte mit Abschluss", "Beschäftigte ohne Abschluss", "Schulabgänger ohne Abschluss (adj.)", "Schulabgänger mit Hochschulreife (adj.)")
+GISD_Komponents_4$Variable <- c("Beschäftigtenquote (gedeckelt)", "Arbeitslosigkeit", "Bruttoverdienst (log.)", "Einkommensteuer (log.)", "Haushaltseinkommen (log.)", "Schuldnerquote", "Beschäftigte mit akad. Abschluss", "Beschäftigte ohne Abschluss", "Schulabgänger ohne Abschluss (adj.)", "Schulabgänger mit Hochschulreife (adj.)")
 
 kable(GISD_Komponents_4, caption = "Faktorladungen und Anteile an den Teilscores sowie am Index")
 ```
@@ -282,7 +282,7 @@ TS_Bildung_17.pca <- prcomp(TS_Bildung_17, center = TRUE, scale. = TRUE, retx=TR
 ```{r , message=FALSE, warning=FALSE}
 par(mfrow=c(1, 3))
 plot(TS_Arbeitswelt_17.pca, main = "Arbeitswelt (Eigenvektoren)", ylim=c(0,2))
-plot(TS_Einkommen_17.pca, main = "Einkommen (Eigenverktoren)", ylim=c(0,2))
+plot(TS_Einkommen_17.pca, main = "Einkommen (Eigenvektoren)", ylim=c(0,2))
 plot(TS_Bildung_17.pca, main = "Bildung (Eigenvektoren)", ylim=c(0,2))
 ```
 
@@ -296,7 +296,7 @@ Varianz17_tab$F_A <- c("Faktor 1", "Faktor 2", "Faktor 3")
 
 colnames(Varianz17_tab) <- c("Faktoren", "Varianz Arbeitswelt", "Varianz Einkommen", "Varianz Bildung")
 
-kable(Varianz17_tab, caption = "Varianz der Faktoren (Eigenverktoren) für 2017")
+kable(Varianz17_tab, caption = "Varianz der Faktoren (Eigenvektoren) für 2017")
 ```
 
 ### Faktorladungen
@@ -327,7 +327,7 @@ GISD_Komponents_17$prop_GISD <- round(as.numeric(GISD_Komponents_17$prop_dem)/3,
 
 colnames(GISD_Komponents_17) <- c("Variable","Dimension","Faktorladung","Coponent", "Anteil Dimension", "Anteil GISD")
 
-GISD_Komponents_17$Variable <- c("Beschäftigtenquote (gedeckelt)", "Arbeitslosigkeit", "Bruttoverdienst (log.)", "Einkommensteuer (log.)", "Haushaltseinkommen (log.)", "Schuldnerquote", "Beschäftigte mit Abschluss", "Beschäftigte ohne Abschluss", "Schulabgänger ohne Abschluss (adj.)")
+GISD_Komponents_17$Variable <- c("Beschäftigtenquote (gedeckelt)", "Arbeitslosigkeit", "Bruttoverdienst (log.)", "Einkommensteuer (log.)", "Haushaltseinkommen (log.)", "Schuldnerquote", "Beschäftigte mit akad. Abschluss", "Beschäftigte ohne Abschluss", "Schulabgänger ohne Abschluss (adj.)")
 
 kable(GISD_Komponents_17, caption = "Komponenten und Anteile der Dimensionen für 2017")
 ```
@@ -400,7 +400,7 @@ colnames(cor_tab_pol) <- c("Arbeitslosigkeit", "Faktor Arbeitswelt", "Faktor Ein
 
 rownames(cor_tab_pol) <- c("Arbeitslosigkeit", "Faktor Arbeitswelt", "Faktor Einkommen", "Faktor Bildung")
 
-kable(cor_tab_pol, caption = "Korrelation von Arbeitslosigkeit und Faktoren (gepolt)")
+kable(cor_tab_pol, caption = "Korrelation von Arbeitslosigkeit und Faktoren (gepoolt)")
 ```
 
 ```{r Normalization, message=FALSE, warning=FALSE}
@@ -482,9 +482,9 @@ cor_tab_GISDscore <- Resultdataset %>% select(GISD_Score_17, GISD_Score, GISD_Sc
 
 cor_tab_GISDscore <- cbind(as.data.frame(cor_tab_GISDscore))
 
-colnames(cor_tab_GISDscore) <- c("GISD Score 2017", "GISD Score alle Jahre", "GISD Score alle Jahre (Bildung 4 Items)")
+colnames(cor_tab_GISDscore) <- c("GISD-Score 2017", "GISD-Score gesamt", "GISD-Score gesamt (Bildung 4 Items)")
 
-kable(cor_tab_GISDscore, caption = "Korrelation der verschiedenen GISD Scores")
+kable(cor_tab_GISDscore, caption = "Korrelation der verschiedenen GISD-Scores")
 
 write_rds(Resultdataset, paste0("Outfiles/Resultdata_FaktorCheck.rds"))
 ```
