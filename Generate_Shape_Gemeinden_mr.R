@@ -3,11 +3,16 @@ library(rgdal)
 library(broom)
 library(maptools)
 
-BRD_Gemeinden <- readOGR(dsn = path.expand("S:/OE/FG28/205 Regionale Unterschiede/Referenzdaten/Kartendaten/BRD/2012/VG250-EW/vg250-ew_ebenen"), 
-                     layer = "vg250_gem")
+if (!require(gpclib)) install.packages("gpclib", type="source")
+gpclibPermit()
 
 
-BRD_Gemeinden <- tidy(BRD_Gemeinden, region = "AGS")
+BRD_Gemeinden <- readOGR(dsn = path.expand("S:/OE/FG28/205 Regionale Unterschiede/Referenzdaten/Kartendaten/BRD/Gemeinden_VZ/vz250_01-01.utm32s.shape/vz250_0101"), 
+                     layer = "VZ250_GEM")
+
+
+
+BRD_Gemeinden <- tidy(BRD_Gemeinden, region = "AGS_G")
 
 saveRDS(BRD_Gemeinden, "C:/git_projects/GISD/BRD_Gemeinden.rds")
 

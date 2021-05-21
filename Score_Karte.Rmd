@@ -19,7 +19,6 @@ library("dplyr")
 library("dtplyr")
 library("tidyr")
 library(RColorBrewer)
-library(rkicolors)
 
 knitr::opts_chunk$set(echo = TRUE)
 ```
@@ -48,17 +47,21 @@ Länder_data <- readRDS("C:/git_projects/GISD/ROR_map.rds")
 
 ## GISD-Score auf Gemeindeebene
 ```{r}
-ggplot(Gemeinden_data, aes(long, lat, group = group)) +
+ggplot(Gemeinden_data, aes(long, lat, group = group, fill = GISD_Score)) +
   geom_polygon() +
+  scale_fill_gradient(limits = c(0,1)) +
   coord_equal() +
   theme_rki_void() +
   labs(fill = "GISD-Score")
+
+#which(is.na(Gemeinden_data$GISD_Score))
 ```
 
 ## GISD-Score auf Kreisebene
 ```{r}
 ggplot(Kreise_data, aes(long, lat, group = group, fill=GISD_Score)) +
   geom_polygon() +
+  scale_fill_gradient(limits = c(0,1)) +
   coord_equal() +
   theme_rki_void() +
   labs(fill = "GISD-Score")

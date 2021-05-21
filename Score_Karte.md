@@ -33,14 +33,16 @@ Gemeinden_data <- readRDS("C:/git_projects/GISD/BRD_Gemeinden.rds") %>% lazy_dt(
 Gemeinden_data <- as_tibble(Gemeinden_data)
 
 
-ROR_data <- readRDS("C:/git_projects/GISD/ROR_map.rds")
+
+Länder_data <- readRDS("C:/git_projects/GISD/ROR_map.rds")
 ```
 
 ## GISD-Score auf Gemeindeebene
 
 ```r
-ggplot(Gemeinden_data, aes(long, lat, group = group)) +
-  geom_polygon(fill = "grey50") +
+ggplot(Gemeinden_data, aes(long, lat, group = group, fill = GISD_Score)) +
+  geom_polygon() +
+  scale_fill_gradient(limits = c(0,1)) +
   coord_equal() +
   theme_rki_void() +
   labs(fill = "GISD-Score")
@@ -48,11 +50,16 @@ ggplot(Gemeinden_data, aes(long, lat, group = group)) +
 
 ![](Score_Karte_files/figure-html/unnamed-chunk-2-1.png)<!-- -->
 
+```r
+#which(is.na(Gemeinden_data$GISD_Score))
+```
+
 ## GISD-Score auf Kreisebene
 
 ```r
 ggplot(Kreise_data, aes(long, lat, group = group, fill=GISD_Score)) +
   geom_polygon() +
+  scale_fill_gradient(limits = c(0,1)) +
   coord_equal() +
   theme_rki_void() +
   labs(fill = "GISD-Score")
