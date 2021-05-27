@@ -1,0 +1,74 @@
+---
+title: "Karte des GISD Scores"
+author: "Marvin Reis"
+date: "20 5 2021"
+output:
+  bookdown::html_document2:
+    keep_md: true
+    code_folding: hide
+    number_sections: false
+    fig_caption: true
+    theme: cerulean
+    highlight: tango
+---
+
+```{r setup, include=FALSE}
+library("ggplot2")
+library("rkicolors")
+library("dplyr")
+library("dtplyr")
+library("tidyr")
+library(RColorBrewer)
+
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+Resultdataset <- readRDS("C:/git_projects/GISD/Outfiles/Resultdataset.rds")
+
+Impdata.imputed <- readRDS("C:/git_projects/GISD/Outfiles/Impdata_check.rds")
+
+GISD_data_Kreis <- left_join(Resultdataset, Impdata.imputed, by = c("Gemeindekennziffer", "Jahr")) %>% lazy_dt() %>% select(Kreis, GISD_Score) %>% distinct(Kreis, .keep_all = TRUE) %>% unique() %>% lazy_dt()
+
+Kreise_data <- readRDS("C:/git_projects/GISD/kreise_bkg.rds") %>% lazy_dt() %>% mutate(Kreis = as.numeric(id)) %>% select(-id) %>% left_join(GISD_data_Kreis, by = "Kreis") %>% lazy_dt()
+
+Kreise_data <- as_tibble(Kreise_data)
+
+GISD_data_Gem <- Resultdataset %>% lazy_dt() %>% select(Gemeindekennziffer, GISD_Score) %>% distinct(Gemeindekennziffer, .keep_all = TRUE) %>% unique() %>% lazy_dt()
+
+Gemeinden_data <- readRDS("C:/git_projects/GISD/BRD_Gemeinden.rds") %>% lazy_dt() %>% mutate(Gemeindekennziffer = as.numeric(id)) %>% select(-id) %>% left_join(GISD_data_Gem, by = "Gemeindekennziffer") %>% lazy_dt()
+
+Gemeinden_data <- as_tibble(Gemeinden_data)
+
+
+
+Länder_data <- readRDS("C:/git_projects/GISD/ROR_map.rds")
+```
+
+## GISD-Score auf Gemeindeebene
+```{r}
+ggplot(Gemeinden_data, aes(long, lat, group = group, fill = GISD_Score)) +
+  geom_polygon() +
+  scale_fill_gradient(limits = c(0,1)) +
+  coord_equal() +
+  theme_rki_void() +
+  labs(fill = "GISD-Score")
+
+#which(is.na(Gemeinden_data$GISD_Score))
+```
+
+## GISD-Score auf Kreisebene
+```{r}
+ggplot(Kreise_data, aes(long, lat, group = group, fill=GISD_Score)) +
+  geom_polygon() +
+  scale_fill_gradient(limits = c(0,1)) +
+  coord_equal() +
+  theme_rki_void() +
+  labs(fill = "GISD-Score")
+```
+
+
+## GISD-Score auf Länderebene
+
+
+
