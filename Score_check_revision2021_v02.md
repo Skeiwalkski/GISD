@@ -190,6 +190,24 @@ ggsave("Outfiles/beschoA.png")
 ```
 
 ```r
+ggplot(Corr_data, aes(GISD_Score, Jahr, color = BeschaeftigteohneAbschluss_adj)) + geom_tile(alpha = 0.5, size =0.5) +
+  theme_rki() + theme(legend.position="bottom") + 
+  scale_color_gradientn(colours = rainbow(5)) + scale_y_discrete(limits=rev) + 
+  scale_x_continuous(position = "top") +
+  labs(colour = "Anteil Beschäftigter ohne Abschluss (adjusted)", x = "GISD Score", title = "Verteilung der Beschäftigten ohne Abschluss (adj.) auf den GISD-Score")
+```
+
+![](Score_check_revision2021_v02_files/figure-html/Bildungsdimension Plots-3.png)<!-- -->
+
+```r
+ggsave("Outfiles/beschoA_adj.png")
+```
+
+```
+## Saving 7 x 5 in image
+```
+
+```r
 ggplot(Corr_data, aes(GISD_Score, Jahr, color = SchulabgaengerohneAbschluss)) + geom_tile(alpha = 0.5, size =0.5) + 
   theme_rki() + theme(legend.position="bottom") + 
   scale_color_gradientn(colours = rainbow(5), limits=c(0,25)) + scale_y_discrete(limits=rev) + 
@@ -197,7 +215,7 @@ ggplot(Corr_data, aes(GISD_Score, Jahr, color = SchulabgaengerohneAbschluss)) + 
   labs(colour = "Anteil der Schulabgänger ohne Abschluss", x = "GISD Score", title = "Verteilung der Schulabgänger ohne Abschluss auf den GISD-Score") 
 ```
 
-![](Score_check_revision2021_v02_files/figure-html/Bildungsdimension Plots-3.png)<!-- -->
+![](Score_check_revision2021_v02_files/figure-html/Bildungsdimension Plots-4.png)<!-- -->
 
 ```r
 ggsave("Outfiles/anteilohneab.png")
@@ -214,7 +232,7 @@ ggplot(Corr_data, aes(GISD_Score, Jahr, color = SchulabgaengerohneAbschluss_adj)
   labs(colour = "Anteil der Schulabgänger ohne Abschluss (adjusted)", x = "GISD Score", title = "Verteilung der Schulabgänger ohne Abschluss (adj.) auf den GISD-Score") 
 ```
 
-![](Score_check_revision2021_v02_files/figure-html/Bildungsdimension Plots-4.png)<!-- -->
+![](Score_check_revision2021_v02_files/figure-html/Bildungsdimension Plots-5.png)<!-- -->
 
 ```r
 ggsave("Outfiles/anteilohneab_adj.png")
@@ -231,7 +249,7 @@ ggplot(Corr_data, aes(GISD_Score, Jahr, color = SchulabgaengermitHochschulreife)
   labs(colour = "Anteil der Schulabgänger mit Hochschulreife", x = "GISD Score", title = "Verteilung der Schulabg. mit Hochschulreife auf den GISD-Score") 
 ```
 
-![](Score_check_revision2021_v02_files/figure-html/Bildungsdimension Plots-5.png)<!-- -->
+![](Score_check_revision2021_v02_files/figure-html/Bildungsdimension Plots-6.png)<!-- -->
 
 ```r
 ggsave("Outfiles/anteilabi.png")
@@ -249,7 +267,7 @@ ggplot(Corr_data, aes(GISD_Score, Jahr, color = SchulabgaengermitHochschulreife_
   labs(colour = "Anteil der Schulabgänger mit Hochschulreife (adjusted)", x = "GISD Score", title = "Verteilung der Schulabg. mit Hochschulreife (adj.) auf den GISD-Score")
 ```
 
-![](Score_check_revision2021_v02_files/figure-html/Bildungsdimension Plots-6.png)<!-- -->
+![](Score_check_revision2021_v02_files/figure-html/Bildungsdimension Plots-7.png)<!-- -->
 
 ```r
 ggsave("Outfiles/anteilabi_adj.png")
@@ -363,6 +381,72 @@ ggplot(Corr_data, aes(GISD_Score, Jahr)) + geom_tile(aes(color = outl), alpha = 
 
 ```r
 ggsave("Outfiles/Outliers_Primasens.png")
+```
+
+```
+## Saving 7 x 5 in image
+```
+
+```r
+Corr_data$outl <- "Andere Kreise"
+Corr_data$outl[Corr_data$Kreis %in% c("16053")] <- "Jena"
+
+ggplot(Corr_data, aes(GISD_Score, Jahr)) + geom_tile(aes(color = outl), alpha = 0.5, size =0.5) +
+  scale_color_rki() +
+  geom_tile(data = Corr_data[Corr_data$outl == "Jena",], color = "lightblue", size = 1.5) +
+  theme_rki() + theme(legend.position="bottom") + scale_y_discrete(limits=rev) + 
+  scale_x_continuous(position = "top") +
+  labs(colour = "Ausreißer", x = "GISD Score")
+```
+
+![](Score_check_revision2021_v02_files/figure-html/Ausreißer-5.png)<!-- -->
+
+```r
+ggsave("Outfiles/Outliers_Jena.png")
+```
+
+```
+## Saving 7 x 5 in image
+```
+
+```r
+Corr_data$outl <- "Andere Kreise"
+Corr_data$outl[Corr_data$Kreis %in% c("12054")] <- "Potsdam"
+
+ggplot(Corr_data, aes(GISD_Score, Jahr)) + geom_tile(aes(color = outl), alpha = 0.5, size =0.5) +
+  scale_color_rki() +
+  geom_tile(data = Corr_data[Corr_data$outl == "Potsdam",], color = "lightblue", size = 1.5) +
+  theme_rki() + theme(legend.position="bottom") + scale_y_discrete(limits=rev) + 
+  scale_x_continuous(position = "top") +
+  labs(colour = "Ausreißer", x = "GISD Score")
+```
+
+![](Score_check_revision2021_v02_files/figure-html/Ausreißer-6.png)<!-- -->
+
+```r
+ggsave("Outfiles/Outliers_Potsdam.png")
+```
+
+```
+## Saving 7 x 5 in image
+```
+
+```r
+Corr_data$outl <- "Andere Kreise"
+Corr_data$outl[Corr_data$Kreis %in% c("3103")] <- "Wolfsburg"
+
+ggplot(Corr_data, aes(GISD_Score, Jahr)) + geom_tile(aes(color = outl), alpha = 0.5, size =0.5) +
+  scale_color_rki() +
+  geom_tile(data = Corr_data[Corr_data$outl == "Wolfsburg",], color = "lightblue", size = 1.5) +
+  theme_rki() + theme(legend.position="bottom") + scale_y_discrete(limits=rev) + 
+  scale_x_continuous(position = "top") +
+  labs(colour = "Ausreißer", x = "GISD Score")
+```
+
+![](Score_check_revision2021_v02_files/figure-html/Ausreißer-7.png)<!-- -->
+
+```r
+ggsave("Outfiles/Outliers_Wolfsburg.png")
 ```
 
 ```

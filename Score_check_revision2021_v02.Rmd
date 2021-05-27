@@ -142,6 +142,13 @@ ggplot(Corr_data, aes(GISD_Score, Jahr, color = BeschaeftigteohneAbschluss)) + g
   labs(colour = "Anteil Beschäftigter ohne Abschluss", x = "GISD Score", title = "Verteilung der Beschäftigten ohne Abschluss auf den GISD-Score") 
 ggsave("Outfiles/beschoA.png")
 
+ggplot(Corr_data, aes(GISD_Score, Jahr, color = BeschaeftigteohneAbschluss_adj)) + geom_tile(alpha = 0.5, size =0.5) +
+  theme_rki() + theme(legend.position="bottom") + 
+  scale_color_gradientn(colours = rainbow(5)) + scale_y_discrete(limits=rev) + 
+  scale_x_continuous(position = "top") +
+  labs(colour = "Anteil Beschäftigter ohne Abschluss (adjusted)", x = "GISD Score", title = "Verteilung der Beschäftigten ohne Abschluss (adj.) auf den GISD-Score")
+ggsave("Outfiles/beschoA_adj.png")
+
 ggplot(Corr_data, aes(GISD_Score, Jahr, color = SchulabgaengerohneAbschluss)) + geom_tile(alpha = 0.5, size =0.5) + 
   theme_rki() + theme(legend.position="bottom") + 
   scale_color_gradientn(colours = rainbow(5), limits=c(0,25)) + scale_y_discrete(limits=rev) + 
@@ -237,6 +244,42 @@ ggplot(Corr_data, aes(GISD_Score, Jahr)) + geom_tile(aes(color = outl), alpha = 
   scale_x_continuous(position = "top") +
   labs(colour = "Ausreißer", x = "GISD Score")
 ggsave("Outfiles/Outliers_Primasens.png")
+
+
+Corr_data$outl <- "Andere Kreise"
+Corr_data$outl[Corr_data$Kreis %in% c("16053")] <- "Jena"
+
+ggplot(Corr_data, aes(GISD_Score, Jahr)) + geom_tile(aes(color = outl), alpha = 0.5, size =0.5) +
+  scale_color_rki() +
+  geom_tile(data = Corr_data[Corr_data$outl == "Jena",], color = "lightblue", size = 1.5) +
+  theme_rki() + theme(legend.position="bottom") + scale_y_discrete(limits=rev) + 
+  scale_x_continuous(position = "top") +
+  labs(colour = "Ausreißer", x = "GISD Score")
+ggsave("Outfiles/Outliers_Jena.png")
+
+
+Corr_data$outl <- "Andere Kreise"
+Corr_data$outl[Corr_data$Kreis %in% c("12054")] <- "Potsdam"
+
+ggplot(Corr_data, aes(GISD_Score, Jahr)) + geom_tile(aes(color = outl), alpha = 0.5, size =0.5) +
+  scale_color_rki() +
+  geom_tile(data = Corr_data[Corr_data$outl == "Potsdam",], color = "lightblue", size = 1.5) +
+  theme_rki() + theme(legend.position="bottom") + scale_y_discrete(limits=rev) + 
+  scale_x_continuous(position = "top") +
+  labs(colour = "Ausreißer", x = "GISD Score")
+ggsave("Outfiles/Outliers_Potsdam.png")
+
+
+Corr_data$outl <- "Andere Kreise"
+Corr_data$outl[Corr_data$Kreis %in% c("3103")] <- "Wolfsburg"
+
+ggplot(Corr_data, aes(GISD_Score, Jahr)) + geom_tile(aes(color = outl), alpha = 0.5, size =0.5) +
+  scale_color_rki() +
+  geom_tile(data = Corr_data[Corr_data$outl == "Wolfsburg",], color = "lightblue", size = 1.5) +
+  theme_rki() + theme(legend.position="bottom") + scale_y_discrete(limits=rev) + 
+  scale_x_continuous(position = "top") +
+  labs(colour = "Ausreißer", x = "GISD Score")
+ggsave("Outfiles/Outliers_Wolfsburg.png")
 
 ```
 
