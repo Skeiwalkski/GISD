@@ -281,6 +281,29 @@ ggplot(Corr_data, aes(GISD_Score, Jahr)) + geom_tile(aes(color = outl), alpha = 
   labs(colour = "Ausreißer", x = "GISD Score")
 ggsave("Outfiles/Outliers_Wolfsburg.png")
 
+
+Corr_data$outl <- "Andere Kreise"
+Corr_data$outl[Corr_data$Kreis %in% c("9188")] <- "Starnberg"
+
+ggplot(Corr_data, aes(GISD_Score, Jahr)) + geom_tile(aes(color = outl), alpha = 0.5, size =0.5) +
+  scale_color_rki() +
+  geom_tile(data = Corr_data[Corr_data$outl == "Starnberg",], color = "lightblue", size = 1.5) +
+  theme_rki() + theme(legend.position="bottom") + scale_y_discrete(limits=rev) + 
+  scale_x_continuous(position = "top") +
+  labs(colour = "Ausreißer", x = "GISD Score")
+ggsave("Outfiles/Outliers_Starnberg.png")
+
+
+Corr_data$outl <- "Andere Kreise"
+Corr_data$outl[Corr_data$Kreis %in% c("6434")] <- "Hochtaunuskreis"
+
+ggplot(Corr_data, aes(GISD_Score, Jahr)) + geom_tile(aes(color = outl), alpha = 0.5, size =0.5) +
+  scale_color_rki() +
+  geom_tile(data = Corr_data[Corr_data$outl == "Hochtaunuskreis",], color = "lightblue", size = 1.5) +
+  theme_rki() + theme(legend.position="bottom") + scale_y_discrete(limits=rev) + 
+  scale_x_continuous(position = "top") +
+  labs(colour = "Ausreißer", x = "GISD Score")
+ggsave("Outfiles/Outliers_Hochtaunuskreis.png")
 ```
 
 ## Verteilung des GISD

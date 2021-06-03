@@ -21,11 +21,11 @@ Lebenserwartung_dat <- read.csv2("C:/git_projects/GISD/INKAR_Lebenswerwartung_Kr
 
 Lebenserwartung_dat <- Lebenserwartung_dat %>% mutate(Kreis = as.numeric(ï..Kennziffer)) %>% select(-ï..Kennziffer)
 
-GISD_data_Kreis <- read.csv("C:/git_projects/GISD/Outfiles/2021/Bund/Kreis/Kreis.csv") %>% filter(Jahr == 2017)
+GISD_data_Kreis <- read.csv("C:/data/GISD/Outfiles/2021/Bund/Kreis/Kreis.csv") %>% filter(Jahr == 2017)
 
 GISD_data_Kreis <- GISD_data_Kreis %>% mutate(Kreis = Kreiskennziffer) %>% select(Kreis, GISD_Score) %>% distinct(Kreis, .keep_all = TRUE) %>% unique()
 
-GISD_Lebenserw_Kreis <- left_join(GISD_data_Kreis, Lebenserwartung_dat, by = "Kreis") %>% select(-Aggregat)
+GISD_Lebenserw_Kreis <- left_join(GISD_data_Kreis, Lebenserwartung_dat, by = "Kreis") %>% mutate(ow = ifelse(Kreis < 11000, 0, 1))
 ```
 
 
@@ -91,3 +91,39 @@ ggplot(GISD_Lebenserw_Kreis, aes(x = GISD_Score, y = Lebenserwartung)) +
 ```
 
 ![](Lebenserwartung_GISD_files/figure-html/unnamed-chunk-6-1.png)<!-- -->
+
+
+```r
+ggplot(GISD_Lebenserw_Kreis, aes(x = GISD_Score, y = Lebenserwartung, col = as.factor(ow))) +
+  geom_point(size = 1.5, alpha = 0.5) +
+  geom_smooth(method=lm, aes(fill=as.factor(ow)), fullrange=TRUE) +
+  scale_color_rki(name="Ost-/Westdeutschland", labels=c("West", "Ost")) +
+  scale_fill_rki(guide=FALSE) +
+  geom_rug(size = 0.5, col = "black") + 
+  labs(x = "GISD-Score", title = "Lebenserwartung der Landkreise zum GISD", subtitle = "im Jahr 2017, nach Ost und West") +
+  theme_rki()
+```
+
+```
+## `geom_smooth()` using formula 'y ~ x'
+```
+
+![](Lebenserwartung_GISD_files/figure-html/unnamed-chunk-7-1.png)<!-- -->
+
+
+```r
+ggplot(GISD_Lebenserw_Kreis, aes(x = GISD_Score, y = Lebenserwartung, col = Aggregat)) +
+  geom_point(size = 1.5, alpha = 0.5) +
+  geom_smooth(method=lm, aes(fill=Aggregat), fullrange=TRUE) +
+  scale_color_rki(name="Stadt/Landkreis", labels=c("kreisfreie Stadt", "Landkreis")) +
+  scale_fill_rki(guide=FALSE) +
+  geom_rug(size = 0.5, col = "black") + 
+  labs(x = "GISD-Score", title = "Lebenserwartung der Landkreise zum GISD", subtitle = "im Jahr 2017, nach krsfr. Stadt und Landkreis") +
+  theme_rki()
+```
+
+```
+## `geom_smooth()` using formula 'y ~ x'
+```
+
+![](Lebenserwartung_GISD_files/figure-html/unnamed-chunk-8-1.png)<!-- -->
