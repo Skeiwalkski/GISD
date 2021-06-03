@@ -47,12 +47,12 @@ TS_Arbeitswelt <- Impdata.imputed  %>% ungroup() %>%
 TS_Einkommen   <- Impdata.imputed %>% select(Einkommensteuer_ln,Haushaltseinkommen_ln,Schuldnerquote) 
 # Für den Vergleich der Ergebnisse wird zunächst ein Datensatz für die Variablenauswahl der Revision 2019 generiert
 
-TS_Bildung <- Impdata.imputed %>% select(BeschaeftigtemitakadAbschluss,BeschaeftigteohneAbschluss,SchulabgaengerohneAbschluss_adj) 
+TS_Bildung <- Impdata.imputed %>% select(BeschaeftigtemitakadAbschluss,BeschaeftigteohneAbschluss_adj,SchulabgaengerohneAbschluss_adj) 
 
 # Check dieser Lösung für das 2014er Sample 
 #TS_Bildung_r2014 <- Impdata.imputed %>% filter(Jahr<2015) %>%  #dplyr::select(BeschaeftigtemitakadAbschluss,BeschaeftigteohneAbschluss,SchulabgaengerohneAbschluss) 
 
-TS_Bildung_4items <- Impdata.imputed %>% select(BeschaeftigtemitakadAbschluss,BeschaeftigteohneAbschluss,SchulabgaengerohneAbschluss_adj, SchulabgaengermitHochschulreife_adj)
+TS_Bildung_4items <- Impdata.imputed %>% select(BeschaeftigtemitakadAbschluss,BeschaeftigteohneAbschluss_adj,SchulabgaengerohneAbschluss_adj, SchulabgaengermitHochschulreife_adj)
 
 #TS_Bildung_4items_without_BoA <- Impdata.imputed %>% #dplyr::select(BeschaeftigtemitakadAbschluss,SchulabgaengerohneAbschluss, SchulabgaengermitHochschulreife) 
 ```
@@ -156,9 +156,9 @@ Table: (\#tab:unnamed-chunk-2)Varianz der Faktoren (Eigenvektoren)
 
 |Faktoren |Varianz Arbeitswelt |Varianz Einkommen |Varianz Bildung |
 |:--------|:-------------------|:-----------------|:---------------|
-|Faktor 1 |1.938               |2.072             |1.391           |
-|Faktor 2 |0.725               |0.785             |1.186           |
-|Faktor 3 |0.336               |0.143             |0.423           |
+|Faktor 1 |1.938               |2.072             |1.332           |
+|Faktor 2 |0.725               |0.785             |0.982           |
+|Faktor 3 |0.336               |0.143             |0.686           |
 
 Die PCA zeigt drei Hauptkomponenten für die Dimension Arbeitswelt. Nur die erste Komponente hat einen Eigenwert über eins. Die Faktorladungen der drei Variablen (Beschäftigungsquote, Arbeitslosigkeit und Bruttoverdienst) entsprechen dabei den Ertwartungen.
 
@@ -174,13 +174,14 @@ Hier sollte eine detailliertere Analyse folgen.
 
 ```r
 # Componentoverview
-GISD_Komponents <- cbind("Teildimension"="Arbeitswelt","Faktorladung"=round((TS_Arbeitswelt.pca$rotation*sqrt(abs(TS_Arbeitswelt.pca$sdev^2))), digits = 3),"Component"=round(TS_Arbeitswelt.pca$rotation, digits = 3))
+
+GISD_Komponents <- cbind("Teildimension"="Arbeitswelt","Faktorladung"=round((TS_Arbeitswelt.pca$rotation*sqrt(abs(TS_Arbeitswelt.pca[1]$sdev^2))), digits = 3),"Component"=round(TS_Arbeitswelt.pca$rotation, digits = 3))
 #cbind erstellt Spaltenvektoren mit den Infos aus Teildimension, den (rotierten) Faktorladungen und den Components
 
-GISD_Komponents <- rbind(GISD_Komponents,cbind("Teildimension"="Einkommen","Faktorladung"=round((TS_Einkommen.pca$rotation*sqrt(abs(TS_Einkommen.pca$sdev^2))), digits = 3),"Component"=round(TS_Einkommen.pca$rotation, digits = 3)))
+GISD_Komponents <- rbind(GISD_Komponents,cbind("Teildimension"="Einkommen","Faktorladung"=round((TS_Einkommen.pca$rotation*sqrt(abs(TS_Einkommen.pca$sdev[1]^2))), digits = 3),"Component"=round(TS_Einkommen.pca$rotation, digits = 3)))
 # rbind erstellt Zeilenvektoren, diese werden hier in die bereits vorhandenen Spaltenvektoren eingebunden
 
-GISD_Komponents <- rbind(GISD_Komponents,cbind("Teildimension"="Bildung","Faktorladung"=round((TS_Bildung.pca$rotation*sqrt(abs(TS_Bildung.pca$sdev^2))), digits = 3),"Component"=round(TS_Bildung.pca$rotation, digits = 3)))
+GISD_Komponents <- rbind(GISD_Komponents,cbind("Teildimension"="Bildung","Faktorladung"=round((TS_Bildung.pca$rotation*sqrt(abs(TS_Bildung.pca$sdev[1]^2))), digits = 3),"Component"=round(TS_Bildung.pca$rotation, digits = 3)))
 # auch für die Teildimension Bildung werden Zeilenvektoren eingebunden
 
 GISD_Komponents <- cbind("Variables"=as.data.frame(rownames(GISD_Komponents)),as.data.frame(GISD_Komponents))
@@ -198,7 +199,7 @@ GISD_Komponents$prop_GISD <- round(as.numeric(GISD_Komponents$prop_dem)/3, digit
 
 colnames(GISD_Komponents) <- c("Variable","Dimension","Faktorladung","Component", "Anteil Teilscore", "Anteil GISD")
 
-GISD_Komponents$Variable <- c("Beschäftigtenquote (gedeckelt)", "Arbeitslosigkeit", "Bruttoverdienst (log.)", "Einkommensteuer (log.)", "Haushaltseinkommen (log.)", "Schuldnerquote", "Beschäftigte mit akad. Abschluss", "Beschäftigte ohne Abschluss", "Schulabgänger ohne Abschluss (adj.)")
+GISD_Komponents$Variable <- c("Beschäftigtenquote (gedeckelt)", "Arbeitslosigkeit", "Bruttoverdienst (log.)", "Einkommensteuer (log.)", "Haushaltseinkommen (log.)", "Schuldnerquote", "Beschäftigte mit akad. Abschluss", "Beschäftigte ohne Abschluss (adj.)", "Schulabgänger ohne Abschluss (adj.)")
 
 kable(GISD_Komponents, caption = "Faktorladungen und Anteile an den Teilscores sowie am Index")
 ```
@@ -213,11 +214,11 @@ Table: (\#tab:unnamed-chunk-3)Faktorladungen und Anteile an den Teilscores sowie
 |Arbeitslosigkeit                    |Arbeitswelt |-0.491       |-0.577    |             33.3|        11.1|
 |Bruttoverdienst (log.)              |Arbeitswelt |0.372        |0.641     |             41.1|        13.7|
 |Einkommensteuer (log.)              |Einkommen   |0.935        |0.65      |             42.3|        14.1|
-|Haushaltseinkommen (log.)           |Einkommen   |0.568        |0.641     |             41.1|        13.7|
-|Schuldnerquote                      |Einkommen   |-0.155       |-0.41     |             16.8|         5.6|
-|Beschäftigte mit akad. Abschluss    |Bildung     |0.408        |0.346     |             12.0|         4.0|
-|Beschäftigte ohne Abschluss         |Bildung     |0.586        |0.538     |             28.9|         9.6|
-|Schulabgänger ohne Abschluss (adj.) |Bildung     |-0.5         |-0.768    |             59.0|        19.7|
+|Haushaltseinkommen (log.)           |Einkommen   |0.922        |0.641     |             41.1|        13.7|
+|Schuldnerquote                      |Einkommen   |-0.589       |-0.41     |             16.8|         5.6|
+|Beschäftigte mit akad. Abschluss    |Bildung     |0.802        |0.695     |             48.3|        16.1|
+|Beschäftigte ohne Abschluss (adj.)  |Bildung     |-0.296       |-0.256    |              6.6|         2.2|
+|Schulabgänger ohne Abschluss (adj.) |Bildung     |-0.776       |-0.672    |             45.2|        15.1|
 
 
 ## Faktorenanalyse (4 Items Bildung)
@@ -256,23 +257,23 @@ Table: (\#tab:unnamed-chunk-5)Varianz der Faktoren (Eigenvektoren)
 
 |Faktoren |Varianz Arbeitswelt |Varianz Einkommen |Varianz Bildung |
 |:--------|:-------------------|:-----------------|:---------------|
-|Faktor 1 |1.938               |2.072             |1.83            |
-|Faktor 2 |0.725               |0.785             |1.368           |
-|Faktor 3 |0.336               |0.143             |0.43            |
-|Faktor 4 |NA                  |NA                |0.372           |
+|Faktor 1 |1.938               |2.072             |1.796           |
+|Faktor 2 |0.725               |0.785             |1.007           |
+|Faktor 3 |0.336               |0.143             |0.833           |
+|Faktor 4 |NA                  |NA                |0.364           |
 
 ### Faktorladungen
 
 
 ```r
 # Componentoverview
-GISD_Komponents_4 <- cbind("Teildimension"="Arbeitswelt","Faktorladung"=round((TS_Arbeitswelt.pca$rotation*sqrt(abs(TS_Arbeitswelt.pca$sdev^2))), digits = 3),"Component"=round(TS_Arbeitswelt.pca$rotation, digits = 3))
+GISD_Komponents_4 <- cbind("Teildimension"="Arbeitswelt","Faktorladung"=round((TS_Arbeitswelt.pca$rotation*sqrt(abs(TS_Arbeitswelt.pca$sdev[1]^2))), digits = 3),"Component"=round(TS_Arbeitswelt.pca$rotation, digits = 3))
 #cbind erstellt Spaltenvektoren mit den Infos aus Teildimension, den (rotierten) Faktorladungen und den Components
 
-GISD_Komponents_4 <- rbind(GISD_Komponents_4,cbind("Teildimension"="Einkommen","Faktorladung"=round((TS_Einkommen.pca$rotation*sqrt(abs(TS_Einkommen.pca$sdev^2))), digits = 3),"Component"=round(TS_Einkommen.pca$rotation, digits = 3)))
+GISD_Komponents_4 <- rbind(GISD_Komponents_4,cbind("Teildimension"="Einkommen","Faktorladung"=round((TS_Einkommen.pca$rotation*sqrt(abs(TS_Einkommen.pca$sdev[1]^2))), digits = 3),"Component"=round(TS_Einkommen.pca$rotation, digits = 3)))
 # rbind erstellt Zeilenvektoren, diese werden hier in die bereits vorhandenen Spaltenvektoren eingebunden
 
-GISD_Komponents_4 <- rbind(GISD_Komponents_4,cbind("Teildimension"="Bildung","Faktorladung"=round((TS_Bildung_4items.pca$rotation[1:4,1]*sqrt(abs(TS_Bildung_4items.pca$sdev^2))), digits = 3),"Component"=round(TS_Bildung_4items.pca$rotation[1:4,1], digits = 3)))
+GISD_Komponents_4 <- rbind(GISD_Komponents_4,cbind("Teildimension"="Bildung","Faktorladung"=round((TS_Bildung_4items.pca$rotation[1:4,1]*sqrt(abs(TS_Bildung_4items.pca$sdev[1]^2))), digits = 3),"Component"=round(TS_Bildung_4items.pca$rotation[1:4,1], digits = 3)))
 # auch für die Teildimension Bildung werden Zeilenvektoren eingebunden
 
 GISD_Komponents_4 <- cbind("Variables"=as.data.frame(rownames(GISD_Komponents_4)),as.data.frame(GISD_Komponents_4))
@@ -290,7 +291,7 @@ GISD_Komponents_4$prop_GISD <- round(as.numeric(GISD_Komponents_4$prop_dem)/3, d
 
 colnames(GISD_Komponents_4) <- c("Variable","Dimension","Faktorladung","Component", "Anteil Teilscore", "Anteil GISD")
 
-GISD_Komponents_4$Variable <- c("Beschäftigtenquote (gedeckelt)", "Arbeitslosigkeit", "Bruttoverdienst (log.)", "Einkommensteuer (log.)", "Haushaltseinkommen (log.)", "Schuldnerquote", "Beschäftigte mit akad. Abschluss", "Beschäftigte ohne Abschluss", "Schulabgänger ohne Abschluss (adj.)", "Schulabgänger mit Hochschulreife (adj.)")
+GISD_Komponents_4$Variable <- c("Beschäftigtenquote (gedeckelt)", "Arbeitslosigkeit", "Bruttoverdienst (log.)", "Einkommensteuer (log.)", "Haushaltseinkommen (log.)", "Schuldnerquote", "Beschäftigte mit akad. Abschluss", "Beschäftigte ohne Abschluss (adj.)", "Schulabgänger ohne Abschluss (adj.)", "Schulabgänger mit Hochschulreife (adj.)")
 
 kable(GISD_Komponents_4, caption = "Faktorladungen und Anteile an den Teilscores sowie am Index")
 ```
@@ -302,15 +303,15 @@ Table: (\#tab:unnamed-chunk-6)Faktorladungen und Anteile an den Teilscores sowie
 |Variable                                |Dimension   |Faktorladung |Component | Anteil Teilscore| Anteil GISD|
 |:---------------------------------------|:-----------|:------------|:---------|----------------:|-----------:|
 |Beschäftigtenquote (gedeckelt)          |Arbeitswelt |0.705        |0.506     |             25.6|         8.5|
-|Arbeitslosigkeit                        |Arbeitswelt |-0.491       |-0.577    |             33.3|        11.1|
-|Bruttoverdienst (log.)                  |Arbeitswelt |0.372        |0.641     |             41.1|        13.7|
+|Arbeitslosigkeit                        |Arbeitswelt |-0.803       |-0.577    |             33.3|        11.1|
+|Bruttoverdienst (log.)                  |Arbeitswelt |0.892        |0.641     |             41.1|        13.7|
 |Einkommensteuer (log.)                  |Einkommen   |0.935        |0.65      |             42.3|        14.1|
-|Haushaltseinkommen (log.)               |Einkommen   |0.568        |0.641     |             41.1|        13.7|
-|Schuldnerquote                          |Einkommen   |-0.155       |-0.41     |             16.8|         5.6|
-|Beschäftigte mit akad. Abschluss        |Bildung     |0.883        |0.653     |             42.6|        14.2|
-|Beschäftigte ohne Abschluss             |Bildung     |-0.284       |-0.243    |              5.9|         2.0|
-|Schulabgänger ohne Abschluss (adj.)     |Bildung     |-0.2         |-0.305    |              9.3|         3.1|
-|Schulabgänger mit Hochschulreife (adj.) |Bildung     |0.396        |0.649     |             42.1|        14.0|
+|Haushaltseinkommen (log.)               |Einkommen   |0.922        |0.641     |             41.1|        13.7|
+|Schuldnerquote                          |Einkommen   |-0.589       |-0.41     |             16.8|         5.6|
+|Beschäftigte mit akad. Abschluss        |Bildung     |0.878        |0.655     |             42.9|        14.3|
+|Beschäftigte ohne Abschluss (adj.)      |Bildung     |-0.1         |-0.075    |              0.6|         0.2|
+|Schulabgänger ohne Abschluss (adj.)     |Bildung     |-0.569       |-0.424    |             18.0|         6.0|
+|Schulabgänger mit Hochschulreife (adj.) |Bildung     |0.832        |0.621     |             38.6|        12.9|
 
 
 ## Faktorenanalyse nur für Daten des Jahres 2017
@@ -325,7 +326,7 @@ TS_Arbeitswelt_17 <- Impdata.imputed  %>% filter(Jahr == 2017) %>% ungroup() %>%
 
 TS_Einkommen_17   <- Impdata.imputed %>% filter(Jahr == 2017) %>% dplyr::select(Einkommensteuer_ln,Haushaltseinkommen_ln,Schuldnerquote) 
 
-TS_Bildung_17 <- Impdata.imputed %>% filter(Jahr == 2017) %>% dplyr::select(BeschaeftigtemitakadAbschluss,BeschaeftigteohneAbschluss,SchulabgaengerohneAbschluss_adj)
+TS_Bildung_17 <- Impdata.imputed %>% filter(Jahr == 2017) %>% dplyr::select(BeschaeftigtemitakadAbschluss,BeschaeftigteohneAbschluss_adj,SchulabgaengerohneAbschluss_adj)
 
 
 #PCA Arbeitswelt 2017
@@ -372,22 +373,22 @@ Table: (\#tab:unnamed-chunk-8)Varianz der Faktoren (Eigenvektoren) für 2017
 
 |Faktoren |Varianz Arbeitswelt |Varianz Einkommen |Varianz Bildung |
 |:--------|:-------------------|:-----------------|:---------------|
-|Faktor 1 |1.434               |1.995             |1.377           |
-|Faktor 2 |0.977               |0.656             |1.046           |
-|Faktor 3 |0.589               |0.349             |0.578           |
+|Faktor 1 |1.434               |1.995             |1.194           |
+|Faktor 2 |0.977               |0.656             |0.996           |
+|Faktor 3 |0.589               |0.349             |0.81            |
 
 ### Faktorladungen
 
 
 ```r
 # Componentoverview 2017
-GISD_Komponents_17 <- cbind("Teildimension"="Arbeitswelt","Faktorladung"=round((TS_Arbeitswelt_17.pca$rotation*sqrt(abs(TS_Arbeitswelt_17.pca$sdev^2))), digits = 3),"Component"=round(TS_Arbeitswelt_17.pca$rotation, digits = 3))
+GISD_Komponents_17 <- cbind("Teildimension"="Arbeitswelt","Faktorladung"=round((TS_Arbeitswelt_17.pca$rotation*sqrt(abs(TS_Arbeitswelt_17.pca$sdev[1]^2))), digits = 3),"Component"=round(TS_Arbeitswelt_17.pca$rotation, digits = 3))
 # cbind erstellt Spaltenvektoren mit den Infos aus Teildimension, den (rotierten) Faktorladungen und den Components
 
-GISD_Komponents_17 <- rbind(GISD_Komponents_17,cbind("Teildimension"="Einkommen","Faktorladung"=round((TS_Einkommen_17.pca$rotation*sqrt(abs(TS_Einkommen_17.pca$sdev^2))), digits = 3),"Component"=round(TS_Einkommen_17.pca$rotation, digits = 3)))
+GISD_Komponents_17 <- rbind(GISD_Komponents_17,cbind("Teildimension"="Einkommen","Faktorladung"=round((TS_Einkommen_17.pca$rotation*sqrt(abs(TS_Einkommen_17.pca$sdev[1]^2))), digits = 3),"Component"=round(TS_Einkommen_17.pca$rotation, digits = 3)))
 # rbind erstellt Zeilenvektoren, diese werden hier in die bereits vorhandenen Spaltenvektoren eingebunden
 
-GISD_Komponents_17 <- rbind(GISD_Komponents_17,cbind("Teildimension"="Bildung","Faktorladung"=round((TS_Bildung_17.pca$rotation*sqrt(abs(TS_Bildung_17.pca$sdev^2))), digits = 3),"Component"=round(TS_Bildung_17.pca$rotation, digits = 3)))
+GISD_Komponents_17 <- rbind(GISD_Komponents_17,cbind("Teildimension"="Bildung","Faktorladung"=round((TS_Bildung_17.pca$rotation*sqrt(abs(TS_Bildung_17.pca$sdev[1]^2))), digits = 3),"Component"=round(TS_Bildung_17.pca$rotation, digits = 3)))
 # auch für die Teildimension Bildung werden Zeilenvektoren eingebunden
 
 GISD_Komponents_17 <- cbind("Variables"=as.data.frame(rownames(GISD_Komponents_17)),as.data.frame(GISD_Komponents_17))
@@ -405,7 +406,7 @@ GISD_Komponents_17$prop_GISD <- round(as.numeric(GISD_Komponents_17$prop_dem)/3,
 
 colnames(GISD_Komponents_17) <- c("Variable","Dimension","Faktorladung","Coponent", "Anteil Dimension", "Anteil GISD")
 
-GISD_Komponents_17$Variable <- c("Beschäftigtenquote (gedeckelt)", "Arbeitslosigkeit", "Bruttoverdienst (log.)", "Einkommensteuer (log.)", "Haushaltseinkommen (log.)", "Schuldnerquote", "Beschäftigte mit akad. Abschluss", "Beschäftigte ohne Abschluss", "Schulabgänger ohne Abschluss (adj.)")
+GISD_Komponents_17$Variable <- c("Beschäftigtenquote (gedeckelt)", "Arbeitslosigkeit", "Bruttoverdienst (log.)", "Einkommensteuer (log.)", "Haushaltseinkommen (log.)", "Schuldnerquote", "Beschäftigte mit akad. Abschluss", "Beschäftigte ohne Abschluss (adj.)", "Schulabgänger ohne Abschluss (adj.)")
 
 kable(GISD_Komponents_17, caption = "Komponenten und Anteile der Dimensionen für 2017")
 ```
@@ -417,14 +418,14 @@ Table: (\#tab:unnamed-chunk-9)Komponenten und Anteile der Dimensionen für 2017
 |Variable                            |Dimension   |Faktorladung |Coponent | Anteil Dimension| Anteil GISD|
 |:-----------------------------------|:-----------|:------------|:--------|----------------:|-----------:|
 |Beschäftigtenquote (gedeckelt)      |Arbeitswelt |0.278        |0.232    |              5.4|         1.8|
-|Arbeitslosigkeit                    |Arbeitswelt |-0.684       |-0.692   |             47.9|        16.0|
-|Bruttoverdienst (log.)              |Arbeitswelt |0.525        |0.683    |             46.6|        15.5|
+|Arbeitslosigkeit                    |Arbeitswelt |-0.829       |-0.692   |             47.9|        16.0|
+|Bruttoverdienst (log.)              |Arbeitswelt |0.819        |0.683    |             46.6|        15.5|
 |Einkommensteuer (log.)              |Einkommen   |0.834        |0.59     |             34.8|        11.6|
-|Haushaltseinkommen (log.)           |Einkommen   |0.504        |0.622    |             38.7|        12.9|
-|Schuldnerquote                      |Einkommen   |-0.304       |-0.515   |             26.5|         8.8|
-|Beschäftigte mit akad. Abschluss    |Bildung     |-0.125       |-0.107   |              1.1|         0.4|
-|Beschäftigte ohne Abschluss         |Bildung     |0.734        |0.717    |             51.4|        17.1|
-|Schulabgänger ohne Abschluss (adj.) |Bildung     |-0.523       |-0.688   |             47.3|        15.8|
+|Haushaltseinkommen (log.)           |Einkommen   |0.878        |0.622    |             38.7|        12.9|
+|Schuldnerquote                      |Einkommen   |-0.727       |-0.515   |             26.5|         8.8|
+|Beschäftigte mit akad. Abschluss    |Bildung     |-0.32        |-0.293   |              8.6|         2.9|
+|Beschäftigte ohne Abschluss (adj.)  |Bildung     |0.707        |0.648    |             42.0|        14.0|
+|Schulabgänger ohne Abschluss (adj.) |Bildung     |0.769        |0.704    |             49.6|        16.5|
 
 
 
@@ -509,10 +510,10 @@ Table: (\#tab:unnamed-chunk-13)Korrelation von Arbeitslosigkeit und Faktoren (ge
 
 |                   | Arbeitslosigkeit| Faktor Arbeitswelt| Faktor Einkommen| Faktor Bildung|
 |:------------------|----------------:|------------------:|----------------:|--------------:|
-|Arbeitslosigkeit   |        1.0000000|          0.9158724|        0.7904195|      0.6932822|
-|Faktor Arbeitswelt |        0.9158724|          1.0000000|        0.9110880|      0.6823345|
-|Faktor Einkommen   |        0.7904195|          0.9110880|        1.0000000|      0.6507439|
-|Faktor Bildung     |        0.6932822|          0.6823345|        0.6507439|      1.0000000|
+|Arbeitslosigkeit   |        1.0000000|          0.9158724|        0.7904195|      0.4306211|
+|Faktor Arbeitswelt |        0.9158724|          1.0000000|        0.9110880|      0.5353982|
+|Faktor Einkommen   |        0.7904195|          0.9110880|        1.0000000|      0.6535419|
+|Faktor Bildung     |        0.4306211|          0.5353982|        0.6535419|      1.0000000|
 
 
 ```r
@@ -611,9 +612,9 @@ Table: (\#tab:unnamed-chunk-15)Korrelation der verschiedenen GISD-Scores
 
 |              | GISD-Score 2017| GISD-Score gesamt| GISD-Score gesamt (Bildung 4 Items)|
 |:-------------|---------------:|-----------------:|-----------------------------------:|
-|GISD_Score_17 |       1.0000000|        -0.9675478|                          -0.8040772|
-|GISD_Score    |      -0.9675478|         1.0000000|                           0.9220874|
-|GISD_Score_B4 |      -0.8040772|         0.9220874|                           1.0000000|
+|GISD_Score_17 |       1.0000000|        -0.9763138|                          -0.9427510|
+|GISD_Score    |      -0.9763138|         1.0000000|                           0.9871366|
+|GISD_Score_B4 |      -0.9427510|         0.9871366|                           1.0000000|
 
 ```r
 write_rds(Resultdataset, paste0("Outfiles/Resultdata_FaktorCheck.rds"))
