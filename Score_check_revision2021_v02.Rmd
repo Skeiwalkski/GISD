@@ -71,7 +71,7 @@ ggplot(Corr_data, aes(GISD_Score, Jahr, color = Bruttoverdienst)) + geom_tile(al
   theme_rki() + theme(legend.position="bottom") + 
   scale_color_gradientn(colours = rainbow(5)) + scale_y_discrete(limits=rev) + 
   scale_x_continuous(position = "top") +
-  labs(colour = "durchschnittlichter Bruttoverdienst in Euro", x = "GISD Score", title = "Verteilung des Bruttoverdienst auf den GISD-Score") 
+  labs(colour = "Durchschnittlichter Bruttoverdienst in Euro", x = "GISD Score", title = "Verteilung des Bruttoverdienst auf den GISD-Score") 
 ggsave("Outfiles/bruttoverdienst.png")
 
 Corr_data <- Corr_data %>% mutate(Bruttoverdienst_ln = log(Bruttoverdienst))
@@ -80,7 +80,7 @@ ggplot(Corr_data, aes(GISD_Score, Jahr, color = Bruttoverdienst_ln)) + geom_tile
   theme_rki() + theme(legend.position="bottom") + 
   scale_color_gradientn(colours = rainbow(5)) + scale_y_discrete(limits=rev) + 
   scale_x_continuous(position = "top") +
-  labs(colour = "durchschnittlichter Bruttoverdienst in Euro (logarithmiert)", x = "GISD Score", title = "Verteilung des log. Bruttoverdienst auf den GISD-Score") 
+  labs(colour = "Durchschnittlichter Bruttoverdienst in Euro (logarithmiert)", x = "GISD Score", title = "Verteilung des log. Bruttoverdienst auf den GISD-Score") 
 ggsave("Outfiles/bruttoverdienst_log.png")
 ```
 
@@ -106,7 +106,7 @@ ggplot(Corr_data, aes(GISD_Score, Jahr, color = Haushaltseinkommen)) + geom_tile
   theme_rki() + theme(legend.position="bottom") + 
   scale_color_gradientn(colours = rainbow(5)) + scale_y_discrete(limits=rev) + 
   scale_x_continuous(position = "top") +
-  labs(colour = "durchschnittliches Haushaltseinkommen", x = "GISD Score", title = "Verteilung des Haushalteinkommen auf den GISD-Score") 
+  labs(colour = "Durchschnittliches Haushaltseinkommen", x = "GISD Score", title = "Verteilung des Haushalteinkommen auf den GISD-Score") 
 ggsave("Outfiles/hheink.png")
 
 Corr_data <- Corr_data %>% mutate(Haushaltseinkommen_ln = log(Haushaltseinkommen))
@@ -199,12 +199,12 @@ Besonderheit Thüringen vor 2004
 ## Identifikation von Ausreißern
 ```{r Ausreißer}
 Corr_data$outl <- "Kein Ausreißer"
-Corr_data$outl[Corr_data$Kreis %in% c("9184", "11000", "7317")] <- "Ausreißer"
+Corr_data$outl[Corr_data$Kreis %in% c("9184", "11000", "7317", "16053", "12054", "9188", "6434")] <- "Ausreißer"
 
 ggplot(Corr_data, aes(GISD_Score, Jahr)) + geom_tile(aes(color = outl), alpha = 0.5, size =0.5) + 
   theme_rki() + theme(legend.position="bottom") + scale_y_discrete(limits=rev) + 
   scale_color_rki() +
-  geom_tile(data = Corr_data[Corr_data$outl == "Ausreißer",], size = 2) +
+  geom_tile(data = Corr_data[Corr_data$outl == "Ausreißer",], size = 1) +
   scale_x_continuous(position = "top") +
   labs(colour = "Ausreißer", x = "GISD Score", "Ausreißer im GISD-Score")
 ggsave("Outfiles/Outliers.png")
@@ -271,18 +271,6 @@ ggsave("Outfiles/Outliers_Potsdam.png")
 
 
 Corr_data$outl <- "Andere Kreise"
-Corr_data$outl[Corr_data$Kreis %in% c("3103")] <- "Wolfsburg"
-
-ggplot(Corr_data, aes(GISD_Score, Jahr)) + geom_tile(aes(color = outl), alpha = 0.5, size =0.5) +
-  scale_color_rki() +
-  geom_tile(data = Corr_data[Corr_data$outl == "Wolfsburg",], color = "lightblue", size = 1.5) +
-  theme_rki() + theme(legend.position="bottom") + scale_y_discrete(limits=rev) + 
-  scale_x_continuous(position = "top") +
-  labs(colour = "Ausreißer", x = "GISD Score")
-ggsave("Outfiles/Outliers_Wolfsburg.png")
-
-
-Corr_data$outl <- "Andere Kreise"
 Corr_data$outl[Corr_data$Kreis %in% c("9188")] <- "Starnberg"
 
 ggplot(Corr_data, aes(GISD_Score, Jahr)) + geom_tile(aes(color = outl), alpha = 0.5, size =0.5) +
@@ -307,7 +295,7 @@ ggsave("Outfiles/Outliers_Hochtaunuskreis.png")
 ```
 
 ## Verteilung des GISD
-```{r Verteilung}
+```{r Ost-west Verteilung}
 Corr_data$ow <- "Ost"
 Corr_data$ow[Corr_data$Kreis < 11000] <- "West"
 
@@ -317,33 +305,4 @@ ggplot(Corr_data, aes(GISD_Score, Jahr)) + geom_tile(aes(color = ow), alpha = 0.
   scale_x_continuous(position = "top") +
   labs(colour = "Ost und west", x = "GISD Score", title = "GISD-Score nach ost- und westdeutschen Landkreisen")
 ggsave("Outfiles/OstWest.png")
-
-Corr_data$BL <- "Schleswig-Holstein"
-Corr_data$BL[Corr_data$Kreis == 2000] <- "Hamburg"
-Corr_data$BL[Corr_data$Kreis > 2999 & Corr_data$Kreis < 4000] <- "Niedersachsen"
-Corr_data$BL[Corr_data$Kreis > 3999 & Corr_data$Kreis < 5000] <- "Bremen"
-Corr_data$BL[Corr_data$Kreis > 4999 & Corr_data$Kreis < 6000] <- "Nordrhein-Westfalen"
-Corr_data$BL[Corr_data$Kreis > 5999 & Corr_data$Kreis < 7000] <- "Hessen"
-Corr_data$BL[Corr_data$Kreis > 6999 & Corr_data$Kreis < 8000] <- "Rheinland-Pfalz"
-Corr_data$BL[Corr_data$Kreis > 7999 & Corr_data$Kreis < 9000] <- "Baden-Würtemberg"
-Corr_data$BL[Corr_data$Kreis > 8999 & Corr_data$Kreis < 10000] <- "Bayern"
-Corr_data$BL[Corr_data$Kreis > 9999 & Corr_data$Kreis < 11000] <- "Saarland"
-Corr_data$BL[Corr_data$Kreis > 10999 & Corr_data$Kreis < 12000] <- "Berlin"
-Corr_data$BL[Corr_data$Kreis > 11999 & Corr_data$Kreis < 13000] <- "Brandenburg"
-Corr_data$BL[Corr_data$Kreis > 12999 & Corr_data$Kreis < 14000] <- "Mecklenburg-Vorpommern"
-Corr_data$BL[Corr_data$Kreis > 13999 & Corr_data$Kreis < 15000] <- "Sachsen"
-Corr_data$BL[Corr_data$Kreis > 14999 & Corr_data$Kreis < 16000] <- "Sachsen-Anhalt"
-Corr_data$BL[Corr_data$Kreis > 15999] <- "Thüringen"
-
-
-ggplot(Corr_data, aes(GISD_Score, Jahr)) + geom_tile(aes(color = BL), alpha = 0.5, size =0.5) + 
-  theme_rki() + scale_y_discrete(limits=rev) +
-  scale_color_rki() +
-  scale_x_continuous(position = "top") +
-  labs(colour = "Bundesland", x = "GISD Score", title = "GISD-Score nach Bundesland")
-ggsave("Outfiles/Bundesland.png")
-
 ```
-
-
-
