@@ -119,7 +119,7 @@ ggplot(Kreise_data, aes(long, lat, group = group, fill=GISD_10)) +
 
 ![](Score_Karte_files/figure-html/unnamed-chunk-7-1.png)<!-- -->
 
-## GISD-Score auf Länderebene
+## GISD-Score nach Raumordnungsregion
 
 ```r
 ggplot(Lander_data, aes(long, lat, group = group, fill=GISD_Score)) +
@@ -127,7 +127,7 @@ ggplot(Lander_data, aes(long, lat, group = group, fill=GISD_Score)) +
   scale_fill_gradient() +
   coord_equal() +
   theme_rki_void() +
-  labs(fill = "GISD-Score (Dezile)")
+  labs(fill = "GISD-Score")
 ```
 
 ![](Score_Karte_files/figure-html/unnamed-chunk-8-1.png)<!-- -->

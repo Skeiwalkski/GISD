@@ -100,7 +100,7 @@ ggplot(Corr_data, aes(GISD_Score, Jahr, color = Haushaltseinkommen)) + geom_tile
   theme_rki() + theme(legend.position="bottom") + 
   scale_color_gradientn(colours = rainbow(5)) + scale_y_discrete(limits=rev) + 
   scale_x_continuous(position = "top") +
-  labs(colour = "durchschnittliches Haushaltseinkommen", x = "GISD Score", title = "Verteilung des Haushalteinkommen auf den GISD-Score") 
+  labs(colour = "Durchschnittliches Haushaltseinkommen", x = "GISD Score", title = "Verteilung des Haushalteinkommen auf den GISD-Score") 
 ```
 
 ![](Score_check_revision2021_v02_files/figure-html/Einkommensdimension Plots-3.png)<!-- -->
@@ -301,12 +301,12 @@ Besonderheit Thüringen vor 2004
 
 ```r
 Corr_data$outl <- "Kein Ausreißer"
-Corr_data$outl[Corr_data$Kreis %in% c("9184", "11000", "7317")] <- "Ausreißer"
+Corr_data$outl[Corr_data$Kreis %in% c("9184", "11000", "7317", "16053", "12054", "9188", "6434")] <- "Ausreißer"
 
 ggplot(Corr_data, aes(GISD_Score, Jahr)) + geom_tile(aes(color = outl), alpha = 0.5, size =0.5) + 
   theme_rki() + theme(legend.position="bottom") + scale_y_discrete(limits=rev) + 
   scale_color_rki() +
-  geom_tile(data = Corr_data[Corr_data$outl == "Ausreißer",], size = 2) +
+  geom_tile(data = Corr_data[Corr_data$outl == "Ausreißer",], size = 1) +
   scale_x_continuous(position = "top") +
   labs(colour = "Ausreißer", x = "GISD Score", "Ausreißer im GISD-Score")
 ```
@@ -433,11 +433,11 @@ ggsave("Outfiles/Outliers_Potsdam.png")
 
 ```r
 Corr_data$outl <- "Andere Kreise"
-Corr_data$outl[Corr_data$Kreis %in% c("3103")] <- "Wolfsburg"
+Corr_data$outl[Corr_data$Kreis %in% c("9188")] <- "Starnberg"
 
 ggplot(Corr_data, aes(GISD_Score, Jahr)) + geom_tile(aes(color = outl), alpha = 0.5, size =0.5) +
   scale_color_rki() +
-  geom_tile(data = Corr_data[Corr_data$outl == "Wolfsburg",], color = "lightblue", size = 1.5) +
+  geom_tile(data = Corr_data[Corr_data$outl == "Starnberg",], color = "lightblue", size = 1.5) +
   theme_rki() + theme(legend.position="bottom") + scale_y_discrete(limits=rev) + 
   scale_x_continuous(position = "top") +
   labs(colour = "Ausreißer", x = "GISD Score")
@@ -446,7 +446,29 @@ ggplot(Corr_data, aes(GISD_Score, Jahr)) + geom_tile(aes(color = outl), alpha = 
 ![](Score_check_revision2021_v02_files/figure-html/Ausreißer-7.png)<!-- -->
 
 ```r
-ggsave("Outfiles/Outliers_Wolfsburg.png")
+ggsave("Outfiles/Outliers_Starnberg.png")
+```
+
+```
+## Saving 7 x 5 in image
+```
+
+```r
+Corr_data$outl <- "Andere Kreise"
+Corr_data$outl[Corr_data$Kreis %in% c("6434")] <- "Hochtaunuskreis"
+
+ggplot(Corr_data, aes(GISD_Score, Jahr)) + geom_tile(aes(color = outl), alpha = 0.5, size =0.5) +
+  scale_color_rki() +
+  geom_tile(data = Corr_data[Corr_data$outl == "Hochtaunuskreis",], color = "lightblue", size = 1.5) +
+  theme_rki() + theme(legend.position="bottom") + scale_y_discrete(limits=rev) + 
+  scale_x_continuous(position = "top") +
+  labs(colour = "Ausreißer", x = "GISD Score")
+```
+
+![](Score_check_revision2021_v02_files/figure-html/Ausreißer-8.png)<!-- -->
+
+```r
+ggsave("Outfiles/Outliers_Hochtaunuskreis.png")
 ```
 
 ```
@@ -466,7 +488,7 @@ ggplot(Corr_data, aes(GISD_Score, Jahr)) + geom_tile(aes(color = ow), alpha = 0.
   labs(colour = "Ost und west", x = "GISD Score", title = "GISD-Score nach ost- und westdeutschen Landkreisen")
 ```
 
-![](Score_check_revision2021_v02_files/figure-html/Verteilung-1.png)<!-- -->
+![](Score_check_revision2021_v02_files/figure-html/Ost-west Verteilung-1.png)<!-- -->
 
 ```r
 ggsave("Outfiles/OstWest.png")
@@ -475,42 +497,3 @@ ggsave("Outfiles/OstWest.png")
 ```
 ## Saving 7 x 5 in image
 ```
-
-```r
-Corr_data$BL <- "Schleswig-Holstein"
-Corr_data$BL[Corr_data$Kreis == 2000] <- "Hamburg"
-Corr_data$BL[Corr_data$Kreis > 2999 & Corr_data$Kreis < 4000] <- "Niedersachsen"
-Corr_data$BL[Corr_data$Kreis > 3999 & Corr_data$Kreis < 5000] <- "Bremen"
-Corr_data$BL[Corr_data$Kreis > 4999 & Corr_data$Kreis < 6000] <- "Nordrhein-Westfalen"
-Corr_data$BL[Corr_data$Kreis > 5999 & Corr_data$Kreis < 7000] <- "Hessen"
-Corr_data$BL[Corr_data$Kreis > 6999 & Corr_data$Kreis < 8000] <- "Rheinland-Pfalz"
-Corr_data$BL[Corr_data$Kreis > 7999 & Corr_data$Kreis < 9000] <- "Baden-Würtemberg"
-Corr_data$BL[Corr_data$Kreis > 8999 & Corr_data$Kreis < 10000] <- "Bayern"
-Corr_data$BL[Corr_data$Kreis > 9999 & Corr_data$Kreis < 11000] <- "Saarland"
-Corr_data$BL[Corr_data$Kreis > 10999 & Corr_data$Kreis < 12000] <- "Berlin"
-Corr_data$BL[Corr_data$Kreis > 11999 & Corr_data$Kreis < 13000] <- "Brandenburg"
-Corr_data$BL[Corr_data$Kreis > 12999 & Corr_data$Kreis < 14000] <- "Mecklenburg-Vorpommern"
-Corr_data$BL[Corr_data$Kreis > 13999 & Corr_data$Kreis < 15000] <- "Sachsen"
-Corr_data$BL[Corr_data$Kreis > 14999 & Corr_data$Kreis < 16000] <- "Sachsen-Anhalt"
-Corr_data$BL[Corr_data$Kreis > 15999] <- "Thüringen"
-
-
-ggplot(Corr_data, aes(GISD_Score, Jahr)) + geom_tile(aes(color = BL), alpha = 0.5, size =0.5) + 
-  theme_rki() + scale_y_discrete(limits=rev) +
-  scale_color_rki() +
-  scale_x_continuous(position = "top") +
-  labs(colour = "Bundesland", x = "GISD Score", title = "GISD-Score nach Bundesland")
-```
-
-![](Score_check_revision2021_v02_files/figure-html/Verteilung-2.png)<!-- -->
-
-```r
-ggsave("Outfiles/Bundesland.png")
-```
-
-```
-## Saving 7 x 5 in image
-```
-
-
-

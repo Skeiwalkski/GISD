@@ -499,7 +499,7 @@ Impdata.imputed <- Impdata.imputed %>%
 
 ```{r}
 # Stata-Datensatz rausschreiben
-write_dta(Impdata.imputed, paste0("Outfiles/2021/Stata/impdata.dta"))
+#write_dta(Impdata.imputed, paste0("Outfiles/2021/Stata/impdata.dta"))
 
 # RDS-Datensatz rausschreiben
 write_rds(Impdata.imputed, paste0("Outfiles/Impdata_check.rds"))
@@ -818,7 +818,7 @@ for(mykennziffer in exportlist$Kennziffern) {
 #    write_dta(mydata, paste0("Outfiles/2021/Bundesland/",myland,"/",mylabel,"/",mylabel,".dta"))
   }
   }  
-}
+
 
 ```
 

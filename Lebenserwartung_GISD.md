@@ -1,5 +1,5 @@
 ---
-title: "Scatterplots - Lebenserwartung der Landkreise zum GISD"
+title: "Scatterplots - Lebenserwartung der Landkreise nach dem GISD"
 author: "Marvin Reis"
 date: "21 5 2021"
 output:
@@ -40,7 +40,7 @@ GISD_Lebenserw_Kreis$GISD_Score <- (GISD_Lebenserw_Kreis$GISD_Score -min(GISD_Le
 ggplot(GISD_Lebenserw_Kreis, aes(x = GISD_Score, y = Lebenserwartung)) +
   geom_point(size = 1.5, alpha = 0.5, col = "navy") +
   geom_rug(size = 0.5) + 
-  labs(x = "GISD-Score", title = "Lebenserwartung der Landkreise zum GISD", subtitle = "im Jahr 2017") +
+  labs(x = "GISD-Score", title = "Lebenserwartung der Landkreise nach dem GISD", subtitle = "im Jahr 2017") +
   theme_rki()
 ```
 
@@ -52,7 +52,7 @@ ggplot(GISD_Lebenserw_Kreis, aes(x = GISD_Score, y = Lebenserwartung)) +
   geom_point(size = 1.5, alpha = 0.5, col = "navy") +
   geom_rug(size = 0.5) +
   geom_smooth(method = loess, col = "red", linetype = "dashed", fill = "grey50", alpha = 0.5) +
-  labs(x = "GISD-Score", title = "Lebenserwartung der Landkreise zum GISD", subtitle =  "im Jahr 2017, mit Regressionslinie (Loess)",
+  labs(x = "GISD-Score", title = "Lebenserwartung der Landkreise nach dem GISD", subtitle =  "im Jahr 2017, mit Regressionslinie (Loess)",
        y = "Lebenserwartung in Jahren") +
   theme_rki()
 ```
@@ -69,7 +69,7 @@ ggplot(GISD_Lebenserw_Kreis, aes(x = GISD_Score, y = Lebenserwartung)) +
   geom_point(size = 1.5, alpha = 0.5, col = "navy") +
   geom_rug(size = 0.5) +
   geom_smooth(method = lm,col = "red", linetype = "dashed", fill = "grey50", alpha = 0.5) +
-  labs(x = "GISD-Score", title = "Lebenserwartung der Landkreise zum GISD", subtitle = "im jahr 2017, mit Regressionslinie (Linear)",
+  labs(x = "GISD-Score", title = "Lebenserwartung der Landkreise nach dem GISD", subtitle = "im jahr 2017, mit Regressionslinie (Linear)",
        y = "Lebenserwartung in Jahren") +
   theme_rki()
 ```
@@ -85,7 +85,7 @@ ggplot(GISD_Lebenserw_Kreis, aes(x = GISD_Score, y = Lebenserwartung)) +
 ggplot(GISD_Lebenserw_Kreis, aes(x = GISD_Score, y = Lebenserwartung)) +
   geom_point(size = 1, alpha = 0.5) +
   geom_density2d(size = 1, col = "navy", alpha = 0.5) +
-  labs(x = "GISD-Score", title = "Lebenserwartung der Landkreise zum GISD (Density)", subtitle = "im Jahr 2017",
+  labs(x = "GISD-Score", title = "Lebenserwartung der Landkreise nach dem GISD (Density)", subtitle = "im Jahr 2017",
        y = "Lebenserwartung in Jahren") +
   theme_rki()
 ```
@@ -96,11 +96,11 @@ ggplot(GISD_Lebenserw_Kreis, aes(x = GISD_Score, y = Lebenserwartung)) +
 ```r
 ggplot(GISD_Lebenserw_Kreis, aes(x = GISD_Score, y = Lebenserwartung, col = as.factor(ow))) +
   geom_point(size = 1.5, alpha = 0.5) +
-  geom_smooth(method=lm, aes(fill=as.factor(ow)), fullrange=TRUE) +
+  geom_smooth(method=lm, aes(fill=as.factor(ow)), col = "grey50", linetype = "dashed") +
   scale_color_rki(name="Ost-/Westdeutschland", labels=c("West", "Ost")) +
   scale_fill_rki(guide=FALSE) +
   geom_rug(size = 0.5, col = "black") + 
-  labs(x = "GISD-Score", title = "Lebenserwartung der Landkreise zum GISD", subtitle = "im Jahr 2017, nach Ost und West") +
+  labs(x = "GISD-Score", title = "Lebenserwartung der Landkreise nach dem GISD", subtitle = "im Jahr 2017, nach Ost und West") +
   theme_rki()
 ```
 
@@ -114,11 +114,11 @@ ggplot(GISD_Lebenserw_Kreis, aes(x = GISD_Score, y = Lebenserwartung, col = as.f
 ```r
 ggplot(GISD_Lebenserw_Kreis, aes(x = GISD_Score, y = Lebenserwartung, col = Aggregat)) +
   geom_point(size = 1.5, alpha = 0.5) +
-  geom_smooth(method=lm, aes(fill=Aggregat), fullrange=TRUE) +
+  geom_smooth(method=lm, aes(fill=Aggregat), col = "grey50", linetype = "dashed") +
   scale_color_rki(name="Stadt/Landkreis", labels=c("kreisfreie Stadt", "Landkreis")) +
   scale_fill_rki(guide=FALSE) +
   geom_rug(size = 0.5, col = "black") + 
-  labs(x = "GISD-Score", title = "Lebenserwartung der Landkreise zum GISD", subtitle = "im Jahr 2017, nach krsfr. Stadt und Landkreis") +
+  labs(x = "GISD-Score", title = "Lebenserwartung der Landkreise ach dem GISD", subtitle = "im Jahr 2017, nach krsfr. Stadt und Landkreis") +
   theme_rki()
 ```
 

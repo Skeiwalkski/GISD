@@ -1,0 +1,29 @@
+---
+title: "GISD_Vergleiche"
+author: "Marvin Reis"
+date: "10 6 2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library("ggplot2")
+library("rkicolors")
+library("dplyr")
+library("dtplyr")
+library("tidyr")
+library(haven)
+```
+
+```{r}
+dat_2014 <- read_dta("C:/git_projects/GISD/Outfiles/2018/Bund/Gemeinde/Gemeinde_long.dta")
+
+dat_2015 <- read.csv("C:/git_projects/GISD/Outfiles/2019/Bund/Gemeinde/Gemeinde.csv")
+
+dat_2016 <- read.csv("C:/git_projects/GISD/Outfiles/2020/Bund/Gemeinde/Gemeinde.csv")
+
+dat_2017 <- read.csv("C:/git_projects/GISD/Outfiles/2021/Bund/Gemeinde/Gemeinde.csv")
+
+dat_2017_v2 <- read.csv("C:/git_projects/GISD/Outfiles/2021_v2/Bund/Gemeinde/Gemeinde.csv")
+```

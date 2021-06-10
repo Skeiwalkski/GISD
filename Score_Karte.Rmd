@@ -107,7 +107,7 @@ ggplot(Kreise_data, aes(long, lat, group = group, fill=GISD_10)) +
   labs(fill = "GISD-Score (Dezile)")
 ```
 
-## GISD-Score auf Länderebene
+## GISD-Score nach Raumordnungsregion
 ```{r}
 ggplot(Lander_data, aes(long, lat, group = group, fill=GISD_Score)) +
   geom_polygon() +
