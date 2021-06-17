@@ -41,7 +41,16 @@ dat_2017_v2 <- read.csv("C:/git_projects/GISD/Outfiles/2021_v2/Bund/Gemeinde/Gem
 
 dat_Lebenserwartung <- read.csv2("C:/git_projects/GISD/INKAR_Lebenswerwartung_Kreise.csv") %>% mutate(Kreis = as.numeric(ï..Kennziffer)) %>% select(-ï..Kennziffer)
 
-dat_Leberw_2014 <- dat_2014 %>% filter(Jahr = 2014) %>% 
+dat_Leberw_2014 <- dat_2014 %>% filter(Jahr == 2014) %>% left_join(dat_Lebenserwartung, by = "Kreis") %>% select(- Lebenserwartung.1, - Lebenserwartung.2) %>% distinct(Kreis, .keep_all = TRUE) %>% unique()
+
+dat_Leberw_2015 <- dat_2015 %>% filter(Jahr == 2015) %>% left_join(dat_Lebenserwartung, by = "Kreis") %>% select(- Lebenserwartung, - Lebenserwartung.2) %>% distinct(Kreis, .keep_all = TRUE) %>% unique()
+
+dat_Leberw_2016 <- dat_2016 %>% filter(Jahr == 2017) %>% left_join(dat_Lebenserwartung, by = "Kreis") %>% select(- Lebenserwartung, - Lebenserwartung.1) %>% distinct(Kreis, .keep_all = TRUE) %>% unique()
+
+dat_Leberw_2017 <- dat_2017 %>% filter(Jahr == 2017) %>% left_join(dat_Lebenserwartung, by = "Kreis") %>% select(- Lebenserwartung, - Lebenserwartung.1) %>% distinct(Kreis, .keep_all = TRUE) %>% unique()
+
+dat_Leberw_2017_v2 <- dat_2017_v2 %>% filter(Jahr == 2017) %>% left_join(dat_Lebenserwartung, by = "Kreis") %>% select(- Lebenserwartung, - Lebenserwartung.1) %>% distinct(Kreis, .keep_all = TRUE) %>% unique()
+
 
 Gemeindekennziffer <- c("9162000", "16053000", "7317000", "1001000", "14625020", "9188139")
 ```
@@ -1409,7 +1418,7 @@ kable(Tabelle_GISD_Starnberg)
 
 
 ## Berlin
-#```{r Berlin}
+```{r Berlin}
 #Tabelle_GISD_Berlin <- cbind(
 #                            "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "1998" & dat_2015$Kreis #== "11000"], digits = 2), "Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "1998" & dat_2015$Gemeindekennziffer #== "11000"], digits = 2)
 #                             "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "1998" & #dat_2016$Gemeindekennziffer == "11000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "1998" & #dat_2016$Gemeindekennziffer == "11000"],
@@ -1632,12 +1641,71 @@ kable(Tabelle_GISD_Starnberg)
 #kable(Tabelle_GISD_Berlin)
 ```
 
+# Lebenserwartung der Landkreise nach dem GISD in den verschiedenen Versionen {.tabset}
 
-```{r}
-#Tabellen <- for(n in Gemeindekennziffer) {
-#    
-#    Tabelle_GISD <- cbind("Jahr" = "1998", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "1998" & #dat_2014$Gemeindekennziffer == n], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "1998" & #dat_2014$Gemeindekennziffer == n])
-# }
-
-
+## V2018
+```{r 2018, message=FALSE}
+ggplot(dat_Leberw_2014, aes(x = GISD_Score, y = Lebenserwartung)) +
+  geom_point(size = 1.5, alpha = 0.5, col = "navy") +
+  ylim(77, 84) +
+  xlim(0, 1) +
+  geom_rug(size = 0.5) +
+  geom_smooth(method = lm,col = "red", linetype = "dashed", fill = "grey50", alpha = 0.5) +
+  labs(x = "GISD-Score", title = "Lebenserwartung der Landkreise nach dem GISD (V2018)", subtitle = "im Jahr 2014, mit Regressionslinie (Linear)",
+       y = "Lebenserwartung in Jahren") +
+  theme_rki()
 ```
+
+## V2019
+```{r 2019, message=FALSE}
+ggplot(dat_Leberw_2015, aes(x = GISD_Score, y = Lebenserwartung.1)) +
+  geom_point(size = 1.5, alpha = 0.5, col = "navy") +
+  ylim(77, 84) +
+  xlim(0, 1) +
+  geom_rug(size = 0.5) +
+  geom_smooth(method = lm,col = "red", linetype = "dashed", fill = "grey50", alpha = 0.5) +
+  labs(x = "GISD-Score", title = "Lebenserwartung der Landkreise nach dem GISD (V2019)", subtitle = "im Jahr 2015, mit Regressionslinie (Linear)",
+       y = "Lebenserwartung in Jahren") +
+  theme_rki()
+```
+
+## V2020
+```{r 2020, message=FALSE}
+ggplot(dat_Leberw_2016, aes(x = GISD_Score, y = Lebenserwartung.2)) +
+  geom_point(size = 1.5, alpha = 0.5, col = "navy") +
+  ylim(77, 84) +
+  xlim(0, 1) +
+  geom_rug(size = 0.5) +
+  geom_smooth(method = lm,col = "red", linetype = "dashed", fill = "grey50", alpha = 0.5) +
+  labs(x = "GISD-Score", title = "Lebenserwartung der Landkreise nach dem GISD (V2020)", subtitle = "im Jahr 2017, mit Regressionslinie (Linear)",
+       y = "Lebenserwartung in Jahren") +
+  theme_rki()
+```
+
+## V2021
+```{r 2021, message=FALSE}
+ggplot(dat_Leberw_2017, aes(x = GISD_Score, y = Lebenserwartung.2)) +
+  geom_point(size = 1.5, alpha = 0.5, col = "navy") +
+  ylim(77, 84) +
+  xlim(0, 1) +
+  geom_rug(size = 0.5) +
+  geom_smooth(method = lm,col = "red", linetype = "dashed", fill = "grey50", alpha = 0.5) +
+  labs(x = "GISD-Score", title = "Lebenserwartung der Landkreise nach dem GISD (V2021)", subtitle = "im Jahr 2017, mit Regressionslinie (Linear)",
+       y = "Lebenserwartung in Jahren") +
+  theme_rki()
+```
+
+## V2021_v2
+```{r 2021_v2, message=FALSE}
+ggplot(dat_Leberw_2017_v2, aes(x = GISD_Score, y = Lebenserwartung.2)) +
+  geom_point(size = 1.5, alpha = 0.5, col = "navy") +
+  ylim(77, 84) +
+  xlim(0, 1) +
+  geom_rug(size = 0.5) +
+  geom_smooth(method = lm,col = "red", linetype = "dashed", fill = "grey50", alpha = 0.5) +
+  labs(x = "GISD-Score", title = "Lebenserwartung der Landkreise nach dem GISD (V2021_v2)", subtitle = "im Jahr 2017, mit Regressionslinie (Linear)",
+       y = "Lebenserwartung in Jahren") +
+  theme_rki()
+```
+
+

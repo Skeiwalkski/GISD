@@ -18,10 +18,263 @@ output:
 
 
 
+```r
+dat_2014 <- read_dta("C:/git_projects/GISD/Outfiles/2018/Bund/Gemeinde/Gemeinde_long.dta") %>% mutate(Kreis = round(Gemeindekennziffer/1000), digits = 0)
+
+dat_2015 <- read.csv("C:/git_projects/GISD/Outfiles/2019/Bund/Gemeinde/Gemeinde.csv") %>% mutate(Kreis = round(Gemeindekennziffer/1000), digits = 0)
+
+dat_2016 <- read.csv("C:/git_projects/GISD/Outfiles/2020/Bund/Gemeinde/Gemeinde.csv") %>% mutate(Kreis = round(Gemeindekennziffer/1000), digits = 0)
+
+dat_2017 <- read.csv("C:/git_projects/GISD/Outfiles/2021/Bund/Gemeinde/Gemeinde.csv") %>% mutate(Kreis = round(Gemeindekennziffer/1000), digits = 0)
+
+dat_2017_v2 <- read.csv("C:/git_projects/GISD/Outfiles/2021_v2/Bund/Gemeinde/Gemeinde.csv") %>% mutate(Kreis = round(Gemeindekennziffer/1000), digits = 0)
+
+dat_Lebenserwartung <- read.csv2("C:/git_projects/GISD/INKAR_Lebenswerwartung_Kreise.csv") %>% mutate(Kreis = as.numeric(ï..Kennziffer)) %>% select(-ï..Kennziffer)
+
+dat_Leberw_2014 <- dat_2014 %>% filter(Jahr == 2014) %>% left_join(dat_Lebenserwartung, by = "Kreis") %>% select(- Lebenserwartung.1, - Lebenserwartung.2) %>% distinct(Kreis, .keep_all = TRUE) %>% unique()
+
+dat_Leberw_2015 <- dat_2015 %>% filter(Jahr == 2015) %>% left_join(dat_Lebenserwartung, by = "Kreis") %>% select(- Lebenserwartung, - Lebenserwartung.2) %>% distinct(Kreis, .keep_all = TRUE) %>% unique()
+
+dat_Leberw_2016 <- dat_2016 %>% filter(Jahr == 2017) %>% left_join(dat_Lebenserwartung, by = "Kreis") %>% select(- Lebenserwartung, - Lebenserwartung.1) %>% distinct(Kreis, .keep_all = TRUE) %>% unique()
+
+dat_Leberw_2017 <- dat_2017 %>% filter(Jahr == 2017) %>% left_join(dat_Lebenserwartung, by = "Kreis") %>% select(- Lebenserwartung, - Lebenserwartung.1) %>% distinct(Kreis, .keep_all = TRUE) %>% unique()
+
+dat_Leberw_2017_v2 <- dat_2017_v2 %>% filter(Jahr == 2017) %>% left_join(dat_Lebenserwartung, by = "Kreis") %>% select(- Lebenserwartung, - Lebenserwartung.1) %>% distinct(Kreis, .keep_all = TRUE) %>% unique()
+
+
+Gemeindekennziffer <- c("9162000", "16053000", "7317000", "1001000", "14625020", "9188139")
+```
 
 # Versionen des GISD-Scores über die Zeit {.tabset}
 
 ## München
+
+```r
+Tabelle_GISD_München <- cbind("Jahr" = "1998", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "1998" & dat_2014$Gemeindekennziffer == "9162000"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "1998" & dat_2014$Gemeindekennziffer == "9162000"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "1998" & dat_2015$Gemeindekennziffer == "9162000"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "1998" & dat_2015$Gemeindekennziffer == "9162000"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "1998" & dat_2016$Gemeindekennziffer == "9162000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "1998" & dat_2016$Gemeindekennziffer == "9162000"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "1998" & dat_2017$Gemeindekennziffer == "9162000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "1998" & dat_2017$Gemeindekennziffer == "9162000"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "1998" & dat_2017_v2$Gemeindekennziffer == "9162000"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "1999" & dat_2017_v2$Gemeindekennziffer == "9162000"])
+
+                              
+Tabelle_GISD_München <- rbind(Tabelle_GISD_München, cbind("Jahr" = "1999", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "1999" & dat_2014$Gemeindekennziffer == "9162000"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "1999" & dat_2014$Gemeindekennziffer == "9162000"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "1999" & dat_2015$Gemeindekennziffer == "9162000"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "1999" & dat_2015$Gemeindekennziffer == "9162000"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "1999" & dat_2016$Gemeindekennziffer == "9162000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "1999" & dat_2016$Gemeindekennziffer == "9162000"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "1999" & dat_2017$Gemeindekennziffer == "9162000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "1999" & dat_2017$Gemeindekennziffer == "9162000"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "1999" & dat_2017_v2$Gemeindekennziffer == "9162000"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "1999" & dat_2017_v2$Gemeindekennziffer == "9162000"]))
+
+
+Tabelle_GISD_München <- rbind(Tabelle_GISD_München, cbind("Jahr" = "2000", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "2000" & dat_2014$Gemeindekennziffer == "9162000"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2000" & dat_2014$Gemeindekennziffer == "9162000"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2000" & dat_2015$Gemeindekennziffer == "9162000"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2000" & dat_2015$Gemeindekennziffer == "9162000"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2000" & dat_2016$Gemeindekennziffer == "9162000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2000" & dat_2016$Gemeindekennziffer == "9162000"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2000" & dat_2017$Gemeindekennziffer == "9162000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2000" & dat_2017$Gemeindekennziffer == "9162000"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2000" & dat_2017_v2$Gemeindekennziffer == "9162000"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2000" & dat_2017_v2$Gemeindekennziffer == "9162000"]))
+
+
+Tabelle_GISD_München <- rbind(Tabelle_GISD_München, cbind("Jahr" = "2001", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "2001" & dat_2014$Gemeindekennziffer == "9162000"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2001" & dat_2014$Gemeindekennziffer == "9162000"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2001" & dat_2015$Gemeindekennziffer == "9162000"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2001" & dat_2015$Gemeindekennziffer == "9162000"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2001" & dat_2016$Gemeindekennziffer == "9162000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2001" & dat_2016$Gemeindekennziffer == "9162000"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2001" & dat_2017$Gemeindekennziffer == "9162000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2001" & dat_2017$Gemeindekennziffer == "9162000"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2001" & dat_2017_v2$Gemeindekennziffer == "9162000"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2001" & dat_2017_v2$Gemeindekennziffer == "9162000"]))
+
+
+Tabelle_GISD_München <- rbind(Tabelle_GISD_München, cbind("Jahr" = "2002", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "2002" & dat_2014$Gemeindekennziffer == "9162000"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2002" & dat_2014$Gemeindekennziffer == "9162000"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2002" & dat_2015$Gemeindekennziffer == "9162000"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2002" & dat_2015$Gemeindekennziffer == "9162000"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2002" & dat_2016$Gemeindekennziffer == "9162000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2002" & dat_2016$Gemeindekennziffer == "9162000"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2002" & dat_2017$Gemeindekennziffer == "9162000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2002" & dat_2017$Gemeindekennziffer == "9162000"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2002" & dat_2017_v2$Gemeindekennziffer == "9162000"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2002" & dat_2017_v2$Gemeindekennziffer == "9162000"]))
+
+
+Tabelle_GISD_München <- rbind(Tabelle_GISD_München, cbind("Jahr" = "2003", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "2003" & dat_2014$Gemeindekennziffer == "9162000"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2003" & dat_2014$Gemeindekennziffer == "9162000"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2003" & dat_2015$Gemeindekennziffer == "9162000"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2003" & dat_2015$Gemeindekennziffer == "9162000"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2003" & dat_2016$Gemeindekennziffer == "9162000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2003" & dat_2016$Gemeindekennziffer == "9162000"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2003" & dat_2017$Gemeindekennziffer == "9162000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2003" & dat_2017$Gemeindekennziffer == "9162000"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2003" & dat_2017_v2$Gemeindekennziffer == "9162000"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2003" & dat_2017_v2$Gemeindekennziffer == "9162000"]))
+
+
+Tabelle_GISD_München <- rbind(Tabelle_GISD_München, cbind("Jahr" = "2004", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "2004" & dat_2014$Gemeindekennziffer == "9162000"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2004" & dat_2014$Gemeindekennziffer == "9162000"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2004" & dat_2015$Gemeindekennziffer == "9162000"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2004" & dat_2015$Gemeindekennziffer == "9162000"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2004" & dat_2016$Gemeindekennziffer == "9162000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2004" & dat_2016$Gemeindekennziffer == "9162000"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2004" & dat_2017$Gemeindekennziffer == "9162000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2004" & dat_2017$Gemeindekennziffer == "9162000"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2004" & dat_2017_v2$Gemeindekennziffer == "9162000"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2004" & dat_2017_v2$Gemeindekennziffer == "9162000"]))
+
+
+Tabelle_GISD_München <- rbind(Tabelle_GISD_München, cbind("Jahr" = "2005", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "2005" & dat_2014$Gemeindekennziffer == "9162000"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2005" & dat_2014$Gemeindekennziffer == "9162000"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2005" & dat_2015$Gemeindekennziffer == "9162000"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2005" & dat_2015$Gemeindekennziffer == "9162000"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2005" & dat_2016$Gemeindekennziffer == "9162000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2005" & dat_2016$Gemeindekennziffer == "9162000"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2005" & dat_2017$Gemeindekennziffer == "9162000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2005" & dat_2017$Gemeindekennziffer == "9162000"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2005" & dat_2017_v2$Gemeindekennziffer == "9162000"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2005" & dat_2017_v2$Gemeindekennziffer == "9162000"]))
+
+
+Tabelle_GISD_München <- rbind(Tabelle_GISD_München, cbind("Jahr" = "2006", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "2006" & dat_2014$Gemeindekennziffer == "9162000"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2006" & dat_2014$Gemeindekennziffer == "9162000"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2006" & dat_2015$Gemeindekennziffer == "9162000"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2006" & dat_2015$Gemeindekennziffer == "9162000"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2006" & dat_2016$Gemeindekennziffer == "9162000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2006" & dat_2016$Gemeindekennziffer == "9162000"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2006" & dat_2017$Gemeindekennziffer == "9162000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2006" & dat_2017$Gemeindekennziffer == "9162000"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2006" & dat_2017_v2$Gemeindekennziffer == "9162000"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2006" & dat_2017_v2$Gemeindekennziffer == "9162000"]))
+
+
+Tabelle_GISD_München <- rbind(Tabelle_GISD_München, cbind("Jahr" = "2007", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "2007" & dat_2014$Gemeindekennziffer == "9162000"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2007" & dat_2014$Gemeindekennziffer == "9162000"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2007" & dat_2015$Gemeindekennziffer == "9162000"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2007" & dat_2015$Gemeindekennziffer == "9162000"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2007" & dat_2016$Gemeindekennziffer == "9162000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2007" & dat_2016$Gemeindekennziffer == "9162000"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2007" & dat_2017$Gemeindekennziffer == "9162000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2007" & dat_2017$Gemeindekennziffer == "9162000"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2007" & dat_2017_v2$Gemeindekennziffer == "9162000"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2007" & dat_2017_v2$Gemeindekennziffer == "9162000"]))
+
+
+Tabelle_GISD_München <- rbind(Tabelle_GISD_München, cbind("Jahr" = "2008", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "2008" & dat_2014$Gemeindekennziffer == "9162000"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2008" & dat_2014$Gemeindekennziffer == "9162000"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2008" & dat_2015$Gemeindekennziffer == "9162000"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2008" & dat_2015$Gemeindekennziffer == "9162000"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2008" & dat_2016$Gemeindekennziffer == "9162000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2008" & dat_2016$Gemeindekennziffer == "9162000"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2008" & dat_2017$Gemeindekennziffer == "9162000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2008" & dat_2017$Gemeindekennziffer == "9162000"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2008" & dat_2017_v2$Gemeindekennziffer == "9162000"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2008" & dat_2017_v2$Gemeindekennziffer == "9162000"]))
+
+
+Tabelle_GISD_München <- rbind(Tabelle_GISD_München, cbind("Jahr" = "2009", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "2009" & dat_2014$Gemeindekennziffer == "9162000"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2009" & dat_2014$Gemeindekennziffer == "9162000"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2009" & dat_2015$Gemeindekennziffer == "9162000"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2009" & dat_2015$Gemeindekennziffer == "9162000"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2009" & dat_2016$Gemeindekennziffer == "9162000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2009" & dat_2016$Gemeindekennziffer == "9162000"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2009" & dat_2017$Gemeindekennziffer == "9162000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2009" & dat_2017$Gemeindekennziffer == "9162000"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2009" & dat_2017_v2$Gemeindekennziffer == "9162000"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2009" & dat_2017_v2$Gemeindekennziffer == "9162000"]))
+
+
+Tabelle_GISD_München <- rbind(Tabelle_GISD_München, cbind("Jahr" = "2010", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "2010" & dat_2014$Gemeindekennziffer == "9162000"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2010" & dat_2014$Gemeindekennziffer == "9162000"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2010" & dat_2015$Gemeindekennziffer == "9162000"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2010" & dat_2015$Gemeindekennziffer == "9162000"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2010" & dat_2016$Gemeindekennziffer == "9162000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2010" & dat_2016$Gemeindekennziffer == "9162000"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2010" & dat_2017$Gemeindekennziffer == "9162000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2010" & dat_2017$Gemeindekennziffer == "9162000"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2010" & dat_2017_v2$Gemeindekennziffer == "9162000"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2010" & dat_2017_v2$Gemeindekennziffer == "9162000"]))
+
+
+Tabelle_GISD_München <- rbind(Tabelle_GISD_München, cbind("Jahr" = "2011", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "2011" & dat_2014$Gemeindekennziffer == "9162000"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2011" & dat_2014$Gemeindekennziffer == "9162000"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2011" & dat_2015$Gemeindekennziffer == "9162000"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2011" & dat_2015$Gemeindekennziffer == "9162000"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2011" & dat_2016$Gemeindekennziffer == "9162000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2011" & dat_2016$Gemeindekennziffer == "9162000"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2011" & dat_2017$Gemeindekennziffer == "9162000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2011" & dat_2017$Gemeindekennziffer == "9162000"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2011" & dat_2017_v2$Gemeindekennziffer == "9162000"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2011" & dat_2017_v2$Gemeindekennziffer == "9162000"]))
+
+
+Tabelle_GISD_München <- rbind(Tabelle_GISD_München, cbind("Jahr" = "2012", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "2012" & dat_2014$Gemeindekennziffer == "9162000"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2012" & dat_2014$Gemeindekennziffer == "9162000"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2012" & dat_2015$Gemeindekennziffer == "9162000"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2012" & dat_2015$Gemeindekennziffer == "9162000"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2012" & dat_2016$Gemeindekennziffer == "9162000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2012" & dat_2016$Gemeindekennziffer == "9162000"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2012" & dat_2017$Gemeindekennziffer == "9162000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2012" & dat_2017$Gemeindekennziffer == "9162000"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2012" & dat_2017_v2$Gemeindekennziffer == "9162000"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2012" & dat_2017_v2$Gemeindekennziffer == "9162000"]))
+
+
+Tabelle_GISD_München <- rbind(Tabelle_GISD_München, cbind("Jahr" = "2013", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "2013" & dat_2014$Gemeindekennziffer == "9162000"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2013" & dat_2014$Gemeindekennziffer == "9162000"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2013" & dat_2015$Gemeindekennziffer == "9162000"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2013" & dat_2015$Gemeindekennziffer == "9162000"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2013" & dat_2016$Gemeindekennziffer == "9162000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2013" & dat_2016$Gemeindekennziffer == "9162000"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2013" & dat_2017$Gemeindekennziffer == "9162000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2013" & dat_2017$Gemeindekennziffer == "9162000"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2013" & dat_2017_v2$Gemeindekennziffer == "9162000"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2013" & dat_2017_v2$Gemeindekennziffer == "9162000"]))
+
+
+Tabelle_GISD_München <- rbind(Tabelle_GISD_München, cbind("Jahr" = "2014", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "2014" & dat_2014$Gemeindekennziffer == "9162000"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2014" & dat_2014$Gemeindekennziffer == "9162000"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2014" & dat_2015$Gemeindekennziffer == "9162000"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2014" & dat_2015$Gemeindekennziffer == "9162000"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2014" & dat_2016$Gemeindekennziffer == "9162000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2014" & dat_2016$Gemeindekennziffer == "9162000"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2014" & dat_2017$Gemeindekennziffer == "9162000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2014" & dat_2017$Gemeindekennziffer == "9162000"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2014" & dat_2017_v2$Gemeindekennziffer == "9162000"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2014" & dat_2017_v2$Gemeindekennziffer == "9162000"]))
+
+
+Tabelle_GISD_München <- rbind(Tabelle_GISD_München, cbind("Jahr" = "2015", "GISD-Score V2018" = "-", "Perzentil V2018" = "-",
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2015" & dat_2015$Gemeindekennziffer == "9162000"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2015" & dat_2015$Gemeindekennziffer == "9162000"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2015" & dat_2016$Gemeindekennziffer == "9162000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2015" & dat_2016$Gemeindekennziffer == "9162000"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2015" & dat_2017$Gemeindekennziffer == "9162000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2015" & dat_2017$Gemeindekennziffer == "9162000"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2015" & dat_2017_v2$Gemeindekennziffer == "9162000"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2015" & dat_2017_v2$Gemeindekennziffer == "9162000"]))
+
+
+Tabelle_GISD_München <- rbind(Tabelle_GISD_München, cbind("Jahr" = "2016", "GISD-Score V2018" = "-", "Perzentil V2018" = "-",
+                              
+                              "GISD-Score V2019" = "-","Perzentil V2019" = "-",
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2016" & dat_2016$Gemeindekennziffer == "9162000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2016" & dat_2016$Gemeindekennziffer == "9162000"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2016" & dat_2017$Gemeindekennziffer == "9162000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2016" & dat_2017$Gemeindekennziffer == "9162000"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2016" & dat_2017_v2$Gemeindekennziffer == "9162000"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2015" & dat_2017_v2$Gemeindekennziffer == "9162000"]))
+
+
+Tabelle_GISD_München <- rbind(Tabelle_GISD_München, cbind("Jahr" = "2017", "GISD-Score V2018" = "-", "Perzentil V2018" = "-",
+                              
+                              "GISD-Score V2019" = "-","Perzentil V2019" = "-",
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2017" & dat_2016$Gemeindekennziffer == "9162000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2017" & dat_2016$Gemeindekennziffer == "9162000"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2017" & dat_2017$Gemeindekennziffer == "9162000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2017" & dat_2017$Gemeindekennziffer == "9162000"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2017" & dat_2017_v2$Gemeindekennziffer == "9162000"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2017" & dat_2017_v2$Gemeindekennziffer == "9162000"]))
+
+
+Tabelle_GISD_München <- Tabelle_GISD_München %>% as_tibble()
+kable(Tabelle_GISD_München)
+```
+
+
 
 |Jahr |GISD-Score V2018 |Perzentil V2018 |GISD-Score V2019 |Perzentil V2019 |GISD-Score V2020 |Perzentil V2020 |GISD-Score V2021 |Perzentil V2021 |GISD-Score V2021_v2 |Perzentil V2021_v2 |
 |:----|:----------------|:---------------|:----------------|:---------------|:----------------|:---------------|:----------------|:---------------|:-------------------|:------------------|
@@ -48,6 +301,233 @@ output:
 
 ## Flensburg
 
+```r
+Tabelle_GISD_Flensburg <- cbind("Jahr" = "1998", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "1998" & dat_2014$Gemeindekennziffer == "1001000"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "1998" & dat_2014$Gemeindekennziffer == "1001000"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "1998" & dat_2015$Gemeindekennziffer == "1001000"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "1998" & dat_2015$Gemeindekennziffer == "1001000"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "1998" & dat_2016$Gemeindekennziffer == "1001000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "1998" & dat_2016$Gemeindekennziffer == "1001000"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "1998" & dat_2017$Gemeindekennziffer == "1001000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "1998" & dat_2017$Gemeindekennziffer == "1001000"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "1998" & dat_2017_v2$Gemeindekennziffer == "1001000"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "1999" & dat_2017_v2$Gemeindekennziffer == "1001000"])
+
+                              
+Tabelle_GISD_Flensburg <- rbind(Tabelle_GISD_Flensburg, cbind("Jahr" = "1999", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "1999" & dat_2014$Gemeindekennziffer == "1001000"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "1999" & dat_2014$Gemeindekennziffer == "1001000"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "1999" & dat_2015$Gemeindekennziffer == "1001000"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "1999" & dat_2015$Gemeindekennziffer == "1001000"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "1999" & dat_2016$Gemeindekennziffer == "1001000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "1999" & dat_2016$Gemeindekennziffer == "1001000"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "1999" & dat_2017$Gemeindekennziffer == "1001000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "1999" & dat_2017$Gemeindekennziffer == "1001000"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "1999" & dat_2017_v2$Gemeindekennziffer == "1001000"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "1999" & dat_2017_v2$Gemeindekennziffer == "1001000"]))
+
+
+Tabelle_GISD_Flensburg <- rbind(Tabelle_GISD_Flensburg, cbind("Jahr" = "2000", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "2000" & dat_2014$Gemeindekennziffer == "1001000"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2000" & dat_2014$Gemeindekennziffer == "1001000"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2000" & dat_2015$Gemeindekennziffer == "1001000"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2000" & dat_2015$Gemeindekennziffer == "1001000"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2000" & dat_2016$Gemeindekennziffer == "1001000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2000" & dat_2016$Gemeindekennziffer == "1001000"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2000" & dat_2017$Gemeindekennziffer == "1001000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2000" & dat_2017$Gemeindekennziffer == "1001000"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2000" & dat_2017_v2$Gemeindekennziffer == "1001000"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2000" & dat_2017_v2$Gemeindekennziffer == "1001000"]))
+
+
+Tabelle_GISD_Flensburg <- rbind(Tabelle_GISD_Flensburg, cbind("Jahr" = "2001", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "2001" & dat_2014$Gemeindekennziffer == "1001000"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2001" & dat_2014$Gemeindekennziffer == "1001000"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2001" & dat_2015$Gemeindekennziffer == "1001000"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2001" & dat_2015$Gemeindekennziffer == "1001000"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2001" & dat_2016$Gemeindekennziffer == "1001000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2001" & dat_2016$Gemeindekennziffer == "1001000"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2001" & dat_2017$Gemeindekennziffer == "1001000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2001" & dat_2017$Gemeindekennziffer == "1001000"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2001" & dat_2017_v2$Gemeindekennziffer == "1001000"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2001" & dat_2017_v2$Gemeindekennziffer == "1001000"]))
+
+
+Tabelle_GISD_Flensburg <- rbind(Tabelle_GISD_Flensburg, cbind("Jahr" = "2002", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "2002" & dat_2014$Gemeindekennziffer == "1001000"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2002" & dat_2014$Gemeindekennziffer == "1001000"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2002" & dat_2015$Gemeindekennziffer == "1001000"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2002" & dat_2015$Gemeindekennziffer == "1001000"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2002" & dat_2016$Gemeindekennziffer == "1001000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2002" & dat_2016$Gemeindekennziffer == "1001000"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2002" & dat_2017$Gemeindekennziffer == "1001000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2002" & dat_2017$Gemeindekennziffer == "1001000"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2002" & dat_2017_v2$Gemeindekennziffer == "1001000"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2002" & dat_2017_v2$Gemeindekennziffer == "1001000"]))
+
+
+Tabelle_GISD_Flensburg <- rbind(Tabelle_GISD_Flensburg, cbind("Jahr" = "2003", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "2003" & dat_2014$Gemeindekennziffer == "1001000"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2003" & dat_2014$Gemeindekennziffer == "1001000"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2003" & dat_2015$Gemeindekennziffer == "1001000"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2003" & dat_2015$Gemeindekennziffer == "1001000"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2003" & dat_2016$Gemeindekennziffer == "1001000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2003" & dat_2016$Gemeindekennziffer == "1001000"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2003" & dat_2017$Gemeindekennziffer == "1001000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2003" & dat_2017$Gemeindekennziffer == "1001000"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2003" & dat_2017_v2$Gemeindekennziffer == "1001000"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2003" & dat_2017_v2$Gemeindekennziffer == "1001000"]))
+
+
+Tabelle_GISD_Flensburg <- rbind(Tabelle_GISD_Flensburg, cbind("Jahr" = "2004", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "2004" & dat_2014$Gemeindekennziffer == "1001000"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2004" & dat_2014$Gemeindekennziffer == "1001000"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2004" & dat_2015$Gemeindekennziffer == "1001000"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2004" & dat_2015$Gemeindekennziffer == "1001000"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2004" & dat_2016$Gemeindekennziffer == "1001000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2004" & dat_2016$Gemeindekennziffer == "1001000"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2004" & dat_2017$Gemeindekennziffer == "1001000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2004" & dat_2017$Gemeindekennziffer == "1001000"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2004" & dat_2017_v2$Gemeindekennziffer == "1001000"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2004" & dat_2017_v2$Gemeindekennziffer == "1001000"]))
+
+
+Tabelle_GISD_Flensburg <- rbind(Tabelle_GISD_Flensburg, cbind("Jahr" = "2005", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "2005" & dat_2014$Gemeindekennziffer == "1001000"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2005" & dat_2014$Gemeindekennziffer == "1001000"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2005" & dat_2015$Gemeindekennziffer == "1001000"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2005" & dat_2015$Gemeindekennziffer == "1001000"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2005" & dat_2016$Gemeindekennziffer == "1001000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2005" & dat_2016$Gemeindekennziffer == "1001000"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2005" & dat_2017$Gemeindekennziffer == "1001000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2005" & dat_2017$Gemeindekennziffer == "1001000"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2005" & dat_2017_v2$Gemeindekennziffer == "1001000"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2005" & dat_2017_v2$Gemeindekennziffer == "1001000"]))
+
+
+Tabelle_GISD_Flensburg <- rbind(Tabelle_GISD_Flensburg, cbind("Jahr" = "2006", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "2006" & dat_2014$Gemeindekennziffer == "1001000"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2006" & dat_2014$Gemeindekennziffer == "1001000"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2006" & dat_2015$Gemeindekennziffer == "1001000"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2006" & dat_2015$Gemeindekennziffer == "1001000"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2006" & dat_2016$Gemeindekennziffer == "1001000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2006" & dat_2016$Gemeindekennziffer == "1001000"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2006" & dat_2017$Gemeindekennziffer == "1001000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2006" & dat_2017$Gemeindekennziffer == "1001000"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2006" & dat_2017_v2$Gemeindekennziffer == "1001000"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2006" & dat_2017_v2$Gemeindekennziffer == "1001000"]))
+
+
+Tabelle_GISD_Flensburg <- rbind(Tabelle_GISD_Flensburg, cbind("Jahr" = "2007", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "2007" & dat_2014$Gemeindekennziffer == "1001000"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2007" & dat_2014$Gemeindekennziffer == "1001000"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2007" & dat_2015$Gemeindekennziffer == "1001000"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2007" & dat_2015$Gemeindekennziffer == "1001000"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2007" & dat_2016$Gemeindekennziffer == "1001000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2007" & dat_2016$Gemeindekennziffer == "1001000"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2007" & dat_2017$Gemeindekennziffer == "1001000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2007" & dat_2017$Gemeindekennziffer == "1001000"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2007" & dat_2017_v2$Gemeindekennziffer == "1001000"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2007" & dat_2017_v2$Gemeindekennziffer == "1001000"]))
+
+
+Tabelle_GISD_Flensburg <- rbind(Tabelle_GISD_Flensburg, cbind("Jahr" = "2008", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "2008" & dat_2014$Gemeindekennziffer == "1001000"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2008" & dat_2014$Gemeindekennziffer == "1001000"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2008" & dat_2015$Gemeindekennziffer == "1001000"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2008" & dat_2015$Gemeindekennziffer == "1001000"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2008" & dat_2016$Gemeindekennziffer == "1001000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2008" & dat_2016$Gemeindekennziffer == "1001000"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2008" & dat_2017$Gemeindekennziffer == "1001000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2008" & dat_2017$Gemeindekennziffer == "1001000"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2008" & dat_2017_v2$Gemeindekennziffer == "1001000"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2008" & dat_2017_v2$Gemeindekennziffer == "1001000"]))
+
+
+Tabelle_GISD_Flensburg <- rbind(Tabelle_GISD_Flensburg, cbind("Jahr" = "2009", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "2009" & dat_2014$Gemeindekennziffer == "1001000"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2009" & dat_2014$Gemeindekennziffer == "1001000"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2009" & dat_2015$Gemeindekennziffer == "1001000"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2009" & dat_2015$Gemeindekennziffer == "1001000"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2009" & dat_2016$Gemeindekennziffer == "1001000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2009" & dat_2016$Gemeindekennziffer == "1001000"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2009" & dat_2017$Gemeindekennziffer == "1001000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2009" & dat_2017$Gemeindekennziffer == "1001000"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2009" & dat_2017_v2$Gemeindekennziffer == "1001000"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2009" & dat_2017_v2$Gemeindekennziffer == "1001000"]))
+
+
+Tabelle_GISD_Flensburg <- rbind(Tabelle_GISD_Flensburg, cbind("Jahr" = "2010", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "2010" & dat_2014$Gemeindekennziffer == "1001000"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2010" & dat_2014$Gemeindekennziffer == "1001000"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2010" & dat_2015$Gemeindekennziffer == "1001000"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2010" & dat_2015$Gemeindekennziffer == "1001000"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2010" & dat_2016$Gemeindekennziffer == "1001000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2010" & dat_2016$Gemeindekennziffer == "1001000"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2010" & dat_2017$Gemeindekennziffer == "1001000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2010" & dat_2017$Gemeindekennziffer == "1001000"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2010" & dat_2017_v2$Gemeindekennziffer == "1001000"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2010" & dat_2017_v2$Gemeindekennziffer == "1001000"]))
+
+
+Tabelle_GISD_Flensburg <- rbind(Tabelle_GISD_Flensburg, cbind("Jahr" = "2011", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "2011" & dat_2014$Gemeindekennziffer == "1001000"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2011" & dat_2014$Gemeindekennziffer == "1001000"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2011" & dat_2015$Gemeindekennziffer == "1001000"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2011" & dat_2015$Gemeindekennziffer == "1001000"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2011" & dat_2016$Gemeindekennziffer == "1001000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2011" & dat_2016$Gemeindekennziffer == "1001000"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2011" & dat_2017$Gemeindekennziffer == "1001000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2011" & dat_2017$Gemeindekennziffer == "1001000"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2011" & dat_2017_v2$Gemeindekennziffer == "1001000"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2011" & dat_2017_v2$Gemeindekennziffer == "1001000"]))
+
+
+Tabelle_GISD_Flensburg <- rbind(Tabelle_GISD_Flensburg, cbind("Jahr" = "2012", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "2012" & dat_2014$Gemeindekennziffer == "1001000"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2012" & dat_2014$Gemeindekennziffer == "1001000"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2012" & dat_2015$Gemeindekennziffer == "1001000"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2012" & dat_2015$Gemeindekennziffer == "1001000"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2012" & dat_2016$Gemeindekennziffer == "1001000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2012" & dat_2016$Gemeindekennziffer == "1001000"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2012" & dat_2017$Gemeindekennziffer == "1001000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2012" & dat_2017$Gemeindekennziffer == "1001000"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2012" & dat_2017_v2$Gemeindekennziffer == "1001000"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2012" & dat_2017_v2$Gemeindekennziffer == "1001000"]))
+
+
+Tabelle_GISD_Flensburg <- rbind(Tabelle_GISD_Flensburg, cbind("Jahr" = "2013", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "2013" & dat_2014$Gemeindekennziffer == "1001000"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2013" & dat_2014$Gemeindekennziffer == "1001000"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2013" & dat_2015$Gemeindekennziffer == "1001000"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2013" & dat_2015$Gemeindekennziffer == "1001000"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2013" & dat_2016$Gemeindekennziffer == "1001000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2013" & dat_2016$Gemeindekennziffer == "1001000"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2013" & dat_2017$Gemeindekennziffer == "1001000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2013" & dat_2017$Gemeindekennziffer == "1001000"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2013" & dat_2017_v2$Gemeindekennziffer == "1001000"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2013" & dat_2017_v2$Gemeindekennziffer == "1001000"]))
+
+
+Tabelle_GISD_Flensburg <- rbind(Tabelle_GISD_Flensburg, cbind("Jahr" = "2014", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "2014" & dat_2014$Gemeindekennziffer == "1001000"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2014" & dat_2014$Gemeindekennziffer == "1001000"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2014" & dat_2015$Gemeindekennziffer == "1001000"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2014" & dat_2015$Gemeindekennziffer == "1001000"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2014" & dat_2016$Gemeindekennziffer == "1001000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2014" & dat_2016$Gemeindekennziffer == "1001000"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2014" & dat_2017$Gemeindekennziffer == "1001000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2014" & dat_2017$Gemeindekennziffer == "1001000"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2014" & dat_2017_v2$Gemeindekennziffer == "1001000"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2014" & dat_2017_v2$Gemeindekennziffer == "1001000"]))
+
+
+Tabelle_GISD_Flensburg <- rbind(Tabelle_GISD_Flensburg, cbind("Jahr" = "2015", "GISD-Score V2018" = "-", "Perzentil V2018" = "-",
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2015" & dat_2015$Gemeindekennziffer == "1001000"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2015" & dat_2015$Gemeindekennziffer == "1001000"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2015" & dat_2016$Gemeindekennziffer == "1001000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2015" & dat_2016$Gemeindekennziffer == "1001000"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2015" & dat_2017$Gemeindekennziffer == "1001000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2015" & dat_2017$Gemeindekennziffer == "1001000"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2015" & dat_2017_v2$Gemeindekennziffer == "1001000"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2015" & dat_2017_v2$Gemeindekennziffer == "1001000"]))
+
+
+Tabelle_GISD_Flensburg <- rbind(Tabelle_GISD_Flensburg, cbind("Jahr" = "2016", "GISD-Score V2018" = "-", "Perzentil V2018" = "-",
+                              
+                              "GISD-Score V2019" = "-","Perzentil V2019" = "-",
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2016" & dat_2016$Gemeindekennziffer == "1001000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2016" & dat_2016$Gemeindekennziffer == "1001000"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2016" & dat_2017$Gemeindekennziffer == "1001000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2016" & dat_2017$Gemeindekennziffer == "1001000"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2016" & dat_2017_v2$Gemeindekennziffer == "1001000"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2015" & dat_2017_v2$Gemeindekennziffer == "1001000"]))
+
+
+Tabelle_GISD_Flensburg <- rbind(Tabelle_GISD_Flensburg, cbind("Jahr" = "2017", "GISD-Score V2018" = "-", "Perzentil V2018" = "-",
+                              
+                              "GISD-Score V2019" = "-","Perzentil V2019" = "-",
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2017" & dat_2016$Gemeindekennziffer == "1001000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2017" & dat_2016$Gemeindekennziffer == "1001000"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2017" & dat_2017$Gemeindekennziffer == "1001000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2017" & dat_2017$Gemeindekennziffer == "1001000"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2017" & dat_2017_v2$Gemeindekennziffer == "1001000"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2017" & dat_2017_v2$Gemeindekennziffer == "1001000"]))
+
+
+Tabelle_GISD_Flensburg <- Tabelle_GISD_Flensburg %>% as_tibble()
+kable(Tabelle_GISD_Flensburg)
+```
+
+
+
 |Jahr |GISD-Score V2018 |Perzentil V2018 |GISD-Score V2019 |Perzentil V2019 |GISD-Score V2020 |Perzentil V2020 |GISD-Score V2021 |Perzentil V2021 |GISD-Score V2021_v2 |Perzentil V2021_v2 |
 |:----|:----------------|:---------------|:----------------|:---------------|:----------------|:---------------|:----------------|:---------------|:-------------------|:------------------|
 |1998 |0.86             |10              |0.84             |10              |0.9              |9               |0.79             |8               |0.76                |9                  |
@@ -72,6 +552,233 @@ output:
 |2017 |-                |-               |-                |-               |0.67             |9               |0.59             |8               |0.56                |10                 |
 
 ## Jena
+
+```r
+Tabelle_GISD_Jena <- cbind("Jahr" = "1998", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "1998" & dat_2014$Gemeindekennziffer == "16053000"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "1998" & dat_2014$Gemeindekennziffer == "16053000"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "1998" & dat_2015$Gemeindekennziffer == "16053000"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "1998" & dat_2015$Gemeindekennziffer == "16053000"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "1998" & dat_2016$Gemeindekennziffer == "16053000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "1998" & dat_2016$Gemeindekennziffer == "16053000"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "1998" & dat_2017$Gemeindekennziffer == "16053000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "1998" & dat_2017$Gemeindekennziffer == "16053000"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "1998" & dat_2017_v2$Gemeindekennziffer == "16053000"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "1999" & dat_2017_v2$Gemeindekennziffer == "16053000"])
+
+                              
+Tabelle_GISD_Jena <- rbind(Tabelle_GISD_Jena, cbind("Jahr" = "1999", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "1999" & dat_2014$Gemeindekennziffer == "16053000"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "1999" & dat_2014$Gemeindekennziffer == "16053000"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "1999" & dat_2015$Gemeindekennziffer == "16053000"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "1999" & dat_2015$Gemeindekennziffer == "16053000"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "1999" & dat_2016$Gemeindekennziffer == "16053000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "1999" & dat_2016$Gemeindekennziffer == "16053000"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "1999" & dat_2017$Gemeindekennziffer == "16053000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "1999" & dat_2017$Gemeindekennziffer == "16053000"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "1999" & dat_2017_v2$Gemeindekennziffer == "16053000"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "1999" & dat_2017_v2$Gemeindekennziffer == "16053000"]))
+
+
+Tabelle_GISD_Jena <- rbind(Tabelle_GISD_Jena, cbind("Jahr" = "2000", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "2000" & dat_2014$Gemeindekennziffer == "16053000"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2000" & dat_2014$Gemeindekennziffer == "16053000"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2000" & dat_2015$Gemeindekennziffer == "16053000"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2000" & dat_2015$Gemeindekennziffer == "16053000"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2000" & dat_2016$Gemeindekennziffer == "16053000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2000" & dat_2016$Gemeindekennziffer == "16053000"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2000" & dat_2017$Gemeindekennziffer == "16053000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2000" & dat_2017$Gemeindekennziffer == "16053000"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2000" & dat_2017_v2$Gemeindekennziffer == "16053000"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2000" & dat_2017_v2$Gemeindekennziffer == "16053000"]))
+
+
+Tabelle_GISD_Jena <- rbind(Tabelle_GISD_Jena, cbind("Jahr" = "2001", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "2001" & dat_2014$Gemeindekennziffer == "16053000"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2001" & dat_2014$Gemeindekennziffer == "16053000"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2001" & dat_2015$Gemeindekennziffer == "16053000"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2001" & dat_2015$Gemeindekennziffer == "16053000"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2001" & dat_2016$Gemeindekennziffer == "16053000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2001" & dat_2016$Gemeindekennziffer == "16053000"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2001" & dat_2017$Gemeindekennziffer == "16053000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2001" & dat_2017$Gemeindekennziffer == "16053000"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2001" & dat_2017_v2$Gemeindekennziffer == "16053000"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2001" & dat_2017_v2$Gemeindekennziffer == "16053000"]))
+
+
+Tabelle_GISD_Jena <- rbind(Tabelle_GISD_Jena, cbind("Jahr" = "2002", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "2002" & dat_2014$Gemeindekennziffer == "16053000"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2002" & dat_2014$Gemeindekennziffer == "16053000"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2002" & dat_2015$Gemeindekennziffer == "16053000"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2002" & dat_2015$Gemeindekennziffer == "16053000"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2002" & dat_2016$Gemeindekennziffer == "16053000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2002" & dat_2016$Gemeindekennziffer == "16053000"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2002" & dat_2017$Gemeindekennziffer == "16053000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2002" & dat_2017$Gemeindekennziffer == "16053000"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2002" & dat_2017_v2$Gemeindekennziffer == "16053000"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2002" & dat_2017_v2$Gemeindekennziffer == "16053000"]))
+
+
+Tabelle_GISD_Jena <- rbind(Tabelle_GISD_Jena, cbind("Jahr" = "2003", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "2003" & dat_2014$Gemeindekennziffer == "16053000"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2003" & dat_2014$Gemeindekennziffer == "16053000"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2003" & dat_2015$Gemeindekennziffer == "16053000"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2003" & dat_2015$Gemeindekennziffer == "16053000"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2003" & dat_2016$Gemeindekennziffer == "16053000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2003" & dat_2016$Gemeindekennziffer == "16053000"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2003" & dat_2017$Gemeindekennziffer == "16053000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2003" & dat_2017$Gemeindekennziffer == "16053000"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2003" & dat_2017_v2$Gemeindekennziffer == "16053000"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2003" & dat_2017_v2$Gemeindekennziffer == "16053000"]))
+
+
+Tabelle_GISD_Jena <- rbind(Tabelle_GISD_Jena, cbind("Jahr" = "2004", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "2004" & dat_2014$Gemeindekennziffer == "16053000"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2004" & dat_2014$Gemeindekennziffer == "16053000"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2004" & dat_2015$Gemeindekennziffer == "16053000"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2004" & dat_2015$Gemeindekennziffer == "16053000"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2004" & dat_2016$Gemeindekennziffer == "16053000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2004" & dat_2016$Gemeindekennziffer == "16053000"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2004" & dat_2017$Gemeindekennziffer == "16053000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2004" & dat_2017$Gemeindekennziffer == "16053000"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2004" & dat_2017_v2$Gemeindekennziffer == "16053000"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2004" & dat_2017_v2$Gemeindekennziffer == "16053000"]))
+
+
+Tabelle_GISD_Jena <- rbind(Tabelle_GISD_Jena, cbind("Jahr" = "2005", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "2005" & dat_2014$Gemeindekennziffer == "16053000"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2005" & dat_2014$Gemeindekennziffer == "16053000"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2005" & dat_2015$Gemeindekennziffer == "16053000"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2005" & dat_2015$Gemeindekennziffer == "16053000"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2005" & dat_2016$Gemeindekennziffer == "16053000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2005" & dat_2016$Gemeindekennziffer == "16053000"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2005" & dat_2017$Gemeindekennziffer == "16053000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2005" & dat_2017$Gemeindekennziffer == "16053000"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2005" & dat_2017_v2$Gemeindekennziffer == "16053000"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2005" & dat_2017_v2$Gemeindekennziffer == "16053000"]))
+
+
+Tabelle_GISD_Jena <- rbind(Tabelle_GISD_Jena, cbind("Jahr" = "2006", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "2006" & dat_2014$Gemeindekennziffer == "16053000"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2006" & dat_2014$Gemeindekennziffer == "16053000"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2006" & dat_2015$Gemeindekennziffer == "16053000"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2006" & dat_2015$Gemeindekennziffer == "16053000"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2006" & dat_2016$Gemeindekennziffer == "16053000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2006" & dat_2016$Gemeindekennziffer == "16053000"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2006" & dat_2017$Gemeindekennziffer == "16053000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2006" & dat_2017$Gemeindekennziffer == "16053000"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2006" & dat_2017_v2$Gemeindekennziffer == "16053000"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2006" & dat_2017_v2$Gemeindekennziffer == "16053000"]))
+
+
+Tabelle_GISD_Jena <- rbind(Tabelle_GISD_Jena, cbind("Jahr" = "2007", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "2007" & dat_2014$Gemeindekennziffer == "16053000"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2007" & dat_2014$Gemeindekennziffer == "16053000"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2007" & dat_2015$Gemeindekennziffer == "16053000"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2007" & dat_2015$Gemeindekennziffer == "16053000"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2007" & dat_2016$Gemeindekennziffer == "16053000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2007" & dat_2016$Gemeindekennziffer == "16053000"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2007" & dat_2017$Gemeindekennziffer == "16053000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2007" & dat_2017$Gemeindekennziffer == "16053000"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2007" & dat_2017_v2$Gemeindekennziffer == "16053000"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2007" & dat_2017_v2$Gemeindekennziffer == "16053000"]))
+
+
+Tabelle_GISD_Jena <- rbind(Tabelle_GISD_Jena, cbind("Jahr" = "2008", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "2008" & dat_2014$Gemeindekennziffer == "16053000"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2008" & dat_2014$Gemeindekennziffer == "16053000"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2008" & dat_2015$Gemeindekennziffer == "16053000"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2008" & dat_2015$Gemeindekennziffer == "16053000"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2008" & dat_2016$Gemeindekennziffer == "16053000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2008" & dat_2016$Gemeindekennziffer == "16053000"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2008" & dat_2017$Gemeindekennziffer == "16053000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2008" & dat_2017$Gemeindekennziffer == "16053000"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2008" & dat_2017_v2$Gemeindekennziffer == "16053000"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2008" & dat_2017_v2$Gemeindekennziffer == "16053000"]))
+
+
+Tabelle_GISD_Jena <- rbind(Tabelle_GISD_Jena, cbind("Jahr" = "2009", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "2009" & dat_2014$Gemeindekennziffer == "16053000"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2009" & dat_2014$Gemeindekennziffer == "16053000"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2009" & dat_2015$Gemeindekennziffer == "16053000"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2009" & dat_2015$Gemeindekennziffer == "16053000"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2009" & dat_2016$Gemeindekennziffer == "16053000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2009" & dat_2016$Gemeindekennziffer == "16053000"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2009" & dat_2017$Gemeindekennziffer == "16053000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2009" & dat_2017$Gemeindekennziffer == "16053000"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2009" & dat_2017_v2$Gemeindekennziffer == "16053000"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2009" & dat_2017_v2$Gemeindekennziffer == "16053000"]))
+
+
+Tabelle_GISD_Jena <- rbind(Tabelle_GISD_Jena, cbind("Jahr" = "2010", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "2010" & dat_2014$Gemeindekennziffer == "16053000"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2010" & dat_2014$Gemeindekennziffer == "16053000"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2010" & dat_2015$Gemeindekennziffer == "16053000"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2010" & dat_2015$Gemeindekennziffer == "16053000"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2010" & dat_2016$Gemeindekennziffer == "16053000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2010" & dat_2016$Gemeindekennziffer == "16053000"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2010" & dat_2017$Gemeindekennziffer == "16053000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2010" & dat_2017$Gemeindekennziffer == "16053000"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2010" & dat_2017_v2$Gemeindekennziffer == "16053000"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2010" & dat_2017_v2$Gemeindekennziffer == "16053000"]))
+
+
+Tabelle_GISD_Jena <- rbind(Tabelle_GISD_Jena, cbind("Jahr" = "2011", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "2011" & dat_2014$Gemeindekennziffer == "16053000"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2011" & dat_2014$Gemeindekennziffer == "16053000"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2011" & dat_2015$Gemeindekennziffer == "16053000"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2011" & dat_2015$Gemeindekennziffer == "16053000"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2011" & dat_2016$Gemeindekennziffer == "16053000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2011" & dat_2016$Gemeindekennziffer == "16053000"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2011" & dat_2017$Gemeindekennziffer == "16053000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2011" & dat_2017$Gemeindekennziffer == "16053000"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2011" & dat_2017_v2$Gemeindekennziffer == "16053000"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2011" & dat_2017_v2$Gemeindekennziffer == "16053000"]))
+
+
+Tabelle_GISD_Jena <- rbind(Tabelle_GISD_Jena, cbind("Jahr" = "2012", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "2012" & dat_2014$Gemeindekennziffer == "16053000"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2012" & dat_2014$Gemeindekennziffer == "16053000"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2012" & dat_2015$Gemeindekennziffer == "16053000"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2012" & dat_2015$Gemeindekennziffer == "16053000"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2012" & dat_2016$Gemeindekennziffer == "16053000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2012" & dat_2016$Gemeindekennziffer == "16053000"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2012" & dat_2017$Gemeindekennziffer == "16053000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2012" & dat_2017$Gemeindekennziffer == "16053000"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2012" & dat_2017_v2$Gemeindekennziffer == "16053000"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2012" & dat_2017_v2$Gemeindekennziffer == "16053000"]))
+
+
+Tabelle_GISD_Jena <- rbind(Tabelle_GISD_Jena, cbind("Jahr" = "2013", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "2013" & dat_2014$Gemeindekennziffer == "16053000"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2013" & dat_2014$Gemeindekennziffer == "16053000"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2013" & dat_2015$Gemeindekennziffer == "16053000"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2013" & dat_2015$Gemeindekennziffer == "16053000"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2013" & dat_2016$Gemeindekennziffer == "16053000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2013" & dat_2016$Gemeindekennziffer == "16053000"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2013" & dat_2017$Gemeindekennziffer == "16053000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2013" & dat_2017$Gemeindekennziffer == "16053000"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2013" & dat_2017_v2$Gemeindekennziffer == "16053000"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2013" & dat_2017_v2$Gemeindekennziffer == "16053000"]))
+
+
+Tabelle_GISD_Jena <- rbind(Tabelle_GISD_Jena, cbind("Jahr" = "2014", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "2014" & dat_2014$Gemeindekennziffer == "16053000"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2014" & dat_2014$Gemeindekennziffer == "16053000"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2014" & dat_2015$Gemeindekennziffer == "16053000"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2014" & dat_2015$Gemeindekennziffer == "16053000"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2014" & dat_2016$Gemeindekennziffer == "16053000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2014" & dat_2016$Gemeindekennziffer == "16053000"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2014" & dat_2017$Gemeindekennziffer == "16053000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2014" & dat_2017$Gemeindekennziffer == "16053000"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2014" & dat_2017_v2$Gemeindekennziffer == "16053000"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2014" & dat_2017_v2$Gemeindekennziffer == "16053000"]))
+
+
+Tabelle_GISD_Jena <- rbind(Tabelle_GISD_Jena, cbind("Jahr" = "2015", "GISD-Score V2018" = "-", "Perzentil V2018" = "-",
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2015" & dat_2015$Gemeindekennziffer == "16053000"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2015" & dat_2015$Gemeindekennziffer == "16053000"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2015" & dat_2016$Gemeindekennziffer == "16053000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2015" & dat_2016$Gemeindekennziffer == "16053000"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2015" & dat_2017$Gemeindekennziffer == "16053000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2015" & dat_2017$Gemeindekennziffer == "16053000"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2015" & dat_2017_v2$Gemeindekennziffer == "16053000"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2015" & dat_2017_v2$Gemeindekennziffer == "16053000"]))
+
+
+Tabelle_GISD_Jena <- rbind(Tabelle_GISD_Jena, cbind("Jahr" = "2016", "GISD-Score V2018" = "-", "Perzentil V2018" = "-",
+                              
+                              "GISD-Score V2019" = "-","Perzentil V2019" = "-",
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2016" & dat_2016$Gemeindekennziffer == "16053000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2016" & dat_2016$Gemeindekennziffer == "16053000"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2016" & dat_2017$Gemeindekennziffer == "16053000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2016" & dat_2017$Gemeindekennziffer == "16053000"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2016" & dat_2017_v2$Gemeindekennziffer == "16053000"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2015" & dat_2017_v2$Gemeindekennziffer == "16053000"]))
+
+
+Tabelle_GISD_Jena <- rbind(Tabelle_GISD_Jena, cbind("Jahr" = "2017", "GISD-Score V2018" = "-", "Perzentil V2018" = "-",
+                              
+                              "GISD-Score V2019" = "-","Perzentil V2019" = "-",
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2017" & dat_2016$Gemeindekennziffer == "16053000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2017" & dat_2016$Gemeindekennziffer == "16053000"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2017" & dat_2017$Gemeindekennziffer == "16053000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2017" & dat_2017$Gemeindekennziffer == "16053000"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2017" & dat_2017_v2$Gemeindekennziffer == "16053000"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2017" & dat_2017_v2$Gemeindekennziffer == "16053000"]))
+
+
+Tabelle_GISD_Jena <- Tabelle_GISD_Jena %>% as_tibble()
+kable(Tabelle_GISD_Jena)
+```
+
+
 
 |Jahr |GISD-Score V2018 |Perzentil V2018 |GISD-Score V2019 |Perzentil V2019 |GISD-Score V2020 |Perzentil V2020 |GISD-Score V2021 |Perzentil V2021 |GISD-Score V2021_v2 |Perzentil V2021_v2 |
 |:----|:----------------|:---------------|:----------------|:---------------|:----------------|:---------------|:----------------|:---------------|:-------------------|:------------------|
@@ -99,6 +806,233 @@ output:
 
 ## Pirmasens
 
+```r
+Tabelle_GISD_Pirmasens <- cbind("Jahr" = "1998", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "1998" & dat_2014$Gemeindekennziffer == "7317000"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "1998" & dat_2014$Gemeindekennziffer == "7317000"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "1998" & dat_2015$Gemeindekennziffer == "7317000"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "1998" & dat_2015$Gemeindekennziffer == "7317000"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "1998" & dat_2016$Gemeindekennziffer == "7317000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "1998" & dat_2016$Gemeindekennziffer == "7317000"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "1998" & dat_2017$Gemeindekennziffer == "7317000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "1998" & dat_2017$Gemeindekennziffer == "7317000"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "1998" & dat_2017_v2$Gemeindekennziffer == "7317000"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "1999" & dat_2017_v2$Gemeindekennziffer == "7317000"])
+
+                              
+Tabelle_GISD_Pirmasens <- rbind(Tabelle_GISD_Pirmasens, cbind("Jahr" = "1999", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "1999" & dat_2014$Gemeindekennziffer == "7317000"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "1999" & dat_2014$Gemeindekennziffer == "7317000"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "1999" & dat_2015$Gemeindekennziffer == "7317000"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "1999" & dat_2015$Gemeindekennziffer == "7317000"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "1999" & dat_2016$Gemeindekennziffer == "7317000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "1999" & dat_2016$Gemeindekennziffer == "7317000"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "1999" & dat_2017$Gemeindekennziffer == "7317000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "1999" & dat_2017$Gemeindekennziffer == "7317000"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "1999" & dat_2017_v2$Gemeindekennziffer == "7317000"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "1999" & dat_2017_v2$Gemeindekennziffer == "7317000"]))
+
+
+Tabelle_GISD_Pirmasens <- rbind(Tabelle_GISD_Pirmasens, cbind("Jahr" = "2000", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "2000" & dat_2014$Gemeindekennziffer == "7317000"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2000" & dat_2014$Gemeindekennziffer == "7317000"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2000" & dat_2015$Gemeindekennziffer == "7317000"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2000" & dat_2015$Gemeindekennziffer == "7317000"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2000" & dat_2016$Gemeindekennziffer == "7317000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2000" & dat_2016$Gemeindekennziffer == "7317000"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2000" & dat_2017$Gemeindekennziffer == "7317000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2000" & dat_2017$Gemeindekennziffer == "7317000"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2000" & dat_2017_v2$Gemeindekennziffer == "7317000"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2000" & dat_2017_v2$Gemeindekennziffer == "7317000"]))
+
+
+Tabelle_GISD_Pirmasens <- rbind(Tabelle_GISD_Pirmasens, cbind("Jahr" = "2001", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "2001" & dat_2014$Gemeindekennziffer == "7317000"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2001" & dat_2014$Gemeindekennziffer == "7317000"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2001" & dat_2015$Gemeindekennziffer == "7317000"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2001" & dat_2015$Gemeindekennziffer == "7317000"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2001" & dat_2016$Gemeindekennziffer == "7317000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2001" & dat_2016$Gemeindekennziffer == "7317000"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2001" & dat_2017$Gemeindekennziffer == "7317000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2001" & dat_2017$Gemeindekennziffer == "7317000"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2001" & dat_2017_v2$Gemeindekennziffer == "7317000"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2001" & dat_2017_v2$Gemeindekennziffer == "7317000"]))
+
+
+Tabelle_GISD_Pirmasens <- rbind(Tabelle_GISD_Pirmasens, cbind("Jahr" = "2002", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "2002" & dat_2014$Gemeindekennziffer == "7317000"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2002" & dat_2014$Gemeindekennziffer == "7317000"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2002" & dat_2015$Gemeindekennziffer == "7317000"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2002" & dat_2015$Gemeindekennziffer == "7317000"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2002" & dat_2016$Gemeindekennziffer == "7317000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2002" & dat_2016$Gemeindekennziffer == "7317000"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2002" & dat_2017$Gemeindekennziffer == "7317000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2002" & dat_2017$Gemeindekennziffer == "7317000"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2002" & dat_2017_v2$Gemeindekennziffer == "7317000"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2002" & dat_2017_v2$Gemeindekennziffer == "7317000"]))
+
+
+Tabelle_GISD_Pirmasens <- rbind(Tabelle_GISD_Pirmasens, cbind("Jahr" = "2003", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "2003" & dat_2014$Gemeindekennziffer == "7317000"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2003" & dat_2014$Gemeindekennziffer == "7317000"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2003" & dat_2015$Gemeindekennziffer == "7317000"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2003" & dat_2015$Gemeindekennziffer == "7317000"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2003" & dat_2016$Gemeindekennziffer == "7317000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2003" & dat_2016$Gemeindekennziffer == "7317000"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2003" & dat_2017$Gemeindekennziffer == "7317000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2003" & dat_2017$Gemeindekennziffer == "7317000"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2003" & dat_2017_v2$Gemeindekennziffer == "7317000"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2003" & dat_2017_v2$Gemeindekennziffer == "7317000"]))
+
+
+Tabelle_GISD_Pirmasens <- rbind(Tabelle_GISD_Pirmasens, cbind("Jahr" = "2004", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "2004" & dat_2014$Gemeindekennziffer == "7317000"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2004" & dat_2014$Gemeindekennziffer == "7317000"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2004" & dat_2015$Gemeindekennziffer == "7317000"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2004" & dat_2015$Gemeindekennziffer == "7317000"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2004" & dat_2016$Gemeindekennziffer == "7317000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2004" & dat_2016$Gemeindekennziffer == "7317000"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2004" & dat_2017$Gemeindekennziffer == "7317000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2004" & dat_2017$Gemeindekennziffer == "7317000"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2004" & dat_2017_v2$Gemeindekennziffer == "7317000"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2004" & dat_2017_v2$Gemeindekennziffer == "7317000"]))
+
+
+Tabelle_GISD_Pirmasens <- rbind(Tabelle_GISD_Pirmasens, cbind("Jahr" = "2005", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "2005" & dat_2014$Gemeindekennziffer == "7317000"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2005" & dat_2014$Gemeindekennziffer == "7317000"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2005" & dat_2015$Gemeindekennziffer == "7317000"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2005" & dat_2015$Gemeindekennziffer == "7317000"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2005" & dat_2016$Gemeindekennziffer == "7317000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2005" & dat_2016$Gemeindekennziffer == "7317000"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2005" & dat_2017$Gemeindekennziffer == "7317000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2005" & dat_2017$Gemeindekennziffer == "7317000"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2005" & dat_2017_v2$Gemeindekennziffer == "7317000"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2005" & dat_2017_v2$Gemeindekennziffer == "7317000"]))
+
+
+Tabelle_GISD_Pirmasens <- rbind(Tabelle_GISD_Pirmasens, cbind("Jahr" = "2006", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "2006" & dat_2014$Gemeindekennziffer == "7317000"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2006" & dat_2014$Gemeindekennziffer == "7317000"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2006" & dat_2015$Gemeindekennziffer == "7317000"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2006" & dat_2015$Gemeindekennziffer == "7317000"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2006" & dat_2016$Gemeindekennziffer == "7317000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2006" & dat_2016$Gemeindekennziffer == "7317000"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2006" & dat_2017$Gemeindekennziffer == "7317000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2006" & dat_2017$Gemeindekennziffer == "7317000"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2006" & dat_2017_v2$Gemeindekennziffer == "7317000"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2006" & dat_2017_v2$Gemeindekennziffer == "7317000"]))
+
+
+Tabelle_GISD_Pirmasens <- rbind(Tabelle_GISD_Pirmasens, cbind("Jahr" = "2007", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "2007" & dat_2014$Gemeindekennziffer == "7317000"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2007" & dat_2014$Gemeindekennziffer == "7317000"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2007" & dat_2015$Gemeindekennziffer == "7317000"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2007" & dat_2015$Gemeindekennziffer == "7317000"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2007" & dat_2016$Gemeindekennziffer == "7317000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2007" & dat_2016$Gemeindekennziffer == "7317000"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2007" & dat_2017$Gemeindekennziffer == "7317000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2007" & dat_2017$Gemeindekennziffer == "7317000"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2007" & dat_2017_v2$Gemeindekennziffer == "7317000"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2007" & dat_2017_v2$Gemeindekennziffer == "7317000"]))
+
+
+Tabelle_GISD_Pirmasens <- rbind(Tabelle_GISD_Pirmasens, cbind("Jahr" = "2008", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "2008" & dat_2014$Gemeindekennziffer == "7317000"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2008" & dat_2014$Gemeindekennziffer == "7317000"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2008" & dat_2015$Gemeindekennziffer == "7317000"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2008" & dat_2015$Gemeindekennziffer == "7317000"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2008" & dat_2016$Gemeindekennziffer == "7317000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2008" & dat_2016$Gemeindekennziffer == "7317000"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2008" & dat_2017$Gemeindekennziffer == "7317000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2008" & dat_2017$Gemeindekennziffer == "7317000"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2008" & dat_2017_v2$Gemeindekennziffer == "7317000"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2008" & dat_2017_v2$Gemeindekennziffer == "7317000"]))
+
+
+Tabelle_GISD_Pirmasens <- rbind(Tabelle_GISD_Pirmasens, cbind("Jahr" = "2009", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "2009" & dat_2014$Gemeindekennziffer == "7317000"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2009" & dat_2014$Gemeindekennziffer == "7317000"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2009" & dat_2015$Gemeindekennziffer == "7317000"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2009" & dat_2015$Gemeindekennziffer == "7317000"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2009" & dat_2016$Gemeindekennziffer == "7317000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2009" & dat_2016$Gemeindekennziffer == "7317000"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2009" & dat_2017$Gemeindekennziffer == "7317000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2009" & dat_2017$Gemeindekennziffer == "7317000"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2009" & dat_2017_v2$Gemeindekennziffer == "7317000"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2009" & dat_2017_v2$Gemeindekennziffer == "7317000"]))
+
+
+Tabelle_GISD_Pirmasens <- rbind(Tabelle_GISD_Pirmasens, cbind("Jahr" = "2010", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "2010" & dat_2014$Gemeindekennziffer == "7317000"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2010" & dat_2014$Gemeindekennziffer == "7317000"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2010" & dat_2015$Gemeindekennziffer == "7317000"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2010" & dat_2015$Gemeindekennziffer == "7317000"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2010" & dat_2016$Gemeindekennziffer == "7317000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2010" & dat_2016$Gemeindekennziffer == "7317000"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2010" & dat_2017$Gemeindekennziffer == "7317000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2010" & dat_2017$Gemeindekennziffer == "7317000"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2010" & dat_2017_v2$Gemeindekennziffer == "7317000"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2010" & dat_2017_v2$Gemeindekennziffer == "7317000"]))
+
+
+Tabelle_GISD_Pirmasens <- rbind(Tabelle_GISD_Pirmasens, cbind("Jahr" = "2011", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "2011" & dat_2014$Gemeindekennziffer == "7317000"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2011" & dat_2014$Gemeindekennziffer == "7317000"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2011" & dat_2015$Gemeindekennziffer == "7317000"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2011" & dat_2015$Gemeindekennziffer == "7317000"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2011" & dat_2016$Gemeindekennziffer == "7317000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2011" & dat_2016$Gemeindekennziffer == "7317000"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2011" & dat_2017$Gemeindekennziffer == "7317000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2011" & dat_2017$Gemeindekennziffer == "7317000"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2011" & dat_2017_v2$Gemeindekennziffer == "7317000"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2011" & dat_2017_v2$Gemeindekennziffer == "7317000"]))
+
+
+Tabelle_GISD_Pirmasens <- rbind(Tabelle_GISD_Pirmasens, cbind("Jahr" = "2012", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "2012" & dat_2014$Gemeindekennziffer == "7317000"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2012" & dat_2014$Gemeindekennziffer == "7317000"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2012" & dat_2015$Gemeindekennziffer == "7317000"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2012" & dat_2015$Gemeindekennziffer == "7317000"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2012" & dat_2016$Gemeindekennziffer == "7317000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2012" & dat_2016$Gemeindekennziffer == "7317000"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2012" & dat_2017$Gemeindekennziffer == "7317000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2012" & dat_2017$Gemeindekennziffer == "7317000"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2012" & dat_2017_v2$Gemeindekennziffer == "7317000"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2012" & dat_2017_v2$Gemeindekennziffer == "7317000"]))
+
+
+Tabelle_GISD_Pirmasens <- rbind(Tabelle_GISD_Pirmasens, cbind("Jahr" = "2013", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "2013" & dat_2014$Gemeindekennziffer == "7317000"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2013" & dat_2014$Gemeindekennziffer == "7317000"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2013" & dat_2015$Gemeindekennziffer == "7317000"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2013" & dat_2015$Gemeindekennziffer == "7317000"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2013" & dat_2016$Gemeindekennziffer == "7317000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2013" & dat_2016$Gemeindekennziffer == "7317000"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2013" & dat_2017$Gemeindekennziffer == "7317000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2013" & dat_2017$Gemeindekennziffer == "7317000"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2013" & dat_2017_v2$Gemeindekennziffer == "7317000"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2013" & dat_2017_v2$Gemeindekennziffer == "7317000"]))
+
+
+Tabelle_GISD_Pirmasens <- rbind(Tabelle_GISD_Pirmasens, cbind("Jahr" = "2014", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "2014" & dat_2014$Gemeindekennziffer == "7317000"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2014" & dat_2014$Gemeindekennziffer == "7317000"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2014" & dat_2015$Gemeindekennziffer == "7317000"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2014" & dat_2015$Gemeindekennziffer == "7317000"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2014" & dat_2016$Gemeindekennziffer == "7317000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2014" & dat_2016$Gemeindekennziffer == "7317000"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2014" & dat_2017$Gemeindekennziffer == "7317000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2014" & dat_2017$Gemeindekennziffer == "7317000"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2014" & dat_2017_v2$Gemeindekennziffer == "7317000"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2014" & dat_2017_v2$Gemeindekennziffer == "7317000"]))
+
+
+Tabelle_GISD_Pirmasens <- rbind(Tabelle_GISD_Pirmasens, cbind("Jahr" = "2015", "GISD-Score V2018" = "-", "Perzentil V2018" = "-",
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2015" & dat_2015$Gemeindekennziffer == "7317000"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2015" & dat_2015$Gemeindekennziffer == "7317000"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2015" & dat_2016$Gemeindekennziffer == "7317000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2015" & dat_2016$Gemeindekennziffer == "7317000"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2015" & dat_2017$Gemeindekennziffer == "7317000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2015" & dat_2017$Gemeindekennziffer == "7317000"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2015" & dat_2017_v2$Gemeindekennziffer == "7317000"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2015" & dat_2017_v2$Gemeindekennziffer == "7317000"]))
+
+
+Tabelle_GISD_Pirmasens <- rbind(Tabelle_GISD_Pirmasens, cbind("Jahr" = "2016", "GISD-Score V2018" = "-", "Perzentil V2018" = "-",
+                              
+                              "GISD-Score V2019" = "-","Perzentil V2019" = "-",
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2016" & dat_2016$Gemeindekennziffer == "7317000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2016" & dat_2016$Gemeindekennziffer == "7317000"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2016" & dat_2017$Gemeindekennziffer == "7317000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2016" & dat_2017$Gemeindekennziffer == "7317000"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2016" & dat_2017_v2$Gemeindekennziffer == "7317000"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2015" & dat_2017_v2$Gemeindekennziffer == "7317000"]))
+
+
+Tabelle_GISD_Pirmasens <- rbind(Tabelle_GISD_Pirmasens, cbind("Jahr" = "2017", "GISD-Score V2018" = "-", "Perzentil V2018" = "-",
+                              
+                              "GISD-Score V2019" = "-","Perzentil V2019" = "-",
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2017" & dat_2016$Gemeindekennziffer == "7317000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2017" & dat_2016$Gemeindekennziffer == "7317000"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2017" & dat_2017$Gemeindekennziffer == "7317000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2017" & dat_2017$Gemeindekennziffer == "7317000"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2017" & dat_2017_v2$Gemeindekennziffer == "7317000"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2017" & dat_2017_v2$Gemeindekennziffer == "7317000"]))
+
+
+Tabelle_GISD_Pirmasens <- Tabelle_GISD_Pirmasens %>% as_tibble()
+kable(Tabelle_GISD_Pirmasens)
+```
+
+
+
 |Jahr |GISD-Score V2018 |Perzentil V2018 |GISD-Score V2019 |Perzentil V2019 |GISD-Score V2020 |Perzentil V2020 |GISD-Score V2021 |Perzentil V2021 |GISD-Score V2021_v2 |Perzentil V2021_v2 |
 |:----|:----------------|:---------------|:----------------|:---------------|:----------------|:---------------|:----------------|:---------------|:-------------------|:------------------|
 |1998 |1                |10              |0.89             |10              |0.94             |10              |0.82             |8               |0.83                |10                 |
@@ -125,6 +1059,233 @@ output:
 
 ## Bautzen
 
+```r
+Tabelle_GISD_Bautzen <- cbind("Jahr" = "1998", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "1998" & dat_2014$Gemeindekennziffer == "14625020"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "1998" & dat_2014$Gemeindekennziffer == "14625020"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "1998" & dat_2015$Gemeindekennziffer == "14625020"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "1998" & dat_2015$Gemeindekennziffer == "14625020"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "1998" & dat_2016$Gemeindekennziffer == "14625020"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "1998" & dat_2016$Gemeindekennziffer == "14625020"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "1998" & dat_2017$Gemeindekennziffer == "14625020"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "1998" & dat_2017$Gemeindekennziffer == "14625020"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "1998" & dat_2017_v2$Gemeindekennziffer == "14625020"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "1999" & dat_2017_v2$Gemeindekennziffer == "14625020"])
+
+                              
+Tabelle_GISD_Bautzen <- rbind(Tabelle_GISD_Bautzen, cbind("Jahr" = "1999", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "1999" & dat_2014$Gemeindekennziffer == "14625020"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "1999" & dat_2014$Gemeindekennziffer == "14625020"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "1999" & dat_2015$Gemeindekennziffer == "14625020"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "1999" & dat_2015$Gemeindekennziffer == "14625020"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "1999" & dat_2016$Gemeindekennziffer == "14625020"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "1999" & dat_2016$Gemeindekennziffer == "14625020"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "1999" & dat_2017$Gemeindekennziffer == "14625020"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "1999" & dat_2017$Gemeindekennziffer == "14625020"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "1999" & dat_2017_v2$Gemeindekennziffer == "14625020"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "1999" & dat_2017_v2$Gemeindekennziffer == "14625020"]))
+
+
+Tabelle_GISD_Bautzen <- rbind(Tabelle_GISD_Bautzen, cbind("Jahr" = "2000", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "2000" & dat_2014$Gemeindekennziffer == "14625020"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2000" & dat_2014$Gemeindekennziffer == "14625020"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2000" & dat_2015$Gemeindekennziffer == "14625020"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2000" & dat_2015$Gemeindekennziffer == "14625020"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2000" & dat_2016$Gemeindekennziffer == "14625020"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2000" & dat_2016$Gemeindekennziffer == "14625020"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2000" & dat_2017$Gemeindekennziffer == "14625020"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2000" & dat_2017$Gemeindekennziffer == "14625020"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2000" & dat_2017_v2$Gemeindekennziffer == "14625020"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2000" & dat_2017_v2$Gemeindekennziffer == "14625020"]))
+
+
+Tabelle_GISD_Bautzen <- rbind(Tabelle_GISD_Bautzen, cbind("Jahr" = "2001", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "2001" & dat_2014$Gemeindekennziffer == "14625020"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2001" & dat_2014$Gemeindekennziffer == "14625020"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2001" & dat_2015$Gemeindekennziffer == "14625020"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2001" & dat_2015$Gemeindekennziffer == "14625020"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2001" & dat_2016$Gemeindekennziffer == "14625020"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2001" & dat_2016$Gemeindekennziffer == "14625020"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2001" & dat_2017$Gemeindekennziffer == "14625020"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2001" & dat_2017$Gemeindekennziffer == "14625020"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2001" & dat_2017_v2$Gemeindekennziffer == "14625020"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2001" & dat_2017_v2$Gemeindekennziffer == "14625020"]))
+
+
+Tabelle_GISD_Bautzen <- rbind(Tabelle_GISD_Bautzen, cbind("Jahr" = "2002", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "2002" & dat_2014$Gemeindekennziffer == "14625020"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2002" & dat_2014$Gemeindekennziffer == "14625020"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2002" & dat_2015$Gemeindekennziffer == "14625020"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2002" & dat_2015$Gemeindekennziffer == "14625020"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2002" & dat_2016$Gemeindekennziffer == "14625020"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2002" & dat_2016$Gemeindekennziffer == "14625020"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2002" & dat_2017$Gemeindekennziffer == "14625020"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2002" & dat_2017$Gemeindekennziffer == "14625020"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2002" & dat_2017_v2$Gemeindekennziffer == "14625020"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2002" & dat_2017_v2$Gemeindekennziffer == "14625020"]))
+
+
+Tabelle_GISD_Bautzen <- rbind(Tabelle_GISD_Bautzen, cbind("Jahr" = "2003", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "2003" & dat_2014$Gemeindekennziffer == "14625020"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2003" & dat_2014$Gemeindekennziffer == "14625020"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2003" & dat_2015$Gemeindekennziffer == "14625020"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2003" & dat_2015$Gemeindekennziffer == "14625020"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2003" & dat_2016$Gemeindekennziffer == "14625020"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2003" & dat_2016$Gemeindekennziffer == "14625020"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2003" & dat_2017$Gemeindekennziffer == "14625020"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2003" & dat_2017$Gemeindekennziffer == "14625020"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2003" & dat_2017_v2$Gemeindekennziffer == "14625020"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2003" & dat_2017_v2$Gemeindekennziffer == "14625020"]))
+
+
+Tabelle_GISD_Bautzen <- rbind(Tabelle_GISD_Bautzen, cbind("Jahr" = "2004", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "2004" & dat_2014$Gemeindekennziffer == "14625020"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2004" & dat_2014$Gemeindekennziffer == "14625020"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2004" & dat_2015$Gemeindekennziffer == "14625020"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2004" & dat_2015$Gemeindekennziffer == "14625020"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2004" & dat_2016$Gemeindekennziffer == "14625020"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2004" & dat_2016$Gemeindekennziffer == "14625020"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2004" & dat_2017$Gemeindekennziffer == "14625020"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2004" & dat_2017$Gemeindekennziffer == "14625020"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2004" & dat_2017_v2$Gemeindekennziffer == "14625020"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2004" & dat_2017_v2$Gemeindekennziffer == "14625020"]))
+
+
+Tabelle_GISD_Bautzen <- rbind(Tabelle_GISD_Bautzen, cbind("Jahr" = "2005", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "2005" & dat_2014$Gemeindekennziffer == "14625020"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2005" & dat_2014$Gemeindekennziffer == "14625020"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2005" & dat_2015$Gemeindekennziffer == "14625020"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2005" & dat_2015$Gemeindekennziffer == "14625020"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2005" & dat_2016$Gemeindekennziffer == "14625020"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2005" & dat_2016$Gemeindekennziffer == "14625020"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2005" & dat_2017$Gemeindekennziffer == "14625020"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2005" & dat_2017$Gemeindekennziffer == "14625020"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2005" & dat_2017_v2$Gemeindekennziffer == "14625020"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2005" & dat_2017_v2$Gemeindekennziffer == "14625020"]))
+
+
+Tabelle_GISD_Bautzen <- rbind(Tabelle_GISD_Bautzen, cbind("Jahr" = "2006", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "2006" & dat_2014$Gemeindekennziffer == "14625020"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2006" & dat_2014$Gemeindekennziffer == "14625020"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2006" & dat_2015$Gemeindekennziffer == "14625020"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2006" & dat_2015$Gemeindekennziffer == "14625020"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2006" & dat_2016$Gemeindekennziffer == "14625020"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2006" & dat_2016$Gemeindekennziffer == "14625020"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2006" & dat_2017$Gemeindekennziffer == "14625020"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2006" & dat_2017$Gemeindekennziffer == "14625020"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2006" & dat_2017_v2$Gemeindekennziffer == "14625020"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2006" & dat_2017_v2$Gemeindekennziffer == "14625020"]))
+
+
+Tabelle_GISD_Bautzen <- rbind(Tabelle_GISD_Bautzen, cbind("Jahr" = "2007", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "2007" & dat_2014$Gemeindekennziffer == "14625020"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2007" & dat_2014$Gemeindekennziffer == "14625020"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2007" & dat_2015$Gemeindekennziffer == "14625020"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2007" & dat_2015$Gemeindekennziffer == "14625020"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2007" & dat_2016$Gemeindekennziffer == "14625020"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2007" & dat_2016$Gemeindekennziffer == "14625020"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2007" & dat_2017$Gemeindekennziffer == "14625020"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2007" & dat_2017$Gemeindekennziffer == "14625020"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2007" & dat_2017_v2$Gemeindekennziffer == "14625020"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2007" & dat_2017_v2$Gemeindekennziffer == "14625020"]))
+
+
+Tabelle_GISD_Bautzen <- rbind(Tabelle_GISD_Bautzen, cbind("Jahr" = "2008", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "2008" & dat_2014$Gemeindekennziffer == "14625020"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2008" & dat_2014$Gemeindekennziffer == "14625020"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2008" & dat_2015$Gemeindekennziffer == "14625020"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2008" & dat_2015$Gemeindekennziffer == "14625020"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2008" & dat_2016$Gemeindekennziffer == "14625020"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2008" & dat_2016$Gemeindekennziffer == "14625020"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2008" & dat_2017$Gemeindekennziffer == "14625020"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2008" & dat_2017$Gemeindekennziffer == "14625020"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2008" & dat_2017_v2$Gemeindekennziffer == "14625020"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2008" & dat_2017_v2$Gemeindekennziffer == "14625020"]))
+
+
+Tabelle_GISD_Bautzen <- rbind(Tabelle_GISD_Bautzen, cbind("Jahr" = "2009", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "2009" & dat_2014$Gemeindekennziffer == "14625020"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2009" & dat_2014$Gemeindekennziffer == "14625020"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2009" & dat_2015$Gemeindekennziffer == "14625020"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2009" & dat_2015$Gemeindekennziffer == "14625020"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2009" & dat_2016$Gemeindekennziffer == "14625020"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2009" & dat_2016$Gemeindekennziffer == "14625020"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2009" & dat_2017$Gemeindekennziffer == "14625020"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2009" & dat_2017$Gemeindekennziffer == "14625020"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2009" & dat_2017_v2$Gemeindekennziffer == "14625020"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2009" & dat_2017_v2$Gemeindekennziffer == "14625020"]))
+
+
+Tabelle_GISD_Bautzen <- rbind(Tabelle_GISD_Bautzen, cbind("Jahr" = "2010", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "2010" & dat_2014$Gemeindekennziffer == "14625020"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2010" & dat_2014$Gemeindekennziffer == "14625020"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2010" & dat_2015$Gemeindekennziffer == "14625020"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2010" & dat_2015$Gemeindekennziffer == "14625020"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2010" & dat_2016$Gemeindekennziffer == "14625020"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2010" & dat_2016$Gemeindekennziffer == "14625020"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2010" & dat_2017$Gemeindekennziffer == "14625020"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2010" & dat_2017$Gemeindekennziffer == "14625020"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2010" & dat_2017_v2$Gemeindekennziffer == "14625020"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2010" & dat_2017_v2$Gemeindekennziffer == "14625020"]))
+
+
+Tabelle_GISD_Bautzen <- rbind(Tabelle_GISD_Bautzen, cbind("Jahr" = "2011", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "2011" & dat_2014$Gemeindekennziffer == "14625020"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2011" & dat_2014$Gemeindekennziffer == "14625020"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2011" & dat_2015$Gemeindekennziffer == "14625020"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2011" & dat_2015$Gemeindekennziffer == "14625020"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2011" & dat_2016$Gemeindekennziffer == "14625020"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2011" & dat_2016$Gemeindekennziffer == "14625020"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2011" & dat_2017$Gemeindekennziffer == "14625020"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2011" & dat_2017$Gemeindekennziffer == "14625020"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2011" & dat_2017_v2$Gemeindekennziffer == "14625020"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2011" & dat_2017_v2$Gemeindekennziffer == "14625020"]))
+
+
+Tabelle_GISD_Bautzen <- rbind(Tabelle_GISD_Bautzen, cbind("Jahr" = "2012", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "2012" & dat_2014$Gemeindekennziffer == "14625020"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2012" & dat_2014$Gemeindekennziffer == "14625020"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2012" & dat_2015$Gemeindekennziffer == "14625020"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2012" & dat_2015$Gemeindekennziffer == "14625020"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2012" & dat_2016$Gemeindekennziffer == "14625020"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2012" & dat_2016$Gemeindekennziffer == "14625020"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2012" & dat_2017$Gemeindekennziffer == "14625020"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2012" & dat_2017$Gemeindekennziffer == "14625020"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2012" & dat_2017_v2$Gemeindekennziffer == "14625020"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2012" & dat_2017_v2$Gemeindekennziffer == "14625020"]))
+
+
+Tabelle_GISD_Bautzen <- rbind(Tabelle_GISD_Bautzen, cbind("Jahr" = "2013", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "2013" & dat_2014$Gemeindekennziffer == "14625020"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2013" & dat_2014$Gemeindekennziffer == "14625020"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2013" & dat_2015$Gemeindekennziffer == "14625020"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2013" & dat_2015$Gemeindekennziffer == "14625020"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2013" & dat_2016$Gemeindekennziffer == "14625020"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2013" & dat_2016$Gemeindekennziffer == "14625020"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2013" & dat_2017$Gemeindekennziffer == "14625020"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2013" & dat_2017$Gemeindekennziffer == "14625020"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2013" & dat_2017_v2$Gemeindekennziffer == "14625020"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2013" & dat_2017_v2$Gemeindekennziffer == "14625020"]))
+
+
+Tabelle_GISD_Bautzen <- rbind(Tabelle_GISD_Bautzen, cbind("Jahr" = "2014", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "2014" & dat_2014$Gemeindekennziffer == "14625020"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2014" & dat_2014$Gemeindekennziffer == "14625020"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2014" & dat_2015$Gemeindekennziffer == "14625020"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2014" & dat_2015$Gemeindekennziffer == "14625020"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2014" & dat_2016$Gemeindekennziffer == "14625020"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2014" & dat_2016$Gemeindekennziffer == "14625020"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2014" & dat_2017$Gemeindekennziffer == "14625020"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2014" & dat_2017$Gemeindekennziffer == "14625020"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2014" & dat_2017_v2$Gemeindekennziffer == "14625020"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2014" & dat_2017_v2$Gemeindekennziffer == "14625020"]))
+
+
+Tabelle_GISD_Bautzen <- rbind(Tabelle_GISD_Bautzen, cbind("Jahr" = "2015", "GISD-Score V2018" = "-", "Perzentil V2018" = "-",
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2015" & dat_2015$Gemeindekennziffer == "14625020"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2015" & dat_2015$Gemeindekennziffer == "14625020"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2015" & dat_2016$Gemeindekennziffer == "14625020"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2015" & dat_2016$Gemeindekennziffer == "14625020"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2015" & dat_2017$Gemeindekennziffer == "14625020"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2015" & dat_2017$Gemeindekennziffer == "14625020"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2015" & dat_2017_v2$Gemeindekennziffer == "14625020"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2015" & dat_2017_v2$Gemeindekennziffer == "14625020"]))
+
+
+Tabelle_GISD_Bautzen <- rbind(Tabelle_GISD_Bautzen, cbind("Jahr" = "2016", "GISD-Score V2018" = "-", "Perzentil V2018" = "-",
+                              
+                              "GISD-Score V2019" = "-","Perzentil V2019" = "-",
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2016" & dat_2016$Gemeindekennziffer == "14625020"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2016" & dat_2016$Gemeindekennziffer == "14625020"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2016" & dat_2017$Gemeindekennziffer == "14625020"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2016" & dat_2017$Gemeindekennziffer == "14625020"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2016" & dat_2017_v2$Gemeindekennziffer == "14625020"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2015" & dat_2017_v2$Gemeindekennziffer == "14625020"]))
+
+
+Tabelle_GISD_Bautzen <- rbind(Tabelle_GISD_Bautzen, cbind("Jahr" = "2017", "GISD-Score V2018" = "-", "Perzentil V2018" = "-",
+                              
+                              "GISD-Score V2019" = "-","Perzentil V2019" = "-",
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2017" & dat_2016$Gemeindekennziffer == "14625020"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2017" & dat_2016$Gemeindekennziffer == "14625020"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2017" & dat_2017$Gemeindekennziffer == "14625020"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2017" & dat_2017$Gemeindekennziffer == "14625020"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2017" & dat_2017_v2$Gemeindekennziffer == "14625020"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2017" & dat_2017_v2$Gemeindekennziffer == "14625020"]))
+
+
+Tabelle_GISD_Bautzen <- Tabelle_GISD_Bautzen %>% as_tibble()
+kable(Tabelle_GISD_Bautzen)
+```
+
+
+
 |Jahr |GISD-Score V2018 |Perzentil V2018 |GISD-Score V2019 |Perzentil V2019 |GISD-Score V2020 |Perzentil V2020 |GISD-Score V2021 |Perzentil V2021 |GISD-Score V2021_v2 |Perzentil V2021_v2 |
 |:----|:----------------|:---------------|:----------------|:---------------|:----------------|:---------------|:----------------|:---------------|:-------------------|:------------------|
 |1998 |0.78             |9               |0.86             |10              |0.91             |10              |0.88             |10              |0.77                |10                 |
@@ -149,6 +1310,233 @@ output:
 |2017 |-                |-               |-                |-               |0.63             |7               |0.6              |9               |0.48                |8                  |
 
 ## Starnberg
+
+```r
+Tabelle_GISD_Starnberg <- cbind("Jahr" = "1998", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "1998" & dat_2014$Gemeindekennziffer == "9188139"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "1998" & dat_2014$Gemeindekennziffer == "9188139"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "1998" & dat_2015$Gemeindekennziffer == "9188139"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "1998" & dat_2015$Gemeindekennziffer == "9188139"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "1998" & dat_2016$Gemeindekennziffer == "9188139"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "1998" & dat_2016$Gemeindekennziffer == "9188139"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "1998" & dat_2017$Gemeindekennziffer == "9188139"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "1998" & dat_2017$Gemeindekennziffer == "9188139"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "1998" & dat_2017_v2$Gemeindekennziffer == "9188139"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "1999" & dat_2017_v2$Gemeindekennziffer == "9188139"])
+
+                              
+Tabelle_GISD_Starnberg <- rbind(Tabelle_GISD_Starnberg, cbind("Jahr" = "1999", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "1999" & dat_2014$Gemeindekennziffer == "9188139"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "1999" & dat_2014$Gemeindekennziffer == "9188139"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "1999" & dat_2015$Gemeindekennziffer == "9188139"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "1999" & dat_2015$Gemeindekennziffer == "9188139"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "1999" & dat_2016$Gemeindekennziffer == "9188139"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "1999" & dat_2016$Gemeindekennziffer == "9188139"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "1999" & dat_2017$Gemeindekennziffer == "9188139"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "1999" & dat_2017$Gemeindekennziffer == "9188139"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "1999" & dat_2017_v2$Gemeindekennziffer == "9188139"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "1999" & dat_2017_v2$Gemeindekennziffer == "9188139"]))
+
+
+Tabelle_GISD_Starnberg <- rbind(Tabelle_GISD_Starnberg, cbind("Jahr" = "2000", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "2000" & dat_2014$Gemeindekennziffer == "9188139"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2000" & dat_2014$Gemeindekennziffer == "9188139"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2000" & dat_2015$Gemeindekennziffer == "9188139"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2000" & dat_2015$Gemeindekennziffer == "9188139"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2000" & dat_2016$Gemeindekennziffer == "9188139"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2000" & dat_2016$Gemeindekennziffer == "9188139"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2000" & dat_2017$Gemeindekennziffer == "9188139"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2000" & dat_2017$Gemeindekennziffer == "9188139"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2000" & dat_2017_v2$Gemeindekennziffer == "9188139"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2000" & dat_2017_v2$Gemeindekennziffer == "9188139"]))
+
+
+Tabelle_GISD_Starnberg <- rbind(Tabelle_GISD_Starnberg, cbind("Jahr" = "2001", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "2001" & dat_2014$Gemeindekennziffer == "9188139"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2001" & dat_2014$Gemeindekennziffer == "9188139"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2001" & dat_2015$Gemeindekennziffer == "9188139"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2001" & dat_2015$Gemeindekennziffer == "9188139"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2001" & dat_2016$Gemeindekennziffer == "9188139"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2001" & dat_2016$Gemeindekennziffer == "9188139"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2001" & dat_2017$Gemeindekennziffer == "9188139"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2001" & dat_2017$Gemeindekennziffer == "9188139"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2001" & dat_2017_v2$Gemeindekennziffer == "9188139"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2001" & dat_2017_v2$Gemeindekennziffer == "9188139"]))
+
+
+Tabelle_GISD_Starnberg <- rbind(Tabelle_GISD_Starnberg, cbind("Jahr" = "2002", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "2002" & dat_2014$Gemeindekennziffer == "9188139"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2002" & dat_2014$Gemeindekennziffer == "9188139"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2002" & dat_2015$Gemeindekennziffer == "9188139"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2002" & dat_2015$Gemeindekennziffer == "9188139"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2002" & dat_2016$Gemeindekennziffer == "9188139"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2002" & dat_2016$Gemeindekennziffer == "9188139"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2002" & dat_2017$Gemeindekennziffer == "9188139"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2002" & dat_2017$Gemeindekennziffer == "9188139"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2002" & dat_2017_v2$Gemeindekennziffer == "9188139"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2002" & dat_2017_v2$Gemeindekennziffer == "9188139"]))
+
+
+Tabelle_GISD_Starnberg <- rbind(Tabelle_GISD_Starnberg, cbind("Jahr" = "2003", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "2003" & dat_2014$Gemeindekennziffer == "9188139"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2003" & dat_2014$Gemeindekennziffer == "9188139"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2003" & dat_2015$Gemeindekennziffer == "9188139"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2003" & dat_2015$Gemeindekennziffer == "9188139"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2003" & dat_2016$Gemeindekennziffer == "9188139"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2003" & dat_2016$Gemeindekennziffer == "9188139"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2003" & dat_2017$Gemeindekennziffer == "9188139"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2003" & dat_2017$Gemeindekennziffer == "9188139"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2003" & dat_2017_v2$Gemeindekennziffer == "9188139"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2003" & dat_2017_v2$Gemeindekennziffer == "9188139"]))
+
+
+Tabelle_GISD_Starnberg <- rbind(Tabelle_GISD_Starnberg, cbind("Jahr" = "2004", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "2004" & dat_2014$Gemeindekennziffer == "9188139"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2004" & dat_2014$Gemeindekennziffer == "9188139"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2004" & dat_2015$Gemeindekennziffer == "9188139"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2004" & dat_2015$Gemeindekennziffer == "9188139"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2004" & dat_2016$Gemeindekennziffer == "9188139"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2004" & dat_2016$Gemeindekennziffer == "9188139"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2004" & dat_2017$Gemeindekennziffer == "9188139"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2004" & dat_2017$Gemeindekennziffer == "9188139"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2004" & dat_2017_v2$Gemeindekennziffer == "9188139"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2004" & dat_2017_v2$Gemeindekennziffer == "9188139"]))
+
+
+Tabelle_GISD_Starnberg <- rbind(Tabelle_GISD_Starnberg, cbind("Jahr" = "2005", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "2005" & dat_2014$Gemeindekennziffer == "9188139"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2005" & dat_2014$Gemeindekennziffer == "9188139"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2005" & dat_2015$Gemeindekennziffer == "9188139"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2005" & dat_2015$Gemeindekennziffer == "9188139"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2005" & dat_2016$Gemeindekennziffer == "9188139"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2005" & dat_2016$Gemeindekennziffer == "9188139"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2005" & dat_2017$Gemeindekennziffer == "9188139"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2005" & dat_2017$Gemeindekennziffer == "9188139"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2005" & dat_2017_v2$Gemeindekennziffer == "9188139"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2005" & dat_2017_v2$Gemeindekennziffer == "9188139"]))
+
+
+Tabelle_GISD_Starnberg <- rbind(Tabelle_GISD_Starnberg, cbind("Jahr" = "2006", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "2006" & dat_2014$Gemeindekennziffer == "9188139"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2006" & dat_2014$Gemeindekennziffer == "9188139"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2006" & dat_2015$Gemeindekennziffer == "9188139"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2006" & dat_2015$Gemeindekennziffer == "9188139"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2006" & dat_2016$Gemeindekennziffer == "9188139"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2006" & dat_2016$Gemeindekennziffer == "9188139"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2006" & dat_2017$Gemeindekennziffer == "9188139"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2006" & dat_2017$Gemeindekennziffer == "9188139"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2006" & dat_2017_v2$Gemeindekennziffer == "9188139"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2006" & dat_2017_v2$Gemeindekennziffer == "9188139"]))
+
+
+Tabelle_GISD_Starnberg <- rbind(Tabelle_GISD_Starnberg, cbind("Jahr" = "2007", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "2007" & dat_2014$Gemeindekennziffer == "9188139"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2007" & dat_2014$Gemeindekennziffer == "9188139"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2007" & dat_2015$Gemeindekennziffer == "9188139"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2007" & dat_2015$Gemeindekennziffer == "9188139"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2007" & dat_2016$Gemeindekennziffer == "9188139"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2007" & dat_2016$Gemeindekennziffer == "9188139"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2007" & dat_2017$Gemeindekennziffer == "9188139"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2007" & dat_2017$Gemeindekennziffer == "9188139"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2007" & dat_2017_v2$Gemeindekennziffer == "9188139"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2007" & dat_2017_v2$Gemeindekennziffer == "9188139"]))
+
+
+Tabelle_GISD_Starnberg <- rbind(Tabelle_GISD_Starnberg, cbind("Jahr" = "2008", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "2008" & dat_2014$Gemeindekennziffer == "9188139"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2008" & dat_2014$Gemeindekennziffer == "9188139"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2008" & dat_2015$Gemeindekennziffer == "9188139"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2008" & dat_2015$Gemeindekennziffer == "9188139"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2008" & dat_2016$Gemeindekennziffer == "9188139"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2008" & dat_2016$Gemeindekennziffer == "9188139"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2008" & dat_2017$Gemeindekennziffer == "9188139"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2008" & dat_2017$Gemeindekennziffer == "9188139"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2008" & dat_2017_v2$Gemeindekennziffer == "9188139"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2008" & dat_2017_v2$Gemeindekennziffer == "9188139"]))
+
+
+Tabelle_GISD_Starnberg <- rbind(Tabelle_GISD_Starnberg, cbind("Jahr" = "2009", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "2009" & dat_2014$Gemeindekennziffer == "9188139"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2009" & dat_2014$Gemeindekennziffer == "9188139"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2009" & dat_2015$Gemeindekennziffer == "9188139"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2009" & dat_2015$Gemeindekennziffer == "9188139"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2009" & dat_2016$Gemeindekennziffer == "9188139"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2009" & dat_2016$Gemeindekennziffer == "9188139"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2009" & dat_2017$Gemeindekennziffer == "9188139"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2009" & dat_2017$Gemeindekennziffer == "9188139"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2009" & dat_2017_v2$Gemeindekennziffer == "9188139"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2009" & dat_2017_v2$Gemeindekennziffer == "9188139"]))
+
+
+Tabelle_GISD_Starnberg <- rbind(Tabelle_GISD_Starnberg, cbind("Jahr" = "2010", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "2010" & dat_2014$Gemeindekennziffer == "9188139"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2010" & dat_2014$Gemeindekennziffer == "9188139"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2010" & dat_2015$Gemeindekennziffer == "9188139"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2010" & dat_2015$Gemeindekennziffer == "9188139"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2010" & dat_2016$Gemeindekennziffer == "9188139"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2010" & dat_2016$Gemeindekennziffer == "9188139"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2010" & dat_2017$Gemeindekennziffer == "9188139"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2010" & dat_2017$Gemeindekennziffer == "9188139"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2010" & dat_2017_v2$Gemeindekennziffer == "9188139"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2010" & dat_2017_v2$Gemeindekennziffer == "9188139"]))
+
+
+Tabelle_GISD_Starnberg <- rbind(Tabelle_GISD_Starnberg, cbind("Jahr" = "2011", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "2011" & dat_2014$Gemeindekennziffer == "9188139"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2011" & dat_2014$Gemeindekennziffer == "9188139"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2011" & dat_2015$Gemeindekennziffer == "9188139"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2011" & dat_2015$Gemeindekennziffer == "9188139"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2011" & dat_2016$Gemeindekennziffer == "9188139"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2011" & dat_2016$Gemeindekennziffer == "9188139"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2011" & dat_2017$Gemeindekennziffer == "9188139"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2011" & dat_2017$Gemeindekennziffer == "9188139"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2011" & dat_2017_v2$Gemeindekennziffer == "9188139"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2011" & dat_2017_v2$Gemeindekennziffer == "9188139"]))
+
+
+Tabelle_GISD_Starnberg <- rbind(Tabelle_GISD_Starnberg, cbind("Jahr" = "2012", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "2012" & dat_2014$Gemeindekennziffer == "9188139"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2012" & dat_2014$Gemeindekennziffer == "9188139"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2012" & dat_2015$Gemeindekennziffer == "9188139"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2012" & dat_2015$Gemeindekennziffer == "9188139"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2012" & dat_2016$Gemeindekennziffer == "9188139"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2012" & dat_2016$Gemeindekennziffer == "9188139"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2012" & dat_2017$Gemeindekennziffer == "9188139"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2012" & dat_2017$Gemeindekennziffer == "9188139"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2012" & dat_2017_v2$Gemeindekennziffer == "9188139"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2012" & dat_2017_v2$Gemeindekennziffer == "9188139"]))
+
+
+Tabelle_GISD_Starnberg <- rbind(Tabelle_GISD_Starnberg, cbind("Jahr" = "2013", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "2013" & dat_2014$Gemeindekennziffer == "9188139"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2013" & dat_2014$Gemeindekennziffer == "9188139"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2013" & dat_2015$Gemeindekennziffer == "9188139"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2013" & dat_2015$Gemeindekennziffer == "9188139"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2013" & dat_2016$Gemeindekennziffer == "9188139"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2013" & dat_2016$Gemeindekennziffer == "9188139"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2013" & dat_2017$Gemeindekennziffer == "9188139"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2013" & dat_2017$Gemeindekennziffer == "9188139"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2013" & dat_2017_v2$Gemeindekennziffer == "9188139"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2013" & dat_2017_v2$Gemeindekennziffer == "9188139"]))
+
+
+Tabelle_GISD_Starnberg <- rbind(Tabelle_GISD_Starnberg, cbind("Jahr" = "2014", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "2014" & dat_2014$Gemeindekennziffer == "9188139"], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2014" & dat_2014$Gemeindekennziffer == "9188139"],
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2014" & dat_2015$Gemeindekennziffer == "9188139"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2014" & dat_2015$Gemeindekennziffer == "9188139"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2014" & dat_2016$Gemeindekennziffer == "9188139"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2014" & dat_2016$Gemeindekennziffer == "9188139"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2014" & dat_2017$Gemeindekennziffer == "9188139"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2014" & dat_2017$Gemeindekennziffer == "9188139"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2014" & dat_2017_v2$Gemeindekennziffer == "9188139"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2014" & dat_2017_v2$Gemeindekennziffer == "9188139"]))
+
+
+Tabelle_GISD_Starnberg <- rbind(Tabelle_GISD_Starnberg, cbind("Jahr" = "2015", "GISD-Score V2018" = "-", "Perzentil V2018" = "-",
+                              
+                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2015" & dat_2015$Gemeindekennziffer == "9188139"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2015" & dat_2015$Gemeindekennziffer == "9188139"],
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2015" & dat_2016$Gemeindekennziffer == "9188139"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2015" & dat_2016$Gemeindekennziffer == "9188139"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2015" & dat_2017$Gemeindekennziffer == "9188139"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2015" & dat_2017$Gemeindekennziffer == "9188139"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2015" & dat_2017_v2$Gemeindekennziffer == "9188139"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2015" & dat_2017_v2$Gemeindekennziffer == "9188139"]))
+
+
+Tabelle_GISD_Starnberg <- rbind(Tabelle_GISD_Starnberg, cbind("Jahr" = "2016", "GISD-Score V2018" = "-", "Perzentil V2018" = "-",
+                              
+                              "GISD-Score V2019" = "-","Perzentil V2019" = "-",
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2016" & dat_2016$Gemeindekennziffer == "9188139"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2016" & dat_2016$Gemeindekennziffer == "9188139"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2016" & dat_2017$Gemeindekennziffer == "9188139"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2016" & dat_2017$Gemeindekennziffer == "9188139"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2016" & dat_2017_v2$Gemeindekennziffer == "9188139"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2015" & dat_2017_v2$Gemeindekennziffer == "9188139"]))
+
+
+Tabelle_GISD_Starnberg <- rbind(Tabelle_GISD_Starnberg, cbind("Jahr" = "2017", "GISD-Score V2018" = "-", "Perzentil V2018" = "-",
+                              
+                              "GISD-Score V2019" = "-","Perzentil V2019" = "-",
+                              
+                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2017" & dat_2016$Gemeindekennziffer == "9188139"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2017" & dat_2016$Gemeindekennziffer == "9188139"],
+                              
+                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2017" & dat_2017$Gemeindekennziffer == "9188139"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2017" & dat_2017$Gemeindekennziffer == "9188139"],
+                              
+                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2017" & dat_2017_v2$Gemeindekennziffer == "9188139"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2017" & dat_2017_v2$Gemeindekennziffer == "9188139"]))
+
+
+Tabelle_GISD_Starnberg <- Tabelle_GISD_Starnberg %>% as_tibble()
+kable(Tabelle_GISD_Starnberg)
+```
+
+
 
 |Jahr |GISD-Score V2018 |Perzentil V2018 |GISD-Score V2019 |Perzentil V2019 |GISD-Score V2020 |Perzentil V2020 |GISD-Score V2021 |Perzentil V2021 |GISD-Score V2021_v2 |Perzentil V2021_v2 |
 |:----|:----------------|:---------------|:----------------|:---------------|:----------------|:---------------|:----------------|:---------------|:-------------------|:------------------|
@@ -176,12 +1564,349 @@ output:
 
 ## Berlin
 
+```r
+#Tabelle_GISD_Berlin <- cbind(
+#                            "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "1998" & dat_2015$Kreis #== "11000"], digits = 2), "Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "1998" & dat_2015$Gemeindekennziffer #== "11000"], digits = 2)
+#                             "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "1998" & #dat_2016$Gemeindekennziffer == "11000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "1998" & #dat_2016$Gemeindekennziffer == "11000"],
+#                              
+#                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "1998" & #dat_2017$Gemeindekennziffer == "11000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "1998" & #dat_2017$Gemeindekennziffer == "11000"],
+#                              
+#                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "1998" & #dat_2017_v2$Gemeindekennziffer == "11000"], digits = 2), "Perzentil V2021_v2" = dat_2017_v2$GISD_10[dat_2017_v2$Jahr #== "1998" & dat_2017_v2$Gemeindekennziffer == "11000"])
+#
+#                              
+#Tabelle_GISD_Berlin <- rbind(Tabelle_GISD_Berlin, cbind("Jahr" = "1999", "GISD-Score V2018" = #round(dat_2014$GISD_Score[dat_2014$Jahr == "1999" & dat_2014$Gemeindekennziffer == "11000000"], digits = 2), #"Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "1999" & dat_2014$Gemeindekennziffer == "11000000"],
+#                              
+#                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "1999" & #dat_2015$Gemeindekennziffer == "11000000"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "1999" & #dat_2015$Gemeindekennziffer == "11000000"],
+#                              
+#                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "1999" & #dat_2016$Gemeindekennziffer == "11000000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "1999" #& dat_2016$Gemeindekennziffer == "11000000"],
+#                              
+#                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "1999" & #dat_2017$Gemeindekennziffer == "11000000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "1999" #& dat_2017$Gemeindekennziffer == "11000000"],
+#                              
+#                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "1999" & #dat_2017_v2$Gemeindekennziffer == "11000000"], digits = 2), "Perzentil V2021_v2" = #dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "1999" & dat_2017_v2$Gemeindekennziffer == "11000000"]))
+#
+#
+#Tabelle_GISD_Berlin <- rbind(Tabelle_GISD_Berlin, cbind("Jahr" = "2000", "GISD-Score V2018" = #round(dat_2014$GISD_Score[dat_2014$Jahr == "2000" & dat_2014$Gemeindekennziffer == "11000000"], digits = 2), #"Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2000" & dat_2014$Gemeindekennziffer == "11000000"],
+#                              
+#                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2000" & #dat_2015$Gemeindekennziffer == "11000000"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2000" & #dat_2015$Gemeindekennziffer == "11000000"],
+#                              
+#                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2000" & #dat_2016$Gemeindekennziffer == "11000000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2000" #& dat_2016$Gemeindekennziffer == "11000000"],
+#                              
+#                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2000" & #dat_2017$Gemeindekennziffer == "11000000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2000" #& dat_2017$Gemeindekennziffer == "11000000"],
+#                              
+#                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2000" & #dat_2017_v2$Gemeindekennziffer == "11000000"], digits = 2), "Perzentil V2021_v2" = #dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2000" & dat_2017_v2$Gemeindekennziffer == "11000000"]))
+#
+#
+#Tabelle_GISD_Berlin <- rbind(Tabelle_GISD_Berlin, cbind("Jahr" = "2001", "GISD-Score V2018" = #round(dat_2014$GISD_Score[dat_2014$Jahr == "2001" & dat_2014$Gemeindekennziffer == "11000000"], digits = 2), #"Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2001" & dat_2014$Gemeindekennziffer == "11000000"],
+#                              
+#                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2001" & #dat_2015$Gemeindekennziffer == "11000000"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2001" & #dat_2015$Gemeindekennziffer == "11000000"],
+#                              
+#                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2001" & #dat_2016$Gemeindekennziffer == "11000000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2001" #& dat_2016$Gemeindekennziffer == "11000000"],
+#                              
+#                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2001" & #dat_2017$Gemeindekennziffer == "11000000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2001" #& dat_2017$Gemeindekennziffer == "11000000"],
+#                              
+#                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2001" & #dat_2017_v2$Gemeindekennziffer == "11000000"], digits = 2), "Perzentil V2021_v2" = #dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2001" & dat_2017_v2$Gemeindekennziffer == "11000000"]))
+#
+#
+#Tabelle_GISD_Berlin <- rbind(Tabelle_GISD_Berlin, cbind("Jahr" = "2002", "GISD-Score V2018" = #round(dat_2014$GISD_Score[dat_2014$Jahr == "2002" & dat_2014$Gemeindekennziffer == "11000000"], digits = 2), #"Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2002" & dat_2014$Gemeindekennziffer == "11000000"],
+#                              
+#                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2002" & #dat_2015$Gemeindekennziffer == "11000000"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2002" & #dat_2015$Gemeindekennziffer == "11000000"],
+#                              
+#                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2002" & #dat_2016$Gemeindekennziffer == "11000000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2002" #& dat_2016$Gemeindekennziffer == "11000000"],
+#                              
+#                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2002" & #dat_2017$Gemeindekennziffer == "11000000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2002" #& dat_2017$Gemeindekennziffer == "11000000"],
+#                              
+#                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2002" & #dat_2017_v2$Gemeindekennziffer == "11000000"], digits = 2), "Perzentil V2021_v2" = #dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2002" & dat_2017_v2$Gemeindekennziffer == "11000000"]))
+#
+#
+#Tabelle_GISD_Berlin <- rbind(Tabelle_GISD_Berlin, cbind("Jahr" = "2003", "GISD-Score V2018" = #round(dat_2014$GISD_Score[dat_2014$Jahr == "2003" & dat_2014$Gemeindekennziffer == "11000000"], digits = 2), #"Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2003" & dat_2014$Gemeindekennziffer == "11000000"],
+#                              
+#                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2003" & #dat_2015$Gemeindekennziffer == "11000000"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2003" & #dat_2015$Gemeindekennziffer == "11000000"],
+#                              
+#                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2003" & #dat_2016$Gemeindekennziffer == "11000000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2003" #& dat_2016$Gemeindekennziffer == "11000000"],
+#                              
+#                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2003" & #dat_2017$Gemeindekennziffer == "11000000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2003" #& dat_2017$Gemeindekennziffer == "11000000"],
+#                              
+#                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2003" & #dat_2017_v2$Gemeindekennziffer == "11000000"], digits = 2), "Perzentil V2021_v2" = #dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2003" & dat_2017_v2$Gemeindekennziffer == "11000000"]))
+#
+#
+#Tabelle_GISD_Berlin <- rbind(Tabelle_GISD_Berlin, cbind("Jahr" = "2004", "GISD-Score V2018" = #round(dat_2014$GISD_Score[dat_2014$Jahr == "2004" & dat_2014$Gemeindekennziffer == "11000000"], digits = 2), #"Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2004" & dat_2014$Gemeindekennziffer == "11000000"],
+#                              
+#                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2004" & #dat_2015$Gemeindekennziffer == "11000000"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2004" & #dat_2015$Gemeindekennziffer == "11000000"],
+#                              
+#                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2004" & #dat_2016$Gemeindekennziffer == "11000000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2004" #& dat_2016$Gemeindekennziffer == "11000000"],
+#                              
+#                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2004" & #dat_2017$Gemeindekennziffer == "11000000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2004" #& dat_2017$Gemeindekennziffer == "11000000"],
+#                              
+#                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2004" & #dat_2017_v2$Gemeindekennziffer == "11000000"], digits = 2), "Perzentil V2021_v2" = #dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2004" & dat_2017_v2$Gemeindekennziffer == "11000000"]))
+#
+#
+#Tabelle_GISD_Berlin <- rbind(Tabelle_GISD_Berlin, cbind("Jahr" = "2005", "GISD-Score V2018" = #round(dat_2014$GISD_Score[dat_2014$Jahr == "2005" & dat_2014$Gemeindekennziffer == "11000000"], digits = 2), #"Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2005" & dat_2014$Gemeindekennziffer == "11000000"],
+#                              
+#                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2005" & #dat_2015$Gemeindekennziffer == "11000000"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2005" & #dat_2015$Gemeindekennziffer == "11000000"],
+#                              
+#                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2005" & #dat_2016$Gemeindekennziffer == "11000000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2005" #& dat_2016$Gemeindekennziffer == "11000000"],
+#                              
+#                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2005" & #dat_2017$Gemeindekennziffer == "11000000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2005" #& dat_2017$Gemeindekennziffer == "11000000"],
+#                              
+#                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2005" & #dat_2017_v2$Gemeindekennziffer == "11000000"], digits = 2), "Perzentil V2021_v2" = #dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2005" & dat_2017_v2$Gemeindekennziffer == "11000000"]))
+#
+#
+#Tabelle_GISD_Berlin <- rbind(Tabelle_GISD_Berlin, cbind("Jahr" = "2006", "GISD-Score V2018" = #round(dat_2014$GISD_Score[dat_2014$Jahr == "2006" & dat_2014$Gemeindekennziffer == "11000000"], digits = 2), #"Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2006" & dat_2014$Gemeindekennziffer == "11000000"],
+#                              
+#                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2006" & #dat_2015$Gemeindekennziffer == "11000000"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2006" & #dat_2015$Gemeindekennziffer == "11000000"],
+#                              
+#                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2006" & #dat_2016$Gemeindekennziffer == "11000000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2006" #& dat_2016$Gemeindekennziffer == "11000000"],
+#                              
+#                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2006" & #dat_2017$Gemeindekennziffer == "11000000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2006" #& dat_2017$Gemeindekennziffer == "11000000"],
+#                              
+#                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2006" & #dat_2017_v2$Gemeindekennziffer == "11000000"], digits = 2), "Perzentil V2021_v2" = #dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2006" & dat_2017_v2$Gemeindekennziffer == "11000000"]))
+#
+#
+#Tabelle_GISD_Berlin <- rbind(Tabelle_GISD_Berlin, cbind("Jahr" = "2007", "GISD-Score V2018" = #round(dat_2014$GISD_Score[dat_2014$Jahr == "2007" & dat_2014$Gemeindekennziffer == "11000000"], digits = 2), #"Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2007" & dat_2014$Gemeindekennziffer == "11000000"],
+#                              
+#                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2007" & #dat_2015$Gemeindekennziffer == "11000000"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2007" & #dat_2015$Gemeindekennziffer == "11000000"],
+#                              
+#                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2007" & #dat_2016$Gemeindekennziffer == "11000000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2007" #& dat_2016$Gemeindekennziffer == "11000000"],
+#                              
+#                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2007" & #dat_2017$Gemeindekennziffer == "11000000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2007" #& dat_2017$Gemeindekennziffer == "11000000"],
+#                              
+#                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2007" & #dat_2017_v2$Gemeindekennziffer == "11000000"], digits = 2), "Perzentil V2021_v2" = #dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2007" & dat_2017_v2$Gemeindekennziffer == "11000000"]))
+#
+#
+#Tabelle_GISD_Berlin <- rbind(Tabelle_GISD_Berlin, cbind("Jahr" = "2008", "GISD-Score V2018" = #round(dat_2014$GISD_Score[dat_2014$Jahr == "2008" & dat_2014$Gemeindekennziffer == "11000000"], digits = 2), #"Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2008" & dat_2014$Gemeindekennziffer == "11000000"],
+#                              
+#                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2008" & #dat_2015$Gemeindekennziffer == "11000000"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2008" & #dat_2015$Gemeindekennziffer == "11000000"],
+#                              
+#                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2008" & #dat_2016$Gemeindekennziffer == "11000000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2008" #& dat_2016$Gemeindekennziffer == "11000000"],
+#                              
+#                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2008" & #dat_2017$Gemeindekennziffer == "11000000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2008" #& dat_2017$Gemeindekennziffer == "11000000"],
+#                              
+#                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2008" & #dat_2017_v2$Gemeindekennziffer == "11000000"], digits = 2), "Perzentil V2021_v2" = #dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2008" & dat_2017_v2$Gemeindekennziffer == "11000000"]))
+#
+#
+#Tabelle_GISD_Berlin <- rbind(Tabelle_GISD_Berlin, cbind("Jahr" = "2009", "GISD-Score V2018" = #round(dat_2014$GISD_Score[dat_2014$Jahr == "2009" & dat_2014$Gemeindekennziffer == "11000000"], digits = 2), #"Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2009" & dat_2014$Gemeindekennziffer == "11000000"],
+#                              
+#                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2009" & #dat_2015$Gemeindekennziffer == "11000000"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2009" & #dat_2015$Gemeindekennziffer == "11000000"],
+#                              
+#                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2009" & #dat_2016$Gemeindekennziffer == "11000000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2009" #& dat_2016$Gemeindekennziffer == "11000000"],
+#                              
+#                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2009" & #dat_2017$Gemeindekennziffer == "11000000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2009" #& dat_2017$Gemeindekennziffer == "11000000"],
+#                              
+#                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2009" & #dat_2017_v2$Gemeindekennziffer == "11000000"], digits = 2), "Perzentil V2021_v2" = #dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2009" & dat_2017_v2$Gemeindekennziffer == "11000000"]))
+#
+#
+#Tabelle_GISD_Berlin <- rbind(Tabelle_GISD_Berlin, cbind("Jahr" = "2010", "GISD-Score V2018" = #round(dat_2014$GISD_Score[dat_2014$Jahr == "2010" & dat_2014$Gemeindekennziffer == "11000000"], digits = 2), #"Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2010" & dat_2014$Gemeindekennziffer == "11000000"],
+#                              
+#                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2010" & #dat_2015$Gemeindekennziffer == "11000000"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2010" & #dat_2015$Gemeindekennziffer == "11000000"],
+#                              
+#                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2010" & #dat_2016$Gemeindekennziffer == "11000000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2010" #& dat_2016$Gemeindekennziffer == "11000000"],
+#                              
+#                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2010" & #dat_2017$Gemeindekennziffer == "11000000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2010" #& dat_2017$Gemeindekennziffer == "11000000"],
+#                              
+#                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2010" & #dat_2017_v2$Gemeindekennziffer == "11000000"], digits = 2), "Perzentil V2021_v2" = #dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2010" & dat_2017_v2$Gemeindekennziffer == "11000000"]))
+#
+#
+#Tabelle_GISD_Berlin <- rbind(Tabelle_GISD_Berlin, cbind("Jahr" = "2011", "GISD-Score V2018" = #round(dat_2014$GISD_Score[dat_2014$Jahr == "2011" & dat_2014$Gemeindekennziffer == "11000000"], digits = 2), #"Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2011" & dat_2014$Gemeindekennziffer == "11000000"],
+#                              
+#                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2011" & #dat_2015$Gemeindekennziffer == "11000000"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2011" & #dat_2015$Gemeindekennziffer == "11000000"],
+#                              
+#                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2011" & #dat_2016$Gemeindekennziffer == "11000000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2011" #& dat_2016$Gemeindekennziffer == "11000000"],
+#                              
+#                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2011" & #dat_2017$Gemeindekennziffer == "11000000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2011" #& dat_2017$Gemeindekennziffer == "11000000"],
+#                              
+#                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2011" & #dat_2017_v2$Gemeindekennziffer == "11000000"], digits = 2), "Perzentil V2021_v2" = #dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2011" & dat_2017_v2$Gemeindekennziffer == "11000000"]))
+#
+#
+#Tabelle_GISD_Berlin <- rbind(Tabelle_GISD_Berlin, cbind("Jahr" = "2012", "GISD-Score V2018" = #round(dat_2014$GISD_Score[dat_2014$Jahr == "2012" & dat_2014$Gemeindekennziffer == "11000000"], digits = 2), #"Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2012" & dat_2014$Gemeindekennziffer == "11000000"],
+#                              
+#                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2012" & #dat_2015$Gemeindekennziffer == "11000000"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2012" & #dat_2015$Gemeindekennziffer == "11000000"],
+#                              
+#                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2012" & #dat_2016$Gemeindekennziffer == "11000000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2012" #& dat_2016$Gemeindekennziffer == "11000000"],
+#                              
+#                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2012" & #dat_2017$Gemeindekennziffer == "11000000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2012" #& dat_2017$Gemeindekennziffer == "11000000"],
+#                              
+#                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2012" & #dat_2017_v2$Gemeindekennziffer == "11000000"], digits = 2), "Perzentil V2021_v2" = #dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2012" & dat_2017_v2$Gemeindekennziffer == "11000000"]))
+#
+#
+#Tabelle_GISD_Berlin <- rbind(Tabelle_GISD_Berlin, cbind("Jahr" = "2013", "GISD-Score V2018" = #round(dat_2014$GISD_Score[dat_2014$Jahr == "2013" & dat_2014$Gemeindekennziffer == "11000000"], digits = 2), #"Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2013" & dat_2014$Gemeindekennziffer == "11000000"],
+#                              
+#                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2013" & #dat_2015$Gemeindekennziffer == "11000000"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2013" & #dat_2015$Gemeindekennziffer == "11000000"],
+#                              
+#                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2013" & #dat_2016$Gemeindekennziffer == "11000000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2013" #& dat_2016$Gemeindekennziffer == "11000000"],
+#                              
+#                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2013" & #dat_2017$Gemeindekennziffer == "11000000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2013" #& dat_2017$Gemeindekennziffer == "11000000"],
+#                              
+#                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2013" & #dat_2017_v2$Gemeindekennziffer == "11000000"], digits = 2), "Perzentil V2021_v2" = #dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2013" & dat_2017_v2$Gemeindekennziffer == "11000000"]))
+#
+#
+#Tabelle_GISD_Berlin <- rbind(Tabelle_GISD_Berlin, cbind("Jahr" = "2014", "GISD-Score V2018" = #round(dat_2014$GISD_Score[dat_2014$Jahr == "2014" & dat_2014$Gemeindekennziffer == "11000000"], digits = 2), #"Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "2014" & dat_2014$Gemeindekennziffer == "11000000"],
+#                              
+#                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2014" & #dat_2015$Gemeindekennziffer == "11000000"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2014" & #dat_2015$Gemeindekennziffer == "11000000"],
+#                              
+#                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2014" & #dat_2016$Gemeindekennziffer == "11000000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2014" #& dat_2016$Gemeindekennziffer == "11000000"],
+#                              
+#                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2014" & #dat_2017$Gemeindekennziffer == "11000000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2014" #& dat_2017$Gemeindekennziffer == "11000000"],
+#                              
+#                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2014" & #dat_2017_v2$Gemeindekennziffer == "11000000"], digits = 2), "Perzentil V2021_v2" = #dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2014" & dat_2017_v2$Gemeindekennziffer == "11000000"]))
+#
+#
+#Tabelle_GISD_Berlin <- rbind(Tabelle_GISD_Berlin, cbind("Jahr" = "2015", "GISD-Score V2018" = "-", "Perzentil V2018" = #"-",
+#                              
+#                              "GISD-Score V2019" = round(dat_2015$GISD_Score[dat_2015$Jahr == "2015" & #dat_2015$Gemeindekennziffer == "11000000"], digits = 2),"Perzentil V2019" = dat_2015$GISD_10[dat_2015$Jahr == "2015" & #dat_2015$Gemeindekennziffer == "11000000"],
+#                              
+#                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2015" & #dat_2016$Gemeindekennziffer == "11000000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2015" #& dat_2016$Gemeindekennziffer == "11000000"],
+#                              
+#                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2015" & #dat_2017$Gemeindekennziffer == "11000000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2015" #& dat_2017$Gemeindekennziffer == "11000000"],
+#                              
+#                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2015" & #dat_2017_v2$Gemeindekennziffer == "11000000"], digits = 2), "Perzentil V2021_v2" = #dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2015" & dat_2017_v2$Gemeindekennziffer == "11000000"]))
+#
+#
+#Tabelle_GISD_Berlin <- rbind(Tabelle_GISD_Berlin, cbind("Jahr" = "2016", "GISD-Score V2018" = "-", "Perzentil V2018" = #"-",
+#                              
+#                              "GISD-Score V2019" = "-","Perzentil V2019" = "-",
+#                              
+#                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2016" & #dat_2016$Gemeindekennziffer == "11000000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2016" #& dat_2016$Gemeindekennziffer == "11000000"],
+#                              
+#                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2016" & #dat_2017$Gemeindekennziffer == "11000000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2016" #& dat_2017$Gemeindekennziffer == "11000000"],
+#                              
+#                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2016" & #dat_2017_v2$Gemeindekennziffer == "11000000"], digits = 2), "Perzentil V2021_v2" = #dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2015" & dat_2017_v2$Gemeindekennziffer == "11000000"]))
+#
+#
+#Tabelle_GISD_Berlin <- rbind(Tabelle_GISD_Berlin, cbind("Jahr" = "2017", "GISD-Score V2018" = "-", "Perzentil V2018" = #"-",
+#                              
+#                              "GISD-Score V2019" = "-","Perzentil V2019" = "-",
+#                              
+#                              "GISD-Score V2020" = round(dat_2016$GISD_Score[dat_2016$Jahr == "2017" & #dat_2016$Gemeindekennziffer == "11000000"], digits = 2), "Perzentil V2020" = dat_2016$GISD_10[dat_2016$Jahr == "2017" #& dat_2016$Gemeindekennziffer == "11000000"],
+#                              
+#                              "GISD-Score V2021" = round(dat_2017$GISD_Score[dat_2017$Jahr == "2017" & #dat_2017$Gemeindekennziffer == "11000000"], digits = 2), "Perzentil V2021" = dat_2017$GISD_10[dat_2017$Jahr == "2017" #& dat_2017$Gemeindekennziffer == "11000000"],
+#                              
+#                              "GISD-Score V2021_v2" = round(dat_2017_v2$GISD_Score[dat_2017_v2$Jahr == "2017" & #dat_2017_v2$Gemeindekennziffer == "11000000"], digits = 2), "Perzentil V2021_v2" = #dat_2017_v2$GISD_10[dat_2017_v2$Jahr == "2017" & dat_2017_v2$Gemeindekennziffer == "11000000"]))
+#
+#
+#Tabelle_GISD_Berlin <- Tabelle_GISD_Berlin %>% as_tibble()
+#kable(Tabelle_GISD_Berlin)
+```
 
+# Lebenserwartung der Landkreise nach dem GISD in den verschiedenen Versionen {.tabset}
 
+## V2018
 
 ```r
-#Tabellen <- for(n in Gemeindekennziffer) {
-#    
-#    Tabelle_GISD <- cbind("Jahr" = "1998", "GISD-Score V2018" = round(dat_2014$GISD_Score[dat_2014$Jahr == "1998" & #dat_2014$Gemeindekennziffer == n], digits = 2), "Perzentil V2018" = dat_2014$GISD_10[dat_2014$Jahr == "1998" & #dat_2014$Gemeindekennziffer == n])
-# }
+ggplot(dat_Leberw_2014, aes(x = GISD_Score, y = Lebenserwartung)) +
+  geom_point(size = 1.5, alpha = 0.5, col = "navy") +
+  ylim(77, 84) +
+  xlim(0, 1) +
+  geom_rug(size = 0.5) +
+  geom_smooth(method = lm,col = "red", linetype = "dashed", fill = "grey50", alpha = 0.5) +
+  labs(x = "GISD-Score", title = "Lebenserwartung der Landkreise nach dem GISD (V2018)", subtitle = "im Jahr 2014, mit Regressionslinie (Linear)",
+       y = "Lebenserwartung in Jahren") +
+  theme_rki()
 ```
+
+```
+## Warning: Removed 10 rows containing non-finite values (stat_smooth).
+```
+
+```
+## Warning: Removed 10 rows containing missing values (geom_point).
+```
+
+![](GISD_Vergleich_revisions_files/figure-html/2018-1.png)<!-- -->
+
+## V2019
+
+```r
+ggplot(dat_Leberw_2015, aes(x = GISD_Score, y = Lebenserwartung.1)) +
+  geom_point(size = 1.5, alpha = 0.5, col = "navy") +
+  ylim(77, 84) +
+  xlim(0, 1) +
+  geom_rug(size = 0.5) +
+  geom_smooth(method = lm,col = "red", linetype = "dashed", fill = "grey50", alpha = 0.5) +
+  labs(x = "GISD-Score", title = "Lebenserwartung der Landkreise nach dem GISD (V2019)", subtitle = "im Jahr 2015, mit Regressionslinie (Linear)",
+       y = "Lebenserwartung in Jahren") +
+  theme_rki()
+```
+
+```
+## Warning: Removed 10 rows containing non-finite values (stat_smooth).
+```
+
+```
+## Warning: Removed 10 rows containing missing values (geom_point).
+```
+
+![](GISD_Vergleich_revisions_files/figure-html/2019-1.png)<!-- -->
+
+## V2020
+
+```r
+ggplot(dat_Leberw_2016, aes(x = GISD_Score, y = Lebenserwartung.2)) +
+  geom_point(size = 1.5, alpha = 0.5, col = "navy") +
+  ylim(77, 84) +
+  xlim(0, 1) +
+  geom_rug(size = 0.5) +
+  geom_smooth(method = lm,col = "red", linetype = "dashed", fill = "grey50", alpha = 0.5) +
+  labs(x = "GISD-Score", title = "Lebenserwartung der Landkreise nach dem GISD (V2020)", subtitle = "im Jahr 2017, mit Regressionslinie (Linear)",
+       y = "Lebenserwartung in Jahren") +
+  theme_rki()
+```
+
+```
+## Warning: Removed 8 rows containing non-finite values (stat_smooth).
+```
+
+```
+## Warning: Removed 8 rows containing missing values (geom_point).
+```
+
+![](GISD_Vergleich_revisions_files/figure-html/2020-1.png)<!-- -->
+
+## V2021
+
+```r
+ggplot(dat_Leberw_2017, aes(x = GISD_Score, y = Lebenserwartung.2)) +
+  geom_point(size = 1.5, alpha = 0.5, col = "navy") +
+  ylim(77, 84) +
+  xlim(0, 1) +
+  geom_rug(size = 0.5) +
+  geom_smooth(method = lm,col = "red", linetype = "dashed", fill = "grey50", alpha = 0.5) +
+  labs(x = "GISD-Score", title = "Lebenserwartung der Landkreise nach dem GISD (V2021)", subtitle = "im Jahr 2017, mit Regressionslinie (Linear)",
+       y = "Lebenserwartung in Jahren") +
+  theme_rki()
+```
+
+```
+## Warning: Removed 8 rows containing non-finite values (stat_smooth).
+```
+
+```
+## Warning: Removed 8 rows containing missing values (geom_point).
+```
+
+![](GISD_Vergleich_revisions_files/figure-html/2021-1.png)<!-- -->
+
+## V2021_v2
+
+```r
+ggplot(dat_Leberw_2017_v2, aes(x = GISD_Score, y = Lebenserwartung.2)) +
+  geom_point(size = 1.5, alpha = 0.5, col = "navy") +
+  ylim(77, 84) +
+  xlim(0, 1) +
+  geom_rug(size = 0.5) +
+  geom_smooth(method = lm,col = "red", linetype = "dashed", fill = "grey50", alpha = 0.5) +
+  labs(x = "GISD-Score", title = "Lebenserwartung der Landkreise nach dem GISD (V2021_v2)", subtitle = "im Jahr 2017, mit Regressionslinie (Linear)",
+       y = "Lebenserwartung in Jahren") +
+  theme_rki()
+```
+
+```
+## Warning: Removed 8 rows containing non-finite values (stat_smooth).
+```
+
+```
+## Warning: Removed 8 rows containing missing values (geom_point).
+```
+
+![](GISD_Vergleich_revisions_files/figure-html/2021_v2-1.png)<!-- -->
+
+
