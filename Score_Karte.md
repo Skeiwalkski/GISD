@@ -16,13 +16,13 @@ output:
 
 
 ```r
-GISD_data_Kreis <- read.csv("C:/data/GISD/Outfiles/2021/Bund/Kreis/Kreis.csv") %>% mutate(Kreis = Kreiskennziffer) %>% select(Kreis, GISD_Score, GISD_5, GISD_10, Bundesland) %>% distinct(Kreis, .keep_all = TRUE) %>% unique() %>% lazy_dt()
+GISD_data_Kreis <- read.csv("C:/git_projects/GISD/Outfiles/2021_v2/Bund/Kreis/Kreis.csv") %>% mutate(Kreis = Kreiskennziffer) %>% select(Kreis, GISD_Score, GISD_5, GISD_10, Bundesland) %>% distinct(Kreis, .keep_all = TRUE) %>% unique() %>% lazy_dt()
 
 Kreise_data <- readRDS("C:/git_projects/GISD/Data/SHP/kreise_bkg.rds") %>% lazy_dt() %>% mutate(Kreis = as.numeric(id)) %>% select(-id) %>% left_join(GISD_data_Kreis, by = "Kreis") %>% lazy_dt()
 
 Kreise_data <- as_tibble(Kreise_data)
 
-GISD_data_Gem <- read.csv("C:/data/GISD/Outfiles/2021/Bund/Gemeinde/Gemeinde.csv") %>% select(Gemeindekennziffer, GISD_Score, GISD_5, GISD_10, Bundesland) %>% distinct(Gemeindekennziffer, .keep_all = TRUE) %>% unique() %>% lazy_dt()
+GISD_data_Gem <- read.csv("C:/git_projects/GISD/Outfiles/2021_v2/Bund/Gemeinde/Gemeinde.csv") %>% select(Gemeindekennziffer, GISD_Score, GISD_5, GISD_10, Bundesland) %>% distinct(Gemeindekennziffer, .keep_all = TRUE) %>% unique() %>% lazy_dt()
 
 Gemeinden_data <- readRDS("C:/git_projects/GISD/Data/SHP/BRD_Gemeinden.rds") %>% lazy_dt() %>% mutate(Gemeindekennziffer = as.numeric(id)) %>% select(-id) %>% left_join(GISD_data_Gem, by = "Gemeindekennziffer") %>% lazy_dt()
 
@@ -33,7 +33,7 @@ Gemeinden_data <- as_tibble(Gemeinden_data)
 Gemeinden_data <- Gemeinden_data %>% mutate(GISD_Score = ifelse(is.na(GISD_Score.x) == TRUE, GISD_Score.y, GISD_Score.x), GISD_5 = ifelse(is.na(GISD_5.x) == TRUE, GISD_5.y, GISD_5.x), GISD_10 = ifelse(is.na(GISD_10.x) == TRUE, GISD_10.y, GISD_10.x))
 
 
-GISD_data_Lander <- read.csv("C:/data/GISD/Outfiles/2021/Bund/Raumordnungsregion/Raumordnungsregion.csv") %>% mutate(ROR_id = Raumordnungsregion.Nr) %>%  select(ROR_id, GISD_Score, GISD_5, GISD_10, Bundesland) %>% distinct(ROR_id, .keep_all = TRUE) %>% unique() %>% lazy_dt()
+GISD_data_Lander <- read.csv("C:/git_projects/GISD/Outfiles/2021_v2/Bund/Raumordnungsregion/Raumordnungsregion.csv") %>% mutate(ROR_id = Raumordnungsregion.Nr) %>%  select(ROR_id, GISD_Score, GISD_5, GISD_10, Bundesland) %>% distinct(ROR_id, .keep_all = TRUE) %>% unique() %>% lazy_dt()
 
 Lander_data <- readRDS("C:/git_projects/GISD/Data/SHP/ROR_map.rds") %>% lazy_dt() %>% mutate(ROR_id = as.numeric(id)) %>% select(-id) %>% left_join(GISD_data_Lander, by = "ROR_id") %>% lazy_dt()
 
