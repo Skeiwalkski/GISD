@@ -487,5 +487,5 @@ colnames(cor_tab_GISDscore) <- c("GISD-Score 2017", "GISD-Score gesamt", "GISD-S
 
 kable(cor_tab_GISDscore, caption = "Korrelation der verschiedenen GISD-Scores")
 
-write_rds(Resultdataset, paste0("Outfiles/Resultdata_FaktorCheck.rds"))
+#write_rds(Resultdataset, paste0("Outfiles/Resultdata_FaktorCheck.rds"))
 ```
