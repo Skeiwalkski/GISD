@@ -776,6 +776,8 @@ exportlist<- NULL
 exportlist$Kennziffern <- c("Gemeindekennziffer","Kreiskennziffer","Kennziffer Gemeindeverband","Raumordnungsregion Nr","NUTS2")
 exportlist$Namen <- c("Name der Gemeinde","Name des Kreises","Name des Gemeindeverbands","Raumordnungsregion","NUTS2 Name")
 exportlist$Label <- c("Gemeinde","Kreis","Gemeindeverband","Raumordnungsregion","NUTS2")
+
+
 # exportlist$Kennziffern <- c("Gemeindekennziffer") # for testing
   
 
@@ -807,7 +809,7 @@ for(mykennziffer in exportlist$Kennziffern) {
   
   
    #hier werden die bevoelkerungsgewichteten Mittelwerte über die regionalen Einheiten gebildet
-   #Achtung: Referenzrahmen für den Bevölkerungsstand ist das Referenzjahr. Die Varianz der Bevölkerung über die ahre wird nicht berücksichtigt.
+   #Achtung: Referenzrahmen für den Bevölkerungsstand ist das Referenzjahr. Die Varianz der Bevölkerung über die Jahre wird nicht berücksichtigt.
   
   # Daten bereinigen
   names(outputdata.agg)[1] <- mykennziffer
@@ -824,19 +826,19 @@ for(mykennziffer in exportlist$Kennziffern) {
                                         GISD_10 = findInterval(GISD_10, c(1:10)),
                                         GISD_k = findInterval(GISD_5, c(1,2,5))) %>% ungroup()
                                        
-  summary(outputdata.agg %>% select(contains("GISD")))  
-                                       
+  summary(outputdata.agg %>% select(contains("GISD")))
+  
   
   # Aktuelles Referenzmodell 
 
 
   # Ausgabe Bund
-  dir.create("C:/git_projects/GISD/Outfiles/", showWarnings=F)
-  dir.create("C:/git_projects/GISD/Outfiles/2021_v2/", showWarnings=F)
-  dir.create("C:/git_projects/GISD/Outfiles/2021_v2/Bund/", showWarnings=F)  
-  dir.create(paste0("C:/git_projects/GISD/Outfiles/2021_v2/Bund/",mylabel), showWarnings=F)
-  mydata <- outputdata.agg %>% ungroup()
-  write.csv(mydata, paste0("C:/git_projects/GISD/Outfiles/2021_v2/Bund/",mylabel,"/",mylabel,".csv"))
+  dir.create("Outfiles/", showWarnings=F)
+  dir.create("Outfiles/2021_v2/", showWarnings=F)
+  dir.create("Outfiles/2021_v2/Bund/", showWarnings=F)  
+  dir.create(paste0("Outfiles/2021_v2/Bund/",mylabel), showWarnings=F)
+  mydata <- outputdata.agg %>% ungroup() %>% select(mykennziffer, GISD_Score, GISD_5, GISD_10, GISD_k, myname, Jahr)
+  write.csv(mydata, paste0("Outfiles/2021_v2/Bund/",mylabel,"/",mylabel,".csv"))
   
   names(mydata) <- gsub("\\.","_",make.names(names(mydata)))
   names(mydata) <- gsub("\\?","oe",names(mydata))
@@ -845,37 +847,63 @@ for(mykennziffer in exportlist$Kennziffern) {
   names(mydata) <- gsub("\\?","ss",names(mydata))
   write_dta(mydata, paste0("Outfiles/2021_v2/Bund/",mylabel,"/",mylabel,"_long.dta"))
   
+  
+  
+  
+  
   # Ausgabe Bundeslandspezifisch ohne Stadtstaaten und nur für Ebenen Kreis und Gemeindeverband
   if (mylabel %in% c("Gemeindeverband","Kreis")) {
-  outputdata.agg <- outputdata.agg %>% ungroup() %>% filter(!(Bundesland %in% c("Bremen","Hamburg","Berlin"))) %>% dplyr::select(-GISD_k,-GISD_5,-GISD_10)   %>% group_by(Jahr,Bundesland) 
+    
+    # Datensatzerstellung
+  outputdata <- RawResult 
+  
+  outputdata$Group <- outputdata[[mykennziffer]]
+  mergedataset  <- outputdata %>% dplyr::select(ID=mykennziffer,myname,Bundesland) %>% 
+    group_by(ID) %>% filter(row_number()==1) %>% ungroup() 
+  names(mergedataset)[1]=mykennziffer
+    
+    
+      # Aggregation
+  outputdata.bula <- outputdata %>% 
+    group_by(Group,Jahr) %>% 
+    dplyr::select(Group,Jahr,"Bevoelkerung",GISD_Score, TS_Bildung_adj, TS_Einkommen_adj, TS_Arbeitswelt_adj) %>% 
+    summarise(GISD_Score = weighted.mean(GISD_Score, Bevoelkerung), 
+              TS_Bildung_adj = weighted.mean(TS_Bildung_adj, Bevoelkerung), 
+              TS_Einkommen_adj = weighted.mean(TS_Einkommen_adj, Bevoelkerung),
+              TS_Arbeitswelt_adj = weighted.mean(TS_Arbeitswelt_adj, Bevoelkerung),
+              Bevoelkerung = sum(Bevoelkerung))
+  
+  
+  # Daten bereinigen
+  names(outputdata.bula)[1] <- mykennziffer
+  outputdata.bula <- merge(outputdata.bula,mergedataset,by=mykennziffer) %>%  
+    dplyr::select(mykennziffer,myname,Jahr,Bundesland,"Bevoelkerung",GISD_Score, TS_Bildung_adj, TS_Einkommen_adj, TS_Arbeitswelt_adj) %>%
+    group_by(Jahr) %>% as_tibble()
+    
+  outputdata.bula <- outputdata.bula %>% ungroup() %>% filter(!(Bundesland %in% c("Bremen","Hamburg","Berlin"))) %>% group_by(Jahr,Bundesland)
+  
   
   # Rekodierung Bundesland
-  outputdata.agg <- outputdata.agg %>%  mutate(GISD_Score = round((GISD_Score -min(GISD_Score ))/(max(GISD_Score )-min(GISD_Score )), digits=6)) %>% 
-                                        group_by(Jahr) %>% mutate(GISD_5 = findInterval(GISD_Score, quantile(GISD_Score,   probs=0:5/5 , type=9)),
-                                        GISD_5 = findInterval(GISD_5, c(1:5)),
-                                        GISD_10 = findInterval(GISD_Score, quantile(GISD_Score, probs=0:10/10 , type=9)),
-                                        GISD_10 = findInterval(GISD_10, c(1:10)),
-                                        GISD_k = findInterval(GISD_5, c(1,2,5))) %>% ungroup()
+  outputdata.bula <- outputdata.bula %>%  mutate(GISD_Score = round((GISD_Score -min(GISD_Score ))/(max(GISD_Score )-min(GISD_Score )), digits=6)) %>% ungroup()
                          
-  summary(outputdata)
+  summary(outputdata.bula %>% select(contains("GISD")))
 
 
   # Ausgabe Bundesländer
-  ListeBula <- unique(outputdata$Bundesland)
-  dir.create("C:/git_projects/GISD/Outfiles/2021_v2/Bundesland", showWarnings=F)  
+  ListeBula <- unique(outputdata.bula$Bundesland)
+  dir.create("Outfiles/2021_v2/Bundesland", showWarnings=F)  
   for(myland in ListeBula) {
-  dir.create( paste0("C:/git_projects/GISD/Outfiles/2021_v2/Bundesland/",myland), showWarnings=F)  
-    dir.create( paste0("C:/git_projects/GISD/Outfiles/2021_v2/Bundesland/",myland,"/",mylabel), showWarnings=F)  
-    mydata <- outputdata %>% filter(Bundesland==myland) %>% ungroup() %>% dplyr::select(-Bundesland)
-    write.csv(mydata, paste0("C:/git_projects/GISD/Outfiles/2021_v2/Bundesland/",myland,"/",mylabel,"/",mylabel,".csv"))
+  dir.create( paste0("Outfiles/2021_v2/Bundesland/",myland), showWarnings=F)  
+    dir.create( paste0("Outfiles/2021_v2/Bundesland/",myland,"/",mylabel), showWarnings=F)  
+    mydata.bula <- outputdata.bula %>% filter(Bundesland==myland) %>% ungroup() %>% select(GISD_Score, mykennziffer, myname, Jahr)
+    write.csv(mydata.bula, paste0("Outfiles/2021_v2/Bundesland/",myland,"/",mylabel,"/",mylabel,".csv"))
     
-    mydata <- outputdata %>% filter(Bundesland==myland)
-    names(mydata) <- gsub("\\.","_",make.names(names(mydata)))
-    names(mydata) <- gsub("\\?","oe",names(mydata))
-    names(mydata) <- gsub("\\?","ae",names(mydata))
-    names(mydata) <- gsub("\\?","ue",names(mydata))
-    names(mydata) <- gsub("\\?","ss",names(mydata))
-    write_dta(mydata, paste0("C:/git_projects/GISD/Outfiles/2021_v2/Bundesland/",myland,"/",mylabel,"/",mylabel,".dta"))
+    names(mydata.bula) <- gsub("\\.","_",make.names(names(mydata.bula)))
+    names(mydata.bula) <- gsub("\\?","oe",names(mydata.bula))
+    names(mydata.bula) <- gsub("\\?","ae",names(mydata.bula))
+    names(mydata.bula) <- gsub("\\?","ue",names(mydata.bula))
+    names(mydata.bula) <- gsub("\\?","ss",names(mydata.bula))
+    write_dta(mydata.bula, paste0("Outfiles/2021_v2/Bundesland/",myland,"/",mylabel,"/",mylabel,".dta"))
   }
   }  
 }
@@ -920,19 +948,19 @@ for (mykennziffer in c("PLZ2","PLZ3","PLZ4","PLZ5")) {
   summary(outputdata)            
   head(outputdata)
   ListeJahre <- unique(outputdata$JAHR)
-  dir.create( paste0("C:/git_projects/GISD/Outfiles"), showWarnings=F)
-  dir.create( paste0("C:/git_projects/GISD/Outfiles/2021_v2"), showWarnings=F) 
-  dir.create( paste0("C:/git_projects/GISD/Outfiles/2021_v2/Bund/"), showWarnings=F) 
-  dir.create( paste0("C:/git_projects/GISD/Outfiles/2021_v2/Bund/",mylabel), showWarnings=F) 
+  dir.create( paste0("Outfiles"), showWarnings=F)
+  dir.create( paste0("Outfiles/2021_v2"), showWarnings=F) 
+  dir.create( paste0("Outfiles/2021_v2/Bund/"), showWarnings=F) 
+  dir.create( paste0("Outfiles/2021_v2/Bund/",mylabel), showWarnings=F) 
   mydata <- outputdata %>% ungroup() 
-  write.csv2(mydata, paste0("C:/git_projects/GISD/Outfiles/2021_v2/Bund/",mylabel,"/",mylabel,".csv"))
+  write.csv2(mydata, paste0("Outfiles/2021_v2/Bund/",mylabel,"/",mylabel,".csv"))
   mydata <- outputdata %>% ungroup() 
   names(mydata) <- gsub("\\.","_",make.names(names(mydata)))
   names(mydata) <- gsub("\\?","oe",names(mydata))
   names(mydata) <- gsub("\\?","ae",names(mydata))
   names(mydata) <- gsub("\\?","ue",names(mydata))
   names(mydata) <- gsub("\\?","ss",names(mydata))
-  write_dta(mydata, paste0("C:/git_projects/GISD/Outfiles/2021_v2/Bund/",mylabel,"/",mylabel,"_long.dta"))
+  write_dta(mydata, paste0("Outfiles/2021_v2/Bund/",mylabel,"/",mylabel,"_long.dta"))
   }
 
 
