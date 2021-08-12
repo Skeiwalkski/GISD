@@ -1,109 +1,109 @@
 "","GISD_Score","Kreiskennziffer","Name des Kreises","Jahr"
-"1",0.426063,15001,"Dessau-Roßlau, Stadt",1998
-"2",0.386819,15001,"Dessau-Roßlau, Stadt",1999
-"3",0.397307,15001,"Dessau-Roßlau, Stadt",2000
-"4",0.146217,15001,"Dessau-Roßlau, Stadt",2001
+"1",0.426135,15001,"Dessau-Roßlau, Stadt",1998
+"2",0.386188,15001,"Dessau-Roßlau, Stadt",1999
+"3",0.397823,15001,"Dessau-Roßlau, Stadt",2000
+"4",0.145479,15001,"Dessau-Roßlau, Stadt",2001
 "5",0,15001,"Dessau-Roßlau, Stadt",2002
-"6",0.076911,15001,"Dessau-Roßlau, Stadt",2003
-"7",0.073834,15001,"Dessau-Roßlau, Stadt",2004
-"8",0.148111,15001,"Dessau-Roßlau, Stadt",2005
-"9",0.183653,15001,"Dessau-Roßlau, Stadt",2006
-"10",0.254304,15001,"Dessau-Roßlau, Stadt",2007
-"11",0.370254,15001,"Dessau-Roßlau, Stadt",2008
-"12",0.020548,15001,"Dessau-Roßlau, Stadt",2009
-"13",0.171454,15001,"Dessau-Roßlau, Stadt",2010
-"14",0.198906,15001,"Dessau-Roßlau, Stadt",2011
-"15",0.133632,15001,"Dessau-Roßlau, Stadt",2012
-"16",0.269094,15001,"Dessau-Roßlau, Stadt",2013
-"17",0.126348,15001,"Dessau-Roßlau, Stadt",2014
-"18",0.193675,15001,"Dessau-Roßlau, Stadt",2015
-"19",0.187738,15001,"Dessau-Roßlau, Stadt",2016
-"20",0.230781,15001,"Dessau-Roßlau, Stadt",2017
-"21",0.703673,15002,"Halle (Saale), Stadt",1998
-"22",0.712244,15002,"Halle (Saale), Stadt",1999
-"23",0.636892,15002,"Halle (Saale), Stadt",2000
-"24",0.589751,15002,"Halle (Saale), Stadt",2001
-"25",0.369002,15002,"Halle (Saale), Stadt",2002
-"26",0.498579,15002,"Halle (Saale), Stadt",2003
-"27",0.441819,15002,"Halle (Saale), Stadt",2004
-"28",0.439182,15002,"Halle (Saale), Stadt",2005
-"29",0.572047,15002,"Halle (Saale), Stadt",2006
-"30",0.576408,15002,"Halle (Saale), Stadt",2007
-"31",0.662939,15002,"Halle (Saale), Stadt",2008
-"32",0.403473,15002,"Halle (Saale), Stadt",2009
-"33",0.588019,15002,"Halle (Saale), Stadt",2010
-"34",0.546335,15002,"Halle (Saale), Stadt",2011
-"35",0.432747,15002,"Halle (Saale), Stadt",2012
-"36",0.435321,15002,"Halle (Saale), Stadt",2013
-"37",0.461756,15002,"Halle (Saale), Stadt",2014
-"38",0.34606,15002,"Halle (Saale), Stadt",2015
-"39",0.513206,15002,"Halle (Saale), Stadt",2016
-"40",0.525143,15002,"Halle (Saale), Stadt",2017
-"41",0.505027,15003,"Magdeburg, Stadt",1998
-"42",0.469479,15003,"Magdeburg, Stadt",1999
-"43",0.414288,15003,"Magdeburg, Stadt",2000
-"44",0.307251,15003,"Magdeburg, Stadt",2001
-"45",0.053723,15003,"Magdeburg, Stadt",2002
-"46",0.197984,15003,"Magdeburg, Stadt",2003
-"47",0.214027,15003,"Magdeburg, Stadt",2004
-"48",0.32667,15003,"Magdeburg, Stadt",2005
-"49",0.363277,15003,"Magdeburg, Stadt",2006
-"50",0.334449,15003,"Magdeburg, Stadt",2007
-"51",0.420984,15003,"Magdeburg, Stadt",2008
-"52",0.180782,15003,"Magdeburg, Stadt",2009
-"53",0.26936,15003,"Magdeburg, Stadt",2010
-"54",0.326013,15003,"Magdeburg, Stadt",2011
-"55",0.233478,15003,"Magdeburg, Stadt",2012
-"56",0.187331,15003,"Magdeburg, Stadt",2013
-"57",0.176872,15003,"Magdeburg, Stadt",2014
-"58",0.155083,15003,"Magdeburg, Stadt",2015
-"59",0.13417,15003,"Magdeburg, Stadt",2016
-"60",0.207378,15003,"Magdeburg, Stadt",2017
-"61",0.418864,15081,"Altmarkkreis Salzwedel",1998
-"62",0.314676,15081,"Altmarkkreis Salzwedel",1999
-"63",0.578446,15081,"Altmarkkreis Salzwedel",2000
-"64",0.578979,15081,"Altmarkkreis Salzwedel",2001
-"65",0.434336,15081,"Altmarkkreis Salzwedel",2002
-"66",0.672137,15081,"Altmarkkreis Salzwedel",2003
-"67",0.597713,15081,"Altmarkkreis Salzwedel",2004
-"68",0.761018,15081,"Altmarkkreis Salzwedel",2005
-"69",0.78448,15081,"Altmarkkreis Salzwedel",2006
-"70",0.695404,15081,"Altmarkkreis Salzwedel",2007
-"71",0.737843,15081,"Altmarkkreis Salzwedel",2008
-"72",0.542019,15081,"Altmarkkreis Salzwedel",2009
-"73",0.59359,15081,"Altmarkkreis Salzwedel",2010
-"74",0.650727,15081,"Altmarkkreis Salzwedel",2011
-"75",0.665852,15081,"Altmarkkreis Salzwedel",2012
-"76",0.406585,15081,"Altmarkkreis Salzwedel",2013
-"77",0.361238,15081,"Altmarkkreis Salzwedel",2014
-"78",0.452575,15081,"Altmarkkreis Salzwedel",2015
-"79",0.575569,15081,"Altmarkkreis Salzwedel",2016
-"80",0.56463,15081,"Altmarkkreis Salzwedel",2017
-"81",0.740106,15082,"Anhalt-Bitterfeld",1998
-"82",0.634365,15082,"Anhalt-Bitterfeld",1999
-"83",0.680147,15082,"Anhalt-Bitterfeld",2000
-"84",0.762931,15082,"Anhalt-Bitterfeld",2001
-"85",0.667728,15082,"Anhalt-Bitterfeld",2002
-"86",0.639431,15082,"Anhalt-Bitterfeld",2003
-"87",0.7007,15082,"Anhalt-Bitterfeld",2004
-"88",0.598716,15082,"Anhalt-Bitterfeld",2005
-"89",0.622452,15082,"Anhalt-Bitterfeld",2006
-"90",0.533814,15082,"Anhalt-Bitterfeld",2007
-"91",0.633519,15082,"Anhalt-Bitterfeld",2008
-"92",0.465032,15082,"Anhalt-Bitterfeld",2009
-"93",0.662795,15082,"Anhalt-Bitterfeld",2010
-"94",0.577632,15082,"Anhalt-Bitterfeld",2011
-"95",0.569872,15082,"Anhalt-Bitterfeld",2012
-"96",0.549223,15082,"Anhalt-Bitterfeld",2013
-"97",0.438424,15082,"Anhalt-Bitterfeld",2014
-"98",0.356112,15082,"Anhalt-Bitterfeld",2015
-"99",0.569419,15082,"Anhalt-Bitterfeld",2016
-"100",0.576772,15082,"Anhalt-Bitterfeld",2017
+"6",0.077695,15001,"Dessau-Roßlau, Stadt",2003
+"7",0.074204,15001,"Dessau-Roßlau, Stadt",2004
+"8",0.149527,15001,"Dessau-Roßlau, Stadt",2005
+"9",0.185576,15001,"Dessau-Roßlau, Stadt",2006
+"10",0.255167,15001,"Dessau-Roßlau, Stadt",2007
+"11",0.371957,15001,"Dessau-Roßlau, Stadt",2008
+"12",0.019506,15001,"Dessau-Roßlau, Stadt",2009
+"13",0.171984,15001,"Dessau-Roßlau, Stadt",2010
+"14",0.200008,15001,"Dessau-Roßlau, Stadt",2011
+"15",0.135,15001,"Dessau-Roßlau, Stadt",2012
+"16",0.272311,15001,"Dessau-Roßlau, Stadt",2013
+"17",0.127954,15001,"Dessau-Roßlau, Stadt",2014
+"18",0.196386,15001,"Dessau-Roßlau, Stadt",2015
+"19",0.191932,15001,"Dessau-Roßlau, Stadt",2016
+"20",0.235101,15001,"Dessau-Roßlau, Stadt",2017
+"21",0.708373,15002,"Halle (Saale), Stadt",1998
+"22",0.716709,15002,"Halle (Saale), Stadt",1999
+"23",0.641161,15002,"Halle (Saale), Stadt",2000
+"24",0.597463,15002,"Halle (Saale), Stadt",2001
+"25",0.376208,15002,"Halle (Saale), Stadt",2002
+"26",0.505854,15002,"Halle (Saale), Stadt",2003
+"27",0.450758,15002,"Halle (Saale), Stadt",2004
+"28",0.448412,15002,"Halle (Saale), Stadt",2005
+"29",0.583127,15002,"Halle (Saale), Stadt",2006
+"30",0.584406,15002,"Halle (Saale), Stadt",2007
+"31",0.67264,15002,"Halle (Saale), Stadt",2008
+"32",0.410912,15002,"Halle (Saale), Stadt",2009
+"33",0.595826,15002,"Halle (Saale), Stadt",2010
+"34",0.55484,15002,"Halle (Saale), Stadt",2011
+"35",0.440338,15002,"Halle (Saale), Stadt",2012
+"36",0.442444,15002,"Halle (Saale), Stadt",2013
+"37",0.469646,15002,"Halle (Saale), Stadt",2014
+"38",0.352794,15002,"Halle (Saale), Stadt",2015
+"39",0.525364,15002,"Halle (Saale), Stadt",2016
+"40",0.536992,15002,"Halle (Saale), Stadt",2017
+"41",0.509157,15003,"Magdeburg, Stadt",1998
+"42",0.473313,15003,"Magdeburg, Stadt",1999
+"43",0.418574,15003,"Magdeburg, Stadt",2000
+"44",0.314138,15003,"Magdeburg, Stadt",2001
+"45",0.060171,15003,"Magdeburg, Stadt",2002
+"46",0.204031,15003,"Magdeburg, Stadt",2003
+"47",0.220684,15003,"Magdeburg, Stadt",2004
+"48",0.335178,15003,"Magdeburg, Stadt",2005
+"49",0.371215,15003,"Magdeburg, Stadt",2006
+"50",0.340823,15003,"Magdeburg, Stadt",2007
+"51",0.429103,15003,"Magdeburg, Stadt",2008
+"52",0.186699,15003,"Magdeburg, Stadt",2009
+"53",0.275917,15003,"Magdeburg, Stadt",2010
+"54",0.333747,15003,"Magdeburg, Stadt",2011
+"55",0.241017,15003,"Magdeburg, Stadt",2012
+"56",0.194082,15003,"Magdeburg, Stadt",2013
+"57",0.183873,15003,"Magdeburg, Stadt",2014
+"58",0.161701,15003,"Magdeburg, Stadt",2015
+"59",0.144059,15003,"Magdeburg, Stadt",2016
+"60",0.217818,15003,"Magdeburg, Stadt",2017
+"61",0.42157,15081,"Altmarkkreis Salzwedel",1998
+"62",0.314351,15081,"Altmarkkreis Salzwedel",1999
+"63",0.581056,15081,"Altmarkkreis Salzwedel",2000
+"64",0.580243,15081,"Altmarkkreis Salzwedel",2001
+"65",0.433535,15081,"Altmarkkreis Salzwedel",2002
+"66",0.674159,15081,"Altmarkkreis Salzwedel",2003
+"67",0.598207,15081,"Altmarkkreis Salzwedel",2004
+"68",0.762834,15081,"Altmarkkreis Salzwedel",2005
+"69",0.786683,15081,"Altmarkkreis Salzwedel",2006
+"70",0.696011,15081,"Altmarkkreis Salzwedel",2007
+"71",0.739653,15081,"Altmarkkreis Salzwedel",2008
+"72",0.541619,15081,"Altmarkkreis Salzwedel",2009
+"73",0.59207,15081,"Altmarkkreis Salzwedel",2010
+"74",0.652369,15081,"Altmarkkreis Salzwedel",2011
+"75",0.667457,15081,"Altmarkkreis Salzwedel",2012
+"76",0.406579,15081,"Altmarkkreis Salzwedel",2013
+"77",0.360597,15081,"Altmarkkreis Salzwedel",2014
+"78",0.453065,15081,"Altmarkkreis Salzwedel",2015
+"79",0.577315,15081,"Altmarkkreis Salzwedel",2016
+"80",0.564782,15081,"Altmarkkreis Salzwedel",2017
+"81",0.740157,15082,"Anhalt-Bitterfeld",1998
+"82",0.631677,15082,"Anhalt-Bitterfeld",1999
+"83",0.676285,15082,"Anhalt-Bitterfeld",2000
+"84",0.761066,15082,"Anhalt-Bitterfeld",2001
+"85",0.664919,15082,"Anhalt-Bitterfeld",2002
+"86",0.637225,15082,"Anhalt-Bitterfeld",2003
+"87",0.699386,15082,"Anhalt-Bitterfeld",2004
+"88",0.597115,15082,"Anhalt-Bitterfeld",2005
+"89",0.622578,15082,"Anhalt-Bitterfeld",2006
+"90",0.533912,15082,"Anhalt-Bitterfeld",2007
+"91",0.634983,15082,"Anhalt-Bitterfeld",2008
+"92",0.46451,15082,"Anhalt-Bitterfeld",2009
+"93",0.663258,15082,"Anhalt-Bitterfeld",2010
+"94",0.57848,15082,"Anhalt-Bitterfeld",2011
+"95",0.570855,15082,"Anhalt-Bitterfeld",2012
+"96",0.549841,15082,"Anhalt-Bitterfeld",2013
+"97",0.437775,15082,"Anhalt-Bitterfeld",2014
+"98",0.354406,15082,"Anhalt-Bitterfeld",2015
+"99",0.569744,15082,"Anhalt-Bitterfeld",2016
+"100",0.577355,15082,"Anhalt-Bitterfeld",2017
 "101",0,15083,"Börde",1998
 "102",0,15083,"Börde",1999
 "103",0,15083,"Börde",2000
 "104",0,15083,"Börde",2001
-"105",0.055983,15083,"Börde",2002
+"105",0.057026,15083,"Börde",2002
 "106",0,15083,"Börde",2003
 "107",0,15083,"Börde",2004
 "108",0,15083,"Börde",2005
@@ -115,83 +115,83 @@
 "114",0,15083,"Börde",2011
 "115",0,15083,"Börde",2012
 "116",0,15083,"Börde",2013
-"117",0.025201,15083,"Börde",2014
+"117",0.025129,15083,"Börde",2014
 "118",0,15083,"Börde",2015
 "119",0,15083,"Börde",2016
 "120",0,15083,"Börde",2017
-"121",0.766562,15084,"Burgenlandkreis",1998
-"122",0.641689,15084,"Burgenlandkreis",1999
-"123",0.675306,15084,"Burgenlandkreis",2000
-"124",0.566376,15084,"Burgenlandkreis",2001
-"125",0.536021,15084,"Burgenlandkreis",2002
-"126",0.7102,15084,"Burgenlandkreis",2003
-"127",0.781518,15084,"Burgenlandkreis",2004
-"128",0.750075,15084,"Burgenlandkreis",2005
-"129",0.748018,15084,"Burgenlandkreis",2006
-"130",0.66404,15084,"Burgenlandkreis",2007
-"131",0.893613,15084,"Burgenlandkreis",2008
-"132",0.600185,15084,"Burgenlandkreis",2009
-"133",0.70673,15084,"Burgenlandkreis",2010
-"134",0.590915,15084,"Burgenlandkreis",2011
-"135",0.590999,15084,"Burgenlandkreis",2012
-"136",0.473948,15084,"Burgenlandkreis",2013
-"137",0.534738,15084,"Burgenlandkreis",2014
-"138",0.434382,15084,"Burgenlandkreis",2015
-"139",0.444065,15084,"Burgenlandkreis",2016
-"140",0.53018,15084,"Burgenlandkreis",2017
-"141",0.530446,15085,"Harz",1998
-"142",0.502456,15085,"Harz",1999
-"143",0.477733,15085,"Harz",2000
-"144",0.53828,15085,"Harz",2001
-"145",0.339113,15085,"Harz",2002
-"146",0.309719,15085,"Harz",2003
-"147",0.246233,15085,"Harz",2004
-"148",0.346386,15085,"Harz",2005
-"149",0.266614,15085,"Harz",2006
-"150",0.346282,15085,"Harz",2007
-"151",0.475044,15085,"Harz",2008
-"152",0.308428,15085,"Harz",2009
-"153",0.45278,15085,"Harz",2010
-"154",0.276978,15085,"Harz",2011
-"155",0.28171,15085,"Harz",2012
-"156",0.318018,15085,"Harz",2013
-"157",0.276292,15085,"Harz",2014
-"158",0.228719,15085,"Harz",2015
-"159",0.235905,15085,"Harz",2016
-"160",0.286204,15085,"Harz",2017
-"161",0.260789,15086,"Jerichower Land",1998
-"162",0.412466,15086,"Jerichower Land",1999
-"163",0.460385,15086,"Jerichower Land",2000
-"164",0.661284,15086,"Jerichower Land",2001
-"165",0.474621,15086,"Jerichower Land",2002
-"166",0.472242,15086,"Jerichower Land",2003
-"167",0.400932,15086,"Jerichower Land",2004
-"168",0.249397,15086,"Jerichower Land",2005
-"169",0.251366,15086,"Jerichower Land",2006
-"170",0.366479,15086,"Jerichower Land",2007
-"171",0.45486,15086,"Jerichower Land",2008
-"172",0.314042,15086,"Jerichower Land",2009
-"173",0.449874,15086,"Jerichower Land",2010
-"174",0.407747,15086,"Jerichower Land",2011
-"175",0.294478,15086,"Jerichower Land",2012
-"176",0.363684,15086,"Jerichower Land",2013
-"177",0.311483,15086,"Jerichower Land",2014
-"178",0.279608,15086,"Jerichower Land",2015
-"179",0.481112,15086,"Jerichower Land",2016
-"180",0.559556,15086,"Jerichower Land",2017
-"181",0.932764,15087,"Mansfeld-Südharz",1998
-"182",0.928494,15087,"Mansfeld-Südharz",1999
-"183",0.856929,15087,"Mansfeld-Südharz",2000
-"184",0.764522,15087,"Mansfeld-Südharz",2001
-"185",0.868915,15087,"Mansfeld-Südharz",2002
-"186",0.957109,15087,"Mansfeld-Südharz",2003
-"187",0.774405,15087,"Mansfeld-Südharz",2004
-"188",0.947447,15087,"Mansfeld-Südharz",2005
+"121",0.76456,15084,"Burgenlandkreis",1998
+"122",0.638779,15084,"Burgenlandkreis",1999
+"123",0.672289,15084,"Burgenlandkreis",2000
+"124",0.563099,15084,"Burgenlandkreis",2001
+"125",0.532184,15084,"Burgenlandkreis",2002
+"126",0.709271,15084,"Burgenlandkreis",2003
+"127",0.780866,15084,"Burgenlandkreis",2004
+"128",0.749424,15084,"Burgenlandkreis",2005
+"129",0.747819,15084,"Burgenlandkreis",2006
+"130",0.662642,15084,"Burgenlandkreis",2007
+"131",0.895157,15084,"Burgenlandkreis",2008
+"132",0.599097,15084,"Burgenlandkreis",2009
+"133",0.704515,15084,"Burgenlandkreis",2010
+"134",0.589794,15084,"Burgenlandkreis",2011
+"135",0.590725,15084,"Burgenlandkreis",2012
+"136",0.473044,15084,"Burgenlandkreis",2013
+"137",0.534482,15084,"Burgenlandkreis",2014
+"138",0.432925,15084,"Burgenlandkreis",2015
+"139",0.442392,15084,"Burgenlandkreis",2016
+"140",0.529835,15084,"Burgenlandkreis",2017
+"141",0.529172,15085,"Harz",1998
+"142",0.500828,15085,"Harz",1999
+"143",0.475341,15085,"Harz",2000
+"144",0.537325,15085,"Harz",2001
+"145",0.336889,15085,"Harz",2002
+"146",0.307498,15085,"Harz",2003
+"147",0.243779,15085,"Harz",2004
+"148",0.344926,15085,"Harz",2005
+"149",0.264365,15085,"Harz",2006
+"150",0.345009,15085,"Harz",2007
+"151",0.47456,15085,"Harz",2008
+"152",0.306103,15085,"Harz",2009
+"153",0.450666,15085,"Harz",2010
+"154",0.274107,15085,"Harz",2011
+"155",0.280347,15085,"Harz",2012
+"156",0.316965,15085,"Harz",2013
+"157",0.274706,15085,"Harz",2014
+"158",0.226593,15085,"Harz",2015
+"159",0.233794,15085,"Harz",2016
+"160",0.285257,15085,"Harz",2017
+"161",0.259635,15086,"Jerichower Land",1998
+"162",0.41219,15086,"Jerichower Land",1999
+"163",0.459052,15086,"Jerichower Land",2000
+"164",0.661743,15086,"Jerichower Land",2001
+"165",0.475011,15086,"Jerichower Land",2002
+"166",0.47264,15086,"Jerichower Land",2003
+"167",0.401277,15086,"Jerichower Land",2004
+"168",0.248556,15086,"Jerichower Land",2005
+"169",0.250656,15086,"Jerichower Land",2006
+"170",0.367656,15086,"Jerichower Land",2007
+"171",0.456398,15086,"Jerichower Land",2008
+"172",0.314202,15086,"Jerichower Land",2009
+"173",0.449528,15086,"Jerichower Land",2010
+"174",0.408971,15086,"Jerichower Land",2011
+"175",0.294815,15086,"Jerichower Land",2012
+"176",0.36479,15086,"Jerichower Land",2013
+"177",0.311736,15086,"Jerichower Land",2014
+"178",0.279186,15086,"Jerichower Land",2015
+"179",0.483152,15086,"Jerichower Land",2016
+"180",0.562339,15086,"Jerichower Land",2017
+"181",0.931637,15087,"Mansfeld-Südharz",1998
+"182",0.926594,15087,"Mansfeld-Südharz",1999
+"183",0.854373,15087,"Mansfeld-Südharz",2000
+"184",0.761769,15087,"Mansfeld-Südharz",2001
+"185",0.865743,15087,"Mansfeld-Südharz",2002
+"186",0.95565,15087,"Mansfeld-Südharz",2003
+"187",0.770278,15087,"Mansfeld-Südharz",2004
+"188",0.94676,15087,"Mansfeld-Südharz",2005
 "189",1,15087,"Mansfeld-Südharz",2006
 "190",1,15087,"Mansfeld-Südharz",2007
 "191",1,15087,"Mansfeld-Südharz",2008
 "192",1,15087,"Mansfeld-Südharz",2009
-"193",0.898785,15087,"Mansfeld-Südharz",2010
+"193",0.894932,15087,"Mansfeld-Südharz",2010
 "194",1,15087,"Mansfeld-Südharz",2011
 "195",1,15087,"Mansfeld-Südharz",2012
 "196",1,15087,"Mansfeld-Südharz",2013
@@ -199,83 +199,83 @@
 "198",1,15087,"Mansfeld-Südharz",2015
 "199",1,15087,"Mansfeld-Südharz",2016
 "200",1,15087,"Mansfeld-Südharz",2017
-"201",0.251952,15088,"Saalekreis",1998
-"202",0.199143,15088,"Saalekreis",1999
-"203",0.352488,15088,"Saalekreis",2000
-"204",0.291613,15088,"Saalekreis",2001
-"205",0.227945,15088,"Saalekreis",2002
-"206",0.354694,15088,"Saalekreis",2003
-"207",0.101615,15088,"Saalekreis",2004
-"208",0.219493,15088,"Saalekreis",2005
-"209",0.049381,15088,"Saalekreis",2006
-"210",0.153169,15088,"Saalekreis",2007
-"211",0.268837,15088,"Saalekreis",2008
-"212",0.095253,15088,"Saalekreis",2009
-"213",0.242218,15088,"Saalekreis",2010
-"214",0.044379,15088,"Saalekreis",2011
-"215",0.069372,15088,"Saalekreis",2012
-"216",0.103922,15088,"Saalekreis",2013
+"201",0.254073,15088,"Saalekreis",1998
+"202",0.199716,15088,"Saalekreis",1999
+"203",0.353037,15088,"Saalekreis",2000
+"204",0.290962,15088,"Saalekreis",2001
+"205",0.226672,15088,"Saalekreis",2002
+"206",0.355685,15088,"Saalekreis",2003
+"207",0.100933,15088,"Saalekreis",2004
+"208",0.220994,15088,"Saalekreis",2005
+"209",0.049375,15088,"Saalekreis",2006
+"210",0.154022,15088,"Saalekreis",2007
+"211",0.271303,15088,"Saalekreis",2008
+"212",0.095644,15088,"Saalekreis",2009
+"213",0.243781,15088,"Saalekreis",2010
+"214",0.044561,15088,"Saalekreis",2011
+"215",0.071026,15088,"Saalekreis",2012
+"216",0.105741,15088,"Saalekreis",2013
 "217",0,15088,"Saalekreis",2014
-"218",0.029071,15088,"Saalekreis",2015
-"219",0.025331,15088,"Saalekreis",2016
-"220",0.069111,15088,"Saalekreis",2017
+"218",0.029691,15088,"Saalekreis",2015
+"219",0.027015,15088,"Saalekreis",2016
+"220",0.071077,15088,"Saalekreis",2017
 "221",1,15089,"Salzlandkreis",1998
 "222",1,15089,"Salzlandkreis",1999
 "223",1,15089,"Salzlandkreis",2000
-"224",0.938233,15089,"Salzlandkreis",2001
+"224",0.937381,15089,"Salzlandkreis",2001
 "225",1,15089,"Salzlandkreis",2002
 "226",1,15089,"Salzlandkreis",2003
 "227",1,15089,"Salzlandkreis",2004
-"228",0.919921,15089,"Salzlandkreis",2005
-"229",0.952204,15089,"Salzlandkreis",2006
-"230",0.927543,15089,"Salzlandkreis",2007
-"231",0.903588,15089,"Salzlandkreis",2008
-"232",0.721139,15089,"Salzlandkreis",2009
+"228",0.920012,15089,"Salzlandkreis",2005
+"229",0.953894,15089,"Salzlandkreis",2006
+"230",0.928981,15089,"Salzlandkreis",2007
+"231",0.904915,15089,"Salzlandkreis",2008
+"232",0.720744,15089,"Salzlandkreis",2009
 "233",1,15089,"Salzlandkreis",2010
-"234",0.811902,15089,"Salzlandkreis",2011
-"235",0.781827,15089,"Salzlandkreis",2012
-"236",0.702624,15089,"Salzlandkreis",2013
-"237",0.821691,15089,"Salzlandkreis",2014
-"238",0.601936,15089,"Salzlandkreis",2015
-"239",0.843419,15089,"Salzlandkreis",2016
-"240",0.822781,15089,"Salzlandkreis",2017
-"241",0.882272,15090,"Stendal",1998
-"242",0.836092,15090,"Stendal",1999
-"243",0.863191,15090,"Stendal",2000
+"234",0.81174,15089,"Salzlandkreis",2011
+"235",0.781987,15089,"Salzlandkreis",2012
+"236",0.701786,15089,"Salzlandkreis",2013
+"237",0.821977,15089,"Salzlandkreis",2014
+"238",0.600166,15089,"Salzlandkreis",2015
+"239",0.844102,15089,"Salzlandkreis",2016
+"240",0.823127,15089,"Salzlandkreis",2017
+"241",0.883694,15090,"Stendal",1998
+"242",0.836212,15090,"Stendal",1999
+"243",0.862456,15090,"Stendal",2000
 "244",1,15090,"Stendal",2001
-"245",0.9798,15090,"Stendal",2002
-"246",0.936366,15090,"Stendal",2003
-"247",0.895952,15090,"Stendal",2004
+"245",0.979523,15090,"Stendal",2002
+"246",0.936084,15090,"Stendal",2003
+"247",0.89369,15090,"Stendal",2004
 "248",1,15090,"Stendal",2005
-"249",0.948633,15090,"Stendal",2006
-"250",0.86287,15090,"Stendal",2007
-"251",0.887346,15090,"Stendal",2008
-"252",0.834517,15090,"Stendal",2009
-"253",0.985986,15090,"Stendal",2010
-"254",0.828838,15090,"Stendal",2011
-"255",0.819105,15090,"Stendal",2012
-"256",0.743152,15090,"Stendal",2013
-"257",0.78443,15090,"Stendal",2014
-"258",0.545804,15090,"Stendal",2015
-"259",0.863388,15090,"Stendal",2016
-"260",0.759413,15090,"Stendal",2017
-"261",0.370296,15091,"Wittenberg",1998
-"262",0.384028,15091,"Wittenberg",1999
-"263",0.41058,15091,"Wittenberg",2000
-"264",0.399648,15091,"Wittenberg",2001
-"265",0.188189,15091,"Wittenberg",2002
-"266",0.196672,15091,"Wittenberg",2003
-"267",0.27151,15091,"Wittenberg",2004
-"268",0.2222,15091,"Wittenberg",2005
-"269",0.293977,15091,"Wittenberg",2006
-"270",0.306285,15091,"Wittenberg",2007
-"271",0.296491,15091,"Wittenberg",2008
-"272",0.320088,15091,"Wittenberg",2009
-"273",0.32428,15091,"Wittenberg",2010
-"274",0.293877,15091,"Wittenberg",2011
-"275",0.301186,15091,"Wittenberg",2012
-"276",0.299317,15091,"Wittenberg",2013
-"277",0.43654,15091,"Wittenberg",2014
-"278",0.224734,15091,"Wittenberg",2015
-"279",0.301634,15091,"Wittenberg",2016
-"280",0.400907,15091,"Wittenberg",2017
+"249",0.949052,15090,"Stendal",2006
+"250",0.862178,15090,"Stendal",2007
+"251",0.887907,15090,"Stendal",2008
+"252",0.834616,15090,"Stendal",2009
+"253",0.984393,15090,"Stendal",2010
+"254",0.828803,15090,"Stendal",2011
+"255",0.819248,15090,"Stendal",2012
+"256",0.742499,15090,"Stendal",2013
+"257",0.784772,15090,"Stendal",2014
+"258",0.54404,15090,"Stendal",2015
+"259",0.864756,15090,"Stendal",2016
+"260",0.759832,15090,"Stendal",2017
+"261",0.366371,15091,"Wittenberg",1998
+"262",0.38009,15091,"Wittenberg",1999
+"263",0.406026,15091,"Wittenberg",2000
+"264",0.396004,15091,"Wittenberg",2001
+"265",0.182582,15091,"Wittenberg",2002
+"266",0.192161,15091,"Wittenberg",2003
+"267",0.268199,15091,"Wittenberg",2004
+"268",0.217922,15091,"Wittenberg",2005
+"269",0.29073,15091,"Wittenberg",2006
+"270",0.303898,15091,"Wittenberg",2007
+"271",0.293582,15091,"Wittenberg",2008
+"272",0.317623,15091,"Wittenberg",2009
+"273",0.320945,15091,"Wittenberg",2010
+"274",0.291364,15091,"Wittenberg",2011
+"275",0.300039,15091,"Wittenberg",2012
+"276",0.298034,15091,"Wittenberg",2013
+"277",0.436601,15091,"Wittenberg",2014
+"278",0.222845,15091,"Wittenberg",2015
+"279",0.300257,15091,"Wittenberg",2016
+"280",0.400752,15091,"Wittenberg",2017

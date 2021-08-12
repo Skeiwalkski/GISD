@@ -26,18 +26,21 @@ library("tidyr")
 library(haven)
 library(broom)
 library(knitr)
+
+home <- getwd()
+setwd(home)
 ```
 
 ```{r Daten einlesen}
-dat_2014 <- read_dta("C:/git_projects/GISD/Outfiles/2018/Bund/Gemeinde/Gemeinde_long.dta") %>% mutate(Kreis = round(Gemeindekennziffer/1000), digits = 0)
+dat_2014 <- read_dta("Outfiles/2018/Bund/Gemeinde/Gemeinde_long.dta") %>% mutate(Kreis = round(Gemeindekennziffer/1000), digits = 0)
 
-dat_2016 <- read.csv("C:/git_projects/GISD/Outfiles/2020/Bund/Gemeinde/Gemeinde.csv") %>% mutate(Kreis = round(Gemeindekennziffer/1000), digits = 0)
+dat_2016 <- read.csv("Outfiles/2020/Bund/Gemeinde/Gemeinde.csv") %>% mutate(Kreis = round(Gemeindekennziffer/1000), digits = 0)
 
-dat_2017 <- read.csv("C:/git_projects/GISD/Outfiles/2021/Bund/Gemeinde/Gemeinde.csv") %>% mutate(Kreis = round(Gemeindekennziffer/1000), digits = 0)
+dat_2017 <- read.csv("Outfiles/2021/Bund/Gemeinde/Gemeinde.csv") %>% mutate(Kreis = round(Gemeindekennziffer/1000), digits = 0)
 
-dat_2017_v2 <- read.csv("C:/git_projects/GISD/Outfiles/2021_v2/Bund/Gemeinde/Gemeinde.csv") %>% mutate(Kreis = round(Gemeindekennziffer/1000), digits = 0)
+dat_2017_v2 <- read.csv("Outfiles/2021_v2/Bund/Gemeinde/Gemeinde.csv") %>% mutate(Kreis = round(Gemeindekennziffer/1000), digits = 0)
 
-dat_Lebenserwartung <- read.csv2("C:/git_projects/GISD/INKAR_Lebenswerwartung_Kreise_Geschlecht.csv") %>% mutate(Kreis = as.numeric(ï..Kennziffer), Lebenserwartung.Männer.2014 = Lebenserwartung.MÃ.nner, Lebenserwartung.Männer.2017 = Lebenserwartung.MÃ.nner.1) %>% select(-ï..Kennziffer, -Lebenserwartung.MÃ.nner, -Lebenserwartung.MÃ.nner.1)
+dat_Lebenserwartung <- read.csv2("INKAR_Lebenswerwartung_Kreise_Geschlecht.csv") %>% mutate(Kreis = as.numeric(ï..Kennziffer), Lebenserwartung.Männer.2014 = Lebenserwartung.MÃ.nner, Lebenserwartung.Männer.2017 = Lebenserwartung.MÃ.nner.1) %>% select(-ï..Kennziffer, -Lebenserwartung.MÃ.nner, -Lebenserwartung.MÃ.nner.1)
 
 dat_Leberw_2014 <- dat_2014 %>% filter(Jahr == 2014) %>% left_join(dat_Lebenserwartung, by = "Kreis") %>% select(- Lebenserwartung.Frauen.1, - Lebenserwartung.Männer.2017) %>% distinct(Kreis, .keep_all = TRUE) %>% unique()
 

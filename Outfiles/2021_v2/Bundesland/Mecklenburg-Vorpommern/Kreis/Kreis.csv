@@ -1,16 +1,16 @@
 "","GISD_Score","Kreiskennziffer","Name des Kreises","Jahr"
-"1",0.337261,13003,"Rostock, Stadt",1998
-"2",0.015077,13003,"Rostock, Stadt",1999
+"1",0.344206,13003,"Rostock, Stadt",1998
+"2",0.018065,13003,"Rostock, Stadt",1999
 "3",0,13003,"Rostock, Stadt",2000
 "4",0,13003,"Rostock, Stadt",2001
-"5",0.266004,13003,"Rostock, Stadt",2002
-"6",0.149298,13003,"Rostock, Stadt",2003
-"7",0.184954,13003,"Rostock, Stadt",2004
-"8",0.154232,13003,"Rostock, Stadt",2005
+"5",0.272168,13003,"Rostock, Stadt",2002
+"6",0.153786,13003,"Rostock, Stadt",2003
+"7",0.188915,13003,"Rostock, Stadt",2004
+"8",0.159045,13003,"Rostock, Stadt",2005
 "9",0,13003,"Rostock, Stadt",2006
 "10",0,13003,"Rostock, Stadt",2007
 "11",0,13003,"Rostock, Stadt",2008
-"12",0.014231,13003,"Rostock, Stadt",2009
+"12",0.020731,13003,"Rostock, Stadt",2009
 "13",0,13003,"Rostock, Stadt",2010
 "14",0,13003,"Rostock, Stadt",2011
 "15",0,13003,"Rostock, Stadt",2012
@@ -21,104 +21,104 @@
 "20",0,13003,"Rostock, Stadt",2017
 "21",0,13004,"Schwerin, Stadt",1998
 "22",0,13004,"Schwerin, Stadt",1999
-"23",0.02267,13004,"Schwerin, Stadt",2000
-"24",0.006551,13004,"Schwerin, Stadt",2001
+"23",0.017898,13004,"Schwerin, Stadt",2000
+"24",0.002,13004,"Schwerin, Stadt",2001
 "25",0,13004,"Schwerin, Stadt",2002
 "26",0,13004,"Schwerin, Stadt",2003
 "27",0,13004,"Schwerin, Stadt",2004
 "28",0,13004,"Schwerin, Stadt",2005
-"29",0.134212,13004,"Schwerin, Stadt",2006
-"30",0.403549,13004,"Schwerin, Stadt",2007
-"31",0.039514,13004,"Schwerin, Stadt",2008
+"29",0.132478,13004,"Schwerin, Stadt",2006
+"30",0.40639,13004,"Schwerin, Stadt",2007
+"31",0.033531,13004,"Schwerin, Stadt",2008
 "32",0,13004,"Schwerin, Stadt",2009
-"33",0.620036,13004,"Schwerin, Stadt",2010
-"34",0.114362,13004,"Schwerin, Stadt",2011
-"35",0.308032,13004,"Schwerin, Stadt",2012
-"36",0.278549,13004,"Schwerin, Stadt",2013
-"37",0.334658,13004,"Schwerin, Stadt",2014
-"38",0.327266,13004,"Schwerin, Stadt",2015
-"39",0.457236,13004,"Schwerin, Stadt",2016
-"40",0.401202,13004,"Schwerin, Stadt",2017
-"41",0.775336,13071,"Mecklenburgische Seenplatte",1998
-"42",0.662419,13071,"Mecklenburgische Seenplatte",1999
-"43",0.724258,13071,"Mecklenburgische Seenplatte",2000
-"44",0.813031,13071,"Mecklenburgische Seenplatte",2001
-"45",0.896644,13071,"Mecklenburgische Seenplatte",2002
-"46",0.770317,13071,"Mecklenburgische Seenplatte",2003
-"47",0.76543,13071,"Mecklenburgische Seenplatte",2004
-"48",0.660643,13071,"Mecklenburgische Seenplatte",2005
-"49",0.593091,13071,"Mecklenburgische Seenplatte",2006
-"50",0.833123,13071,"Mecklenburgische Seenplatte",2007
-"51",0.694882,13071,"Mecklenburgische Seenplatte",2008
-"52",0.875845,13071,"Mecklenburgische Seenplatte",2009
-"53",0.863764,13071,"Mecklenburgische Seenplatte",2010
-"54",0.988647,13071,"Mecklenburgische Seenplatte",2011
+"33",0.626006,13004,"Schwerin, Stadt",2010
+"34",0.111748,13004,"Schwerin, Stadt",2011
+"35",0.308215,13004,"Schwerin, Stadt",2012
+"36",0.278844,13004,"Schwerin, Stadt",2013
+"37",0.335634,13004,"Schwerin, Stadt",2014
+"38",0.323998,13004,"Schwerin, Stadt",2015
+"39",0.456955,13004,"Schwerin, Stadt",2016
+"40",0.399456,13004,"Schwerin, Stadt",2017
+"41",0.77134,13071,"Mecklenburgische Seenplatte",1998
+"42",0.65705,13071,"Mecklenburgische Seenplatte",1999
+"43",0.71838,13071,"Mecklenburgische Seenplatte",2000
+"44",0.80853,13071,"Mecklenburgische Seenplatte",2001
+"45",0.894285,13071,"Mecklenburgische Seenplatte",2002
+"46",0.766001,13071,"Mecklenburgische Seenplatte",2003
+"47",0.763336,13071,"Mecklenburgische Seenplatte",2004
+"48",0.657092,13071,"Mecklenburgische Seenplatte",2005
+"49",0.585495,13071,"Mecklenburgische Seenplatte",2006
+"50",0.830914,13071,"Mecklenburgische Seenplatte",2007
+"51",0.689934,13071,"Mecklenburgische Seenplatte",2008
+"52",0.874903,13071,"Mecklenburgische Seenplatte",2009
+"53",0.860667,13071,"Mecklenburgische Seenplatte",2010
+"54",0.988348,13071,"Mecklenburgische Seenplatte",2011
 "55",1,13071,"Mecklenburgische Seenplatte",2012
-"56",0.693063,13071,"Mecklenburgische Seenplatte",2013
-"57",0.841169,13071,"Mecklenburgische Seenplatte",2014
-"58",0.865949,13071,"Mecklenburgische Seenplatte",2015
-"59",0.974032,13071,"Mecklenburgische Seenplatte",2016
-"60",0.974081,13071,"Mecklenburgische Seenplatte",2017
-"61",0.326005,13072,"Landkreis Rostock",1998
-"62",0.233636,13072,"Landkreis Rostock",1999
-"63",0.3412,13072,"Landkreis Rostock",2000
-"64",0.56003,13072,"Landkreis Rostock",2001
-"65",0.673546,13072,"Landkreis Rostock",2002
-"66",0.606995,13072,"Landkreis Rostock",2003
-"67",0.649323,13072,"Landkreis Rostock",2004
-"68",0.477299,13072,"Landkreis Rostock",2005
-"69",0.309678,13072,"Landkreis Rostock",2006
-"70",0.31415,13072,"Landkreis Rostock",2007
-"71",0.276904,13072,"Landkreis Rostock",2008
-"72",0.507739,13072,"Landkreis Rostock",2009
-"73",0.476813,13072,"Landkreis Rostock",2010
-"74",0.253204,13072,"Landkreis Rostock",2011
-"75",0.456528,13072,"Landkreis Rostock",2012
-"76",0.020508,13072,"Landkreis Rostock",2013
-"77",0.287835,13072,"Landkreis Rostock",2014
-"78",0.14846,13072,"Landkreis Rostock",2015
-"79",0.164922,13072,"Landkreis Rostock",2016
-"80",0.174488,13072,"Landkreis Rostock",2017
-"81",0.738695,13073,"Vorpommern-Rügen",1998
-"82",0.680915,13073,"Vorpommern-Rügen",1999
-"83",0.658653,13073,"Vorpommern-Rügen",2000
-"84",0.651325,13073,"Vorpommern-Rügen",2001
-"85",0.909735,13073,"Vorpommern-Rügen",2002
-"86",0.978208,13073,"Vorpommern-Rügen",2003
-"87",0.900562,13073,"Vorpommern-Rügen",2004
-"88",0.747951,13073,"Vorpommern-Rügen",2005
-"89",0.903446,13073,"Vorpommern-Rügen",2006
-"90",0.783871,13073,"Vorpommern-Rügen",2007
-"91",0.750009,13073,"Vorpommern-Rügen",2008
-"92",0.697262,13073,"Vorpommern-Rügen",2009
-"93",0.817016,13073,"Vorpommern-Rügen",2010
-"94",0.841899,13073,"Vorpommern-Rügen",2011
-"95",0.745446,13073,"Vorpommern-Rügen",2012
-"96",0.78515,13073,"Vorpommern-Rügen",2013
-"97",0.88301,13073,"Vorpommern-Rügen",2014
-"98",0.987552,13073,"Vorpommern-Rügen",2015
-"99",0.919824,13073,"Vorpommern-Rügen",2016
-"100",0.80862,13073,"Vorpommern-Rügen",2017
-"101",0.392957,13074,"Nordwestmecklenburg",1998
-"102",0.329046,13074,"Nordwestmecklenburg",1999
-"103",0.517912,13074,"Nordwestmecklenburg",2000
-"104",0.720568,13074,"Nordwestmecklenburg",2001
-"105",0.698461,13074,"Nordwestmecklenburg",2002
-"106",0.546242,13074,"Nordwestmecklenburg",2003
-"107",0.530705,13074,"Nordwestmecklenburg",2004
-"108",0.425889,13074,"Nordwestmecklenburg",2005
-"109",0.395305,13074,"Nordwestmecklenburg",2006
-"110",0.424662,13074,"Nordwestmecklenburg",2007
-"111",0.457426,13074,"Nordwestmecklenburg",2008
-"112",0.92878,13074,"Nordwestmecklenburg",2009
-"113",0.769436,13074,"Nordwestmecklenburg",2010
-"114",0.842813,13074,"Nordwestmecklenburg",2011
-"115",0.656,13074,"Nordwestmecklenburg",2012
-"116",0.329281,13074,"Nordwestmecklenburg",2013
-"117",0.437034,13074,"Nordwestmecklenburg",2014
-"118",0.584611,13074,"Nordwestmecklenburg",2015
-"119",0.573419,13074,"Nordwestmecklenburg",2016
-"120",0.667188,13074,"Nordwestmecklenburg",2017
+"56",0.686593,13071,"Mecklenburgische Seenplatte",2013
+"57",0.83894,13071,"Mecklenburgische Seenplatte",2014
+"58",0.86102,13071,"Mecklenburgische Seenplatte",2015
+"59",0.970789,13071,"Mecklenburgische Seenplatte",2016
+"60",0.970359,13071,"Mecklenburgische Seenplatte",2017
+"61",0.320662,13072,"Landkreis Rostock",1998
+"62",0.227363,13072,"Landkreis Rostock",1999
+"63",0.33355,13072,"Landkreis Rostock",2000
+"64",0.553373,13072,"Landkreis Rostock",2001
+"65",0.670403,13072,"Landkreis Rostock",2002
+"66",0.6029,13072,"Landkreis Rostock",2003
+"67",0.647198,13072,"Landkreis Rostock",2004
+"68",0.473071,13072,"Landkreis Rostock",2005
+"69",0.300348,13072,"Landkreis Rostock",2006
+"70",0.304386,13072,"Landkreis Rostock",2007
+"71",0.268104,13072,"Landkreis Rostock",2008
+"72",0.506184,13072,"Landkreis Rostock",2009
+"73",0.472221,13072,"Landkreis Rostock",2010
+"74",0.244256,13072,"Landkreis Rostock",2011
+"75",0.452216,13072,"Landkreis Rostock",2012
+"76",0.004742,13072,"Landkreis Rostock",2013
+"77",0.280279,13072,"Landkreis Rostock",2014
+"78",0.134018,13072,"Landkreis Rostock",2015
+"79",0.148987,13072,"Landkreis Rostock",2016
+"80",0.158345,13072,"Landkreis Rostock",2017
+"81",0.732599,13073,"Vorpommern-Rügen",1998
+"82",0.673859,13073,"Vorpommern-Rügen",1999
+"83",0.648172,13073,"Vorpommern-Rügen",2000
+"84",0.640638,13073,"Vorpommern-Rügen",2001
+"85",0.906203,13073,"Vorpommern-Rügen",2002
+"86",0.974835,13073,"Vorpommern-Rügen",2003
+"87",0.89716,13073,"Vorpommern-Rügen",2004
+"88",0.742741,13073,"Vorpommern-Rügen",2005
+"89",0.89899,13073,"Vorpommern-Rügen",2006
+"90",0.77708,13073,"Vorpommern-Rügen",2007
+"91",0.743749,13073,"Vorpommern-Rügen",2008
+"92",0.690969,13073,"Vorpommern-Rügen",2009
+"93",0.811049,13073,"Vorpommern-Rügen",2010
+"94",0.836531,13073,"Vorpommern-Rügen",2011
+"95",0.737244,13073,"Vorpommern-Rügen",2012
+"96",0.775629,13073,"Vorpommern-Rügen",2013
+"97",0.87653,13073,"Vorpommern-Rügen",2014
+"98",0.981089,13073,"Vorpommern-Rügen",2015
+"99",0.910637,13073,"Vorpommern-Rügen",2016
+"100",0.796074,13073,"Vorpommern-Rügen",2017
+"101",0.392616,13074,"Nordwestmecklenburg",1998
+"102",0.328785,13074,"Nordwestmecklenburg",1999
+"103",0.517139,13074,"Nordwestmecklenburg",2000
+"104",0.721887,13074,"Nordwestmecklenburg",2001
+"105",0.700415,13074,"Nordwestmecklenburg",2002
+"106",0.546945,13074,"Nordwestmecklenburg",2003
+"107",0.531597,13074,"Nordwestmecklenburg",2004
+"108",0.425588,13074,"Nordwestmecklenburg",2005
+"109",0.391693,13074,"Nordwestmecklenburg",2006
+"110",0.421027,13074,"Nordwestmecklenburg",2007
+"111",0.453394,13074,"Nordwestmecklenburg",2008
+"112",0.935001,13074,"Nordwestmecklenburg",2009
+"113",0.77049,13074,"Nordwestmecklenburg",2010
+"114",0.845129,13074,"Nordwestmecklenburg",2011
+"115",0.654064,13074,"Nordwestmecklenburg",2012
+"116",0.31951,13074,"Nordwestmecklenburg",2013
+"117",0.43152,13074,"Nordwestmecklenburg",2014
+"118",0.580302,13074,"Nordwestmecklenburg",2015
+"119",0.566949,13074,"Nordwestmecklenburg",2016
+"120",0.662003,13074,"Nordwestmecklenburg",2017
 "121",1,13075,"Vorpommern-Greifswald",1998
 "122",1,13075,"Vorpommern-Greifswald",1999
 "123",1,13075,"Vorpommern-Greifswald",2000
@@ -133,29 +133,29 @@
 "132",1,13075,"Vorpommern-Greifswald",2009
 "133",1,13075,"Vorpommern-Greifswald",2010
 "134",1,13075,"Vorpommern-Greifswald",2011
-"135",0.954925,13075,"Vorpommern-Greifswald",2012
+"135",0.953936,13075,"Vorpommern-Greifswald",2012
 "136",1,13075,"Vorpommern-Greifswald",2013
 "137",1,13075,"Vorpommern-Greifswald",2014
 "138",1,13075,"Vorpommern-Greifswald",2015
 "139",1,13075,"Vorpommern-Greifswald",2016
 "140",1,13075,"Vorpommern-Greifswald",2017
-"141",0.319498,13076,"Ludwigslust-Parchim",1998
-"142",0.159847,13076,"Ludwigslust-Parchim",1999
-"143",0.36536,13076,"Ludwigslust-Parchim",2000
-"144",0.287308,13076,"Ludwigslust-Parchim",2001
-"145",0.538186,13076,"Ludwigslust-Parchim",2002
-"146",0.446015,13076,"Ludwigslust-Parchim",2003
-"147",0.475241,13076,"Ludwigslust-Parchim",2004
-"148",0.367495,13076,"Ludwigslust-Parchim",2005
-"149",0.286357,13076,"Ludwigslust-Parchim",2006
-"150",0.522057,13076,"Ludwigslust-Parchim",2007
-"151",0.449033,13076,"Ludwigslust-Parchim",2008
-"152",0.480538,13076,"Ludwigslust-Parchim",2009
-"153",0.50348,13076,"Ludwigslust-Parchim",2010
-"154",0.725457,13076,"Ludwigslust-Parchim",2011
-"155",0.50673,13076,"Ludwigslust-Parchim",2012
-"156",0.285703,13076,"Ludwigslust-Parchim",2013
-"157",0.556034,13076,"Ludwigslust-Parchim",2014
-"158",0.574899,13076,"Ludwigslust-Parchim",2015
-"159",0.431422,13076,"Ludwigslust-Parchim",2016
-"160",0.560796,13076,"Ludwigslust-Parchim",2017
+"141",0.319017,13076,"Ludwigslust-Parchim",1998
+"142",0.155526,13076,"Ludwigslust-Parchim",1999
+"143",0.360129,13076,"Ludwigslust-Parchim",2000
+"144",0.277098,13076,"Ludwigslust-Parchim",2001
+"145",0.535337,13076,"Ludwigslust-Parchim",2002
+"146",0.441978,13076,"Ludwigslust-Parchim",2003
+"147",0.47232,13076,"Ludwigslust-Parchim",2004
+"148",0.362927,13076,"Ludwigslust-Parchim",2005
+"149",0.275763,13076,"Ludwigslust-Parchim",2006
+"150",0.516887,13076,"Ludwigslust-Parchim",2007
+"151",0.442476,13076,"Ludwigslust-Parchim",2008
+"152",0.477076,13076,"Ludwigslust-Parchim",2009
+"153",0.497449,13076,"Ludwigslust-Parchim",2010
+"154",0.724222,13076,"Ludwigslust-Parchim",2011
+"155",0.501018,13076,"Ludwigslust-Parchim",2012
+"156",0.272448,13076,"Ludwigslust-Parchim",2013
+"157",0.55005,13076,"Ludwigslust-Parchim",2014
+"158",0.565821,13076,"Ludwigslust-Parchim",2015
+"159",0.417164,13076,"Ludwigslust-Parchim",2016
+"160",0.548966,13076,"Ludwigslust-Parchim",2017

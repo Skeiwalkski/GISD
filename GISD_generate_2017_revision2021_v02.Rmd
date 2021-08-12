@@ -497,9 +497,12 @@ Impdata.imputed <- Impdata.imputed %>% mutate(OW = ifelse(Kreis < 11000, 0, 1))
 
 dat_ow_modell <- Impdata.imputed  %>% mutate(Jahr_Dummy = as.factor(Jahr))
 
-ow_modell <- lm(BeschaeftigteohneAbschluss ~ Jahr_Dummy + Jahr_Dummy*OW, data = dat_ow_modell,na.action="na.exclude")
+ow_modell <- lm(BeschaeftigteohneAbschluss ~ Jahr_Dummy + Jahr_Dummy * OW, data = dat_ow_modell,na.action="na.exclude")
+
+ow_modell <- lm(BeschaeftigteohneAbschluss ~ Jahr_Dummy + relevel(Jahr_Dummy, ref = "2012") * OW, data = dat_ow_modell,na.action="na.exclude")
 
 summary(ow_modell)
+summary(ow_modell)$coefficients[21,1]
 
 #ow_modell2 <- lm(BeschaeftigteohneAbschluss ~ I(Jahr*Jahr*mean(BeschaeftigteohneAbschluss)) + I(Jahr*mean(BeschaeftigteohneAbschluss)) + OW + I(Jahr*Jahr*OW) + I(Jahr*OW), data = dat_ow_modell, na.action="na.exclude")
 
@@ -510,7 +513,7 @@ OW <- function(data,outcome_name){
     select(Gemeindekennziffer, Jahr, OW, "Outcome"=paste(outcome_name)) %>% 
     mutate(Jahr_Dummy = as.factor(Jahr)) %>% ungroup()
   
-  mymodell_ow <- lm(Outcome ~ Jahr_Dummy + Jahr_Dummy*OW, data = mydata, na.action="na.exclude")
+  mymodell_ow <- lm(Outcome ~ Jahr_Dummy + relevel(Jahr_Dummy, ref = "2012") * OW, data = mydata, na.action="na.exclude")
   print(mymodell_ow)  
     mydata %>% mutate(coef = summary(mymodell_ow)$coefficients[21,1]) %>%
       mutate(Outcome = ifelse(OW == 1, Outcome - coef, Outcome)) %>%
