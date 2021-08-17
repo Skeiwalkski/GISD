@@ -19,15 +19,15 @@ output:
 
 
 ```r
-dat_2014 <- read_dta("C:/git_projects/GISD/Outfiles/2018/Bund/Gemeinde/Gemeinde_long.dta") %>% mutate(Kreis = round(Gemeindekennziffer/1000), digits = 0)
+dat_2014 <- read_dta("Outfiles/2018/Bund/Gemeinde/Gemeinde_long.dta") %>% mutate(Kreis = round(Gemeindekennziffer/1000), digits = 0)
 
-dat_2016 <- read.csv("C:/git_projects/GISD/Outfiles/2020/Bund/Gemeinde/Gemeinde.csv") %>% mutate(Kreis = round(Gemeindekennziffer/1000), digits = 0)
+dat_2016 <- read.csv("Outfiles/2020/Bund/Gemeinde/Gemeinde.csv") %>% mutate(Kreis = round(Gemeindekennziffer/1000), digits = 0)
 
-dat_2017 <- read.csv("C:/git_projects/GISD/Outfiles/2021/Bund/Gemeinde/Gemeinde.csv") %>% mutate(Kreis = round(Gemeindekennziffer/1000), digits = 0)
+dat_2017 <- read.csv("Outfiles/2021/Bund/Gemeinde/Gemeinde.csv") %>% mutate(Kreis = round(Gemeindekennziffer/1000), digits = 0)
 
-dat_2017_v2 <- read.csv("C:/git_projects/GISD/Outfiles/2021_v2/Bund/Gemeinde/Gemeinde.csv") %>% mutate(Kreis = round(Gemeindekennziffer/1000), digits = 0)
+dat_2017_v2 <- read.csv("Outfiles/2021_v2/Bund/Gemeinde/Gemeinde.csv") %>% mutate(Kreis = round(Gemeindekennziffer/1000), digits = 0)
 
-dat_Lebenserwartung <- read.csv2("C:/git_projects/GISD/INKAR_Lebenswerwartung_Kreise_Geschlecht.csv") %>% mutate(Kreis = as.numeric(ï..Kennziffer), Lebenserwartung.Männer.2014 = Lebenserwartung.MÃ.nner, Lebenserwartung.Männer.2017 = Lebenserwartung.MÃ.nner.1) %>% select(-ï..Kennziffer, -Lebenserwartung.MÃ.nner, -Lebenserwartung.MÃ.nner.1)
+dat_Lebenserwartung <- read.csv2("INKAR_Lebenswerwartung_Kreise_Geschlecht.csv") %>% mutate(Kreis = as.numeric(ï..Kennziffer), Lebenserwartung.Männer.2014 = Lebenserwartung.MÃ.nner, Lebenserwartung.Männer.2017 = Lebenserwartung.MÃ.nner.1) %>% select(-ï..Kennziffer, -Lebenserwartung.MÃ.nner, -Lebenserwartung.MÃ.nner.1)
 
 dat_Leberw_2014 <- dat_2014 %>% filter(Jahr == 2014) %>% left_join(dat_Lebenserwartung, by = "Kreis") %>% select(- Lebenserwartung.Frauen.1, - Lebenserwartung.Männer.2017) %>% distinct(Kreis, .keep_all = TRUE) %>% unique()
 
@@ -261,7 +261,7 @@ kable(Tabelle_GISD_München)
 |2011 |0.16             |1               |0.4              |1               |0.37             |1               |0.18                |1                  |
 |2012 |0.17             |1               |0.39             |1               |0.38             |1               |0.18                |1                  |
 |2013 |0.15             |1               |0.36             |1               |0.35             |1               |0.16                |1                  |
-|2014 |0.17             |1               |0.32             |1               |0.33             |1               |0.12                |1                  |
+|2014 |0.17             |1               |0.32             |1               |0.33             |1               |0.13                |1                  |
 |2015 |-                |-               |0.3              |1               |0.31             |1               |0.11                |1                  |
 |2016 |-                |-               |0.27             |1               |0.28             |1               |0.09                |1                  |
 |2017 |-                |-               |0.24             |1               |0.26             |1               |0.07                |1                  |
@@ -457,7 +457,7 @@ kable(Tabelle_GISD_Flensburg)
 
 |Jahr |GISD-Score V2018 |Perzentil V2018 |GISD-Score V2020 |Perzentil V2020 |GISD-Score V2021 |Perzentil V2021 |GISD-Score V2021_v2 |Perzentil V2021_v2 |
 |:----|:----------------|:---------------|:----------------|:---------------|:----------------|:---------------|:-------------------|:------------------|
-|1998 |0.86             |10              |0.9              |9               |0.79             |8               |0.75                |9                  |
+|1998 |0.86             |10              |0.9              |9               |0.79             |8               |0.74                |9                  |
 |1999 |0.83             |10              |0.88             |9               |0.77             |7               |0.72                |9                  |
 |2000 |0.76             |9               |0.85             |8               |0.73             |6               |0.67                |8                  |
 |2001 |0.71             |8               |0.82             |7               |0.71             |6               |0.64                |8                  |
@@ -673,12 +673,12 @@ kable(Tabelle_GISD_Jena)
 |1999 |0.45             |2               |0.78             |2               |0.78             |8               |0.56                |4                  |
 |2000 |0.39             |1               |0.75             |2               |0.73             |6               |0.52                |3                  |
 |2001 |0.38             |1               |0.71             |1               |0.7              |6               |0.49                |3                  |
-|2002 |0.38             |1               |0.69             |1               |0.68             |5               |0.47                |2                  |
+|2002 |0.38             |1               |0.69             |1               |0.68             |5               |0.47                |3                  |
 |2003 |0.37             |1               |0.67             |1               |0.66             |4               |0.46                |2                  |
 |2004 |0.36             |1               |0.67             |1               |0.68             |6               |0.48                |3                  |
-|2005 |0.36             |1               |0.65             |1               |0.65             |4               |0.46                |2                  |
+|2005 |0.36             |1               |0.65             |1               |0.65             |4               |0.47                |2                  |
 |2006 |0.35             |1               |0.62             |1               |0.62             |3               |0.43                |2                  |
-|2007 |0.39             |1               |0.6              |1               |0.61             |3               |0.41                |2                  |
+|2007 |0.39             |1               |0.6              |1               |0.61             |3               |0.42                |2                  |
 |2008 |0.41             |1               |0.56             |1               |0.57             |3               |0.38                |1                  |
 |2009 |0.39             |1               |0.55             |1               |0.57             |3               |0.37                |1                  |
 |2010 |0.38             |1               |0.53             |1               |0.56             |3               |0.35                |1                  |
@@ -886,7 +886,7 @@ kable(Tabelle_GISD_Pirmasens)
 |1999 |0.98             |10              |0.92             |10              |0.81             |8               |0.81                |10                 |
 |2000 |0.95             |10              |0.91             |10              |0.8              |8               |0.78                |10                 |
 |2001 |0.88             |10              |0.88             |10              |0.78             |8               |0.75                |10                 |
-|2002 |0.86             |10              |0.86             |9               |0.73             |7               |0.73                |10                 |
+|2002 |0.86             |10              |0.86             |9               |0.73             |7               |0.73                |9                  |
 |2003 |0.87             |10              |0.86             |9               |0.74             |8               |0.74                |10                 |
 |2004 |0.89             |10              |0.88             |10              |0.77             |9               |0.76                |10                 |
 |2005 |0.91             |10              |0.87             |10              |0.76             |8               |0.76                |10                 |
@@ -894,8 +894,8 @@ kable(Tabelle_GISD_Pirmasens)
 |2007 |0.92             |10              |0.84             |10              |0.71             |8               |0.73                |10                 |
 |2008 |0.91             |10              |0.81             |10              |0.68             |8               |0.7                 |10                 |
 |2009 |0.9              |10              |0.8              |10              |0.67             |8               |0.69                |10                 |
-|2010 |0.88             |10              |0.78             |10              |0.64             |7               |0.68                |10                 |
-|2011 |0.92             |10              |0.8              |10              |0.68             |9               |0.71                |10                 |
+|2010 |0.88             |10              |0.78             |10              |0.64             |7               |0.67                |10                 |
+|2011 |0.92             |10              |0.8              |10              |0.68             |9               |0.7                 |10                 |
 |2012 |0.94             |10              |0.79             |10              |0.68             |9               |0.71                |10                 |
 |2013 |0.89             |10              |0.76             |10              |0.63             |8               |0.67                |10                 |
 |2014 |0.89             |10              |0.75             |10              |0.63             |8               |0.66                |10                 |
@@ -1098,9 +1098,9 @@ kable(Tabelle_GISD_Bautzen)
 |1998 |0.78             |9               |0.91             |10              |0.88             |10              |0.75                |10                 |
 |1999 |0.8              |9               |0.91             |10              |0.88             |10              |0.75                |10                 |
 |2000 |0.78             |9               |0.89             |10              |0.87             |10              |0.73                |9                  |
-|2001 |0.73             |9               |0.87             |9               |0.84             |9               |0.69                |9                  |
+|2001 |0.73             |9               |0.87             |9               |0.84             |9               |0.7                 |9                  |
 |2002 |0.77             |9               |0.87             |9               |0.84             |9               |0.7                 |9                  |
-|2003 |0.76             |9               |0.86             |9               |0.83             |10              |0.69                |9                  |
+|2003 |0.76             |9               |0.86             |9               |0.83             |10              |0.7                 |9                  |
 |2004 |0.74             |9               |0.85             |9               |0.82             |9               |0.69                |9                  |
 |2005 |0.76             |9               |0.84             |9               |0.82             |9               |0.69                |9                  |
 |2006 |0.8              |9               |0.85             |9               |0.82             |10              |0.7                 |9                  |
@@ -1309,7 +1309,7 @@ kable(Tabelle_GISD_Starnberg)
 |:----|:----------------|:---------------|:----------------|:---------------|:----------------|:---------------|:-------------------|:------------------|
 |1998 |0.09             |1               |0.7              |1               |0.62             |1               |0.33                |1                  |
 |1999 |0.09             |1               |0.68             |1               |0.61             |1               |0.31                |1                  |
-|2000 |0.04             |1               |0.66             |1               |0.59             |1               |0.29                |1                  |
+|2000 |0.04             |1               |0.66             |1               |0.59             |1               |0.28                |1                  |
 |2001 |0.08             |1               |0.64             |1               |0.58             |1               |0.27                |1                  |
 |2002 |0.08             |1               |0.62             |1               |0.55             |1               |0.26                |1                  |
 |2003 |0.09             |1               |0.61             |1               |0.55             |1               |0.26                |1                  |
@@ -1319,11 +1319,11 @@ kable(Tabelle_GISD_Starnberg)
 |2007 |0.07             |1               |0.53             |1               |0.48             |1               |0.21                |1                  |
 |2008 |0.12             |1               |0.51             |1               |0.45             |1               |0.19                |1                  |
 |2009 |0.11             |1               |0.5              |1               |0.45             |1               |0.18                |1                  |
-|2010 |0.12             |1               |0.49             |1               |0.44             |1               |0.18                |1                  |
+|2010 |0.12             |1               |0.49             |1               |0.44             |1               |0.17                |1                  |
 |2011 |0.08             |1               |0.45             |1               |0.39             |1               |0.15                |1                  |
 |2012 |0.06             |1               |0.42             |1               |0.37             |1               |0.12                |1                  |
 |2013 |0.06             |1               |0.41             |1               |0.37             |1               |0.12                |1                  |
-|2014 |0.11             |1               |0.38             |1               |0.34             |1               |0.1                 |1                  |
+|2014 |0.11             |1               |0.38             |1               |0.34             |1               |0.09                |1                  |
 |2015 |-                |-               |0.37             |1               |0.33             |1               |0.08                |1                  |
 |2016 |-                |-               |0.34             |1               |0.31             |1               |0.07                |1                  |
 |2017 |-                |-               |0.32             |1               |0.29             |1               |0.06                |1                  |

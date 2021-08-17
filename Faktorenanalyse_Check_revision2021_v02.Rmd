@@ -34,7 +34,10 @@ library(pastecs) # descriptive stats
 library(knitr)
 library(ggplot2)
 
-Impdata.imputed <- readRDS("C:/git_projects/GISD/Outfiles/Impdata_check.rds")
+home <- getwd()
+setwd(home)
+
+Impdata.imputed <- readRDS("Outfiles/Impdata_check.rds")
 ```
 
 

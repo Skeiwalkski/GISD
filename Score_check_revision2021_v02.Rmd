@@ -21,6 +21,9 @@ library("rkicolors")
 library("dplyr")
 
 knitr::opts_chunk$set(echo = TRUE)
+
+home <- getwd()
+setwd(home)
 ```
 
 ## Info
@@ -28,11 +31,11 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ```{r libraries und Datengeniererung, include=FALSE}
 
-#Impdata.imputed <- readRDS("C:/projects_rstudio/GISD/Outfiles/Impdata_check.rds")
-#Resultdataset <- read.csv("C:/projects_rstudio/GISD/Outfiles/2021/Bund/Gemeinde/Gemeinde.csv")
+#Impdata.imputed <- readRDS("Outfiles/Impdata_check.rds")
+#Resultdataset <- read.csv("Outfiles/2021/Bund/Gemeinde/Gemeinde.csv")
 
-Impdata.imputed <- readRDS("C:/git_projects/GISD/Outfiles/Impdata_check.rds")
-Resultdataset <- readRDS("C:/git_projects/GISD/Outfiles/Resultdataset.rds")
+Impdata.imputed <- readRDS("Outfiles/Impdata_check.rds")
+Resultdataset <- readRDS("Outfiles/Resultdataset.rds")
 
 Corr_data <- left_join(as.data.frame(Impdata.imputed), Resultdataset, all.x = TRUE)
 

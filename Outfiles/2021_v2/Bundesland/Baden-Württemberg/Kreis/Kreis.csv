@@ -1,352 +1,352 @@
 "","GISD_Score","Kreiskennziffer","Name des Kreises","Jahr"
-"1",0.109433,8111,"Stuttgart, Stadt",1998
-"2",0.077719,8111,"Stuttgart, Stadt",1999
-"3",0.120817,8111,"Stuttgart, Stadt",2000
-"4",0.112123,8111,"Stuttgart, Stadt",2001
-"5",0.155991,8111,"Stuttgart, Stadt",2002
-"6",0.121281,8111,"Stuttgart, Stadt",2003
-"7",0.060069,8111,"Stuttgart, Stadt",2004
-"8",0.027921,8111,"Stuttgart, Stadt",2005
-"9",0.076099,8111,"Stuttgart, Stadt",2006
-"10",0.040856,8111,"Stuttgart, Stadt",2007
-"11",0.091132,8111,"Stuttgart, Stadt",2008
-"12",0.148633,8111,"Stuttgart, Stadt",2009
-"13",0.135546,8111,"Stuttgart, Stadt",2010
-"14",0.143929,8111,"Stuttgart, Stadt",2011
-"15",0.179596,8111,"Stuttgart, Stadt",2012
-"16",0.215275,8111,"Stuttgart, Stadt",2013
-"17",0.175982,8111,"Stuttgart, Stadt",2014
-"18",0.170817,8111,"Stuttgart, Stadt",2015
-"19",0.179519,8111,"Stuttgart, Stadt",2016
-"20",0.046238,8111,"Stuttgart, Stadt",2017
+"1",0.112825,8111,"Stuttgart, Stadt",1998
+"2",0.080158,8111,"Stuttgart, Stadt",1999
+"3",0.123493,8111,"Stuttgart, Stadt",2000
+"4",0.114477,8111,"Stuttgart, Stadt",2001
+"5",0.158427,8111,"Stuttgart, Stadt",2002
+"6",0.123012,8111,"Stuttgart, Stadt",2003
+"7",0.061942,8111,"Stuttgart, Stadt",2004
+"8",0.032297,8111,"Stuttgart, Stadt",2005
+"9",0.077639,8111,"Stuttgart, Stadt",2006
+"10",0.041823,8111,"Stuttgart, Stadt",2007
+"11",0.092061,8111,"Stuttgart, Stadt",2008
+"12",0.149792,8111,"Stuttgart, Stadt",2009
+"13",0.135996,8111,"Stuttgart, Stadt",2010
+"14",0.144293,8111,"Stuttgart, Stadt",2011
+"15",0.179878,8111,"Stuttgart, Stadt",2012
+"16",0.215962,8111,"Stuttgart, Stadt",2013
+"17",0.176686,8111,"Stuttgart, Stadt",2014
+"18",0.171597,8111,"Stuttgart, Stadt",2015
+"19",0.180359,8111,"Stuttgart, Stadt",2016
+"20",0.045211,8111,"Stuttgart, Stadt",2017
 "21",0,8115,"Böblingen",1998
-"22",0.013742,8115,"Böblingen",1999
-"23",0.006911,8115,"Böblingen",2000
-"24",0.009621,8115,"Böblingen",2001
-"25",0.093551,8115,"Böblingen",2002
-"26",0.103795,8115,"Böblingen",2003
-"27",0.039998,8115,"Böblingen",2004
+"22",0.012953,8115,"Böblingen",1999
+"23",0.005044,8115,"Böblingen",2000
+"24",0.00696,8115,"Böblingen",2001
+"25",0.091775,8115,"Böblingen",2002
+"26",0.102104,8115,"Böblingen",2003
+"27",0.037418,8115,"Böblingen",2004
 "28",0,8115,"Böblingen",2005
-"29",0.048254,8115,"Böblingen",2006
-"30",0.100436,8115,"Böblingen",2007
-"31",0.14545,8115,"Böblingen",2008
-"32",0.1993,8115,"Böblingen",2009
-"33",0.184986,8115,"Böblingen",2010
-"34",0.168465,8115,"Böblingen",2011
-"35",0.197384,8115,"Böblingen",2012
-"36",0.228918,8115,"Böblingen",2013
-"37",0.203509,8115,"Böblingen",2014
-"38",0.191569,8115,"Böblingen",2015
-"39",0.209211,8115,"Böblingen",2016
-"40",0.158681,8115,"Böblingen",2017
-"41",0.08221,8116,"Esslingen",1998
-"42",0.097879,8116,"Esslingen",1999
-"43",0.168371,8116,"Esslingen",2000
-"44",0.145546,8116,"Esslingen",2001
-"45",0.184168,8116,"Esslingen",2002
-"46",0.189116,8116,"Esslingen",2003
-"47",0.15184,8116,"Esslingen",2004
-"48",0.106963,8116,"Esslingen",2005
-"49",0.158926,8116,"Esslingen",2006
-"50",0.173739,8116,"Esslingen",2007
-"51",0.219153,8116,"Esslingen",2008
-"52",0.277648,8116,"Esslingen",2009
-"53",0.269072,8116,"Esslingen",2010
-"54",0.296697,8116,"Esslingen",2011
-"55",0.303079,8116,"Esslingen",2012
-"56",0.334161,8116,"Esslingen",2013
-"57",0.316605,8116,"Esslingen",2014
-"58",0.299486,8116,"Esslingen",2015
-"59",0.326334,8116,"Esslingen",2016
-"60",0.24658,8116,"Esslingen",2017
-"61",0.502546,8117,"Göppingen",1998
-"62",0.436197,8117,"Göppingen",1999
-"63",0.512167,8117,"Göppingen",2000
-"64",0.530249,8117,"Göppingen",2001
-"65",0.577974,8117,"Göppingen",2002
-"66",0.548508,8117,"Göppingen",2003
-"67",0.538194,8117,"Göppingen",2004
-"68",0.508306,8117,"Göppingen",2005
-"69",0.542557,8117,"Göppingen",2006
-"70",0.571105,8117,"Göppingen",2007
-"71",0.574827,8117,"Göppingen",2008
-"72",0.636362,8117,"Göppingen",2009
-"73",0.602281,8117,"Göppingen",2010
-"74",0.608041,8117,"Göppingen",2011
-"75",0.628692,8117,"Göppingen",2012
-"76",0.638846,8117,"Göppingen",2013
-"77",0.604171,8117,"Göppingen",2014
-"78",0.605722,8117,"Göppingen",2015
-"79",0.609291,8117,"Göppingen",2016
-"80",0.586675,8117,"Göppingen",2017
-"81",0.132273,8118,"Ludwigsburg",1998
-"82",0.141988,8118,"Ludwigsburg",1999
-"83",0.195886,8118,"Ludwigsburg",2000
-"84",0.207776,8118,"Ludwigsburg",2001
-"85",0.259771,8118,"Ludwigsburg",2002
-"86",0.221965,8118,"Ludwigsburg",2003
-"87",0.197064,8118,"Ludwigsburg",2004
-"88",0.150994,8118,"Ludwigsburg",2005
-"89",0.196802,8118,"Ludwigsburg",2006
-"90",0.222589,8118,"Ludwigsburg",2007
-"91",0.278524,8118,"Ludwigsburg",2008
-"92",0.310936,8118,"Ludwigsburg",2009
-"93",0.306538,8118,"Ludwigsburg",2010
-"94",0.314301,8118,"Ludwigsburg",2011
-"95",0.337713,8118,"Ludwigsburg",2012
-"96",0.381789,8118,"Ludwigsburg",2013
-"97",0.341925,8118,"Ludwigsburg",2014
-"98",0.31026,8118,"Ludwigsburg",2015
-"99",0.297312,8118,"Ludwigsburg",2016
-"100",0.242315,8118,"Ludwigsburg",2017
-"101",0.318623,8119,"Rems-Murr-Kreis",1998
-"102",0.333401,8119,"Rems-Murr-Kreis",1999
-"103",0.353553,8119,"Rems-Murr-Kreis",2000
-"104",0.322864,8119,"Rems-Murr-Kreis",2001
-"105",0.397343,8119,"Rems-Murr-Kreis",2002
-"106",0.378441,8119,"Rems-Murr-Kreis",2003
-"107",0.359909,8119,"Rems-Murr-Kreis",2004
-"108",0.329977,8119,"Rems-Murr-Kreis",2005
-"109",0.41035,8119,"Rems-Murr-Kreis",2006
-"110",0.39914,8119,"Rems-Murr-Kreis",2007
-"111",0.419482,8119,"Rems-Murr-Kreis",2008
-"112",0.448298,8119,"Rems-Murr-Kreis",2009
-"113",0.432031,8119,"Rems-Murr-Kreis",2010
-"114",0.473618,8119,"Rems-Murr-Kreis",2011
-"115",0.484007,8119,"Rems-Murr-Kreis",2012
-"116",0.519953,8119,"Rems-Murr-Kreis",2013
-"117",0.485236,8119,"Rems-Murr-Kreis",2014
-"118",0.490881,8119,"Rems-Murr-Kreis",2015
-"119",0.50357,8119,"Rems-Murr-Kreis",2016
-"120",0.443581,8119,"Rems-Murr-Kreis",2017
-"121",0.620077,8121,"Heilbronn, Stadt",1998
-"122",0.619921,8121,"Heilbronn, Stadt",1999
-"123",0.960247,8121,"Heilbronn, Stadt",2000
-"124",0.866941,8121,"Heilbronn, Stadt",2001
-"125",0.935093,8121,"Heilbronn, Stadt",2002
-"126",0.838073,8121,"Heilbronn, Stadt",2003
-"127",0.772967,8121,"Heilbronn, Stadt",2004
-"128",0.730534,8121,"Heilbronn, Stadt",2005
-"129",0.700065,8121,"Heilbronn, Stadt",2006
-"130",0.624838,8121,"Heilbronn, Stadt",2007
-"131",0.559778,8121,"Heilbronn, Stadt",2008
-"132",0.554399,8121,"Heilbronn, Stadt",2009
-"133",0.493812,8121,"Heilbronn, Stadt",2010
-"134",0.493054,8121,"Heilbronn, Stadt",2011
-"135",0.59887,8121,"Heilbronn, Stadt",2012
-"136",0.648944,8121,"Heilbronn, Stadt",2013
-"137",0.654275,8121,"Heilbronn, Stadt",2014
-"138",0.581066,8121,"Heilbronn, Stadt",2015
-"139",0.590609,8121,"Heilbronn, Stadt",2016
-"140",0.560818,8121,"Heilbronn, Stadt",2017
-"141",0.253519,8125,"Heilbronn",1998
-"142",0.258393,8125,"Heilbronn",1999
-"143",0.378061,8125,"Heilbronn",2000
-"144",0.406804,8125,"Heilbronn",2001
-"145",0.423215,8125,"Heilbronn",2002
-"146",0.421351,8125,"Heilbronn",2003
-"147",0.486687,8125,"Heilbronn",2004
-"148",0.415937,8125,"Heilbronn",2005
-"149",0.414691,8125,"Heilbronn",2006
-"150",0.410878,8125,"Heilbronn",2007
-"151",0.39596,8125,"Heilbronn",2008
-"152",0.462921,8125,"Heilbronn",2009
-"153",0.43629,8125,"Heilbronn",2010
-"154",0.417646,8125,"Heilbronn",2011
-"155",0.436552,8125,"Heilbronn",2012
-"156",0.446986,8125,"Heilbronn",2013
-"157",0.427151,8125,"Heilbronn",2014
-"158",0.418258,8125,"Heilbronn",2015
-"159",0.433326,8125,"Heilbronn",2016
-"160",0.379154,8125,"Heilbronn",2017
-"161",0.357705,8126,"Hohenlohekreis",1998
-"162",0.370612,8126,"Hohenlohekreis",1999
-"163",0.509907,8126,"Hohenlohekreis",2000
-"164",0.564963,8126,"Hohenlohekreis",2001
-"165",0.570248,8126,"Hohenlohekreis",2002
-"166",0.532302,8126,"Hohenlohekreis",2003
-"167",0.575966,8126,"Hohenlohekreis",2004
-"168",0.438538,8126,"Hohenlohekreis",2005
-"169",0.477472,8126,"Hohenlohekreis",2006
-"170",0.481405,8126,"Hohenlohekreis",2007
-"171",0.52852,8126,"Hohenlohekreis",2008
-"172",0.609595,8126,"Hohenlohekreis",2009
-"173",0.536925,8126,"Hohenlohekreis",2010
-"174",0.530227,8126,"Hohenlohekreis",2011
-"175",0.594114,8126,"Hohenlohekreis",2012
-"176",0.585633,8126,"Hohenlohekreis",2013
-"177",0.544031,8126,"Hohenlohekreis",2014
-"178",0.530565,8126,"Hohenlohekreis",2015
-"179",0.536045,8126,"Hohenlohekreis",2016
-"180",0.424815,8126,"Hohenlohekreis",2017
-"181",0.495853,8127,"Schwäbisch Hall",1998
-"182",0.562984,8127,"Schwäbisch Hall",1999
-"183",0.641859,8127,"Schwäbisch Hall",2000
-"184",0.701568,8127,"Schwäbisch Hall",2001
-"185",0.722373,8127,"Schwäbisch Hall",2002
-"186",0.638247,8127,"Schwäbisch Hall",2003
-"187",0.661663,8127,"Schwäbisch Hall",2004
-"188",0.638128,8127,"Schwäbisch Hall",2005
-"189",0.655445,8127,"Schwäbisch Hall",2006
-"190",0.640093,8127,"Schwäbisch Hall",2007
-"191",0.64134,8127,"Schwäbisch Hall",2008
-"192",0.673322,8127,"Schwäbisch Hall",2009
-"193",0.642282,8127,"Schwäbisch Hall",2010
-"194",0.67667,8127,"Schwäbisch Hall",2011
-"195",0.675343,8127,"Schwäbisch Hall",2012
-"196",0.669254,8127,"Schwäbisch Hall",2013
-"197",0.623152,8127,"Schwäbisch Hall",2014
-"198",0.636271,8127,"Schwäbisch Hall",2015
-"199",0.613374,8127,"Schwäbisch Hall",2016
-"200",0.563399,8127,"Schwäbisch Hall",2017
-"201",0.52748,8128,"Main-Tauber-Kreis",1998
-"202",0.488856,8128,"Main-Tauber-Kreis",1999
-"203",0.55232,8128,"Main-Tauber-Kreis",2000
-"204",0.631987,8128,"Main-Tauber-Kreis",2001
-"205",0.664164,8128,"Main-Tauber-Kreis",2002
-"206",0.616757,8128,"Main-Tauber-Kreis",2003
-"207",0.648204,8128,"Main-Tauber-Kreis",2004
-"208",0.60233,8128,"Main-Tauber-Kreis",2005
-"209",0.585983,8128,"Main-Tauber-Kreis",2006
-"210",0.614437,8128,"Main-Tauber-Kreis",2007
-"211",0.606547,8128,"Main-Tauber-Kreis",2008
-"212",0.621522,8128,"Main-Tauber-Kreis",2009
-"213",0.596002,8128,"Main-Tauber-Kreis",2010
-"214",0.609336,8128,"Main-Tauber-Kreis",2011
-"215",0.642007,8128,"Main-Tauber-Kreis",2012
-"216",0.678294,8128,"Main-Tauber-Kreis",2013
-"217",0.638003,8128,"Main-Tauber-Kreis",2014
-"218",0.633487,8128,"Main-Tauber-Kreis",2015
-"219",0.612649,8128,"Main-Tauber-Kreis",2016
-"220",0.567611,8128,"Main-Tauber-Kreis",2017
-"221",0.454566,8135,"Heidenheim",1998
-"222",0.474018,8135,"Heidenheim",1999
-"223",0.530184,8135,"Heidenheim",2000
-"224",0.488025,8135,"Heidenheim",2001
-"225",0.557503,8135,"Heidenheim",2002
-"226",0.502489,8135,"Heidenheim",2003
-"227",0.515691,8135,"Heidenheim",2004
-"228",0.467806,8135,"Heidenheim",2005
-"229",0.479867,8135,"Heidenheim",2006
-"230",0.498444,8135,"Heidenheim",2007
-"231",0.468759,8135,"Heidenheim",2008
-"232",0.527806,8135,"Heidenheim",2009
-"233",0.512391,8135,"Heidenheim",2010
-"234",0.541388,8135,"Heidenheim",2011
-"235",0.584702,8135,"Heidenheim",2012
-"236",0.622456,8135,"Heidenheim",2013
-"237",0.625423,8135,"Heidenheim",2014
-"238",0.66537,8135,"Heidenheim",2015
-"239",0.682419,8135,"Heidenheim",2016
-"240",0.653467,8135,"Heidenheim",2017
-"241",0.345924,8136,"Ostalbkreis",1998
-"242",0.378312,8136,"Ostalbkreis",1999
-"243",0.473185,8136,"Ostalbkreis",2000
-"244",0.460276,8136,"Ostalbkreis",2001
-"245",0.499638,8136,"Ostalbkreis",2002
-"246",0.468423,8136,"Ostalbkreis",2003
-"247",0.484278,8136,"Ostalbkreis",2004
-"248",0.464813,8136,"Ostalbkreis",2005
-"249",0.439156,8136,"Ostalbkreis",2006
-"250",0.441026,8136,"Ostalbkreis",2007
-"251",0.460407,8136,"Ostalbkreis",2008
-"252",0.513552,8136,"Ostalbkreis",2009
-"253",0.47553,8136,"Ostalbkreis",2010
-"254",0.510243,8136,"Ostalbkreis",2011
-"255",0.52569,8136,"Ostalbkreis",2012
-"256",0.513037,8136,"Ostalbkreis",2013
-"257",0.499188,8136,"Ostalbkreis",2014
-"258",0.490607,8136,"Ostalbkreis",2015
-"259",0.517105,8136,"Ostalbkreis",2016
-"260",0.414056,8136,"Ostalbkreis",2017
-"261",0.10385,8211,"Baden-Baden, Stadt",1998
-"262",0.22082,8211,"Baden-Baden, Stadt",1999
-"263",0.221618,8211,"Baden-Baden, Stadt",2000
-"264",0.202877,8211,"Baden-Baden, Stadt",2001
-"265",0.432353,8211,"Baden-Baden, Stadt",2002
-"266",0.305684,8211,"Baden-Baden, Stadt",2003
-"267",0.403759,8211,"Baden-Baden, Stadt",2004
-"268",0.33748,8211,"Baden-Baden, Stadt",2005
-"269",0.405059,8211,"Baden-Baden, Stadt",2006
-"270",0.361462,8211,"Baden-Baden, Stadt",2007
-"271",0.355357,8211,"Baden-Baden, Stadt",2008
-"272",0.439163,8211,"Baden-Baden, Stadt",2009
-"273",0.357689,8211,"Baden-Baden, Stadt",2010
-"274",0.349611,8211,"Baden-Baden, Stadt",2011
-"275",0.375381,8211,"Baden-Baden, Stadt",2012
-"276",0.450518,8211,"Baden-Baden, Stadt",2013
-"277",0.417989,8211,"Baden-Baden, Stadt",2014
-"278",0.423513,8211,"Baden-Baden, Stadt",2015
-"279",0.503322,8211,"Baden-Baden, Stadt",2016
-"280",0.365546,8211,"Baden-Baden, Stadt",2017
-"281",0.314196,8212,"Karlsruhe, Stadt",1998
-"282",0.322217,8212,"Karlsruhe, Stadt",1999
-"283",0.366956,8212,"Karlsruhe, Stadt",2000
-"284",0.266478,8212,"Karlsruhe, Stadt",2001
-"285",0.364316,8212,"Karlsruhe, Stadt",2002
-"286",0.321123,8212,"Karlsruhe, Stadt",2003
-"287",0.303652,8212,"Karlsruhe, Stadt",2004
-"288",0.26952,8212,"Karlsruhe, Stadt",2005
-"289",0.320491,8212,"Karlsruhe, Stadt",2006
-"290",0.307028,8212,"Karlsruhe, Stadt",2007
-"291",0.316233,8212,"Karlsruhe, Stadt",2008
-"292",0.312614,8212,"Karlsruhe, Stadt",2009
-"293",0.33179,8212,"Karlsruhe, Stadt",2010
-"294",0.375261,8212,"Karlsruhe, Stadt",2011
-"295",0.365978,8212,"Karlsruhe, Stadt",2012
-"296",0.403046,8212,"Karlsruhe, Stadt",2013
-"297",0.397101,8212,"Karlsruhe, Stadt",2014
-"298",0.373159,8212,"Karlsruhe, Stadt",2015
-"299",0.340521,8212,"Karlsruhe, Stadt",2016
-"300",0.273836,8212,"Karlsruhe, Stadt",2017
-"301",0.261307,8215,"Karlsruhe",1998
-"302",0.272949,8215,"Karlsruhe",1999
-"303",0.336379,8215,"Karlsruhe",2000
-"304",0.314098,8215,"Karlsruhe",2001
-"305",0.347608,8215,"Karlsruhe",2002
-"306",0.401384,8215,"Karlsruhe",2003
-"307",0.38497,8215,"Karlsruhe",2004
-"308",0.335771,8215,"Karlsruhe",2005
-"309",0.365694,8215,"Karlsruhe",2006
-"310",0.387642,8215,"Karlsruhe",2007
-"311",0.405526,8215,"Karlsruhe",2008
-"312",0.44568,8215,"Karlsruhe",2009
-"313",0.418069,8215,"Karlsruhe",2010
-"314",0.448657,8215,"Karlsruhe",2011
-"315",0.460826,8215,"Karlsruhe",2012
-"316",0.469966,8215,"Karlsruhe",2013
-"317",0.456958,8215,"Karlsruhe",2014
-"318",0.449976,8215,"Karlsruhe",2015
-"319",0.454092,8215,"Karlsruhe",2016
-"320",0.380989,8215,"Karlsruhe",2017
-"321",0.37269,8216,"Rastatt",1998
-"322",0.371998,8216,"Rastatt",1999
-"323",0.451674,8216,"Rastatt",2000
-"324",0.492132,8216,"Rastatt",2001
-"325",0.52995,8216,"Rastatt",2002
-"326",0.479662,8216,"Rastatt",2003
-"327",0.487843,8216,"Rastatt",2004
-"328",0.419165,8216,"Rastatt",2005
-"329",0.436243,8216,"Rastatt",2006
-"330",0.481763,8216,"Rastatt",2007
-"331",0.487574,8216,"Rastatt",2008
-"332",0.56598,8216,"Rastatt",2009
-"333",0.499272,8216,"Rastatt",2010
-"334",0.547519,8216,"Rastatt",2011
-"335",0.565834,8216,"Rastatt",2012
-"336",0.592757,8216,"Rastatt",2013
-"337",0.564393,8216,"Rastatt",2014
-"338",0.538697,8216,"Rastatt",2015
-"339",0.548223,8216,"Rastatt",2016
-"340",0.504122,8216,"Rastatt",2017
-"341",0.01824,8221,"Heidelberg, Stadt",1998
+"29",0.045217,8115,"Böblingen",2006
+"30",0.097195,8115,"Böblingen",2007
+"31",0.142285,8115,"Böblingen",2008
+"32",0.196421,8115,"Böblingen",2009
+"33",0.181871,8115,"Böblingen",2010
+"34",0.164899,8115,"Böblingen",2011
+"35",0.194027,8115,"Böblingen",2012
+"36",0.225842,8115,"Böblingen",2013
+"37",0.200238,8115,"Böblingen",2014
+"38",0.188233,8115,"Böblingen",2015
+"39",0.206275,8115,"Böblingen",2016
+"40",0.154416,8115,"Böblingen",2017
+"41",0.08115,8116,"Esslingen",1998
+"42",0.096033,8116,"Esslingen",1999
+"43",0.167524,8116,"Esslingen",2000
+"44",0.14342,8116,"Esslingen",2001
+"45",0.181747,8116,"Esslingen",2002
+"46",0.186785,8116,"Esslingen",2003
+"47",0.148831,8116,"Esslingen",2004
+"48",0.106257,8116,"Esslingen",2005
+"49",0.155532,8116,"Esslingen",2006
+"50",0.170075,8116,"Esslingen",2007
+"51",0.215696,8116,"Esslingen",2008
+"52",0.274333,8116,"Esslingen",2009
+"53",0.265303,8116,"Esslingen",2010
+"54",0.292866,8116,"Esslingen",2011
+"55",0.299417,8116,"Esslingen",2012
+"56",0.330856,8116,"Esslingen",2013
+"57",0.313062,8116,"Esslingen",2014
+"58",0.295703,8116,"Esslingen",2015
+"59",0.322862,8116,"Esslingen",2016
+"60",0.241123,8116,"Esslingen",2017
+"61",0.50126,8117,"Göppingen",1998
+"62",0.433051,8117,"Göppingen",1999
+"63",0.510632,8117,"Göppingen",2000
+"64",0.528561,8117,"Göppingen",2001
+"65",0.574857,8117,"Göppingen",2002
+"66",0.545546,8117,"Göppingen",2003
+"67",0.534517,8117,"Göppingen",2004
+"68",0.505819,8117,"Göppingen",2005
+"69",0.538983,8117,"Göppingen",2006
+"70",0.567536,8117,"Göppingen",2007
+"71",0.571192,8117,"Göppingen",2008
+"72",0.633233,8117,"Göppingen",2009
+"73",0.598428,8117,"Göppingen",2010
+"74",0.604102,8117,"Göppingen",2011
+"75",0.625457,8117,"Göppingen",2012
+"76",0.635911,8117,"Göppingen",2013
+"77",0.600701,8117,"Göppingen",2014
+"78",0.602404,8117,"Göppingen",2015
+"79",0.605907,8117,"Göppingen",2016
+"80",0.582102,8117,"Göppingen",2017
+"81",0.131753,8118,"Ludwigsburg",1998
+"82",0.140542,8118,"Ludwigsburg",1999
+"83",0.194794,8118,"Ludwigsburg",2000
+"84",0.205988,8118,"Ludwigsburg",2001
+"85",0.25779,8118,"Ludwigsburg",2002
+"86",0.219664,8118,"Ludwigsburg",2003
+"87",0.194191,8118,"Ludwigsburg",2004
+"88",0.150431,8118,"Ludwigsburg",2005
+"89",0.193637,8118,"Ludwigsburg",2006
+"90",0.219294,8118,"Ludwigsburg",2007
+"91",0.275595,8118,"Ludwigsburg",2008
+"92",0.30808,8118,"Ludwigsburg",2009
+"93",0.303499,8118,"Ludwigsburg",2010
+"94",0.310911,8118,"Ludwigsburg",2011
+"95",0.334814,8118,"Ludwigsburg",2012
+"96",0.379391,8118,"Ludwigsburg",2013
+"97",0.339096,8118,"Ludwigsburg",2014
+"98",0.307026,8118,"Ludwigsburg",2015
+"99",0.294004,8118,"Ludwigsburg",2016
+"100",0.237416,8118,"Ludwigsburg",2017
+"101",0.316775,8119,"Rems-Murr-Kreis",1998
+"102",0.330948,8119,"Rems-Murr-Kreis",1999
+"103",0.351773,8119,"Rems-Murr-Kreis",2000
+"104",0.319891,8119,"Rems-Murr-Kreis",2001
+"105",0.393846,8119,"Rems-Murr-Kreis",2002
+"106",0.375074,8119,"Rems-Murr-Kreis",2003
+"107",0.355772,8119,"Rems-Murr-Kreis",2004
+"108",0.32763,8119,"Rems-Murr-Kreis",2005
+"109",0.406745,8119,"Rems-Murr-Kreis",2006
+"110",0.395076,8119,"Rems-Murr-Kreis",2007
+"111",0.415533,8119,"Rems-Murr-Kreis",2008
+"112",0.444459,8119,"Rems-Murr-Kreis",2009
+"113",0.427757,8119,"Rems-Murr-Kreis",2010
+"114",0.469525,8119,"Rems-Murr-Kreis",2011
+"115",0.480151,8119,"Rems-Murr-Kreis",2012
+"116",0.516646,8119,"Rems-Murr-Kreis",2013
+"117",0.481265,8119,"Rems-Murr-Kreis",2014
+"118",0.487257,8119,"Rems-Murr-Kreis",2015
+"119",0.50026,8119,"Rems-Murr-Kreis",2016
+"120",0.438665,8119,"Rems-Murr-Kreis",2017
+"121",0.620527,8121,"Heilbronn, Stadt",1998
+"122",0.619884,8121,"Heilbronn, Stadt",1999
+"123",0.962545,8121,"Heilbronn, Stadt",2000
+"124",0.86762,8121,"Heilbronn, Stadt",2001
+"125",0.934247,8121,"Heilbronn, Stadt",2002
+"126",0.837206,8121,"Heilbronn, Stadt",2003
+"127",0.771229,8121,"Heilbronn, Stadt",2004
+"128",0.729556,8121,"Heilbronn, Stadt",2005
+"129",0.699493,8121,"Heilbronn, Stadt",2006
+"130",0.623922,8121,"Heilbronn, Stadt",2007
+"131",0.558451,8121,"Heilbronn, Stadt",2008
+"132",0.553111,8121,"Heilbronn, Stadt",2009
+"133",0.491982,8121,"Heilbronn, Stadt",2010
+"134",0.491314,8121,"Heilbronn, Stadt",2011
+"135",0.597488,8121,"Heilbronn, Stadt",2012
+"136",0.647663,8121,"Heilbronn, Stadt",2013
+"137",0.652628,8121,"Heilbronn, Stadt",2014
+"138",0.579219,8121,"Heilbronn, Stadt",2015
+"139",0.589444,8121,"Heilbronn, Stadt",2016
+"140",0.55886,8121,"Heilbronn, Stadt",2017
+"141",0.250647,8125,"Heilbronn",1998
+"142",0.254468,8125,"Heilbronn",1999
+"143",0.374831,8125,"Heilbronn",2000
+"144",0.40303,8125,"Heilbronn",2001
+"145",0.418237,8125,"Heilbronn",2002
+"146",0.41679,8125,"Heilbronn",2003
+"147",0.482149,8125,"Heilbronn",2004
+"148",0.412788,8125,"Heilbronn",2005
+"149",0.409853,8125,"Heilbronn",2006
+"150",0.405756,8125,"Heilbronn",2007
+"151",0.390763,8125,"Heilbronn",2008
+"152",0.458541,8125,"Heilbronn",2009
+"153",0.431585,8125,"Heilbronn",2010
+"154",0.412534,8125,"Heilbronn",2011
+"155",0.432051,8125,"Heilbronn",2012
+"156",0.442449,8125,"Heilbronn",2013
+"157",0.422107,8125,"Heilbronn",2014
+"158",0.41324,8125,"Heilbronn",2015
+"159",0.428654,8125,"Heilbronn",2016
+"160",0.3727,8125,"Heilbronn",2017
+"161",0.356305,8126,"Hohenlohekreis",1998
+"162",0.368394,8126,"Hohenlohekreis",1999
+"163",0.508956,8126,"Hohenlohekreis",2000
+"164",0.563665,8126,"Hohenlohekreis",2001
+"165",0.566758,8126,"Hohenlohekreis",2002
+"166",0.528967,8126,"Hohenlohekreis",2003
+"167",0.572385,8126,"Hohenlohekreis",2004
+"168",0.435673,8126,"Hohenlohekreis",2005
+"169",0.473795,8126,"Hohenlohekreis",2006
+"170",0.477756,8126,"Hohenlohekreis",2007
+"171",0.525194,8126,"Hohenlohekreis",2008
+"172",0.607022,8126,"Hohenlohekreis",2009
+"173",0.533258,8126,"Hohenlohekreis",2010
+"174",0.526126,8126,"Hohenlohekreis",2011
+"175",0.590918,8126,"Hohenlohekreis",2012
+"176",0.58238,8126,"Hohenlohekreis",2013
+"177",0.539987,8126,"Hohenlohekreis",2014
+"178",0.526475,8126,"Hohenlohekreis",2015
+"179",0.532197,8126,"Hohenlohekreis",2016
+"180",0.4184,8126,"Hohenlohekreis",2017
+"181",0.492221,8127,"Schwäbisch Hall",1998
+"182",0.559686,8127,"Schwäbisch Hall",1999
+"183",0.639411,8127,"Schwäbisch Hall",2000
+"184",0.699369,8127,"Schwäbisch Hall",2001
+"185",0.717995,8127,"Schwäbisch Hall",2002
+"186",0.633445,8127,"Schwäbisch Hall",2003
+"187",0.656296,8127,"Schwäbisch Hall",2004
+"188",0.634193,8127,"Schwäbisch Hall",2005
+"189",0.651236,8127,"Schwäbisch Hall",2006
+"190",0.635613,8127,"Schwäbisch Hall",2007
+"191",0.636876,8127,"Schwäbisch Hall",2008
+"192",0.669558,8127,"Schwäbisch Hall",2009
+"193",0.638137,8127,"Schwäbisch Hall",2010
+"194",0.672446,8127,"Schwäbisch Hall",2011
+"195",0.671529,8127,"Schwäbisch Hall",2012
+"196",0.665453,8127,"Schwäbisch Hall",2013
+"197",0.618563,8127,"Schwäbisch Hall",2014
+"198",0.632209,8127,"Schwäbisch Hall",2015
+"199",0.609159,8127,"Schwäbisch Hall",2016
+"200",0.557555,8127,"Schwäbisch Hall",2017
+"201",0.523201,8128,"Main-Tauber-Kreis",1998
+"202",0.4829,8128,"Main-Tauber-Kreis",1999
+"203",0.547464,8128,"Main-Tauber-Kreis",2000
+"204",0.627245,8128,"Main-Tauber-Kreis",2001
+"205",0.657573,8128,"Main-Tauber-Kreis",2002
+"206",0.610624,8128,"Main-Tauber-Kreis",2003
+"207",0.641263,8128,"Main-Tauber-Kreis",2004
+"208",0.596474,8128,"Main-Tauber-Kreis",2005
+"209",0.579601,8128,"Main-Tauber-Kreis",2006
+"210",0.608234,8128,"Main-Tauber-Kreis",2007
+"211",0.600277,8128,"Main-Tauber-Kreis",2008
+"212",0.615814,8128,"Main-Tauber-Kreis",2009
+"213",0.590153,8128,"Main-Tauber-Kreis",2010
+"214",0.603008,8128,"Main-Tauber-Kreis",2011
+"215",0.63639,8128,"Main-Tauber-Kreis",2012
+"216",0.673262,8128,"Main-Tauber-Kreis",2013
+"217",0.632083,8128,"Main-Tauber-Kreis",2014
+"218",0.627971,8128,"Main-Tauber-Kreis",2015
+"219",0.607182,8128,"Main-Tauber-Kreis",2016
+"220",0.560665,8128,"Main-Tauber-Kreis",2017
+"221",0.452154,8135,"Heidenheim",1998
+"222",0.471107,8135,"Heidenheim",1999
+"223",0.528471,8135,"Heidenheim",2000
+"224",0.485356,8135,"Heidenheim",2001
+"225",0.554045,8135,"Heidenheim",2002
+"226",0.498601,8135,"Heidenheim",2003
+"227",0.511337,8135,"Heidenheim",2004
+"228",0.46486,8135,"Heidenheim",2005
+"229",0.475696,8135,"Heidenheim",2006
+"230",0.494522,8135,"Heidenheim",2007
+"231",0.464626,8135,"Heidenheim",2008
+"232",0.524363,8135,"Heidenheim",2009
+"233",0.508428,8135,"Heidenheim",2010
+"234",0.537115,8135,"Heidenheim",2011
+"235",0.581544,8135,"Heidenheim",2012
+"236",0.61924,8135,"Heidenheim",2013
+"237",0.621741,8135,"Heidenheim",2014
+"238",0.662435,8135,"Heidenheim",2015
+"239",0.679737,8135,"Heidenheim",2016
+"240",0.649539,8135,"Heidenheim",2017
+"241",0.341717,8136,"Ostalbkreis",1998
+"242",0.373689,8136,"Ostalbkreis",1999
+"243",0.469285,8136,"Ostalbkreis",2000
+"244",0.455461,8136,"Ostalbkreis",2001
+"245",0.493815,8136,"Ostalbkreis",2002
+"246",0.463132,8136,"Ostalbkreis",2003
+"247",0.478353,8136,"Ostalbkreis",2004
+"248",0.460782,8136,"Ostalbkreis",2005
+"249",0.43365,8136,"Ostalbkreis",2006
+"250",0.435561,8136,"Ostalbkreis",2007
+"251",0.455174,8136,"Ostalbkreis",2008
+"252",0.508837,8136,"Ostalbkreis",2009
+"253",0.470377,8136,"Ostalbkreis",2010
+"254",0.505268,8136,"Ostalbkreis",2011
+"255",0.521196,8136,"Ostalbkreis",2012
+"256",0.508375,8136,"Ostalbkreis",2013
+"257",0.494314,8136,"Ostalbkreis",2014
+"258",0.48576,8136,"Ostalbkreis",2015
+"259",0.512931,8136,"Ostalbkreis",2016
+"260",0.407375,8136,"Ostalbkreis",2017
+"261",0.10228,8211,"Baden-Baden, Stadt",1998
+"262",0.218039,8211,"Baden-Baden, Stadt",1999
+"263",0.219708,8211,"Baden-Baden, Stadt",2000
+"264",0.199097,8211,"Baden-Baden, Stadt",2001
+"265",0.429782,8211,"Baden-Baden, Stadt",2002
+"266",0.301743,8211,"Baden-Baden, Stadt",2003
+"267",0.400287,8211,"Baden-Baden, Stadt",2004
+"268",0.335205,8211,"Baden-Baden, Stadt",2005
+"269",0.401808,8211,"Baden-Baden, Stadt",2006
+"270",0.357676,8211,"Baden-Baden, Stadt",2007
+"271",0.350988,8211,"Baden-Baden, Stadt",2008
+"272",0.436125,8211,"Baden-Baden, Stadt",2009
+"273",0.353119,8211,"Baden-Baden, Stadt",2010
+"274",0.344814,8211,"Baden-Baden, Stadt",2011
+"275",0.371113,8211,"Baden-Baden, Stadt",2012
+"276",0.447003,8211,"Baden-Baden, Stadt",2013
+"277",0.413812,8211,"Baden-Baden, Stadt",2014
+"278",0.419158,8211,"Baden-Baden, Stadt",2015
+"279",0.500173,8211,"Baden-Baden, Stadt",2016
+"280",0.359654,8211,"Baden-Baden, Stadt",2017
+"281",0.314129,8212,"Karlsruhe, Stadt",1998
+"282",0.321991,8212,"Karlsruhe, Stadt",1999
+"283",0.36813,8212,"Karlsruhe, Stadt",2000
+"284",0.266123,8212,"Karlsruhe, Stadt",2001
+"285",0.364203,8212,"Karlsruhe, Stadt",2002
+"286",0.320533,8212,"Karlsruhe, Stadt",2003
+"287",0.302912,8212,"Karlsruhe, Stadt",2004
+"288",0.271102,8212,"Karlsruhe, Stadt",2005
+"289",0.320029,8212,"Karlsruhe, Stadt",2006
+"290",0.306011,8212,"Karlsruhe, Stadt",2007
+"291",0.315223,8212,"Karlsruhe, Stadt",2008
+"292",0.312127,8212,"Karlsruhe, Stadt",2009
+"293",0.331287,8212,"Karlsruhe, Stadt",2010
+"294",0.375055,8212,"Karlsruhe, Stadt",2011
+"295",0.365161,8212,"Karlsruhe, Stadt",2012
+"296",0.402977,8212,"Karlsruhe, Stadt",2013
+"297",0.397392,8212,"Karlsruhe, Stadt",2014
+"298",0.373361,8212,"Karlsruhe, Stadt",2015
+"299",0.340226,8212,"Karlsruhe, Stadt",2016
+"300",0.272552,8212,"Karlsruhe, Stadt",2017
+"301",0.257519,8215,"Karlsruhe",1998
+"302",0.268301,8215,"Karlsruhe",1999
+"303",0.332798,8215,"Karlsruhe",2000
+"304",0.309167,8215,"Karlsruhe",2001
+"305",0.34209,8215,"Karlsruhe",2002
+"306",0.397065,8215,"Karlsruhe",2003
+"307",0.379665,8215,"Karlsruhe",2004
+"308",0.33227,8215,"Karlsruhe",2005
+"309",0.36067,8215,"Karlsruhe",2006
+"310",0.382442,8215,"Karlsruhe",2007
+"311",0.400516,8215,"Karlsruhe",2008
+"312",0.441133,8215,"Karlsruhe",2009
+"313",0.413023,8215,"Karlsruhe",2010
+"314",0.443497,8215,"Karlsruhe",2011
+"315",0.45602,8215,"Karlsruhe",2012
+"316",0.46534,8215,"Karlsruhe",2013
+"317",0.452167,8215,"Karlsruhe",2014
+"318",0.445056,8215,"Karlsruhe",2015
+"319",0.449222,8215,"Karlsruhe",2016
+"320",0.373965,8215,"Karlsruhe",2017
+"321",0.370164,8216,"Rastatt",1998
+"322",0.368471,8216,"Rastatt",1999
+"323",0.448868,8216,"Rastatt",2000
+"324",0.489081,8216,"Rastatt",2001
+"325",0.52577,8216,"Rastatt",2002
+"326",0.475604,8216,"Rastatt",2003
+"327",0.483461,8216,"Rastatt",2004
+"328",0.416063,8216,"Rastatt",2005
+"329",0.431519,8216,"Rastatt",2006
+"330",0.477302,8216,"Rastatt",2007
+"331",0.482929,8216,"Rastatt",2008
+"332",0.562292,8216,"Rastatt",2009
+"333",0.494683,8216,"Rastatt",2010
+"334",0.543353,8216,"Rastatt",2011
+"335",0.56205,8216,"Rastatt",2012
+"336",0.589322,8216,"Rastatt",2013
+"337",0.560422,8216,"Rastatt",2014
+"338",0.534182,8216,"Rastatt",2015
+"339",0.543844,8216,"Rastatt",2016
+"340",0.498182,8216,"Rastatt",2017
+"341",0.019258,8221,"Heidelberg, Stadt",1998
 "342",0,8221,"Heidelberg, Stadt",1999
 "343",0,8221,"Heidelberg, Stadt",2000
 "344",0,8221,"Heidelberg, Stadt",2001
 "345",0,8221,"Heidelberg, Stadt",2002
 "346",0,8221,"Heidelberg, Stadt",2003
 "347",0,8221,"Heidelberg, Stadt",2004
-"348",0.000573,8221,"Heidelberg, Stadt",2005
+"348",0.0045,8221,"Heidelberg, Stadt",2005
 "349",0,8221,"Heidelberg, Stadt",2006
 "350",0,8221,"Heidelberg, Stadt",2007
 "351",0,8221,"Heidelberg, Stadt",2008
@@ -359,70 +359,70 @@
 "358",0,8221,"Heidelberg, Stadt",2015
 "359",0,8221,"Heidelberg, Stadt",2016
 "360",0,8221,"Heidelberg, Stadt",2017
-"361",0.731639,8222,"Mannheim, Stadt",1998
-"362",0.783224,8222,"Mannheim, Stadt",1999
-"363",0.860234,8222,"Mannheim, Stadt",2000
-"364",0.850583,8222,"Mannheim, Stadt",2001
-"365",0.793662,8222,"Mannheim, Stadt",2002
-"366",0.730023,8222,"Mannheim, Stadt",2003
-"367",0.777153,8222,"Mannheim, Stadt",2004
-"368",0.759035,8222,"Mannheim, Stadt",2005
-"369",0.754332,8222,"Mannheim, Stadt",2006
-"370",0.762547,8222,"Mannheim, Stadt",2007
-"371",0.705271,8222,"Mannheim, Stadt",2008
-"372",0.678065,8222,"Mannheim, Stadt",2009
-"373",0.616853,8222,"Mannheim, Stadt",2010
-"374",0.631602,8222,"Mannheim, Stadt",2011
-"375",0.621676,8222,"Mannheim, Stadt",2012
-"376",0.661998,8222,"Mannheim, Stadt",2013
-"377",0.66133,8222,"Mannheim, Stadt",2014
-"378",0.626033,8222,"Mannheim, Stadt",2015
-"379",0.635638,8222,"Mannheim, Stadt",2016
-"380",0.586066,8222,"Mannheim, Stadt",2017
-"381",0.732927,8225,"Neckar-Odenwald-Kreis",1998
-"382",0.702475,8225,"Neckar-Odenwald-Kreis",1999
-"383",0.865017,8225,"Neckar-Odenwald-Kreis",2000
-"384",0.904785,8225,"Neckar-Odenwald-Kreis",2001
-"385",0.926339,8225,"Neckar-Odenwald-Kreis",2002
-"386",0.859915,8225,"Neckar-Odenwald-Kreis",2003
-"387",0.901055,8225,"Neckar-Odenwald-Kreis",2004
-"388",0.887902,8225,"Neckar-Odenwald-Kreis",2005
-"389",0.882132,8225,"Neckar-Odenwald-Kreis",2006
-"390",0.904459,8225,"Neckar-Odenwald-Kreis",2007
-"391",0.873792,8225,"Neckar-Odenwald-Kreis",2008
-"392",0.871025,8225,"Neckar-Odenwald-Kreis",2009
-"393",0.785666,8225,"Neckar-Odenwald-Kreis",2010
-"394",0.910101,8225,"Neckar-Odenwald-Kreis",2011
-"395",0.847942,8225,"Neckar-Odenwald-Kreis",2012
-"396",0.800351,8225,"Neckar-Odenwald-Kreis",2013
-"397",0.822552,8225,"Neckar-Odenwald-Kreis",2014
-"398",0.781179,8225,"Neckar-Odenwald-Kreis",2015
-"399",0.801859,8225,"Neckar-Odenwald-Kreis",2016
-"400",0.72319,8225,"Neckar-Odenwald-Kreis",2017
-"401",0.258735,8226,"Rhein-Neckar-Kreis",1998
-"402",0.276211,8226,"Rhein-Neckar-Kreis",1999
-"403",0.321951,8226,"Rhein-Neckar-Kreis",2000
-"404",0.322282,8226,"Rhein-Neckar-Kreis",2001
-"405",0.375009,8226,"Rhein-Neckar-Kreis",2002
-"406",0.359548,8226,"Rhein-Neckar-Kreis",2003
-"407",0.341286,8226,"Rhein-Neckar-Kreis",2004
-"408",0.30828,8226,"Rhein-Neckar-Kreis",2005
-"409",0.31501,8226,"Rhein-Neckar-Kreis",2006
-"410",0.336837,8226,"Rhein-Neckar-Kreis",2007
-"411",0.346301,8226,"Rhein-Neckar-Kreis",2008
-"412",0.387373,8226,"Rhein-Neckar-Kreis",2009
-"413",0.377358,8226,"Rhein-Neckar-Kreis",2010
-"414",0.389732,8226,"Rhein-Neckar-Kreis",2011
-"415",0.388574,8226,"Rhein-Neckar-Kreis",2012
-"416",0.431424,8226,"Rhein-Neckar-Kreis",2013
-"417",0.439082,8226,"Rhein-Neckar-Kreis",2014
-"418",0.399079,8226,"Rhein-Neckar-Kreis",2015
-"419",0.414467,8226,"Rhein-Neckar-Kreis",2016
-"420",0.325481,8226,"Rhein-Neckar-Kreis",2017
+"361",0.729904,8222,"Mannheim, Stadt",1998
+"362",0.782161,8222,"Mannheim, Stadt",1999
+"363",0.861378,8222,"Mannheim, Stadt",2000
+"364",0.851888,8222,"Mannheim, Stadt",2001
+"365",0.792026,8222,"Mannheim, Stadt",2002
+"366",0.7285,8222,"Mannheim, Stadt",2003
+"367",0.776214,8222,"Mannheim, Stadt",2004
+"368",0.75849,8222,"Mannheim, Stadt",2005
+"369",0.753463,8222,"Mannheim, Stadt",2006
+"370",0.762149,8222,"Mannheim, Stadt",2007
+"371",0.704264,8222,"Mannheim, Stadt",2008
+"372",0.677427,8222,"Mannheim, Stadt",2009
+"373",0.615415,8222,"Mannheim, Stadt",2010
+"374",0.630875,8222,"Mannheim, Stadt",2011
+"375",0.620567,8222,"Mannheim, Stadt",2012
+"376",0.661728,8222,"Mannheim, Stadt",2013
+"377",0.66122,8222,"Mannheim, Stadt",2014
+"378",0.625544,8222,"Mannheim, Stadt",2015
+"379",0.635435,8222,"Mannheim, Stadt",2016
+"380",0.584933,8222,"Mannheim, Stadt",2017
+"381",0.728962,8225,"Neckar-Odenwald-Kreis",1998
+"382",0.697303,8225,"Neckar-Odenwald-Kreis",1999
+"383",0.862894,8225,"Neckar-Odenwald-Kreis",2000
+"384",0.902514,8225,"Neckar-Odenwald-Kreis",2001
+"385",0.921424,8225,"Neckar-Odenwald-Kreis",2002
+"386",0.855179,8225,"Neckar-Odenwald-Kreis",2003
+"387",0.895837,8225,"Neckar-Odenwald-Kreis",2004
+"388",0.883147,8225,"Neckar-Odenwald-Kreis",2005
+"389",0.877968,8225,"Neckar-Odenwald-Kreis",2006
+"390",0.900611,8225,"Neckar-Odenwald-Kreis",2007
+"391",0.869909,8225,"Neckar-Odenwald-Kreis",2008
+"392",0.867746,8225,"Neckar-Odenwald-Kreis",2009
+"393",0.781033,8225,"Neckar-Odenwald-Kreis",2010
+"394",0.907091,8225,"Neckar-Odenwald-Kreis",2011
+"395",0.84428,8225,"Neckar-Odenwald-Kreis",2012
+"396",0.796144,8225,"Neckar-Odenwald-Kreis",2013
+"397",0.818538,8225,"Neckar-Odenwald-Kreis",2014
+"398",0.777385,8225,"Neckar-Odenwald-Kreis",2015
+"399",0.79853,8225,"Neckar-Odenwald-Kreis",2016
+"400",0.71766,8225,"Neckar-Odenwald-Kreis",2017
+"401",0.255764,8226,"Rhein-Neckar-Kreis",1998
+"402",0.272383,8226,"Rhein-Neckar-Kreis",1999
+"403",0.318608,8226,"Rhein-Neckar-Kreis",2000
+"404",0.318112,8226,"Rhein-Neckar-Kreis",2001
+"405",0.370504,8226,"Rhein-Neckar-Kreis",2002
+"406",0.355507,8226,"Rhein-Neckar-Kreis",2003
+"407",0.336432,8226,"Rhein-Neckar-Kreis",2004
+"408",0.305619,8226,"Rhein-Neckar-Kreis",2005
+"409",0.310265,8226,"Rhein-Neckar-Kreis",2006
+"410",0.332325,8226,"Rhein-Neckar-Kreis",2007
+"411",0.341725,8226,"Rhein-Neckar-Kreis",2008
+"412",0.383273,8226,"Rhein-Neckar-Kreis",2009
+"413",0.373029,8226,"Rhein-Neckar-Kreis",2010
+"414",0.385292,8226,"Rhein-Neckar-Kreis",2011
+"415",0.384197,8226,"Rhein-Neckar-Kreis",2012
+"416",0.427628,8226,"Rhein-Neckar-Kreis",2013
+"417",0.435202,8226,"Rhein-Neckar-Kreis",2014
+"418",0.394895,8226,"Rhein-Neckar-Kreis",2015
+"419",0.410682,8226,"Rhein-Neckar-Kreis",2016
+"420",0.319444,8226,"Rhein-Neckar-Kreis",2017
 "421",1,8231,"Pforzheim, Stadt",1998
 "422",1,8231,"Pforzheim, Stadt",1999
-"423",0.957118,8231,"Pforzheim, Stadt",2000
-"424",0.821797,8231,"Pforzheim, Stadt",2001
+"423",0.959928,8231,"Pforzheim, Stadt",2000
+"424",0.823344,8231,"Pforzheim, Stadt",2001
 "425",1,8231,"Pforzheim, Stadt",2002
 "426",1,8231,"Pforzheim, Stadt",2003
 "427",1,8231,"Pforzheim, Stadt",2004
@@ -439,443 +439,443 @@
 "438",1,8231,"Pforzheim, Stadt",2015
 "439",1,8231,"Pforzheim, Stadt",2016
 "440",1,8231,"Pforzheim, Stadt",2017
-"441",0.506826,8235,"Calw",1998
-"442",0.529396,8235,"Calw",1999
-"443",0.622767,8235,"Calw",2000
-"444",0.602884,8235,"Calw",2001
-"445",0.681884,8235,"Calw",2002
-"446",0.615916,8235,"Calw",2003
-"447",0.62257,8235,"Calw",2004
-"448",0.587274,8235,"Calw",2005
-"449",0.643402,8235,"Calw",2006
-"450",0.6086,8235,"Calw",2007
-"451",0.641396,8235,"Calw",2008
-"452",0.681584,8235,"Calw",2009
-"453",0.624989,8235,"Calw",2010
-"454",0.643391,8235,"Calw",2011
-"455",0.656921,8235,"Calw",2012
-"456",0.687113,8235,"Calw",2013
-"457",0.682799,8235,"Calw",2014
-"458",0.664365,8235,"Calw",2015
-"459",0.653056,8235,"Calw",2016
-"460",0.623095,8235,"Calw",2017
-"461",0.237448,8236,"Enzkreis",1998
-"462",0.245691,8236,"Enzkreis",1999
-"463",0.291147,8236,"Enzkreis",2000
-"464",0.297734,8236,"Enzkreis",2001
-"465",0.367276,8236,"Enzkreis",2002
-"466",0.340298,8236,"Enzkreis",2003
-"467",0.345948,8236,"Enzkreis",2004
-"468",0.302974,8236,"Enzkreis",2005
-"469",0.318244,8236,"Enzkreis",2006
-"470",0.317447,8236,"Enzkreis",2007
-"471",0.417714,8236,"Enzkreis",2008
-"472",0.402811,8236,"Enzkreis",2009
-"473",0.425723,8236,"Enzkreis",2010
-"474",0.426648,8236,"Enzkreis",2011
-"475",0.461362,8236,"Enzkreis",2012
-"476",0.488374,8236,"Enzkreis",2013
-"477",0.430721,8236,"Enzkreis",2014
-"478",0.443428,8236,"Enzkreis",2015
-"479",0.475188,8236,"Enzkreis",2016
-"480",0.521568,8236,"Enzkreis",2017
-"481",0.407779,8237,"Freudenstadt",1998
-"482",0.41939,8237,"Freudenstadt",1999
-"483",0.513388,8237,"Freudenstadt",2000
-"484",0.556548,8237,"Freudenstadt",2001
-"485",0.618392,8237,"Freudenstadt",2002
-"486",0.5611,8237,"Freudenstadt",2003
-"487",0.589385,8237,"Freudenstadt",2004
-"488",0.674598,8237,"Freudenstadt",2005
-"489",0.64046,8237,"Freudenstadt",2006
-"490",0.569567,8237,"Freudenstadt",2007
-"491",0.616381,8237,"Freudenstadt",2008
-"492",0.660819,8237,"Freudenstadt",2009
-"493",0.587779,8237,"Freudenstadt",2010
-"494",0.613364,8237,"Freudenstadt",2011
-"495",0.649082,8237,"Freudenstadt",2012
-"496",0.701654,8237,"Freudenstadt",2013
-"497",0.62235,8237,"Freudenstadt",2014
-"498",0.608217,8237,"Freudenstadt",2015
-"499",0.64517,8237,"Freudenstadt",2016
-"500",0.536161,8237,"Freudenstadt",2017
-"501",0.418717,8311,"Freiburg im Breisgau, Stadt",1998
-"502",0.454256,8311,"Freiburg im Breisgau, Stadt",1999
-"503",0.473049,8311,"Freiburg im Breisgau, Stadt",2000
-"504",0.532319,8311,"Freiburg im Breisgau, Stadt",2001
-"505",0.484618,8311,"Freiburg im Breisgau, Stadt",2002
-"506",0.451276,8311,"Freiburg im Breisgau, Stadt",2003
-"507",0.512341,8311,"Freiburg im Breisgau, Stadt",2004
-"508",0.508735,8311,"Freiburg im Breisgau, Stadt",2005
-"509",0.508417,8311,"Freiburg im Breisgau, Stadt",2006
-"510",0.526997,8311,"Freiburg im Breisgau, Stadt",2007
-"511",0.480901,8311,"Freiburg im Breisgau, Stadt",2008
-"512",0.456656,8311,"Freiburg im Breisgau, Stadt",2009
-"513",0.414965,8311,"Freiburg im Breisgau, Stadt",2010
-"514",0.419194,8311,"Freiburg im Breisgau, Stadt",2011
-"515",0.427654,8311,"Freiburg im Breisgau, Stadt",2012
-"516",0.463375,8311,"Freiburg im Breisgau, Stadt",2013
-"517",0.428958,8311,"Freiburg im Breisgau, Stadt",2014
-"518",0.405865,8311,"Freiburg im Breisgau, Stadt",2015
-"519",0.418094,8311,"Freiburg im Breisgau, Stadt",2016
-"520",0.408329,8311,"Freiburg im Breisgau, Stadt",2017
-"521",0.422809,8315,"Breisgau-Hochschwarzwald",1998
-"522",0.435369,8315,"Breisgau-Hochschwarzwald",1999
-"523",0.50433,8315,"Breisgau-Hochschwarzwald",2000
-"524",0.532967,8315,"Breisgau-Hochschwarzwald",2001
-"525",0.622489,8315,"Breisgau-Hochschwarzwald",2002
-"526",0.553579,8315,"Breisgau-Hochschwarzwald",2003
-"527",0.531266,8315,"Breisgau-Hochschwarzwald",2004
-"528",0.490178,8315,"Breisgau-Hochschwarzwald",2005
-"529",0.539217,8315,"Breisgau-Hochschwarzwald",2006
-"530",0.569341,8315,"Breisgau-Hochschwarzwald",2007
-"531",0.538864,8315,"Breisgau-Hochschwarzwald",2008
-"532",0.555996,8315,"Breisgau-Hochschwarzwald",2009
-"533",0.542382,8315,"Breisgau-Hochschwarzwald",2010
-"534",0.554436,8315,"Breisgau-Hochschwarzwald",2011
-"535",0.596495,8315,"Breisgau-Hochschwarzwald",2012
-"536",0.608935,8315,"Breisgau-Hochschwarzwald",2013
-"537",0.561169,8315,"Breisgau-Hochschwarzwald",2014
-"538",0.566414,8315,"Breisgau-Hochschwarzwald",2015
-"539",0.555026,8315,"Breisgau-Hochschwarzwald",2016
-"540",0.536902,8315,"Breisgau-Hochschwarzwald",2017
-"541",0.461979,8316,"Emmendingen",1998
-"542",0.514411,8316,"Emmendingen",1999
-"543",0.5386,8316,"Emmendingen",2000
-"544",0.568911,8316,"Emmendingen",2001
-"545",0.592926,8316,"Emmendingen",2002
-"546",0.567132,8316,"Emmendingen",2003
-"547",0.635651,8316,"Emmendingen",2004
-"548",0.581998,8316,"Emmendingen",2005
-"549",0.584409,8316,"Emmendingen",2006
-"550",0.61677,8316,"Emmendingen",2007
-"551",0.595565,8316,"Emmendingen",2008
-"552",0.646652,8316,"Emmendingen",2009
-"553",0.596754,8316,"Emmendingen",2010
-"554",0.676216,8316,"Emmendingen",2011
-"555",0.654701,8316,"Emmendingen",2012
-"556",0.686521,8316,"Emmendingen",2013
-"557",0.655764,8316,"Emmendingen",2014
-"558",0.612206,8316,"Emmendingen",2015
-"559",0.632325,8316,"Emmendingen",2016
-"560",0.562397,8316,"Emmendingen",2017
-"561",0.532313,8317,"Ortenaukreis",1998
-"562",0.556112,8317,"Ortenaukreis",1999
-"563",0.61789,8317,"Ortenaukreis",2000
-"564",0.647102,8317,"Ortenaukreis",2001
-"565",0.672526,8317,"Ortenaukreis",2002
-"566",0.613701,8317,"Ortenaukreis",2003
-"567",0.616857,8317,"Ortenaukreis",2004
-"568",0.58317,8317,"Ortenaukreis",2005
-"569",0.616918,8317,"Ortenaukreis",2006
-"570",0.617184,8317,"Ortenaukreis",2007
-"571",0.628675,8317,"Ortenaukreis",2008
-"572",0.670566,8317,"Ortenaukreis",2009
-"573",0.636973,8317,"Ortenaukreis",2010
-"574",0.656622,8317,"Ortenaukreis",2011
-"575",0.695473,8317,"Ortenaukreis",2012
-"576",0.710551,8317,"Ortenaukreis",2013
-"577",0.685861,8317,"Ortenaukreis",2014
-"578",0.66373,8317,"Ortenaukreis",2015
-"579",0.638565,8317,"Ortenaukreis",2016
-"580",0.602036,8317,"Ortenaukreis",2017
-"581",0.449819,8325,"Rottweil",1998
-"582",0.485037,8325,"Rottweil",1999
-"583",0.60203,8325,"Rottweil",2000
-"584",0.663336,8325,"Rottweil",2001
-"585",0.6937,8325,"Rottweil",2002
-"586",0.575564,8325,"Rottweil",2003
-"587",0.61852,8325,"Rottweil",2004
-"588",0.513882,8325,"Rottweil",2005
-"589",0.561039,8325,"Rottweil",2006
-"590",0.559932,8325,"Rottweil",2007
-"591",0.556917,8325,"Rottweil",2008
-"592",0.632202,8325,"Rottweil",2009
-"593",0.594736,8325,"Rottweil",2010
-"594",0.584504,8325,"Rottweil",2011
-"595",0.657357,8325,"Rottweil",2012
-"596",0.64281,8325,"Rottweil",2013
-"597",0.678401,8325,"Rottweil",2014
-"598",0.593261,8325,"Rottweil",2015
-"599",0.623302,8325,"Rottweil",2016
-"600",0.554694,8325,"Rottweil",2017
-"601",0.585851,8326,"Schwarzwald-Baar-Kreis",1998
-"602",0.575976,8326,"Schwarzwald-Baar-Kreis",1999
-"603",0.670196,8326,"Schwarzwald-Baar-Kreis",2000
-"604",0.604092,8326,"Schwarzwald-Baar-Kreis",2001
-"605",0.711538,8326,"Schwarzwald-Baar-Kreis",2002
-"606",0.671834,8326,"Schwarzwald-Baar-Kreis",2003
-"607",0.719323,8326,"Schwarzwald-Baar-Kreis",2004
-"608",0.658196,8326,"Schwarzwald-Baar-Kreis",2005
-"609",0.643189,8326,"Schwarzwald-Baar-Kreis",2006
-"610",0.638835,8326,"Schwarzwald-Baar-Kreis",2007
-"611",0.6449,8326,"Schwarzwald-Baar-Kreis",2008
-"612",0.697176,8326,"Schwarzwald-Baar-Kreis",2009
-"613",0.676412,8326,"Schwarzwald-Baar-Kreis",2010
-"614",0.677365,8326,"Schwarzwald-Baar-Kreis",2011
-"615",0.709977,8326,"Schwarzwald-Baar-Kreis",2012
-"616",0.775026,8326,"Schwarzwald-Baar-Kreis",2013
-"617",0.720885,8326,"Schwarzwald-Baar-Kreis",2014
-"618",0.692074,8326,"Schwarzwald-Baar-Kreis",2015
-"619",0.68565,8326,"Schwarzwald-Baar-Kreis",2016
-"620",0.692114,8326,"Schwarzwald-Baar-Kreis",2017
-"621",0.602923,8327,"Tuttlingen",1998
-"622",0.618486,8327,"Tuttlingen",1999
-"623",0.754144,8327,"Tuttlingen",2000
-"624",0.738935,8327,"Tuttlingen",2001
-"625",0.764881,8327,"Tuttlingen",2002
-"626",0.740923,8327,"Tuttlingen",2003
-"627",0.798922,8327,"Tuttlingen",2004
-"628",0.785147,8327,"Tuttlingen",2005
-"629",0.699707,8327,"Tuttlingen",2006
-"630",0.704783,8327,"Tuttlingen",2007
-"631",0.687273,8327,"Tuttlingen",2008
-"632",0.752395,8327,"Tuttlingen",2009
-"633",0.683289,8327,"Tuttlingen",2010
-"634",0.732463,8327,"Tuttlingen",2011
-"635",0.730865,8327,"Tuttlingen",2012
-"636",0.744923,8327,"Tuttlingen",2013
-"637",0.705263,8327,"Tuttlingen",2014
-"638",0.690648,8327,"Tuttlingen",2015
-"639",0.726199,8327,"Tuttlingen",2016
-"640",0.672474,8327,"Tuttlingen",2017
-"641",0.65231,8335,"Konstanz",1998
-"642",0.669092,8335,"Konstanz",1999
-"643",0.746109,8335,"Konstanz",2000
-"644",0.759793,8335,"Konstanz",2001
-"645",0.807625,8335,"Konstanz",2002
-"646",0.72507,8335,"Konstanz",2003
-"647",0.729267,8335,"Konstanz",2004
-"648",0.671178,8335,"Konstanz",2005
-"649",0.708129,8335,"Konstanz",2006
-"650",0.753974,8335,"Konstanz",2007
-"651",0.708479,8335,"Konstanz",2008
-"652",0.716046,8335,"Konstanz",2009
-"653",0.670401,8335,"Konstanz",2010
-"654",0.687142,8335,"Konstanz",2011
-"655",0.665774,8335,"Konstanz",2012
-"656",0.709595,8335,"Konstanz",2013
-"657",0.714916,8335,"Konstanz",2014
-"658",0.66649,8335,"Konstanz",2015
-"659",0.647084,8335,"Konstanz",2016
-"660",0.617762,8335,"Konstanz",2017
-"661",0.721756,8336,"Lörrach",1998
-"662",0.770186,8336,"Lörrach",1999
-"663",0.841295,8336,"Lörrach",2000
-"664",0.873336,8336,"Lörrach",2001
-"665",0.891627,8336,"Lörrach",2002
-"666",0.768501,8336,"Lörrach",2003
-"667",0.862395,8336,"Lörrach",2004
-"668",0.764138,8336,"Lörrach",2005
-"669",0.794762,8336,"Lörrach",2006
-"670",0.845576,8336,"Lörrach",2007
-"671",0.80494,8336,"Lörrach",2008
-"672",0.82552,8336,"Lörrach",2009
-"673",0.76624,8336,"Lörrach",2010
-"674",0.810027,8336,"Lörrach",2011
-"675",0.818824,8336,"Lörrach",2012
-"676",0.785842,8336,"Lörrach",2013
-"677",0.837994,8336,"Lörrach",2014
-"678",0.741222,8336,"Lörrach",2015
-"679",0.742112,8336,"Lörrach",2016
-"680",0.699979,8336,"Lörrach",2017
-"681",0.876051,8337,"Waldshut",1998
-"682",0.926099,8337,"Waldshut",1999
+"441",0.503394,8235,"Calw",1998
+"442",0.525588,8235,"Calw",1999
+"443",0.62041,8235,"Calw",2000
+"444",0.599379,8235,"Calw",2001
+"445",0.677258,8235,"Calw",2002
+"446",0.61134,8235,"Calw",2003
+"447",0.617228,8235,"Calw",2004
+"448",0.58285,8235,"Calw",2005
+"449",0.638813,8235,"Calw",2006
+"450",0.603421,8235,"Calw",2007
+"451",0.636694,8235,"Calw",2008
+"452",0.677531,8235,"Calw",2009
+"453",0.620136,8235,"Calw",2010
+"454",0.638531,8235,"Calw",2011
+"455",0.652601,8235,"Calw",2012
+"456",0.683026,8235,"Calw",2013
+"457",0.678517,8235,"Calw",2014
+"458",0.659725,8235,"Calw",2015
+"459",0.648587,8235,"Calw",2016
+"460",0.617294,8235,"Calw",2017
+"461",0.233761,8236,"Enzkreis",1998
+"462",0.24094,8236,"Enzkreis",1999
+"463",0.286829,8236,"Enzkreis",2000
+"464",0.29278,8236,"Enzkreis",2001
+"465",0.361931,8236,"Enzkreis",2002
+"466",0.335092,8236,"Enzkreis",2003
+"467",0.339984,8236,"Enzkreis",2004
+"468",0.299139,8236,"Enzkreis",2005
+"469",0.312487,8236,"Enzkreis",2006
+"470",0.311529,8236,"Enzkreis",2007
+"471",0.412843,8236,"Enzkreis",2008
+"472",0.397133,8236,"Enzkreis",2009
+"473",0.420347,8236,"Enzkreis",2010
+"474",0.420816,8236,"Enzkreis",2011
+"475",0.456449,8236,"Enzkreis",2012
+"476",0.483647,8236,"Enzkreis",2013
+"477",0.424907,8236,"Enzkreis",2014
+"478",0.437946,8236,"Enzkreis",2015
+"479",0.470278,8236,"Enzkreis",2016
+"480",0.516636,8236,"Enzkreis",2017
+"481",0.404454,8237,"Freudenstadt",1998
+"482",0.415111,8237,"Freudenstadt",1999
+"483",0.510356,8237,"Freudenstadt",2000
+"484",0.553012,8237,"Freudenstadt",2001
+"485",0.613583,8237,"Freudenstadt",2002
+"486",0.556364,8237,"Freudenstadt",2003
+"487",0.584053,8237,"Freudenstadt",2004
+"488",0.671638,8237,"Freudenstadt",2005
+"489",0.636616,8237,"Freudenstadt",2006
+"490",0.564912,8237,"Freudenstadt",2007
+"491",0.612175,8237,"Freudenstadt",2008
+"492",0.656972,8237,"Freudenstadt",2009
+"493",0.582991,8237,"Freudenstadt",2010
+"494",0.608598,8237,"Freudenstadt",2011
+"495",0.64476,8237,"Freudenstadt",2012
+"496",0.698096,8237,"Freudenstadt",2013
+"497",0.617752,8237,"Freudenstadt",2014
+"498",0.603454,8237,"Freudenstadt",2015
+"499",0.641148,8237,"Freudenstadt",2016
+"500",0.529497,8237,"Freudenstadt",2017
+"501",0.416746,8311,"Freiburg im Breisgau, Stadt",1998
+"502",0.452643,8311,"Freiburg im Breisgau, Stadt",1999
+"503",0.472358,8311,"Freiburg im Breisgau, Stadt",2000
+"504",0.532537,8311,"Freiburg im Breisgau, Stadt",2001
+"505",0.482922,8311,"Freiburg im Breisgau, Stadt",2002
+"506",0.449895,8311,"Freiburg im Breisgau, Stadt",2003
+"507",0.511776,8311,"Freiburg im Breisgau, Stadt",2004
+"508",0.51024,8311,"Freiburg im Breisgau, Stadt",2005
+"509",0.508388,8311,"Freiburg im Breisgau, Stadt",2006
+"510",0.526874,8311,"Freiburg im Breisgau, Stadt",2007
+"511",0.480269,8311,"Freiburg im Breisgau, Stadt",2008
+"512",0.456559,8311,"Freiburg im Breisgau, Stadt",2009
+"513",0.41415,8311,"Freiburg im Breisgau, Stadt",2010
+"514",0.418748,8311,"Freiburg im Breisgau, Stadt",2011
+"515",0.427165,8311,"Freiburg im Breisgau, Stadt",2012
+"516",0.463499,8311,"Freiburg im Breisgau, Stadt",2013
+"517",0.4291,8311,"Freiburg im Breisgau, Stadt",2014
+"518",0.406052,8311,"Freiburg im Breisgau, Stadt",2015
+"519",0.418811,8311,"Freiburg im Breisgau, Stadt",2016
+"520",0.408973,8311,"Freiburg im Breisgau, Stadt",2017
+"521",0.41822,8315,"Breisgau-Hochschwarzwald",1998
+"522",0.430037,8315,"Breisgau-Hochschwarzwald",1999
+"523",0.499916,8315,"Breisgau-Hochschwarzwald",2000
+"524",0.528137,8315,"Breisgau-Hochschwarzwald",2001
+"525",0.617214,8315,"Breisgau-Hochschwarzwald",2002
+"526",0.548756,8315,"Breisgau-Hochschwarzwald",2003
+"527",0.52531,8315,"Breisgau-Hochschwarzwald",2004
+"528",0.48546,8315,"Breisgau-Hochschwarzwald",2005
+"529",0.533894,8315,"Breisgau-Hochschwarzwald",2006
+"530",0.564049,8315,"Breisgau-Hochschwarzwald",2007
+"531",0.533222,8315,"Breisgau-Hochschwarzwald",2008
+"532",0.551012,8315,"Breisgau-Hochschwarzwald",2009
+"533",0.537289,8315,"Breisgau-Hochschwarzwald",2010
+"534",0.549078,8315,"Breisgau-Hochschwarzwald",2011
+"535",0.591953,8315,"Breisgau-Hochschwarzwald",2012
+"536",0.604678,8315,"Breisgau-Hochschwarzwald",2013
+"537",0.556105,8315,"Breisgau-Hochschwarzwald",2014
+"538",0.56177,8315,"Breisgau-Hochschwarzwald",2015
+"539",0.550483,8315,"Breisgau-Hochschwarzwald",2016
+"540",0.531345,8315,"Breisgau-Hochschwarzwald",2017
+"541",0.457029,8316,"Emmendingen",1998
+"542",0.509492,8316,"Emmendingen",1999
+"543",0.534178,8316,"Emmendingen",2000
+"544",0.564284,8316,"Emmendingen",2001
+"545",0.586716,8316,"Emmendingen",2002
+"546",0.561475,8316,"Emmendingen",2003
+"547",0.629647,8316,"Emmendingen",2004
+"548",0.577021,8316,"Emmendingen",2005
+"549",0.578801,8316,"Emmendingen",2006
+"550",0.611309,8316,"Emmendingen",2007
+"551",0.589857,8316,"Emmendingen",2008
+"552",0.641955,8316,"Emmendingen",2009
+"553",0.591413,8316,"Emmendingen",2010
+"554",0.67137,8316,"Emmendingen",2011
+"555",0.649615,8316,"Emmendingen",2012
+"556",0.682265,8316,"Emmendingen",2013
+"557",0.650986,8316,"Emmendingen",2014
+"558",0.607226,8316,"Emmendingen",2015
+"559",0.62805,8316,"Emmendingen",2016
+"560",0.556239,8316,"Emmendingen",2017
+"561",0.528203,8317,"Ortenaukreis",1998
+"562",0.551663,8317,"Ortenaukreis",1999
+"563",0.614888,8317,"Ortenaukreis",2000
+"564",0.64378,8317,"Ortenaukreis",2001
+"565",0.667382,8317,"Ortenaukreis",2002
+"566",0.608769,8317,"Ortenaukreis",2003
+"567",0.611221,8317,"Ortenaukreis",2004
+"568",0.578614,8317,"Ortenaukreis",2005
+"569",0.611957,8317,"Ortenaukreis",2006
+"570",0.61191,8317,"Ortenaukreis",2007
+"571",0.623571,8317,"Ortenaukreis",2008
+"572",0.665968,8317,"Ortenaukreis",2009
+"573",0.631941,8317,"Ortenaukreis",2010
+"574",0.651408,8317,"Ortenaukreis",2011
+"575",0.690814,8317,"Ortenaukreis",2012
+"576",0.706302,8317,"Ortenaukreis",2013
+"577",0.681175,8317,"Ortenaukreis",2014
+"578",0.659109,8317,"Ortenaukreis",2015
+"579",0.633702,8317,"Ortenaukreis",2016
+"580",0.595683,8317,"Ortenaukreis",2017
+"581",0.447879,8325,"Rottweil",1998
+"582",0.482927,8325,"Rottweil",1999
+"583",0.600652,8325,"Rottweil",2000
+"584",0.662258,8325,"Rottweil",2001
+"585",0.690432,8325,"Rottweil",2002
+"586",0.572112,8325,"Rottweil",2003
+"587",0.615223,8325,"Rottweil",2004
+"588",0.511197,8325,"Rottweil",2005
+"589",0.557763,8325,"Rottweil",2006
+"590",0.556603,8325,"Rottweil",2007
+"591",0.553206,8325,"Rottweil",2008
+"592",0.629037,8325,"Rottweil",2009
+"593",0.591165,8325,"Rottweil",2010
+"594",0.580603,8325,"Rottweil",2011
+"595",0.654661,8325,"Rottweil",2012
+"596",0.63989,8325,"Rottweil",2013
+"597",0.675839,8325,"Rottweil",2014
+"598",0.58941,8325,"Rottweil",2015
+"599",0.620011,8325,"Rottweil",2016
+"600",0.549532,8325,"Rottweil",2017
+"601",0.584016,8326,"Schwarzwald-Baar-Kreis",1998
+"602",0.57346,8326,"Schwarzwald-Baar-Kreis",1999
+"603",0.669539,8326,"Schwarzwald-Baar-Kreis",2000
+"604",0.602012,8326,"Schwarzwald-Baar-Kreis",2001
+"605",0.708385,8326,"Schwarzwald-Baar-Kreis",2002
+"606",0.66847,8326,"Schwarzwald-Baar-Kreis",2003
+"607",0.7156,8326,"Schwarzwald-Baar-Kreis",2004
+"608",0.655339,8326,"Schwarzwald-Baar-Kreis",2005
+"609",0.639834,8326,"Schwarzwald-Baar-Kreis",2006
+"610",0.635606,8326,"Schwarzwald-Baar-Kreis",2007
+"611",0.641719,8326,"Schwarzwald-Baar-Kreis",2008
+"612",0.694325,8326,"Schwarzwald-Baar-Kreis",2009
+"613",0.673366,8326,"Schwarzwald-Baar-Kreis",2010
+"614",0.674035,8326,"Schwarzwald-Baar-Kreis",2011
+"615",0.707125,8326,"Schwarzwald-Baar-Kreis",2012
+"616",0.773256,8326,"Schwarzwald-Baar-Kreis",2013
+"617",0.7183,8326,"Schwarzwald-Baar-Kreis",2014
+"618",0.689153,8326,"Schwarzwald-Baar-Kreis",2015
+"619",0.682764,8326,"Schwarzwald-Baar-Kreis",2016
+"620",0.688805,8326,"Schwarzwald-Baar-Kreis",2017
+"621",0.603977,8327,"Tuttlingen",1998
+"622",0.619249,8327,"Tuttlingen",1999
+"623",0.756795,8327,"Tuttlingen",2000
+"624",0.741201,8327,"Tuttlingen",2001
+"625",0.764599,8327,"Tuttlingen",2002
+"626",0.740727,8327,"Tuttlingen",2003
+"627",0.798944,8327,"Tuttlingen",2004
+"628",0.786366,8327,"Tuttlingen",2005
+"629",0.699766,8327,"Tuttlingen",2006
+"630",0.704832,8327,"Tuttlingen",2007
+"631",0.686675,8327,"Tuttlingen",2008
+"632",0.752139,8327,"Tuttlingen",2009
+"633",0.682028,8327,"Tuttlingen",2010
+"634",0.731874,8327,"Tuttlingen",2011
+"635",0.730649,8327,"Tuttlingen",2012
+"636",0.744749,8327,"Tuttlingen",2013
+"637",0.70452,8327,"Tuttlingen",2014
+"638",0.689407,8327,"Tuttlingen",2015
+"639",0.725387,8327,"Tuttlingen",2016
+"640",0.670096,8327,"Tuttlingen",2017
+"641",0.649378,8335,"Konstanz",1998
+"642",0.665931,8335,"Konstanz",1999
+"643",0.744939,8335,"Konstanz",2000
+"644",0.758505,8335,"Konstanz",2001
+"645",0.804416,8335,"Konstanz",2002
+"646",0.721891,8335,"Konstanz",2003
+"647",0.725931,8335,"Konstanz",2004
+"648",0.668445,8335,"Konstanz",2005
+"649",0.705301,8335,"Konstanz",2006
+"650",0.751612,8335,"Konstanz",2007
+"651",0.705417,8335,"Konstanz",2008
+"652",0.71354,8335,"Konstanz",2009
+"653",0.667279,8335,"Konstanz",2010
+"654",0.684129,8335,"Konstanz",2011
+"655",0.662901,8335,"Konstanz",2012
+"656",0.707358,8335,"Konstanz",2013
+"657",0.712524,8335,"Konstanz",2014
+"658",0.663763,8335,"Konstanz",2015
+"659",0.644374,8335,"Konstanz",2016
+"660",0.614148,8335,"Konstanz",2017
+"661",0.719724,8336,"Lörrach",1998
+"662",0.768311,8336,"Lörrach",1999
+"663",0.840951,8336,"Lörrach",2000
+"664",0.873182,8336,"Lörrach",2001
+"665",0.889073,8336,"Lörrach",2002
+"666",0.765581,8336,"Lörrach",2003
+"667",0.859928,8336,"Lörrach",2004
+"668",0.7614,8336,"Lörrach",2005
+"669",0.792286,8336,"Lörrach",2006
+"670",0.843408,8336,"Lörrach",2007
+"671",0.802282,8336,"Lörrach",2008
+"672",0.82372,8336,"Lörrach",2009
+"673",0.763482,8336,"Lörrach",2010
+"674",0.807415,8336,"Lörrach",2011
+"675",0.816821,8336,"Lörrach",2012
+"676",0.783523,8336,"Lörrach",2013
+"677",0.836391,8336,"Lörrach",2014
+"678",0.738853,8336,"Lörrach",2015
+"679",0.739684,8336,"Lörrach",2016
+"680",0.696193,8336,"Lörrach",2017
+"681",0.873254,8337,"Waldshut",1998
+"682",0.923626,8337,"Waldshut",1999
 "683",1,8337,"Waldshut",2000
 "684",1,8337,"Waldshut",2001
-"685",0.971161,8337,"Waldshut",2002
-"686",0.942224,8337,"Waldshut",2003
-"687",0.9998,8337,"Waldshut",2004
-"688",0.991984,8337,"Waldshut",2005
-"689",0.94346,8337,"Waldshut",2006
-"690",0.970797,8337,"Waldshut",2007
-"691",0.976219,8337,"Waldshut",2008
-"692",0.953187,8337,"Waldshut",2009
-"693",0.883811,8337,"Waldshut",2010
-"694",0.928882,8337,"Waldshut",2011
-"695",0.94315,8337,"Waldshut",2012
-"696",0.935344,8337,"Waldshut",2013
-"697",0.937574,8337,"Waldshut",2014
-"698",0.858343,8337,"Waldshut",2015
-"699",0.849895,8337,"Waldshut",2016
-"700",0.853431,8337,"Waldshut",2017
-"701",0.361421,8415,"Reutlingen",1998
-"702",0.369617,8415,"Reutlingen",1999
-"703",0.470361,8415,"Reutlingen",2000
-"704",0.411016,8415,"Reutlingen",2001
-"705",0.451183,8415,"Reutlingen",2002
-"706",0.427852,8415,"Reutlingen",2003
-"707",0.411233,8415,"Reutlingen",2004
-"708",0.352398,8415,"Reutlingen",2005
-"709",0.416798,8415,"Reutlingen",2006
-"710",0.420878,8415,"Reutlingen",2007
-"711",0.452361,8415,"Reutlingen",2008
-"712",0.504132,8415,"Reutlingen",2009
-"713",0.471656,8415,"Reutlingen",2010
-"714",0.479566,8415,"Reutlingen",2011
-"715",0.505116,8415,"Reutlingen",2012
-"716",0.549735,8415,"Reutlingen",2013
-"717",0.50643,8415,"Reutlingen",2014
-"718",0.483531,8415,"Reutlingen",2015
-"719",0.47666,8415,"Reutlingen",2016
-"720",0.423897,8415,"Reutlingen",2017
-"721",0.235434,8416,"Tübingen",1998
-"722",0.246263,8416,"Tübingen",1999
-"723",0.358377,8416,"Tübingen",2000
-"724",0.324768,8416,"Tübingen",2001
-"725",0.377676,8416,"Tübingen",2002
-"726",0.35601,8416,"Tübingen",2003
-"727",0.36101,8416,"Tübingen",2004
-"728",0.26176,8416,"Tübingen",2005
-"729",0.306936,8416,"Tübingen",2006
-"730",0.354916,8416,"Tübingen",2007
-"731",0.328183,8416,"Tübingen",2008
-"732",0.366874,8416,"Tübingen",2009
-"733",0.321225,8416,"Tübingen",2010
-"734",0.309203,8416,"Tübingen",2011
-"735",0.348108,8416,"Tübingen",2012
-"736",0.390599,8416,"Tübingen",2013
-"737",0.326984,8416,"Tübingen",2014
-"738",0.314562,8416,"Tübingen",2015
-"739",0.30584,8416,"Tübingen",2016
-"740",0.21151,8416,"Tübingen",2017
-"741",0.591597,8417,"Zollernalbkreis",1998
-"742",0.561636,8417,"Zollernalbkreis",1999
-"743",0.586579,8417,"Zollernalbkreis",2000
-"744",0.617344,8417,"Zollernalbkreis",2001
-"745",0.66952,8417,"Zollernalbkreis",2002
-"746",0.648602,8417,"Zollernalbkreis",2003
-"747",0.70132,8417,"Zollernalbkreis",2004
-"748",0.673526,8417,"Zollernalbkreis",2005
-"749",0.672704,8417,"Zollernalbkreis",2006
-"750",0.657851,8417,"Zollernalbkreis",2007
-"751",0.640212,8417,"Zollernalbkreis",2008
-"752",0.671611,8417,"Zollernalbkreis",2009
-"753",0.664974,8417,"Zollernalbkreis",2010
-"754",0.687473,8417,"Zollernalbkreis",2011
-"755",0.714846,8417,"Zollernalbkreis",2012
-"756",0.740442,8417,"Zollernalbkreis",2013
-"757",0.710104,8417,"Zollernalbkreis",2014
-"758",0.696409,8417,"Zollernalbkreis",2015
-"759",0.693086,8417,"Zollernalbkreis",2016
-"760",0.654464,8417,"Zollernalbkreis",2017
-"761",0.154094,8421,"Ulm, Stadt",1998
-"762",0.254001,8421,"Ulm, Stadt",1999
-"763",0.308271,8421,"Ulm, Stadt",2000
-"764",0.414267,8421,"Ulm, Stadt",2001
-"765",0.384572,8421,"Ulm, Stadt",2002
-"766",0.322139,8421,"Ulm, Stadt",2003
-"767",0.36127,8421,"Ulm, Stadt",2004
-"768",0.264028,8421,"Ulm, Stadt",2005
-"769",0.346624,8421,"Ulm, Stadt",2006
-"770",0.317763,8421,"Ulm, Stadt",2007
-"771",0.299519,8421,"Ulm, Stadt",2008
-"772",0.285128,8421,"Ulm, Stadt",2009
-"773",0.230157,8421,"Ulm, Stadt",2010
-"774",0.252327,8421,"Ulm, Stadt",2011
-"775",0.234261,8421,"Ulm, Stadt",2012
-"776",0.29395,8421,"Ulm, Stadt",2013
-"777",0.205683,8421,"Ulm, Stadt",2014
-"778",0.320359,8421,"Ulm, Stadt",2015
-"779",0.276752,8421,"Ulm, Stadt",2016
-"780",0.240734,8421,"Ulm, Stadt",2017
-"781",0.289768,8425,"Alb-Donau-Kreis",1998
-"782",0.306846,8425,"Alb-Donau-Kreis",1999
-"783",0.335058,8425,"Alb-Donau-Kreis",2000
-"784",0.321571,8425,"Alb-Donau-Kreis",2001
-"785",0.383124,8425,"Alb-Donau-Kreis",2002
-"786",0.389998,8425,"Alb-Donau-Kreis",2003
-"787",0.391719,8425,"Alb-Donau-Kreis",2004
-"788",0.343776,8425,"Alb-Donau-Kreis",2005
-"789",0.395651,8425,"Alb-Donau-Kreis",2006
-"790",0.412354,8425,"Alb-Donau-Kreis",2007
-"791",0.464195,8425,"Alb-Donau-Kreis",2008
-"792",0.49939,8425,"Alb-Donau-Kreis",2009
-"793",0.459996,8425,"Alb-Donau-Kreis",2010
-"794",0.464596,8425,"Alb-Donau-Kreis",2011
-"795",0.518221,8425,"Alb-Donau-Kreis",2012
-"796",0.545249,8425,"Alb-Donau-Kreis",2013
-"797",0.50888,8425,"Alb-Donau-Kreis",2014
-"798",0.507379,8425,"Alb-Donau-Kreis",2015
-"799",0.529624,8425,"Alb-Donau-Kreis",2016
-"800",0.458217,8425,"Alb-Donau-Kreis",2017
-"801",0.248273,8426,"Biberach",1998
-"802",0.238228,8426,"Biberach",1999
-"803",0.425788,8426,"Biberach",2000
-"804",0.413363,8426,"Biberach",2001
-"805",0.463522,8426,"Biberach",2002
-"806",0.423053,8426,"Biberach",2003
-"807",0.431229,8426,"Biberach",2004
-"808",0.396901,8426,"Biberach",2005
-"809",0.405312,8426,"Biberach",2006
-"810",0.419681,8426,"Biberach",2007
-"811",0.383017,8426,"Biberach",2008
-"812",0.440452,8426,"Biberach",2009
-"813",0.445741,8426,"Biberach",2010
-"814",0.459054,8426,"Biberach",2011
-"815",0.45251,8426,"Biberach",2012
-"816",0.483145,8426,"Biberach",2013
-"817",0.446459,8426,"Biberach",2014
-"818",0.457061,8426,"Biberach",2015
-"819",0.45147,8426,"Biberach",2016
-"820",0.399333,8426,"Biberach",2017
-"821",0.126907,8435,"Bodenseekreis",1998
-"822",0.097574,8435,"Bodenseekreis",1999
-"823",0.286421,8435,"Bodenseekreis",2000
-"824",0.282463,8435,"Bodenseekreis",2001
-"825",0.321509,8435,"Bodenseekreis",2002
-"826",0.287766,8435,"Bodenseekreis",2003
-"827",0.283006,8435,"Bodenseekreis",2004
-"828",0.250262,8435,"Bodenseekreis",2005
-"829",0.256792,8435,"Bodenseekreis",2006
-"830",0.280384,8435,"Bodenseekreis",2007
-"831",0.281914,8435,"Bodenseekreis",2008
-"832",0.311321,8435,"Bodenseekreis",2009
-"833",0.297977,8435,"Bodenseekreis",2010
-"834",0.281004,8435,"Bodenseekreis",2011
-"835",0.283513,8435,"Bodenseekreis",2012
-"836",0.313907,8435,"Bodenseekreis",2013
-"837",0.245416,8435,"Bodenseekreis",2014
-"838",0.285834,8435,"Bodenseekreis",2015
-"839",0.294485,8435,"Bodenseekreis",2016
-"840",0.261757,8435,"Bodenseekreis",2017
-"841",0.395928,8436,"Ravensburg",1998
-"842",0.40967,8436,"Ravensburg",1999
-"843",0.521268,8436,"Ravensburg",2000
-"844",0.531683,8436,"Ravensburg",2001
-"845",0.575743,8436,"Ravensburg",2002
-"846",0.540975,8436,"Ravensburg",2003
-"847",0.573656,8436,"Ravensburg",2004
-"848",0.482982,8436,"Ravensburg",2005
-"849",0.522446,8436,"Ravensburg",2006
-"850",0.537416,8436,"Ravensburg",2007
-"851",0.5436,8436,"Ravensburg",2008
-"852",0.560343,8436,"Ravensburg",2009
-"853",0.535382,8436,"Ravensburg",2010
-"854",0.545734,8436,"Ravensburg",2011
-"855",0.593163,8436,"Ravensburg",2012
-"856",0.591443,8436,"Ravensburg",2013
-"857",0.564152,8436,"Ravensburg",2014
-"858",0.630077,8436,"Ravensburg",2015
-"859",0.542498,8436,"Ravensburg",2016
-"860",0.514098,8436,"Ravensburg",2017
-"861",0.747333,8437,"Sigmaringen",1998
-"862",0.754873,8437,"Sigmaringen",1999
-"863",0.90428,8437,"Sigmaringen",2000
-"864",0.911581,8437,"Sigmaringen",2001
-"865",0.963174,8437,"Sigmaringen",2002
-"866",0.872878,8437,"Sigmaringen",2003
-"867",0.981224,8437,"Sigmaringen",2004
-"868",0.924369,8437,"Sigmaringen",2005
-"869",0.897022,8437,"Sigmaringen",2006
-"870",0.862965,8437,"Sigmaringen",2007
-"871",0.814875,8437,"Sigmaringen",2008
-"872",0.843432,8437,"Sigmaringen",2009
-"873",0.818763,8437,"Sigmaringen",2010
-"874",0.822414,8437,"Sigmaringen",2011
-"875",0.836203,8437,"Sigmaringen",2012
-"876",0.84004,8437,"Sigmaringen",2013
-"877",0.826821,8437,"Sigmaringen",2014
-"878",0.83531,8437,"Sigmaringen",2015
-"879",0.796655,8437,"Sigmaringen",2016
-"880",0.756325,8437,"Sigmaringen",2017
+"685",0.967854,8337,"Waldshut",2002
+"686",0.939555,8337,"Waldshut",2003
+"687",0.996854,8337,"Waldshut",2004
+"688",0.989281,8337,"Waldshut",2005
+"689",0.941115,8337,"Waldshut",2006
+"690",0.968535,8337,"Waldshut",2007
+"691",0.974085,8337,"Waldshut",2008
+"692",0.951432,8337,"Waldshut",2009
+"693",0.88109,8337,"Waldshut",2010
+"694",0.926558,8337,"Waldshut",2011
+"695",0.941613,8337,"Waldshut",2012
+"696",0.933815,8337,"Waldshut",2013
+"697",0.935774,8337,"Waldshut",2014
+"698",0.856076,8337,"Waldshut",2015
+"699",0.847597,8337,"Waldshut",2016
+"700",0.850174,8337,"Waldshut",2017
+"701",0.359473,8415,"Reutlingen",1998
+"702",0.367185,8415,"Reutlingen",1999
+"703",0.469033,8415,"Reutlingen",2000
+"704",0.408257,8415,"Reutlingen",2001
+"705",0.447696,8415,"Reutlingen",2002
+"706",0.424642,8415,"Reutlingen",2003
+"707",0.40735,8415,"Reutlingen",2004
+"708",0.350159,8415,"Reutlingen",2005
+"709",0.413252,8415,"Reutlingen",2006
+"710",0.417082,8415,"Reutlingen",2007
+"711",0.44875,8415,"Reutlingen",2008
+"712",0.500809,8415,"Reutlingen",2009
+"713",0.467799,8415,"Reutlingen",2010
+"714",0.475472,8415,"Reutlingen",2011
+"715",0.501636,8415,"Reutlingen",2012
+"716",0.546933,8415,"Reutlingen",2013
+"717",0.50309,8415,"Reutlingen",2014
+"718",0.47992,8415,"Reutlingen",2015
+"719",0.473046,8415,"Reutlingen",2016
+"720",0.418618,8415,"Reutlingen",2017
+"721",0.233143,8416,"Tübingen",1998
+"722",0.243563,8416,"Tübingen",1999
+"723",0.356953,8416,"Tübingen",2000
+"724",0.322239,8416,"Tübingen",2001
+"725",0.374959,8416,"Tübingen",2002
+"726",0.353671,8416,"Tübingen",2003
+"727",0.358335,8416,"Tübingen",2004
+"728",0.261059,8416,"Tübingen",2005
+"729",0.304214,8416,"Tübingen",2006
+"730",0.352661,8416,"Tübingen",2007
+"731",0.325628,8416,"Tübingen",2008
+"732",0.364915,8416,"Tübingen",2009
+"733",0.318405,8416,"Tübingen",2010
+"734",0.306431,8416,"Tübingen",2011
+"735",0.346083,8416,"Tübingen",2012
+"736",0.389249,8416,"Tübingen",2013
+"737",0.324724,8416,"Tübingen",2014
+"738",0.312303,8416,"Tübingen",2015
+"739",0.303573,8416,"Tübingen",2016
+"740",0.207414,8416,"Tübingen",2017
+"741",0.590185,8417,"Zollernalbkreis",1998
+"742",0.559243,8417,"Zollernalbkreis",1999
+"743",0.585445,8417,"Zollernalbkreis",2000
+"744",0.616435,8417,"Zollernalbkreis",2001
+"745",0.666773,8417,"Zollernalbkreis",2002
+"746",0.645591,8417,"Zollernalbkreis",2003
+"747",0.698102,8417,"Zollernalbkreis",2004
+"748",0.671258,8417,"Zollernalbkreis",2005
+"749",0.669979,8417,"Zollernalbkreis",2006
+"750",0.655006,8417,"Zollernalbkreis",2007
+"751",0.637051,8417,"Zollernalbkreis",2008
+"752",0.668637,8417,"Zollernalbkreis",2009
+"753",0.661873,8417,"Zollernalbkreis",2010
+"754",0.684357,8417,"Zollernalbkreis",2011
+"755",0.712364,8417,"Zollernalbkreis",2012
+"756",0.738324,8417,"Zollernalbkreis",2013
+"757",0.707289,8417,"Zollernalbkreis",2014
+"758",0.693496,8417,"Zollernalbkreis",2015
+"759",0.690306,8417,"Zollernalbkreis",2016
+"760",0.650137,8417,"Zollernalbkreis",2017
+"761",0.154897,8421,"Ulm, Stadt",1998
+"762",0.254272,8421,"Ulm, Stadt",1999
+"763",0.308545,8421,"Ulm, Stadt",2000
+"764",0.415396,8421,"Ulm, Stadt",2001
+"765",0.38386,8421,"Ulm, Stadt",2002
+"766",0.320964,8421,"Ulm, Stadt",2003
+"767",0.360337,8421,"Ulm, Stadt",2004
+"768",0.264398,8421,"Ulm, Stadt",2005
+"769",0.345932,8421,"Ulm, Stadt",2006
+"770",0.316769,8421,"Ulm, Stadt",2007
+"771",0.29851,8421,"Ulm, Stadt",2008
+"772",0.284024,8421,"Ulm, Stadt",2009
+"773",0.228241,8421,"Ulm, Stadt",2010
+"774",0.251087,8421,"Ulm, Stadt",2011
+"775",0.232534,8421,"Ulm, Stadt",2012
+"776",0.293053,8421,"Ulm, Stadt",2013
+"777",0.204461,8421,"Ulm, Stadt",2014
+"778",0.320234,8421,"Ulm, Stadt",2015
+"779",0.275764,8421,"Ulm, Stadt",2016
+"780",0.238949,8421,"Ulm, Stadt",2017
+"781",0.285997,8425,"Alb-Donau-Kreis",1998
+"782",0.302117,8425,"Alb-Donau-Kreis",1999
+"783",0.330943,8425,"Alb-Donau-Kreis",2000
+"784",0.316232,8425,"Alb-Donau-Kreis",2001
+"785",0.377144,8425,"Alb-Donau-Kreis",2002
+"786",0.384542,8425,"Alb-Donau-Kreis",2003
+"787",0.385256,8425,"Alb-Donau-Kreis",2004
+"788",0.339091,8425,"Alb-Donau-Kreis",2005
+"789",0.390005,8425,"Alb-Donau-Kreis",2006
+"790",0.406788,8425,"Alb-Donau-Kreis",2007
+"791",0.459059,8425,"Alb-Donau-Kreis",2008
+"792",0.494283,8425,"Alb-Donau-Kreis",2009
+"793",0.454415,8425,"Alb-Donau-Kreis",2010
+"794",0.458711,8425,"Alb-Donau-Kreis",2011
+"795",0.513236,8425,"Alb-Donau-Kreis",2012
+"796",0.540635,8425,"Alb-Donau-Kreis",2013
+"797",0.503693,8425,"Alb-Donau-Kreis",2014
+"798",0.502386,8425,"Alb-Donau-Kreis",2015
+"799",0.525049,8425,"Alb-Donau-Kreis",2016
+"800",0.451527,8425,"Alb-Donau-Kreis",2017
+"801",0.244821,8426,"Biberach",1998
+"802",0.233315,8426,"Biberach",1999
+"803",0.42202,8426,"Biberach",2000
+"804",0.408367,8426,"Biberach",2001
+"805",0.457776,8426,"Biberach",2002
+"806",0.417653,8426,"Biberach",2003
+"807",0.424996,8426,"Biberach",2004
+"808",0.39252,8426,"Biberach",2005
+"809",0.399983,8426,"Biberach",2006
+"810",0.414375,8426,"Biberach",2007
+"811",0.377377,8426,"Biberach",2008
+"812",0.435347,8426,"Biberach",2009
+"813",0.44072,8426,"Biberach",2010
+"814",0.45383,8426,"Biberach",2011
+"815",0.447445,8426,"Biberach",2012
+"816",0.478394,8426,"Biberach",2013
+"817",0.441052,8426,"Biberach",2014
+"818",0.452252,8426,"Biberach",2015
+"819",0.446616,8426,"Biberach",2016
+"820",0.392762,8426,"Biberach",2017
+"821",0.125091,8435,"Bodenseekreis",1998
+"822",0.094188,8435,"Bodenseekreis",1999
+"823",0.284001,8435,"Bodenseekreis",2000
+"824",0.278806,8435,"Bodenseekreis",2001
+"825",0.317689,8435,"Bodenseekreis",2002
+"826",0.284135,8435,"Bodenseekreis",2003
+"827",0.278688,8435,"Bodenseekreis",2004
+"828",0.248524,8435,"Bodenseekreis",2005
+"829",0.252828,8435,"Bodenseekreis",2006
+"830",0.276609,8435,"Bodenseekreis",2007
+"831",0.277971,8435,"Bodenseekreis",2008
+"832",0.307615,8435,"Bodenseekreis",2009
+"833",0.293989,8435,"Bodenseekreis",2010
+"834",0.27679,8435,"Bodenseekreis",2011
+"835",0.279709,8435,"Bodenseekreis",2012
+"836",0.310606,8435,"Bodenseekreis",2013
+"837",0.241078,8435,"Bodenseekreis",2014
+"838",0.28232,8435,"Bodenseekreis",2015
+"839",0.291171,8435,"Bodenseekreis",2016
+"840",0.256856,8435,"Bodenseekreis",2017
+"841",0.391988,8436,"Ravensburg",1998
+"842",0.404929,8436,"Ravensburg",1999
+"843",0.517904,8436,"Ravensburg",2000
+"844",0.52742,8436,"Ravensburg",2001
+"845",0.570332,8436,"Ravensburg",2002
+"846",0.536242,8436,"Ravensburg",2003
+"847",0.568456,8436,"Ravensburg",2004
+"848",0.478769,8436,"Ravensburg",2005
+"849",0.517664,8436,"Ravensburg",2006
+"850",0.532462,8436,"Ravensburg",2007
+"851",0.538673,8436,"Ravensburg",2008
+"852",0.555977,8436,"Ravensburg",2009
+"853",0.530594,8436,"Ravensburg",2010
+"854",0.540879,8436,"Ravensburg",2011
+"855",0.589199,8436,"Ravensburg",2012
+"856",0.58741,8436,"Ravensburg",2013
+"857",0.55964,8436,"Ravensburg",2014
+"858",0.627182,8436,"Ravensburg",2015
+"859",0.53824,8436,"Ravensburg",2016
+"860",0.508553,8436,"Ravensburg",2017
+"861",0.743159,8437,"Sigmaringen",1998
+"862",0.750316,8437,"Sigmaringen",1999
+"863",0.901459,8437,"Sigmaringen",2000
+"864",0.908351,8437,"Sigmaringen",2001
+"865",0.957854,8437,"Sigmaringen",2002
+"866",0.867853,8437,"Sigmaringen",2003
+"867",0.976431,8437,"Sigmaringen",2004
+"868",0.919621,8437,"Sigmaringen",2005
+"869",0.893062,8437,"Sigmaringen",2006
+"870",0.858691,8437,"Sigmaringen",2007
+"871",0.810781,8437,"Sigmaringen",2008
+"872",0.84019,8437,"Sigmaringen",2009
+"873",0.815313,8437,"Sigmaringen",2010
+"874",0.818782,8437,"Sigmaringen",2011
+"875",0.83295,8437,"Sigmaringen",2012
+"876",0.836981,8437,"Sigmaringen",2013
+"877",0.823447,8437,"Sigmaringen",2014
+"878",0.832133,8437,"Sigmaringen",2015
+"879",0.793456,8437,"Sigmaringen",2016
+"880",0.751833,8437,"Sigmaringen",2017
