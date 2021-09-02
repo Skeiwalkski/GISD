@@ -46,10 +46,9 @@ Lander_data <- as_tibble(Lander_data)
 ```r
 ggplot(Gemeinden_data, aes(long, lat, group = group, fill = GISD_Score)) +
   geom_polygon() +
-  scale_fill_gradient() +
+  scale_fill_rki(palette = "main", name = "GISD-Score", discrete = FALSE) +
   coord_equal() +
-  theme_rki_void() +
-  labs(fill = "GISD-Score")
+  theme_rki_void()
 ```
 
 ![](Score_Karte_files/figure-html/unnamed-chunk-2-1.png)<!-- -->
@@ -60,24 +59,22 @@ ggplot(Gemeinden_data, aes(long, lat, group = group, fill = GISD_Score)) +
 
 
 ```r
-ggplot(Gemeinden_data, aes(long, lat, group = group, fill = GISD_5)) +
+ggplot(Gemeinden_data, aes(long, lat, group = group, fill = as.factor(GISD_5))) +
   geom_polygon() +
-  scale_fill_gradient(breaks = c(1, 2, 3, 4, 5)) +
+  scale_fill_rki(palette = "main", name = "GISD-Score (Quintile)") +
   coord_equal() +
-  theme_rki_void() +
-  labs(fill = "GISD-Score (Quintile)")
+  theme_rki_void()
 ```
 
 ![](Score_Karte_files/figure-html/unnamed-chunk-3-1.png)<!-- -->
 
 
 ```r
-ggplot(Gemeinden_data, aes(long, lat, group = group, fill = GISD_10)) +
+ggplot(Gemeinden_data, aes(long, lat, group = group, fill = as.factor(GISD_5))) +
   geom_polygon() +
-  scale_fill_gradient(breaks = c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)) +
+  scale_fill_rki(palette = "main", name = "GISD-Score (Dezile)") +
   coord_equal() +
-  theme_rki_void() +
-  labs(fill = "GISD-Score (Dezile)")
+  theme_rki_void()
 ```
 
 ![](Score_Karte_files/figure-html/unnamed-chunk-4-1.png)<!-- -->
@@ -85,36 +82,33 @@ ggplot(Gemeinden_data, aes(long, lat, group = group, fill = GISD_10)) +
 ## GISD-Score auf Kreisebene
 
 ```r
-ggplot(Kreise_data, aes(long, lat, group = group, fill=GISD_Score)) +
-  geom_polygon() +
-  scale_fill_gradient() +
+ggplot(Kreise_data, aes(long, lat, group = group, fill = GISD_Score)) +
+  geom_polygon(color = "black") +
+  scale_fill_rki(palette = "main", name = "GISD-Score", discrete = FALSE) +
   coord_equal() +
-  theme_rki_void() +
-  labs(fill = "GISD-Score")
+  theme_rki_void()
 ```
 
 ![](Score_Karte_files/figure-html/unnamed-chunk-5-1.png)<!-- -->
 
 
 ```r
-ggplot(Kreise_data, aes(long, lat, group = group, fill=GISD_5)) +
-  geom_polygon() +
-  scale_fill_gradient(breaks = c(1, 2, 3, 4, 5)) +
+ggplot(Kreise_data, aes(long, lat, group = group, fill = as.factor(GISD_5))) +
+  geom_polygon(color = "black") +
+  scale_fill_rki(palette = "main", name = "GISD-Score (Quintile)") +
   coord_equal() +
-  theme_rki_void() +
-  labs(fill = "GISD-Score (Quintile)")
+  theme_rki_void()
 ```
 
 ![](Score_Karte_files/figure-html/unnamed-chunk-6-1.png)<!-- -->
 
 
 ```r
-ggplot(Kreise_data, aes(long, lat, group = group, fill=GISD_10)) +
-  geom_polygon() +
-  scale_fill_gradient(breaks = c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)) +
+ggplot(Kreise_data, aes(long, lat, group = group, fill = as.factor(GISD_10))) +
+  geom_polygon(color = "black") +
+  scale_fill_rki(palette = "main", name = "GISD-Score (Dezile)") +
   coord_equal() +
-  theme_rki_void() +
-  labs(fill = "GISD-Score (Dezile)")
+  theme_rki_void()
 ```
 
 ![](Score_Karte_files/figure-html/unnamed-chunk-7-1.png)<!-- -->
@@ -122,36 +116,33 @@ ggplot(Kreise_data, aes(long, lat, group = group, fill=GISD_10)) +
 ## GISD-Score nach Raumordnungsregion
 
 ```r
-ggplot(Lander_data, aes(long, lat, group = group, fill=GISD_Score)) +
-  geom_polygon() +
-  scale_fill_gradient() +
+ggplot(Lander_data, aes(long, lat, group = group, fill = GISD_Score)) +
+  geom_polygon(color = "black") +
+  scale_fill_rki(palette = "main", name = "GISD-Score", discrete = FALSE) +
   coord_equal() +
-  theme_rki_void() +
-  labs(fill = "GISD-Score")
+  theme_rki_void()
 ```
 
 ![](Score_Karte_files/figure-html/unnamed-chunk-8-1.png)<!-- -->
 
 
 ```r
-ggplot(Lander_data, aes(long, lat, group = group, fill=GISD_5)) +
-  geom_polygon() +
-  scale_fill_gradient(breaks = c(1, 2, 3, 4, 5)) +
+ggplot(Lander_data, aes(long, lat, group = group, fill = as.factor(GISD_5))) +
+  geom_polygon(color = "black") +
+  scale_fill_rki(palette = "main", name = "GISD-Score (Quintile)") +
   coord_equal() +
-  theme_rki_void() +
-  labs(fill = "GISD-Score (Quintile)")
+  theme_rki_void()
 ```
 
 ![](Score_Karte_files/figure-html/unnamed-chunk-9-1.png)<!-- -->
 
 
 ```r
-ggplot(Lander_data, aes(long, lat, group = group, fill=GISD_10)) +
-  geom_polygon() +
-  scale_fill_gradient(breaks = c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)) +
+ggplot(Lander_data, aes(long, lat, group = group, fill = as.factor(GISD_10))) +
+  geom_polygon(color = "black") +
+  scale_fill_rki(palette = "main", name = "GISD-Score (Dezile)") +
   coord_equal() +
-  theme_rki_void() +
-  labs(fill = "GISD-Score (Dezile)")
+  theme_rki_void()
 ```
 
 ![](Score_Karte_files/figure-html/unnamed-chunk-10-1.png)<!-- -->
