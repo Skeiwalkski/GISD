@@ -56,84 +56,75 @@ Lander_data <- as_tibble(Lander_data)
 ```{r}
 ggplot(Gemeinden_data, aes(long, lat, group = group, fill = GISD_Score)) +
   geom_polygon() +
-  scale_fill_gradient() +
+  scale_fill_rki(palette = "main", name = "GISD-Score", discrete = FALSE) +
   coord_equal() +
-  theme_rki_void() +
-  labs(fill = "GISD-Score")
+  theme_rki_void()
 
 #which(is.na(Gemeinden_data$GISD_Score))
 ```
 
 ```{r}
-ggplot(Gemeinden_data, aes(long, lat, group = group, fill = GISD_5)) +
+ggplot(Gemeinden_data, aes(long, lat, group = group, fill = as.factor(GISD_5))) +
   geom_polygon() +
-  scale_fill_gradient(breaks = c(1, 2, 3, 4, 5)) +
+  scale_fill_rki(palette = "main", name = "GISD-Score (Quintile)") +
   coord_equal() +
-  theme_rki_void() +
-  labs(fill = "GISD-Score (Quintile)")
+  theme_rki_void()
 ```
 
 ```{r}
-ggplot(Gemeinden_data, aes(long, lat, group = group, fill = GISD_10)) +
+ggplot(Gemeinden_data, aes(long, lat, group = group, fill = as.factor(GISD_5))) +
   geom_polygon() +
-  scale_fill_gradient(breaks = c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)) +
+  scale_fill_rki(palette = "main", name = "GISD-Score (Dezile)") +
   coord_equal() +
-  theme_rki_void() +
-  labs(fill = "GISD-Score (Dezile)")
+  theme_rki_void()
 ```
 
 ## GISD-Score auf Kreisebene
 ```{r}
-ggplot(Kreise_data, aes(long, lat, group = group, fill=GISD_Score)) +
-  geom_polygon() +
-  scale_fill_gradient() +
+ggplot(Kreise_data, aes(long, lat, group = group, fill = GISD_Score)) +
+  geom_polygon(color = "black") +
+  scale_fill_rki(palette = "main", name = "GISD-Score", discrete = FALSE) +
   coord_equal() +
-  theme_rki_void() +
-  labs(fill = "GISD-Score")
+  theme_rki_void()
 ```
 
 ```{r}
-ggplot(Kreise_data, aes(long, lat, group = group, fill=GISD_5)) +
-  geom_polygon() +
-  scale_fill_gradient(breaks = c(1, 2, 3, 4, 5)) +
+ggplot(Kreise_data, aes(long, lat, group = group, fill = as.factor(GISD_5))) +
+  geom_polygon(color = "black") +
+  scale_fill_rki(palette = "main", name = "GISD-Score (Quintile)") +
   coord_equal() +
-  theme_rki_void() +
-  labs(fill = "GISD-Score (Quintile)")
+  theme_rki_void()
 ```
 
 ```{r}
-ggplot(Kreise_data, aes(long, lat, group = group, fill=GISD_10)) +
-  geom_polygon() +
-  scale_fill_gradient(breaks = c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)) +
+ggplot(Kreise_data, aes(long, lat, group = group, fill = as.factor(GISD_10))) +
+  geom_polygon(color = "black") +
+  scale_fill_rki(palette = "main", name = "GISD-Score (Dezile)") +
   coord_equal() +
-  theme_rki_void() +
-  labs(fill = "GISD-Score (Dezile)")
+  theme_rki_void()
 ```
 
 ## GISD-Score nach Raumordnungsregion
 ```{r}
-ggplot(Lander_data, aes(long, lat, group = group, fill=GISD_Score)) +
-  geom_polygon() +
-  scale_fill_gradient() +
+ggplot(Lander_data, aes(long, lat, group = group, fill = GISD_Score)) +
+  geom_polygon(color = "black") +
+  scale_fill_rki(palette = "main", name = "GISD-Score", discrete = FALSE) +
   coord_equal() +
-  theme_rki_void() +
-  labs(fill = "GISD-Score")
+  theme_rki_void()
 ```
 
 ```{r}
-ggplot(Lander_data, aes(long, lat, group = group, fill=GISD_5)) +
-  geom_polygon() +
-  scale_fill_gradient(breaks = c(1, 2, 3, 4, 5)) +
+ggplot(Lander_data, aes(long, lat, group = group, fill = as.factor(GISD_5))) +
+  geom_polygon(color = "black") +
+  scale_fill_rki(palette = "main", name = "GISD-Score (Quintile)") +
   coord_equal() +
-  theme_rki_void() +
-  labs(fill = "GISD-Score (Quintile)")
+  theme_rki_void()
 ```
 
 ```{r}
-ggplot(Lander_data, aes(long, lat, group = group, fill=GISD_10)) +
-  geom_polygon() +
-  scale_fill_gradient(breaks = c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)) +
+ggplot(Lander_data, aes(long, lat, group = group, fill = as.factor(GISD_10))) +
+  geom_polygon(color = "black") +
+  scale_fill_rki(palette = "main", name = "GISD-Score (Dezile)") +
   coord_equal() +
-  theme_rki_void() +
-  labs(fill = "GISD-Score (Dezile)")
+  theme_rki_void()
 ```
