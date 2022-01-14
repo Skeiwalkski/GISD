@@ -31,6 +31,7 @@ library(pastecs) # descriptive stats
 home <- getwd()
 # Define Outfiles Directory 
 outfiles_dir <- "S:/OE/FG28/205 Regionale Unterschiede/GISD/"
+outfiles_daten <- "C:/git_projects/GISD/Outfiles"
 setwd(outfiles_dir)
 # Create Output directories in working directory if necessary
 dir.create("Outfiles", showWarnings=T)
@@ -220,12 +221,19 @@ rm(myimport)
 
 
 #Berechnung der tatsächlichen Arbeitslosenquote und Entfernen Erwerbsfähige Bevölkerung
-Workfile <- Workfile %>% mutate(Arbeitslosigkeit = Arbeitslosigkeit / ErwerbsfaehigeBevoelkerung * 1000, Arbeitslosigkeit=ifelse(is.nan(Arbeitslosigkeit),NA,Arbeitslosigkeit)) %>%
+Workfile <- Workfile %>% mutate(Arbeitslosigkeit = round(Arbeitslosigkeit / ErwerbsfaehigeBevoelkerung * 1000, digits = 2), Arbeitslosigkeit=ifelse(is.nan(Arbeitslosigkeit),NA,Arbeitslosigkeit), Arbeitslosigkeit=ifelse(is.infinite(Arbeitslosigkeit),NA,Arbeitslosigkeit)) %>%
                          select(-ErwerbsfaehigeBevoelkerung)
 Basedata <- Basedata %>% select(-ErwerbsfaehigeBevoelkerung)
 Basedata_Gemeindeverbandsebene <- Basedata_Gemeindeverbandsebene %>% select(-ErwerbsfaehigeBevoelkerung)
 level_table <- level_table[-4,]
 listofdeterminants <- listofdeterminants[-4]
+
+
+##Erstellen eines Datensatzes mit Bevölkerungslosen Gemeinden und Entfernen dieser für die bevorstehende Imputation und die Faktoranalyse
+Gemeinden_ohne_Bevoelkerung <- Workfile %>% filter(Bevoelkerung==0)
+write_dta(Gemeinden_ohne_Bevoelkerung, paste0("Outfiles/Gemeinden_ohne_Bevoelkerung"))
+
+Workfile <- Workfile %>% filter(Bevoelkerung>0)
 
 # Stata-Datensatz rausschreiben
 #write_dta(Workfile, paste0("S:/OE/FG28/205 Regionale Unterschiede/GISD/Plausibilitätschecks/workfile.dta"))
@@ -247,44 +255,69 @@ Das bisherige Imputationsmodell nutzt Arbeitslosigkeit als Prädiktoren. In den 
 Der Einfachheit halber werden diese interpoliert. 
 
 ```{r Vereinzelte Missings auf den Imputationsvariablen interpolieren}
-
 # Anzahl der Missings für die Indikatoren
 missings_table = as.data.frame(expand.grid("Jahr"=1998:max(Basedata$Jahr)))
 predictors_list = data.frame(Variable=character(), Missings=double(), stringsAsFactors = FALSE)
 for (column in level_table[,1]){
   for (year in 1998:max(Basedata$Jahr)){
-    missings_table[year-1997,column] = Workfile %>% filter(Jahr==year, Bevoelkerung>0, is.na(Workfile[,column])) %>% nrow()
+    missings_table[year-1997,column] = Workfile %>% filter(Jahr==year, is.na(Workfile[,column])) %>% nrow()
   }
-  predictors_list[nrow(predictors_list) + 1,] = c(column, Workfile %>% filter(Bevoelkerung>0, is.na(Workfile[,column])) %>% nrow())
+  predictors_list[nrow(predictors_list) + 1,] = c(column, Workfile %>% filter(is.na(Workfile[,column])) %>% nrow())
 }
 predictors_list = predictors_list %>% mutate(Missings=as.integer(Missings))
 predictors_list = predictors_list[order(predictors_list$Missings),]
 predictors_list
 
-Missing_on_Imputationsvars <- Workfile %>%  filter(Jahr>=1998, Bevoelkerung>0, is.na(Arbeitslosigkeit) | is.na(SchulabgaengermitHochschulreife))
+Missing_on_Imputationsvars <- Workfile %>%  filter(Jahr>=1998, is.na(Arbeitslosigkeit) |is.na(SchulabgaengerohneAbschluss))
 Missing_on_Imputationsvars
 
 # Fälle betrachten: Beispiel 13075152 
 TimeSeries_for_Missing <- Workfile %>%  filter(Gemeindekennziffer==13075152) %>% arrange(Gemeindekennziffer, Jahr, Bevoelkerung)
 TimeSeries_for_Missing
 
+# Fälle betrachten: 16063104
+TimeSeries_for_Missing <- Workfile %>%  filter(Gemeindekennziffer==16063104) %>% arrange(Gemeindekennziffer, Jahr, Bevoelkerung)
+TimeSeries_for_Missing
+
 # Interpolation der fehlenden Werte über die Zeitreihe (Mittelwert: Vorjahr, Nachjahr)
 Workfile <- Workfile %>%  group_by(Gemeindeverband) %>% 
-  mutate(impu_arblos = ifelse(Bevoelkerung>0,na.approx(Arbeitslosigkeit),Arbeitslosigkeit), 
-         impu_mA = ifelse(Bevoelkerung>0,na.approx(SchulabgaengermitHochschulreife),SchulabgaengermitHochschulreife))  %>% 
-  select(-Arbeitslosigkeit, 
-         -SchulabgaengermitHochschulreife) %>% 
-  rename(Arbeitslosigkeit=impu_arblos, 
-         SchulabgaengermitHochschulreife=impu_mA) %>% 
+  mutate(impu_arblos = ifelse(Bevoelkerung>0,na.approx(Arbeitslosigkeit),Arbeitslosigkeit),
+         impu_oA=ifelse(Bevoelkerung>0,na.approx(SchulabgaengerohneAbschluss),SchulabgaengerohneAbschluss))  %>% 
+  select(-Arbeitslosigkeit,
+         -SchulabgaengerohneAbschluss) %>% 
+  rename(Arbeitslosigkeit=impu_arblos,
+         SchulabgaengerohneAbschluss=impu_oA) %>% 
   ungroup()
 
 # zweites Problem: drei Landkreise (Bamberg et al.) mit 0.0 auf SchulabgaengermitHochschulreife (kein Problem, wenn Variable erstmal nicht benutzt wird)
 #   mutate(SchulabgaengermitHochschulreife = na_if(SchulabgaengermitHochschulreife, 0.0)
 
 # Check der Interpolation
-TimeSeries <- Workfile %>%  filter(Gemeindekennziffer==13075152) %>% select(Gemeindekennziffer, Jahr, listofdeterminants) %>% arrange(Gemeindekennziffer, Jahr)
+TimeSeries <- Workfile %>%  filter(Gemeindekennziffer==13075152) %>% arrange(Gemeindekennziffer, Jahr, Bevoelkerung)
 TimeSeries
 
+# Fälle betrachten: 16063104
+TimeSeries_for_Missing <- Workfile %>%  filter(Gemeindekennziffer==16063104) %>% arrange(Gemeindekennziffer, Jahr, Bevoelkerung)
+TimeSeries_for_Missing
+
+#Aufgrund der variierenden Verfübarkeit von Daten und der Unklarheit über die Indikatoren auf Gemeindeebene, werden die Gemeinden vorerst ausgeschlossen.
+Workfile <- Workfile %>% filter(Gemeindekennziffer!=16063104)
+TimeSeries <- Workfile %>%  filter(Gemeindekennziffer==16063104) %>% select(Gemeindekennziffer, Jahr, listofdeterminants) %>% arrange(Gemeindekennziffer, Jahr)
+TimeSeries
+
+
+#Erneut Anzahl der Missings für die Indikatoren
+missings_table = as.data.frame(expand.grid("Jahr"=1998:max(Basedata$Jahr)))
+predictors_list = data.frame(Variable=character(), Missings=double(), stringsAsFactors = FALSE)
+for (column in level_table[,1]){
+  for (year in 1998:max(Basedata$Jahr)){
+    missings_table[year-1997,column] = Workfile %>% filter(Jahr==year, is.na(Workfile[,column])) %>% nrow()
+  }
+  predictors_list[nrow(predictors_list) + 1,] = c(column, Workfile %>% filter(is.na(Workfile[,column])) %>% nrow())
+}
+predictors_list = predictors_list %>% mutate(Missings=as.integer(Missings))
+predictors_list = predictors_list[order(predictors_list$Missings),]
+predictors_list
 
 ```
 
@@ -323,13 +356,15 @@ Impdata <-  Workfile %>%  filter(Jahr>=1998) %>%
 my_ts_imputer <- function(data,outcome_name){
   mydata   <- data %>% group_by(Gemeindekennziffer) %>%
     select(Gemeindekennziffer,Jahr,Arbeitslosigkeit,SchulabgaengerohneAbschluss,"Outcome"=paste(outcome_name)) %>% 
-    mutate(MEAN=mean(Outcome , na.rm=TRUE)) %>% ungroup()
-  mymodell <- lm(Outcome ~ I(Jahr*Jahr*MEAN) + I(Jahr*MEAN) + Arbeitslosigkeit + SchulabgaengerohneAbschluss, data = mydata  , na.action="na.exclude")
+    mutate(MEAN=mean(Outcome , na.rm=T)) %>% ungroup()
+  mymodell <- lm(Outcome ~
+                  I(Jahr*Jahr*MEAN) + I(Jahr*MEAN) + Arbeitslosigkeit + 
+                   SchulabgaengerohneAbschluss,
+                   data = mydata  , na.action="na.exclude")
   mydata %>% select(Outcome) %>% mutate(Imputed = predict(mymodell, newdata =mydata )) %>%
     mutate(Outcome=ifelse(is.na(Outcome),Imputed,Outcome)) %>% 
     mutate(Outcome=ifelse(Outcome<0,0,Outcome)) %>% pull(Outcome)
 }
-
 
 # Hier wird eine Funktion generiert, die im Datensatz (data) fehlende Daten für ausgewählte Variablen (outcome_name) imputiert
 # 1. zunächst werden Mittelwerte für das Outcome (siehe select) jeweils für die Gemeinde generiert, d.h. über alle Wellen aggregiert
@@ -342,10 +377,10 @@ my_ts_imputer <- function(data,outcome_name){
 # 6. pull kreiert einen Vektor (hier Variable Outcome), die im nächsten Befehl verwendet wird
 
 # Test Function if necessary
-# Impdata %>% mutate(Test=my_ts_imputer(.,"Bruttoverdienst")) %>% select(Gemeindekennziffer,Jahr,Bruttoverdienst,Test) %>% head()
+#Impdata %>% mutate(Test=my_ts_imputer(.,"Bruttoverdienst")) %>% select(Gemeindekennziffer,Jahr,Bruttoverdienst,Test) %>% head()
 
 Impdata.imputed <- Impdata %>%
-  mutate(Beschaeftigtenquote=ifelse(Bevoelkerung>0,my_ts_imputer(.,"Beschaeftigtenquote"),Beschaeftigtenquote),
+  mutate(Beschaeftigtenquote=my_ts_imputer(.,"Beschaeftigtenquote"),
          Bruttoverdienst=my_ts_imputer(.,"Bruttoverdienst"),
          BeschaeftigtemitakadAbschluss=my_ts_imputer(.,"BeschaeftigtemitakadAbschluss"),
          BeschaeftigteohneAbschluss=my_ts_imputer(.,"BeschaeftigteohneAbschluss"),
@@ -382,6 +417,7 @@ Impdata.imputed <- Impdata.imputed %>% mutate(
 summary(Impdata.imputed$SchulabgaengermitHochschulreife)
 
 
+
 # Percentile für ausgewählte Variablen bilden
 # 
 # Impdata.imputed <- Impdata.imputed %>% 
@@ -392,6 +428,29 @@ summary(Impdata.imputed$SchulabgaengermitHochschulreife)
 #           SchulabgaengerohneAbschluss2 = findInterval(SchulabgaengerohneAbschluss, quantile(SchulabgaengerohneAbschluss, probs=0:100/100 , # type=9)),
 #           BeschaeftigtemitakadAbschluss2 = findInterval(BeschaeftigtemitakadAbschluss, quantile(BeschaeftigtemitakadAbschluss, # probs=0:100/100 , type=9))) 
 # 
+
+
+#Checken auf Missingwerte
+missings_table = as.data.frame(expand.grid("Jahr"=1998:max(Basedata$Jahr)))
+predictors_list = data.frame(Variable=character(), Missings=double(), stringsAsFactors = FALSE)
+for (column in level_table[,1]){
+  for (year in 1998:max(Basedata$Jahr)){
+    missings_table[year-1997,column] = Impdata.imputed %>% filter(Jahr==year, is.na(Impdata.imputed[,column])) %>% nrow()
+  }
+  predictors_list[nrow(predictors_list) + 1,] = c(column, Impdata.imputed %>% filter(is.na(Impdata.imputed[,column])) %>% nrow())
+}
+predictors_list = predictors_list %>% mutate(Missings=as.integer(Missings))
+predictors_list = predictors_list[order(predictors_list$Missings),]
+predictors_list
+#Ein Missing auf Arbeitslosigkeit -> Identifikation
+
+Missing_on_Imputationsvars <- Impdata.imputed %>%  filter(is.na(Arbeitslosigkeit))
+Missing_on_Imputationsvars
+
+TimeSeries_for_Missing <- Impdata.imputed %>%  filter(Gemeindekennziffer==16071103) %>% arrange(Gemeindekennziffer, Jahr, Bevoelkerung)
+TimeSeries_for_Missing
+#Unerklärliches Missing/NA auf Arbeitslosigkeit in 2015 -> Vorerst Ausschluss
+Impdata.imputed <- Impdata.imputed %>% filter(Gemeindekennziffer!=16071103)
 ```
 
 ```{r Erstellen Variabe zu G8 und Sensibilisierung des Datensatzes}
@@ -504,14 +563,14 @@ Impdata.imputed <- Impdata.imputed %>%
 ```{r Sensibilisierung auf Ost-West Unterschiede}
 Impdata.imputed <- Impdata.imputed %>% mutate(OW = ifelse(Kreis < 11000, 0, 1))
 
-dat_ow_modell <- Impdata.imputed  %>% mutate(Jahr_Dummy = as.factor(Jahr))
-
-ow_modell <- lm(BeschaeftigteohneAbschluss ~ Jahr_Dummy + Jahr_Dummy * OW, data = dat_ow_modell,na.action="na.exclude")
-
-ow_modell <- lm(BeschaeftigteohneAbschluss ~ Jahr_Dummy + relevel(Jahr_Dummy, ref = "2012") * OW, data = dat_ow_modell,na.action="na.exclude")
-
-summary(ow_modell)
-summary(ow_modell)$coefficients[21,1]
+#dat_ow_modell <- Impdata.imputed  %>% mutate(Jahr_Dummy = as.factor(Jahr))
+#
+#ow_modell <- lm(BeschaeftigteohneAbschluss ~ Jahr_Dummy + Jahr_Dummy * OW, data = #dat_ow_modell,na.action="na.exclude")
+#
+#ow_modell <- lm(BeschaeftigteohneAbschluss ~ Jahr_Dummy + relevel(Jahr_Dummy, ref = "2012") * OW, data = #dat_ow_modell,na.action="na.exclude")
+#
+#summary(ow_modell)
+#summary(ow_modell)$coefficients[21,1]
 
 #ow_modell2 <- lm(BeschaeftigteohneAbschluss ~ I(Jahr*Jahr*mean(BeschaeftigteohneAbschluss)) + I(Jahr*mean(BeschaeftigteohneAbschluss)) + OW + I(Jahr*Jahr*OW) + I(Jahr*OW), data = dat_ow_modell, na.action="na.exclude")
 
@@ -560,7 +619,7 @@ Impdata.imputed <- Impdata.imputed %>% mutate(Bruttoverdienst_ln = log(Bruttover
 #write_dta(Impdata.imputed, paste0("Outfiles/2021/Stata/impdata.dta"))
 
 # RDS-Datensatz rausschreiben
-write_rds(Impdata.imputed, paste0("Outfiles/Impdata_check.rds"))
+write_rds(Impdata.imputed, paste0("Outfiles/Impdata_check_2019.rds"))
 
 ```
 
@@ -596,19 +655,19 @@ print(hist_over_year_all)
 
 # Variablenliste für die Faktorenanalyse 
 print(listofdeterminants)
-TS_Arbeitswelt <- Impdata.imputed  %>% ungroup() %>% dplyr::select(Beschaeftigtenquote,Arbeitslosigkeit,Bruttoverdienst_ln)
-TS_Arbeitswelt_adj <- Impdata.imputed  %>% ungroup() %>% dplyr::select(Beschaeftigtenquote_adj,Arbeitslosigkeit,Bruttoverdienst_ln) 
-TS_Einkommen   <- Impdata.imputed %>% dplyr::select(Einkommensteuer,Haushaltseinkommen,Schuldnerquote) 
-TS_Einkommen_adj   <- Impdata.imputed %>% dplyr::select(Einkommensteuer_ln,Haushaltseinkommen_ln,Schuldnerquote) 
+TS_Arbeitswelt <- Impdata.imputed  %>% ungroup() %>% select(Beschaeftigtenquote,Arbeitslosigkeit,Bruttoverdienst_ln)
+TS_Arbeitswelt_adj <- Impdata.imputed  %>% ungroup() %>% select(Beschaeftigtenquote_adj,Arbeitslosigkeit,Bruttoverdienst_ln) 
+TS_Einkommen   <- Impdata.imputed %>% select(Einkommensteuer,Haushaltseinkommen,Schuldnerquote) 
+TS_Einkommen_adj   <- Impdata.imputed %>% select(Einkommensteuer_ln,Haushaltseinkommen_ln,Schuldnerquote) 
 # für den Vergleich der Ergebnisse wird zunächst ein Datensatz für die Variablenauswahl der Revision 2019 generiert
-TS_Bildung_adj <- Impdata.imputed %>% dplyr::select(BeschaeftigtemitakadAbschluss,BeschaeftigteohneAbschluss_adj,SchulabgaengerohneAbschluss_adj) 
+TS_Bildung_adj <- Impdata.imputed %>% select(BeschaeftigtemitakadAbschluss,BeschaeftigteohneAbschluss_adj,SchulabgaengerohneAbschluss_adj) 
 
 # Check dieser Lösung für das 2014er Sample 
-TS_Bildung_r2014 <- Impdata.imputed %>% filter(Jahr<2015) %>%  dplyr::select(BeschaeftigtemitakadAbschluss,BeschaeftigteohneAbschluss_adj,SchulabgaengerohneAbschluss) 
+TS_Bildung_r2014 <- Impdata.imputed %>% filter(Jahr<2015) %>%  select(BeschaeftigtemitakadAbschluss,BeschaeftigteohneAbschluss_adj,SchulabgaengerohneAbschluss) 
 
-TS_Bildung_4items <- Impdata.imputed %>% dplyr::select(BeschaeftigtemitakadAbschluss,BeschaeftigteohneAbschluss_adj,SchulabgaengerohneAbschluss, SchulabgaengermitHochschulreife) 
+TS_Bildung_4items <- Impdata.imputed %>% select(BeschaeftigtemitakadAbschluss,BeschaeftigteohneAbschluss_adj,SchulabgaengerohneAbschluss, SchulabgaengermitHochschulreife) 
 
-TS_Bildung_4items_without_BoA <- Impdata.imputed %>% dplyr::select(BeschaeftigtemitakadAbschluss,SchulabgaengerohneAbschluss, SchulabgaengermitHochschulreife) 
+TS_Bildung_4items_without_BoA <- Impdata.imputed %>% select(BeschaeftigtemitakadAbschluss,SchulabgaengerohneAbschluss, SchulabgaengermitHochschulreife) 
 
 ```
 
@@ -746,7 +805,7 @@ if (cor(Resultdataset$Arbeitslosigkeit, Resultdataset$TS_Einkommen_adj,use="pair
 }
 
 # Korrelationen erneut überprüfen
-Resultdataset %>% dplyr::select(Arbeitslosigkeit,TS_Arbeitswelt_adj,TS_Einkommen_adj,TS_Bildung_adj) %>% cor( use="pairwise.complete.obs")
+Resultdataset %>% select(Arbeitslosigkeit,TS_Arbeitswelt_adj,TS_Einkommen_adj,TS_Bildung_adj) %>% cor( use="pairwise.complete.obs")
 # nun sind alle Korrelationen positiv
 # wenngleich die Korrelation der Bildungsdimension mit Arbeitslosigkeit sehr gering ist
 # inhaltlich ist das nicht unplausibel (hvhere Abiturquoten in strukturschwachen Regionen)
@@ -754,7 +813,7 @@ Resultdataset %>% dplyr::select(Arbeitslosigkeit,TS_Arbeitswelt_adj,TS_Einkommen
 GISD_Komponents
 
 # Tabelle der Komponenten mit den Anteilen ausgeben und gespeichert
-save(GISD_Komponents, file="Outfiles/2021/GISD_Komponents.RData")
+save(GISD_Komponents, file="Outfiles/2022/GISD_Komponents.RData")
 # [Warum das hier plötzlich?]
 
 # Normalization
@@ -774,7 +833,7 @@ str(Resultdataset %>% select(TS_Arbeitswelt_adj,TS_Einkommen_adj,TS_Bildung_adj,
 # Teilscores und GISD-Score in Datensatz speichern
 Resultdataset <- Resultdataset %>% select(Gemeindekennziffer,Jahr,Bevoelkerung,contains("TS_"),contains("GISD_Score"))
 
-write_rds(Resultdataset, paste0("Outfiles/Resultdataset.rds"))
+write_rds(Resultdataset, paste0("Outfiles/2022/Resultdataset.rds"))
 ```
 
 ## V.  Datenexport - Erstellung der Datensätze 
@@ -846,18 +905,18 @@ for(mykennziffer in exportlist$Kennziffern) {
 
   # Ausgabe Bund
   dir.create("Outfiles/", showWarnings=F)
-  dir.create("Outfiles/2021_v2/", showWarnings=F)
-  dir.create("Outfiles/2021_v2/Bund/", showWarnings=F)  
-  dir.create(paste0("Outfiles/2021_v2/Bund/",mylabel), showWarnings=F)
+  dir.create("Outfiles/2022/", showWarnings=F)
+  dir.create("Outfiles/2022/Bund/", showWarnings=F)  
+  dir.create(paste0("Outfiles/2022/Bund/",mylabel), showWarnings=F)
   mydata <- outputdata.agg %>% ungroup() %>% select(mykennziffer, GISD_Score, GISD_5, GISD_10, GISD_k, myname, Jahr)
-  write.csv(mydata, paste0("Outfiles/2021_v2/Bund/",mylabel,"/",mylabel,".csv"))
+  write.csv(mydata, paste0("Outfiles/2022/Bund/",mylabel,"/",mylabel,".csv"))
   
   names(mydata) <- gsub("\\.","_",make.names(names(mydata)))
   names(mydata) <- gsub("\\?","oe",names(mydata))
   names(mydata) <- gsub("\\?","ae",names(mydata))
   names(mydata) <- gsub("\\?","ue",names(mydata))
   names(mydata) <- gsub("\\?","ss",names(mydata))
-  write_dta(mydata, paste0("Outfiles/2021_v2/Bund/",mylabel,"/",mylabel,"_long.dta"))
+  write_dta(mydata, paste0("Outfiles/2022/Bund/",mylabel,"/",mylabel,"_long.dta"))
   
   
   
@@ -903,19 +962,19 @@ for(mykennziffer in exportlist$Kennziffern) {
 
   # Ausgabe Bundesländer
   ListeBula <- unique(outputdata.bula$Bundesland)
-  dir.create("Outfiles/2021_v2/Bundesland", showWarnings=F)  
+  dir.create("Outfiles/2022/Bundesland", showWarnings=F)  
   for(myland in ListeBula) {
-  dir.create( paste0("Outfiles/2021_v2/Bundesland/",myland), showWarnings=F)  
-    dir.create( paste0("Outfiles/2021_v2/Bundesland/",myland,"/",mylabel), showWarnings=F)  
+  dir.create( paste0("Outfiles/2022/Bundesland/",myland), showWarnings=F)  
+    dir.create( paste0("Outfiles/2022/Bundesland/",myland,"/",mylabel), showWarnings=F)  
     mydata.bula <- outputdata.bula %>% filter(Bundesland==myland) %>% ungroup() %>% select(GISD_Score, mykennziffer, myname, Jahr)
-    write.csv(mydata.bula, paste0("Outfiles/2021_v2/Bundesland/",myland,"/",mylabel,"/",mylabel,".csv"))
+    write.csv(mydata.bula, paste0("Outfiles/2022/Bundesland/",myland,"/",mylabel,"/",mylabel,".csv"))
     
     names(mydata.bula) <- gsub("\\.","_",make.names(names(mydata.bula)))
     names(mydata.bula) <- gsub("\\?","oe",names(mydata.bula))
     names(mydata.bula) <- gsub("\\?","ae",names(mydata.bula))
     names(mydata.bula) <- gsub("\\?","ue",names(mydata.bula))
     names(mydata.bula) <- gsub("\\?","ss",names(mydata.bula))
-    write_dta(mydata.bula, paste0("Outfiles/2021_v2/Bundesland/",myland,"/",mylabel,"/",mylabel,".dta"))
+    write_dta(mydata.bula, paste0("Outfiles/2022/Bundesland/",myland,"/",mylabel,"/",mylabel,".dta"))
   }
   }  
 }
@@ -961,18 +1020,18 @@ for (mykennziffer in c("PLZ2","PLZ3","PLZ4","PLZ5")) {
   head(outputdata)
   ListeJahre <- unique(outputdata$JAHR)
   dir.create( paste0("Outfiles"), showWarnings=F)
-  dir.create( paste0("Outfiles/2021_v2"), showWarnings=F) 
-  dir.create( paste0("Outfiles/2021_v2/Bund/"), showWarnings=F) 
-  dir.create( paste0("Outfiles/2021_v2/Bund/",mylabel), showWarnings=F) 
+  dir.create( paste0("Outfiles/2022"), showWarnings=F) 
+  dir.create( paste0("Outfiles/2022/Bund/"), showWarnings=F) 
+  dir.create( paste0("Outfiles/2022/Bund/",mylabel), showWarnings=F) 
   mydata <- outputdata %>% ungroup() 
-  write.csv2(mydata, paste0("Outfiles/2021_v2/Bund/",mylabel,"/",mylabel,".csv"))
+  write.csv2(mydata, paste0("Outfiles/2022/Bund/",mylabel,"/",mylabel,".csv"))
   mydata <- outputdata %>% ungroup() 
   names(mydata) <- gsub("\\.","_",make.names(names(mydata)))
   names(mydata) <- gsub("\\?","oe",names(mydata))
   names(mydata) <- gsub("\\?","ae",names(mydata))
   names(mydata) <- gsub("\\?","ue",names(mydata))
   names(mydata) <- gsub("\\?","ss",names(mydata))
-  write_dta(mydata, paste0("Outfiles/2021_v2/Bund/",mylabel,"/",mylabel,"_long.dta"))
+  write_dta(mydata, paste0("Outfiles/2022/Bund/",mylabel,"/",mylabel,"_long.dta"))
   }
 
 
