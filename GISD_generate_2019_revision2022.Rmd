@@ -562,7 +562,7 @@ Impdata.imputed <- Impdata.imputed %>%
 
 ```{r Sensibilisierung auf Ost-West Unterschiede}
 Impdata.imputed <- Impdata.imputed %>% mutate(OW = ifelse(Kreis < 11000, 0, 1))
-
+#
 #dat_ow_modell <- Impdata.imputed  %>% mutate(Jahr_Dummy = as.factor(Jahr))
 #
 #ow_modell <- lm(BeschaeftigteohneAbschluss ~ Jahr_Dummy + Jahr_Dummy * OW, data = #dat_ow_modell,na.action="na.exclude")
@@ -570,10 +570,18 @@ Impdata.imputed <- Impdata.imputed %>% mutate(OW = ifelse(Kreis < 11000, 0, 1))
 #ow_modell <- lm(BeschaeftigteohneAbschluss ~ Jahr_Dummy + relevel(Jahr_Dummy, ref = "2012") * OW, data = #dat_ow_modell,na.action="na.exclude")
 #
 #summary(ow_modell)
-#summary(ow_modell)$coefficients[21,1]
+#summary(ow_modell)$coefficients[23,1]
+#
+#
+#ow_modell <- lm(BeschaeftigtemitakadAbschluss ~ Jahr_Dummy + relevel(Jahr_Dummy, ref = "2012") * OW, data = #dat_ow_modell,na.action="na.exclude")
+#
+#summary(ow_modell)
+#summary(ow_modell)$coefficients[23,1]
 
-#ow_modell2 <- lm(BeschaeftigteohneAbschluss ~ I(Jahr*Jahr*mean(BeschaeftigteohneAbschluss)) + I(Jahr*mean(BeschaeftigteohneAbschluss)) + OW + I(Jahr*Jahr*OW) + I(Jahr*OW), data = dat_ow_modell, na.action="na.exclude")
 
+#
+#ow_modell2 <- lm(BeschaeftigteohneAbschluss ~ I(Jahr*Jahr*mean(BeschaeftigteohneAbschluss)) + #I(Jahr*mean(BeschaeftigteohneAbschluss)) + OW + I(Jahr*Jahr*OW) + I(Jahr*OW), data = dat_ow_modell, #na.action="na.exclude")
+#
 #summary(ow_modell2)
 
 OW <- function(data,outcome_name){
@@ -583,7 +591,7 @@ OW <- function(data,outcome_name){
   
   mymodell_ow <- lm(Outcome ~ Jahr_Dummy + relevel(Jahr_Dummy, ref = "2012") * OW, data = mydata, na.action="na.exclude")
   print(mymodell_ow)  
-    mydata %>% mutate(coef = summary(mymodell_ow)$coefficients[21,1]) %>%
+    mydata %>% mutate(coef = summary(mymodell_ow)$coefficients[23,1]) %>%
       mutate(Outcome = ifelse(OW == 1, Outcome - coef, Outcome)) %>%
       pull(Outcome)
 }
@@ -616,7 +624,8 @@ Impdata.imputed <- Impdata.imputed %>% mutate(Bruttoverdienst_ln = log(Bruttover
 
 ```{r}
 # Stata-Datensatz rausschreiben
-#write_dta(Impdata.imputed, paste0("Outfiles/2021/Stata/impdata.dta"))
+stata_data <- Impdata.imputed %>% mutate(SchulabgmitAbi_adj = SchulabgaengermitHochschulreife_adj) %>% select(-SchulabgaengermitHochschulreife_mr, -SchulabgaengermitHochschulreife_adj)
+write_dta(stata_data, paste0("Outfiles/2022/Stata/Impdata_check_2019.dta"))
 
 # RDS-Datensatz rausschreiben
 write_rds(Impdata.imputed, paste0("Outfiles/Impdata_check_2019.rds"))
@@ -646,6 +655,11 @@ print(hist_over_westost)
 
 hist_over_year_all <- ggplot(data = Impdata.imputed) + geom_histogram(mapping = aes_string(x = "BeschaeftigteohneAbschluss")) + facet_wrap(~Jahr)
 print(hist_over_year_all)
+
+hist_over_westost <- ggplot() +
+  geom_histogram(data = Impdata.imputed[Impdata.imputed[,"Kreis"]<11000,], aes_string(x = "BeschaeftigteohneAbschluss_adj"), fill ='darkblue')  + 
+  geom_histogram(data = Impdata.imputed[Impdata.imputed[,"Kreis"]>=11000,], aes_string(x = "BeschaeftigteohneAbschluss_adj"), fill ='darkred')
+print(hist_over_westost)
 
 # Es gibt eine bimodale Verteilung bei den Beschäftigten ohne Abschluss, die in Ost- und Westdeutschland jedoch unimodal ist
 ```
@@ -1067,7 +1081,7 @@ Dimensionen sozioökonomischer Deprivation auf räumlicher Ebene: Einkommen, Arb
 # Hier wird eine Faktoranalyse für die Bildungskomponente durchgeführt, ohne die
 # Beschäftigung ohne Abschluss zu verwenden, welche sich systematisch zwischen
 # West und Ost unterscheidet
-TS_Bildung_4items_without_BoA <- Impdata.imputed %>% dplyr::select(BeschaeftigtemitakadAbschluss,SchulabgaengerohneAbschluss, SchulabgaengermitHochschulreife) 
+TS_Bildung_4items_without_BoA <- Impdata.imputed %>% dplyr::select(BeschaeftigtemitakadAbschluss,SchulabgaengerohneAbschluss_adj, SchulabgaengermitHochschulreife_adj) 
 TS_Bildung_4items_without_BoA.pca <- prcomp(TS_Bildung_4items_without_BoA, center = TRUE, scale. = TRUE, retx=TRUE) 
 TS_Bildung_4items_without_BoA.pca
 

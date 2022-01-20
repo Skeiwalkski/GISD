@@ -1,0 +1,31 @@
+---
+title: "Räumliche Gleiderungsebenen - Bevölerungszahlen"
+author: "Marvin Reis"
+date: "20 1 2022"
+output:
+  bookdown::html_document2:
+    keep_md: true
+    code_folding: hide
+    number_sections: false
+    fig_caption: true
+    theme: cerulean
+    highlight: tango
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library("dplyr")
+library("tidyr")
+
+Impdata.imputed <- readRDS("Outfiles/Impdata_check_2019.rds")
+```
+
+#Räumliche Gliederungsebenen in Deutschland und ihre Bevölkerungszahlen
+
+```{r}
+
+
+```
