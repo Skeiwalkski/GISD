@@ -1,7 +1,7 @@
 ---
 title: "Räumliche Gleiderungsebenen - Bevölerungszahlen"
 author: "Marvin Reis"
-date: "20 1 2022"
+date: "21 1 2022"
 output:
   bookdown::html_document2:
     keep_md: true
@@ -16,16 +16,36 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-```{r}
+```{r include=FALSE}
 library("dplyr")
 library("tidyr")
+library(bookdown)
+library(knitr)
 
-Impdata.imputed <- readRDS("Outfiles/Impdata_check_2019.rds")
+home <- getwd()
+setwd(home)
+
+id_data <- readRDS("Outfiles/2022/ID_dataset_2019")
 ```
 
-#Räumliche Gliederungsebenen in Deutschland und ihre Bevölkerungszahlen
 
-```{r}
+```{r message=FALSE, warning=FALSE}
+GVB <- id_data %>% select(Bevölkerung, GVBKennziffer) %>% group_by(GVBKennziffer) %>% mutate(Bev = sum(Bevölkerung)*100) %>% ungroup() %>% select(-Bevölkerung) %>% unique() %>% filter(Bev > 0)
+
+Kreis <- id_data %>% select(Bevölkerung, Kreiskennziffer) %>% group_by(Kreiskennziffer) %>% mutate(Bev = sum(Bevölkerung)*100) %>% ungroup() %>% select(-Bevölkerung) %>% unique() %>% filter(Bev > 0)
+
+ROR <- id_data %>% select(Bevölkerung, `Raumordnungsregion Nr`) %>% group_by(`Raumordnungsregion Nr`) %>% mutate(Bev = sum(Bevölkerung)*100) %>% ungroup() %>% select(-Bevölkerung) %>% unique() %>% filter(Bev > 0)
+
+NUTS2 <- id_data %>% select(Bevölkerung, NUTS2) %>% group_by(NUTS2) %>% mutate(Bev = sum(Bevölkerung)*100) %>% ungroup() %>% select(-Bevölkerung) %>% unique() %>% filter(Bev > 0)
 
 
+Tabelle_Bev <- cbind("Ebene" = "Gemeindeverbände (GVB)", "Anzahl" = nrow(GVB), "Mittlere Bevölkerungszahl" = round(mean(GVB$Bev)), "Minimum" = round(min(GVB$Bev)), "Maximum" = round(max(GVB$Bev)))
+
+Tabelle_Bev <- rbind(Tabelle_Bev, cbind("Ebene" = "Kreise und kreisfreie Städte (Kreise)", "Anzahl" = nrow(Kreis), "Mittlere Bevölkerungszahl" = round(mean(Kreis$Bev)), "Minimum" = round(min(Kreis$Bev)), "Maximum" = round(max(Kreis$Bev))))
+
+Tabelle_Bev <- rbind(Tabelle_Bev, cbind("Ebene" = "Raumordnungsregionen (ROR)", "Anzahl" = nrow(ROR), "Mittlere Bevölkerungszahl" = round(mean(ROR$Bev)), "Minimum" = round(min(ROR$Bev)), "Maximum" = round(max(ROR$Bev))))
+
+Tabelle_Bev <- rbind(Tabelle_Bev, cbind("Ebene" = "NUTS-2", "Anzahl" = nrow(NUTS2), "Mittlere Bevölkerungszahl" = round(mean(NUTS2$Bev)), "Minimum" = round(min(NUTS2$Bev)), "Maximum" = round(max(NUTS2$Bev))))
+
+kable(Tabelle_Bev, caption = "Räumliche Gliederungsebenen in Deutschland und ihre Bevölkerungszahlen")
 ```

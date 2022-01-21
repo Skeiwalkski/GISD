@@ -39,7 +39,7 @@ setwd(home)
 
 Impdata.imputed <- readRDS("Outfiles/Impdata_check_2019.rds")
 
-Impdata.imputed <- Impdata.imputed %>% filter(Jahr > 2011)
+#Impdata.imputed <- Impdata.imputed %>% filter(Jahr > 2011)
 ```
 
 
@@ -62,9 +62,8 @@ TS_Bildung_o <- Impdata.imputed %>% select(BeschaeftigtemitakadAbschluss,Beschae
 
 TS_Bildung_4items <- Impdata.imputed %>% select(BeschaeftigtemitakadAbschluss,BeschaeftigteohneAbschluss_adj,SchulabgaengerohneAbschluss_adj, SchulabgaengermitHochschulreife_adj)
 
-TS_Bildung_4items_o <- Impdata.imputed %>% select(BeschaeftigtemitakadAbschluss,BeschaeftigteohneAbschluss,SchulabgaengerohneAbschluss, SchulabgaengermitHochschulreife)
+TS_Bildung_4items_o <- Impdata.imputed %>% select(BeschaeftigtemitakadAbschluss,BeschaeftigteohneAbschluss,SchulabgaengerohneAbschluss_adj, SchulabgaengermitHochschulreife_adj)
 
-TS_Bildung_4items_twadj <- Impdata.imputed %>% select(BeschaeftigtemitakadAbschluss,BeschaeftigteohneAbschluss,SchulabgaengerohneAbschluss_adj, SchulabgaengermitHochschulreife_adj)
 
 #TS_Bildung_4items_without_BoA <- Impdata.imputed %>% #dplyr::select(BeschaeftigtemitakadAbschluss,SchulabgaengerohneAbschluss, SchulabgaengermitHochschulreife) 
 
@@ -73,7 +72,7 @@ TS_Bildung_4items_twadj <- Impdata.imputed %>% select(BeschaeftigtemitakadAbschl
 # Verschiedene Faktorenanalysen des GISD {.tabset}
 
 
-## Faktorenanalyse gepoolte Querschnitte
+## Gepoolte Querschnitte
 
 Es werden Hauptkomponentenanalysen für jede der drei Subskalen auf Basis der imputierten Daten geschätzt. 
 
@@ -108,7 +107,7 @@ TS_Einkommen.pca <- prcomp(TS_Einkommen, center = TRUE, scale. = TRUE, retx=TRUE
 # PCA für die Bildungsdimension
 #TS_Bildung.pca <- prcomp(TS_Bildung, center = TRUE, scale. = TRUE, retx=TRUE) 
 #plot(TS_Bildung.pca)
-TS_Bildung.pca <- prcomp(TS_Bildung_o, center = TRUE, scale. = TRUE, retx=TRUE)
+TS_Bildung.pca <- prcomp(TS_Bildung_o, center = TRUE, scale. = TRUE, retx=TRUE, rank. = 1)
 #TS_Bildung.pca
 
 # Alternativ Bildungskomponente mit BeschaeftigtemitakadAbschluss,SchulabgaengermitHochschulreife,SchulabgaengerohneAbschluss
@@ -128,9 +127,8 @@ TS_Bildung.pca <- prcomp(TS_Bildung_o, center = TRUE, scale. = TRUE, retx=TRUE)
 #TS_Bildung_r2014.pca <- prcomp(TS_Bildung_r2014, center = TRUE, scale. = TRUE, retx=TRUE) 
 #TS_Bildung_r2014.pca
 # 
-TS_Bildung_4items.pca <- prcomp(TS_Bildung_4items, center = TRUE, scale. = TRUE, retx=TRUE)
-TS_Bildung_4items_o.pca <- prcomp(TS_Bildung_4items_o, center = TRUE, scale. = TRUE, retx=TRUE)
-TS_Bildung_4items_twadj.pca <- prcomp(TS_Bildung_4items_twadj, center = TRUE, scale. = TRUE, retx=TRUE)
+TS_Bildung_4items.pca <- prcomp(TS_Bildung_4items, center = TRUE, scale. = TRUE, retx=TRUE, rank. = 1)
+TS_Bildung_4items_o.pca <- prcomp(TS_Bildung_4items_o, center = TRUE, scale. = TRUE, retx=TRUE, rank. = 1)
 # plot(TS_Bildung_4items.pca)
 # TS_Bildung_4items.pca
 
@@ -172,7 +170,7 @@ Hier sollte eine detailliertere Analyse folgen.
 
 ### Faktorladungen
 
-```{r, message=FALSE, warning=FALSE}
+```{r message=FALSE, warning=FALSE}
 # Componentoverview
 
 GISD_Komponents <- cbind("Teildimension"="Arbeitswelt","Faktorladung"=round((TS_Arbeitswelt.pca$rotation*sqrt(abs(TS_Arbeitswelt.pca$sdev[1]^2))), digits = 3),"Component"=round(TS_Arbeitswelt.pca$rotation, digits = 3))
@@ -205,8 +203,70 @@ kable(GISD_Komponents, caption = "Faktorladungen und Anteile an den Teilscores s
 ```
 
 
-## Faktorenanalyse (4 Items Bildung)
-gepoolte Querschnitte (4 Items Bildung)
+
+## 4 Items Bildung (BoA nicht adjustiert)
+Gepoolte Querschnitte mit 4 Bildungsitems und Beschäftigte ohne Abschluss nicht adjustiert.
+
+### Eigenwerte der Komponenten
+```{r, message=FALSE, warning=FALSE}
+par(mfrow=c(1, 3))
+plot(TS_Arbeitswelt.pca, main = "Arbeitswelt (Eigenvektoren)", ylim=c(0,2.2))
+plot(TS_Einkommen.pca, main = "Einkommen (Eigenvektoren)", ylim=c(0,2.2))
+plot(TS_Bildung_4items_o.pca, main = "Bildung (Eigenvektoren)", ylim=c(0,2.2))
+```
+
+```{r, message=FALSE, warning=FALSE}
+Varianz_B4_tab <- cbind("F_A" = "Faktor1", "Var_A" = round(TS_Arbeitswelt.pca$sdev^2, digits = 3), "Var_E" = round(TS_Einkommen.pca$sdev^2, digits = 3),  "Var_B" = round(TS_Bildung_4items_o.pca$sdev^2, digits = 3))
+
+Varianz_B4_tab[4,2] = NA
+Varianz_B4_tab[4,3] = NA
+
+Varianz_B4_tab <- cbind(as.data.frame(Varianz_B4_tab))
+
+Varianz_B4_tab$F_A <- c("Faktor 1", "Faktor 2", "Faktor 3", "Faktor 4")
+
+colnames(Varianz_B4_tab) <- c("Faktoren", "Varianz Arbeitswelt", "Varianz Einkommen", "Varianz Bildung")
+
+kable(Varianz_B4_tab, caption = "Varianz der Faktoren (Eigenvektoren)")
+```
+
+### Faktorladungen
+
+```{r , message=FALSE, warning=FALSE}
+# Componentoverview
+GISD_Komponents_4 <- cbind("Teildimension"="Arbeitswelt","Faktorladung"=round((TS_Arbeitswelt.pca$rotation*sqrt(abs(TS_Arbeitswelt.pca$sdev[1]^2))), digits = 3),"Component"=round(TS_Arbeitswelt.pca$rotation, digits = 3))
+#cbind erstellt Spaltenvektoren mit den Infos aus Teildimension, den (rotierten) Faktorladungen und den Components
+
+GISD_Komponents_4 <- rbind(GISD_Komponents_4,cbind("Teildimension"="Einkommen","Faktorladung"=round((TS_Einkommen.pca$rotation*sqrt(abs(TS_Einkommen.pca$sdev[1]^2))), digits = 3),"Component"=round(TS_Einkommen.pca$rotation, digits = 3)))
+# rbind erstellt Zeilenvektoren, diese werden hier in die bereits vorhandenen Spaltenvektoren eingebunden
+
+GISD_Komponents_4 <- rbind(GISD_Komponents_4,cbind("Teildimension"="Bildung","Faktorladung"=round((TS_Bildung_4items_o.pca$rotation[1:4,1]*sqrt(abs(TS_Bildung_4items_o.pca$sdev[1]^2))), digits = 3),"Component"=round(TS_Bildung_4items_o.pca$rotation[1:4,1], digits = 3)))
+# auch für die Teildimension Bildung werden Zeilenvektoren eingebunden
+
+GISD_Komponents_4 <- cbind("Variables"=as.data.frame(rownames(GISD_Komponents_4)),as.data.frame(GISD_Komponents_4))
+# als letztes wird die Matrix in einen Dataframe übersetzt
+
+rownames(GISD_Komponents_4) <- NULL
+# die überflüssigen Zeilennamen werden gestrichen
+
+colnames(GISD_Komponents_4) <- c("Variable","Dimension","Faktorladung","Component")
+
+GISD_Komponents_4$prop_dem <- round(as.numeric(GISD_Komponents_4$Component)^2*100,digits=1)
+# eine weitere Spalte Proportion wird eingefügt mit prozentualen Anteilswerten (eine Nachkommastelle)
+
+GISD_Komponents_4$prop_GISD <- round(as.numeric(GISD_Komponents_4$prop_dem)/3, digits = 1)
+
+colnames(GISD_Komponents_4) <- c("Variable","Dimension","Faktorladung","Component", "Anteil Teilscore", "Anteil GISD")
+
+GISD_Komponents_4$Variable <- c("Beschäftigtenquote (gedeckelt)", "Arbeitslosigkeit", "Bruttoverdienst (log.)", "Einkommensteuer (log.)", "Haushaltseinkommen (log.)", "Schuldnerquote", "Beschäftigte mit akad. Abschluss", "Beschäftigte ohne Abschluss", "Schulabgänger ohne Abschluss (adj.)", "Schulabgänger mit Hochschulreife (adj.)")
+
+kable(GISD_Komponents_4, caption = "Faktorladungen und Anteile an den Teilscores sowie am Index")
+```
+
+
+
+## 4 Items Bildung (BoA adjustiert)
+Gepoolte Querschnitte mit 4 Bildungsitems und Beschäftigte ohne Abschluss adjustiert.
 
 ### Eigenwerte der Komponenten
 ```{r, message=FALSE, warning=FALSE}
@@ -272,23 +332,28 @@ Es werden Hauptkomponentenanalysen für jede der drei Subskalen auf Basis der im
 ```{r Tibbels generieren (nur 2019) und PCA für die Teilscores, message=FALSE, warning=FALSE}
 # Variablenliste für die Faktorenanalyse mit Einschränkung 2017 
 
-TS_Arbeitswelt_19 <- Impdata.imputed  %>% filter(Jahr == 2019) %>% ungroup() %>% dplyr::select(Beschaeftigtenquote_adj,Arbeitslosigkeit,Bruttoverdienst_ln) 
+TS_Arbeitswelt_19 <- Impdata.imputed  %>% filter(Jahr == 2019) %>% ungroup() %>% select(Beschaeftigtenquote_adj,Arbeitslosigkeit,Bruttoverdienst_ln) 
 
-TS_Einkommen_19   <- Impdata.imputed %>% filter(Jahr == 2019) %>% dplyr::select(Einkommensteuer_ln,Haushaltseinkommen_ln,Schuldnerquote) 
+TS_Einkommen_19   <- Impdata.imputed %>% filter(Jahr == 2019) %>% select(Einkommensteuer_ln,Haushaltseinkommen_ln,Schuldnerquote) 
 
-TS_Bildung_19 <- Impdata.imputed %>% filter(Jahr == 2019) %>% dplyr::select(BeschaeftigtemitakadAbschluss,BeschaeftigteohneAbschluss_adj,SchulabgaengerohneAbschluss_adj)
+TS_Bildung_19 <- Impdata.imputed %>% filter(Jahr == 2019) %>% select(BeschaeftigtemitakadAbschluss,BeschaeftigteohneAbschluss_adj,SchulabgaengerohneAbschluss_adj)
+
+TS_Bildung_4items_19 <- Impdata.imputed %>% filter(Jahr == 2019) %>% select(BeschaeftigtemitakadAbschluss,BeschaeftigteohneAbschluss_adj,SchulabgaengerohneAbschluss_adj, SchulabgaengermitHochschulreife_adj)
 
 
-#PCA Arbeitswelt 2017
+#PCA Arbeitswelt 2019
 TS_Arbeitswelt_19.pca <- prcomp(TS_Arbeitswelt_19, center = TRUE, scale. = TRUE, retx=TRUE, rank. = 1)
 
 
-#PCA Einkommen 2017
+#PCA Einkommen 2019
 TS_Einkommen_19.pca <- prcomp(TS_Einkommen_19, center = TRUE, scale. = TRUE, retx=TRUE, rank. = 1)
 
 
-#PCA Bildung 2017
-TS_Bildung_19.pca <- prcomp(TS_Bildung_19, center = TRUE, scale. = TRUE, retx=TRUE, rank. =1 ) 
+#PCA Bildung 2019
+TS_Bildung_19.pca <- prcomp(TS_Bildung_19, center = TRUE, scale. = TRUE, retx=TRUE, rank. =1 )
+
+#PCA Bildung 4 Items 2019
+TS_Bildung_4items_19.pca <- prcomp(TS_Bildung_4items_19, center = TRUE, scale. = TRUE, retx=TRUE, rank. =1 )
 ```
 
 ### Eigenwerte der Komponenten
@@ -348,6 +413,67 @@ kable(GISD_Komponents_19, caption = "Komponenten und Anteile der Dimensionen fü
 
 
 
+## 4 Items Bildung nur 2019 (Boa adjustiert)
+Gepoolte Querschnitte mit 4 Bildungsitems und Beschäftigte ohne Abschluss adjustiert nur für 2019.
+
+### Eigenwerte der Komponenten
+```{r, message=FALSE, warning=FALSE}
+par(mfrow=c(1, 3))
+plot(TS_Arbeitswelt_19.pca, main = "Arbeitswelt (Eigenvektoren)", ylim=c(0,2.2))
+plot(TS_Einkommen_19.pca, main = "Einkommen (Eigenvektoren)", ylim=c(0,2.2))
+plot(TS_Bildung_4items_19.pca, main = "Bildung (Eigenvektoren)", ylim=c(0,2.2))
+```
+
+```{r, message=FALSE, warning=FALSE}
+Varianz_B4_tab <- cbind("F_A" = "Faktor1", "Var_A" = round(TS_Arbeitswelt_19.pca$sdev^2, digits = 3), "Var_E" = round(TS_Einkommen_19.pca$sdev^2, digits = 3),  "Var_B" = round(TS_Bildung_4items_19.pca$sdev^2, digits = 3))
+
+Varianz_B4_tab[4,2] = NA
+Varianz_B4_tab[4,3] = NA
+
+Varianz_B4_tab <- cbind(as.data.frame(Varianz_B4_tab))
+
+Varianz_B4_tab$F_A <- c("Faktor 1", "Faktor 2", "Faktor 3", "Faktor 4")
+
+colnames(Varianz_B4_tab) <- c("Faktoren", "Varianz Arbeitswelt", "Varianz Einkommen", "Varianz Bildung")
+
+kable(Varianz_B4_tab, caption = "Varianz der Faktoren (Eigenvektoren)")
+```
+
+### Faktorladungen
+
+```{r , message=FALSE, warning=FALSE}
+# Componentoverview
+GISD_Komponents_4 <- cbind("Teildimension"="Arbeitswelt","Faktorladung"=round((TS_Arbeitswelt_19.pca$rotation*sqrt(abs(TS_Arbeitswelt_19.pca$sdev[1]^2))), digits = 3),"Component"=round(TS_Arbeitswelt_19.pca$rotation, digits = 3))
+#cbind erstellt Spaltenvektoren mit den Infos aus Teildimension, den (rotierten) Faktorladungen und den Components
+
+GISD_Komponents_4 <- rbind(GISD_Komponents_4,cbind("Teildimension"="Einkommen","Faktorladung"=round((TS_Einkommen_19.pca$rotation*sqrt(abs(TS_Einkommen_19.pca$sdev[1]^2))), digits = 3),"Component"=round(TS_Einkommen_19.pca$rotation, digits = 3)))
+# rbind erstellt Zeilenvektoren, diese werden hier in die bereits vorhandenen Spaltenvektoren eingebunden
+
+GISD_Komponents_4 <- rbind(GISD_Komponents_4,cbind("Teildimension"="Bildung","Faktorladung"=round((TS_Bildung_4items_19.pca$rotation[1:4,1]*sqrt(abs(TS_Bildung_4items_19.pca$sdev[1]^2))), digits = 3),"Component"=round(TS_Bildung_4items_19.pca$rotation[1:4,1], digits = 3)))
+# auch für die Teildimension Bildung werden Zeilenvektoren eingebunden
+
+GISD_Komponents_4 <- cbind("Variables"=as.data.frame(rownames(GISD_Komponents_4)),as.data.frame(GISD_Komponents_4))
+# als letztes wird die Matrix in einen Dataframe übersetzt
+
+rownames(GISD_Komponents_4) <- NULL
+# die überflüssigen Zeilennamen werden gestrichen
+
+colnames(GISD_Komponents_4) <- c("Variable","Dimension","Faktorladung","Component")
+
+GISD_Komponents_4$prop_dem <- round(as.numeric(GISD_Komponents_4$Component)^2*100,digits=1)
+# eine weitere Spalte Proportion wird eingefügt mit prozentualen Anteilswerten (eine Nachkommastelle)
+
+GISD_Komponents_4$prop_GISD <- round(as.numeric(GISD_Komponents_4$prop_dem)/3, digits = 1)
+
+colnames(GISD_Komponents_4) <- c("Variable","Dimension","Faktorladung","Component", "Anteil Teilscore", "Anteil GISD")
+
+GISD_Komponents_4$Variable <- c("Beschäftigtenquote (gedeckelt)", "Arbeitslosigkeit", "Bruttoverdienst (log.)", "Einkommensteuer (log.)", "Haushaltseinkommen (log.)", "Schuldnerquote", "Beschäftigte mit akad. Abschluss", "Beschäftigte ohne Abschluss (adj.)", "Schulabgänger ohne Abschluss (adj.)", "Schulabgänger mit Hochschulreife (adj.)")
+
+kable(GISD_Komponents_4, caption = "Faktorladungen und Anteile an den Teilscores sowie am Index")
+```
+
+
+
 # Generierung des Faktorscores auf Basis 2019
 ```{r , message=FALSE, warning=FALSE}
 TS_Bildung_4items.pca <- prcomp(TS_Bildung_4items, center = TRUE, scale. = TRUE, retx=TRUE, rank. = 1)
@@ -358,7 +484,7 @@ Resultdataset$TS_Einkommen_19 <- as.numeric(predict(TS_Einkommen_19.pca , newdat
 Resultdataset$TS_Bildung_19 <- as.numeric(predict(TS_Bildung_19.pca, newdata = Resultdataset))
 Resultdataset$TS_Arbeitswelt <- as.numeric(predict(TS_Arbeitswelt.pca, newdata = Resultdataset))
 Resultdataset$TS_Einkommen <- as.numeric(predict(TS_Einkommen.pca , newdata = Resultdataset))
-Resultdataset$TS_Bildung <- as.numeric(predict(TS_Bildung.pca, newdata = Resultdataset))
+Resultdataset$TS_Bildung <- as.numeric(((Resultdataset$SchulabgaengerohneAbschluss_adj*-0.33)+(Resultdataset$BeschaeftigtemitakadAbschluss*0.66))/2)
 Resultdataset$TS_Bildung_4items <- as.numeric(predict(TS_Bildung_4items.pca, newdata = Resultdataset))
 
 #summary(Resultdataset %>% select(TS_Arbeitswelt_17, TS_Einkommen_17, TS_Bildung_17))
