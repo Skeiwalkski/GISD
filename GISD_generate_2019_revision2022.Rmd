@@ -27,7 +27,6 @@ library(pastecs) # descriptive stats
 
 
 ``` {r Define Outfiles Path, message=FALSE, warning=FALSE}
-
 home <- getwd()
 # Define Outfiles Directory 
 outfiles_dir <- "S:/OE/FG28/205 Regionale Unterschiede/GISD/"
@@ -41,8 +40,6 @@ dir.create("Outfiles/2021/Other", showWarnings=T)
 dir.create("Outfiles/2021/Stata", showWarnings=T)
 setwd(home)
 getwd()
-
-
 ```
 
 ## I.  Generierung eines ID-Datensatzes
@@ -52,7 +49,6 @@ Es wird insbesondere geprüft, ob die Referenzdaten Missings auf den Regionalken
 An diesen ID-Datensatz werden später die Indikatoren angespielt. 
 
 ```{r ID-Datensatz aus den Referenzdaten generieren , message=FALSE, warning=FALSE}
-
 print_missings = function(data) {
   df = data[-1,]; 
   if(sum(is.na(df))>0){print("Missing observations: "); print(df[!complete.cases(df),])}; 
@@ -77,7 +73,7 @@ load_dataset = function(sheet) {
 
 Gemeinden_INKAR <- load_dataset("Gemeinden-GVB") %>% 
   na.omit() %>%
-  mutate(Kennziffer=as.numeric(gem19),"Kennziffer Gemeindeverband"=gvb19, fl19=as.numeric(fl19))
+  mutate(Kennziffer=as.numeric(gem19),GVBKennziffer=gvb19, fl19=as.numeric(fl19))
 # Pipes: 
 # 1. Wenn es fehlende Werte gibt, wird man hierdurch benachrichtigt
 # 2. Gemeinden ohne fehlende Beobachtungen
@@ -85,7 +81,7 @@ Gemeinden_INKAR <- load_dataset("Gemeinden-GVB") %>%
 
 Gemeindeverbaende_INKAR <- load_dataset("Gemeindeverbände") %>% 
   na.omit() %>% 
-  select("Kennziffer Gemeindeverband"=gvb19,"Name des Gemeindeverbands"=gvb19name)
+  select(GVBKennziffer=gvb19,"Name des Gemeindeverbands"=gvb19name)
 # Das ganze nochmal für Gemeindeverbände  
 # Pipes: 
 # 1. Wenn es fehlende Werte gibt, wird man hierdurch benachrichtigt
@@ -102,7 +98,7 @@ Kreise_INKAR <- load_dataset("KRS") %>%
 
 # Die drei Datensätze werden nun ausgehend vom Gemeindedatensatz zu einem ID-Datensatz zusammmengefügt
 id_dataset <- Gemeinden_INKAR %>% 
-              select(Gemeindekennziffer=Kennziffer,"Name der Gemeinde"=gem19name,"Kennziffer Gemeindeverband", "Bevölkerung") %>% 
+              select(Gemeindekennziffer=Kennziffer,"Name der Gemeinde"=gem19name,GVBKennziffer, "Bevölkerung") %>% 
               mutate(Kreiskennziffer=floor(Gemeindekennziffer/1000)) %>%
               left_join(.,Kreise_INKAR %>% select("Kreiskennziffer"=krs19,
                                                   "Name des Kreises"=krs19name,
@@ -111,7 +107,7 @@ id_dataset <- Gemeinden_INKAR %>%
                                                   NUTS2,
                                                   "NUTS2 Name"=NUTS2name,
                                                   "Bundesland"=Bundesland),by="Kreiskennziffer")%>%
-              left_join(.,Gemeindeverbaende_INKAR, by="Kennziffer Gemeindeverband")
+              left_join(.,Gemeindeverbaende_INKAR, by="GVBKennziffer")
 # Pipes:  1. (select) Variablenauswahl (gkz, Gemeindename, Gemeindeverband)
 #         2. die Kreiskennziffer wird aus der Gemeindekennziffer generiert
 #         3. leftjoin spielt Kreisdaten über Kreiskennziffer an
@@ -119,6 +115,7 @@ id_dataset <- Gemeinden_INKAR %>%
 #         3.2 die Kreiskennziffer wurde vor dem leftjoin im Using-Datensatz generiert
 #         4. als letztes werden die Gemeindeverbandskennziffern angespielt
 
+write_rds(id_dataset, paste0("Outfiles/2022/ID_dataset_2019"))
 ```
 
 ## II. Erzeugen eines Datensatzes mit Kennziffern als ID unabhängig von der Ebene 
@@ -198,7 +195,7 @@ Basedata_Kreisebene <- Basedata %>% select(krs15=Kennziffer,Jahr,listofdetermina
 # Dazu wird erstmal ein Leerdatensatz im Longformat erstellt, der Fälle für alle Gemeinden für jedes Jahr generiert
 Workfile <- as.data.frame(expand.grid("Kennziffer"=Gemeinden_INKAR %>% pull(Kennziffer),"Jahr"=seq(min(Basedata$Jahr):max(Basedata$Jahr)) + min(Basedata$Jahr)-1)) %>% mutate(Kreiskennziffer=floor(as.numeric(Kennziffer)/1000)) %>% as_tibble() %>%
    left_join(. , Gemeinden_INKAR,by=c("Kennziffer")) %>%
-   select(Gemeindekennziffer="Kennziffer",Kreis="Kreiskennziffer",Gemeindeverband="Kennziffer Gemeindeverband",Jahr,Bevoelkerung="Bevölkerung") %>% mutate(Gemeindeverband=as.numeric(Gemeindeverband), Bevoelkerung=as.numeric(Bevoelkerung)) %>% 
+   select(Gemeindekennziffer="Kennziffer",Kreis="Kreiskennziffer",Gemeindeverband=GVBKennziffer,Jahr,Bevoelkerung="Bevölkerung") %>% mutate(Gemeindeverband=as.numeric(Gemeindeverband), Bevoelkerung=as.numeric(Bevoelkerung)) %>% 
   arrange("Gemeindeverband","Jahr") %>% # Join Metadata
    left_join(. , Basedata_Kreisebene,by=c("Kreis","Jahr")) %>% # Hier wird über Kreis gematched
    left_join(. , Basedata_Gemeindeverbandsebene,by=c("Gemeindeverband","Jahr")) %>%  # Join Indicators for Level: Gemeindeverband 
@@ -792,11 +789,12 @@ GISD_Komponents$GISD <- "GISD"
 GISD_Komponents$Proportion <- round(as.numeric(as.character(GISD_Komponents$Anteil))*100,digits=1)
 # eine weitere Spalte Proportion wird eingef|gt mit prozentualen Anteilswerten (eine Nachkommastelle)
 
+
 # Hier findet die Prediction der Scores statt
 Resultdataset <- Impdata.imputed
 Resultdataset$TS_Arbeitswelt_adj <- as.numeric(predict(TS_Arbeitswelt_adj.pca, newdata = Impdata.imputed))
 Resultdataset$TS_Einkommen_adj <- as.numeric(predict(TS_Einkommen_adj.pca , newdata = Impdata.imputed))
-Resultdataset$TS_Bildung_adj <- as.numeric(predict(TS_Bildung_adj.pca, newdata = Impdata.imputed))
+Resultdataset$TS_Bildung_adj <- as.numeric(((Resultdataset$SchulabgaengerohneAbschluss_adj*-0.33)+(Resultdataset$BeschaeftigtemitakadAbschluss*0.66))/2)
 
 
 summary(Resultdataset %>% dplyr::select(TS_Arbeitswelt_adj, TS_Einkommen_adj, TS_Bildung_adj))
