@@ -167,9 +167,9 @@ Table: (\#tab:unnamed-chunk-2)Varianz der Faktoren (Eigenvektoren)
 
 |Faktoren |Varianz Arbeitswelt |Varianz Einkommen |Varianz Bildung |
 |:--------|:-------------------|:-----------------|:---------------|
-|Faktor 1 |1.482               |2.068             |1.965           |
-|Faktor 2 |0.963               |0.748             |0.622           |
-|Faktor 3 |0.556               |0.183             |0.414           |
+|Faktor 1 |1.754               |2.051             |1.825           |
+|Faktor 2 |0.805               |0.764             |0.741           |
+|Faktor 3 |0.442               |0.185             |0.434           |
 
 Die PCA zeigt drei Hauptkomponenten für die Dimension Arbeitswelt. Nur die erste Komponente hat einen Eigenwert über eins. Die Faktorladungen der drei Variablen (Beschäftigungsquote, Arbeitslosigkeit und Bruttoverdienst) entsprechen dabei den Ertwartungen.
 
@@ -221,15 +221,15 @@ Table: (\#tab:unnamed-chunk-3)Faktorladungen und Anteile an den Teilscores sowie
 
 |Variable                            |Dimension   |Faktorladung |Component | Anteil Teilscore| Anteil GISD|
 |:-----------------------------------|:-----------|:------------|:---------|----------------:|-----------:|
-|Beschäftigtenquote (gedeckelt)      |Arbeitswelt |0.544        |0.447     |             20.0|         6.7|
-|Arbeitslosigkeit                    |Arbeitswelt |-0.689       |-0.566    |             32.0|        10.7|
-|Bruttoverdienst (log.)              |Arbeitswelt |0.843        |0.693     |             48.0|        16.0|
-|Einkommensteuer (log.)              |Einkommen   |0.911        |0.633     |             40.1|        13.4|
-|Haushaltseinkommen (log.)           |Einkommen   |0.919        |0.639     |             40.8|        13.6|
-|Schuldnerquote                      |Einkommen   |-0.628       |-0.437    |             19.1|         6.4|
-|Beschäftigte mit akad. Abschluss    |Bildung     |0.747        |0.533     |             28.4|         9.5|
-|Beschäftigte ohne Abschluss (adj.)  |Bildung     |0.85         |0.606     |             36.7|        12.2|
-|Schulabgänger ohne Abschluss (adj.) |Bildung     |-0.827       |-0.59     |             34.8|        11.6|
+|Beschäftigtenquote (gedeckelt)      |Arbeitswelt |0.601        |0.454     |             20.6|         6.9|
+|Arbeitslosigkeit                    |Arbeitswelt |-0.839       |-0.634    |             40.2|        13.4|
+|Bruttoverdienst (log.)              |Arbeitswelt |0.83         |0.626     |             39.2|        13.1|
+|Einkommensteuer (log.)              |Einkommen   |-0.912       |-0.637    |             40.6|        13.5|
+|Haushaltseinkommen (log.)           |Einkommen   |-0.918       |-0.641    |             41.1|        13.7|
+|Schuldnerquote                      |Einkommen   |0.613        |0.428     |             18.3|         6.1|
+|Beschäftigte mit akad. Abschluss    |Bildung     |0.678        |0.502     |             25.2|         8.4|
+|Beschäftigte ohne Abschluss (adj.)  |Bildung     |0.798        |0.59      |             34.8|        11.6|
+|Schulabgänger ohne Abschluss (adj.) |Bildung     |-0.854       |-0.632    |             39.9|        13.3|
 
 
 
@@ -269,10 +269,10 @@ Table: (\#tab:unnamed-chunk-5)Varianz der Faktoren (Eigenvektoren)
 
 |Faktoren |Varianz Arbeitswelt |Varianz Einkommen |Varianz Bildung |
 |:--------|:-------------------|:-----------------|:---------------|
-|Faktor 1 |1.482               |2.068             |2.192           |
-|Faktor 2 |0.963               |0.748             |1.039           |
-|Faktor 3 |0.556               |0.183             |0.456           |
-|Faktor 4 |NA                  |NA                |0.312           |
+|Faktor 1 |1.754               |2.051             |2.023           |
+|Faktor 2 |0.805               |0.764             |1.191           |
+|Faktor 3 |0.442               |0.185             |0.451           |
+|Faktor 4 |NA                  |NA                |0.334           |
 
 ### Faktorladungen
 
@@ -314,16 +314,16 @@ Table: (\#tab:unnamed-chunk-6)Faktorladungen und Anteile an den Teilscores sowie
 
 |Variable                                |Dimension   |Faktorladung |Component | Anteil Teilscore| Anteil GISD|
 |:---------------------------------------|:-----------|:------------|:---------|----------------:|-----------:|
-|Beschäftigtenquote (gedeckelt)          |Arbeitswelt |0.544        |0.447     |             20.0|         6.7|
-|Arbeitslosigkeit                        |Arbeitswelt |-0.689       |-0.566    |             32.0|        10.7|
-|Bruttoverdienst (log.)                  |Arbeitswelt |0.843        |0.693     |             48.0|        16.0|
-|Einkommensteuer (log.)                  |Einkommen   |0.911        |0.633     |             40.1|        13.4|
-|Haushaltseinkommen (log.)               |Einkommen   |0.919        |0.639     |             40.8|        13.6|
-|Schuldnerquote                          |Einkommen   |-0.628       |-0.437    |             19.1|         6.4|
-|Beschäftigte mit akad. Abschluss        |Bildung     |0.838        |0.566     |             32.0|        10.7|
-|Beschäftigte ohne Abschluss             |Bildung     |0.744        |0.502     |             25.2|         8.4|
-|Schulabgänger ohne Abschluss (adj.)     |Bildung     |-0.739       |-0.499    |             24.9|         8.3|
-|Schulabgänger mit Hochschulreife (adj.) |Bildung     |0.626        |0.422     |             17.8|         5.9|
+|Beschäftigtenquote (gedeckelt)          |Arbeitswelt |0.601        |0.454     |             20.6|         6.9|
+|Arbeitslosigkeit                        |Arbeitswelt |-0.839       |-0.634    |             40.2|        13.4|
+|Bruttoverdienst (log.)                  |Arbeitswelt |0.83         |0.626     |             39.2|        13.1|
+|Einkommensteuer (log.)                  |Einkommen   |-0.912       |-0.637    |             40.6|        13.5|
+|Haushaltseinkommen (log.)               |Einkommen   |-0.918       |-0.641    |             41.1|        13.7|
+|Schuldnerquote                          |Einkommen   |0.613        |0.428     |             18.3|         6.1|
+|Beschäftigte mit akad. Abschluss        |Bildung     |0.822        |0.578     |             33.4|        11.1|
+|Beschäftigte ohne Abschluss             |Bildung     |0.619        |0.435     |             18.9|         6.3|
+|Schulabgänger ohne Abschluss (adj.)     |Bildung     |-0.755       |-0.531    |             28.2|         9.4|
+|Schulabgänger mit Hochschulreife (adj.) |Bildung     |0.628        |0.442     |             19.5|         6.5|
 
 
 
@@ -363,10 +363,10 @@ Table: (\#tab:unnamed-chunk-8)Varianz der Faktoren (Eigenvektoren)
 
 |Faktoren |Varianz Arbeitswelt |Varianz Einkommen |Varianz Bildung |
 |:--------|:-------------------|:-----------------|:---------------|
-|Faktor 1 |1.482               |2.068             |2.368           |
-|Faktor 2 |0.963               |0.748             |0.819           |
-|Faktor 3 |0.556               |0.183             |0.494           |
-|Faktor 4 |NA                  |NA                |0.318           |
+|Faktor 1 |1.754               |2.051             |2.239           |
+|Faktor 2 |0.805               |0.764             |0.832           |
+|Faktor 3 |0.442               |0.185             |0.583           |
+|Faktor 4 |NA                  |NA                |0.345           |
 
 ### Faktorladungen
 
@@ -408,16 +408,16 @@ Table: (\#tab:unnamed-chunk-9)Faktorladungen und Anteile an den Teilscores sowie
 
 |Variable                                |Dimension   |Faktorladung |Component | Anteil Teilscore| Anteil GISD|
 |:---------------------------------------|:-----------|:------------|:---------|----------------:|-----------:|
-|Beschäftigtenquote (gedeckelt)          |Arbeitswelt |0.544        |0.447     |             20.0|         6.7|
-|Arbeitslosigkeit                        |Arbeitswelt |-0.689       |-0.566    |             32.0|        10.7|
-|Bruttoverdienst (log.)                  |Arbeitswelt |0.843        |0.693     |             48.0|        16.0|
-|Einkommensteuer (log.)                  |Einkommen   |0.911        |0.633     |             40.1|        13.4|
-|Haushaltseinkommen (log.)               |Einkommen   |0.919        |0.639     |             40.8|        13.6|
-|Schuldnerquote                          |Einkommen   |-0.628       |-0.437    |             19.1|         6.4|
-|Beschäftigte mit akad. Abschluss        |Bildung     |0.883        |0.574     |             32.9|        11.0|
-|Beschäftigte ohne Abschluss (adj.)      |Bildung     |0.827        |0.538     |             28.9|         9.6|
-|Schulabgänger ohne Abschluss (adj.)     |Bildung     |-0.579       |-0.376    |             14.1|         4.7|
-|Schulabgänger mit Hochschulreife (adj.) |Bildung     |0.753        |0.49      |             24.0|         8.0|
+|Beschäftigtenquote (gedeckelt)          |Arbeitswelt |0.601        |0.454     |             20.6|         6.9|
+|Arbeitslosigkeit                        |Arbeitswelt |-0.839       |-0.634    |             40.2|        13.4|
+|Bruttoverdienst (log.)                  |Arbeitswelt |0.83         |0.626     |             39.2|        13.1|
+|Einkommensteuer (log.)                  |Einkommen   |-0.912       |-0.637    |             40.6|        13.5|
+|Haushaltseinkommen (log.)               |Einkommen   |-0.918       |-0.641    |             41.1|        13.7|
+|Schuldnerquote                          |Einkommen   |0.613        |0.428     |             18.3|         6.1|
+|Beschäftigte mit akad. Abschluss        |Bildung     |0.876        |0.585     |             34.2|        11.4|
+|Beschäftigte ohne Abschluss (adj.)      |Bildung     |0.758        |0.506     |             25.6|         8.5|
+|Schulabgänger ohne Abschluss (adj.)     |Bildung     |-0.554       |-0.37     |             13.7|         4.6|
+|Schulabgänger mit Hochschulreife (adj.) |Bildung     |0.769        |0.514     |             26.4|         8.8|
 
 
 ## Faktorenanalyse nur für Daten des Jahres 2019
@@ -484,9 +484,9 @@ Table: (\#tab:unnamed-chunk-11)Varianz der Faktoren (Eigenvektoren) für 2017
 
 |Faktoren |Varianz Arbeitswelt |Varianz Einkommen |Varianz Bildung |
 |:--------|:-------------------|:-----------------|:---------------|
-|Faktor 1 |1.455               |2.165             |1.321           |
-|Faktor 2 |1.056               |0.619             |1.007           |
-|Faktor 3 |0.489               |0.217             |0.672           |
+|Faktor 1 |1.334               |2.165             |1.325           |
+|Faktor 2 |1.009               |0.619             |0.997           |
+|Faktor 3 |0.658               |0.217             |0.678           |
 
 ### Faktorladungen
 
@@ -528,15 +528,15 @@ Table: (\#tab:unnamed-chunk-12)Komponenten und Anteile der Dimensionen für 2017
 
 |Variable                            |Dimension   |Faktorladung |Coponent | Anteil Dimension| Anteil GISD|
 |:-----------------------------------|:-----------|:------------|:--------|----------------:|-----------:|
-|Beschäftigtenquote (gedeckelt)      |Arbeitswelt |0.285        |0.237    |              5.6|         1.9|
-|Arbeitslosigkeit                    |Arbeitswelt |0.873        |0.724    |             52.4|        17.5|
-|Bruttoverdienst (log.)              |Arbeitswelt |-0.782       |-0.648   |             42.0|        14.0|
+|Beschäftigtenquote (gedeckelt)      |Arbeitswelt |0.125        |0.108    |              1.2|         0.4|
+|Arbeitslosigkeit                    |Arbeitswelt |-0.803       |-0.695   |             48.3|        16.1|
+|Bruttoverdienst (log.)              |Arbeitswelt |0.82         |0.71     |             50.4|        16.8|
 |Einkommensteuer (log.)              |Einkommen   |0.898        |0.61     |             37.2|        12.4|
 |Haushaltseinkommen (log.)           |Einkommen   |0.908        |0.617    |             38.1|        12.7|
 |Schuldnerquote                      |Einkommen   |-0.731       |-0.497   |             24.7|         8.2|
-|Beschäftigte mit akad. Abschluss    |Bildung     |-0.806       |-0.701   |             49.1|        16.4|
-|Beschäftigte ohne Abschluss (adj.)  |Bildung     |-0.086       |-0.075   |              0.6|         0.2|
-|Schulabgänger ohne Abschluss (adj.) |Bildung     |0.816        |0.709    |             50.3|        16.8|
+|Beschäftigte mit akad. Abschluss    |Bildung     |-0.804       |-0.698   |             48.7|        16.2|
+|Beschäftigte ohne Abschluss (adj.)  |Bildung     |0.142        |0.123    |              1.5|         0.5|
+|Schulabgänger ohne Abschluss (adj.) |Bildung     |0.811        |0.705    |             49.7|        16.6|
 
 
 
@@ -576,9 +576,9 @@ Table: (\#tab:unnamed-chunk-14)Varianz der Faktoren (Eigenvektoren)
 
 |Faktoren |Varianz Arbeitswelt |Varianz Einkommen |Varianz Bildung |
 |:--------|:-------------------|:-----------------|:---------------|
-|Faktor 1 |1.455               |2.165             |1.386           |
-|Faktor 2 |1.056               |0.619             |1.131           |
-|Faktor 3 |0.489               |0.217             |0.961           |
+|Faktor 1 |1.334               |2.165             |1.39            |
+|Faktor 2 |1.009               |0.619             |1.096           |
+|Faktor 3 |0.658               |0.217             |0.993           |
 |Faktor 4 |NA                  |NA                |0.521           |
 
 ### Faktorladungen
@@ -621,16 +621,16 @@ Table: (\#tab:unnamed-chunk-15)Faktorladungen und Anteile an den Teilscores sowi
 
 |Variable                                |Dimension   |Faktorladung |Component | Anteil Teilscore| Anteil GISD|
 |:---------------------------------------|:-----------|:------------|:---------|----------------:|-----------:|
-|Beschäftigtenquote (gedeckelt)          |Arbeitswelt |0.285        |0.237     |              5.6|         1.9|
-|Arbeitslosigkeit                        |Arbeitswelt |0.873        |0.724     |             52.4|        17.5|
-|Bruttoverdienst (log.)                  |Arbeitswelt |-0.782       |-0.648    |             42.0|        14.0|
+|Beschäftigtenquote (gedeckelt)          |Arbeitswelt |0.125        |0.108     |              1.2|         0.4|
+|Arbeitslosigkeit                        |Arbeitswelt |-0.803       |-0.695    |             48.3|        16.1|
+|Bruttoverdienst (log.)                  |Arbeitswelt |0.82         |0.71      |             50.4|        16.8|
 |Einkommensteuer (log.)                  |Einkommen   |0.898        |0.61      |             37.2|        12.4|
 |Haushaltseinkommen (log.)               |Einkommen   |0.908        |0.617     |             38.1|        12.7|
 |Schuldnerquote                          |Einkommen   |-0.731       |-0.497    |             24.7|         8.2|
-|Beschäftigte mit akad. Abschluss        |Bildung     |-0.876       |-0.744    |             55.4|        18.5|
-|Beschäftigte ohne Abschluss (adj.)      |Bildung     |0.025        |0.021     |              0.0|         0.0|
-|Schulabgänger ohne Abschluss (adj.)     |Bildung     |0.599        |0.509     |             25.9|         8.6|
-|Schulabgänger mit Hochschulreife (adj.) |Bildung     |-0.51        |-0.433    |             18.7|         6.2|
+|Beschäftigte mit akad. Abschluss        |Bildung     |0.87         |0.738     |             54.5|        18.2|
+|Beschäftigte ohne Abschluss (adj.)      |Bildung     |-0.11        |-0.093    |              0.9|         0.3|
+|Schulabgänger ohne Abschluss (adj.)     |Bildung     |-0.609       |-0.516    |             26.6|         8.9|
+|Schulabgänger mit Hochschulreife (adj.) |Bildung     |0.5          |0.424     |             18.0|         6.0|
 
 
 
@@ -715,10 +715,10 @@ Table: (\#tab:unnamed-chunk-19)Korrelation von Arbeitslosigkeit und Faktoren (ge
 
 |                   | Arbeitslosigkeit| Faktor Arbeitswelt| Faktor Einkommen| Faktor Bildung|
 |:------------------|----------------:|------------------:|----------------:|--------------:|
-|Arbeitslosigkeit   |        1.0000000|          0.7916798|        0.6484107|      0.3336552|
-|Faktor Arbeitswelt |        0.7916798|          1.0000000|        0.7318142|      0.3327976|
-|Faktor Einkommen   |        0.6484107|          0.7318142|        1.0000000|      0.6403009|
-|Faktor Bildung     |        0.3336552|          0.3327976|        0.6403009|      1.0000000|
+|Arbeitslosigkeit   |        1.0000000|          0.9420527|        0.8320936|      0.4698910|
+|Faktor Arbeitswelt |        0.9420527|          1.0000000|        0.9008540|      0.5557393|
+|Faktor Einkommen   |        0.8320936|          0.9008540|        1.0000000|      0.6357957|
+|Faktor Bildung     |        0.4698910|          0.5557393|        0.6357957|      1.0000000|
 
 
 ```r
@@ -817,9 +817,9 @@ Table: (\#tab:unnamed-chunk-21)Korrelation der verschiedenen GISD-Scores
 
 |              | GISD-Score 2019| GISD-Score gesamt| GISD-Score gesamt (Bildung 4 Items)|
 |:-------------|---------------:|-----------------:|-----------------------------------:|
-|GISD_Score_19 |       1.0000000|        -0.9578396|                          -0.9208660|
-|GISD_Score    |      -0.9578396|         1.0000000|                           0.9855971|
-|GISD_Score_B4 |      -0.9208660|         0.9855971|                           1.0000000|
+|GISD_Score_19 |       1.0000000|        -0.6821741|                          -0.5310454|
+|GISD_Score    |      -0.6821741|         1.0000000|                           0.9453389|
+|GISD_Score_B4 |      -0.5310454|         0.9453389|                           1.0000000|
 
 ```r
 #write_rds(Resultdataset, paste0("Outfiles/Resultdata_FaktorCheck.rds"))

@@ -1,5 +1,5 @@
 ---
-title: "GISD - German Index of Socio-Economic Deprivation_Revision v02"
+title: "GISD - German Index of Socio-Economic Deprivation_Revision 2022"
 author: "Marvin Reis"
 date: "22 4 2021"
 output: html_document
@@ -23,6 +23,7 @@ library("imputeTS") # Impute Missing Features
 library("haven") # write Stata-dta
 library("sf") # write Stata-dta
 library(pastecs) # descriptive stats
+library(imputeTS)
 ```
 
 
@@ -34,10 +35,10 @@ outfiles_daten <- "C:/git_projects/GISD/Outfiles"
 setwd(outfiles_dir)
 # Create Output directories in working directory if necessary
 dir.create("Outfiles", showWarnings=T)
-dir.create("Outfiles/2021", showWarnings=T)
-dir.create("Outfiles/2021/Bund", showWarnings=T)
-dir.create("Outfiles/2021/Other", showWarnings=T)
-dir.create("Outfiles/2021/Stata", showWarnings=T)
+dir.create("Outfiles/2022", showWarnings=T)
+dir.create("Outfiles/2022/Bund", showWarnings=T)
+dir.create("Outfiles/2022/Other", showWarnings=T)
+dir.create("Outfiles/2022/Stata", showWarnings=T)
 setwd(home)
 getwd()
 ```
@@ -183,7 +184,7 @@ Basedata_Gemeindeverbandsebene <- Basedata %>% select(Kennziffer,Jahr,Arbeitslos
 
 # Datensatz für die Kreisebene generieren 
 Basedata_Kreisebene <- Basedata %>% select(krs15=Kennziffer,Jahr,listofdeterminants) %>% 
-  select(-Arbeitslosigkeit,-Einkommensteuer,-Beschaeftigtenquote, -ErwerbsfaehigeBevoelkerung) %>% rename(Kreis=krs15)
+  select(-Arbeitslosigkeit,-Einkommensteuer,-Beschaeftigtenquote, -ErwerbsfaehigeBevoelkerung)%>% filter(Jahr>=1998) %>% rename(Kreis=krs15)
 # Pipes:  1. neben der Kennziffer, die einen anderen Namen bekommt wird das Jahr und die Variablenliste ausgewählt
 #         2. drei Variablen werden aus der Auswahl ausgeschlossen
 #         3. die Kreisvariable wird in Kreis umbenannt, weil im nächsten Schritt Kreisinfos an die Gemeinden angespielt werden
@@ -218,8 +219,8 @@ rm(myimport)
 
 
 #Berechnung der tatsächlichen Arbeitslosenquote und Entfernen Erwerbsfähige Bevölkerung
-Workfile <- Workfile %>% mutate(Arbeitslosigkeit = round(Arbeitslosigkeit / ErwerbsfaehigeBevoelkerung * 1000, digits = 2), Arbeitslosigkeit=ifelse(is.nan(Arbeitslosigkeit),NA,Arbeitslosigkeit), Arbeitslosigkeit=ifelse(is.infinite(Arbeitslosigkeit),NA,Arbeitslosigkeit)) %>%
-                         select(-ErwerbsfaehigeBevoelkerung)
+Workfile <- Workfile %>% filter(Bevoelkerung>0) %>% mutate(Arbeitslosigkeit = ifelse(is.na(ErwerbsfaehigeBevoelkerung),NA,round(Arbeitslosigkeit / ErwerbsfaehigeBevoelkerung * 1000, digits = 2)), Arbeitslosigkeit=ifelse(is.nan(Arbeitslosigkeit),NA,Arbeitslosigkeit),
+     Arbeitslosigkeit=ifelse(is.infinite(Arbeitslosigkeit),NA,Arbeitslosigkeit)) %>% select(-ErwerbsfaehigeBevoelkerung)
 Basedata <- Basedata %>% select(-ErwerbsfaehigeBevoelkerung)
 Basedata_Gemeindeverbandsebene <- Basedata_Gemeindeverbandsebene %>% select(-ErwerbsfaehigeBevoelkerung)
 level_table <- level_table[-4,]
@@ -228,9 +229,11 @@ listofdeterminants <- listofdeterminants[-4]
 
 ##Erstellen eines Datensatzes mit Bevölkerungslosen Gemeinden und Entfernen dieser für die bevorstehende Imputation und die Faktoranalyse
 Gemeinden_ohne_Bevoelkerung <- Workfile %>% filter(Bevoelkerung==0)
-write_dta(Gemeinden_ohne_Bevoelkerung, paste0("Outfiles/Gemeinden_ohne_Bevoelkerung"))
+write_dta(Gemeinden_ohne_Bevoelkerung, paste0("Outfiles/Gemeinden_ohne_Bevoelkerung.dta"))
 
+##Ausschreiben eines Vorab-Workfiles zur Überprüfung der Arbeitslosenquote
 Workfile <- Workfile %>% filter(Bevoelkerung>0)
+write_dta(Workfile, paste0("Outfiles/2022/Workfile_vorab.dta"))
 
 # Stata-Datensatz rausschreiben
 #write_dta(Workfile, paste0("S:/OE/FG28/205 Regionale Unterschiede/GISD/Plausibilitätschecks/workfile.dta"))
@@ -276,10 +279,15 @@ TimeSeries_for_Missing
 TimeSeries_for_Missing <- Workfile %>%  filter(Gemeindekennziffer==16063104) %>% arrange(Gemeindekennziffer, Jahr, Bevoelkerung)
 TimeSeries_for_Missing
 
+#Aufgrund der variierenden Verfübarkeit von Daten und der Unklarheit über die Indikatoren auf Gemeindeebene, werden die Gemeinden vorerst ausgeschlossen.
+Workfile <- Workfile %>% filter(Gemeindekennziffer!=16063104)
+TimeSeries <- Workfile %>%  filter(Gemeindekennziffer==16063104) %>% select(Gemeindekennziffer, Jahr, listofdeterminants) %>% arrange(Gemeindekennziffer, Jahr)
+TimeSeries
+
 # Interpolation der fehlenden Werte über die Zeitreihe (Mittelwert: Vorjahr, Nachjahr)
 Workfile <- Workfile %>%  group_by(Gemeindeverband) %>% 
-  mutate(impu_arblos = ifelse(Bevoelkerung>0,na.approx(Arbeitslosigkeit),Arbeitslosigkeit),
-         impu_oA=ifelse(Bevoelkerung>0,na.approx(SchulabgaengerohneAbschluss),SchulabgaengerohneAbschluss))  %>% 
+  mutate(impu_arblos = ifelse(Bevoelkerung>0,na_interpolation(Arbeitslosigkeit),Arbeitslosigkeit),
+         impu_oA=ifelse(Bevoelkerung>0,na_interpolation(SchulabgaengerohneAbschluss),SchulabgaengerohneAbschluss))  %>% 
   select(-Arbeitslosigkeit,
          -SchulabgaengerohneAbschluss) %>% 
   rename(Arbeitslosigkeit=impu_arblos,
@@ -291,15 +299,6 @@ Workfile <- Workfile %>%  group_by(Gemeindeverband) %>%
 
 # Check der Interpolation
 TimeSeries <- Workfile %>%  filter(Gemeindekennziffer==13075152) %>% arrange(Gemeindekennziffer, Jahr, Bevoelkerung)
-TimeSeries
-
-# Fälle betrachten: 16063104
-TimeSeries_for_Missing <- Workfile %>%  filter(Gemeindekennziffer==16063104) %>% arrange(Gemeindekennziffer, Jahr, Bevoelkerung)
-TimeSeries_for_Missing
-
-#Aufgrund der variierenden Verfübarkeit von Daten und der Unklarheit über die Indikatoren auf Gemeindeebene, werden die Gemeinden vorerst ausgeschlossen.
-Workfile <- Workfile %>% filter(Gemeindekennziffer!=16063104)
-TimeSeries <- Workfile %>%  filter(Gemeindekennziffer==16063104) %>% select(Gemeindekennziffer, Jahr, listofdeterminants) %>% arrange(Gemeindekennziffer, Jahr)
 TimeSeries
 
 
@@ -856,7 +855,7 @@ RawResult <- left_join(Resultdataset,id_dataset,by="Gemeindekennziffer")
 
 
 exportlist<- NULL
-exportlist$Kennziffern <- c("Gemeindekennziffer","Kreiskennziffer","Kennziffer Gemeindeverband","Raumordnungsregion Nr","NUTS2")
+exportlist$Kennziffern <- c("Gemeindekennziffer","Kreiskennziffer","GVBKennziffer","Raumordnungsregion Nr","NUTS2")
 exportlist$Namen <- c("Name der Gemeinde","Name des Kreises","Name des Gemeindeverbands","Raumordnungsregion","NUTS2 Name")
 exportlist$Label <- c("Gemeinde","Kreis","Gemeindeverband","Raumordnungsregion","NUTS2")
 
