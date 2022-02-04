@@ -5,7 +5,7 @@ date: "3 2 2022"
 output:
   bookdown::html_document2:
     keep_md: true
-    code_folding: hide
+    code_folding:
     toc: true
     toc_float: true
     toc_depth: 2
@@ -17,82 +17,118 @@ output:
 
 
 
-
-
 # Vereteilung der Idikatoren über die Gemeinden und Kreise von 1998 bis 2017 {.tabset}
 
 ## Arbeitsdimension
 
 
+![](Check-Ausgangsdaten_2021_v02_files/figure-html/Arbeitsdimension-1.png)<!-- -->
 
+```
+## Saving 7 x 5 in image
+```
 
+![](Check-Ausgangsdaten_2021_v02_files/figure-html/Arbeitsdimension-2.png)<!-- -->
 
+```
+## Saving 7 x 5 in image
+```
 
-Die Jahre 1998 bis 2000 wurden imputiert.
+![](Check-Ausgangsdaten_2021_v02_files/figure-html/Arbeitsdimension-3.png)<!-- -->
 
+```
+## Saving 7 x 5 in image
+```
 
+![](Check-Ausgangsdaten_2021_v02_files/figure-html/Arbeitsdimension-4.png)<!-- -->
 
-Die Jahre 1998 bis 2000 wurden imputiert.
+```
+## Saving 7 x 5 in image
+```
 
+![](Check-Ausgangsdaten_2021_v02_files/figure-html/Arbeitsdimension-5.png)<!-- -->
 
-
-Die Jahre 1998 bis 1999 wurden imputiert.
-
-
-
-Die Jahre 1998 bis 1999 wurden imputiert.
+```
+## Saving 7 x 5 in image
+```
 
 
 ## Einkommensdimension
 
+![](Check-Ausgangsdaten_2021_v02_files/figure-html/Einkommensdimension-1.png)<!-- -->
 
+```
+## Saving 7 x 5 in image
+```
 
-Die Jahre 1998 bis 2000 wurden imputiert.
+![](Check-Ausgangsdaten_2021_v02_files/figure-html/Einkommensdimension-2.png)<!-- -->
 
+```
+## Saving 7 x 5 in image
+```
 
+![](Check-Ausgangsdaten_2021_v02_files/figure-html/Einkommensdimension-3.png)<!-- -->
 
-Die Jahre 1998 bis 2000 wurden imputiert.
+```
+## Saving 7 x 5 in image
+```
 
+![](Check-Ausgangsdaten_2021_v02_files/figure-html/Einkommensdimension-4.png)<!-- -->
 
+```
+## Saving 7 x 5 in image
+```
 
-Die Jahre 1998 bis 1999 wurden imputiert.
+![](Check-Ausgangsdaten_2021_v02_files/figure-html/Einkommensdimension-5.png)<!-- -->
 
+```
+## Saving 7 x 5 in image
+```
 
-
-Die Jahre 1998 bis 1999 wurden imputiert.
-
-
-
-Die Jahre 1998 bis 2003 wurden imputiert.
 
 ## Bildungsdimension
 
+![](Check-Ausgangsdaten_2021_v02_files/figure-html/Bildungsdimension-1.png)<!-- -->
 
+```
+## Saving 7 x 5 in image
+```
 
-Die Jahre 1998 bis 2011 wurden imputiert.
+![](Check-Ausgangsdaten_2021_v02_files/figure-html/Bildungsdimension-2.png)<!-- -->
 
+```
+## Saving 7 x 5 in image
+```
 
+![](Check-Ausgangsdaten_2021_v02_files/figure-html/Bildungsdimension-3.png)<!-- -->
 
-Die Jahre 1998 bis 2011 wurden imputiert.
+```
+## Saving 7 x 5 in image
+```
 
+![](Check-Ausgangsdaten_2021_v02_files/figure-html/Bildungsdimension-4.png)<!-- -->
 
+```
+## Saving 7 x 5 in image
+```
 
-Die Jahre 1998 bis 2011 wurden imputiert.
+![](Check-Ausgangsdaten_2021_v02_files/figure-html/Bildungsdimension-5.png)<!-- -->
 
+```
+## Saving 7 x 5 in image
+```
 
+![](Check-Ausgangsdaten_2021_v02_files/figure-html/Bildungsdimension-6.png)<!-- -->
 
-Die Jahre 1998 bis 2011 wurden imputiert.
+```
+## Saving 7 x 5 in image
+```
 
+![](Check-Ausgangsdaten_2021_v02_files/figure-html/Bildungsdimension-7.png)<!-- -->
 
+```
+## Saving 7 x 5 in image
+```
 
-Die Jahre 1998 bis 2011 wurden imputiert.
-
-
-
-Die Jahre 1998 bis 2011 wurden imputiert.
-
-
-
-Die Jahre 1998 bis 2011 wurden imputiert.
 
 

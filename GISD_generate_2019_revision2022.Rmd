@@ -624,7 +624,7 @@ stata_data <- Impdata.imputed %>% mutate(SchulabgmitAbi_adj = SchulabgaengermitH
 write_dta(stata_data, paste0("Outfiles/2022/Stata/Impdata_check_2019.dta"))
 
 # RDS-Datensatz rausschreiben
-write_rds(Impdata.imputed, paste0("Outfiles/Impdata_check_2019.rds"))
+write_rds(Impdata.imputed, paste0("Outfiles/2022/Impdata_check.rds"))
 
 ```
 

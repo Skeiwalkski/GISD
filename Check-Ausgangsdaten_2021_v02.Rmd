@@ -15,14 +15,12 @@ output:
     highlight: tango
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(include = FALSE)
-```
-
 ```{r, include=FALSE}
 library("ggplot2")
 library("rkicolors")
 library("dplyr")
+
+knitr::opts_chunk$set(echo = TRUE)
 
 home <- getwd()
 setwd(home)
@@ -37,7 +35,7 @@ Impdata.imputed <- Impdata.imputed %>% mutate(Jahr_fac = as.factor(Jahr))
 ## Arbeitsdimension
 
 
-```{r Arbeitslosigkeit}
+```{r Arbeitsdimension, echo=FALSE}
 Arbeitslosigkeit <- ggplot(Impdata.imputed, aes(as.factor(Gemeindekennziffer), Jahr_fac, color = Arbeitslosigkeit)) + 
   geom_tile(alpha = 0.5, size=0.5) +
   theme_rki() + theme(axis.text.x = element_text(size=8, angle=25),legend.position="bottom") +
@@ -48,9 +46,7 @@ Arbeitslosigkeit <- ggplot(Impdata.imputed, aes(as.factor(Gemeindekennziffer), J
 Arbeitslosigkeit
 
 ggsave("Outfiles/2021_v2/Check_Ausgangsdaten/Arbeitslosigkeit.png")
-```
 
-```{r Beschäftigungsquote}
 Beschaeftigtenquote <- ggplot(Impdata.imputed, aes(as.factor(Gemeindekennziffer), Jahr_fac, color = Beschaeftigtenquote)) + 
   geom_tile(alpha = 0.5, size=0.5) +
   theme_rki() + theme(axis.text.x = element_text(size=8, angle=25),legend.position="bottom") +
@@ -62,11 +58,7 @@ Beschaeftigtenquote
 
 ggsave("Outfiles/2021_v2/Check_Ausgangsdaten/Beschäftigtenquote.png")
 
-```
 
-Die Jahre 1998 bis 2000 wurden imputiert.
-
-```{r adjusted Beschäftigungsquote}
 Beschaeftigtenquote_adj <- ggplot(Impdata.imputed, aes(as.factor(Gemeindekennziffer), Jahr_fac, color = Beschaeftigtenquote_adj)) + 
   geom_tile(alpha = 0.5, size=0.5) +
   theme_rki() + theme(axis.text.x = element_text(size=8, angle=25),legend.position="bottom") +
@@ -78,11 +70,7 @@ Beschaeftigtenquote_adj
 
 ggsave("Outfiles/2021_v2/Check_Ausgangsdaten/Beschaeftigtenquote_adj.png")
 
-```
 
-Die Jahre 1998 bis 2000 wurden imputiert.
-
-```{r Bruttoverdienst, echo=FALSE}
 Bruttoverdienst <- ggplot(Impdata.imputed, aes(as.factor(Gemeindekennziffer), Jahr_fac, color = Bruttoverdienst)) + 
   geom_tile(alpha = 0.5, size=0.5) +
   theme_rki() + theme(axis.text.x = element_text(size=8, angle=25),legend.position="bottom") +
@@ -94,11 +82,7 @@ Bruttoverdienst
 
 ggsave("Outfiles/2021_v2/Check_Ausgangsdaten/Bruttoverdienst.png")
 
-```
 
-Die Jahre 1998 bis 1999 wurden imputiert.
-
-```{r log. Bruttoverdienst, echo=FALSE}
 Bruttoverdienst_ln <- ggplot(Impdata.imputed, aes(as.factor(Gemeindekennziffer), Jahr_fac, color = Bruttoverdienst_ln)) + 
   geom_tile(alpha = 0.5, size=0.5) +
   theme_rki() + theme(axis.text.x = element_text(size=8, angle=25),legend.position="bottom") +
@@ -112,12 +96,10 @@ ggsave("Outfiles/2021_v2/Check_Ausgangsdaten/Bruttoverdienst_ln.png")
 
 ```
 
-Die Jahre 1998 bis 1999 wurden imputiert.
-
 
 ## Einkommensdimension
 
-```{r Einkommensteuer, echo=FALSE}
+```{r Einkommensdimension, echo=FALSE}
 Einkommensteuer <- ggplot(Impdata.imputed, aes(as.factor(Gemeindekennziffer), Jahr_fac, color = Einkommensteuer)) + 
   geom_tile(alpha = 0.5, size=0.5) +
   theme_rki() + theme(axis.text.x = element_text(size=8, angle=25),legend.position="bottom") +
@@ -129,11 +111,7 @@ Einkommensteuer
 
 ggsave("Outfiles/2021_v2/Check_Ausgangsdaten/Einkommensteuer.png")
 
-```
 
-Die Jahre 1998 bis 2000 wurden imputiert.
-
-```{r log. Einkommensteuer, echo=FALSE}
 Einkommensteuer_ln <- ggplot(Impdata.imputed, aes(as.factor(Gemeindekennziffer), Jahr_fac, color = Einkommensteuer_ln)) + 
   geom_tile(alpha = 0.5, size=0.5) +
   theme_rki() + theme(axis.text.x = element_text(size=8, angle=25),legend.position="bottom") +
@@ -145,11 +123,7 @@ Einkommensteuer_ln
 
 ggsave("Outfiles/2021_v2/Check_Ausgangsdaten/Einkommensteuer_ln.png")
 
-```
 
-Die Jahre 1998 bis 2000 wurden imputiert.
-
-```{r Haushaltseinkommen, echo=FALSE}
 Haushaltseinkommen <- ggplot(Impdata.imputed, aes(as.factor(Gemeindekennziffer), Jahr_fac, color = Haushaltseinkommen)) + 
   geom_tile(alpha = 0.5, size=0.5) +
   theme_rki() + theme(axis.text.x = element_text(size=8, angle=25),legend.position="bottom") +
@@ -161,11 +135,7 @@ Haushaltseinkommen
 
 ggsave("Outfiles/2021_v2/Check_Ausgangsdaten/Haushaltseinkommen.png")
 
-```
 
-Die Jahre 1998 bis 1999 wurden imputiert.
-
-```{r log. Haushaltseinkommen, echo=FALSE}
 Haushaltseinkommen_ln <- ggplot(Impdata.imputed, aes(as.factor(Gemeindekennziffer), Jahr_fac, color = Haushaltseinkommen_ln)) + 
   geom_tile(alpha = 0.5, size=0.5) +
   theme_rki() + theme(axis.text.x = element_text(size=8, angle=25),legend.position="bottom") +
@@ -177,11 +147,7 @@ Haushaltseinkommen_ln
 
 ggsave("Outfiles/2021_v2/Check_Ausgangsdaten/Haushaltseinkommen_ln.png")
 
-```
 
-Die Jahre 1998 bis 1999 wurden imputiert.
-
-```{r Schuldnerquote, echo=FALSE}
 Schuldnerquote <- ggplot(Impdata.imputed, aes(as.factor(Gemeindekennziffer), Jahr_fac, color = Schuldnerquote)) + 
   geom_tile(alpha = 0.5, size=0.5) +
   theme_rki() + theme(axis.text.x = element_text(size=8, angle=25),legend.position="bottom") +
@@ -195,11 +161,10 @@ ggsave("Outfiles/2021_v2/Check_Ausgangsdaten/Schuldnerquote.png")
 
 ```
 
-Die Jahre 1998 bis 2003 wurden imputiert.
 
 ## Bildungsdimension
 
-```{r Beschäftigte ohne Abschluss, echo=FALSE}
+```{r Bildungsdimension, echo=FALSE}
 BeschaeftigteohneAbschluss <- ggplot(Impdata.imputed, aes(as.factor(Gemeindekennziffer), Jahr_fac, color = BeschaeftigteohneAbschluss)) + 
   geom_tile(alpha = 0.5, size=0.5) +
   theme_rki() + theme(axis.text.x = element_text(size=8, angle=25),legend.position="bottom") +
@@ -211,11 +176,7 @@ BeschaeftigteohneAbschluss
 
 ggsave("Outfiles/2021_v2/Check_Ausgangsdaten/BeschaeftigteohneAbschluss.png")
 
-```
 
-Die Jahre 1998 bis 2011 wurden imputiert.
-
-```{r adj. Beschäftigte ohne Abschluss, echo=FALSE}
 BeschaeftigteohneAbschluss_adj <- ggplot(Impdata.imputed, aes(as.factor(Gemeindekennziffer), Jahr_fac, color = BeschaeftigteohneAbschluss_adj)) + 
   geom_tile(alpha = 0.5, size=0.5) +
   theme_rki() + theme(axis.text.x = element_text(size=8, angle=25),legend.position="bottom") +
@@ -227,11 +188,7 @@ BeschaeftigteohneAbschluss_adj
 
 ggsave("Outfiles/2021_v2/Check_Ausgangsdaten/BeschaeftigteohneAbschluss_adj.png")
 
-```
 
-Die Jahre 1998 bis 2011 wurden imputiert.
-
-```{r Beschäftigte mit akad. Abschluss, echo=FALSE}
 BeschaeftigtemitakadAbschluss <- ggplot(Impdata.imputed, aes(as.factor(Gemeindekennziffer), Jahr_fac, color = BeschaeftigtemitakadAbschluss)) + 
   geom_tile(alpha = 0.5, size=0.5) +
   theme_rki() + theme(axis.text.x = element_text(size=8, angle=25),legend.position="bottom") +
@@ -243,11 +200,7 @@ BeschaeftigtemitakadAbschluss
 
 ggsave("Outfiles/2021_v2/Check_Ausgangsdaten/BeschaeftigtemitakadAbschluss.png")
 
-```
 
-Die Jahre 1998 bis 2011 wurden imputiert.
-
-```{r Schulabgänger ohne Abschluss, echo=FALSE}
 SchulabgaengerohneAbschluss <- ggplot(Impdata.imputed, aes(as.factor(Gemeindekennziffer), Jahr_fac, color = SchulabgaengerohneAbschluss)) + 
   geom_tile(alpha = 0.5, size=0.5) +
   theme_rki() + theme(axis.text.x = element_text(size=8, angle=25),legend.position="bottom") +
@@ -259,11 +212,7 @@ SchulabgaengerohneAbschluss
 
 ggsave("Outfiles/2021_v2/Check_Ausgangsdaten/SchulabgaengerohneAbschluss.png")
 
-```
 
-Die Jahre 1998 bis 2011 wurden imputiert.
-
-```{r adj. schulabgänger ohne Abschluss, echo=FALSE}
 SchulabgaengerohneAbschluss_adj <- ggplot(Impdata.imputed, aes(as.factor(Gemeindekennziffer), Jahr_fac, color = SchulabgaengerohneAbschluss_adj)) + 
   geom_tile(alpha = 0.5, size=0.5) +
   theme_rki() + theme(axis.text.x = element_text(size=8, angle=25),legend.position="bottom") +
@@ -275,11 +224,7 @@ SchulabgaengerohneAbschluss_adj
 
 ggsave("Outfiles/2021_v2/Check_Ausgangsdaten/SchulabgaengerohneAbschluss_adj.png")
 
-```
 
-Die Jahre 1998 bis 2011 wurden imputiert.
-
-```{r Schulabgänger mit Hochschulreife, echo=FALSE}
 SchulabgaengermitHochschulreife <- ggplot(Impdata.imputed, aes(as.factor(Gemeindekennziffer), Jahr_fac, color = SchulabgaengermitHochschulreife)) + 
   geom_tile(alpha = 0.5, size=0.5) +
   theme_rki() + theme(axis.text.x = element_text(size=8, angle=25),legend.position="bottom") +
@@ -291,11 +236,7 @@ SchulabgaengermitHochschulreife
 
 ggsave("Outfiles/2021_v2/Check_Ausgangsdaten/SchulabgaengermitHochschulreife.png")
 
-```
 
-Die Jahre 1998 bis 2011 wurden imputiert.
-
-```{r adj. Schulabgänger mit Hochschulreife, echo=FALSE}
 SchulabgaengermitHochschulreife_adj <- ggplot(Impdata.imputed, aes(as.factor(Gemeindekennziffer), Jahr_fac, color = SchulabgaengermitHochschulreife_adj)) + 
   geom_tile(alpha = 0.5, size=0.5) +
   theme_rki() + theme(axis.text.x = element_text(size=8, angle=25),legend.position="bottom") +
@@ -309,6 +250,5 @@ ggsave("Outfiles/2021_v2/Check_Ausgangsdaten/SchulabgaengermitHochschulreife_adj
 
 ```
 
-Die Jahre 1998 bis 2011 wurden imputiert.
 
 
