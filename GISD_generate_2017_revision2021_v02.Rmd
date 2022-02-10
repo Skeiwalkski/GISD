@@ -551,7 +551,7 @@ Impdata.imputed <- Impdata.imputed %>% mutate(Bruttoverdienst_ln = log(Bruttover
 #write_dta(Impdata.imputed, paste0("Outfiles/2021/Stata/impdata.dta"))
 
 # RDS-Datensatz rausschreiben
-write_rds(Impdata.imputed, paste0("Outfiles/Impdata_check.rds"))
+write_rds(Impdata.imputed, paste0("Outfiles/2021_v2/Impdata_check.rds"))
 
 ```
 
@@ -765,7 +765,7 @@ str(Resultdataset %>% select(TS_Arbeitswelt_adj,TS_Einkommen_adj,TS_Bildung_adj,
 # Teilscores und GISD-Score in Datensatz speichern
 Resultdataset <- Resultdataset %>% select(Gemeindekennziffer,Jahr,Bevoelkerung,contains("TS_"),contains("GISD_Score"))
 
-write_rds(Resultdataset, paste0("Outfiles/Resultdataset.rds"))
+write_rds(Resultdataset, paste0("Outfiles/2021_v2/Resultdataset.rds"))
 ```
 
 ## V.  Datenexport - Erstellung der Datensätze 

@@ -34,8 +34,8 @@ setwd(home)
 #Impdata.imputed <- readRDS("Outfiles/Impdata_check.rds")
 #Resultdataset <- read.csv("Outfiles/2021/Bund/Gemeinde/Gemeinde.csv")
 
-Impdata.imputed <- readRDS("Outfiles/Impdata_check.rds")
-Resultdataset <- readRDS("Outfiles/Resultdataset.rds")
+Impdata.imputed <- readRDS("Outfiles/2021_v2/Impdata_check.rds")
+Resultdataset <- readRDS("Outfiles/2021_v2/Resultdataset.rds")
 
 Corr_data <- left_join(as.data.frame(Impdata.imputed), Resultdataset, all.x = TRUE)
 
