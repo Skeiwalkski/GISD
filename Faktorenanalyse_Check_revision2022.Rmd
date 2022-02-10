@@ -107,7 +107,7 @@ TS_Einkommen.pca <- prcomp(TS_Einkommen, center = TRUE, scale. = TRUE, retx=TRUE
 # PCA für die Bildungsdimension
 #TS_Bildung.pca <- prcomp(TS_Bildung, center = TRUE, scale. = TRUE, retx=TRUE) 
 #plot(TS_Bildung.pca)
-TS_Bildung.pca <- prcomp(TS_Bildung_o, center = TRUE, scale. = TRUE, retx=TRUE, rank. = 1)
+TS_Bildung.pca <- prcomp(TS_Bildung, center = TRUE, scale. = TRUE, retx=TRUE, rank. = 1)
 #TS_Bildung.pca
 
 # Alternativ Bildungskomponente mit BeschaeftigtemitakadAbschluss,SchulabgaengermitHochschulreife,SchulabgaengerohneAbschluss
@@ -130,7 +130,8 @@ TS_Bildung.pca <- prcomp(TS_Bildung_o, center = TRUE, scale. = TRUE, retx=TRUE, 
 TS_Bildung_4items.pca <- prcomp(TS_Bildung_4items, center = TRUE, scale. = TRUE, retx=TRUE, rank. = 1)
 TS_Bildung_4items_o.pca <- prcomp(TS_Bildung_4items_o, center = TRUE, scale. = TRUE, retx=TRUE, rank. = 1)
 # plot(TS_Bildung_4items.pca)
-# TS_Bildung_4items.pca
+#TS_Bildung_4items.pca
+#TS_Bildung_4items_o.pca
 
 #tab_Bildung_4items <- cbind("Faktor" = "F", "SD" = TS_Bildung_4items.pca$sdev^2)
 #tab_Bildung_4items <- cbind(as.data.frame(tab_Bildung_4items))
@@ -513,7 +514,7 @@ colnames(cor_tab) <- c("Arbeitslosigkeit", "Faktor Arbeitswelt", "Faktor Einkomm
 
 rownames(cor_tab) <- c("Arbeitslosigkeit", "Faktor Arbeitswelt", "Faktor Einkommen", "Faktor Bildung")
 
-#kable(cor_tab, caption = "Korrelation von Arbeitslosigkeit und Faktoren")
+kable(cor_tab, caption = "Korrelation von Arbeitslosigkeit und Faktoren")
 ```
 
 

@@ -58,7 +58,7 @@ ggsave("Outfiles/beschquote.png")
 
 ggplot(Corr_data, aes(GISD_Score, Jahr, color = Beschaeftigtenquote_adj)) + geom_tile(alpha = 0.5, size = 0.5) + 
   theme_rki() + theme(legend.position="bottom") + 
-  scale_color_gradientn(colours = rainbow(5), limits=c(0,100)) + scale_y_discrete(limits=rev) + 
+  scale_color_gradientn(colours = rainbow(5), limits=c(0,80)) + scale_y_discrete(limits=rev) + 
   scale_x_continuous(position = "top") +
   labs(colour = "Beschäftigtenquote (Gedeckelt bei 80 Prozent)", x = "GISD Score", title = "Verteilung der gedeckelten Beschäftigtenquote auf den GISD-Score") 
 ggsave("Outfiles/beschquote_adj.png")

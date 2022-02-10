@@ -167,7 +167,7 @@ rm(inputdataset)
 listofdeterminants <- names(Basedata)[3:length(Basedata)]
 
 # Regionale Tiefe der Indikatoren 
-ind_level <- c("Gemeindeverband","Gemeindeverband","Kreis", "Gemeindeverband", "Kreis", "Kreis", "Kreis", "Kreis", "Gemeindeverband", "Kreis", "Kreis")
+ind_level <- c("Gemeindeverband","Gemeindeverband","Kreis", "Gemeindeverband", "Kreis", "Kreis", "Kreis", "Kreis", "Kreis", "Gemeindeverband", "Kreis", "Kreis")
 level_table <- cbind(listofdeterminants,ind_level)
 # Tabelle der Indikatoren mit regionaler Tiefe
 ind_col = c("Indikator","Tiefe des Indikators")
@@ -217,6 +217,18 @@ Workfile <- as.data.frame(expand.grid("Kennziffer"=Gemeinden_INKAR %>% pull(Kenn
 
 rm(myimport)
 
+##Erstellen eines Datensatzes mit Bevölkerungslosen Gemeinden und Entfernen dieser für die bevorstehende Imputation und die Faktoranalyse
+Gemeinden_ohne_Bevoelkerung <- Workfile %>% filter(Bevoelkerung==0)
+write_dta(Gemeinden_ohne_Bevoelkerung, paste0("Outfiles/Gemeinden_ohne_Bevoelkerung.dta"))
+
+#Berechnung der Anteile für Beschäftigte ohne Abschluss, Beschäftigte mit akad. Abschluss und Entfernen SV Beschäftigte (total)
+Workfile <- Workfile %>% filter(Bevoelkerung>0) %>% mutate(BeschaeftigteohneAbschluss = round(BeschaeftigteohneAbschluss / SVBeschaeftigte * 100, digits = 2), BeschaeftigtemitakadAbschluss = round(BeschaeftigtemitakadAbschluss / SVBeschaeftigte * 100, digits = 2)) %>%
+  select(-SVBeschaeftigte)
+Basedata <- Basedata %>% select(-SVBeschaeftigte)
+Basedata_Kreisebene <- Basedata_Kreisebene %>% select(-SVBeschaeftigte)
+level_table <- level_table[-9,]
+listofdeterminants <- listofdeterminants[-9]
+
 
 #Berechnung der tatsächlichen Arbeitslosenquote und Entfernen Erwerbsfähige Bevölkerung
 Workfile <- Workfile %>% filter(Bevoelkerung>0) %>% mutate(Arbeitslosigkeit = ifelse(is.na(ErwerbsfaehigeBevoelkerung),NA,round(Arbeitslosigkeit / ErwerbsfaehigeBevoelkerung * 1000, digits = 2)), Arbeitslosigkeit=ifelse(is.nan(Arbeitslosigkeit),NA,Arbeitslosigkeit),
@@ -225,11 +237,6 @@ Basedata <- Basedata %>% select(-ErwerbsfaehigeBevoelkerung)
 Basedata_Gemeindeverbandsebene <- Basedata_Gemeindeverbandsebene %>% select(-ErwerbsfaehigeBevoelkerung)
 level_table <- level_table[-4,]
 listofdeterminants <- listofdeterminants[-4]
-
-
-##Erstellen eines Datensatzes mit Bevölkerungslosen Gemeinden und Entfernen dieser für die bevorstehende Imputation und die Faktoranalyse
-Gemeinden_ohne_Bevoelkerung <- Workfile %>% filter(Bevoelkerung==0)
-write_dta(Gemeinden_ohne_Bevoelkerung, paste0("Outfiles/Gemeinden_ohne_Bevoelkerung.dta"))
 
 ##Ausschreiben eines Vorab-Workfiles zur Überprüfung der Arbeitslosenquote
 Workfile <- Workfile %>% filter(Bevoelkerung>0)
