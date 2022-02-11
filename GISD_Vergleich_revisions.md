@@ -27,6 +27,13 @@ dat_2017 <- read.csv("Outfiles/2021/Bund/Gemeinde/Gemeinde.csv") %>% mutate(Krei
 
 dat_2017_v2 <- read.csv("Outfiles/2021_v2/Bund/Gemeinde/Gemeinde.csv") %>% mutate(Kreis = round(Gemeindekennziffer/1000), digits = 0)
 
+dat_2017_v3 <- read.csv("Outfiles/2021_v3/Bund/Gemeinde/Gemeinde.csv") %>% mutate(Kreis = round(Gemeindekennziffer/1000), digits = 0)
+
+dat_2019 <- read.csv("Outfiles/2022/Bund/Gemeinde/Gemeinde.csv") %>% mutate(Kreis = round(Gemeindekennziffer/1000), digits = 0)
+
+dat_2019b <- read.csv("Outfiles/2022b/Bund/Gemeinde/Gemeinde.csv") %>% mutate(Kreis = round(Gemeindekennziffer/1000), digits = 0)
+
+
 dat_Lebenserwartung <- read.csv2("INKAR_Lebenswerwartung_Kreise_Geschlecht.csv") %>% mutate(Kreis = as.numeric(ï..Kennziffer), Lebenserwartung.Männer.2014 = Lebenserwartung.MÃ.nner, Lebenserwartung.Männer.2017 = Lebenserwartung.MÃ.nner.1) %>% select(-ï..Kennziffer, -Lebenserwartung.MÃ.nner, -Lebenserwartung.MÃ.nner.1)
 
 dat_Leberw_2014 <- dat_2014 %>% filter(Jahr == 2014) %>% left_join(dat_Lebenserwartung, by = "Kreis") %>% select(- Lebenserwartung.Frauen.1, - Lebenserwartung.Männer.2017) %>% distinct(Kreis, .keep_all = TRUE) %>% unique()
@@ -37,6 +44,11 @@ dat_Leberw_2017 <- dat_2017 %>% filter(Jahr == 2017) %>% left_join(dat_Lebenserw
 
 dat_Leberw_2017_v2 <- dat_2017_v2 %>% filter(Jahr == 2017) %>% left_join(dat_Lebenserwartung, by = "Kreis") %>% select(- Lebenserwartung.Frauen, - Lebenserwartung.Männer.2014) %>% distinct(Kreis, .keep_all = TRUE) %>% unique()
 
+dat_Leberw_2017_v3 <- dat_2017_v3 %>% filter(Jahr == 2017) %>% left_join(dat_Lebenserwartung, by = "Kreis") %>% select(- Lebenserwartung.Frauen, - Lebenserwartung.Männer.2014) %>% distinct(Kreis, .keep_all = TRUE) %>% unique()
+
+dat_Leberw_2019 <- dat_2019 %>% filter(Jahr == 2019) %>% left_join(dat_Lebenserwartung, by = "Kreis") %>% select(- Lebenserwartung.Frauen, - Lebenserwartung.Männer.2014) %>% distinct(Kreis, .keep_all = TRUE) %>% unique()
+
+dat_Leberw_2019b <- dat_2019b %>% filter(Jahr == 2019) %>% left_join(dat_Lebenserwartung, by = "Kreis") %>% select(- Lebenserwartung.Frauen, - Lebenserwartung.Männer.2014) %>% distinct(Kreis, .keep_all = TRUE) %>% unique()
 
 Gemeindekennziffer <- c("9162000", "16053000", "7317000", "1001000", "14625020", "9188139")
 ```
@@ -50,6 +62,12 @@ dat_Leberw_2016$GISD_Score <- (dat_Leberw_2016$GISD_Score -min(dat_Leberw_2016$G
 dat_Leberw_2017$GISD_Score <- (dat_Leberw_2017$GISD_Score -min(dat_Leberw_2017$GISD_Score ))/(max(dat_Leberw_2017$GISD_Score )-min(dat_Leberw_2017$GISD_Score))
 
 dat_Leberw_2017_v2$GISD_Score <- (dat_Leberw_2017_v2$GISD_Score -min(dat_Leberw_2017_v2$GISD_Score ))/(max(dat_Leberw_2017_v2$GISD_Score )-min(dat_Leberw_2017_v2$GISD_Score))
+
+dat_Leberw_2017_v3$GISD_Score <- (dat_Leberw_2017_v3$GISD_Score -min(dat_Leberw_2017_v3$GISD_Score ))/(max(dat_Leberw_2017_v3$GISD_Score )-min(dat_Leberw_2017_v3$GISD_Score))
+
+dat_Leberw_2019$GISD_Score <- (dat_Leberw_2019$GISD_Score -min(dat_Leberw_2019$GISD_Score ))/(max(dat_Leberw_2019$GISD_Score )-min(dat_Leberw_2019$GISD_Score))
+
+dat_Leberw_2019b$GISD_Score <- (dat_Leberw_2019b$GISD_Score -min(dat_Leberw_2019b$GISD_Score ))/(max(dat_Leberw_2019b$GISD_Score )-min(dat_Leberw_2019b$GISD_Score))
 ```
 
 ## Versionen des GISD-Scores über die Zeit {.tabset}
@@ -1631,6 +1649,62 @@ ggplot(dat_Leberw_2017_v2) +
 ```
 
 ![](GISD_Vergleich_revisions_files/figure-html/2021_v2-1.png)<!-- -->
+
+### V2021_v3
+
+```r
+ggplot(dat_Leberw_2017_v3) +
+  geom_point(aes(x = GISD_Score, y = Lebenserwartung.Frauen.1, col = "navy"), size = 1.5, alpha = 0.5) +
+  geom_point(aes(x = GISD_Score, y = Lebenserwartung.Männer.2017, col = "darkgreen"), size = 1.5, alpha = 0.5) +
+  ylim(74, 88) +
+  xlim(0, 1) +
+  geom_rug(size = 0.5) +
+  geom_smooth(aes(x = GISD_Score, y = Lebenserwartung.Frauen.1), method = lm,col = "red", linetype = "dashed", fill = "grey50", alpha = 0.5) +
+  geom_smooth(aes(x = GISD_Score, y = Lebenserwartung.Männer.2017), method = lm,col = "red", linetype = "dashed", fill = "grey50", alpha = 0.5) +
+  labs(x = "GISD-Score", title = "Lebenserwartung der Landkreise nach dem GISD (V2021_v3)", subtitle = "im Jahr 2017, nach Geschlecht, mit Regressionslinie (Linear)",
+       y = "Lebenserwartung in Jahren") +
+  scale_colour_identity(name = "Geschlecht", labels = c("Männer", "Frauen"),  guide = "legend") +
+  theme_rki()
+```
+
+![](GISD_Vergleich_revisions_files/figure-html/2021_v3-1.png)<!-- -->
+
+### V2022
+
+```r
+ggplot(dat_Leberw_2019) +
+  geom_point(aes(x = GISD_Score, y = Lebenserwartung.Frauen.1, col = "navy"), size = 1.5, alpha = 0.5) +
+  geom_point(aes(x = GISD_Score, y = Lebenserwartung.Männer.2017, col = "darkgreen"), size = 1.5, alpha = 0.5) +
+  ylim(74, 88) +
+  xlim(0, 1) +
+  geom_rug(size = 0.5) +
+  geom_smooth(aes(x = GISD_Score, y = Lebenserwartung.Frauen.1), method = lm,col = "red", linetype = "dashed", fill = "grey50", alpha = 0.5) +
+  geom_smooth(aes(x = GISD_Score, y = Lebenserwartung.Männer.2017), method = lm,col = "red", linetype = "dashed", fill = "grey50", alpha = 0.5) +
+  labs(x = "GISD-Score", title = "Lebenserwartung der Landkreise nach dem GISD (V2022)", subtitle = "im Jahr 2019, nach Geschlecht, mit Regressionslinie (Linear)",
+       y = "Lebenserwartung in Jahren") +
+  scale_colour_identity(name = "Geschlecht", labels = c("Männer", "Frauen"),  guide = "legend") +
+  theme_rki()
+```
+
+![](GISD_Vergleich_revisions_files/figure-html/V2022-1.png)<!-- -->
+
+
+```r
+ggplot(dat_Leberw_2019b) +
+  geom_point(aes(x = GISD_Score, y = Lebenserwartung.Frauen.1, col = "navy"), size = 1.5, alpha = 0.5) +
+  geom_point(aes(x = GISD_Score, y = Lebenserwartung.Männer.2017, col = "darkgreen"), size = 1.5, alpha = 0.5) +
+  ylim(74, 88) +
+  xlim(0, 1) +
+  geom_rug(size = 0.5) +
+  geom_smooth(aes(x = GISD_Score, y = Lebenserwartung.Frauen.1), method = lm,col = "red", linetype = "dashed", fill = "grey50", alpha = 0.5) +
+  geom_smooth(aes(x = GISD_Score, y = Lebenserwartung.Männer.2017), method = lm,col = "red", linetype = "dashed", fill = "grey50", alpha = 0.5) +
+  labs(x = "GISD-Score", title = "Lebenserwartung der Landkreise nach dem GISD (V2022b)", subtitle = "im Jahr 2019, nach Geschlecht, mit Regressionslinie (Linear)",
+       y = "Lebenserwartung in Jahren") +
+  scale_colour_identity(name = "Geschlecht", labels = c("Männer", "Frauen"),  guide = "legend") +
+  theme_rki()
+```
+
+![](GISD_Vergleich_revisions_files/figure-html/V2022b-1.png)<!-- -->
 
 ## Änderungen in der Generierung des GISD
 

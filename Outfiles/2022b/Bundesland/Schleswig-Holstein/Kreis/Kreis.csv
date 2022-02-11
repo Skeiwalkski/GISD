@@ -1,0 +1,331 @@
+"","GISD_Score","Kreiskennziffer","Name des Kreises","Jahr"
+"1",0.902655,1001,"Flensburg, Stadt",1998
+"2",0.929945,1001,"Flensburg, Stadt",1999
+"3",0.942269,1001,"Flensburg, Stadt",2000
+"4",0.938535,1001,"Flensburg, Stadt",2001
+"5",0.94399,1001,"Flensburg, Stadt",2002
+"6",0.814819,1001,"Flensburg, Stadt",2003
+"7",0.916497,1001,"Flensburg, Stadt",2004
+"8",1,1001,"Flensburg, Stadt",2005
+"9",0.967311,1001,"Flensburg, Stadt",2006
+"10",0.967256,1001,"Flensburg, Stadt",2007
+"11",0.875106,1001,"Flensburg, Stadt",2008
+"12",0.940048,1001,"Flensburg, Stadt",2009
+"13",0.898799,1001,"Flensburg, Stadt",2010
+"14",0.790843,1001,"Flensburg, Stadt",2011
+"15",0.791926,1001,"Flensburg, Stadt",2012
+"16",0.829435,1001,"Flensburg, Stadt",2013
+"17",0.870448,1001,"Flensburg, Stadt",2014
+"18",0.838406,1001,"Flensburg, Stadt",2015
+"19",0.812315,1001,"Flensburg, Stadt",2016
+"20",0.827705,1001,"Flensburg, Stadt",2017
+"21",0.769147,1001,"Flensburg, Stadt",2018
+"22",0.778806,1001,"Flensburg, Stadt",2019
+"23",0.551138,1002,"Kiel, Stadt",1998
+"24",0.548322,1002,"Kiel, Stadt",1999
+"25",0.634204,1002,"Kiel, Stadt",2000
+"26",0.616666,1002,"Kiel, Stadt",2001
+"27",0.566494,1002,"Kiel, Stadt",2002
+"28",0.52978,1002,"Kiel, Stadt",2003
+"29",0.563248,1002,"Kiel, Stadt",2004
+"30",0.60882,1002,"Kiel, Stadt",2005
+"31",0.613081,1002,"Kiel, Stadt",2006
+"32",0.613042,1002,"Kiel, Stadt",2007
+"33",0.529345,1002,"Kiel, Stadt",2008
+"34",0.477679,1002,"Kiel, Stadt",2009
+"35",0.4665,1002,"Kiel, Stadt",2010
+"36",0.435278,1002,"Kiel, Stadt",2011
+"37",0.43777,1002,"Kiel, Stadt",2012
+"38",0.432715,1002,"Kiel, Stadt",2013
+"39",0.451905,1002,"Kiel, Stadt",2014
+"40",0.407251,1002,"Kiel, Stadt",2015
+"41",0.385397,1002,"Kiel, Stadt",2016
+"42",0.381055,1002,"Kiel, Stadt",2017
+"43",0.358165,1002,"Kiel, Stadt",2018
+"44",0.337763,1002,"Kiel, Stadt",2019
+"45",0.800763,1003,"Lübeck, Stadt",1998
+"46",0.812069,1003,"Lübeck, Stadt",1999
+"47",0.947809,1003,"Lübeck, Stadt",2000
+"48",0.977585,1003,"Lübeck, Stadt",2001
+"49",0.935593,1003,"Lübeck, Stadt",2002
+"50",0.815848,1003,"Lübeck, Stadt",2003
+"51",0.817162,1003,"Lübeck, Stadt",2004
+"52",0.918631,1003,"Lübeck, Stadt",2005
+"53",0.855941,1003,"Lübeck, Stadt",2006
+"54",0.854776,1003,"Lübeck, Stadt",2007
+"55",0.781943,1003,"Lübeck, Stadt",2008
+"56",0.784588,1003,"Lübeck, Stadt",2009
+"57",0.74721,1003,"Lübeck, Stadt",2010
+"58",0.778231,1003,"Lübeck, Stadt",2011
+"59",0.796678,1003,"Lübeck, Stadt",2012
+"60",0.728298,1003,"Lübeck, Stadt",2013
+"61",0.802066,1003,"Lübeck, Stadt",2014
+"62",0.719425,1003,"Lübeck, Stadt",2015
+"63",0.648754,1003,"Lübeck, Stadt",2016
+"64",0.670882,1003,"Lübeck, Stadt",2017
+"65",0.612624,1003,"Lübeck, Stadt",2018
+"66",0.593506,1003,"Lübeck, Stadt",2019
+"67",1,1004,"Neumünster, Stadt",1998
+"68",1,1004,"Neumünster, Stadt",1999
+"69",1,1004,"Neumünster, Stadt",2000
+"70",1,1004,"Neumünster, Stadt",2001
+"71",1,1004,"Neumünster, Stadt",2002
+"72",1,1004,"Neumünster, Stadt",2003
+"73",1,1004,"Neumünster, Stadt",2004
+"74",0.999388,1004,"Neumünster, Stadt",2005
+"75",1,1004,"Neumünster, Stadt",2006
+"76",1,1004,"Neumünster, Stadt",2007
+"77",1,1004,"Neumünster, Stadt",2008
+"78",1,1004,"Neumünster, Stadt",2009
+"79",1,1004,"Neumünster, Stadt",2010
+"80",1,1004,"Neumünster, Stadt",2011
+"81",1,1004,"Neumünster, Stadt",2012
+"82",1,1004,"Neumünster, Stadt",2013
+"83",1,1004,"Neumünster, Stadt",2014
+"84",1,1004,"Neumünster, Stadt",2015
+"85",1,1004,"Neumünster, Stadt",2016
+"86",1,1004,"Neumünster, Stadt",2017
+"87",1,1004,"Neumünster, Stadt",2018
+"88",1,1004,"Neumünster, Stadt",2019
+"89",0.761129,1051,"Dithmarschen",1998
+"90",0.786614,1051,"Dithmarschen",1999
+"91",0.919955,1051,"Dithmarschen",2000
+"92",0.996875,1051,"Dithmarschen",2001
+"93",0.988726,1051,"Dithmarschen",2002
+"94",0.85214,1051,"Dithmarschen",2003
+"95",0.909545,1051,"Dithmarschen",2004
+"96",0.968651,1051,"Dithmarschen",2005
+"97",0.89314,1051,"Dithmarschen",2006
+"98",0.904442,1051,"Dithmarschen",2007
+"99",0.855777,1051,"Dithmarschen",2008
+"100",0.899506,1051,"Dithmarschen",2009
+"101",0.843673,1051,"Dithmarschen",2010
+"102",0.829948,1051,"Dithmarschen",2011
+"103",0.86349,1051,"Dithmarschen",2012
+"104",0.795066,1051,"Dithmarschen",2013
+"105",0.855024,1051,"Dithmarschen",2014
+"106",0.793837,1051,"Dithmarschen",2015
+"107",0.792285,1051,"Dithmarschen",2016
+"108",0.764092,1051,"Dithmarschen",2017
+"109",0.746888,1051,"Dithmarschen",2018
+"110",0.72512,1051,"Dithmarschen",2019
+"111",0.422503,1053,"Herzogtum Lauenburg",1998
+"112",0.448622,1053,"Herzogtum Lauenburg",1999
+"113",0.567263,1053,"Herzogtum Lauenburg",2000
+"114",0.593901,1053,"Herzogtum Lauenburg",2001
+"115",0.62438,1053,"Herzogtum Lauenburg",2002
+"116",0.569078,1053,"Herzogtum Lauenburg",2003
+"117",0.553583,1053,"Herzogtum Lauenburg",2004
+"118",0.548251,1053,"Herzogtum Lauenburg",2005
+"119",0.537148,1053,"Herzogtum Lauenburg",2006
+"120",0.52654,1053,"Herzogtum Lauenburg",2007
+"121",0.488849,1053,"Herzogtum Lauenburg",2008
+"122",0.470286,1053,"Herzogtum Lauenburg",2009
+"123",0.471112,1053,"Herzogtum Lauenburg",2010
+"124",0.427691,1053,"Herzogtum Lauenburg",2011
+"125",0.44531,1053,"Herzogtum Lauenburg",2012
+"126",0.461684,1053,"Herzogtum Lauenburg",2013
+"127",0.434103,1053,"Herzogtum Lauenburg",2014
+"128",0.432234,1053,"Herzogtum Lauenburg",2015
+"129",0.431362,1053,"Herzogtum Lauenburg",2016
+"130",0.39122,1053,"Herzogtum Lauenburg",2017
+"131",0.4161,1053,"Herzogtum Lauenburg",2018
+"132",0.378351,1053,"Herzogtum Lauenburg",2019
+"133",0.573463,1054,"Nordfriesland",1998
+"134",0.594043,1054,"Nordfriesland",1999
+"135",0.798719,1054,"Nordfriesland",2000
+"136",0.858852,1054,"Nordfriesland",2001
+"137",0.827831,1054,"Nordfriesland",2002
+"138",0.725481,1054,"Nordfriesland",2003
+"139",0.825473,1054,"Nordfriesland",2004
+"140",0.78087,1054,"Nordfriesland",2005
+"141",0.746805,1054,"Nordfriesland",2006
+"142",0.763396,1054,"Nordfriesland",2007
+"143",0.707031,1054,"Nordfriesland",2008
+"144",0.712428,1054,"Nordfriesland",2009
+"145",0.672866,1054,"Nordfriesland",2010
+"146",0.651754,1054,"Nordfriesland",2011
+"147",0.650801,1054,"Nordfriesland",2012
+"148",0.607446,1054,"Nordfriesland",2013
+"149",0.616045,1054,"Nordfriesland",2014
+"150",0.561581,1054,"Nordfriesland",2015
+"151",0.589851,1054,"Nordfriesland",2016
+"152",0.576577,1054,"Nordfriesland",2017
+"153",0.590168,1054,"Nordfriesland",2018
+"154",0.578442,1054,"Nordfriesland",2019
+"155",0.678762,1055,"Ostholstein",1998
+"156",0.70359,1055,"Ostholstein",1999
+"157",0.86607,1055,"Ostholstein",2000
+"158",0.932418,1055,"Ostholstein",2001
+"159",0.935955,1055,"Ostholstein",2002
+"160",0.802922,1055,"Ostholstein",2003
+"161",0.836575,1055,"Ostholstein",2004
+"162",0.84544,1055,"Ostholstein",2005
+"163",0.837145,1055,"Ostholstein",2006
+"164",0.812618,1055,"Ostholstein",2007
+"165",0.763418,1055,"Ostholstein",2008
+"166",0.779825,1055,"Ostholstein",2009
+"167",0.708129,1055,"Ostholstein",2010
+"168",0.675307,1055,"Ostholstein",2011
+"169",0.684496,1055,"Ostholstein",2012
+"170",0.667137,1055,"Ostholstein",2013
+"171",0.678677,1055,"Ostholstein",2014
+"172",0.679718,1055,"Ostholstein",2015
+"173",0.685113,1055,"Ostholstein",2016
+"174",0.640309,1055,"Ostholstein",2017
+"175",0.639878,1055,"Ostholstein",2018
+"176",0.623093,1055,"Ostholstein",2019
+"177",0.197081,1056,"Pinneberg",1998
+"178",0.204111,1056,"Pinneberg",1999
+"179",0.297874,1056,"Pinneberg",2000
+"180",0.318115,1056,"Pinneberg",2001
+"181",0.283342,1056,"Pinneberg",2002
+"182",0.280994,1056,"Pinneberg",2003
+"183",0.226458,1056,"Pinneberg",2004
+"184",0.280504,1056,"Pinneberg",2005
+"185",0.228351,1056,"Pinneberg",2006
+"186",0.262415,1056,"Pinneberg",2007
+"187",0.204067,1056,"Pinneberg",2008
+"188",0.174195,1056,"Pinneberg",2009
+"189",0.167557,1056,"Pinneberg",2010
+"190",0.16059,1056,"Pinneberg",2011
+"191",0.155205,1056,"Pinneberg",2012
+"192",0.171063,1056,"Pinneberg",2013
+"193",0.161754,1056,"Pinneberg",2014
+"194",0.178333,1056,"Pinneberg",2015
+"195",0.18885,1056,"Pinneberg",2016
+"196",0.221528,1056,"Pinneberg",2017
+"197",0.193841,1056,"Pinneberg",2018
+"198",0.217109,1056,"Pinneberg",2019
+"199",0.574464,1057,"Plön",1998
+"200",0.580973,1057,"Plön",1999
+"201",0.771539,1057,"Plön",2000
+"202",0.788508,1057,"Plön",2001
+"203",0.784378,1057,"Plön",2002
+"204",0.713244,1057,"Plön",2003
+"205",0.733738,1057,"Plön",2004
+"206",0.756157,1057,"Plön",2005
+"207",0.723179,1057,"Plön",2006
+"208",0.694191,1057,"Plön",2007
+"209",0.634457,1057,"Plön",2008
+"210",0.645063,1057,"Plön",2009
+"211",0.579545,1057,"Plön",2010
+"212",0.538411,1057,"Plön",2011
+"213",0.515745,1057,"Plön",2012
+"214",0.519636,1057,"Plön",2013
+"215",0.533346,1057,"Plön",2014
+"216",0.540749,1057,"Plön",2015
+"217",0.543018,1057,"Plön",2016
+"218",0.532849,1057,"Plön",2017
+"219",0.513012,1057,"Plön",2018
+"220",0.478102,1057,"Plön",2019
+"221",0.457929,1058,"Rendsburg-Eckernförde",1998
+"222",0.464443,1058,"Rendsburg-Eckernförde",1999
+"223",0.597034,1058,"Rendsburg-Eckernförde",2000
+"224",0.622959,1058,"Rendsburg-Eckernförde",2001
+"225",0.635447,1058,"Rendsburg-Eckernförde",2002
+"226",0.568787,1058,"Rendsburg-Eckernförde",2003
+"227",0.568677,1058,"Rendsburg-Eckernförde",2004
+"228",0.560951,1058,"Rendsburg-Eckernförde",2005
+"229",0.503146,1058,"Rendsburg-Eckernförde",2006
+"230",0.509413,1058,"Rendsburg-Eckernförde",2007
+"231",0.485601,1058,"Rendsburg-Eckernförde",2008
+"232",0.507332,1058,"Rendsburg-Eckernförde",2009
+"233",0.471137,1058,"Rendsburg-Eckernförde",2010
+"234",0.428768,1058,"Rendsburg-Eckernförde",2011
+"235",0.427839,1058,"Rendsburg-Eckernförde",2012
+"236",0.422412,1058,"Rendsburg-Eckernförde",2013
+"237",0.3955,1058,"Rendsburg-Eckernförde",2014
+"238",0.383687,1058,"Rendsburg-Eckernförde",2015
+"239",0.387984,1058,"Rendsburg-Eckernförde",2016
+"240",0.400869,1058,"Rendsburg-Eckernförde",2017
+"241",0.390931,1058,"Rendsburg-Eckernförde",2018
+"242",0.393442,1058,"Rendsburg-Eckernförde",2019
+"243",0.672586,1059,"Schleswig-Flensburg",1998
+"244",0.697854,1059,"Schleswig-Flensburg",1999
+"245",0.829179,1059,"Schleswig-Flensburg",2000
+"246",0.887658,1059,"Schleswig-Flensburg",2001
+"247",0.881966,1059,"Schleswig-Flensburg",2002
+"248",0.792283,1059,"Schleswig-Flensburg",2003
+"249",0.816188,1059,"Schleswig-Flensburg",2004
+"250",0.836643,1059,"Schleswig-Flensburg",2005
+"251",0.761586,1059,"Schleswig-Flensburg",2006
+"252",0.863434,1059,"Schleswig-Flensburg",2007
+"253",0.816434,1059,"Schleswig-Flensburg",2008
+"254",0.840917,1059,"Schleswig-Flensburg",2009
+"255",0.81276,1059,"Schleswig-Flensburg",2010
+"256",0.740074,1059,"Schleswig-Flensburg",2011
+"257",0.795306,1059,"Schleswig-Flensburg",2012
+"258",0.761194,1059,"Schleswig-Flensburg",2013
+"259",0.791753,1059,"Schleswig-Flensburg",2014
+"260",0.708815,1059,"Schleswig-Flensburg",2015
+"261",0.710647,1059,"Schleswig-Flensburg",2016
+"262",0.709716,1059,"Schleswig-Flensburg",2017
+"263",0.718582,1059,"Schleswig-Flensburg",2018
+"264",0.660948,1059,"Schleswig-Flensburg",2019
+"265",0.31232,1060,"Segeberg",1998
+"266",0.311259,1060,"Segeberg",1999
+"267",0.410354,1060,"Segeberg",2000
+"268",0.44449,1060,"Segeberg",2001
+"269",0.432734,1060,"Segeberg",2002
+"270",0.386526,1060,"Segeberg",2003
+"271",0.399145,1060,"Segeberg",2004
+"272",0.401502,1060,"Segeberg",2005
+"273",0.370464,1060,"Segeberg",2006
+"274",0.353858,1060,"Segeberg",2007
+"275",0.300222,1060,"Segeberg",2008
+"276",0.289258,1060,"Segeberg",2009
+"277",0.290825,1060,"Segeberg",2010
+"278",0.296627,1060,"Segeberg",2011
+"279",0.333168,1060,"Segeberg",2012
+"280",0.338412,1060,"Segeberg",2013
+"281",0.313336,1060,"Segeberg",2014
+"282",0.306665,1060,"Segeberg",2015
+"283",0.310122,1060,"Segeberg",2016
+"284",0.323269,1060,"Segeberg",2017
+"285",0.31864,1060,"Segeberg",2018
+"286",0.32861,1060,"Segeberg",2019
+"287",0.619194,1061,"Steinburg",1998
+"288",0.649723,1061,"Steinburg",1999
+"289",0.766848,1061,"Steinburg",2000
+"290",0.7703,1061,"Steinburg",2001
+"291",0.804499,1061,"Steinburg",2002
+"292",0.71051,1061,"Steinburg",2003
+"293",0.794789,1061,"Steinburg",2004
+"294",0.722901,1061,"Steinburg",2005
+"295",0.677535,1061,"Steinburg",2006
+"296",0.637711,1061,"Steinburg",2007
+"297",0.622132,1061,"Steinburg",2008
+"298",0.649058,1061,"Steinburg",2009
+"299",0.652087,1061,"Steinburg",2010
+"300",0.620575,1061,"Steinburg",2011
+"301",0.656402,1061,"Steinburg",2012
+"302",0.603185,1061,"Steinburg",2013
+"303",0.671268,1061,"Steinburg",2014
+"304",0.646976,1061,"Steinburg",2015
+"305",0.667431,1061,"Steinburg",2016
+"306",0.660797,1061,"Steinburg",2017
+"307",0.637011,1061,"Steinburg",2018
+"308",0.622512,1061,"Steinburg",2019
+"309",0,1062,"Stormarn",1998
+"310",0,1062,"Stormarn",1999
+"311",0,1062,"Stormarn",2000
+"312",0,1062,"Stormarn",2001
+"313",0,1062,"Stormarn",2002
+"314",0,1062,"Stormarn",2003
+"315",0,1062,"Stormarn",2004
+"316",0,1062,"Stormarn",2005
+"317",0,1062,"Stormarn",2006
+"318",0,1062,"Stormarn",2007
+"319",0,1062,"Stormarn",2008
+"320",0,1062,"Stormarn",2009
+"321",0,1062,"Stormarn",2010
+"322",0,1062,"Stormarn",2011
+"323",0,1062,"Stormarn",2012
+"324",0,1062,"Stormarn",2013
+"325",0,1062,"Stormarn",2014
+"326",0,1062,"Stormarn",2015
+"327",0,1062,"Stormarn",2016
+"328",0,1062,"Stormarn",2017
+"329",0,1062,"Stormarn",2018
+"330",0,1062,"Stormarn",2019
