@@ -1,50 +1,50 @@
 "","GISD_Score","Kreiskennziffer","Name des Kreises","Jahr"
-"1",1,10041,"Regionalverband Saarbrücken",1998
-"2",1,10041,"Regionalverband Saarbrücken",1999
-"3",0.969835,10041,"Regionalverband Saarbrücken",2000
-"4",0.916546,10041,"Regionalverband Saarbrücken",2001
-"5",0.700486,10041,"Regionalverband Saarbrücken",2002
-"6",0.825469,10041,"Regionalverband Saarbrücken",2003
-"7",0.816573,10041,"Regionalverband Saarbrücken",2004
-"8",0.715409,10041,"Regionalverband Saarbrücken",2005
-"9",0.772731,10041,"Regionalverband Saarbrücken",2006
-"10",0.759754,10041,"Regionalverband Saarbrücken",2007
-"11",0.850478,10041,"Regionalverband Saarbrücken",2008
-"12",0.797906,10041,"Regionalverband Saarbrücken",2009
-"13",0.755235,10041,"Regionalverband Saarbrücken",2010
-"14",0.737143,10041,"Regionalverband Saarbrücken",2011
-"15",0.7456,10041,"Regionalverband Saarbrücken",2012
-"16",0.797883,10041,"Regionalverband Saarbrücken",2013
-"17",0.812185,10041,"Regionalverband Saarbrücken",2014
-"18",0.800656,10041,"Regionalverband Saarbrücken",2015
-"19",0.775046,10041,"Regionalverband Saarbrücken",2016
-"20",0.718214,10041,"Regionalverband Saarbrücken",2017
-"21",0.829351,10041,"Regionalverband Saarbrücken",2018
-"22",0.709613,10041,"Regionalverband Saarbrücken",2019
-"23",0.813482,10042,"Merzig-Wadern",1998
-"24",0.77904,10042,"Merzig-Wadern",1999
-"25",0.609203,10042,"Merzig-Wadern",2000
-"26",0.759209,10042,"Merzig-Wadern",2001
-"27",0.711968,10042,"Merzig-Wadern",2002
-"28",0.810752,10042,"Merzig-Wadern",2003
-"29",0.654949,10042,"Merzig-Wadern",2004
-"30",0.764746,10042,"Merzig-Wadern",2005
-"31",0.794912,10042,"Merzig-Wadern",2006
-"32",0.843868,10042,"Merzig-Wadern",2007
-"33",0.960551,10042,"Merzig-Wadern",2008
-"34",0.886704,10042,"Merzig-Wadern",2009
-"35",0.9218,10042,"Merzig-Wadern",2010
-"36",0.873274,10042,"Merzig-Wadern",2011
-"37",0.969279,10042,"Merzig-Wadern",2012
+"1",0.952757,10041,"Regionalverband Saarbrücken",1998
+"2",0.941654,10041,"Regionalverband Saarbrücken",1999
+"3",0.899468,10041,"Regionalverband Saarbrücken",2000
+"4",0.859918,10041,"Regionalverband Saarbrücken",2001
+"5",0.642063,10041,"Regionalverband Saarbrücken",2002
+"6",0.787281,10041,"Regionalverband Saarbrücken",2003
+"7",0.787714,10041,"Regionalverband Saarbrücken",2004
+"8",0.68439,10041,"Regionalverband Saarbrücken",2005
+"9",0.738128,10041,"Regionalverband Saarbrücken",2006
+"10",0.733085,10041,"Regionalverband Saarbrücken",2007
+"11",0.814541,10041,"Regionalverband Saarbrücken",2008
+"12",0.76718,10041,"Regionalverband Saarbrücken",2009
+"13",0.745586,10041,"Regionalverband Saarbrücken",2010
+"14",0.710788,10041,"Regionalverband Saarbrücken",2011
+"15",0.715855,10041,"Regionalverband Saarbrücken",2012
+"16",0.799069,10041,"Regionalverband Saarbrücken",2013
+"17",0.779623,10041,"Regionalverband Saarbrücken",2014
+"18",0.789831,10041,"Regionalverband Saarbrücken",2015
+"19",0.799185,10041,"Regionalverband Saarbrücken",2016
+"20",0.746722,10041,"Regionalverband Saarbrücken",2017
+"21",0.869476,10041,"Regionalverband Saarbrücken",2018
+"22",0.736193,10041,"Regionalverband Saarbrücken",2019
+"23",0.877498,10042,"Merzig-Wadern",1998
+"24",0.816455,10042,"Merzig-Wadern",1999
+"25",0.649603,10042,"Merzig-Wadern",2000
+"26",0.787405,10042,"Merzig-Wadern",2001
+"27",0.737899,10042,"Merzig-Wadern",2002
+"28",0.833946,10042,"Merzig-Wadern",2003
+"29",0.66431,10042,"Merzig-Wadern",2004
+"30",0.772372,10042,"Merzig-Wadern",2005
+"31",0.790067,10042,"Merzig-Wadern",2006
+"32",0.831492,10042,"Merzig-Wadern",2007
+"33",0.937045,10042,"Merzig-Wadern",2008
+"34",0.85941,10042,"Merzig-Wadern",2009
+"35",0.897918,10042,"Merzig-Wadern",2010
+"36",0.829997,10042,"Merzig-Wadern",2011
+"37",0.933515,10042,"Merzig-Wadern",2012
 "38",1,10042,"Merzig-Wadern",2013
-"39",0.99099,10042,"Merzig-Wadern",2014
-"40",0.956944,10042,"Merzig-Wadern",2015
+"39",0.989472,10042,"Merzig-Wadern",2014
+"40",0.923826,10042,"Merzig-Wadern",2015
 "41",1,10042,"Merzig-Wadern",2016
 "42",1,10042,"Merzig-Wadern",2017
-"43",1,10042,"Merzig-Wadern",2018
-"44",0.809375,10042,"Merzig-Wadern",2019
-"45",0.962164,10043,"Neunkirchen",1998
-"46",0.977287,10043,"Neunkirchen",1999
+"43",0.973139,10042,"Merzig-Wadern",2018
+"44",0.730193,10042,"Merzig-Wadern",2019
+"45",1,10043,"Neunkirchen",1998
+"46",1,10043,"Neunkirchen",1999
 "47",1,10043,"Neunkirchen",2000
 "48",1,10043,"Neunkirchen",2001
 "49",1,10043,"Neunkirchen",2002
@@ -58,38 +58,38 @@
 "57",1,10043,"Neunkirchen",2010
 "58",1,10043,"Neunkirchen",2011
 "59",1,10043,"Neunkirchen",2012
-"60",0.974443,10043,"Neunkirchen",2013
+"60",0.998155,10043,"Neunkirchen",2013
 "61",1,10043,"Neunkirchen",2014
 "62",1,10043,"Neunkirchen",2015
-"63",0.951609,10043,"Neunkirchen",2016
-"64",0.891839,10043,"Neunkirchen",2017
-"65",0.978977,10043,"Neunkirchen",2018
+"63",0.990047,10043,"Neunkirchen",2016
+"64",0.923645,10043,"Neunkirchen",2017
+"65",1,10043,"Neunkirchen",2018
 "66",1,10043,"Neunkirchen",2019
-"67",0.466195,10044,"Saarlouis",1998
-"68",0.497962,10044,"Saarlouis",1999
-"69",0.463643,10044,"Saarlouis",2000
-"70",0.496815,10044,"Saarlouis",2001
-"71",0.389392,10044,"Saarlouis",2002
-"72",0.521655,10044,"Saarlouis",2003
-"73",0.450181,10044,"Saarlouis",2004
-"74",0.424148,10044,"Saarlouis",2005
-"75",0.401425,10044,"Saarlouis",2006
-"76",0.565352,10044,"Saarlouis",2007
-"77",0.533534,10044,"Saarlouis",2008
-"78",0.451145,10044,"Saarlouis",2009
-"79",0.425396,10044,"Saarlouis",2010
-"80",0.4663,10044,"Saarlouis",2011
-"81",0.565419,10044,"Saarlouis",2012
-"82",0.486167,10044,"Saarlouis",2013
-"83",0.500993,10044,"Saarlouis",2014
-"84",0.539382,10044,"Saarlouis",2015
-"85",0.477975,10044,"Saarlouis",2016
-"86",0.460846,10044,"Saarlouis",2017
-"87",0.526685,10044,"Saarlouis",2018
-"88",0.498919,10044,"Saarlouis",2019
+"67",0.559152,10044,"Saarlouis",1998
+"68",0.584837,10044,"Saarlouis",1999
+"69",0.558622,10044,"Saarlouis",2000
+"70",0.571138,10044,"Saarlouis",2001
+"71",0.464373,10044,"Saarlouis",2002
+"72",0.5927,10044,"Saarlouis",2003
+"73",0.524325,10044,"Saarlouis",2004
+"74",0.482042,10044,"Saarlouis",2005
+"75",0.450826,10044,"Saarlouis",2006
+"76",0.608321,10044,"Saarlouis",2007
+"77",0.576227,10044,"Saarlouis",2008
+"78",0.487909,10044,"Saarlouis",2009
+"79",0.504402,10044,"Saarlouis",2010
+"80",0.496376,10044,"Saarlouis",2011
+"81",0.60003,10044,"Saarlouis",2012
+"82",0.522874,10044,"Saarlouis",2013
+"83",0.545255,10044,"Saarlouis",2014
+"84",0.576768,10044,"Saarlouis",2015
+"85",0.521904,10044,"Saarlouis",2016
+"86",0.506509,10044,"Saarlouis",2017
+"87",0.559737,10044,"Saarlouis",2018
+"88",0.508331,10044,"Saarlouis",2019
 "89",0,10045,"Saarpfalz-Kreis",1998
 "90",0,10045,"Saarpfalz-Kreis",1999
-"91",0.087886,10045,"Saarpfalz-Kreis",2000
+"91",0.123088,10045,"Saarpfalz-Kreis",2000
 "92",0,10045,"Saarpfalz-Kreis",2001
 "93",0,10045,"Saarpfalz-Kreis",2002
 "94",0,10045,"Saarpfalz-Kreis",2003
@@ -99,7 +99,7 @@
 "98",0,10045,"Saarpfalz-Kreis",2007
 "99",0,10045,"Saarpfalz-Kreis",2008
 "100",0,10045,"Saarpfalz-Kreis",2009
-"101",0,10045,"Saarpfalz-Kreis",2010
+"101",0.07251,10045,"Saarpfalz-Kreis",2010
 "102",0,10045,"Saarpfalz-Kreis",2011
 "103",0,10045,"Saarpfalz-Kreis",2012
 "104",0,10045,"Saarpfalz-Kreis",2013
@@ -109,25 +109,25 @@
 "108",0,10045,"Saarpfalz-Kreis",2017
 "109",0,10045,"Saarpfalz-Kreis",2018
 "110",0,10045,"Saarpfalz-Kreis",2019
-"111",0.229098,10046,"St. Wendel",1998
-"112",0.261605,10046,"St. Wendel",1999
+"111",0.201701,10046,"St. Wendel",1998
+"112",0.227241,10046,"St. Wendel",1999
 "113",0,10046,"St. Wendel",2000
-"114",0.07935,10046,"St. Wendel",2001
-"115",0.112009,10046,"St. Wendel",2002
-"116",0.090358,10046,"St. Wendel",2003
-"117",0.077357,10046,"St. Wendel",2004
-"118",0.212479,10046,"St. Wendel",2005
-"119",0.201899,10046,"St. Wendel",2006
-"120",0.341985,10046,"St. Wendel",2007
-"121",0.287794,10046,"St. Wendel",2008
-"122",0.112651,10046,"St. Wendel",2009
-"123",0.03013,10046,"St. Wendel",2010
-"124",0.245007,10046,"St. Wendel",2011
-"125",0.216378,10046,"St. Wendel",2012
-"126",0.249426,10046,"St. Wendel",2013
-"127",0.59181,10046,"St. Wendel",2014
-"128",0.55363,10046,"St. Wendel",2015
-"129",0.346422,10046,"St. Wendel",2016
-"130",0.425977,10046,"St. Wendel",2017
-"131",0.41959,10046,"St. Wendel",2018
-"132",0.372151,10046,"St. Wendel",2019
+"114",0.034926,10046,"St. Wendel",2001
+"115",0.054923,10046,"St. Wendel",2002
+"116",0.037404,10046,"St. Wendel",2003
+"117",0.007827,10046,"St. Wendel",2004
+"118",0.160022,10046,"St. Wendel",2005
+"119",0.130457,10046,"St. Wendel",2006
+"120",0.282847,10046,"St. Wendel",2007
+"121",0.208635,10046,"St. Wendel",2008
+"122",0.028399,10046,"St. Wendel",2009
+"123",0,10046,"St. Wendel",2010
+"124",0.156689,10046,"St. Wendel",2011
+"125",0.105994,10046,"St. Wendel",2012
+"126",0.150637,10046,"St. Wendel",2013
+"127",0.50509,10046,"St. Wendel",2014
+"128",0.461058,10046,"St. Wendel",2015
+"129",0.271401,10046,"St. Wendel",2016
+"130",0.360613,10046,"St. Wendel",2017
+"131",0.327732,10046,"St. Wendel",2018
+"132",0.275096,10046,"St. Wendel",2019

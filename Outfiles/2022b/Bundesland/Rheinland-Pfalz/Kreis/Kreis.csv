@@ -1,0 +1,793 @@
+"","GISD_Score","Kreiskennziffer","Name des Kreises","Jahr"
+"1",0.372966,7111,"Koblenz, Stadt",1998
+"2",0.377527,7111,"Koblenz, Stadt",1999
+"3",0.407751,7111,"Koblenz, Stadt",2000
+"4",0.409197,7111,"Koblenz, Stadt",2001
+"5",0.442409,7111,"Koblenz, Stadt",2002
+"6",0.416462,7111,"Koblenz, Stadt",2003
+"7",0.396162,7111,"Koblenz, Stadt",2004
+"8",0.426003,7111,"Koblenz, Stadt",2005
+"9",0.415086,7111,"Koblenz, Stadt",2006
+"10",0.420151,7111,"Koblenz, Stadt",2007
+"11",0.443536,7111,"Koblenz, Stadt",2008
+"12",0.439957,7111,"Koblenz, Stadt",2009
+"13",0.47492,7111,"Koblenz, Stadt",2010
+"14",0.423244,7111,"Koblenz, Stadt",2011
+"15",0.455374,7111,"Koblenz, Stadt",2012
+"16",0.449542,7111,"Koblenz, Stadt",2013
+"17",0.458842,7111,"Koblenz, Stadt",2014
+"18",0.437203,7111,"Koblenz, Stadt",2015
+"19",0.425375,7111,"Koblenz, Stadt",2016
+"20",0.434335,7111,"Koblenz, Stadt",2017
+"21",0.432284,7111,"Koblenz, Stadt",2018
+"22",0.406196,7111,"Koblenz, Stadt",2019
+"23",0.456471,7131,"Ahrweiler",1998
+"24",0.469212,7131,"Ahrweiler",1999
+"25",0.478964,7131,"Ahrweiler",2000
+"26",0.509286,7131,"Ahrweiler",2001
+"27",0.580467,7131,"Ahrweiler",2002
+"28",0.586963,7131,"Ahrweiler",2003
+"29",0.548424,7131,"Ahrweiler",2004
+"30",0.494452,7131,"Ahrweiler",2005
+"31",0.503516,7131,"Ahrweiler",2006
+"32",0.508842,7131,"Ahrweiler",2007
+"33",0.564202,7131,"Ahrweiler",2008
+"34",0.53269,7131,"Ahrweiler",2009
+"35",0.554531,7131,"Ahrweiler",2010
+"36",0.505274,7131,"Ahrweiler",2011
+"37",0.519482,7131,"Ahrweiler",2012
+"38",0.532713,7131,"Ahrweiler",2013
+"39",0.504834,7131,"Ahrweiler",2014
+"40",0.512725,7131,"Ahrweiler",2015
+"41",0.489222,7131,"Ahrweiler",2016
+"42",0.488559,7131,"Ahrweiler",2017
+"43",0.502399,7131,"Ahrweiler",2018
+"44",0.513631,7131,"Ahrweiler",2019
+"45",0.637881,7132,"Altenkirchen (Westerwald)",1998
+"46",0.649583,7132,"Altenkirchen (Westerwald)",1999
+"47",0.700804,7132,"Altenkirchen (Westerwald)",2000
+"48",0.681272,7132,"Altenkirchen (Westerwald)",2001
+"49",0.719265,7132,"Altenkirchen (Westerwald)",2002
+"50",0.722928,7132,"Altenkirchen (Westerwald)",2003
+"51",0.694465,7132,"Altenkirchen (Westerwald)",2004
+"52",0.715511,7132,"Altenkirchen (Westerwald)",2005
+"53",0.720945,7132,"Altenkirchen (Westerwald)",2006
+"54",0.722681,7132,"Altenkirchen (Westerwald)",2007
+"55",0.719277,7132,"Altenkirchen (Westerwald)",2008
+"56",0.789237,7132,"Altenkirchen (Westerwald)",2009
+"57",0.775731,7132,"Altenkirchen (Westerwald)",2010
+"58",0.701734,7132,"Altenkirchen (Westerwald)",2011
+"59",0.70005,7132,"Altenkirchen (Westerwald)",2012
+"60",0.719193,7132,"Altenkirchen (Westerwald)",2013
+"61",0.696284,7132,"Altenkirchen (Westerwald)",2014
+"62",0.701178,7132,"Altenkirchen (Westerwald)",2015
+"63",0.705235,7132,"Altenkirchen (Westerwald)",2016
+"64",0.699748,7132,"Altenkirchen (Westerwald)",2017
+"65",0.700873,7132,"Altenkirchen (Westerwald)",2018
+"66",0.690878,7132,"Altenkirchen (Westerwald)",2019
+"67",0.53888,7133,"Bad Kreuznach",1998
+"68",0.549935,7133,"Bad Kreuznach",1999
+"69",0.604929,7133,"Bad Kreuznach",2000
+"70",0.6347,7133,"Bad Kreuznach",2001
+"71",0.640456,7133,"Bad Kreuznach",2002
+"72",0.61458,7133,"Bad Kreuznach",2003
+"73",0.57748,7133,"Bad Kreuznach",2004
+"74",0.577608,7133,"Bad Kreuznach",2005
+"75",0.591248,7133,"Bad Kreuznach",2006
+"76",0.591157,7133,"Bad Kreuznach",2007
+"77",0.599729,7133,"Bad Kreuznach",2008
+"78",0.630002,7133,"Bad Kreuznach",2009
+"79",0.632398,7133,"Bad Kreuznach",2010
+"80",0.596068,7133,"Bad Kreuznach",2011
+"81",0.60807,7133,"Bad Kreuznach",2012
+"82",0.614223,7133,"Bad Kreuznach",2013
+"83",0.598987,7133,"Bad Kreuznach",2014
+"84",0.608779,7133,"Bad Kreuznach",2015
+"85",0.589941,7133,"Bad Kreuznach",2016
+"86",0.618641,7133,"Bad Kreuznach",2017
+"87",0.60285,7133,"Bad Kreuznach",2018
+"88",0.615535,7133,"Bad Kreuznach",2019
+"89",0.682312,7134,"Birkenfeld",1998
+"90",0.693069,7134,"Birkenfeld",1999
+"91",0.766613,7134,"Birkenfeld",2000
+"92",0.799015,7134,"Birkenfeld",2001
+"93",0.798554,7134,"Birkenfeld",2002
+"94",0.770783,7134,"Birkenfeld",2003
+"95",0.684689,7134,"Birkenfeld",2004
+"96",0.686098,7134,"Birkenfeld",2005
+"97",0.706195,7134,"Birkenfeld",2006
+"98",0.683295,7134,"Birkenfeld",2007
+"99",0.725154,7134,"Birkenfeld",2008
+"100",0.758805,7134,"Birkenfeld",2009
+"101",0.747014,7134,"Birkenfeld",2010
+"102",0.688611,7134,"Birkenfeld",2011
+"103",0.693288,7134,"Birkenfeld",2012
+"104",0.702503,7134,"Birkenfeld",2013
+"105",0.73913,7134,"Birkenfeld",2014
+"106",0.772593,7134,"Birkenfeld",2015
+"107",0.722652,7134,"Birkenfeld",2016
+"108",0.712691,7134,"Birkenfeld",2017
+"109",0.726535,7134,"Birkenfeld",2018
+"110",0.751355,7134,"Birkenfeld",2019
+"111",0.529155,7135,"Cochem-Zell",1998
+"112",0.544342,7135,"Cochem-Zell",1999
+"113",0.624871,7135,"Cochem-Zell",2000
+"114",0.638172,7135,"Cochem-Zell",2001
+"115",0.674379,7135,"Cochem-Zell",2002
+"116",0.629519,7135,"Cochem-Zell",2003
+"117",0.611949,7135,"Cochem-Zell",2004
+"118",0.619031,7135,"Cochem-Zell",2005
+"119",0.622207,7135,"Cochem-Zell",2006
+"120",0.633299,7135,"Cochem-Zell",2007
+"121",0.685861,7135,"Cochem-Zell",2008
+"122",0.658734,7135,"Cochem-Zell",2009
+"123",0.686957,7135,"Cochem-Zell",2010
+"124",0.640566,7135,"Cochem-Zell",2011
+"125",0.639111,7135,"Cochem-Zell",2012
+"126",0.680677,7135,"Cochem-Zell",2013
+"127",0.66042,7135,"Cochem-Zell",2014
+"128",0.68676,7135,"Cochem-Zell",2015
+"129",0.649903,7135,"Cochem-Zell",2016
+"130",0.636854,7135,"Cochem-Zell",2017
+"131",0.679829,7135,"Cochem-Zell",2018
+"132",0.673554,7135,"Cochem-Zell",2019
+"133",0.51788,7137,"Mayen-Koblenz",1998
+"134",0.531236,7137,"Mayen-Koblenz",1999
+"135",0.546174,7137,"Mayen-Koblenz",2000
+"136",0.609237,7137,"Mayen-Koblenz",2001
+"137",0.647031,7137,"Mayen-Koblenz",2002
+"138",0.622745,7137,"Mayen-Koblenz",2003
+"139",0.602234,7137,"Mayen-Koblenz",2004
+"140",0.5764,7137,"Mayen-Koblenz",2005
+"141",0.587208,7137,"Mayen-Koblenz",2006
+"142",0.594457,7137,"Mayen-Koblenz",2007
+"143",0.619635,7137,"Mayen-Koblenz",2008
+"144",0.603129,7137,"Mayen-Koblenz",2009
+"145",0.634846,7137,"Mayen-Koblenz",2010
+"146",0.581848,7137,"Mayen-Koblenz",2011
+"147",0.586704,7137,"Mayen-Koblenz",2012
+"148",0.595368,7137,"Mayen-Koblenz",2013
+"149",0.584066,7137,"Mayen-Koblenz",2014
+"150",0.594842,7137,"Mayen-Koblenz",2015
+"151",0.583178,7137,"Mayen-Koblenz",2016
+"152",0.569389,7137,"Mayen-Koblenz",2017
+"153",0.566887,7137,"Mayen-Koblenz",2018
+"154",0.566232,7137,"Mayen-Koblenz",2019
+"155",0.473167,7138,"Neuwied",1998
+"156",0.487193,7138,"Neuwied",1999
+"157",0.527876,7138,"Neuwied",2000
+"158",0.567374,7138,"Neuwied",2001
+"159",0.622415,7138,"Neuwied",2002
+"160",0.585058,7138,"Neuwied",2003
+"161",0.566256,7138,"Neuwied",2004
+"162",0.568308,7138,"Neuwied",2005
+"163",0.562618,7138,"Neuwied",2006
+"164",0.535963,7138,"Neuwied",2007
+"165",0.594237,7138,"Neuwied",2008
+"166",0.616181,7138,"Neuwied",2009
+"167",0.603312,7138,"Neuwied",2010
+"168",0.57534,7138,"Neuwied",2011
+"169",0.598349,7138,"Neuwied",2012
+"170",0.627791,7138,"Neuwied",2013
+"171",0.589625,7138,"Neuwied",2014
+"172",0.618491,7138,"Neuwied",2015
+"173",0.625375,7138,"Neuwied",2016
+"174",0.614367,7138,"Neuwied",2017
+"175",0.629288,7138,"Neuwied",2018
+"176",0.62302,7138,"Neuwied",2019
+"177",0.492271,7140,"Rhein-Hunsrück-Kreis",1998
+"178",0.506507,7140,"Rhein-Hunsrück-Kreis",1999
+"179",0.59037,7140,"Rhein-Hunsrück-Kreis",2000
+"180",0.590599,7140,"Rhein-Hunsrück-Kreis",2001
+"181",0.634342,7140,"Rhein-Hunsrück-Kreis",2002
+"182",0.606537,7140,"Rhein-Hunsrück-Kreis",2003
+"183",0.557675,7140,"Rhein-Hunsrück-Kreis",2004
+"184",0.558934,7140,"Rhein-Hunsrück-Kreis",2005
+"185",0.547175,7140,"Rhein-Hunsrück-Kreis",2006
+"186",0.588571,7140,"Rhein-Hunsrück-Kreis",2007
+"187",0.593415,7140,"Rhein-Hunsrück-Kreis",2008
+"188",0.603902,7140,"Rhein-Hunsrück-Kreis",2009
+"189",0.571096,7140,"Rhein-Hunsrück-Kreis",2010
+"190",0.538234,7140,"Rhein-Hunsrück-Kreis",2011
+"191",0.552572,7140,"Rhein-Hunsrück-Kreis",2012
+"192",0.560372,7140,"Rhein-Hunsrück-Kreis",2013
+"193",0.546875,7140,"Rhein-Hunsrück-Kreis",2014
+"194",0.570282,7140,"Rhein-Hunsrück-Kreis",2015
+"195",0.53594,7140,"Rhein-Hunsrück-Kreis",2016
+"196",0.554868,7140,"Rhein-Hunsrück-Kreis",2017
+"197",0.535034,7140,"Rhein-Hunsrück-Kreis",2018
+"198",0.547544,7140,"Rhein-Hunsrück-Kreis",2019
+"199",0.537749,7141,"Rhein-Lahn-Kreis",1998
+"200",0.550247,7141,"Rhein-Lahn-Kreis",1999
+"201",0.60717,7141,"Rhein-Lahn-Kreis",2000
+"202",0.622634,7141,"Rhein-Lahn-Kreis",2001
+"203",0.676931,7141,"Rhein-Lahn-Kreis",2002
+"204",0.669219,7141,"Rhein-Lahn-Kreis",2003
+"205",0.619149,7141,"Rhein-Lahn-Kreis",2004
+"206",0.615547,7141,"Rhein-Lahn-Kreis",2005
+"207",0.613459,7141,"Rhein-Lahn-Kreis",2006
+"208",0.611089,7141,"Rhein-Lahn-Kreis",2007
+"209",0.632066,7141,"Rhein-Lahn-Kreis",2008
+"210",0.643538,7141,"Rhein-Lahn-Kreis",2009
+"211",0.636975,7141,"Rhein-Lahn-Kreis",2010
+"212",0.605716,7141,"Rhein-Lahn-Kreis",2011
+"213",0.596342,7141,"Rhein-Lahn-Kreis",2012
+"214",0.646996,7141,"Rhein-Lahn-Kreis",2013
+"215",0.599144,7141,"Rhein-Lahn-Kreis",2014
+"216",0.630923,7141,"Rhein-Lahn-Kreis",2015
+"217",0.613911,7141,"Rhein-Lahn-Kreis",2016
+"218",0.628409,7141,"Rhein-Lahn-Kreis",2017
+"219",0.615926,7141,"Rhein-Lahn-Kreis",2018
+"220",0.626778,7141,"Rhein-Lahn-Kreis",2019
+"221",0.487023,7143,"Westerwaldkreis",1998
+"222",0.50157,7143,"Westerwaldkreis",1999
+"223",0.578379,7143,"Westerwaldkreis",2000
+"224",0.602086,7143,"Westerwaldkreis",2001
+"225",0.619865,7143,"Westerwaldkreis",2002
+"226",0.605778,7143,"Westerwaldkreis",2003
+"227",0.573896,7143,"Westerwaldkreis",2004
+"228",0.577902,7143,"Westerwaldkreis",2005
+"229",0.569444,7143,"Westerwaldkreis",2006
+"230",0.583806,7143,"Westerwaldkreis",2007
+"231",0.593208,7143,"Westerwaldkreis",2008
+"232",0.599712,7143,"Westerwaldkreis",2009
+"233",0.624024,7143,"Westerwaldkreis",2010
+"234",0.573264,7143,"Westerwaldkreis",2011
+"235",0.571254,7143,"Westerwaldkreis",2012
+"236",0.566059,7143,"Westerwaldkreis",2013
+"237",0.572247,7143,"Westerwaldkreis",2014
+"238",0.579345,7143,"Westerwaldkreis",2015
+"239",0.567255,7143,"Westerwaldkreis",2016
+"240",0.606376,7143,"Westerwaldkreis",2017
+"241",0.598363,7143,"Westerwaldkreis",2018
+"242",0.587283,7143,"Westerwaldkreis",2019
+"243",0.573883,7211,"Trier, Stadt",1998
+"244",0.576893,7211,"Trier, Stadt",1999
+"245",0.599884,7211,"Trier, Stadt",2000
+"246",0.58083,7211,"Trier, Stadt",2001
+"247",0.602991,7211,"Trier, Stadt",2002
+"248",0.569529,7211,"Trier, Stadt",2003
+"249",0.541387,7211,"Trier, Stadt",2004
+"250",0.517439,7211,"Trier, Stadt",2005
+"251",0.570101,7211,"Trier, Stadt",2006
+"252",0.583376,7211,"Trier, Stadt",2007
+"253",0.603242,7211,"Trier, Stadt",2008
+"254",0.578407,7211,"Trier, Stadt",2009
+"255",0.589839,7211,"Trier, Stadt",2010
+"256",0.557155,7211,"Trier, Stadt",2011
+"257",0.548257,7211,"Trier, Stadt",2012
+"258",0.554942,7211,"Trier, Stadt",2013
+"259",0.546768,7211,"Trier, Stadt",2014
+"260",0.610636,7211,"Trier, Stadt",2015
+"261",0.529459,7211,"Trier, Stadt",2016
+"262",0.528163,7211,"Trier, Stadt",2017
+"263",0.52662,7211,"Trier, Stadt",2018
+"264",0.553611,7211,"Trier, Stadt",2019
+"265",0.500752,7231,"Bernkastel-Wittlich",1998
+"266",0.515071,7231,"Bernkastel-Wittlich",1999
+"267",0.592773,7231,"Bernkastel-Wittlich",2000
+"268",0.619891,7231,"Bernkastel-Wittlich",2001
+"269",0.66602,7231,"Bernkastel-Wittlich",2002
+"270",0.601223,7231,"Bernkastel-Wittlich",2003
+"271",0.58926,7231,"Bernkastel-Wittlich",2004
+"272",0.542673,7231,"Bernkastel-Wittlich",2005
+"273",0.541683,7231,"Bernkastel-Wittlich",2006
+"274",0.563773,7231,"Bernkastel-Wittlich",2007
+"275",0.573291,7231,"Bernkastel-Wittlich",2008
+"276",0.593617,7231,"Bernkastel-Wittlich",2009
+"277",0.585627,7231,"Bernkastel-Wittlich",2010
+"278",0.575609,7231,"Bernkastel-Wittlich",2011
+"279",0.592657,7231,"Bernkastel-Wittlich",2012
+"280",0.603195,7231,"Bernkastel-Wittlich",2013
+"281",0.621427,7231,"Bernkastel-Wittlich",2014
+"282",0.633663,7231,"Bernkastel-Wittlich",2015
+"283",0.623745,7231,"Bernkastel-Wittlich",2016
+"284",0.641983,7231,"Bernkastel-Wittlich",2017
+"285",0.655566,7231,"Bernkastel-Wittlich",2018
+"286",0.658004,7231,"Bernkastel-Wittlich",2019
+"287",0.598925,7232,"Eifelkreis Bitburg-Prüm",1998
+"288",0.61328,7232,"Eifelkreis Bitburg-Prüm",1999
+"289",0.653478,7232,"Eifelkreis Bitburg-Prüm",2000
+"290",0.681715,7232,"Eifelkreis Bitburg-Prüm",2001
+"291",0.73987,7232,"Eifelkreis Bitburg-Prüm",2002
+"292",0.696147,7232,"Eifelkreis Bitburg-Prüm",2003
+"293",0.651224,7232,"Eifelkreis Bitburg-Prüm",2004
+"294",0.613137,7232,"Eifelkreis Bitburg-Prüm",2005
+"295",0.631409,7232,"Eifelkreis Bitburg-Prüm",2006
+"296",0.649573,7232,"Eifelkreis Bitburg-Prüm",2007
+"297",0.681461,7232,"Eifelkreis Bitburg-Prüm",2008
+"298",0.71955,7232,"Eifelkreis Bitburg-Prüm",2009
+"299",0.72004,7232,"Eifelkreis Bitburg-Prüm",2010
+"300",0.666147,7232,"Eifelkreis Bitburg-Prüm",2011
+"301",0.685044,7232,"Eifelkreis Bitburg-Prüm",2012
+"302",0.690882,7232,"Eifelkreis Bitburg-Prüm",2013
+"303",0.668439,7232,"Eifelkreis Bitburg-Prüm",2014
+"304",0.677676,7232,"Eifelkreis Bitburg-Prüm",2015
+"305",0.687689,7232,"Eifelkreis Bitburg-Prüm",2016
+"306",0.713628,7232,"Eifelkreis Bitburg-Prüm",2017
+"307",0.704835,7232,"Eifelkreis Bitburg-Prüm",2018
+"308",0.716445,7232,"Eifelkreis Bitburg-Prüm",2019
+"309",0.534649,7233,"Vulkaneifel",1998
+"310",0.548639,7233,"Vulkaneifel",1999
+"311",0.560586,7233,"Vulkaneifel",2000
+"312",0.605875,7233,"Vulkaneifel",2001
+"313",0.66444,7233,"Vulkaneifel",2002
+"314",0.620998,7233,"Vulkaneifel",2003
+"315",0.612865,7233,"Vulkaneifel",2004
+"316",0.601743,7233,"Vulkaneifel",2005
+"317",0.593468,7233,"Vulkaneifel",2006
+"318",0.623659,7233,"Vulkaneifel",2007
+"319",0.663265,7233,"Vulkaneifel",2008
+"320",0.650756,7233,"Vulkaneifel",2009
+"321",0.682067,7233,"Vulkaneifel",2010
+"322",0.64466,7233,"Vulkaneifel",2011
+"323",0.645851,7233,"Vulkaneifel",2012
+"324",0.669507,7233,"Vulkaneifel",2013
+"325",0.666341,7233,"Vulkaneifel",2014
+"326",0.67581,7233,"Vulkaneifel",2015
+"327",0.662285,7233,"Vulkaneifel",2016
+"328",0.663419,7233,"Vulkaneifel",2017
+"329",0.683983,7233,"Vulkaneifel",2018
+"330",0.663519,7233,"Vulkaneifel",2019
+"331",0.576197,7235,"Trier-Saarburg",1998
+"332",0.589014,7235,"Trier-Saarburg",1999
+"333",0.657631,7235,"Trier-Saarburg",2000
+"334",0.668341,7235,"Trier-Saarburg",2001
+"335",0.707135,7235,"Trier-Saarburg",2002
+"336",0.622888,7235,"Trier-Saarburg",2003
+"337",0.634913,7235,"Trier-Saarburg",2004
+"338",0.624318,7235,"Trier-Saarburg",2005
+"339",0.594165,7235,"Trier-Saarburg",2006
+"340",0.603868,7235,"Trier-Saarburg",2007
+"341",0.691436,7235,"Trier-Saarburg",2008
+"342",0.731181,7235,"Trier-Saarburg",2009
+"343",0.738931,7235,"Trier-Saarburg",2010
+"344",0.678325,7235,"Trier-Saarburg",2011
+"345",0.676623,7235,"Trier-Saarburg",2012
+"346",0.710027,7235,"Trier-Saarburg",2013
+"347",0.67272,7235,"Trier-Saarburg",2014
+"348",0.705324,7235,"Trier-Saarburg",2015
+"349",0.713164,7235,"Trier-Saarburg",2016
+"350",0.701177,7235,"Trier-Saarburg",2017
+"351",0.67464,7235,"Trier-Saarburg",2018
+"352",0.675482,7235,"Trier-Saarburg",2019
+"353",0.445016,7311,"Frankenthal (Pfalz), Stadt",1998
+"354",0.457275,7311,"Frankenthal (Pfalz), Stadt",1999
+"355",0.521187,7311,"Frankenthal (Pfalz), Stadt",2000
+"356",0.559822,7311,"Frankenthal (Pfalz), Stadt",2001
+"357",0.630991,7311,"Frankenthal (Pfalz), Stadt",2002
+"358",0.575318,7311,"Frankenthal (Pfalz), Stadt",2003
+"359",0.521684,7311,"Frankenthal (Pfalz), Stadt",2004
+"360",0.516202,7311,"Frankenthal (Pfalz), Stadt",2005
+"361",0.558528,7311,"Frankenthal (Pfalz), Stadt",2006
+"362",0.520692,7311,"Frankenthal (Pfalz), Stadt",2007
+"363",0.550421,7311,"Frankenthal (Pfalz), Stadt",2008
+"364",0.548849,7311,"Frankenthal (Pfalz), Stadt",2009
+"365",0.545057,7311,"Frankenthal (Pfalz), Stadt",2010
+"366",0.532563,7311,"Frankenthal (Pfalz), Stadt",2011
+"367",0.505843,7311,"Frankenthal (Pfalz), Stadt",2012
+"368",0.540452,7311,"Frankenthal (Pfalz), Stadt",2013
+"369",0.496767,7311,"Frankenthal (Pfalz), Stadt",2014
+"370",0.535291,7311,"Frankenthal (Pfalz), Stadt",2015
+"371",0.552291,7311,"Frankenthal (Pfalz), Stadt",2016
+"372",0.607758,7311,"Frankenthal (Pfalz), Stadt",2017
+"373",0.620812,7311,"Frankenthal (Pfalz), Stadt",2018
+"374",0.684225,7311,"Frankenthal (Pfalz), Stadt",2019
+"375",0.701524,7312,"Kaiserslautern, Stadt",1998
+"376",0.70061,7312,"Kaiserslautern, Stadt",1999
+"377",0.654308,7312,"Kaiserslautern, Stadt",2000
+"378",0.695615,7312,"Kaiserslautern, Stadt",2001
+"379",0.662223,7312,"Kaiserslautern, Stadt",2002
+"380",0.650053,7312,"Kaiserslautern, Stadt",2003
+"381",0.627791,7312,"Kaiserslautern, Stadt",2004
+"382",0.610393,7312,"Kaiserslautern, Stadt",2005
+"383",0.683488,7312,"Kaiserslautern, Stadt",2006
+"384",0.670172,7312,"Kaiserslautern, Stadt",2007
+"385",0.686011,7312,"Kaiserslautern, Stadt",2008
+"386",0.68903,7312,"Kaiserslautern, Stadt",2009
+"387",0.728177,7312,"Kaiserslautern, Stadt",2010
+"388",0.628905,7312,"Kaiserslautern, Stadt",2011
+"389",0.659751,7312,"Kaiserslautern, Stadt",2012
+"390",0.665916,7312,"Kaiserslautern, Stadt",2013
+"391",0.675477,7312,"Kaiserslautern, Stadt",2014
+"392",0.649439,7312,"Kaiserslautern, Stadt",2015
+"393",0.657968,7312,"Kaiserslautern, Stadt",2016
+"394",0.662958,7312,"Kaiserslautern, Stadt",2017
+"395",0.650993,7312,"Kaiserslautern, Stadt",2018
+"396",0.659275,7312,"Kaiserslautern, Stadt",2019
+"397",0.424739,7313,"Landau in der Pfalz, Stadt",1998
+"398",0.431656,7313,"Landau in der Pfalz, Stadt",1999
+"399",0.473786,7313,"Landau in der Pfalz, Stadt",2000
+"400",0.448924,7313,"Landau in der Pfalz, Stadt",2001
+"401",0.554062,7313,"Landau in der Pfalz, Stadt",2002
+"402",0.425197,7313,"Landau in der Pfalz, Stadt",2003
+"403",0.472413,7313,"Landau in der Pfalz, Stadt",2004
+"404",0.43252,7313,"Landau in der Pfalz, Stadt",2005
+"405",0.46499,7313,"Landau in der Pfalz, Stadt",2006
+"406",0.455571,7313,"Landau in der Pfalz, Stadt",2007
+"407",0.497887,7313,"Landau in der Pfalz, Stadt",2008
+"408",0.446938,7313,"Landau in der Pfalz, Stadt",2009
+"409",0.496311,7313,"Landau in der Pfalz, Stadt",2010
+"410",0.43388,7313,"Landau in der Pfalz, Stadt",2011
+"411",0.424172,7313,"Landau in der Pfalz, Stadt",2012
+"412",0.423447,7313,"Landau in der Pfalz, Stadt",2013
+"413",0.43405,7313,"Landau in der Pfalz, Stadt",2014
+"414",0.478902,7313,"Landau in der Pfalz, Stadt",2015
+"415",0.485526,7313,"Landau in der Pfalz, Stadt",2016
+"416",0.449473,7313,"Landau in der Pfalz, Stadt",2017
+"417",0.440864,7313,"Landau in der Pfalz, Stadt",2018
+"418",0.428342,7313,"Landau in der Pfalz, Stadt",2019
+"419",0.42232,7314,"Ludwigshafen am Rhein, Stadt",1998
+"420",0.434258,7314,"Ludwigshafen am Rhein, Stadt",1999
+"421",0.494432,7314,"Ludwigshafen am Rhein, Stadt",2000
+"422",0.583819,7314,"Ludwigshafen am Rhein, Stadt",2001
+"423",0.561683,7314,"Ludwigshafen am Rhein, Stadt",2002
+"424",0.60672,7314,"Ludwigshafen am Rhein, Stadt",2003
+"425",0.559846,7314,"Ludwigshafen am Rhein, Stadt",2004
+"426",0.517459,7314,"Ludwigshafen am Rhein, Stadt",2005
+"427",0.55064,7314,"Ludwigshafen am Rhein, Stadt",2006
+"428",0.607771,7314,"Ludwigshafen am Rhein, Stadt",2007
+"429",0.589266,7314,"Ludwigshafen am Rhein, Stadt",2008
+"430",0.557808,7314,"Ludwigshafen am Rhein, Stadt",2009
+"431",0.600355,7314,"Ludwigshafen am Rhein, Stadt",2010
+"432",0.527583,7314,"Ludwigshafen am Rhein, Stadt",2011
+"433",0.535166,7314,"Ludwigshafen am Rhein, Stadt",2012
+"434",0.552033,7314,"Ludwigshafen am Rhein, Stadt",2013
+"435",0.562486,7314,"Ludwigshafen am Rhein, Stadt",2014
+"436",0.56821,7314,"Ludwigshafen am Rhein, Stadt",2015
+"437",0.588191,7314,"Ludwigshafen am Rhein, Stadt",2016
+"438",0.635207,7314,"Ludwigshafen am Rhein, Stadt",2017
+"439",0.627948,7314,"Ludwigshafen am Rhein, Stadt",2018
+"440",0.633663,7314,"Ludwigshafen am Rhein, Stadt",2019
+"441",0,7315,"Mainz, Stadt",1998
+"442",0,7315,"Mainz, Stadt",1999
+"443",0,7315,"Mainz, Stadt",2000
+"444",0,7315,"Mainz, Stadt",2001
+"445",0,7315,"Mainz, Stadt",2002
+"446",0,7315,"Mainz, Stadt",2003
+"447",0,7315,"Mainz, Stadt",2004
+"448",0,7315,"Mainz, Stadt",2005
+"449",0,7315,"Mainz, Stadt",2006
+"450",0,7315,"Mainz, Stadt",2007
+"451",0,7315,"Mainz, Stadt",2008
+"452",0,7315,"Mainz, Stadt",2009
+"453",0,7315,"Mainz, Stadt",2010
+"454",0,7315,"Mainz, Stadt",2011
+"455",0,7315,"Mainz, Stadt",2012
+"456",0,7315,"Mainz, Stadt",2013
+"457",0,7315,"Mainz, Stadt",2014
+"458",0,7315,"Mainz, Stadt",2015
+"459",0,7315,"Mainz, Stadt",2016
+"460",0,7315,"Mainz, Stadt",2017
+"461",0,7315,"Mainz, Stadt",2018
+"462",0,7315,"Mainz, Stadt",2019
+"463",0.392224,7316,"Neustadt an der Weinstraße, Stadt",1998
+"464",0.40147,7316,"Neustadt an der Weinstraße, Stadt",1999
+"465",0.448065,7316,"Neustadt an der Weinstraße, Stadt",2000
+"466",0.468244,7316,"Neustadt an der Weinstraße, Stadt",2001
+"467",0.553418,7316,"Neustadt an der Weinstraße, Stadt",2002
+"468",0.513262,7316,"Neustadt an der Weinstraße, Stadt",2003
+"469",0.434084,7316,"Neustadt an der Weinstraße, Stadt",2004
+"470",0.435467,7316,"Neustadt an der Weinstraße, Stadt",2005
+"471",0.424277,7316,"Neustadt an der Weinstraße, Stadt",2006
+"472",0.403706,7316,"Neustadt an der Weinstraße, Stadt",2007
+"473",0.457892,7316,"Neustadt an der Weinstraße, Stadt",2008
+"474",0.472942,7316,"Neustadt an der Weinstraße, Stadt",2009
+"475",0.459433,7316,"Neustadt an der Weinstraße, Stadt",2010
+"476",0.418164,7316,"Neustadt an der Weinstraße, Stadt",2011
+"477",0.433423,7316,"Neustadt an der Weinstraße, Stadt",2012
+"478",0.463705,7316,"Neustadt an der Weinstraße, Stadt",2013
+"479",0.415297,7316,"Neustadt an der Weinstraße, Stadt",2014
+"480",0.412163,7316,"Neustadt an der Weinstraße, Stadt",2015
+"481",0.411339,7316,"Neustadt an der Weinstraße, Stadt",2016
+"482",0.420914,7316,"Neustadt an der Weinstraße, Stadt",2017
+"483",0.40219,7316,"Neustadt an der Weinstraße, Stadt",2018
+"484",0.433335,7316,"Neustadt an der Weinstraße, Stadt",2019
+"485",1,7317,"Pirmasens, Stadt",1998
+"486",1,7317,"Pirmasens, Stadt",1999
+"487",1,7317,"Pirmasens, Stadt",2000
+"488",1,7317,"Pirmasens, Stadt",2001
+"489",1,7317,"Pirmasens, Stadt",2002
+"490",1,7317,"Pirmasens, Stadt",2003
+"491",1,7317,"Pirmasens, Stadt",2004
+"492",1,7317,"Pirmasens, Stadt",2005
+"493",1,7317,"Pirmasens, Stadt",2006
+"494",1,7317,"Pirmasens, Stadt",2007
+"495",1,7317,"Pirmasens, Stadt",2008
+"496",1,7317,"Pirmasens, Stadt",2009
+"497",1,7317,"Pirmasens, Stadt",2010
+"498",1,7317,"Pirmasens, Stadt",2011
+"499",1,7317,"Pirmasens, Stadt",2012
+"500",1,7317,"Pirmasens, Stadt",2013
+"501",1,7317,"Pirmasens, Stadt",2014
+"502",1,7317,"Pirmasens, Stadt",2015
+"503",1,7317,"Pirmasens, Stadt",2016
+"504",1,7317,"Pirmasens, Stadt",2017
+"505",1,7317,"Pirmasens, Stadt",2018
+"506",1,7317,"Pirmasens, Stadt",2019
+"507",0.343304,7318,"Speyer, Stadt",1998
+"508",0.351014,7318,"Speyer, Stadt",1999
+"509",0.42511,7318,"Speyer, Stadt",2000
+"510",0.462466,7318,"Speyer, Stadt",2001
+"511",0.457063,7318,"Speyer, Stadt",2002
+"512",0.443139,7318,"Speyer, Stadt",2003
+"513",0.420102,7318,"Speyer, Stadt",2004
+"514",0.380056,7318,"Speyer, Stadt",2005
+"515",0.348084,7318,"Speyer, Stadt",2006
+"516",0.331904,7318,"Speyer, Stadt",2007
+"517",0.361889,7318,"Speyer, Stadt",2008
+"518",0.385244,7318,"Speyer, Stadt",2009
+"519",0.386295,7318,"Speyer, Stadt",2010
+"520",0.337598,7318,"Speyer, Stadt",2011
+"521",0.334352,7318,"Speyer, Stadt",2012
+"522",0.342187,7318,"Speyer, Stadt",2013
+"523",0.312306,7318,"Speyer, Stadt",2014
+"524",0.323849,7318,"Speyer, Stadt",2015
+"525",0.340879,7318,"Speyer, Stadt",2016
+"526",0.344665,7318,"Speyer, Stadt",2017
+"527",0.348392,7318,"Speyer, Stadt",2018
+"528",0.338039,7318,"Speyer, Stadt",2019
+"529",0.664938,7319,"Worms, Stadt",1998
+"530",0.669726,7319,"Worms, Stadt",1999
+"531",0.690068,7319,"Worms, Stadt",2000
+"532",0.713973,7319,"Worms, Stadt",2001
+"533",0.736939,7319,"Worms, Stadt",2002
+"534",0.690664,7319,"Worms, Stadt",2003
+"535",0.661389,7319,"Worms, Stadt",2004
+"536",0.661034,7319,"Worms, Stadt",2005
+"537",0.721087,7319,"Worms, Stadt",2006
+"538",0.710976,7319,"Worms, Stadt",2007
+"539",0.695407,7319,"Worms, Stadt",2008
+"540",0.70275,7319,"Worms, Stadt",2009
+"541",0.703738,7319,"Worms, Stadt",2010
+"542",0.611364,7319,"Worms, Stadt",2011
+"543",0.641058,7319,"Worms, Stadt",2012
+"544",0.683308,7319,"Worms, Stadt",2013
+"545",0.678372,7319,"Worms, Stadt",2014
+"546",0.684915,7319,"Worms, Stadt",2015
+"547",0.708474,7319,"Worms, Stadt",2016
+"548",0.694148,7319,"Worms, Stadt",2017
+"549",0.687699,7319,"Worms, Stadt",2018
+"550",0.679029,7319,"Worms, Stadt",2019
+"551",0.608617,7320,"Zweibrücken, Stadt",1998
+"552",0.616698,7320,"Zweibrücken, Stadt",1999
+"553",0.656211,7320,"Zweibrücken, Stadt",2000
+"554",0.677185,7320,"Zweibrücken, Stadt",2001
+"555",0.73279,7320,"Zweibrücken, Stadt",2002
+"556",0.698251,7320,"Zweibrücken, Stadt",2003
+"557",0.702182,7320,"Zweibrücken, Stadt",2004
+"558",0.685987,7320,"Zweibrücken, Stadt",2005
+"559",0.707159,7320,"Zweibrücken, Stadt",2006
+"560",0.651326,7320,"Zweibrücken, Stadt",2007
+"561",0.673144,7320,"Zweibrücken, Stadt",2008
+"562",0.680089,7320,"Zweibrücken, Stadt",2009
+"563",0.656131,7320,"Zweibrücken, Stadt",2010
+"564",0.605256,7320,"Zweibrücken, Stadt",2011
+"565",0.636778,7320,"Zweibrücken, Stadt",2012
+"566",0.646354,7320,"Zweibrücken, Stadt",2013
+"567",0.5955,7320,"Zweibrücken, Stadt",2014
+"568",0.665935,7320,"Zweibrücken, Stadt",2015
+"569",0.666522,7320,"Zweibrücken, Stadt",2016
+"570",0.669545,7320,"Zweibrücken, Stadt",2017
+"571",0.62712,7320,"Zweibrücken, Stadt",2018
+"572",0.639808,7320,"Zweibrücken, Stadt",2019
+"573",0.491904,7331,"Alzey-Worms",1998
+"574",0.504674,7331,"Alzey-Worms",1999
+"575",0.568635,7331,"Alzey-Worms",2000
+"576",0.580177,7331,"Alzey-Worms",2001
+"577",0.574537,7331,"Alzey-Worms",2002
+"578",0.575917,7331,"Alzey-Worms",2003
+"579",0.564505,7331,"Alzey-Worms",2004
+"580",0.533789,7331,"Alzey-Worms",2005
+"581",0.562981,7331,"Alzey-Worms",2006
+"582",0.533242,7331,"Alzey-Worms",2007
+"583",0.571634,7331,"Alzey-Worms",2008
+"584",0.545113,7331,"Alzey-Worms",2009
+"585",0.52225,7331,"Alzey-Worms",2010
+"586",0.509777,7331,"Alzey-Worms",2011
+"587",0.509071,7331,"Alzey-Worms",2012
+"588",0.50771,7331,"Alzey-Worms",2013
+"589",0.487128,7331,"Alzey-Worms",2014
+"590",0.533892,7331,"Alzey-Worms",2015
+"591",0.554371,7331,"Alzey-Worms",2016
+"592",0.536904,7331,"Alzey-Worms",2017
+"593",0.551451,7331,"Alzey-Worms",2018
+"594",0.552327,7331,"Alzey-Worms",2019
+"595",0.347634,7332,"Bad Dürkheim",1998
+"596",0.359397,7332,"Bad Dürkheim",1999
+"597",0.425596,7332,"Bad Dürkheim",2000
+"598",0.467983,7332,"Bad Dürkheim",2001
+"599",0.462144,7332,"Bad Dürkheim",2002
+"600",0.425036,7332,"Bad Dürkheim",2003
+"601",0.410604,7332,"Bad Dürkheim",2004
+"602",0.369082,7332,"Bad Dürkheim",2005
+"603",0.402666,7332,"Bad Dürkheim",2006
+"604",0.396783,7332,"Bad Dürkheim",2007
+"605",0.415582,7332,"Bad Dürkheim",2008
+"606",0.431309,7332,"Bad Dürkheim",2009
+"607",0.448904,7332,"Bad Dürkheim",2010
+"608",0.407472,7332,"Bad Dürkheim",2011
+"609",0.425715,7332,"Bad Dürkheim",2012
+"610",0.431178,7332,"Bad Dürkheim",2013
+"611",0.422106,7332,"Bad Dürkheim",2014
+"612",0.435161,7332,"Bad Dürkheim",2015
+"613",0.459548,7332,"Bad Dürkheim",2016
+"614",0.451988,7332,"Bad Dürkheim",2017
+"615",0.458533,7332,"Bad Dürkheim",2018
+"616",0.431276,7332,"Bad Dürkheim",2019
+"617",0.592091,7333,"Donnersbergkreis",1998
+"618",0.602839,7333,"Donnersbergkreis",1999
+"619",0.682339,7333,"Donnersbergkreis",2000
+"620",0.6809,7333,"Donnersbergkreis",2001
+"621",0.729018,7333,"Donnersbergkreis",2002
+"622",0.69332,7333,"Donnersbergkreis",2003
+"623",0.6478,7333,"Donnersbergkreis",2004
+"624",0.62801,7333,"Donnersbergkreis",2005
+"625",0.618919,7333,"Donnersbergkreis",2006
+"626",0.627614,7333,"Donnersbergkreis",2007
+"627",0.636145,7333,"Donnersbergkreis",2008
+"628",0.654504,7333,"Donnersbergkreis",2009
+"629",0.655686,7333,"Donnersbergkreis",2010
+"630",0.598921,7333,"Donnersbergkreis",2011
+"631",0.60193,7333,"Donnersbergkreis",2012
+"632",0.62484,7333,"Donnersbergkreis",2013
+"633",0.601683,7333,"Donnersbergkreis",2014
+"634",0.604321,7333,"Donnersbergkreis",2015
+"635",0.610381,7333,"Donnersbergkreis",2016
+"636",0.651786,7333,"Donnersbergkreis",2017
+"637",0.631974,7333,"Donnersbergkreis",2018
+"638",0.678449,7333,"Donnersbergkreis",2019
+"639",0.284487,7334,"Germersheim",1998
+"640",0.302901,7334,"Germersheim",1999
+"641",0.446952,7334,"Germersheim",2000
+"642",0.484096,7334,"Germersheim",2001
+"643",0.491411,7334,"Germersheim",2002
+"644",0.483406,7334,"Germersheim",2003
+"645",0.42283,7334,"Germersheim",2004
+"646",0.370617,7334,"Germersheim",2005
+"647",0.392803,7334,"Germersheim",2006
+"648",0.375591,7334,"Germersheim",2007
+"649",0.396682,7334,"Germersheim",2008
+"650",0.40481,7334,"Germersheim",2009
+"651",0.41823,7334,"Germersheim",2010
+"652",0.367145,7334,"Germersheim",2011
+"653",0.399635,7334,"Germersheim",2012
+"654",0.378799,7334,"Germersheim",2013
+"655",0.381758,7334,"Germersheim",2014
+"656",0.371106,7334,"Germersheim",2015
+"657",0.399673,7334,"Germersheim",2016
+"658",0.419936,7334,"Germersheim",2017
+"659",0.38964,7334,"Germersheim",2018
+"660",0.392138,7334,"Germersheim",2019
+"661",0.675007,7335,"Kaiserslautern",1998
+"662",0.684536,7335,"Kaiserslautern",1999
+"663",0.725757,7335,"Kaiserslautern",2000
+"664",0.725764,7335,"Kaiserslautern",2001
+"665",0.752227,7335,"Kaiserslautern",2002
+"666",0.695684,7335,"Kaiserslautern",2003
+"667",0.6983,7335,"Kaiserslautern",2004
+"668",0.632148,7335,"Kaiserslautern",2005
+"669",0.655624,7335,"Kaiserslautern",2006
+"670",0.708428,7335,"Kaiserslautern",2007
+"671",0.685225,7335,"Kaiserslautern",2008
+"672",0.684955,7335,"Kaiserslautern",2009
+"673",0.708154,7335,"Kaiserslautern",2010
+"674",0.644733,7335,"Kaiserslautern",2011
+"675",0.66789,7335,"Kaiserslautern",2012
+"676",0.702469,7335,"Kaiserslautern",2013
+"677",0.675304,7335,"Kaiserslautern",2014
+"678",0.70223,7335,"Kaiserslautern",2015
+"679",0.667968,7335,"Kaiserslautern",2016
+"680",0.692391,7335,"Kaiserslautern",2017
+"681",0.718079,7335,"Kaiserslautern",2018
+"682",0.701463,7335,"Kaiserslautern",2019
+"683",0.731799,7336,"Kusel",1998
+"684",0.739643,7336,"Kusel",1999
+"685",0.776026,7336,"Kusel",2000
+"686",0.762025,7336,"Kusel",2001
+"687",0.841309,7336,"Kusel",2002
+"688",0.820732,7336,"Kusel",2003
+"689",0.756816,7336,"Kusel",2004
+"690",0.764002,7336,"Kusel",2005
+"691",0.783102,7336,"Kusel",2006
+"692",0.799662,7336,"Kusel",2007
+"693",0.776659,7336,"Kusel",2008
+"694",0.817959,7336,"Kusel",2009
+"695",0.796687,7336,"Kusel",2010
+"696",0.72954,7336,"Kusel",2011
+"697",0.741412,7336,"Kusel",2012
+"698",0.735524,7336,"Kusel",2013
+"699",0.738582,7336,"Kusel",2014
+"700",0.775534,7336,"Kusel",2015
+"701",0.753999,7336,"Kusel",2016
+"702",0.80306,7336,"Kusel",2017
+"703",0.814732,7336,"Kusel",2018
+"704",0.782084,7336,"Kusel",2019
+"705",0.384974,7337,"Südliche Weinstraße",1998
+"706",0.400169,7337,"Südliche Weinstraße",1999
+"707",0.478955,7337,"Südliche Weinstraße",2000
+"708",0.527976,7337,"Südliche Weinstraße",2001
+"709",0.525935,7337,"Südliche Weinstraße",2002
+"710",0.499534,7337,"Südliche Weinstraße",2003
+"711",0.456016,7337,"Südliche Weinstraße",2004
+"712",0.410425,7337,"Südliche Weinstraße",2005
+"713",0.417763,7337,"Südliche Weinstraße",2006
+"714",0.440712,7337,"Südliche Weinstraße",2007
+"715",0.479269,7337,"Südliche Weinstraße",2008
+"716",0.50487,7337,"Südliche Weinstraße",2009
+"717",0.519188,7337,"Südliche Weinstraße",2010
+"718",0.469502,7337,"Südliche Weinstraße",2011
+"719",0.485073,7337,"Südliche Weinstraße",2012
+"720",0.487039,7337,"Südliche Weinstraße",2013
+"721",0.466987,7337,"Südliche Weinstraße",2014
+"722",0.483868,7337,"Südliche Weinstraße",2015
+"723",0.470676,7337,"Südliche Weinstraße",2016
+"724",0.488661,7337,"Südliche Weinstraße",2017
+"725",0.465885,7337,"Südliche Weinstraße",2018
+"726",0.480747,7337,"Südliche Weinstraße",2019
+"727",0.251596,7338,"Rhein-Pfalz-Kreis",1998
+"728",0.265606,7338,"Rhein-Pfalz-Kreis",1999
+"729",0.327349,7338,"Rhein-Pfalz-Kreis",2000
+"730",0.342031,7338,"Rhein-Pfalz-Kreis",2001
+"731",0.388816,7338,"Rhein-Pfalz-Kreis",2002
+"732",0.350773,7338,"Rhein-Pfalz-Kreis",2003
+"733",0.361496,7338,"Rhein-Pfalz-Kreis",2004
+"734",0.298516,7338,"Rhein-Pfalz-Kreis",2005
+"735",0.309577,7338,"Rhein-Pfalz-Kreis",2006
+"736",0.302944,7338,"Rhein-Pfalz-Kreis",2007
+"737",0.357976,7338,"Rhein-Pfalz-Kreis",2008
+"738",0.370492,7338,"Rhein-Pfalz-Kreis",2009
+"739",0.360286,7338,"Rhein-Pfalz-Kreis",2010
+"740",0.338651,7338,"Rhein-Pfalz-Kreis",2011
+"741",0.343276,7338,"Rhein-Pfalz-Kreis",2012
+"742",0.342972,7338,"Rhein-Pfalz-Kreis",2013
+"743",0.307242,7338,"Rhein-Pfalz-Kreis",2014
+"744",0.313979,7338,"Rhein-Pfalz-Kreis",2015
+"745",0.346186,7338,"Rhein-Pfalz-Kreis",2016
+"746",0.354251,7338,"Rhein-Pfalz-Kreis",2017
+"747",0.361231,7338,"Rhein-Pfalz-Kreis",2018
+"748",0.359157,7338,"Rhein-Pfalz-Kreis",2019
+"749",0.079766,7339,"Mainz-Bingen",1998
+"750",0.095735,7339,"Mainz-Bingen",1999
+"751",0.187528,7339,"Mainz-Bingen",2000
+"752",0.193132,7339,"Mainz-Bingen",2001
+"753",0.234316,7339,"Mainz-Bingen",2002
+"754",0.198453,7339,"Mainz-Bingen",2003
+"755",0.187968,7339,"Mainz-Bingen",2004
+"756",0.137552,7339,"Mainz-Bingen",2005
+"757",0.139897,7339,"Mainz-Bingen",2006
+"758",0.165661,7339,"Mainz-Bingen",2007
+"759",0.160513,7339,"Mainz-Bingen",2008
+"760",0.162305,7339,"Mainz-Bingen",2009
+"761",0.179766,7339,"Mainz-Bingen",2010
+"762",0.169333,7339,"Mainz-Bingen",2011
+"763",0.216702,7339,"Mainz-Bingen",2012
+"764",0.198233,7339,"Mainz-Bingen",2013
+"765",0.162136,7339,"Mainz-Bingen",2014
+"766",0.150588,7339,"Mainz-Bingen",2015
+"767",0.191576,7339,"Mainz-Bingen",2016
+"768",0.218256,7339,"Mainz-Bingen",2017
+"769",0.226114,7339,"Mainz-Bingen",2018
+"770",0.230736,7339,"Mainz-Bingen",2019
+"771",0.60601,7340,"Südwestpfalz",1998
+"772",0.617155,7340,"Südwestpfalz",1999
+"773",0.673497,7340,"Südwestpfalz",2000
+"774",0.664074,7340,"Südwestpfalz",2001
+"775",0.687119,7340,"Südwestpfalz",2002
+"776",0.647418,7340,"Südwestpfalz",2003
+"777",0.648511,7340,"Südwestpfalz",2004
+"778",0.613938,7340,"Südwestpfalz",2005
+"779",0.587955,7340,"Südwestpfalz",2006
+"780",0.628165,7340,"Südwestpfalz",2007
+"781",0.654203,7340,"Südwestpfalz",2008
+"782",0.668747,7340,"Südwestpfalz",2009
+"783",0.659319,7340,"Südwestpfalz",2010
+"784",0.626085,7340,"Südwestpfalz",2011
+"785",0.614077,7340,"Südwestpfalz",2012
+"786",0.619684,7340,"Südwestpfalz",2013
+"787",0.59456,7340,"Südwestpfalz",2014
+"788",0.625204,7340,"Südwestpfalz",2015
+"789",0.631677,7340,"Südwestpfalz",2016
+"790",0.637664,7340,"Südwestpfalz",2017
+"791",0.615882,7340,"Südwestpfalz",2018
+"792",0.630853,7340,"Südwestpfalz",2019

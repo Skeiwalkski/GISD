@@ -37,7 +37,7 @@ library(ggplot2)
 home <- getwd()
 setwd(home)
 
-Impdata.imputed <- readRDS("Outfiles/Impdata_check_2019.rds")
+Impdata.imputed <- readRDS("Outfiles/2022/Impdata_check.rds")
 
 #Impdata.imputed <- Impdata.imputed %>% filter(Jahr > 2011)
 ```
@@ -53,7 +53,7 @@ TS_Arbeitswelt <- Impdata.imputed  %>% ungroup() %>%
 TS_Einkommen   <- Impdata.imputed %>% select(Einkommensteuer_ln,Haushaltseinkommen_ln,Schuldnerquote) 
 # Für den Vergleich der Ergebnisse wird zunächst ein Datensatz für die Variablenauswahl der Revision 2019 generiert
 
-TS_Bildung <- Impdata.imputed %>% select(BeschaeftigtemitakadAbschluss,BeschaeftigteohneAbschluss_adj,SchulabgaengerohneAbschluss_adj)
+TS_Bildung <- Impdata.imputed %>% filter(Jahr > 2014) %>% select(BeschaeftigtemitakadAbschluss,BeschaeftigteohneAbschluss_adj,SchulabgaengerohneAbschluss_adj)
 
 TS_Bildung_o <- Impdata.imputed %>% select(BeschaeftigtemitakadAbschluss,BeschaeftigteohneAbschluss,SchulabgaengerohneAbschluss)
 
