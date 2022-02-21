@@ -311,7 +311,7 @@ GISD_Komponents$prop_GISD <- round(as.numeric(GISD_Komponents$prop_dem)/3, digit
 
 colnames(GISD_Komponents) <- c("Variable","Dimension","Faktorladung","Component", "Anteil Teilscore", "Anteil GISD")
 
-GISD_Komponents$Variable <- c("Beschäftigtenquote (gedeckelt)", "Arbeitslosigkeit", "Bruttoverdienst (log.)", "Einkommensteuer (log.)", "Haushaltseinkommen (log.)", "Schuldnerquote", "Beschäftigte mit akad. Abschluss", "Beschäftigte ohne Abschluss (adj.)", "Bevölerung mit akad. Abschluss", "Bevölkerung ohne Abschluss", "Schulabgänger ohne Abschluss (adj.)")
+GISD_Komponents$Variable <- c("Beschäftigtenquote (gedeckelt)", "Arbeitslosigkeit", "Bruttoverdienst (log.)", "Einkommensteuer (log.)", "Haushaltseinkommen (log.)", "Schuldnerquote", "Beschäftigte mit akad. Abschluss", "Beschäftigte ohne Abschluss (adj.)", "Bevölkerung mit akad. Abschluss", "Bevölkerung ohne Abschluss", "Schulabgänger ohne Abschluss (adj.)")
 
 kable(GISD_Komponents, caption = "Faktorladungen und Anteile an den Teilscores sowie am Index")
 ```
@@ -330,7 +330,7 @@ Table: (\#tab:unnamed-chunk-6)Faktorladungen und Anteile an den Teilscores sowie
 |Schuldnerquote                      |Einkommen   |0.615        |0.429     |             18.4|         6.1|
 |Beschäftigte mit akad. Abschluss    |Bildung     |0.794        |0.532     |             28.3|         9.4|
 |Beschäftigte ohne Abschluss (adj.)  |Bildung     |0.5          |0.335     |             11.2|         3.7|
-|Bevölerung mit akad. Abschluss      |Bildung     |0.862        |0.578     |             33.4|        11.1|
+|Bevölkerung mit akad. Abschluss     |Bildung     |0.862        |0.578     |             33.4|        11.1|
 |Bevölkerung ohne Abschluss          |Bildung     |-0.648       |-0.434    |             18.8|         6.3|
 |Schulabgänger ohne Abschluss (adj.) |Bildung     |-0.429       |-0.287    |              8.2|         2.7|
 
