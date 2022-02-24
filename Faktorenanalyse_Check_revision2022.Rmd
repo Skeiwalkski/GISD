@@ -55,6 +55,8 @@ TS_Einkommen   <- Impdata.imputed %>% select(Einkommensteuer_ln,Haushaltseinkomm
 
 TS_Bildung <- Impdata.imputed %>% filter(Jahr > 2014) %>% select(BeschaeftigtemitakadAbschluss,BeschaeftigteohneAbschluss_adj,SchulabgaengerohneAbschluss_adj)
 
+TS_Bildung_NUTS2 <- Impdata.imputed %>% select(BeschaeftigtemitakadAbschluss,BeschaeftigteohneAbschluss_adj,BevoelkerungmitakadAbschluss,BevoelkerungohneAbschluss,SchulabgaengerohneAbschluss_adj)
+
 TS_Bildung_o <- Impdata.imputed %>% select(BeschaeftigtemitakadAbschluss,BeschaeftigteohneAbschluss,SchulabgaengerohneAbschluss)
 
 # Check dieser Lösung für das 2014er Sample 
@@ -108,6 +110,7 @@ TS_Einkommen.pca <- prcomp(TS_Einkommen, center = TRUE, scale. = TRUE, retx=TRUE
 #TS_Bildung.pca <- prcomp(TS_Bildung, center = TRUE, scale. = TRUE, retx=TRUE) 
 #plot(TS_Bildung.pca)
 TS_Bildung.pca <- prcomp(TS_Bildung, center = TRUE, scale. = TRUE, retx=TRUE, rank. = 1)
+TS_Bildung_NUTS2.pca <- prcomp(TS_Bildung_NUTS2, center = TRUE, scale. = TRUE, retx=TRUE, rank. = 1)
 #TS_Bildung.pca
 
 # Alternativ Bildungskomponente mit BeschaeftigtemitakadAbschluss,SchulabgaengermitHochschulreife,SchulabgaengerohneAbschluss
@@ -199,6 +202,70 @@ GISD_Komponents$prop_GISD <- round(as.numeric(GISD_Komponents$prop_dem)/3, digit
 colnames(GISD_Komponents) <- c("Variable","Dimension","Faktorladung","Component", "Anteil Teilscore", "Anteil GISD")
 
 GISD_Komponents$Variable <- c("Beschäftigtenquote (gedeckelt)", "Arbeitslosigkeit", "Bruttoverdienst (log.)", "Einkommensteuer (log.)", "Haushaltseinkommen (log.)", "Schuldnerquote", "Beschäftigte mit akad. Abschluss", "Beschäftigte ohne Abschluss (adj.)", "Schulabgänger ohne Abschluss (adj.)")
+
+kable(GISD_Komponents, caption = "Faktorladungen und Anteile an den Teilscores sowie am Index")
+```
+
+
+## Gepoolte Querschnitte (NUTS2)
+
+### Eigenwerte der Komponenten
+
+```{r , message=FALSE, warning=FALSE}
+par(mfrow=c(1, 3))
+plot(TS_Arbeitswelt.pca, main = "Arbeitswelt (Eigenvektoren)", ylim=c(0,2.2))
+plot(TS_Einkommen.pca, main = "Einkommen (Eigenvektoren)", ylim=c(0,2.2))
+plot(TS_Bildung_NUTS2.pca, main = "Bildung (Eigenvektoren)", ylim=c(0,2.2))
+```
+
+```{r , message=FALSE, warning=FALSE}
+Varianz_NUTS2_tab <- cbind("F_A" = "Faktor1", "Var_A" = round(TS_Arbeitswelt.pca$sdev^2, digits = 3), "Var_E" = round(TS_Einkommen.pca$sdev^2, digits = 3),  "Var_B" = round(TS_Bildung_NUTS2.pca$sdev^2, digits = 3))
+
+Varianz_NUTS2_tab[4,2] = NA
+Varianz_NUTS2_tab[4,3] = NA
+Varianz_NUTS2_tab[5,2] = NA
+Varianz_NUTS2_tab[5,3] = NA
+
+Varianz_NUTS2_tab <- cbind(as.data.frame(Varianz_NUTS2_tab))
+
+Varianz_NUTS2_tab$F_A <- c("Faktor 1", "Faktor 2", "Faktor 3", "Faktor 4", "Faktor 5")
+
+colnames(Varianz_NUTS2_tab) <- c("Faktoren", "Varianz Arbeitswelt", "Varianz Einkommen", "Varianz Bildung")
+
+kable(Varianz_NUTS2_tab, caption = "Varianz der Faktoren (Eigenvektoren)")
+```
+
+
+### Faktorladungen
+
+```{r message=FALSE, warning=FALSE}
+# Componentoverview
+
+GISD_Komponents <- cbind("Teildimension"="Arbeitswelt","Faktorladung"=round((TS_Arbeitswelt.pca$rotation*sqrt(abs(TS_Arbeitswelt.pca$sdev[1]^2))), digits = 3),"Component"=round(TS_Arbeitswelt.pca$rotation, digits = 3))
+#cbind erstellt Spaltenvektoren mit den Infos aus Teildimension, den (rotierten) Faktorladungen und den Components
+
+GISD_Komponents <- rbind(GISD_Komponents,cbind("Teildimension"="Einkommen","Faktorladung"=round((TS_Einkommen.pca$rotation*sqrt(abs(TS_Einkommen.pca$sdev[1]^2))), digits = 3),"Component"=round(TS_Einkommen.pca$rotation, digits = 3)))
+# rbind erstellt Zeilenvektoren, diese werden hier in die bereits vorhandenen Spaltenvektoren eingebunden
+
+GISD_Komponents <- rbind(GISD_Komponents,cbind("Teildimension"="Bildung","Faktorladung"=round((TS_Bildung_NUTS2.pca$rotation*sqrt(abs(TS_Bildung_NUTS2.pca$sdev[1]^2))), digits = 3),"Component"=round(TS_Bildung_NUTS2.pca$rotation, digits = 3)))
+# auch für die Teildimension Bildung werden Zeilenvektoren eingebunden
+
+GISD_Komponents <- cbind("Variables"=as.data.frame(rownames(GISD_Komponents)),as.data.frame(GISD_Komponents))
+# als letztes wird die Matrix in einen Dataframe übersetzt
+
+rownames(GISD_Komponents) <- NULL
+# die überflüssigen Zeilennamen werden gestrichen
+
+colnames(GISD_Komponents) <- c("Variable","Dimension","Faktorladung","Component")
+
+GISD_Komponents$prop_dem <- round(as.numeric(GISD_Komponents$Component)^2*100,digits=1)
+# eine weitere Spalte Proportion wird eingefügt mit prozentualen Anteilswerten (eine Nachkommastelle)
+
+GISD_Komponents$prop_GISD <- round(as.numeric(GISD_Komponents$prop_dem)/3, digits = 1)
+
+colnames(GISD_Komponents) <- c("Variable","Dimension","Faktorladung","Component", "Anteil Teilscore", "Anteil GISD")
+
+GISD_Komponents$Variable <- c("Beschäftigtenquote (gedeckelt)", "Arbeitslosigkeit", "Bruttoverdienst (log.)", "Einkommensteuer (log.)", "Haushaltseinkommen (log.)", "Schuldnerquote", "Beschäftigte mit akad. Abschluss", "Beschäftigte ohne Abschluss (adj.)", "Bevölkerung mit akad. Abschluss", "Bevölkerung ohne Abschluss", "Schulabgänger ohne Abschluss (adj.)")
 
 kable(GISD_Komponents, caption = "Faktorladungen und Anteile an den Teilscores sowie am Index")
 ```
