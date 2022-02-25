@@ -1,0 +1,23 @@
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  C:\git_projects\GISD\Korrelation_Ausgangsdaten\B_BeschaeftigteohneAbschluss.log
+  log type:  text
+ opened on:  25 Feb 2022, 13:19:14
+
+. corr BeschohneAbschl14_ BeschohneAbschl15_ BeschohneAbschl17_ BeschohneAbschl19_
+(obs=400)
+
+             | Besc~14_ Besc~15_ Besc~17_ Besc~19_
+-------------+------------------------------------
+Beschohn~14_ |   1.0000
+Beschohn~15_ |   0.9396   1.0000
+Beschohn~17_ |   1.0000   0.9396   1.0000
+Beschohn~19_ |   1.0000   0.9396   1.0000   1.0000
+
+
+. log close
+      name:  <unnamed>
+       log:  C:\git_projects\GISD\Korrelation_Ausgangsdaten\B_BeschaeftigteohneAbschluss.log
+  log type:  text
+ closed on:  25 Feb 2022, 13:19:14
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------

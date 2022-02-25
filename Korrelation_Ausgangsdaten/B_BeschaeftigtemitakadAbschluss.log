@@ -1,0 +1,23 @@
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  C:\git_projects\GISD\Korrelation_Ausgangsdaten\B_BeschaeftigtemitakadAbschluss.log
+  log type:  text
+ opened on:  25 Feb 2022, 13:19:13
+
+. corr BeschakAbschl14_ BeschakAbschl15_ BeschakAbschl17_ BeschakAbschl19_
+(obs=400)
+
+             | Besc~14_ Besc~15_ Besc~17_ Besc~19_
+-------------+------------------------------------
+BeschakA~14_ |   1.0000
+BeschakA~15_ |   0.8963   1.0000
+BeschakA~17_ |   0.9727   0.9253   1.0000
+BeschakA~19_ |   0.9727   0.9254   1.0000   1.0000
+
+
+. log close
+      name:  <unnamed>
+       log:  C:\git_projects\GISD\Korrelation_Ausgangsdaten\B_BeschaeftigtemitakadAbschluss.log
+  log type:  text
+ closed on:  25 Feb 2022, 13:19:13
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------

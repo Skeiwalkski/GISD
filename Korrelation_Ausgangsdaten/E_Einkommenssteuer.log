@@ -1,0 +1,23 @@
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  C:\git_projects\GISD\Korrelation_Ausgangsdaten\E_Einkommenssteuer.log
+  log type:  text
+ opened on:  25 Feb 2022, 13:19:18
+
+. corr Einkommensteuer14_ Einkommensteuer15_ Einkommensteuer17_ Einkommensteuer19_
+(obs=43,946)
+
+             | Eink~14_ Eink~15_ Eink~17_ Eink~19_
+-------------+------------------------------------
+Einkomme~14_ |   1.0000
+Einkomme~15_ |   1.0000   1.0000
+Einkomme~17_ |   1.0000   1.0000   1.0000
+Einkomme~19_ |   1.0000   1.0000   1.0000   1.0000
+
+
+. log close
+      name:  <unnamed>
+       log:  C:\git_projects\GISD\Korrelation_Ausgangsdaten\E_Einkommenssteuer.log
+  log type:  text
+ closed on:  25 Feb 2022, 13:19:18
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------

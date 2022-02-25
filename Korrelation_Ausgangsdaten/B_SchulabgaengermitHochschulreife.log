@@ -1,0 +1,23 @@
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  C:\git_projects\GISD\Korrelation_Ausgangsdaten\B_SchulabgaengermitHochschulreife.log
+  log type:  text
+ opened on:  25 Feb 2022, 13:19:15
+
+. corr SchulemitAbi14_ SchulemitAbi15_ SchulemitAbi17_ SchulemitAbi19_
+(obs=6,783)
+
+             | Schu~14_ Schu~15_ Schu~17_ Schu~19_
+-------------+------------------------------------
+Schulemi~14_ |   1.0000
+Schulemi~15_ |   1.0000   1.0000
+Schulemi~17_ |   1.0000   1.0000   1.0000
+Schulemi~19_ |   1.0000   1.0000   1.0000   1.0000
+
+
+. log close
+      name:  <unnamed>
+       log:  C:\git_projects\GISD\Korrelation_Ausgangsdaten\B_SchulabgaengermitHochschulreife.log
+  log type:  text
+ closed on:  25 Feb 2022, 13:19:15
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------

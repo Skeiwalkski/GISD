@@ -1,0 +1,23 @@
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  C:\git_projects\GISD\Korrelation_Ausgangsdaten\E_Schuldnerquote.log
+  log type:  text
+ opened on:  25 Feb 2022, 13:19:20
+
+. corr Schuldner14_ Schuldner15_ Schuldner17_ Schuldner19_
+(obs=4,400)
+
+             | Schu~14_ Schu~15_ Schu~17_ Schu~19_
+-------------+------------------------------------
+Schuldner14_ |   1.0000
+Schuldner15_ |   0.9941   1.0000
+Schuldner17_ |   0.9999   0.9942   1.0000
+Schuldner19_ |   0.9998   0.9940   0.9999   1.0000
+
+
+. log close
+      name:  <unnamed>
+       log:  C:\git_projects\GISD\Korrelation_Ausgangsdaten\E_Schuldnerquote.log
+  log type:  text
+ closed on:  25 Feb 2022, 13:19:20
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------

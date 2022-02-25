@@ -1,0 +1,23 @@
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  C:\git_projects\GISD\Korrelation_Ausgangsdaten\A_Bruttoverdienst.log
+  log type:  text
+ opened on:  25 Feb 2022, 13:19:12
+
+. corr Brutto14_ Brutto15_ Brutto17_ Brutto19_
+(obs=6,000)
+
+             | Brut~14_ Brut~15_ Brut~17_ Brut~19_
+-------------+------------------------------------
+   Brutto14_ |   1.0000
+   Brutto15_ |   0.9998   1.0000
+   Brutto17_ |   0.9996   0.9997   1.0000
+   Brutto19_ |   0.9941   0.9943   0.9941   1.0000
+
+
+. log close
+      name:  <unnamed>
+       log:  C:\git_projects\GISD\Korrelation_Ausgangsdaten\A_Bruttoverdienst.log
+  log type:  text
+ closed on:  25 Feb 2022, 13:19:12
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
