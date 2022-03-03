@@ -1,0 +1,23 @@
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  C:\git_projects\GISD\Korrelation_Ausgangsdaten\A_Beschäftigtenquote.log
+  log type:  text
+ opened on:  25 Feb 2022, 13:19:12
+
+. corr Beschquote14_ Beschquote15_ Beschquote17_ Beschquote19_
+(obs=43,946)
+
+             | Besc~14_ Besc~15_ Besc~17_ Besc~19_
+-------------+------------------------------------
+Beschquo~14_ |   1.0000
+Beschquo~15_ |   0.9197   1.0000
+Beschquo~17_ |   0.9197   1.0000   1.0000
+Beschquo~19_ |   0.8902   0.9831   0.9831   1.0000
+
+
+. log close
+      name:  <unnamed>
+       log:  C:\git_projects\GISD\Korrelation_Ausgangsdaten\A_Beschäftigtenquote.log
+  log type:  text
+ closed on:  25 Feb 2022, 13:19:12
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------

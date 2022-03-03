@@ -1,0 +1,23 @@
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  C:\git_projects\GISD\Korrelation_Ausgangsdaten\B_SchulabgaengerohneAbschluss.log
+  log type:  text
+ opened on:  25 Feb 2022, 13:19:15
+
+. corr SchuleohneAbschl14_ SchuleohneAbschl15_ SchuleohneAbschl17_ SchuleohneAbschl19_
+(obs=6,783)
+
+             | Schu~14_ Schu~15_ Schu~17_ Schu~19_
+-------------+------------------------------------
+Schuleoh~14_ |   1.0000
+Schuleoh~15_ |   0.9999   1.0000
+Schuleoh~17_ |   0.9999   1.0000   1.0000
+Schuleoh~19_ |   0.9999   1.0000   1.0000   1.0000
+
+
+. log close
+      name:  <unnamed>
+       log:  C:\git_projects\GISD\Korrelation_Ausgangsdaten\B_SchulabgaengerohneAbschluss.log
+  log type:  text
+ closed on:  25 Feb 2022, 13:19:15
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
