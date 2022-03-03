@@ -46,12 +46,6 @@ output:
 ## Saving 7 x 5 in image
 ```
 
-![](Check-Ausgangsdaten_2022_files/figure-html/Arbeitsdimension-5.png)<!-- -->
-
-```
-## Saving 7 x 5 in image
-```
-
 
 ## Einkommensdimension
 
@@ -125,6 +119,12 @@ output:
 ```
 
 ![](Check-Ausgangsdaten_2022_files/figure-html/Bildungsdimension-7.png)<!-- -->
+
+```
+## Saving 7 x 5 in image
+```
+
+![](Check-Ausgangsdaten_2022_files/figure-html/Bildungsdimension-8.png)<!-- -->
 
 ```
 ## Saving 7 x 5 in image

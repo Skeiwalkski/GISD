@@ -468,7 +468,8 @@ OW <- function(data,outcome_name){
     select(Gemeindekennziffer, Jahr, OW, "Outcome"=paste(outcome_name)) %>% 
     mutate(Jahr_Dummy = as.factor(Jahr)) %>% ungroup()
   
-  mymodell_ow <- lm(Outcome ~ Jahr_Dummy + relevel(Jahr_Dummy, ref = "2012") * OW, data = mydata, na.action="na.exclude")
+    mymodell_ow <- lm(Outcome ~ Jahr_Dummy + relevel(Jahr_Dummy, ref = "2012") * OW, data = mydata, na.action="na.exclude")
+    
   print(mymodell_ow)  
     mydata <- mydata %>% mutate(coef = summary(mymodell_ow)$coefficients[23,1]) %>%
       mutate(Outcome = ifelse(OW == 1, Outcome - coef, Outcome)) %>%
@@ -480,10 +481,29 @@ Impdata.imputed <- Impdata.imputed %>%
 ```
 
 
-```{r Deckelung der Beschäftigtenquote}
-Impdata.imputed <- Impdata.imputed %>% mutate(Beschaeftigtenquote_adj = ifelse(Beschaeftigtenquote > 80, 80, Beschaeftigtenquote))
-```
+```{r Messänderung}
+Impdata.imputed <- Impdata.imputed %>% mutate(Messaenderung_Besch = ifelse(Jahr < 2012, 1, 0))
 
+
+Messaenderung_Besch <- function(data,outcome_name){
+  mydata   <- data %>%
+    select(Gemeindekennziffer, Jahr, Messaenderung_Besch, "Outcome"=paste(outcome_name)) %>% 
+    mutate(MEAN=mean(Outcome , na.rm=T)) %>% ungroup()
+  
+  mymodell_Messaenderung <- lm(Outcome ~
+                  I(Jahr*Jahr*MEAN) + I(Jahr*MEAN) + Messaenderung_Besch, data = mydata  , na.action="na.exclude")
+  
+  print(mymodell_Messaenderung)  
+    mydata <- mydata %>% mutate(coef = summary(mymodell_Messaenderung)$coefficients[4,1]) %>%
+      mutate(Outcome = ifelse(Messaenderung_Besch == 1, Outcome - coef, Outcome)) %>%
+      pull(Outcome)
+}
+
+Impdata.imputed <- Impdata.imputed %>% 
+  mutate(BeschaeftigteohneAbschluss_adj = Messaenderung_Besch(.,"BeschaeftigteohneAbschluss"),
+         BeschaeftigtemitakadAbschluss_adj = Messaenderung_Besch(.,"BeschaeftigtemitakadAbschluss"))
+
+```
 
 ```{r Logarithmierung und Anpassung durch Verbraucherpreisindex}
 Verbraucherpreisindex <- data.frame(Jahr = c(1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020),
@@ -503,8 +523,8 @@ Impdata.imputed <- Impdata.imputed %>% mutate(Bruttoverdienst_ln = log(Bruttover
 
 ```{r}
 # Stata-Datensatz rausschreiben
-stata_data <- Impdata.imputed %>% mutate(SchulabgmitAbi_adj = SchulabgaengermitHochschulreife_adj) %>% select(-SchulabgaengermitHochschulreife_adj)
-write_dta(stata_data, paste0("Outfiles/2022/Stata/Impdata_check_2019.dta"))
+#stata_data <- Impdata.imputed %>% mutate(SchulabgmitAbi_adj = SchulabgaengermitHochschulreife_adj) %>% #select(-SchulabgaengermitHochschulreife_adj)
+#write_dta(stata_data, paste0("Outfiles/2022/Stata/Impdata_check_2019.dta"))
 
 # RDS-Datensatz rausschreiben
 write_rds(Impdata.imputed, paste0("Outfiles/2022/Impdata_check.rds"))
@@ -545,11 +565,11 @@ print(hist_over_westost)
 
 ## IV. Faktorenanalyse (Hauptkomponentenanalyse) inklusive Generierung der Faktorscores
 ```{r Tibbles für die Teilscores generieren, echo=FALSE}
-TS_Arbeitswelt_adj <- Impdata.imputed  %>% ungroup() %>% select(Beschaeftigtenquote_adj,Arbeitslosigkeit,Bruttoverdienst_ln)
+TS_Arbeitswelt_adj <- Impdata.imputed  %>% ungroup() %>% select(Beschaeftigtenquote,Arbeitslosigkeit,Bruttoverdienst_ln)
 
 TS_Einkommen_adj   <- Impdata.imputed %>% ungroup %>% select(Einkommensteuer_ln,Haushaltseinkommen_ln,Schuldnerquote) 
 
-TS_Bildung_adj <- Impdata.imputed %>% ungroup %>% filter(Jahr > 2014) %>% select(BeschaeftigtemitakadAbschluss,BeschaeftigteohneAbschluss_adj,SchulabgaengerohneAbschluss_adj) 
+TS_Bildung_adj <- Impdata.imputed %>% ungroup %>% filter(Jahr > 2014) %>% select(BeschaeftigtemitakadAbschluss_adj,BeschaeftigteohneAbschluss_adj,SchulabgaengerohneAbschluss_adj) 
 ```
 
 

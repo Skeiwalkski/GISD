@@ -49,12 +49,6 @@ output:
 ## Saving 7 x 5 in image
 ```
 
-![](Score_check_revision2022_files/figure-html/Arbeitsdimension Plots-5.png)<!-- -->
-
-```
-## Saving 7 x 5 in image
-```
-
 ### Einkommensdimension
 
 ```r
@@ -172,6 +166,24 @@ ggsave("Outfiles/beschAkad.png")
 ```
 
 ```r
+ggplot(Corr_data, aes(GISD_Score, Jahr, color = BeschaeftigtemitakadAbschluss_adj)) + geom_tile(alpha = 0.5, size = 0.5) +
+  theme_rki() + theme(legend.position="bottom") + 
+  scale_color_gradientn(colours = rainbow(5)) + scale_y_discrete(limits=rev) + 
+  scale_x_continuous(position = "top") +
+  labs(colour = "Anteil Beschäftigter mit akademischem Abschluss adj.)", x = "GISD Score", title = "Verteilung von akadem. Beschäftigten (adj.) auf den GISD-Score") 
+```
+
+![](Score_check_revision2022_files/figure-html/Bildungsdimension Plots-2.png)<!-- -->
+
+```r
+ggsave("Outfiles/beschAkad_adj.png")
+```
+
+```
+## Saving 7 x 5 in image
+```
+
+```r
 ggplot(Corr_data, aes(GISD_Score, Jahr, color = BeschaeftigteohneAbschluss)) + geom_tile(alpha = 0.5, size =0.5) + 
   theme_rki() + theme(legend.position="bottom") + 
   scale_color_gradientn(colours = rainbow(5)) + scale_y_discrete(limits=rev) + 
@@ -179,7 +191,7 @@ ggplot(Corr_data, aes(GISD_Score, Jahr, color = BeschaeftigteohneAbschluss)) + g
   labs(colour = "Anteil Beschäftigter ohne Abschluss", x = "GISD Score", title = "Verteilung der Beschäftigten ohne Abschluss auf den GISD-Score") 
 ```
 
-![](Score_check_revision2022_files/figure-html/Bildungsdimension Plots-2.png)<!-- -->
+![](Score_check_revision2022_files/figure-html/Bildungsdimension Plots-3.png)<!-- -->
 
 ```r
 ggsave("Outfiles/beschoA.png")
@@ -197,7 +209,7 @@ ggplot(Corr_data, aes(GISD_Score, Jahr, color = BeschaeftigteohneAbschluss_adj))
   labs(colour = "Anteil Beschäftigter ohne Abschluss (adjusted)", x = "GISD Score", title = "Verteilung der Beschäftigten ohne Abschluss (adj.) auf den GISD-Score")
 ```
 
-![](Score_check_revision2022_files/figure-html/Bildungsdimension Plots-3.png)<!-- -->
+![](Score_check_revision2022_files/figure-html/Bildungsdimension Plots-4.png)<!-- -->
 
 ```r
 ggsave("Outfiles/beschoA_adj.png")
@@ -215,7 +227,7 @@ ggplot(Corr_data, aes(GISD_Score, Jahr, color = SchulabgaengerohneAbschluss)) + 
   labs(colour = "Anteil der Schulabgänger ohne Abschluss", x = "GISD Score", title = "Verteilung der Schulabgänger ohne Abschluss auf den GISD-Score") 
 ```
 
-![](Score_check_revision2022_files/figure-html/Bildungsdimension Plots-4.png)<!-- -->
+![](Score_check_revision2022_files/figure-html/Bildungsdimension Plots-5.png)<!-- -->
 
 ```r
 ggsave("Outfiles/anteilohneab.png")
@@ -232,7 +244,7 @@ ggplot(Corr_data, aes(GISD_Score, Jahr, color = SchulabgaengerohneAbschluss_adj)
   labs(colour = "Anteil der Schulabgänger ohne Abschluss (adjusted)", x = "GISD Score", title = "Verteilung der Schulabgänger ohne Abschluss (adj.) auf den GISD-Score") 
 ```
 
-![](Score_check_revision2022_files/figure-html/Bildungsdimension Plots-5.png)<!-- -->
+![](Score_check_revision2022_files/figure-html/Bildungsdimension Plots-6.png)<!-- -->
 
 ```r
 ggsave("Outfiles/anteilohneab_adj.png")
@@ -249,7 +261,7 @@ ggplot(Corr_data, aes(GISD_Score, Jahr, color = SchulabgaengermitHochschulreife)
   labs(colour = "Anteil der Schulabgänger mit Hochschulreife", x = "GISD Score", title = "Verteilung der Schulabg. mit Hochschulreife auf den GISD-Score") 
 ```
 
-![](Score_check_revision2022_files/figure-html/Bildungsdimension Plots-6.png)<!-- -->
+![](Score_check_revision2022_files/figure-html/Bildungsdimension Plots-7.png)<!-- -->
 
 ```r
 ggsave("Outfiles/anteilabi.png")
@@ -267,7 +279,7 @@ ggplot(Corr_data, aes(GISD_Score, Jahr, color = SchulabgaengermitHochschulreife_
   labs(colour = "Anteil der Schulabgänger mit Hochschulreife (adjusted)", x = "GISD Score", title = "Verteilung der Schulabg. mit Hochschulreife (adj.) auf den GISD-Score")
 ```
 
-![](Score_check_revision2022_files/figure-html/Bildungsdimension Plots-7.png)<!-- -->
+![](Score_check_revision2022_files/figure-html/Bildungsdimension Plots-8.png)<!-- -->
 
 ```r
 ggsave("Outfiles/anteilabi_adj.png")

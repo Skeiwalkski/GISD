@@ -59,18 +59,6 @@ Beschaeftigtenquote
 ggsave("Outfiles/2022/Check_Ausgangsdaten/Beschäftigtenquote.png")
 
 
-Beschaeftigtenquote_adj <- ggplot(Impdata.imputed, aes(as.factor(Gemeindekennziffer), Jahr_fac, color = Beschaeftigtenquote_adj)) + 
-  geom_tile(alpha = 0.5, size=0.5) +
-  theme_rki() + theme(axis.text.x = element_text(size=8, angle=25),legend.position="bottom") +
-  scale_color_gradientn(colours = rainbow(5), limits=c(0,80)) + scale_y_discrete(limits = rev) + 
-  scale_x_discrete(position = "top", breaks = c(1001000, 3101000, 5111000, 6411000, 7111000, 8111000, 9161000, 10041100, 12051000, 13003000, 14511000, 15001000, 16051000)) +
-  labs(colour = "adj. Beschäftigtenquote", x = "Gemeindekennziffer", title = "Verteilung adj. Beschäftigtenquote nach Gemeindekennziffer")
-
-Beschaeftigtenquote_adj
-
-ggsave("Outfiles/2022/Check_Ausgangsdaten/Beschaeftigtenquote_adj.png")
-
-
 Bruttoverdienst <- ggplot(Impdata.imputed, aes(as.factor(Gemeindekennziffer), Jahr_fac, color = Bruttoverdienst)) + 
   geom_tile(alpha = 0.5, size=0.5) +
   theme_rki() + theme(axis.text.x = element_text(size=8, angle=25),legend.position="bottom") +
@@ -199,6 +187,18 @@ BeschaeftigtemitakadAbschluss <- ggplot(Impdata.imputed, aes(as.factor(Gemeindek
 BeschaeftigtemitakadAbschluss
 
 ggsave("Outfiles/2022/Check_Ausgangsdaten/BeschaeftigtemitakadAbschluss.png")
+
+
+BeschaeftigtemitakadAbschluss_adj <- ggplot(Impdata.imputed, aes(as.factor(Gemeindekennziffer), Jahr_fac, color = BeschaeftigtemitakadAbschluss_adj)) + 
+  geom_tile(alpha = 0.5, size=0.5) +
+  theme_rki() + theme(axis.text.x = element_text(size=8, angle=25),legend.position="bottom") +
+  scale_color_gradientn(colours = rainbow(5)) + scale_y_discrete(limits = rev) + 
+  scale_x_discrete(position = "top", breaks = c(1001000, 3101000, 5111000, 6411000, 7111000, 8111000, 9161000, 10041100, 12051000, 13003000, 14511000, 15001000, 16051000)) +
+  labs(colour = "Beschäftigte mit akad. Abschluss", x = "Gemeindekennziffer", title = "Verteilung Beschäftigten mit akad. Abschluss nach Gemeindekennziffer")
+
+BeschaeftigtemitakadAbschluss_adj
+
+ggsave("Outfiles/2022/Check_Ausgangsdaten/BeschaeftigtemitakadAbschluss_adj.png")
 
 
 SchulabgaengerohneAbschluss <- ggplot(Impdata.imputed, aes(as.factor(Gemeindekennziffer), Jahr_fac, color = SchulabgaengerohneAbschluss)) + 
