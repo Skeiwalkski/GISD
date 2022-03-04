@@ -169,6 +169,20 @@ Workfile <- Workfile %>% left_join(NUTS2, by = c("Gemeindeverband", "Jahr")) %>%
 rm(myimport)
 
 
+##Anspielen der Arbeitslosigkeit und Erwerbsbevölkerung auf Kreisebene
+
+inputdataset <- list.files("Data/Arbeitslosigkeit_Kreisbene/")
+for(file in inputdataset){
+  suppressMessages(myimport <- read_excel(paste0("Data/Arbeitslosigkeit_Kreisbene/",file), skip = 1, sheet = "Daten"))
+  names(myimport)[1] <- "Kennziffer"
+  myimport[2:3] <- NULL
+  myimport <- myimport %>% gather(key = "Jahr", value = "Value" , -"Kennziffer", convert=T, na.rm = T) %>%
+    mutate(Kennziffer=as.numeric(as.character(Kennziffer)), Value=as.numeric(Value))
+  names(myimport)[3] <- strsplit(strsplit(file,"_")[[1]][2],"[.]")[[1]][1]
+  Workfile <- full_join(Basedata, myimport, by=c("Kennziffer", "Jahr"))
+}
+rm(myimport)
+
 ##Erstellen eines Datensatzes mit Bevölkerungslosen Gemeinden und Entfernen dieser für die bevorstehende Imputation und die Faktoranalyse
 Gemeinden_ohne_Bevoelkerung <- Workfile %>% filter(Bevoelkerung==0)
 write_dta(Gemeinden_ohne_Bevoelkerung, paste0("Outfiles/Gemeinden_ohne_Bevoelkerung.dta"))
@@ -523,8 +537,9 @@ Impdata.imputed <- Impdata.imputed %>% mutate(Bruttoverdienst_ln = log(Bruttover
 
 ```{r}
 # Stata-Datensatz rausschreiben
-#stata_data <- Impdata.imputed %>% mutate(SchulabgmitAbi_adj = SchulabgaengermitHochschulreife_adj) %>% #select(-SchulabgaengermitHochschulreife_adj)
-#write_dta(stata_data, paste0("Outfiles/2022/Stata/Impdata_check_2019.dta"))
+stata_data <- Impdata.imputed %>% mutate(SchulabgmitAbi_adj = SchulabgaengermitHochschulreife_adj,BeschaeftigtemitakadAbschlussadj = BeschaeftigtemitakadAbschluss_adj) %>% select(-SchulabgaengermitHochschulreife_adj, -BeschaeftigtemitakadAbschluss_adj)
+write_dta(stata_data, paste0("Outfiles/2022/Stata/Impdata_check_2019.dta"))
+rm(stata_data)
 
 # RDS-Datensatz rausschreiben
 write_rds(Impdata.imputed, paste0("Outfiles/2022/Impdata_check.rds"))

@@ -129,6 +129,3 @@ output:
 ```
 ## Saving 7 x 5 in image
 ```
-
-
-

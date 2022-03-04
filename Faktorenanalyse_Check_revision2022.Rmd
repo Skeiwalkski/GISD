@@ -45,21 +45,21 @@ Impdata.imputed <- readRDS("Outfiles/2022/Impdata_check.rds")
 # Variablenliste für die Faktorenanalyse 
 #print(listofdeterminants)
 
-TS_Arbeitswelt <- Impdata.imputed  %>% ungroup() %>% 
+TS_Arbeitswelt <- Impdata.imputed  %>% ungroup() %>% filter(Jahr > 1999) %>%
   select(Beschaeftigtenquote,Arbeitslosigkeit,Bruttoverdienst_ln)
 
 TS_Einkommen   <- Impdata.imputed %>% select(Einkommensteuer_ln,Haushaltseinkommen_ln,Schuldnerquote) 
 
-TS_Bildung <- Impdata.imputed %>% select(BeschaeftigtemitakadAbschluss_adj,BeschaeftigteohneAbschluss_adj,SchulabgaengerohneAbschluss_adj)
+TS_Bildung <- Impdata.imputed %>% filter(Jahr > 1999) %>% select(BeschaeftigtemitakadAbschluss_adj,BeschaeftigteohneAbschluss_adj,SchulabgaengerohneAbschluss_adj)
 
-TS_Bildung_NUTS2 <- Impdata.imputed %>% select(BeschaeftigtemitakadAbschluss_adj,BeschaeftigteohneAbschluss_adj,BevoelkerungmitakadAbschluss,BevoelkerungohneAbschluss,SchulabgaengerohneAbschluss_adj)
+TS_Bildung_NUTS2 <- Impdata.imputed %>% filter(Jahr > 1999) %>% select(BeschaeftigtemitakadAbschluss_adj,BeschaeftigteohneAbschluss_adj,BevoelkerungmitakadAbschluss,BevoelkerungohneAbschluss,SchulabgaengerohneAbschluss_adj)
 
-TS_Bildung_o <- Impdata.imputed %>% select(BeschaeftigtemitakadAbschluss_adj,BeschaeftigteohneAbschluss,SchulabgaengerohneAbschluss)
+TS_Bildung_o <- Impdata.imputed %>% filter(Jahr > 1999) %>% select(BeschaeftigtemitakadAbschluss_adj,BeschaeftigteohneAbschluss,SchulabgaengerohneAbschluss)
 
 
-TS_Bildung_4items <- Impdata.imputed %>% select(BeschaeftigtemitakadAbschluss_adj,BeschaeftigteohneAbschluss_adj,SchulabgaengerohneAbschluss_adj, SchulabgaengermitHochschulreife_adj)
+TS_Bildung_4items <- Impdata.imputed %>% filter(Jahr > 1999) %>% select(BeschaeftigtemitakadAbschluss_adj,BeschaeftigteohneAbschluss_adj,SchulabgaengerohneAbschluss_adj, SchulabgaengermitHochschulreife_adj)
 
-TS_Bildung_4items_o <- Impdata.imputed %>% select(BeschaeftigtemitakadAbschluss_adj,BeschaeftigteohneAbschluss,SchulabgaengerohneAbschluss_adj, SchulabgaengermitHochschulreife_adj)
+TS_Bildung_4items_o <- Impdata.imputed %>% filter(Jahr > 1999) %>% select(BeschaeftigtemitakadAbschluss_adj,BeschaeftigteohneAbschluss,SchulabgaengerohneAbschluss_adj, SchulabgaengermitHochschulreife_adj)
 
 ```
 

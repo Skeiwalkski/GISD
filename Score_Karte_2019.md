@@ -70,7 +70,7 @@ ggplot(Gemeinden_data, aes(long, lat, group = group, fill = as.factor(GISD_5))) 
 
 
 ```r
-ggplot(Gemeinden_data, aes(long, lat, group = group, fill = as.factor(GISD_5))) +
+ggplot(Gemeinden_data, aes(long, lat, group = group, fill = as.factor(GISD_10))) +
   geom_polygon() +
   scale_fill_rki(palette = "main", name = "GISD-Score (Dezile)") +
   coord_equal() +
