@@ -32,7 +32,7 @@ home <- getwd()
 # Define Outfiles Directory 
 outfiles_dir <- "S:/OE/FG28/205 Regionale Unterschiede/GISD/"
 outfiles_daten <- "C:/git_projects/GISD/Outfiles"
-setwd(outfiles_dir)
+setwd(outfiles_daten)
 # Create Output directories in working directory if necessary
 dir.create("Outfiles", showWarnings=T)
 dir.create("Outfiles/2022", showWarnings=T)
@@ -172,6 +172,7 @@ rm(myimport)
 ##Anspielen der Arbeitslosigkeit und Erwerbsbevölkerung auf Kreisebene
 
 inputdataset <- list.files("Data/Arbeitslosigkeit_Kreisbene/")
+
 for(file in inputdataset){
   suppressMessages(myimport <- read_excel(paste0("Data/Arbeitslosigkeit_Kreisbene/",file), skip = 1, sheet = "Daten"))
   names(myimport)[1] <- "Kennziffer"
@@ -179,13 +180,18 @@ for(file in inputdataset){
   myimport <- myimport %>% gather(key = "Jahr", value = "Value" , -"Kennziffer", convert=T, na.rm = T) %>%
     mutate(Kennziffer=as.numeric(as.character(Kennziffer)), Value=as.numeric(Value))
   names(myimport)[3] <- strsplit(strsplit(file,"_")[[1]][2],"[.]")[[1]][1]
-  Workfile <- full_join(Basedata, myimport, by=c("Kennziffer", "Jahr"))
+  myimport <- myimport %>% mutate(Kreis = Kennziffer) %>% select(-Kennziffer)
+  Workfile <- full_join(Workfile, myimport, by=c("Kreis", "Jahr"))
 }
+
+Workfile <- Workfile %>% mutate(ErwerbsfaehigeBevoelkerung = ifelse(Jahr < 2001, ErwerbsfaehigeBevoelkerungKreis, ErwerbsfaehigeBevoelkerung), Arbeitslosigkeit = ifelse(Jahr < 2001, ArbeitslosigkeitKreis, Arbeitslosigkeit)) %>% select(-ErwerbsfaehigeBevoelkerungKreis, -ArbeitslosigkeitKreis)
+
 rm(myimport)
 
 ##Erstellen eines Datensatzes mit Bevölkerungslosen Gemeinden und Entfernen dieser für die bevorstehende Imputation und die Faktoranalyse
 Gemeinden_ohne_Bevoelkerung <- Workfile %>% filter(Bevoelkerung==0)
 write_dta(Gemeinden_ohne_Bevoelkerung, paste0("Outfiles/Gemeinden_ohne_Bevoelkerung.dta"))
+rm(Gemeinden_ohne_Bevoelkerung)
 
 
 #Berechnung der Anteile für Beschäftigte ohne Abschluss, Beschäftigte mit akad. Abschluss und Entfernen SV Beschäftigte (total)
@@ -471,9 +477,23 @@ adj_G8_jahr <- function(data,outcome_name){
 Impdata.imputed <- Impdata.imputed %>% 
   mutate(SchulabgaengermitHochschulreife_adj = adj_G8_jahr(.,"SchulabgaengermitHochschulreife"),
          SchulabgaengerohneAbschluss_adj = adj_G8_jahr(.,"SchulabgaengerohneAbschluss"))
+
+
+#Adjustmentprüfung
+hist_over_SchulabgaengerohneAbschluss <- ggplot() +
+  geom_histogram(data = Impdata.imputed[Impdata.imputed[,"G8_jahr"]==0,], aes_string(x = "SchulabgaengerohneAbschluss"), fill ='darkblue')  + 
+  geom_histogram(data = Impdata.imputed[Impdata.imputed[,"G8_jahr"]==1,], aes_string(x = "SchulabgaengerohneAbschluss"), fill ='darkred')
+
+hist_over_SchulabgaengerohneAbschluss_adj <- ggplot() +
+  geom_histogram(data = Impdata.imputed[Impdata.imputed[,"G8_jahr"]==0,], aes_string(x = "SchulabgaengerohneAbschluss_adj"), fill ='darkblue')  + 
+  geom_histogram(data = Impdata.imputed[Impdata.imputed[,"G8_jahr"]==1,], aes_string(x = "SchulabgaengerohneAbschluss_adj"), fill ='darkred')
+
+hist_over_SchulabgaengerohneAbschluss
+hist_over_SchulabgaengerohneAbschluss_adj
 ```
 
 ```{r Sensibilisierung auf Ost-West Unterschiede}
+
 Impdata.imputed <- Impdata.imputed %>% mutate(OW = ifelse(Kreis < 11000, 0, 1))
 
 
@@ -484,7 +504,8 @@ OW <- function(data,outcome_name){
   
     mymodell_ow <- lm(Outcome ~ Jahr_Dummy + relevel(Jahr_Dummy, ref = "2012") * OW, data = mydata, na.action="na.exclude")
     
-  print(mymodell_ow)  
+  print(mymodell_ow)
+  summary(mymodell_ow)$coefficients[23,1]
     mydata <- mydata %>% mutate(coef = summary(mymodell_ow)$coefficients[23,1]) %>%
       mutate(Outcome = ifelse(OW == 1, Outcome - coef, Outcome)) %>%
       pull(Outcome)
@@ -492,11 +513,29 @@ OW <- function(data,outcome_name){
 
 Impdata.imputed <- Impdata.imputed %>% 
   mutate(BeschaeftigteohneAbschluss_adj = OW(.,"BeschaeftigteohneAbschluss"))
+
+#Adjustmentprüfung
+hist_over_westost <- ggplot() +
+  geom_histogram(data = Impdata.imputed[Impdata.imputed[,"Kreis"]<11000,], aes_string(x = "BeschaeftigteohneAbschluss"), fill ='darkblue')  + 
+  geom_histogram(data = Impdata.imputed[Impdata.imputed[,"Kreis"]>=11000,], aes_string(x = "BeschaeftigteohneAbschluss"), fill ='darkred')  
+
+hist_over_westost_adj <- ggplot() +
+  geom_histogram(data = Impdata.imputed[Impdata.imputed[,"Kreis"]<11000,], aes_string(x = "BeschaeftigteohneAbschluss_adj"), fill ='darkblue')  + 
+  geom_histogram(data = Impdata.imputed[Impdata.imputed[,"Kreis"]>=11000,], aes_string(x = "BeschaeftigteohneAbschluss_adj"), fill ='darkred')
+
+hist_over_westost
+hist_over_westost_adj
+
 ```
 
 
 ```{r Messänderung}
+
 Impdata.imputed <- Impdata.imputed %>% mutate(Messaenderung_Besch = ifelse(Jahr < 2012, 1, 0))
+
+hist_over_vor_messanpassung <- ggplot() +
+  geom_histogram(data = Impdata.imputed[Impdata.imputed[,"Kreis"]<11000,], aes_string(x = "BeschaeftigteohneAbschluss_adj"), fill ='darkblue')  + 
+  geom_histogram(data = Impdata.imputed[Impdata.imputed[,"Kreis"]>=11000,], aes_string(x = "BeschaeftigteohneAbschluss_adj"), fill ='darkred')  
 
 
 Messaenderung_Besch <- function(data,outcome_name){
@@ -514,12 +553,21 @@ Messaenderung_Besch <- function(data,outcome_name){
 }
 
 Impdata.imputed <- Impdata.imputed %>% 
-  mutate(BeschaeftigteohneAbschluss_adj = Messaenderung_Besch(.,"BeschaeftigteohneAbschluss"),
+  mutate(BeschaeftigteohneAbschluss_adj = Messaenderung_Besch(.,"BeschaeftigteohneAbschluss_adj"),
          BeschaeftigtemitakadAbschluss_adj = Messaenderung_Besch(.,"BeschaeftigtemitakadAbschluss"))
+
+#Adjustmentprüfung
+hist_over_nach_messanpassung <- ggplot() +
+  geom_histogram(data = Impdata.imputed[Impdata.imputed[,"Kreis"]<11000,], aes_string(x = "BeschaeftigteohneAbschluss_adj"), fill ='darkblue')  + 
+  geom_histogram(data = Impdata.imputed[Impdata.imputed[,"Kreis"]>=11000,], aes_string(x = "BeschaeftigteohneAbschluss_adj"), fill ='darkred')
+
+hist_over_vor_messanpassung
+hist_over_nach_messanpassung
 
 ```
 
 ```{r Logarithmierung und Anpassung durch Verbraucherpreisindex}
+
 Verbraucherpreisindex <- data.frame(Jahr = c(1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020),
                                     VBindex =  c(78.3, 78.8 , 79.9, 81.5, 82.6, 83.5, 84.9, 86.2, 87.6, 89.6, 91.9, 92.2, 93.2, 95.2, 97.1, 98.5, 99.5, 100, 100.5, 102, 103.8, 105.3, 105.8))
 
@@ -533,6 +581,7 @@ Impdata.imputed <- Impdata.imputed %>% mutate(Einkommensteuer_ln = ifelse(Einkom
 Impdata.imputed <- Impdata.imputed %>% mutate(Haushaltseinkommen_ln = log(Haushaltseinkommen))
 
 Impdata.imputed <- Impdata.imputed %>% mutate(Bruttoverdienst_ln = log(Bruttoverdienst))
+
 ```
 
 ```{r}
@@ -569,10 +618,10 @@ print(hist_over_westost)
 hist_over_year_all <- ggplot(data = Impdata.imputed) + geom_histogram(mapping = aes_string(x = "BeschaeftigteohneAbschluss")) + facet_wrap(~Jahr)
 print(hist_over_year_all)
 
-hist_over_westost <- ggplot() +
+hist_over_westost_adj <- ggplot() +
   geom_histogram(data = Impdata.imputed[Impdata.imputed[,"Kreis"]<11000,], aes_string(x = "BeschaeftigteohneAbschluss_adj"), fill ='darkblue')  + 
   geom_histogram(data = Impdata.imputed[Impdata.imputed[,"Kreis"]>=11000,], aes_string(x = "BeschaeftigteohneAbschluss_adj"), fill ='darkred')
-print(hist_over_westost)
+hist_over_westost_adj
 
 # Es gibt eine bimodale Verteilung bei den Beschäftigten ohne Abschluss, die in Ost- und Westdeutschland jedoch unimodal ist
 ```
@@ -580,11 +629,11 @@ print(hist_over_westost)
 
 ## IV. Faktorenanalyse (Hauptkomponentenanalyse) inklusive Generierung der Faktorscores
 ```{r Tibbles für die Teilscores generieren, echo=FALSE}
-TS_Arbeitswelt_adj <- Impdata.imputed  %>% ungroup() %>% select(Beschaeftigtenquote,Arbeitslosigkeit,Bruttoverdienst_ln)
+TS_Arbeitswelt_adj <- Impdata.imputed  %>% ungroup() %>% filter(Jahr < 1999) %>% select(Beschaeftigtenquote,Arbeitslosigkeit,Bruttoverdienst_ln)
 
-TS_Einkommen_adj   <- Impdata.imputed %>% ungroup %>% select(Einkommensteuer_ln,Haushaltseinkommen_ln,Schuldnerquote) 
+TS_Einkommen_adj   <- Impdata.imputed %>% ungroup %>% filter(Jahr < 1999) %>% select(Einkommensteuer_ln,Haushaltseinkommen_ln,Schuldnerquote) 
 
-TS_Bildung_adj <- Impdata.imputed %>% ungroup %>% filter(Jahr > 2014) %>% select(BeschaeftigtemitakadAbschluss_adj,BeschaeftigteohneAbschluss_adj,SchulabgaengerohneAbschluss_adj) 
+TS_Bildung_adj <- Impdata.imputed %>% ungroup %>% filter(Jahr < 1999) %>% select(BeschaeftigtemitakadAbschluss_adj,BeschaeftigteohneAbschluss_adj,SchulabgaengerohneAbschluss_adj) 
 ```
 
 
