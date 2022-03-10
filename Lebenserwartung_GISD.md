@@ -21,7 +21,7 @@ Lebenserwartung_dat <- read.csv2("INKAR_Lebenswerwartung_Kreise.csv")
 
 Lebenserwartung_dat <- Lebenserwartung_dat %>% mutate(Kreis = as.numeric(ï..Kennziffer)) %>% select(-ï..Kennziffer)
 
-GISD_data_Kreis <- read.csv("Outfiles/2021_v2/Bund/Kreis/Kreis.csv") %>% filter(Jahr == 2017)
+GISD_data_Kreis <- read.csv("Outfiles/2022/Bund/Kreis/Kreis.csv") %>% filter(Jahr == 2017)
 
 GISD_data_Kreis <- GISD_data_Kreis %>% mutate(Kreis = Kreiskennziffer) %>% select(Kreis, GISD_Score) %>% distinct(Kreis, .keep_all = TRUE) %>% unique()
 
