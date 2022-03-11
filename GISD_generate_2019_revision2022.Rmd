@@ -531,7 +531,7 @@ hist_over_westost_adj
 
 ```{r Messänderung}
 
-Impdata.imputed <- Impdata.imputed %>% mutate(Messaenderung_Besch = ifelse(Jahr < 2012, 1, 0))
+Impdata.imputed <- Impdata.imputed %>% mutate(Messaenderung_Besch = ifelse(Jahr < 2013, 1, 0))
 
 hist_over_vor_messanpassung <- ggplot() +
   geom_histogram(data = Impdata.imputed[Impdata.imputed[,"Kreis"]<11000,], aes_string(x = "BeschaeftigteohneAbschluss_adj"), fill ='darkblue')  + 
@@ -629,11 +629,11 @@ hist_over_westost_adj
 
 ## IV. Faktorenanalyse (Hauptkomponentenanalyse) inklusive Generierung der Faktorscores
 ```{r Tibbles für die Teilscores generieren, echo=FALSE}
-TS_Arbeitswelt_adj <- Impdata.imputed  %>% ungroup() %>% filter(Jahr < 1999) %>% select(Beschaeftigtenquote,Arbeitslosigkeit,Bruttoverdienst_ln)
+TS_Arbeitswelt_adj <- Impdata.imputed  %>% ungroup() %>% filter(Jahr > 1999) %>% select(Beschaeftigtenquote,Arbeitslosigkeit,Bruttoverdienst_ln)
 
-TS_Einkommen_adj   <- Impdata.imputed %>% ungroup %>% filter(Jahr < 1999) %>% select(Einkommensteuer_ln,Haushaltseinkommen_ln,Schuldnerquote) 
+TS_Einkommen_adj   <- Impdata.imputed %>% ungroup %>% filter(Jahr > 1999) %>% select(Einkommensteuer_ln,Haushaltseinkommen_ln,Schuldnerquote) 
 
-TS_Bildung_adj <- Impdata.imputed %>% ungroup %>% filter(Jahr < 1999) %>% select(BeschaeftigtemitakadAbschluss_adj,BeschaeftigteohneAbschluss_adj,SchulabgaengerohneAbschluss_adj) 
+TS_Bildung_adj <- Impdata.imputed %>% ungroup %>% filter(Jahr > 1999) %>% select(BeschaeftigtemitakadAbschluss_adj,BeschaeftigteohneAbschluss_adj,SchulabgaengerohneAbschluss_adj) 
 ```
 
 
