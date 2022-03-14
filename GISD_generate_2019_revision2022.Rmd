@@ -171,10 +171,10 @@ rm(myimport)
 
 ##Anspielen der Arbeitslosigkeit und Erwerbsbevölkerung auf Kreisebene
 
-inputdataset <- list.files("Data/Arbeitslosigkeit_Kreisbene/")
+inputdataset <- list.files("Data/Indikatoren_Kreisbene/")
 
 for(file in inputdataset){
-  suppressMessages(myimport <- read_excel(paste0("Data/Arbeitslosigkeit_Kreisbene/",file), skip = 1, sheet = "Daten"))
+  suppressMessages(myimport <- read_excel(paste0("Data/Indikatoren_Kreisbene/",file), skip = 1, sheet = "Daten"))
   names(myimport)[1] <- "Kennziffer"
   myimport[2:3] <- NULL
   myimport <- myimport %>% gather(key = "Jahr", value = "Value" , -"Kennziffer", convert=T, na.rm = T) %>%
@@ -184,7 +184,7 @@ for(file in inputdataset){
   Workfile <- full_join(Workfile, myimport, by=c("Kreis", "Jahr"))
 }
 
-Workfile <- Workfile %>% mutate(ErwerbsfaehigeBevoelkerung = ifelse(Jahr < 2001, ErwerbsfaehigeBevoelkerungKreis, ErwerbsfaehigeBevoelkerung), Arbeitslosigkeit = ifelse(Jahr < 2001, ArbeitslosigkeitKreis, Arbeitslosigkeit)) %>% select(-ErwerbsfaehigeBevoelkerungKreis, -ArbeitslosigkeitKreis)
+Workfile <- Workfile %>% mutate(ErwerbsfaehigeBevoelkerung = ifelse(Jahr < 2001, ErwerbsfaehigeBevoelkerungKreis, ErwerbsfaehigeBevoelkerung), Arbeitslosigkeit = ifelse(Jahr < 2001, ArbeitslosigkeitKreis, Arbeitslosigkeit), Beschaeftigtenquote = ifelse(Jahr < 2001, BeschaeftigtenquoteKreis, Beschaeftigtenquote)) %>% select(-ErwerbsfaehigeBevoelkerungKreis, -ArbeitslosigkeitKreis, -BeschaeftigtenquoteKreis)
 
 rm(myimport)
 
