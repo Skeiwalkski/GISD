@@ -1,334 +1,334 @@
 "","GISD_Score","Kreiskennziffer","Name des Kreises","Jahr"
-"1",0.122779,5111,"Düsseldorf, Stadt",1998
-"2",0.113238,5111,"Düsseldorf, Stadt",1999
-"3",0.121726,5111,"Düsseldorf, Stadt",2000
-"4",0.120383,5111,"Düsseldorf, Stadt",2001
-"5",0.132376,5111,"Düsseldorf, Stadt",2002
-"6",0.129859,5111,"Düsseldorf, Stadt",2003
-"7",0.1248,5111,"Düsseldorf, Stadt",2004
-"8",0.151233,5111,"Düsseldorf, Stadt",2005
-"9",0.117085,5111,"Düsseldorf, Stadt",2006
-"10",0.116917,5111,"Düsseldorf, Stadt",2007
-"11",0.093366,5111,"Düsseldorf, Stadt",2008
-"12",0.137496,5111,"Düsseldorf, Stadt",2009
-"13",0.112112,5111,"Düsseldorf, Stadt",2010
-"14",0.130087,5111,"Düsseldorf, Stadt",2011
-"15",0.089668,5111,"Düsseldorf, Stadt",2012
-"16",0.08124,5111,"Düsseldorf, Stadt",2013
-"17",0.081485,5111,"Düsseldorf, Stadt",2014
-"18",0.03065,5111,"Düsseldorf, Stadt",2015
-"19",0.006083,5111,"Düsseldorf, Stadt",2016
+"1",0.110748,5111,"Düsseldorf, Stadt",1998
+"2",0.108539,5111,"Düsseldorf, Stadt",1999
+"3",0.113572,5111,"Düsseldorf, Stadt",2000
+"4",0.119008,5111,"Düsseldorf, Stadt",2001
+"5",0.131023,5111,"Düsseldorf, Stadt",2002
+"6",0.128687,5111,"Düsseldorf, Stadt",2003
+"7",0.123681,5111,"Düsseldorf, Stadt",2004
+"8",0.150098,5111,"Düsseldorf, Stadt",2005
+"9",0.115837,5111,"Düsseldorf, Stadt",2006
+"10",0.115728,5111,"Düsseldorf, Stadt",2007
+"11",0.092819,5111,"Düsseldorf, Stadt",2008
+"12",0.1364,5111,"Düsseldorf, Stadt",2009
+"13",0.110939,5111,"Düsseldorf, Stadt",2010
+"14",0.129411,5111,"Düsseldorf, Stadt",2011
+"15",0.089002,5111,"Düsseldorf, Stadt",2012
+"16",0.080596,5111,"Düsseldorf, Stadt",2013
+"17",0.080892,5111,"Düsseldorf, Stadt",2014
+"18",0.029993,5111,"Düsseldorf, Stadt",2015
+"19",0.005214,5111,"Düsseldorf, Stadt",2016
 "20",0,5111,"Düsseldorf, Stadt",2017
 "21",0,5111,"Düsseldorf, Stadt",2018
 "22",0,5111,"Düsseldorf, Stadt",2019
-"23",0.95066,5112,"Duisburg, Stadt",1998
-"24",0.914409,5112,"Duisburg, Stadt",1999
-"25",0.89765,5112,"Duisburg, Stadt",2000
-"26",0.905868,5112,"Duisburg, Stadt",2001
-"27",0.934711,5112,"Duisburg, Stadt",2002
-"28",0.893081,5112,"Duisburg, Stadt",2003
-"29",0.8711,5112,"Duisburg, Stadt",2004
-"30",0.856707,5112,"Duisburg, Stadt",2005
-"31",0.874215,5112,"Duisburg, Stadt",2006
-"32",0.876989,5112,"Duisburg, Stadt",2007
-"33",0.877353,5112,"Duisburg, Stadt",2008
-"34",0.90112,5112,"Duisburg, Stadt",2009
-"35",0.883858,5112,"Duisburg, Stadt",2010
-"36",0.886266,5112,"Duisburg, Stadt",2011
-"37",0.876028,5112,"Duisburg, Stadt",2012
-"38",0.866334,5112,"Duisburg, Stadt",2013
-"39",0.837804,5112,"Duisburg, Stadt",2014
-"40",0.832239,5112,"Duisburg, Stadt",2015
-"41",0.796908,5112,"Duisburg, Stadt",2016
-"42",0.851283,5112,"Duisburg, Stadt",2017
-"43",0.876994,5112,"Duisburg, Stadt",2018
-"44",0.871217,5112,"Duisburg, Stadt",2019
-"45",0.474457,5113,"Essen, Stadt",1998
-"46",0.458082,5113,"Essen, Stadt",1999
-"47",0.438271,5113,"Essen, Stadt",2000
-"48",0.441044,5113,"Essen, Stadt",2001
-"49",0.443343,5113,"Essen, Stadt",2002
-"50",0.450754,5113,"Essen, Stadt",2003
-"51",0.481299,5113,"Essen, Stadt",2004
-"52",0.488682,5113,"Essen, Stadt",2005
-"53",0.464717,5113,"Essen, Stadt",2006
-"54",0.47444,5113,"Essen, Stadt",2007
-"55",0.494238,5113,"Essen, Stadt",2008
-"56",0.519486,5113,"Essen, Stadt",2009
-"57",0.496537,5113,"Essen, Stadt",2010
-"58",0.507287,5113,"Essen, Stadt",2011
-"59",0.49496,5113,"Essen, Stadt",2012
-"60",0.514433,5113,"Essen, Stadt",2013
-"61",0.53076,5113,"Essen, Stadt",2014
-"62",0.493452,5113,"Essen, Stadt",2015
-"63",0.47888,5113,"Essen, Stadt",2016
-"64",0.517106,5113,"Essen, Stadt",2017
-"65",0.505548,5113,"Essen, Stadt",2018
-"66",0.503475,5113,"Essen, Stadt",2019
-"67",0.592198,5114,"Krefeld, Stadt",1998
-"68",0.559776,5114,"Krefeld, Stadt",1999
-"69",0.556578,5114,"Krefeld, Stadt",2000
-"70",0.587035,5114,"Krefeld, Stadt",2001
-"71",0.571698,5114,"Krefeld, Stadt",2002
-"72",0.575991,5114,"Krefeld, Stadt",2003
-"73",0.563051,5114,"Krefeld, Stadt",2004
-"74",0.533151,5114,"Krefeld, Stadt",2005
-"75",0.560829,5114,"Krefeld, Stadt",2006
-"76",0.587711,5114,"Krefeld, Stadt",2007
-"77",0.613253,5114,"Krefeld, Stadt",2008
-"78",0.59275,5114,"Krefeld, Stadt",2009
-"79",0.585752,5114,"Krefeld, Stadt",2010
-"80",0.522587,5114,"Krefeld, Stadt",2011
-"81",0.565693,5114,"Krefeld, Stadt",2012
-"82",0.575023,5114,"Krefeld, Stadt",2013
-"83",0.569163,5114,"Krefeld, Stadt",2014
-"84",0.570242,5114,"Krefeld, Stadt",2015
-"85",0.536955,5114,"Krefeld, Stadt",2016
-"86",0.564891,5114,"Krefeld, Stadt",2017
-"87",0.62067,5114,"Krefeld, Stadt",2018
-"88",0.576607,5114,"Krefeld, Stadt",2019
-"89",0.711735,5116,"Mönchengladbach, Stadt",1998
-"90",0.690027,5116,"Mönchengladbach, Stadt",1999
-"91",0.644762,5116,"Mönchengladbach, Stadt",2000
-"92",0.686564,5116,"Mönchengladbach, Stadt",2001
-"93",0.670593,5116,"Mönchengladbach, Stadt",2002
-"94",0.67405,5116,"Mönchengladbach, Stadt",2003
-"95",0.661536,5116,"Mönchengladbach, Stadt",2004
-"96",0.655618,5116,"Mönchengladbach, Stadt",2005
-"97",0.701052,5116,"Mönchengladbach, Stadt",2006
-"98",0.721454,5116,"Mönchengladbach, Stadt",2007
-"99",0.698713,5116,"Mönchengladbach, Stadt",2008
-"100",0.735721,5116,"Mönchengladbach, Stadt",2009
-"101",0.727675,5116,"Mönchengladbach, Stadt",2010
-"102",0.725506,5116,"Mönchengladbach, Stadt",2011
-"103",0.713527,5116,"Mönchengladbach, Stadt",2012
-"104",0.768302,5116,"Mönchengladbach, Stadt",2013
-"105",0.717071,5116,"Mönchengladbach, Stadt",2014
-"106",0.724408,5116,"Mönchengladbach, Stadt",2015
-"107",0.655754,5116,"Mönchengladbach, Stadt",2016
-"108",0.699949,5116,"Mönchengladbach, Stadt",2017
-"109",0.729873,5116,"Mönchengladbach, Stadt",2018
-"110",0.70991,5116,"Mönchengladbach, Stadt",2019
-"111",0.270218,5117,"Mülheim an der Ruhr, Stadt",1998
-"112",0.253118,5117,"Mülheim an der Ruhr, Stadt",1999
-"113",0.265279,5117,"Mülheim an der Ruhr, Stadt",2000
-"114",0.249324,5117,"Mülheim an der Ruhr, Stadt",2001
-"115",0.208132,5117,"Mülheim an der Ruhr, Stadt",2002
-"116",0.245345,5117,"Mülheim an der Ruhr, Stadt",2003
-"117",0.253507,5117,"Mülheim an der Ruhr, Stadt",2004
-"118",0.227348,5117,"Mülheim an der Ruhr, Stadt",2005
-"119",0.216858,5117,"Mülheim an der Ruhr, Stadt",2006
-"120",0.267977,5117,"Mülheim an der Ruhr, Stadt",2007
-"121",0.216382,5117,"Mülheim an der Ruhr, Stadt",2008
-"122",0.26899,5117,"Mülheim an der Ruhr, Stadt",2009
-"123",0.285371,5117,"Mülheim an der Ruhr, Stadt",2010
-"124",0.30107,5117,"Mülheim an der Ruhr, Stadt",2011
-"125",0.279019,5117,"Mülheim an der Ruhr, Stadt",2012
-"126",0.306153,5117,"Mülheim an der Ruhr, Stadt",2013
-"127",0.291654,5117,"Mülheim an der Ruhr, Stadt",2014
-"128",0.315805,5117,"Mülheim an der Ruhr, Stadt",2015
-"129",0.295692,5117,"Mülheim an der Ruhr, Stadt",2016
-"130",0.322796,5117,"Mülheim an der Ruhr, Stadt",2017
-"131",0.341322,5117,"Mülheim an der Ruhr, Stadt",2018
-"132",0.336582,5117,"Mülheim an der Ruhr, Stadt",2019
-"133",0.776993,5119,"Oberhausen, Stadt",1998
-"134",0.741175,5119,"Oberhausen, Stadt",1999
-"135",0.736305,5119,"Oberhausen, Stadt",2000
-"136",0.765094,5119,"Oberhausen, Stadt",2001
-"137",0.785618,5119,"Oberhausen, Stadt",2002
-"138",0.76463,5119,"Oberhausen, Stadt",2003
-"139",0.767702,5119,"Oberhausen, Stadt",2004
-"140",0.713299,5119,"Oberhausen, Stadt",2005
-"141",0.780094,5119,"Oberhausen, Stadt",2006
-"142",0.743254,5119,"Oberhausen, Stadt",2007
-"143",0.76622,5119,"Oberhausen, Stadt",2008
-"144",0.776485,5119,"Oberhausen, Stadt",2009
-"145",0.753969,5119,"Oberhausen, Stadt",2010
-"146",0.784144,5119,"Oberhausen, Stadt",2011
-"147",0.737933,5119,"Oberhausen, Stadt",2012
-"148",0.765677,5119,"Oberhausen, Stadt",2013
-"149",0.720097,5119,"Oberhausen, Stadt",2014
-"150",0.748237,5119,"Oberhausen, Stadt",2015
-"151",0.699439,5119,"Oberhausen, Stadt",2016
-"152",0.735294,5119,"Oberhausen, Stadt",2017
-"153",0.768974,5119,"Oberhausen, Stadt",2018
-"154",0.747084,5119,"Oberhausen, Stadt",2019
-"155",0.612298,5120,"Remscheid, Stadt",1998
-"156",0.581463,5120,"Remscheid, Stadt",1999
-"157",0.590211,5120,"Remscheid, Stadt",2000
-"158",0.589248,5120,"Remscheid, Stadt",2001
-"159",0.506138,5120,"Remscheid, Stadt",2002
-"160",0.517879,5120,"Remscheid, Stadt",2003
-"161",0.540709,5120,"Remscheid, Stadt",2004
-"162",0.528891,5120,"Remscheid, Stadt",2005
-"163",0.556732,5120,"Remscheid, Stadt",2006
-"164",0.527678,5120,"Remscheid, Stadt",2007
-"165",0.565398,5120,"Remscheid, Stadt",2008
-"166",0.626847,5120,"Remscheid, Stadt",2009
-"167",0.603518,5120,"Remscheid, Stadt",2010
-"168",0.595432,5120,"Remscheid, Stadt",2011
-"169",0.597296,5120,"Remscheid, Stadt",2012
-"170",0.572256,5120,"Remscheid, Stadt",2013
-"171",0.605933,5120,"Remscheid, Stadt",2014
-"172",0.598595,5120,"Remscheid, Stadt",2015
-"173",0.571036,5120,"Remscheid, Stadt",2016
-"174",0.590076,5120,"Remscheid, Stadt",2017
-"175",0.586885,5120,"Remscheid, Stadt",2018
-"176",0.613196,5120,"Remscheid, Stadt",2019
-"177",0.666774,5122,"Solingen, Stadt",1998
-"178",0.641615,5122,"Solingen, Stadt",1999
-"179",0.647137,5122,"Solingen, Stadt",2000
-"180",0.641801,5122,"Solingen, Stadt",2001
-"181",0.646768,5122,"Solingen, Stadt",2002
-"182",0.64708,5122,"Solingen, Stadt",2003
-"183",0.633013,5122,"Solingen, Stadt",2004
-"184",0.592991,5122,"Solingen, Stadt",2005
-"185",0.589907,5122,"Solingen, Stadt",2006
-"186",0.614028,5122,"Solingen, Stadt",2007
-"187",0.587343,5122,"Solingen, Stadt",2008
-"188",0.638886,5122,"Solingen, Stadt",2009
-"189",0.626678,5122,"Solingen, Stadt",2010
-"190",0.586723,5122,"Solingen, Stadt",2011
-"191",0.575514,5122,"Solingen, Stadt",2012
-"192",0.614674,5122,"Solingen, Stadt",2013
-"193",0.628699,5122,"Solingen, Stadt",2014
-"194",0.61263,5122,"Solingen, Stadt",2015
-"195",0.56501,5122,"Solingen, Stadt",2016
-"196",0.608902,5122,"Solingen, Stadt",2017
-"197",0.611849,5122,"Solingen, Stadt",2018
-"198",0.612327,5122,"Solingen, Stadt",2019
-"199",0.737128,5124,"Wuppertal, Stadt",1998
-"200",0.720501,5124,"Wuppertal, Stadt",1999
-"201",0.699547,5124,"Wuppertal, Stadt",2000
-"202",0.71124,5124,"Wuppertal, Stadt",2001
-"203",0.705527,5124,"Wuppertal, Stadt",2002
-"204",0.717231,5124,"Wuppertal, Stadt",2003
-"205",0.683482,5124,"Wuppertal, Stadt",2004
-"206",0.661795,5124,"Wuppertal, Stadt",2005
-"207",0.716968,5124,"Wuppertal, Stadt",2006
-"208",0.731796,5124,"Wuppertal, Stadt",2007
-"209",0.754723,5124,"Wuppertal, Stadt",2008
-"210",0.78598,5124,"Wuppertal, Stadt",2009
-"211",0.752091,5124,"Wuppertal, Stadt",2010
-"212",0.723258,5124,"Wuppertal, Stadt",2011
-"213",0.757297,5124,"Wuppertal, Stadt",2012
-"214",0.75916,5124,"Wuppertal, Stadt",2013
-"215",0.718145,5124,"Wuppertal, Stadt",2014
-"216",0.686687,5124,"Wuppertal, Stadt",2015
-"217",0.615127,5124,"Wuppertal, Stadt",2016
-"218",0.673734,5124,"Wuppertal, Stadt",2017
-"219",0.673716,5124,"Wuppertal, Stadt",2018
-"220",0.673829,5124,"Wuppertal, Stadt",2019
-"221",0.599003,5154,"Kleve",1998
-"222",0.603078,5154,"Kleve",1999
-"223",0.565065,5154,"Kleve",2000
-"224",0.570075,5154,"Kleve",2001
-"225",0.572749,5154,"Kleve",2002
-"226",0.614542,5154,"Kleve",2003
-"227",0.612662,5154,"Kleve",2004
-"228",0.589924,5154,"Kleve",2005
-"229",0.592641,5154,"Kleve",2006
-"230",0.565297,5154,"Kleve",2007
-"231",0.585728,5154,"Kleve",2008
-"232",0.635575,5154,"Kleve",2009
-"233",0.609562,5154,"Kleve",2010
-"234",0.604832,5154,"Kleve",2011
-"235",0.58461,5154,"Kleve",2012
-"236",0.639423,5154,"Kleve",2013
-"237",0.623589,5154,"Kleve",2014
-"238",0.605451,5154,"Kleve",2015
-"239",0.581072,5154,"Kleve",2016
-"240",0.597574,5154,"Kleve",2017
-"241",0.582258,5154,"Kleve",2018
-"242",0.56808,5154,"Kleve",2019
-"243",0.167363,5158,"Mettmann",1998
-"244",0.168945,5158,"Mettmann",1999
-"245",0.167453,5158,"Mettmann",2000
-"246",0.182894,5158,"Mettmann",2001
-"247",0.164389,5158,"Mettmann",2002
-"248",0.174075,5158,"Mettmann",2003
-"249",0.18357,5158,"Mettmann",2004
-"250",0.163514,5158,"Mettmann",2005
-"251",0.14363,5158,"Mettmann",2006
-"252",0.15648,5158,"Mettmann",2007
-"253",0.170126,5158,"Mettmann",2008
-"254",0.208282,5158,"Mettmann",2009
-"255",0.192557,5158,"Mettmann",2010
-"256",0.228014,5158,"Mettmann",2011
-"257",0.180199,5158,"Mettmann",2012
-"258",0.228907,5158,"Mettmann",2013
-"259",0.186337,5158,"Mettmann",2014
-"260",0.215839,5158,"Mettmann",2015
-"261",0.181397,5158,"Mettmann",2016
-"262",0.206561,5158,"Mettmann",2017
-"263",0.209412,5158,"Mettmann",2018
-"264",0.208337,5158,"Mettmann",2019
-"265",0.191887,5162,"Rhein-Kreis Neuss",1998
-"266",0.184638,5162,"Rhein-Kreis Neuss",1999
-"267",0.193549,5162,"Rhein-Kreis Neuss",2000
-"268",0.216134,5162,"Rhein-Kreis Neuss",2001
-"269",0.213463,5162,"Rhein-Kreis Neuss",2002
-"270",0.209878,5162,"Rhein-Kreis Neuss",2003
-"271",0.225843,5162,"Rhein-Kreis Neuss",2004
-"272",0.179404,5162,"Rhein-Kreis Neuss",2005
-"273",0.148005,5162,"Rhein-Kreis Neuss",2006
-"274",0.158167,5162,"Rhein-Kreis Neuss",2007
-"275",0.171881,5162,"Rhein-Kreis Neuss",2008
-"276",0.210405,5162,"Rhein-Kreis Neuss",2009
-"277",0.19616,5162,"Rhein-Kreis Neuss",2010
-"278",0.232848,5162,"Rhein-Kreis Neuss",2011
-"279",0.201792,5162,"Rhein-Kreis Neuss",2012
-"280",0.232693,5162,"Rhein-Kreis Neuss",2013
-"281",0.222552,5162,"Rhein-Kreis Neuss",2014
-"282",0.198573,5162,"Rhein-Kreis Neuss",2015
-"283",0.171929,5162,"Rhein-Kreis Neuss",2016
-"284",0.195038,5162,"Rhein-Kreis Neuss",2017
-"285",0.211735,5162,"Rhein-Kreis Neuss",2018
-"286",0.20774,5162,"Rhein-Kreis Neuss",2019
-"287",0.442104,5166,"Viersen",1998
-"288",0.415268,5166,"Viersen",1999
-"289",0.398413,5166,"Viersen",2000
-"290",0.418907,5166,"Viersen",2001
-"291",0.450859,5166,"Viersen",2002
-"292",0.417574,5166,"Viersen",2003
-"293",0.412552,5166,"Viersen",2004
-"294",0.404987,5166,"Viersen",2005
-"295",0.375612,5166,"Viersen",2006
-"296",0.378007,5166,"Viersen",2007
-"297",0.394567,5166,"Viersen",2008
-"298",0.429026,5166,"Viersen",2009
-"299",0.424215,5166,"Viersen",2010
-"300",0.449564,5166,"Viersen",2011
-"301",0.420702,5166,"Viersen",2012
-"302",0.46303,5166,"Viersen",2013
-"303",0.424538,5166,"Viersen",2014
-"304",0.400225,5166,"Viersen",2015
-"305",0.387545,5166,"Viersen",2016
-"306",0.410218,5166,"Viersen",2017
-"307",0.40047,5166,"Viersen",2018
-"308",0.409926,5166,"Viersen",2019
-"309",0.471584,5170,"Wesel",1998
-"310",0.465299,5170,"Wesel",1999
-"311",0.451154,5170,"Wesel",2000
-"312",0.490284,5170,"Wesel",2001
-"313",0.444184,5170,"Wesel",2002
-"314",0.455089,5170,"Wesel",2003
-"315",0.471691,5170,"Wesel",2004
-"316",0.439664,5170,"Wesel",2005
-"317",0.437952,5170,"Wesel",2006
-"318",0.449791,5170,"Wesel",2007
-"319",0.45584,5170,"Wesel",2008
-"320",0.487878,5170,"Wesel",2009
-"321",0.466316,5170,"Wesel",2010
-"322",0.485663,5170,"Wesel",2011
-"323",0.454295,5170,"Wesel",2012
-"324",0.502858,5170,"Wesel",2013
-"325",0.485295,5170,"Wesel",2014
-"326",0.478228,5170,"Wesel",2015
-"327",0.436581,5170,"Wesel",2016
-"328",0.459225,5170,"Wesel",2017
-"329",0.467008,5170,"Wesel",2018
-"330",0.456283,5170,"Wesel",2019
+"23",0.963847,5112,"Duisburg, Stadt",1998
+"24",0.922888,5112,"Duisburg, Stadt",1999
+"25",0.900434,5112,"Duisburg, Stadt",2000
+"26",0.905624,5112,"Duisburg, Stadt",2001
+"27",0.93445,5112,"Duisburg, Stadt",2002
+"28",0.89287,5112,"Duisburg, Stadt",2003
+"29",0.870922,5112,"Duisburg, Stadt",2004
+"30",0.856588,5112,"Duisburg, Stadt",2005
+"31",0.874004,5112,"Duisburg, Stadt",2006
+"32",0.876637,5112,"Duisburg, Stadt",2007
+"33",0.877117,5112,"Duisburg, Stadt",2008
+"34",0.900673,5112,"Duisburg, Stadt",2009
+"35",0.883329,5112,"Duisburg, Stadt",2010
+"36",0.885813,5112,"Duisburg, Stadt",2011
+"37",0.875586,5112,"Duisburg, Stadt",2012
+"38",0.865866,5112,"Duisburg, Stadt",2013
+"39",0.83736,5112,"Duisburg, Stadt",2014
+"40",0.831828,5112,"Duisburg, Stadt",2015
+"41",0.796609,5112,"Duisburg, Stadt",2016
+"42",0.85112,5112,"Duisburg, Stadt",2017
+"43",0.876846,5112,"Duisburg, Stadt",2018
+"44",0.871167,5112,"Duisburg, Stadt",2019
+"45",0.467757,5113,"Essen, Stadt",1998
+"46",0.45383,5113,"Essen, Stadt",1999
+"47",0.432248,5113,"Essen, Stadt",2000
+"48",0.440451,5113,"Essen, Stadt",2001
+"49",0.442635,5113,"Essen, Stadt",2002
+"50",0.450288,5113,"Essen, Stadt",2003
+"51",0.480982,5113,"Essen, Stadt",2004
+"52",0.488241,5113,"Essen, Stadt",2005
+"53",0.464177,5113,"Essen, Stadt",2006
+"54",0.473894,5113,"Essen, Stadt",2007
+"55",0.494122,5113,"Essen, Stadt",2008
+"56",0.518936,5113,"Essen, Stadt",2009
+"57",0.495855,5113,"Essen, Stadt",2010
+"58",0.506829,5113,"Essen, Stadt",2011
+"59",0.494453,5113,"Essen, Stadt",2012
+"60",0.513902,5113,"Essen, Stadt",2013
+"61",0.530314,5113,"Essen, Stadt",2014
+"62",0.493047,5113,"Essen, Stadt",2015
+"63",0.478327,5113,"Essen, Stadt",2016
+"64",0.517047,5113,"Essen, Stadt",2017
+"65",0.50554,5113,"Essen, Stadt",2018
+"66",0.503494,5113,"Essen, Stadt",2019
+"67",0.608853,5114,"Krefeld, Stadt",1998
+"68",0.573359,5114,"Krefeld, Stadt",1999
+"69",0.569939,5114,"Krefeld, Stadt",2000
+"70",0.587008,5114,"Krefeld, Stadt",2001
+"71",0.571658,5114,"Krefeld, Stadt",2002
+"72",0.575966,5114,"Krefeld, Stadt",2003
+"73",0.56305,5114,"Krefeld, Stadt",2004
+"74",0.533173,5114,"Krefeld, Stadt",2005
+"75",0.560717,5114,"Krefeld, Stadt",2006
+"76",0.587557,5114,"Krefeld, Stadt",2007
+"77",0.613447,5114,"Krefeld, Stadt",2008
+"78",0.592485,5114,"Krefeld, Stadt",2009
+"79",0.5854,5114,"Krefeld, Stadt",2010
+"80",0.521898,5114,"Krefeld, Stadt",2011
+"81",0.565022,5114,"Krefeld, Stadt",2012
+"82",0.574204,5114,"Krefeld, Stadt",2013
+"83",0.568299,5114,"Krefeld, Stadt",2014
+"84",0.569404,5114,"Krefeld, Stadt",2015
+"85",0.536144,5114,"Krefeld, Stadt",2016
+"86",0.56443,5114,"Krefeld, Stadt",2017
+"87",0.620182,5114,"Krefeld, Stadt",2018
+"88",0.576248,5114,"Krefeld, Stadt",2019
+"89",0.709374,5116,"Mönchengladbach, Stadt",1998
+"90",0.689267,5116,"Mönchengladbach, Stadt",1999
+"91",0.639353,5116,"Mönchengladbach, Stadt",2000
+"92",0.685988,5116,"Mönchengladbach, Stadt",2001
+"93",0.669905,5116,"Mönchengladbach, Stadt",2002
+"94",0.673475,5116,"Mönchengladbach, Stadt",2003
+"95",0.660978,5116,"Mönchengladbach, Stadt",2004
+"96",0.655105,5116,"Mönchengladbach, Stadt",2005
+"97",0.700359,5116,"Mönchengladbach, Stadt",2006
+"98",0.720658,5116,"Mönchengladbach, Stadt",2007
+"99",0.698247,5116,"Mönchengladbach, Stadt",2008
+"100",0.734972,5116,"Mönchengladbach, Stadt",2009
+"101",0.72692,5116,"Mönchengladbach, Stadt",2010
+"102",0.724795,5116,"Mönchengladbach, Stadt",2011
+"103",0.712827,5116,"Mönchengladbach, Stadt",2012
+"104",0.767495,5116,"Mönchengladbach, Stadt",2013
+"105",0.716297,5116,"Mönchengladbach, Stadt",2014
+"106",0.723628,5116,"Mönchengladbach, Stadt",2015
+"107",0.654884,5116,"Mönchengladbach, Stadt",2016
+"108",0.699368,5116,"Mönchengladbach, Stadt",2017
+"109",0.729293,5116,"Mönchengladbach, Stadt",2018
+"110",0.709436,5116,"Mönchengladbach, Stadt",2019
+"111",0.266862,5117,"Mülheim an der Ruhr, Stadt",1998
+"112",0.251612,5117,"Mülheim an der Ruhr, Stadt",1999
+"113",0.262833,5117,"Mülheim an der Ruhr, Stadt",2000
+"114",0.248523,5117,"Mülheim an der Ruhr, Stadt",2001
+"115",0.207358,5117,"Mülheim an der Ruhr, Stadt",2002
+"116",0.244608,5117,"Mülheim an der Ruhr, Stadt",2003
+"117",0.252812,5117,"Mülheim an der Ruhr, Stadt",2004
+"118",0.226631,5117,"Mülheim an der Ruhr, Stadt",2005
+"119",0.215853,5117,"Mülheim an der Ruhr, Stadt",2006
+"120",0.266986,5117,"Mülheim an der Ruhr, Stadt",2007
+"121",0.216027,5117,"Mülheim an der Ruhr, Stadt",2008
+"122",0.268031,5117,"Mülheim an der Ruhr, Stadt",2009
+"123",0.284315,5117,"Mülheim an der Ruhr, Stadt",2010
+"124",0.300536,5117,"Mülheim an der Ruhr, Stadt",2011
+"125",0.278536,5117,"Mülheim an der Ruhr, Stadt",2012
+"126",0.305601,5117,"Mülheim an der Ruhr, Stadt",2013
+"127",0.291145,5117,"Mülheim an der Ruhr, Stadt",2014
+"128",0.315343,5117,"Mülheim an der Ruhr, Stadt",2015
+"129",0.295244,5117,"Mülheim an der Ruhr, Stadt",2016
+"130",0.322907,5117,"Mülheim an der Ruhr, Stadt",2017
+"131",0.341399,5117,"Mülheim an der Ruhr, Stadt",2018
+"132",0.336714,5117,"Mülheim an der Ruhr, Stadt",2019
+"133",0.784519,5119,"Oberhausen, Stadt",1998
+"134",0.746207,5119,"Oberhausen, Stadt",1999
+"135",0.741375,5119,"Oberhausen, Stadt",2000
+"136",0.764635,5119,"Oberhausen, Stadt",2001
+"137",0.785239,5119,"Oberhausen, Stadt",2002
+"138",0.764271,5119,"Oberhausen, Stadt",2003
+"139",0.767364,5119,"Oberhausen, Stadt",2004
+"140",0.713031,5119,"Oberhausen, Stadt",2005
+"141",0.779617,5119,"Oberhausen, Stadt",2006
+"142",0.742572,5119,"Oberhausen, Stadt",2007
+"143",0.765756,5119,"Oberhausen, Stadt",2008
+"144",0.775704,5119,"Oberhausen, Stadt",2009
+"145",0.753171,5119,"Oberhausen, Stadt",2010
+"146",0.783491,5119,"Oberhausen, Stadt",2011
+"147",0.737278,5119,"Oberhausen, Stadt",2012
+"148",0.764834,5119,"Oberhausen, Stadt",2013
+"149",0.719295,5119,"Oberhausen, Stadt",2014
+"150",0.747467,5119,"Oberhausen, Stadt",2015
+"151",0.698756,5119,"Oberhausen, Stadt",2016
+"152",0.734874,5119,"Oberhausen, Stadt",2017
+"153",0.76851,5119,"Oberhausen, Stadt",2018
+"154",0.746728,5119,"Oberhausen, Stadt",2019
+"155",0.591749,5120,"Remscheid, Stadt",1998
+"156",0.570274,5120,"Remscheid, Stadt",1999
+"157",0.57682,5120,"Remscheid, Stadt",2000
+"158",0.587731,5120,"Remscheid, Stadt",2001
+"159",0.504353,5120,"Remscheid, Stadt",2002
+"160",0.516285,5120,"Remscheid, Stadt",2003
+"161",0.539242,5120,"Remscheid, Stadt",2004
+"162",0.527639,5120,"Remscheid, Stadt",2005
+"163",0.555229,5120,"Remscheid, Stadt",2006
+"164",0.526091,5120,"Remscheid, Stadt",2007
+"165",0.564061,5120,"Remscheid, Stadt",2008
+"166",0.625191,5120,"Remscheid, Stadt",2009
+"167",0.60184,5120,"Remscheid, Stadt",2010
+"168",0.594279,5120,"Remscheid, Stadt",2011
+"169",0.596055,5120,"Remscheid, Stadt",2012
+"170",0.570927,5120,"Remscheid, Stadt",2013
+"171",0.604691,5120,"Remscheid, Stadt",2014
+"172",0.597445,5120,"Remscheid, Stadt",2015
+"173",0.570006,5120,"Remscheid, Stadt",2016
+"174",0.58936,5120,"Remscheid, Stadt",2017
+"175",0.586308,5120,"Remscheid, Stadt",2018
+"176",0.612689,5120,"Remscheid, Stadt",2019
+"177",0.668653,5122,"Solingen, Stadt",1998
+"178",0.650009,5122,"Solingen, Stadt",1999
+"179",0.649961,5122,"Solingen, Stadt",2000
+"180",0.640627,5122,"Solingen, Stadt",2001
+"181",0.645479,5122,"Solingen, Stadt",2002
+"182",0.645911,5122,"Solingen, Stadt",2003
+"183",0.631943,5122,"Solingen, Stadt",2004
+"184",0.592201,5122,"Solingen, Stadt",2005
+"185",0.588784,5122,"Solingen, Stadt",2006
+"186",0.612784,5122,"Solingen, Stadt",2007
+"187",0.58626,5122,"Solingen, Stadt",2008
+"188",0.637533,5122,"Solingen, Stadt",2009
+"189",0.625292,5122,"Solingen, Stadt",2010
+"190",0.585296,5122,"Solingen, Stadt",2011
+"191",0.574074,5122,"Solingen, Stadt",2012
+"192",0.613115,5122,"Solingen, Stadt",2013
+"193",0.627191,5122,"Solingen, Stadt",2014
+"194",0.61118,5122,"Solingen, Stadt",2015
+"195",0.563607,5122,"Solingen, Stadt",2016
+"196",0.607909,5122,"Solingen, Stadt",2017
+"197",0.610927,5122,"Solingen, Stadt",2018
+"198",0.611517,5122,"Solingen, Stadt",2019
+"199",0.726164,5124,"Wuppertal, Stadt",1998
+"200",0.712011,5124,"Wuppertal, Stadt",1999
+"201",0.68665,5124,"Wuppertal, Stadt",2000
+"202",0.710411,5124,"Wuppertal, Stadt",2001
+"203",0.704652,5124,"Wuppertal, Stadt",2002
+"204",0.716537,5124,"Wuppertal, Stadt",2003
+"205",0.682865,5124,"Wuppertal, Stadt",2004
+"206",0.661242,5124,"Wuppertal, Stadt",2005
+"207",0.716288,5124,"Wuppertal, Stadt",2006
+"208",0.73111,5124,"Wuppertal, Stadt",2007
+"209",0.754207,5124,"Wuppertal, Stadt",2008
+"210",0.785302,5124,"Wuppertal, Stadt",2009
+"211",0.751423,5124,"Wuppertal, Stadt",2010
+"212",0.722518,5124,"Wuppertal, Stadt",2011
+"213",0.756483,5124,"Wuppertal, Stadt",2012
+"214",0.758368,5124,"Wuppertal, Stadt",2013
+"215",0.717475,5124,"Wuppertal, Stadt",2014
+"216",0.686093,5124,"Wuppertal, Stadt",2015
+"217",0.61454,5124,"Wuppertal, Stadt",2016
+"218",0.673525,5124,"Wuppertal, Stadt",2017
+"219",0.673586,5124,"Wuppertal, Stadt",2018
+"220",0.673799,5124,"Wuppertal, Stadt",2019
+"221",0.613255,5154,"Kleve",1998
+"222",0.623084,5154,"Kleve",1999
+"223",0.577902,5154,"Kleve",2000
+"224",0.569987,5154,"Kleve",2001
+"225",0.57267,5154,"Kleve",2002
+"226",0.614488,5154,"Kleve",2003
+"227",0.612621,5154,"Kleve",2004
+"228",0.589978,5154,"Kleve",2005
+"229",0.592453,5154,"Kleve",2006
+"230",0.565235,5154,"Kleve",2007
+"231",0.586037,5154,"Kleve",2008
+"232",0.635402,5154,"Kleve",2009
+"233",0.609353,5154,"Kleve",2010
+"234",0.604688,5154,"Kleve",2011
+"235",0.584374,5154,"Kleve",2012
+"236",0.638962,5154,"Kleve",2013
+"237",0.623097,5154,"Kleve",2014
+"238",0.604886,5154,"Kleve",2015
+"239",0.580635,5154,"Kleve",2016
+"240",0.597323,5154,"Kleve",2017
+"241",0.582013,5154,"Kleve",2018
+"242",0.567928,5154,"Kleve",2019
+"243",0.161565,5158,"Mettmann",1998
+"244",0.174184,5158,"Mettmann",1999
+"245",0.169961,5158,"Mettmann",2000
+"246",0.181715,5158,"Mettmann",2001
+"247",0.163156,5158,"Mettmann",2002
+"248",0.172884,5158,"Mettmann",2003
+"249",0.182379,5158,"Mettmann",2004
+"250",0.16233,5158,"Mettmann",2005
+"251",0.142227,5158,"Mettmann",2006
+"252",0.1551,5158,"Mettmann",2007
+"253",0.169246,5158,"Mettmann",2008
+"254",0.206819,5158,"Mettmann",2009
+"255",0.191047,5158,"Mettmann",2010
+"256",0.226763,5158,"Mettmann",2011
+"257",0.17892,5158,"Mettmann",2012
+"258",0.227536,5158,"Mettmann",2013
+"259",0.184997,5158,"Mettmann",2014
+"260",0.214541,5158,"Mettmann",2015
+"261",0.180158,5158,"Mettmann",2016
+"262",0.206055,5158,"Mettmann",2017
+"263",0.208917,5158,"Mettmann",2018
+"264",0.207887,5158,"Mettmann",2019
+"265",0.194445,5162,"Rhein-Kreis Neuss",1998
+"266",0.193401,5162,"Rhein-Kreis Neuss",1999
+"267",0.201389,5162,"Rhein-Kreis Neuss",2000
+"268",0.21523,5162,"Rhein-Kreis Neuss",2001
+"269",0.212458,5162,"Rhein-Kreis Neuss",2002
+"270",0.208881,5162,"Rhein-Kreis Neuss",2003
+"271",0.224848,5162,"Rhein-Kreis Neuss",2004
+"272",0.178382,5162,"Rhein-Kreis Neuss",2005
+"273",0.146854,5162,"Rhein-Kreis Neuss",2006
+"274",0.156987,5162,"Rhein-Kreis Neuss",2007
+"275",0.171275,5162,"Rhein-Kreis Neuss",2008
+"276",0.20918,5162,"Rhein-Kreis Neuss",2009
+"277",0.194847,5162,"Rhein-Kreis Neuss",2010
+"278",0.231933,5162,"Rhein-Kreis Neuss",2011
+"279",0.200899,5162,"Rhein-Kreis Neuss",2012
+"280",0.231675,5162,"Rhein-Kreis Neuss",2013
+"281",0.221531,5162,"Rhein-Kreis Neuss",2014
+"282",0.197599,5162,"Rhein-Kreis Neuss",2015
+"283",0.170827,5162,"Rhein-Kreis Neuss",2016
+"284",0.194633,5162,"Rhein-Kreis Neuss",2017
+"285",0.211343,5162,"Rhein-Kreis Neuss",2018
+"286",0.207367,5162,"Rhein-Kreis Neuss",2019
+"287",0.4482,5166,"Viersen",1998
+"288",0.42259,5166,"Viersen",1999
+"289",0.402089,5166,"Viersen",2000
+"290",0.418192,5166,"Viersen",2001
+"291",0.450057,5166,"Viersen",2002
+"292",0.416743,5166,"Viersen",2003
+"293",0.411792,5166,"Viersen",2004
+"294",0.404295,5166,"Viersen",2005
+"295",0.374688,5166,"Viersen",2006
+"296",0.377064,5166,"Viersen",2007
+"297",0.394066,5166,"Viersen",2008
+"298",0.428008,5166,"Viersen",2009
+"299",0.423083,5166,"Viersen",2010
+"300",0.448737,5166,"Viersen",2011
+"301",0.419896,5166,"Viersen",2012
+"302",0.462061,5166,"Viersen",2013
+"303",0.423498,5166,"Viersen",2014
+"304",0.399192,5166,"Viersen",2015
+"305",0.386573,5166,"Viersen",2016
+"306",0.409798,5166,"Viersen",2017
+"307",0.400059,5166,"Viersen",2018
+"308",0.409597,5166,"Viersen",2019
+"309",0.490192,5170,"Wesel",1998
+"310",0.486618,5170,"Wesel",1999
+"311",0.466648,5170,"Wesel",2000
+"312",0.48988,5170,"Wesel",2001
+"313",0.443714,5170,"Wesel",2002
+"314",0.454605,5170,"Wesel",2003
+"315",0.471191,5170,"Wesel",2004
+"316",0.439175,5170,"Wesel",2005
+"317",0.43728,5170,"Wesel",2006
+"318",0.44904,5170,"Wesel",2007
+"319",0.455445,5170,"Wesel",2008
+"320",0.487016,5170,"Wesel",2009
+"321",0.465328,5170,"Wesel",2010
+"322",0.484951,5170,"Wesel",2011
+"323",0.453542,5170,"Wesel",2012
+"324",0.501942,5170,"Wesel",2013
+"325",0.484354,5170,"Wesel",2014
+"326",0.477349,5170,"Wesel",2015
+"327",0.4357,5170,"Wesel",2016
+"328",0.458773,5170,"Wesel",2017
+"329",0.466533,5170,"Wesel",2018
+"330",0.455908,5170,"Wesel",2019
 "331",0,5314,"Bonn, Stadt",1998
 "332",0,5314,"Bonn, Stadt",1999
 "333",0,5314,"Bonn, Stadt",2000
@@ -339,7 +339,7 @@
 "338",0,5314,"Bonn, Stadt",2005
 "339",0,5314,"Bonn, Stadt",2006
 "340",0,5314,"Bonn, Stadt",2007
-"341",0.007454,5314,"Bonn, Stadt",2008
+"341",0.00811,5314,"Bonn, Stadt",2008
 "342",0,5314,"Bonn, Stadt",2009
 "343",0,5314,"Bonn, Stadt",2010
 "344",0,5314,"Bonn, Stadt",2011
@@ -348,251 +348,251 @@
 "347",0,5314,"Bonn, Stadt",2014
 "348",0,5314,"Bonn, Stadt",2015
 "349",0,5314,"Bonn, Stadt",2016
-"350",0.016561,5314,"Bonn, Stadt",2017
-"351",0.00417,5314,"Bonn, Stadt",2018
-"352",0.023258,5314,"Bonn, Stadt",2019
-"353",0.328606,5315,"Köln, Stadt",1998
-"354",0.309976,5315,"Köln, Stadt",1999
-"355",0.287493,5315,"Köln, Stadt",2000
-"356",0.269967,5315,"Köln, Stadt",2001
-"357",0.299907,5315,"Köln, Stadt",2002
-"358",0.300015,5315,"Köln, Stadt",2003
-"359",0.305116,5315,"Köln, Stadt",2004
-"360",0.315982,5315,"Köln, Stadt",2005
-"361",0.303501,5315,"Köln, Stadt",2006
-"362",0.312442,5315,"Köln, Stadt",2007
-"363",0.289657,5315,"Köln, Stadt",2008
-"364",0.282155,5315,"Köln, Stadt",2009
-"365",0.290412,5315,"Köln, Stadt",2010
-"366",0.317419,5315,"Köln, Stadt",2011
-"367",0.27587,5315,"Köln, Stadt",2012
-"368",0.264308,5315,"Köln, Stadt",2013
-"369",0.242363,5315,"Köln, Stadt",2014
-"370",0.229854,5315,"Köln, Stadt",2015
-"371",0.195985,5315,"Köln, Stadt",2016
-"372",0.196353,5315,"Köln, Stadt",2017
-"373",0.203475,5315,"Köln, Stadt",2018
-"374",0.20517,5315,"Köln, Stadt",2019
-"375",0.311501,5316,"Leverkusen, Stadt",1998
-"376",0.297541,5316,"Leverkusen, Stadt",1999
-"377",0.268297,5316,"Leverkusen, Stadt",2000
-"378",0.238614,5316,"Leverkusen, Stadt",2001
-"379",0.280798,5316,"Leverkusen, Stadt",2002
-"380",0.326878,5316,"Leverkusen, Stadt",2003
-"381",0.303298,5316,"Leverkusen, Stadt",2004
-"382",0.314251,5316,"Leverkusen, Stadt",2005
-"383",0.311618,5316,"Leverkusen, Stadt",2006
-"384",0.296067,5316,"Leverkusen, Stadt",2007
-"385",0.300841,5316,"Leverkusen, Stadt",2008
-"386",0.294433,5316,"Leverkusen, Stadt",2009
-"387",0.296226,5316,"Leverkusen, Stadt",2010
-"388",0.286859,5316,"Leverkusen, Stadt",2011
-"389",0.280678,5316,"Leverkusen, Stadt",2012
-"390",0.344205,5316,"Leverkusen, Stadt",2013
-"391",0.307757,5316,"Leverkusen, Stadt",2014
-"392",0.33722,5316,"Leverkusen, Stadt",2015
-"393",0.293115,5316,"Leverkusen, Stadt",2016
-"394",0.314813,5316,"Leverkusen, Stadt",2017
-"395",0.335173,5316,"Leverkusen, Stadt",2018
-"396",0.336488,5316,"Leverkusen, Stadt",2019
-"397",0.561521,5334,"Städteregion Aachen",1998
-"398",0.536943,5334,"Städteregion Aachen",1999
-"399",0.515323,5334,"Städteregion Aachen",2000
-"400",0.497511,5334,"Städteregion Aachen",2001
-"401",0.52561,5334,"Städteregion Aachen",2002
-"402",0.537712,5334,"Städteregion Aachen",2003
-"403",0.544418,5334,"Städteregion Aachen",2004
-"404",0.550084,5334,"Städteregion Aachen",2005
-"405",0.547408,5334,"Städteregion Aachen",2006
-"406",0.542347,5334,"Städteregion Aachen",2007
-"407",0.537567,5334,"Städteregion Aachen",2008
-"408",0.546002,5334,"Städteregion Aachen",2009
-"409",0.531048,5334,"Städteregion Aachen",2010
-"410",0.506225,5334,"Städteregion Aachen",2011
-"411",0.480627,5334,"Städteregion Aachen",2012
-"412",0.47796,5334,"Städteregion Aachen",2013
-"413",0.451103,5334,"Städteregion Aachen",2014
-"414",0.443931,5334,"Städteregion Aachen",2015
-"415",0.397886,5334,"Städteregion Aachen",2016
-"416",0.413544,5334,"Städteregion Aachen",2017
-"417",0.439619,5334,"Städteregion Aachen",2018
-"418",0.434214,5334,"Städteregion Aachen",2019
-"419",0.598177,5358,"Düren",1998
-"420",0.583122,5358,"Düren",1999
-"421",0.585255,5358,"Düren",2000
-"422",0.629831,5358,"Düren",2001
-"423",0.644499,5358,"Düren",2002
-"424",0.614854,5358,"Düren",2003
-"425",0.628353,5358,"Düren",2004
-"426",0.59451,5358,"Düren",2005
-"427",0.592237,5358,"Düren",2006
-"428",0.574542,5358,"Düren",2007
-"429",0.569726,5358,"Düren",2008
-"430",0.607214,5358,"Düren",2009
-"431",0.614297,5358,"Düren",2010
-"432",0.589713,5358,"Düren",2011
-"433",0.579871,5358,"Düren",2012
-"434",0.593466,5358,"Düren",2013
-"435",0.55942,5358,"Düren",2014
-"436",0.580408,5358,"Düren",2015
-"437",0.520529,5358,"Düren",2016
-"438",0.556717,5358,"Düren",2017
-"439",0.591373,5358,"Düren",2018
-"440",0.559077,5358,"Düren",2019
-"441",0.350196,5362,"Rhein-Erft-Kreis",1998
-"442",0.339762,5362,"Rhein-Erft-Kreis",1999
-"443",0.329291,5362,"Rhein-Erft-Kreis",2000
-"444",0.35938,5362,"Rhein-Erft-Kreis",2001
-"445",0.348114,5362,"Rhein-Erft-Kreis",2002
-"446",0.358698,5362,"Rhein-Erft-Kreis",2003
-"447",0.376,5362,"Rhein-Erft-Kreis",2004
-"448",0.361568,5362,"Rhein-Erft-Kreis",2005
-"449",0.367244,5362,"Rhein-Erft-Kreis",2006
-"450",0.379344,5362,"Rhein-Erft-Kreis",2007
-"451",0.365367,5362,"Rhein-Erft-Kreis",2008
-"452",0.414007,5362,"Rhein-Erft-Kreis",2009
-"453",0.395376,5362,"Rhein-Erft-Kreis",2010
-"454",0.408431,5362,"Rhein-Erft-Kreis",2011
-"455",0.380112,5362,"Rhein-Erft-Kreis",2012
-"456",0.395116,5362,"Rhein-Erft-Kreis",2013
-"457",0.389504,5362,"Rhein-Erft-Kreis",2014
-"458",0.364414,5362,"Rhein-Erft-Kreis",2015
-"459",0.34455,5362,"Rhein-Erft-Kreis",2016
-"460",0.360735,5362,"Rhein-Erft-Kreis",2017
-"461",0.37055,5362,"Rhein-Erft-Kreis",2018
-"462",0.361555,5362,"Rhein-Erft-Kreis",2019
-"463",0.542569,5366,"Euskirchen",1998
-"464",0.53018,5366,"Euskirchen",1999
-"465",0.537916,5366,"Euskirchen",2000
-"466",0.529316,5366,"Euskirchen",2001
-"467",0.55591,5366,"Euskirchen",2002
-"468",0.554885,5366,"Euskirchen",2003
-"469",0.554023,5366,"Euskirchen",2004
-"470",0.519063,5366,"Euskirchen",2005
-"471",0.50181,5366,"Euskirchen",2006
-"472",0.528845,5366,"Euskirchen",2007
-"473",0.536132,5366,"Euskirchen",2008
-"474",0.594499,5366,"Euskirchen",2009
-"475",0.538153,5366,"Euskirchen",2010
-"476",0.559027,5366,"Euskirchen",2011
-"477",0.534453,5366,"Euskirchen",2012
-"478",0.572969,5366,"Euskirchen",2013
-"479",0.555499,5366,"Euskirchen",2014
-"480",0.545521,5366,"Euskirchen",2015
-"481",0.489161,5366,"Euskirchen",2016
-"482",0.503719,5366,"Euskirchen",2017
-"483",0.535745,5366,"Euskirchen",2018
-"484",0.522734,5366,"Euskirchen",2019
-"485",0.785511,5370,"Heinsberg",1998
-"486",0.758912,5370,"Heinsberg",1999
-"487",0.770869,5370,"Heinsberg",2000
-"488",0.810576,5370,"Heinsberg",2001
-"489",0.822585,5370,"Heinsberg",2002
-"490",0.81161,5370,"Heinsberg",2003
-"491",0.820994,5370,"Heinsberg",2004
-"492",0.787903,5370,"Heinsberg",2005
-"493",0.780582,5370,"Heinsberg",2006
-"494",0.776328,5370,"Heinsberg",2007
-"495",0.790198,5370,"Heinsberg",2008
-"496",0.816696,5370,"Heinsberg",2009
-"497",0.772361,5370,"Heinsberg",2010
-"498",0.742338,5370,"Heinsberg",2011
-"499",0.748265,5370,"Heinsberg",2012
-"500",0.715668,5370,"Heinsberg",2013
-"501",0.680576,5370,"Heinsberg",2014
-"502",0.669187,5370,"Heinsberg",2015
-"503",0.624292,5370,"Heinsberg",2016
-"504",0.620817,5370,"Heinsberg",2017
-"505",0.627178,5370,"Heinsberg",2018
-"506",0.596882,5370,"Heinsberg",2019
-"507",0.509776,5374,"Oberbergischer Kreis",1998
-"508",0.501086,5374,"Oberbergischer Kreis",1999
-"509",0.53733,5374,"Oberbergischer Kreis",2000
-"510",0.547568,5374,"Oberbergischer Kreis",2001
-"511",0.562348,5374,"Oberbergischer Kreis",2002
-"512",0.551773,5374,"Oberbergischer Kreis",2003
-"513",0.537045,5374,"Oberbergischer Kreis",2004
-"514",0.497234,5374,"Oberbergischer Kreis",2005
-"515",0.472364,5374,"Oberbergischer Kreis",2006
-"516",0.436911,5374,"Oberbergischer Kreis",2007
-"517",0.435567,5374,"Oberbergischer Kreis",2008
-"518",0.526461,5374,"Oberbergischer Kreis",2009
-"519",0.493149,5374,"Oberbergischer Kreis",2010
-"520",0.482974,5374,"Oberbergischer Kreis",2011
-"521",0.422782,5374,"Oberbergischer Kreis",2012
-"522",0.45797,5374,"Oberbergischer Kreis",2013
-"523",0.422058,5374,"Oberbergischer Kreis",2014
-"524",0.427139,5374,"Oberbergischer Kreis",2015
-"525",0.400867,5374,"Oberbergischer Kreis",2016
-"526",0.41442,5374,"Oberbergischer Kreis",2017
-"527",0.403537,5374,"Oberbergischer Kreis",2018
-"528",0.408018,5374,"Oberbergischer Kreis",2019
-"529",0.12866,5378,"Rheinisch-Bergischer Kreis",1998
-"530",0.128738,5378,"Rheinisch-Bergischer Kreis",1999
-"531",0.119466,5378,"Rheinisch-Bergischer Kreis",2000
-"532",0.089913,5378,"Rheinisch-Bergischer Kreis",2001
-"533",0.074897,5378,"Rheinisch-Bergischer Kreis",2002
-"534",0.10101,5378,"Rheinisch-Bergischer Kreis",2003
-"535",0.127309,5378,"Rheinisch-Bergischer Kreis",2004
-"536",0.123248,5378,"Rheinisch-Bergischer Kreis",2005
-"537",0.089974,5378,"Rheinisch-Bergischer Kreis",2006
-"538",0.096472,5378,"Rheinisch-Bergischer Kreis",2007
-"539",0.102016,5378,"Rheinisch-Bergischer Kreis",2008
-"540",0.164214,5378,"Rheinisch-Bergischer Kreis",2009
-"541",0.134454,5378,"Rheinisch-Bergischer Kreis",2010
-"542",0.186098,5378,"Rheinisch-Bergischer Kreis",2011
-"543",0.165622,5378,"Rheinisch-Bergischer Kreis",2012
-"544",0.193052,5378,"Rheinisch-Bergischer Kreis",2013
-"545",0.178088,5378,"Rheinisch-Bergischer Kreis",2014
-"546",0.189649,5378,"Rheinisch-Bergischer Kreis",2015
-"547",0.184556,5378,"Rheinisch-Bergischer Kreis",2016
-"548",0.185159,5378,"Rheinisch-Bergischer Kreis",2017
-"549",0.204089,5378,"Rheinisch-Bergischer Kreis",2018
-"550",0.200733,5378,"Rheinisch-Bergischer Kreis",2019
-"551",0.323933,5382,"Rhein-Sieg-Kreis",1998
-"552",0.318877,5382,"Rhein-Sieg-Kreis",1999
-"553",0.321614,5382,"Rhein-Sieg-Kreis",2000
-"554",0.328834,5382,"Rhein-Sieg-Kreis",2001
-"555",0.320931,5382,"Rhein-Sieg-Kreis",2002
-"556",0.324065,5382,"Rhein-Sieg-Kreis",2003
-"557",0.349595,5382,"Rhein-Sieg-Kreis",2004
-"558",0.321016,5382,"Rhein-Sieg-Kreis",2005
-"559",0.31355,5382,"Rhein-Sieg-Kreis",2006
-"560",0.304314,5382,"Rhein-Sieg-Kreis",2007
-"561",0.351303,5382,"Rhein-Sieg-Kreis",2008
-"562",0.363309,5382,"Rhein-Sieg-Kreis",2009
-"563",0.323817,5382,"Rhein-Sieg-Kreis",2010
-"564",0.346664,5382,"Rhein-Sieg-Kreis",2011
-"565",0.31616,5382,"Rhein-Sieg-Kreis",2012
-"566",0.36337,5382,"Rhein-Sieg-Kreis",2013
-"567",0.332431,5382,"Rhein-Sieg-Kreis",2014
-"568",0.324194,5382,"Rhein-Sieg-Kreis",2015
-"569",0.288431,5382,"Rhein-Sieg-Kreis",2016
-"570",0.317579,5382,"Rhein-Sieg-Kreis",2017
-"571",0.31065,5382,"Rhein-Sieg-Kreis",2018
-"572",0.318709,5382,"Rhein-Sieg-Kreis",2019
-"573",0.652947,5512,"Bottrop, Stadt",1998
-"574",0.643323,5512,"Bottrop, Stadt",1999
-"575",0.601973,5512,"Bottrop, Stadt",2000
-"576",0.64205,5512,"Bottrop, Stadt",2001
-"577",0.65813,5512,"Bottrop, Stadt",2002
-"578",0.648185,5512,"Bottrop, Stadt",2003
-"579",0.675371,5512,"Bottrop, Stadt",2004
-"580",0.633493,5512,"Bottrop, Stadt",2005
-"581",0.580561,5512,"Bottrop, Stadt",2006
-"582",0.614171,5512,"Bottrop, Stadt",2007
-"583",0.660908,5512,"Bottrop, Stadt",2008
-"584",0.641055,5512,"Bottrop, Stadt",2009
-"585",0.608614,5512,"Bottrop, Stadt",2010
-"586",0.624445,5512,"Bottrop, Stadt",2011
-"587",0.657164,5512,"Bottrop, Stadt",2012
-"588",0.603613,5512,"Bottrop, Stadt",2013
-"589",0.565498,5512,"Bottrop, Stadt",2014
-"590",0.575744,5512,"Bottrop, Stadt",2015
-"591",0.528224,5512,"Bottrop, Stadt",2016
-"592",0.577467,5512,"Bottrop, Stadt",2017
-"593",0.5743,5512,"Bottrop, Stadt",2018
-"594",0.571348,5512,"Bottrop, Stadt",2019
+"350",0.017442,5314,"Bonn, Stadt",2017
+"351",0.005053,5314,"Bonn, Stadt",2018
+"352",0.024126,5314,"Bonn, Stadt",2019
+"353",0.328482,5315,"Köln, Stadt",1998
+"354",0.307884,5315,"Köln, Stadt",1999
+"355",0.276754,5315,"Köln, Stadt",2000
+"356",0.268928,5315,"Köln, Stadt",2001
+"357",0.298753,5315,"Köln, Stadt",2002
+"358",0.298936,5315,"Köln, Stadt",2003
+"359",0.304271,5315,"Köln, Stadt",2004
+"360",0.315407,5315,"Köln, Stadt",2005
+"361",0.302859,5315,"Köln, Stadt",2006
+"362",0.31178,5315,"Köln, Stadt",2007
+"363",0.289389,5315,"Köln, Stadt",2008
+"364",0.281303,5315,"Köln, Stadt",2009
+"365",0.289509,5315,"Köln, Stadt",2010
+"366",0.317015,5315,"Köln, Stadt",2011
+"367",0.275473,5315,"Köln, Stadt",2012
+"368",0.263852,5315,"Köln, Stadt",2013
+"369",0.241905,5315,"Köln, Stadt",2014
+"370",0.229346,5315,"Köln, Stadt",2015
+"371",0.19555,5315,"Köln, Stadt",2016
+"372",0.196591,5315,"Köln, Stadt",2017
+"373",0.20371,5315,"Köln, Stadt",2018
+"374",0.205377,5315,"Köln, Stadt",2019
+"375",0.299289,5316,"Leverkusen, Stadt",1998
+"376",0.29197,5316,"Leverkusen, Stadt",1999
+"377",0.259267,5316,"Leverkusen, Stadt",2000
+"378",0.237242,5316,"Leverkusen, Stadt",2001
+"379",0.279267,5316,"Leverkusen, Stadt",2002
+"380",0.325589,5316,"Leverkusen, Stadt",2003
+"381",0.302034,5316,"Leverkusen, Stadt",2004
+"382",0.312795,5316,"Leverkusen, Stadt",2005
+"383",0.310055,5316,"Leverkusen, Stadt",2006
+"384",0.294519,5316,"Leverkusen, Stadt",2007
+"385",0.299875,5316,"Leverkusen, Stadt",2008
+"386",0.292979,5316,"Leverkusen, Stadt",2009
+"387",0.294815,5316,"Leverkusen, Stadt",2010
+"388",0.285993,5316,"Leverkusen, Stadt",2011
+"389",0.27982,5316,"Leverkusen, Stadt",2012
+"390",0.343312,5316,"Leverkusen, Stadt",2013
+"391",0.306805,5316,"Leverkusen, Stadt",2014
+"392",0.336258,5316,"Leverkusen, Stadt",2015
+"393",0.292117,5316,"Leverkusen, Stadt",2016
+"394",0.314458,5316,"Leverkusen, Stadt",2017
+"395",0.3349,5316,"Leverkusen, Stadt",2018
+"396",0.336217,5316,"Leverkusen, Stadt",2019
+"397",0.570603,5334,"Städteregion Aachen",1998
+"398",0.543507,5334,"Städteregion Aachen",1999
+"399",0.516456,5334,"Städteregion Aachen",2000
+"400",0.497314,5334,"Städteregion Aachen",2001
+"401",0.525466,5334,"Städteregion Aachen",2002
+"402",0.537814,5334,"Städteregion Aachen",2003
+"403",0.544578,5334,"Städteregion Aachen",2004
+"404",0.550338,5334,"Städteregion Aachen",2005
+"405",0.547519,5334,"Städteregion Aachen",2006
+"406",0.542431,5334,"Städteregion Aachen",2007
+"407",0.537997,5334,"Städteregion Aachen",2008
+"408",0.546023,5334,"Städteregion Aachen",2009
+"409",0.530972,5334,"Städteregion Aachen",2010
+"410",0.50601,5334,"Städteregion Aachen",2011
+"411",0.480429,5334,"Städteregion Aachen",2012
+"412",0.47771,5334,"Städteregion Aachen",2013
+"413",0.450847,5334,"Städteregion Aachen",2014
+"414",0.443658,5334,"Städteregion Aachen",2015
+"415",0.397463,5334,"Städteregion Aachen",2016
+"416",0.413651,5334,"Städteregion Aachen",2017
+"417",0.439716,5334,"Städteregion Aachen",2018
+"418",0.434321,5334,"Städteregion Aachen",2019
+"419",0.610621,5358,"Düren",1998
+"420",0.601424,5358,"Düren",1999
+"421",0.602042,5358,"Düren",2000
+"422",0.629791,5358,"Düren",2001
+"423",0.644413,5358,"Düren",2002
+"424",0.61471,5358,"Düren",2003
+"425",0.628218,5358,"Düren",2004
+"426",0.594408,5358,"Düren",2005
+"427",0.591863,5358,"Düren",2006
+"428",0.574185,5358,"Düren",2007
+"429",0.569662,5358,"Düren",2008
+"430",0.606757,5358,"Düren",2009
+"431",0.61378,5358,"Düren",2010
+"432",0.589025,5358,"Düren",2011
+"433",0.579165,5358,"Düren",2012
+"434",0.592588,5358,"Düren",2013
+"435",0.558546,5358,"Düren",2014
+"436",0.579596,5358,"Düren",2015
+"437",0.519566,5358,"Düren",2016
+"438",0.556182,5358,"Düren",2017
+"439",0.590815,5358,"Düren",2018
+"440",0.558596,5358,"Düren",2019
+"441",0.364023,5362,"Rhein-Erft-Kreis",1998
+"442",0.356709,5362,"Rhein-Erft-Kreis",1999
+"443",0.343101,5362,"Rhein-Erft-Kreis",2000
+"444",0.358879,5362,"Rhein-Erft-Kreis",2001
+"445",0.347473,5362,"Rhein-Erft-Kreis",2002
+"446",0.35801,5362,"Rhein-Erft-Kreis",2003
+"447",0.375369,5362,"Rhein-Erft-Kreis",2004
+"448",0.360883,5362,"Rhein-Erft-Kreis",2005
+"449",0.366355,5362,"Rhein-Erft-Kreis",2006
+"450",0.378521,5362,"Rhein-Erft-Kreis",2007
+"451",0.364914,5362,"Rhein-Erft-Kreis",2008
+"452",0.413028,5362,"Rhein-Erft-Kreis",2009
+"453",0.39425,5362,"Rhein-Erft-Kreis",2010
+"454",0.407433,5362,"Rhein-Erft-Kreis",2011
+"455",0.37911,5362,"Rhein-Erft-Kreis",2012
+"456",0.39401,5362,"Rhein-Erft-Kreis",2013
+"457",0.388419,5362,"Rhein-Erft-Kreis",2014
+"458",0.363308,5362,"Rhein-Erft-Kreis",2015
+"459",0.343255,5362,"Rhein-Erft-Kreis",2016
+"460",0.360032,5362,"Rhein-Erft-Kreis",2017
+"461",0.369892,5362,"Rhein-Erft-Kreis",2018
+"462",0.360943,5362,"Rhein-Erft-Kreis",2019
+"463",0.55697,5366,"Euskirchen",1998
+"464",0.54844,5366,"Euskirchen",1999
+"465",0.555289,5366,"Euskirchen",2000
+"466",0.529071,5366,"Euskirchen",2001
+"467",0.555616,5366,"Euskirchen",2002
+"468",0.554591,5366,"Euskirchen",2003
+"469",0.553712,5366,"Euskirchen",2004
+"470",0.51876,5366,"Euskirchen",2005
+"471",0.501377,5366,"Euskirchen",2006
+"472",0.52838,5366,"Euskirchen",2007
+"473",0.535898,5366,"Euskirchen",2008
+"474",0.59383,5366,"Euskirchen",2009
+"475",0.537252,5366,"Euskirchen",2010
+"476",0.55836,5366,"Euskirchen",2011
+"477",0.533757,5366,"Euskirchen",2012
+"478",0.572116,5366,"Euskirchen",2013
+"479",0.554619,5366,"Euskirchen",2014
+"480",0.54466,5366,"Euskirchen",2015
+"481",0.48821,5366,"Euskirchen",2016
+"482",0.503214,5366,"Euskirchen",2017
+"483",0.535238,5366,"Euskirchen",2018
+"484",0.522301,5366,"Euskirchen",2019
+"485",0.815996,5370,"Heinsberg",1998
+"486",0.78872,5370,"Heinsberg",1999
+"487",0.797841,5370,"Heinsberg",2000
+"488",0.810954,5370,"Heinsberg",2001
+"489",0.822964,5370,"Heinsberg",2002
+"490",0.811878,5370,"Heinsberg",2003
+"491",0.821284,5370,"Heinsberg",2004
+"492",0.788245,5370,"Heinsberg",2005
+"493",0.780716,5370,"Heinsberg",2006
+"494",0.77639,5370,"Heinsberg",2007
+"495",0.790442,5370,"Heinsberg",2008
+"496",0.816587,5370,"Heinsberg",2009
+"497",0.772092,5370,"Heinsberg",2010
+"498",0.741922,5370,"Heinsberg",2011
+"499",0.747865,5370,"Heinsberg",2012
+"500",0.715064,5370,"Heinsberg",2013
+"501",0.680011,5370,"Heinsberg",2014
+"502",0.668634,5370,"Heinsberg",2015
+"503",0.623693,5370,"Heinsberg",2016
+"504",0.620498,5370,"Heinsberg",2017
+"505",0.62688,5370,"Heinsberg",2018
+"506",0.59669,5370,"Heinsberg",2019
+"507",0.518337,5374,"Oberbergischer Kreis",1998
+"508",0.515971,5374,"Oberbergischer Kreis",1999
+"509",0.549997,5374,"Oberbergischer Kreis",2000
+"510",0.546513,5374,"Oberbergischer Kreis",2001
+"511",0.561316,5374,"Oberbergischer Kreis",2002
+"512",0.550819,5374,"Oberbergischer Kreis",2003
+"513",0.536104,5374,"Oberbergischer Kreis",2004
+"514",0.496344,5374,"Oberbergischer Kreis",2005
+"515",0.471255,5374,"Oberbergischer Kreis",2006
+"516",0.435708,5374,"Oberbergischer Kreis",2007
+"517",0.434765,5374,"Oberbergischer Kreis",2008
+"518",0.525286,5374,"Oberbergischer Kreis",2009
+"519",0.491859,5374,"Oberbergischer Kreis",2010
+"520",0.481775,5374,"Oberbergischer Kreis",2011
+"521",0.421584,5374,"Oberbergischer Kreis",2012
+"522",0.456657,5374,"Oberbergischer Kreis",2013
+"523",0.420768,5374,"Oberbergischer Kreis",2014
+"524",0.425908,5374,"Oberbergischer Kreis",2015
+"525",0.399574,5374,"Oberbergischer Kreis",2016
+"526",0.413666,5374,"Oberbergischer Kreis",2017
+"527",0.402734,5374,"Oberbergischer Kreis",2018
+"528",0.407272,5374,"Oberbergischer Kreis",2019
+"529",0.128826,5378,"Rheinisch-Bergischer Kreis",1998
+"530",0.137275,5378,"Rheinisch-Bergischer Kreis",1999
+"531",0.119919,5378,"Rheinisch-Bergischer Kreis",2000
+"532",0.088425,5378,"Rheinisch-Bergischer Kreis",2001
+"533",0.07326,5378,"Rheinisch-Bergischer Kreis",2002
+"534",0.099399,5378,"Rheinisch-Bergischer Kreis",2003
+"535",0.125787,5378,"Rheinisch-Bergischer Kreis",2004
+"536",0.121666,5378,"Rheinisch-Bergischer Kreis",2005
+"537",0.088134,5378,"Rheinisch-Bergischer Kreis",2006
+"538",0.09466,5378,"Rheinisch-Bergischer Kreis",2007
+"539",0.100915,5378,"Rheinisch-Bergischer Kreis",2008
+"540",0.162525,5378,"Rheinisch-Bergischer Kreis",2009
+"541",0.132658,5378,"Rheinisch-Bergischer Kreis",2010
+"542",0.185077,5378,"Rheinisch-Bergischer Kreis",2011
+"543",0.164584,5378,"Rheinisch-Bergischer Kreis",2012
+"544",0.191869,5378,"Rheinisch-Bergischer Kreis",2013
+"545",0.1769,5378,"Rheinisch-Bergischer Kreis",2014
+"546",0.188488,5378,"Rheinisch-Bergischer Kreis",2015
+"547",0.183384,5378,"Rheinisch-Bergischer Kreis",2016
+"548",0.184664,5378,"Rheinisch-Bergischer Kreis",2017
+"549",0.2036,5378,"Rheinisch-Bergischer Kreis",2018
+"550",0.200286,5378,"Rheinisch-Bergischer Kreis",2019
+"551",0.337022,5382,"Rhein-Sieg-Kreis",1998
+"552",0.337486,5382,"Rhein-Sieg-Kreis",1999
+"553",0.339961,5382,"Rhein-Sieg-Kreis",2000
+"554",0.328353,5382,"Rhein-Sieg-Kreis",2001
+"555",0.320405,5382,"Rhein-Sieg-Kreis",2002
+"556",0.323551,5382,"Rhein-Sieg-Kreis",2003
+"557",0.349131,5382,"Rhein-Sieg-Kreis",2004
+"558",0.320571,5382,"Rhein-Sieg-Kreis",2005
+"559",0.312843,5382,"Rhein-Sieg-Kreis",2006
+"560",0.303529,5382,"Rhein-Sieg-Kreis",2007
+"561",0.350956,5382,"Rhein-Sieg-Kreis",2008
+"562",0.362427,5382,"Rhein-Sieg-Kreis",2009
+"563",0.32286,5382,"Rhein-Sieg-Kreis",2010
+"564",0.345844,5382,"Rhein-Sieg-Kreis",2011
+"565",0.315324,5382,"Rhein-Sieg-Kreis",2012
+"566",0.36241,5382,"Rhein-Sieg-Kreis",2013
+"567",0.331446,5382,"Rhein-Sieg-Kreis",2014
+"568",0.323258,5382,"Rhein-Sieg-Kreis",2015
+"569",0.287437,5382,"Rhein-Sieg-Kreis",2016
+"570",0.317255,5382,"Rhein-Sieg-Kreis",2017
+"571",0.310249,5382,"Rhein-Sieg-Kreis",2018
+"572",0.318336,5382,"Rhein-Sieg-Kreis",2019
+"573",0.665222,5512,"Bottrop, Stadt",1998
+"574",0.656657,5512,"Bottrop, Stadt",1999
+"575",0.60774,5512,"Bottrop, Stadt",2000
+"576",0.641689,5512,"Bottrop, Stadt",2001
+"577",0.657743,5512,"Bottrop, Stadt",2002
+"578",0.647741,5512,"Bottrop, Stadt",2003
+"579",0.674892,5512,"Bottrop, Stadt",2004
+"580",0.633147,5512,"Bottrop, Stadt",2005
+"581",0.579984,5512,"Bottrop, Stadt",2006
+"582",0.613553,5512,"Bottrop, Stadt",2007
+"583",0.66059,5512,"Bottrop, Stadt",2008
+"584",0.6404,5512,"Bottrop, Stadt",2009
+"585",0.607844,5512,"Bottrop, Stadt",2010
+"586",0.624019,5512,"Bottrop, Stadt",2011
+"587",0.656681,5512,"Bottrop, Stadt",2012
+"588",0.60302,5512,"Bottrop, Stadt",2013
+"589",0.564848,5512,"Bottrop, Stadt",2014
+"590",0.57516,5512,"Bottrop, Stadt",2015
+"591",0.527757,5512,"Bottrop, Stadt",2016
+"592",0.577355,5512,"Bottrop, Stadt",2017
+"593",0.574229,5512,"Bottrop, Stadt",2018
+"594",0.571256,5512,"Bottrop, Stadt",2019
 "595",1,5513,"Gelsenkirchen, Stadt",1998
 "596",1,5513,"Gelsenkirchen, Stadt",1999
 "597",1,5513,"Gelsenkirchen, Stadt",2000
@@ -615,553 +615,553 @@
 "614",1,5513,"Gelsenkirchen, Stadt",2017
 "615",1,5513,"Gelsenkirchen, Stadt",2018
 "616",1,5513,"Gelsenkirchen, Stadt",2019
-"617",0.054613,5515,"Münster, Stadt",1998
-"618",0.056496,5515,"Münster, Stadt",1999
-"619",0.054667,5515,"Münster, Stadt",2000
-"620",0.048576,5515,"Münster, Stadt",2001
-"621",0.040412,5515,"Münster, Stadt",2002
-"622",0.037819,5515,"Münster, Stadt",2003
-"623",0.054661,5515,"Münster, Stadt",2004
-"624",0.026288,5515,"Münster, Stadt",2005
-"625",0.016515,5515,"Münster, Stadt",2006
-"626",0.029891,5515,"Münster, Stadt",2007
+"617",0.057357,5515,"Münster, Stadt",1998
+"618",0.057291,5515,"Münster, Stadt",1999
+"619",0.046893,5515,"Münster, Stadt",2000
+"620",0.047947,5515,"Münster, Stadt",2001
+"621",0.039709,5515,"Münster, Stadt",2002
+"622",0.037146,5515,"Münster, Stadt",2003
+"623",0.054026,5515,"Münster, Stadt",2004
+"624",0.02567,5515,"Münster, Stadt",2005
+"625",0.015843,5515,"Münster, Stadt",2006
+"626",0.029236,5515,"Münster, Stadt",2007
 "627",0,5515,"Münster, Stadt",2008
-"628",0.065311,5515,"Münster, Stadt",2009
-"629",0.030861,5515,"Münster, Stadt",2010
-"630",0.138216,5515,"Münster, Stadt",2011
-"631",0.09724,5515,"Münster, Stadt",2012
-"632",0.102077,5515,"Münster, Stadt",2013
-"633",0.074312,5515,"Münster, Stadt",2014
-"634",0.094806,5515,"Münster, Stadt",2015
-"635",0.077372,5515,"Münster, Stadt",2016
-"636",0.098373,5515,"Münster, Stadt",2017
-"637",0.110051,5515,"Münster, Stadt",2018
-"638",0.11612,5515,"Münster, Stadt",2019
-"639",0.444356,5554,"Borken",1998
-"640",0.448994,5554,"Borken",1999
-"641",0.478408,5554,"Borken",2000
-"642",0.503833,5554,"Borken",2001
-"643",0.497331,5554,"Borken",2002
-"644",0.502588,5554,"Borken",2003
-"645",0.535248,5554,"Borken",2004
-"646",0.469884,5554,"Borken",2005
-"647",0.458083,5554,"Borken",2006
-"648",0.412491,5554,"Borken",2007
-"649",0.462335,5554,"Borken",2008
-"650",0.514008,5554,"Borken",2009
-"651",0.479101,5554,"Borken",2010
-"652",0.47039,5554,"Borken",2011
-"653",0.438704,5554,"Borken",2012
-"654",0.479485,5554,"Borken",2013
-"655",0.445945,5554,"Borken",2014
-"656",0.444906,5554,"Borken",2015
-"657",0.416493,5554,"Borken",2016
-"658",0.43946,5554,"Borken",2017
-"659",0.430201,5554,"Borken",2018
-"660",0.42297,5554,"Borken",2019
-"661",0.234948,5558,"Coesfeld",1998
-"662",0.235584,5558,"Coesfeld",1999
-"663",0.252675,5558,"Coesfeld",2000
-"664",0.286947,5558,"Coesfeld",2001
-"665",0.258569,5558,"Coesfeld",2002
-"666",0.270315,5558,"Coesfeld",2003
-"667",0.288271,5558,"Coesfeld",2004
-"668",0.26297,5558,"Coesfeld",2005
-"669",0.24939,5558,"Coesfeld",2006
-"670",0.217666,5558,"Coesfeld",2007
-"671",0.239209,5558,"Coesfeld",2008
-"672",0.270263,5558,"Coesfeld",2009
-"673",0.231534,5558,"Coesfeld",2010
-"674",0.27097,5558,"Coesfeld",2011
-"675",0.226282,5558,"Coesfeld",2012
-"676",0.280167,5558,"Coesfeld",2013
-"677",0.259503,5558,"Coesfeld",2014
-"678",0.282625,5558,"Coesfeld",2015
-"679",0.25196,5558,"Coesfeld",2016
-"680",0.269589,5558,"Coesfeld",2017
-"681",0.266241,5558,"Coesfeld",2018
-"682",0.278689,5558,"Coesfeld",2019
-"683",0.611613,5562,"Recklinghausen",1998
-"684",0.611501,5562,"Recklinghausen",1999
-"685",0.606533,5562,"Recklinghausen",2000
-"686",0.653886,5562,"Recklinghausen",2001
-"687",0.629933,5562,"Recklinghausen",2002
-"688",0.616034,5562,"Recklinghausen",2003
-"689",0.616733,5562,"Recklinghausen",2004
-"690",0.566046,5562,"Recklinghausen",2005
-"691",0.585276,5562,"Recklinghausen",2006
-"692",0.59635,5562,"Recklinghausen",2007
-"693",0.610408,5562,"Recklinghausen",2008
-"694",0.631118,5562,"Recklinghausen",2009
-"695",0.634867,5562,"Recklinghausen",2010
-"696",0.645627,5562,"Recklinghausen",2011
-"697",0.605121,5562,"Recklinghausen",2012
-"698",0.65278,5562,"Recklinghausen",2013
-"699",0.63932,5562,"Recklinghausen",2014
-"700",0.623688,5562,"Recklinghausen",2015
-"701",0.574506,5562,"Recklinghausen",2016
-"702",0.613248,5562,"Recklinghausen",2017
-"703",0.622382,5562,"Recklinghausen",2018
-"704",0.588443,5562,"Recklinghausen",2019
-"705",0.399554,5566,"Steinfurt",1998
-"706",0.415075,5566,"Steinfurt",1999
-"707",0.449803,5566,"Steinfurt",2000
-"708",0.445875,5566,"Steinfurt",2001
-"709",0.437026,5566,"Steinfurt",2002
-"710",0.432539,5566,"Steinfurt",2003
-"711",0.412546,5566,"Steinfurt",2004
-"712",0.385883,5566,"Steinfurt",2005
-"713",0.361714,5566,"Steinfurt",2006
-"714",0.373941,5566,"Steinfurt",2007
-"715",0.380427,5566,"Steinfurt",2008
-"716",0.428943,5566,"Steinfurt",2009
-"717",0.423882,5566,"Steinfurt",2010
-"718",0.426642,5566,"Steinfurt",2011
-"719",0.410482,5566,"Steinfurt",2012
-"720",0.443151,5566,"Steinfurt",2013
-"721",0.449922,5566,"Steinfurt",2014
-"722",0.43468,5566,"Steinfurt",2015
-"723",0.404407,5566,"Steinfurt",2016
-"724",0.444508,5566,"Steinfurt",2017
-"725",0.4186,5566,"Steinfurt",2018
-"726",0.413266,5566,"Steinfurt",2019
-"727",0.354839,5570,"Warendorf",1998
-"728",0.351827,5570,"Warendorf",1999
-"729",0.387879,5570,"Warendorf",2000
-"730",0.398258,5570,"Warendorf",2001
-"731",0.429214,5570,"Warendorf",2002
-"732",0.425461,5570,"Warendorf",2003
-"733",0.417121,5570,"Warendorf",2004
-"734",0.372808,5570,"Warendorf",2005
-"735",0.339522,5570,"Warendorf",2006
-"736",0.269954,5570,"Warendorf",2007
-"737",0.293181,5570,"Warendorf",2008
-"738",0.361567,5570,"Warendorf",2009
-"739",0.355923,5570,"Warendorf",2010
-"740",0.3683,5570,"Warendorf",2011
-"741",0.35554,5570,"Warendorf",2012
-"742",0.371547,5570,"Warendorf",2013
-"743",0.347871,5570,"Warendorf",2014
-"744",0.380131,5570,"Warendorf",2015
-"745",0.353485,5570,"Warendorf",2016
-"746",0.387944,5570,"Warendorf",2017
-"747",0.377169,5570,"Warendorf",2018
-"748",0.372134,5570,"Warendorf",2019
-"749",0.520028,5711,"Bielefeld, Stadt",1998
-"750",0.513041,5711,"Bielefeld, Stadt",1999
-"751",0.488198,5711,"Bielefeld, Stadt",2000
-"752",0.474697,5711,"Bielefeld, Stadt",2001
-"753",0.454221,5711,"Bielefeld, Stadt",2002
-"754",0.497261,5711,"Bielefeld, Stadt",2003
-"755",0.464056,5711,"Bielefeld, Stadt",2004
-"756",0.466139,5711,"Bielefeld, Stadt",2005
-"757",0.437497,5711,"Bielefeld, Stadt",2006
-"758",0.433922,5711,"Bielefeld, Stadt",2007
-"759",0.442872,5711,"Bielefeld, Stadt",2008
-"760",0.507305,5711,"Bielefeld, Stadt",2009
-"761",0.468932,5711,"Bielefeld, Stadt",2010
-"762",0.488844,5711,"Bielefeld, Stadt",2011
-"763",0.488876,5711,"Bielefeld, Stadt",2012
-"764",0.501164,5711,"Bielefeld, Stadt",2013
-"765",0.459682,5711,"Bielefeld, Stadt",2014
-"766",0.466649,5711,"Bielefeld, Stadt",2015
-"767",0.401563,5711,"Bielefeld, Stadt",2016
-"768",0.459121,5711,"Bielefeld, Stadt",2017
-"769",0.461608,5711,"Bielefeld, Stadt",2018
-"770",0.453443,5711,"Bielefeld, Stadt",2019
-"771",0.361851,5754,"Gütersloh",1998
-"772",0.345808,5754,"Gütersloh",1999
-"773",0.359847,5754,"Gütersloh",2000
-"774",0.367957,5754,"Gütersloh",2001
-"775",0.335969,5754,"Gütersloh",2002
-"776",0.343967,5754,"Gütersloh",2003
-"777",0.357927,5754,"Gütersloh",2004
-"778",0.304292,5754,"Gütersloh",2005
-"779",0.251623,5754,"Gütersloh",2006
-"780",0.248381,5754,"Gütersloh",2007
-"781",0.273034,5754,"Gütersloh",2008
-"782",0.332419,5754,"Gütersloh",2009
-"783",0.330812,5754,"Gütersloh",2010
-"784",0.355369,5754,"Gütersloh",2011
-"785",0.32122,5754,"Gütersloh",2012
-"786",0.362736,5754,"Gütersloh",2013
-"787",0.354431,5754,"Gütersloh",2014
-"788",0.342124,5754,"Gütersloh",2015
-"789",0.325277,5754,"Gütersloh",2016
-"790",0.373678,5754,"Gütersloh",2017
-"791",0.366414,5754,"Gütersloh",2018
-"792",0.361284,5754,"Gütersloh",2019
-"793",0.452215,5758,"Herford",1998
-"794",0.436632,5758,"Herford",1999
-"795",0.398263,5758,"Herford",2000
-"796",0.417615,5758,"Herford",2001
-"797",0.390177,5758,"Herford",2002
-"798",0.40327,5758,"Herford",2003
-"799",0.403537,5758,"Herford",2004
-"800",0.402709,5758,"Herford",2005
-"801",0.378614,5758,"Herford",2006
-"802",0.384939,5758,"Herford",2007
-"803",0.37987,5758,"Herford",2008
-"804",0.456719,5758,"Herford",2009
-"805",0.432864,5758,"Herford",2010
-"806",0.456062,5758,"Herford",2011
-"807",0.450751,5758,"Herford",2012
-"808",0.480496,5758,"Herford",2013
-"809",0.452336,5758,"Herford",2014
-"810",0.465566,5758,"Herford",2015
-"811",0.411105,5758,"Herford",2016
-"812",0.443265,5758,"Herford",2017
-"813",0.456153,5758,"Herford",2018
-"814",0.45211,5758,"Herford",2019
-"815",0.517687,5762,"Höxter",1998
-"816",0.512397,5762,"Höxter",1999
-"817",0.539948,5762,"Höxter",2000
-"818",0.561728,5762,"Höxter",2001
-"819",0.599502,5762,"Höxter",2002
-"820",0.601292,5762,"Höxter",2003
-"821",0.574048,5762,"Höxter",2004
-"822",0.530392,5762,"Höxter",2005
-"823",0.523008,5762,"Höxter",2006
-"824",0.498673,5762,"Höxter",2007
-"825",0.509137,5762,"Höxter",2008
-"826",0.583704,5762,"Höxter",2009
-"827",0.522732,5762,"Höxter",2010
-"828",0.519062,5762,"Höxter",2011
-"829",0.49706,5762,"Höxter",2012
-"830",0.514689,5762,"Höxter",2013
-"831",0.511227,5762,"Höxter",2014
-"832",0.50161,5762,"Höxter",2015
-"833",0.475661,5762,"Höxter",2016
-"834",0.46733,5762,"Höxter",2017
-"835",0.452452,5762,"Höxter",2018
-"836",0.451951,5762,"Höxter",2019
-"837",0.431971,5766,"Lippe",1998
-"838",0.433665,5766,"Lippe",1999
-"839",0.459871,5766,"Lippe",2000
-"840",0.491108,5766,"Lippe",2001
-"841",0.506042,5766,"Lippe",2002
-"842",0.50212,5766,"Lippe",2003
-"843",0.483548,5766,"Lippe",2004
-"844",0.454645,5766,"Lippe",2005
-"845",0.420172,5766,"Lippe",2006
-"846",0.385912,5766,"Lippe",2007
-"847",0.398254,5766,"Lippe",2008
-"848",0.497393,5766,"Lippe",2009
-"849",0.446094,5766,"Lippe",2010
-"850",0.463467,5766,"Lippe",2011
-"851",0.437674,5766,"Lippe",2012
-"852",0.474745,5766,"Lippe",2013
-"853",0.446103,5766,"Lippe",2014
-"854",0.452927,5766,"Lippe",2015
-"855",0.406643,5766,"Lippe",2016
-"856",0.423357,5766,"Lippe",2017
-"857",0.423677,5766,"Lippe",2018
-"858",0.420932,5766,"Lippe",2019
-"859",0.487927,5770,"Minden-Lübbecke",1998
-"860",0.472323,5770,"Minden-Lübbecke",1999
-"861",0.472634,5770,"Minden-Lübbecke",2000
-"862",0.456192,5770,"Minden-Lübbecke",2001
-"863",0.486278,5770,"Minden-Lübbecke",2002
-"864",0.48419,5770,"Minden-Lübbecke",2003
-"865",0.479451,5770,"Minden-Lübbecke",2004
-"866",0.447081,5770,"Minden-Lübbecke",2005
-"867",0.408623,5770,"Minden-Lübbecke",2006
-"868",0.417896,5770,"Minden-Lübbecke",2007
-"869",0.418526,5770,"Minden-Lübbecke",2008
-"870",0.497729,5770,"Minden-Lübbecke",2009
-"871",0.466361,5770,"Minden-Lübbecke",2010
-"872",0.481111,5770,"Minden-Lübbecke",2011
-"873",0.446346,5770,"Minden-Lübbecke",2012
-"874",0.460137,5770,"Minden-Lübbecke",2013
-"875",0.449357,5770,"Minden-Lübbecke",2014
-"876",0.455338,5770,"Minden-Lübbecke",2015
-"877",0.416745,5770,"Minden-Lübbecke",2016
-"878",0.454185,5770,"Minden-Lübbecke",2017
-"879",0.445208,5770,"Minden-Lübbecke",2018
-"880",0.448786,5770,"Minden-Lübbecke",2019
-"881",0.471598,5774,"Paderborn",1998
-"882",0.469133,5774,"Paderborn",1999
-"883",0.484463,5774,"Paderborn",2000
-"884",0.487421,5774,"Paderborn",2001
-"885",0.504712,5774,"Paderborn",2002
-"886",0.487159,5774,"Paderborn",2003
-"887",0.495405,5774,"Paderborn",2004
-"888",0.452306,5774,"Paderborn",2005
-"889",0.43391,5774,"Paderborn",2006
-"890",0.411458,5774,"Paderborn",2007
-"891",0.40608,5774,"Paderborn",2008
-"892",0.471291,5774,"Paderborn",2009
-"893",0.445532,5774,"Paderborn",2010
-"894",0.450156,5774,"Paderborn",2011
-"895",0.398929,5774,"Paderborn",2012
-"896",0.435204,5774,"Paderborn",2013
-"897",0.434695,5774,"Paderborn",2014
-"898",0.416524,5774,"Paderborn",2015
-"899",0.389247,5774,"Paderborn",2016
-"900",0.387913,5774,"Paderborn",2017
-"901",0.383026,5774,"Paderborn",2018
-"902",0.390568,5774,"Paderborn",2019
-"903",0.491554,5911,"Bochum, Stadt",1998
-"904",0.480275,5911,"Bochum, Stadt",1999
-"905",0.465066,5911,"Bochum, Stadt",2000
-"906",0.476075,5911,"Bochum, Stadt",2001
-"907",0.453989,5911,"Bochum, Stadt",2002
-"908",0.473791,5911,"Bochum, Stadt",2003
-"909",0.48203,5911,"Bochum, Stadt",2004
-"910",0.461405,5911,"Bochum, Stadt",2005
-"911",0.462377,5911,"Bochum, Stadt",2006
-"912",0.464772,5911,"Bochum, Stadt",2007
-"913",0.472026,5911,"Bochum, Stadt",2008
-"914",0.515963,5911,"Bochum, Stadt",2009
-"915",0.455315,5911,"Bochum, Stadt",2010
-"916",0.493575,5911,"Bochum, Stadt",2011
-"917",0.477712,5911,"Bochum, Stadt",2012
-"918",0.495722,5911,"Bochum, Stadt",2013
-"919",0.487648,5911,"Bochum, Stadt",2014
-"920",0.477434,5911,"Bochum, Stadt",2015
-"921",0.450423,5911,"Bochum, Stadt",2016
-"922",0.485961,5911,"Bochum, Stadt",2017
-"923",0.481773,5911,"Bochum, Stadt",2018
-"924",0.489047,5911,"Bochum, Stadt",2019
-"925",0.665212,5913,"Dortmund, Stadt",1998
-"926",0.643651,5913,"Dortmund, Stadt",1999
-"927",0.612485,5913,"Dortmund, Stadt",2000
-"928",0.625808,5913,"Dortmund, Stadt",2001
-"929",0.619208,5913,"Dortmund, Stadt",2002
-"930",0.621101,5913,"Dortmund, Stadt",2003
-"931",0.639634,5913,"Dortmund, Stadt",2004
-"932",0.611575,5913,"Dortmund, Stadt",2005
-"933",0.63654,5913,"Dortmund, Stadt",2006
-"934",0.631115,5913,"Dortmund, Stadt",2007
-"935",0.637245,5913,"Dortmund, Stadt",2008
-"936",0.678736,5913,"Dortmund, Stadt",2009
-"937",0.657324,5913,"Dortmund, Stadt",2010
-"938",0.662305,5913,"Dortmund, Stadt",2011
-"939",0.667143,5913,"Dortmund, Stadt",2012
-"940",0.67275,5913,"Dortmund, Stadt",2013
-"941",0.644927,5913,"Dortmund, Stadt",2014
-"942",0.628047,5913,"Dortmund, Stadt",2015
-"943",0.56248,5913,"Dortmund, Stadt",2016
-"944",0.602092,5913,"Dortmund, Stadt",2017
-"945",0.612873,5913,"Dortmund, Stadt",2018
-"946",0.608419,5913,"Dortmund, Stadt",2019
-"947",0.805585,5914,"Hagen, Stadt",1998
-"948",0.778133,5914,"Hagen, Stadt",1999
-"949",0.751816,5914,"Hagen, Stadt",2000
-"950",0.743819,5914,"Hagen, Stadt",2001
-"951",0.701735,5914,"Hagen, Stadt",2002
-"952",0.719751,5914,"Hagen, Stadt",2003
-"953",0.700102,5914,"Hagen, Stadt",2004
-"954",0.685364,5914,"Hagen, Stadt",2005
-"955",0.701988,5914,"Hagen, Stadt",2006
-"956",0.732898,5914,"Hagen, Stadt",2007
-"957",0.731517,5914,"Hagen, Stadt",2008
-"958",0.78952,5914,"Hagen, Stadt",2009
-"959",0.781182,5914,"Hagen, Stadt",2010
-"960",0.736889,5914,"Hagen, Stadt",2011
-"961",0.741121,5914,"Hagen, Stadt",2012
-"962",0.738644,5914,"Hagen, Stadt",2013
-"963",0.732621,5914,"Hagen, Stadt",2014
-"964",0.738026,5914,"Hagen, Stadt",2015
-"965",0.718237,5914,"Hagen, Stadt",2016
-"966",0.750608,5914,"Hagen, Stadt",2017
-"967",0.777626,5914,"Hagen, Stadt",2018
-"968",0.776026,5914,"Hagen, Stadt",2019
-"969",0.848637,5915,"Hamm, Stadt",1998
-"970",0.844278,5915,"Hamm, Stadt",1999
-"971",0.789395,5915,"Hamm, Stadt",2000
-"972",0.824956,5915,"Hamm, Stadt",2001
-"973",0.838362,5915,"Hamm, Stadt",2002
-"974",0.866071,5915,"Hamm, Stadt",2003
-"975",0.859577,5915,"Hamm, Stadt",2004
-"976",0.792804,5915,"Hamm, Stadt",2005
-"977",0.822533,5915,"Hamm, Stadt",2006
-"978",0.805191,5915,"Hamm, Stadt",2007
-"979",0.820689,5915,"Hamm, Stadt",2008
-"980",0.853574,5915,"Hamm, Stadt",2009
-"981",0.835878,5915,"Hamm, Stadt",2010
-"982",0.823714,5915,"Hamm, Stadt",2011
-"983",0.820836,5915,"Hamm, Stadt",2012
-"984",0.843327,5915,"Hamm, Stadt",2013
-"985",0.800593,5915,"Hamm, Stadt",2014
-"986",0.790394,5915,"Hamm, Stadt",2015
-"987",0.752961,5915,"Hamm, Stadt",2016
-"988",0.777755,5915,"Hamm, Stadt",2017
-"989",0.803917,5915,"Hamm, Stadt",2018
-"990",0.776757,5915,"Hamm, Stadt",2019
-"991",0.884508,5916,"Herne, Stadt",1998
-"992",0.852906,5916,"Herne, Stadt",1999
-"993",0.833165,5916,"Herne, Stadt",2000
-"994",0.861584,5916,"Herne, Stadt",2001
-"995",0.868878,5916,"Herne, Stadt",2002
-"996",0.886191,5916,"Herne, Stadt",2003
-"997",0.829472,5916,"Herne, Stadt",2004
-"998",0.796275,5916,"Herne, Stadt",2005
-"999",0.828448,5916,"Herne, Stadt",2006
-"1000",0.816829,5916,"Herne, Stadt",2007
-"1001",0.818766,5916,"Herne, Stadt",2008
-"1002",0.867427,5916,"Herne, Stadt",2009
-"1003",0.87512,5916,"Herne, Stadt",2010
-"1004",0.845639,5916,"Herne, Stadt",2011
-"1005",0.87256,5916,"Herne, Stadt",2012
-"1006",0.888231,5916,"Herne, Stadt",2013
-"1007",0.832993,5916,"Herne, Stadt",2014
-"1008",0.86166,5916,"Herne, Stadt",2015
-"1009",0.80375,5916,"Herne, Stadt",2016
-"1010",0.87343,5916,"Herne, Stadt",2017
-"1011",0.895465,5916,"Herne, Stadt",2018
-"1012",0.866817,5916,"Herne, Stadt",2019
-"1013",0.323188,5954,"Ennepe-Ruhr-Kreis",1998
-"1014",0.311994,5954,"Ennepe-Ruhr-Kreis",1999
-"1015",0.329447,5954,"Ennepe-Ruhr-Kreis",2000
-"1016",0.330368,5954,"Ennepe-Ruhr-Kreis",2001
-"1017",0.289719,5954,"Ennepe-Ruhr-Kreis",2002
-"1018",0.297783,5954,"Ennepe-Ruhr-Kreis",2003
-"1019",0.298094,5954,"Ennepe-Ruhr-Kreis",2004
-"1020",0.254655,5954,"Ennepe-Ruhr-Kreis",2005
-"1021",0.255419,5954,"Ennepe-Ruhr-Kreis",2006
-"1022",0.237027,5954,"Ennepe-Ruhr-Kreis",2007
-"1023",0.270543,5954,"Ennepe-Ruhr-Kreis",2008
-"1024",0.325883,5954,"Ennepe-Ruhr-Kreis",2009
-"1025",0.297443,5954,"Ennepe-Ruhr-Kreis",2010
-"1026",0.311069,5954,"Ennepe-Ruhr-Kreis",2011
-"1027",0.3078,5954,"Ennepe-Ruhr-Kreis",2012
-"1028",0.347064,5954,"Ennepe-Ruhr-Kreis",2013
-"1029",0.322848,5954,"Ennepe-Ruhr-Kreis",2014
-"1030",0.359845,5954,"Ennepe-Ruhr-Kreis",2015
-"1031",0.315919,5954,"Ennepe-Ruhr-Kreis",2016
-"1032",0.339511,5954,"Ennepe-Ruhr-Kreis",2017
-"1033",0.359103,5954,"Ennepe-Ruhr-Kreis",2018
-"1034",0.34263,5954,"Ennepe-Ruhr-Kreis",2019
-"1035",0.495797,5958,"Hochsauerlandkreis",1998
-"1036",0.489073,5958,"Hochsauerlandkreis",1999
-"1037",0.523987,5958,"Hochsauerlandkreis",2000
-"1038",0.580476,5958,"Hochsauerlandkreis",2001
-"1039",0.606313,5958,"Hochsauerlandkreis",2002
-"1040",0.581696,5958,"Hochsauerlandkreis",2003
-"1041",0.56965,5958,"Hochsauerlandkreis",2004
-"1042",0.551552,5958,"Hochsauerlandkreis",2005
-"1043",0.50858,5958,"Hochsauerlandkreis",2006
-"1044",0.47594,5958,"Hochsauerlandkreis",2007
-"1045",0.46568,5958,"Hochsauerlandkreis",2008
-"1046",0.518307,5958,"Hochsauerlandkreis",2009
-"1047",0.491992,5958,"Hochsauerlandkreis",2010
-"1048",0.495047,5958,"Hochsauerlandkreis",2011
-"1049",0.498309,5958,"Hochsauerlandkreis",2012
-"1050",0.459073,5958,"Hochsauerlandkreis",2013
-"1051",0.431406,5958,"Hochsauerlandkreis",2014
-"1052",0.442707,5958,"Hochsauerlandkreis",2015
-"1053",0.430034,5958,"Hochsauerlandkreis",2016
-"1054",0.431206,5958,"Hochsauerlandkreis",2017
-"1055",0.441162,5958,"Hochsauerlandkreis",2018
-"1056",0.402098,5958,"Hochsauerlandkreis",2019
-"1057",0.665058,5962,"Märkischer Kreis",1998
-"1058",0.632506,5962,"Märkischer Kreis",1999
-"1059",0.660953,5962,"Märkischer Kreis",2000
-"1060",0.6778,5962,"Märkischer Kreis",2001
-"1061",0.714869,5962,"Märkischer Kreis",2002
-"1062",0.705142,5962,"Märkischer Kreis",2003
-"1063",0.681335,5962,"Märkischer Kreis",2004
-"1064",0.595498,5962,"Märkischer Kreis",2005
-"1065",0.585181,5962,"Märkischer Kreis",2006
-"1066",0.534422,5962,"Märkischer Kreis",2007
-"1067",0.578337,5962,"Märkischer Kreis",2008
-"1068",0.665485,5962,"Märkischer Kreis",2009
-"1069",0.623166,5962,"Märkischer Kreis",2010
-"1070",0.613338,5962,"Märkischer Kreis",2011
-"1071",0.59648,5962,"Märkischer Kreis",2012
-"1072",0.589545,5962,"Märkischer Kreis",2013
-"1073",0.552641,5962,"Märkischer Kreis",2014
-"1074",0.540272,5962,"Märkischer Kreis",2015
-"1075",0.502249,5962,"Märkischer Kreis",2016
-"1076",0.534095,5962,"Märkischer Kreis",2017
-"1077",0.558531,5962,"Märkischer Kreis",2018
-"1078",0.55979,5962,"Märkischer Kreis",2019
-"1079",0.387515,5966,"Olpe",1998
-"1080",0.388848,5966,"Olpe",1999
-"1081",0.486555,5966,"Olpe",2000
-"1082",0.527712,5966,"Olpe",2001
-"1083",0.599343,5966,"Olpe",2002
-"1084",0.535544,5966,"Olpe",2003
-"1085",0.495287,5966,"Olpe",2004
-"1086",0.449509,5966,"Olpe",2005
-"1087",0.414712,5966,"Olpe",2006
-"1088",0.380644,5966,"Olpe",2007
-"1089",0.349841,5966,"Olpe",2008
-"1090",0.422629,5966,"Olpe",2009
-"1091",0.401417,5966,"Olpe",2010
-"1092",0.394608,5966,"Olpe",2011
-"1093",0.367357,5966,"Olpe",2012
-"1094",0.389177,5966,"Olpe",2013
-"1095",0.317705,5966,"Olpe",2014
-"1096",0.340693,5966,"Olpe",2015
-"1097",0.282621,5966,"Olpe",2016
-"1098",0.27554,5966,"Olpe",2017
-"1099",0.283188,5966,"Olpe",2018
-"1100",0.287762,5966,"Olpe",2019
-"1101",0.332641,5970,"Siegen-Wittgenstein",1998
-"1102",0.319464,5970,"Siegen-Wittgenstein",1999
-"1103",0.35913,5970,"Siegen-Wittgenstein",2000
-"1104",0.372025,5970,"Siegen-Wittgenstein",2001
-"1105",0.359664,5970,"Siegen-Wittgenstein",2002
-"1106",0.357232,5970,"Siegen-Wittgenstein",2003
-"1107",0.365843,5970,"Siegen-Wittgenstein",2004
-"1108",0.346339,5970,"Siegen-Wittgenstein",2005
-"1109",0.272267,5970,"Siegen-Wittgenstein",2006
-"1110",0.258391,5970,"Siegen-Wittgenstein",2007
-"1111",0.265405,5970,"Siegen-Wittgenstein",2008
-"1112",0.334665,5970,"Siegen-Wittgenstein",2009
-"1113",0.338479,5970,"Siegen-Wittgenstein",2010
-"1114",0.328175,5970,"Siegen-Wittgenstein",2011
-"1115",0.295955,5970,"Siegen-Wittgenstein",2012
-"1116",0.339744,5970,"Siegen-Wittgenstein",2013
-"1117",0.314481,5970,"Siegen-Wittgenstein",2014
-"1118",0.353283,5970,"Siegen-Wittgenstein",2015
-"1119",0.312642,5970,"Siegen-Wittgenstein",2016
-"1120",0.31445,5970,"Siegen-Wittgenstein",2017
-"1121",0.317056,5970,"Siegen-Wittgenstein",2018
-"1122",0.320755,5970,"Siegen-Wittgenstein",2019
-"1123",0.455885,5974,"Soest",1998
-"1124",0.46116,5974,"Soest",1999
-"1125",0.493204,5974,"Soest",2000
-"1126",0.504987,5974,"Soest",2001
-"1127",0.550721,5974,"Soest",2002
-"1128",0.533677,5974,"Soest",2003
-"1129",0.538269,5974,"Soest",2004
-"1130",0.494388,5974,"Soest",2005
-"1131",0.469783,5974,"Soest",2006
-"1132",0.465819,5974,"Soest",2007
-"1133",0.449253,5974,"Soest",2008
-"1134",0.496184,5974,"Soest",2009
-"1135",0.472372,5974,"Soest",2010
-"1136",0.479019,5974,"Soest",2011
-"1137",0.455355,5974,"Soest",2012
-"1138",0.451426,5974,"Soest",2013
-"1139",0.419771,5974,"Soest",2014
-"1140",0.425238,5974,"Soest",2015
-"1141",0.407068,5974,"Soest",2016
-"1142",0.428932,5974,"Soest",2017
-"1143",0.406821,5974,"Soest",2018
-"1144",0.410894,5974,"Soest",2019
-"1145",0.576847,5978,"Unna",1998
-"1146",0.570049,5978,"Unna",1999
-"1147",0.587696,5978,"Unna",2000
-"1148",0.600561,5978,"Unna",2001
-"1149",0.58171,5978,"Unna",2002
-"1150",0.60338,5978,"Unna",2003
-"1151",0.627766,5978,"Unna",2004
-"1152",0.571439,5978,"Unna",2005
-"1153",0.582696,5978,"Unna",2006
-"1154",0.561608,5978,"Unna",2007
-"1155",0.579953,5978,"Unna",2008
-"1156",0.614653,5978,"Unna",2009
-"1157",0.614209,5978,"Unna",2010
-"1158",0.609566,5978,"Unna",2011
-"1159",0.576179,5978,"Unna",2012
-"1160",0.59375,5978,"Unna",2013
-"1161",0.562491,5978,"Unna",2014
-"1162",0.55157,5978,"Unna",2015
-"1163",0.522548,5978,"Unna",2016
-"1164",0.556461,5978,"Unna",2017
-"1165",0.557991,5978,"Unna",2018
-"1166",0.548478,5978,"Unna",2019
+"628",0.064646,5515,"Münster, Stadt",2009
+"629",0.030085,5515,"Münster, Stadt",2010
+"630",0.138401,5515,"Münster, Stadt",2011
+"631",0.097431,5515,"Münster, Stadt",2012
+"632",0.102254,5515,"Münster, Stadt",2013
+"633",0.074452,5515,"Münster, Stadt",2014
+"634",0.095009,5515,"Münster, Stadt",2015
+"635",0.077468,5515,"Münster, Stadt",2016
+"636",0.099257,5515,"Münster, Stadt",2017
+"637",0.110868,5515,"Münster, Stadt",2018
+"638",0.116902,5515,"Münster, Stadt",2019
+"639",0.451987,5554,"Borken",1998
+"640",0.46515,5554,"Borken",1999
+"641",0.494986,5554,"Borken",2000
+"642",0.503116,5554,"Borken",2001
+"643",0.496492,5554,"Borken",2002
+"644",0.501809,5554,"Borken",2003
+"645",0.534527,5554,"Borken",2004
+"646",0.469288,5554,"Borken",2005
+"647",0.457224,5554,"Borken",2006
+"648",0.411566,5554,"Borken",2007
+"649",0.461884,5554,"Borken",2008
+"650",0.513117,5554,"Borken",2009
+"651",0.478108,5554,"Borken",2010
+"652",0.46958,5554,"Borken",2011
+"653",0.437834,5554,"Borken",2012
+"654",0.478403,5554,"Borken",2013
+"655",0.444832,5554,"Borken",2014
+"656",0.443786,5554,"Borken",2015
+"657",0.41526,5554,"Borken",2016
+"658",0.438702,5554,"Borken",2017
+"659",0.429404,5554,"Borken",2018
+"660",0.422212,5554,"Borken",2019
+"661",0.25094,5558,"Coesfeld",1998
+"662",0.259324,5558,"Coesfeld",1999
+"663",0.273759,5558,"Coesfeld",2000
+"664",0.286169,5558,"Coesfeld",2001
+"665",0.257624,5558,"Coesfeld",2002
+"666",0.269367,5558,"Coesfeld",2003
+"667",0.287257,5558,"Coesfeld",2004
+"668",0.26195,5558,"Coesfeld",2005
+"669",0.248247,5558,"Coesfeld",2006
+"670",0.216447,5558,"Coesfeld",2007
+"671",0.238525,5558,"Coesfeld",2008
+"672",0.268982,5558,"Coesfeld",2009
+"673",0.230138,5558,"Coesfeld",2010
+"674",0.269946,5558,"Coesfeld",2011
+"675",0.225231,5558,"Coesfeld",2012
+"676",0.2789,5558,"Coesfeld",2013
+"677",0.258191,5558,"Coesfeld",2014
+"678",0.281283,5558,"Coesfeld",2015
+"679",0.250592,5558,"Coesfeld",2016
+"680",0.268824,5558,"Coesfeld",2017
+"681",0.265428,5558,"Coesfeld",2018
+"682",0.277876,5558,"Coesfeld",2019
+"683",0.623906,5562,"Recklinghausen",1998
+"684",0.626169,5562,"Recklinghausen",1999
+"685",0.617595,5562,"Recklinghausen",2000
+"686",0.653563,5562,"Recklinghausen",2001
+"687",0.629594,5562,"Recklinghausen",2002
+"688",0.615723,5562,"Recklinghausen",2003
+"689",0.616419,5562,"Recklinghausen",2004
+"690",0.565783,5562,"Recklinghausen",2005
+"691",0.584805,5562,"Recklinghausen",2006
+"692",0.595768,5562,"Recklinghausen",2007
+"693",0.610112,5562,"Recklinghausen",2008
+"694",0.630433,5562,"Recklinghausen",2009
+"695",0.634078,5562,"Recklinghausen",2010
+"696",0.645014,5562,"Recklinghausen",2011
+"697",0.604501,5562,"Recklinghausen",2012
+"698",0.651987,5562,"Recklinghausen",2013
+"699",0.638524,5562,"Recklinghausen",2014
+"700",0.622843,5562,"Recklinghausen",2015
+"701",0.573565,5562,"Recklinghausen",2016
+"702",0.612684,5562,"Recklinghausen",2017
+"703",0.621809,5562,"Recklinghausen",2018
+"704",0.587988,5562,"Recklinghausen",2019
+"705",0.417398,5566,"Steinfurt",1998
+"706",0.442433,5566,"Steinfurt",1999
+"707",0.47432,5566,"Steinfurt",2000
+"708",0.445039,5566,"Steinfurt",2001
+"709",0.436041,5566,"Steinfurt",2002
+"710",0.431531,5566,"Steinfurt",2003
+"711",0.41155,5566,"Steinfurt",2004
+"712",0.385026,5566,"Steinfurt",2005
+"713",0.360572,5566,"Steinfurt",2006
+"714",0.372693,5566,"Steinfurt",2007
+"715",0.379578,5566,"Steinfurt",2008
+"716",0.427613,5566,"Steinfurt",2009
+"717",0.422466,5566,"Steinfurt",2010
+"718",0.425382,5566,"Steinfurt",2011
+"719",0.409226,5566,"Steinfurt",2012
+"720",0.441732,5566,"Steinfurt",2013
+"721",0.448488,5566,"Steinfurt",2014
+"722",0.433255,5566,"Steinfurt",2015
+"723",0.402937,5566,"Steinfurt",2016
+"724",0.44351,5566,"Steinfurt",2017
+"725",0.417556,5566,"Steinfurt",2018
+"726",0.412275,5566,"Steinfurt",2019
+"727",0.363322,5570,"Warendorf",1998
+"728",0.369502,5570,"Warendorf",1999
+"729",0.404505,5570,"Warendorf",2000
+"730",0.397265,5570,"Warendorf",2001
+"731",0.428052,5570,"Warendorf",2002
+"732",0.424302,5570,"Warendorf",2003
+"733",0.415995,5570,"Warendorf",2004
+"734",0.371742,5570,"Warendorf",2005
+"735",0.338241,5570,"Warendorf",2006
+"736",0.26849,5570,"Warendorf",2007
+"737",0.292206,5570,"Warendorf",2008
+"738",0.360039,5570,"Warendorf",2009
+"739",0.354245,5570,"Warendorf",2010
+"740",0.366957,5570,"Warendorf",2011
+"741",0.354161,5570,"Warendorf",2012
+"742",0.369981,5570,"Warendorf",2013
+"743",0.346362,5570,"Warendorf",2014
+"744",0.378621,5570,"Warendorf",2015
+"745",0.351913,5570,"Warendorf",2016
+"746",0.386882,5570,"Warendorf",2017
+"747",0.376079,5570,"Warendorf",2018
+"748",0.371112,5570,"Warendorf",2019
+"749",0.506729,5711,"Bielefeld, Stadt",1998
+"750",0.503965,5711,"Bielefeld, Stadt",1999
+"751",0.472478,5711,"Bielefeld, Stadt",2000
+"752",0.473323,5711,"Bielefeld, Stadt",2001
+"753",0.452678,5711,"Bielefeld, Stadt",2002
+"754",0.496089,5711,"Bielefeld, Stadt",2003
+"755",0.462877,5711,"Bielefeld, Stadt",2004
+"756",0.46518,5711,"Bielefeld, Stadt",2005
+"757",0.436437,5711,"Bielefeld, Stadt",2006
+"758",0.432832,5711,"Bielefeld, Stadt",2007
+"759",0.442146,5711,"Bielefeld, Stadt",2008
+"760",0.506165,5711,"Bielefeld, Stadt",2009
+"761",0.467705,5711,"Bielefeld, Stadt",2010
+"762",0.488251,5711,"Bielefeld, Stadt",2011
+"763",0.488319,5711,"Bielefeld, Stadt",2012
+"764",0.500417,5711,"Bielefeld, Stadt",2013
+"765",0.458929,5711,"Bielefeld, Stadt",2014
+"766",0.465855,5711,"Bielefeld, Stadt",2015
+"767",0.400706,5711,"Bielefeld, Stadt",2016
+"768",0.458716,5711,"Bielefeld, Stadt",2017
+"769",0.461253,5711,"Bielefeld, Stadt",2018
+"770",0.453091,5711,"Bielefeld, Stadt",2019
+"771",0.351494,5754,"Gütersloh",1998
+"772",0.344004,5754,"Gütersloh",1999
+"773",0.357192,5754,"Gütersloh",2000
+"774",0.366346,5754,"Gütersloh",2001
+"775",0.334141,5754,"Gütersloh",2002
+"776",0.342107,5754,"Gütersloh",2003
+"777",0.356152,5754,"Gütersloh",2004
+"778",0.302597,5754,"Gütersloh",2005
+"779",0.249743,5754,"Gütersloh",2006
+"780",0.246478,5754,"Gütersloh",2007
+"781",0.271649,5754,"Gütersloh",2008
+"782",0.33056,5754,"Gütersloh",2009
+"783",0.328893,5754,"Gütersloh",2010
+"784",0.353902,5754,"Gütersloh",2011
+"785",0.319769,5754,"Gütersloh",2012
+"786",0.361087,5754,"Gütersloh",2013
+"787",0.352831,5754,"Gütersloh",2014
+"788",0.340422,5754,"Gütersloh",2015
+"789",0.323565,5754,"Gütersloh",2016
+"790",0.372481,5754,"Gütersloh",2017
+"791",0.365155,5754,"Gütersloh",2018
+"792",0.360094,5754,"Gütersloh",2019
+"793",0.438863,5758,"Herford",1998
+"794",0.431438,5758,"Herford",1999
+"795",0.389686,5758,"Herford",2000
+"796",0.415802,5758,"Herford",2001
+"797",0.388147,5758,"Herford",2002
+"798",0.401303,5758,"Herford",2003
+"799",0.401637,5758,"Herford",2004
+"800",0.400988,5758,"Herford",2005
+"801",0.376652,5758,"Herford",2006
+"802",0.382935,5758,"Herford",2007
+"803",0.378311,5758,"Herford",2008
+"804",0.454669,5758,"Herford",2009
+"805",0.430762,5758,"Herford",2010
+"806",0.454569,5758,"Herford",2011
+"807",0.449267,5758,"Herford",2012
+"808",0.478912,5758,"Herford",2013
+"809",0.450794,5758,"Herford",2014
+"810",0.464084,5758,"Herford",2015
+"811",0.409547,5758,"Herford",2016
+"812",0.442191,5758,"Herford",2017
+"813",0.455025,5758,"Herford",2018
+"814",0.451056,5758,"Herford",2019
+"815",0.528862,5762,"Höxter",1998
+"816",0.530573,5762,"Höxter",1999
+"817",0.556374,5762,"Höxter",2000
+"818",0.561051,5762,"Höxter",2001
+"819",0.59876,5762,"Höxter",2002
+"820",0.600619,5762,"Höxter",2003
+"821",0.573363,5762,"Höxter",2004
+"822",0.52985,5762,"Höxter",2005
+"823",0.522211,5762,"Höxter",2006
+"824",0.497684,5762,"Höxter",2007
+"825",0.508483,5762,"Höxter",2008
+"826",0.582652,5762,"Höxter",2009
+"827",0.521498,5762,"Höxter",2010
+"828",0.518098,5762,"Höxter",2011
+"829",0.496109,5762,"Höxter",2012
+"830",0.513461,5762,"Höxter",2013
+"831",0.510064,5762,"Höxter",2014
+"832",0.500505,5762,"Höxter",2015
+"833",0.475049,5762,"Höxter",2016
+"834",0.466502,5762,"Höxter",2017
+"835",0.451589,5762,"Höxter",2018
+"836",0.451172,5762,"Höxter",2019
+"837",0.426102,5766,"Lippe",1998
+"838",0.437239,5766,"Lippe",1999
+"839",0.459889,5766,"Lippe",2000
+"840",0.489756,5766,"Lippe",2001
+"841",0.504554,5766,"Lippe",2002
+"842",0.500736,5766,"Lippe",2003
+"843",0.4822,5766,"Lippe",2004
+"844",0.453322,5766,"Lippe",2005
+"845",0.418685,5766,"Lippe",2006
+"846",0.384357,5766,"Lippe",2007
+"847",0.397101,5766,"Lippe",2008
+"848",0.495825,5766,"Lippe",2009
+"849",0.444385,5766,"Lippe",2010
+"850",0.462198,5766,"Lippe",2011
+"851",0.436381,5766,"Lippe",2012
+"852",0.473257,5766,"Lippe",2013
+"853",0.444652,5766,"Lippe",2014
+"854",0.45161,5766,"Lippe",2015
+"855",0.405219,5766,"Lippe",2016
+"856",0.422468,5766,"Lippe",2017
+"857",0.422778,5766,"Lippe",2018
+"858",0.420093,5766,"Lippe",2019
+"859",0.490771,5770,"Minden-Lübbecke",1998
+"860",0.48118,5770,"Minden-Lübbecke",1999
+"861",0.476523,5770,"Minden-Lübbecke",2000
+"862",0.454665,5770,"Minden-Lübbecke",2001
+"863",0.484648,5770,"Minden-Lübbecke",2002
+"864",0.482624,5770,"Minden-Lübbecke",2003
+"865",0.477966,5770,"Minden-Lübbecke",2004
+"866",0.445754,5770,"Minden-Lübbecke",2005
+"867",0.40703,5770,"Minden-Lübbecke",2006
+"868",0.416254,5770,"Minden-Lübbecke",2007
+"869",0.417266,5770,"Minden-Lübbecke",2008
+"870",0.496042,5770,"Minden-Lübbecke",2009
+"871",0.464532,5770,"Minden-Lübbecke",2010
+"872",0.479722,5770,"Minden-Lübbecke",2011
+"873",0.444979,5770,"Minden-Lübbecke",2012
+"874",0.458577,5770,"Minden-Lübbecke",2013
+"875",0.447857,5770,"Minden-Lübbecke",2014
+"876",0.453924,5770,"Minden-Lübbecke",2015
+"877",0.415236,5770,"Minden-Lübbecke",2016
+"878",0.453143,5770,"Minden-Lübbecke",2017
+"879",0.44417,5770,"Minden-Lübbecke",2018
+"880",0.447815,5770,"Minden-Lübbecke",2019
+"881",0.471796,5774,"Paderborn",1998
+"882",0.476243,5774,"Paderborn",1999
+"883",0.486849,5774,"Paderborn",2000
+"884",0.486416,5774,"Paderborn",2001
+"885",0.503622,5774,"Paderborn",2002
+"886",0.486189,5774,"Paderborn",2003
+"887",0.494533,5774,"Paderborn",2004
+"888",0.451582,5774,"Paderborn",2005
+"889",0.432934,5774,"Paderborn",2006
+"890",0.410333,5774,"Paderborn",2007
+"891",0.405414,5774,"Paderborn",2008
+"892",0.470175,5774,"Paderborn",2009
+"893",0.444273,5774,"Paderborn",2010
+"894",0.449184,5774,"Paderborn",2011
+"895",0.397953,5774,"Paderborn",2012
+"896",0.43413,5774,"Paderborn",2013
+"897",0.43368,5774,"Paderborn",2014
+"898",0.415564,5774,"Paderborn",2015
+"899",0.388246,5774,"Paderborn",2016
+"900",0.387395,5774,"Paderborn",2017
+"901",0.382519,5774,"Paderborn",2018
+"902",0.390122,5774,"Paderborn",2019
+"903",0.497389,5911,"Bochum, Stadt",1998
+"904",0.488992,5911,"Bochum, Stadt",1999
+"905",0.468257,5911,"Bochum, Stadt",2000
+"906",0.47574,5911,"Bochum, Stadt",2001
+"907",0.453636,5911,"Bochum, Stadt",2002
+"908",0.473449,5911,"Bochum, Stadt",2003
+"909",0.481856,5911,"Bochum, Stadt",2004
+"910",0.46121,5911,"Bochum, Stadt",2005
+"911",0.462046,5911,"Bochum, Stadt",2006
+"912",0.464446,5911,"Bochum, Stadt",2007
+"913",0.472125,5911,"Bochum, Stadt",2008
+"914",0.515585,5911,"Bochum, Stadt",2009
+"915",0.454886,5911,"Bochum, Stadt",2010
+"916",0.493133,5911,"Bochum, Stadt",2011
+"917",0.477258,5911,"Bochum, Stadt",2012
+"918",0.495224,5911,"Bochum, Stadt",2013
+"919",0.487165,5911,"Bochum, Stadt",2014
+"920",0.476954,5911,"Bochum, Stadt",2015
+"921",0.449827,5911,"Bochum, Stadt",2016
+"922",0.485893,5911,"Bochum, Stadt",2017
+"923",0.4817,5911,"Bochum, Stadt",2018
+"924",0.489057,5911,"Bochum, Stadt",2019
+"925",0.676259,5913,"Dortmund, Stadt",1998
+"926",0.654041,5913,"Dortmund, Stadt",1999
+"927",0.616978,5913,"Dortmund, Stadt",2000
+"928",0.62549,5913,"Dortmund, Stadt",2001
+"929",0.618959,5913,"Dortmund, Stadt",2002
+"930",0.620845,5913,"Dortmund, Stadt",2003
+"931",0.639388,5913,"Dortmund, Stadt",2004
+"932",0.611338,5913,"Dortmund, Stadt",2005
+"933",0.636189,5913,"Dortmund, Stadt",2006
+"934",0.630719,5913,"Dortmund, Stadt",2007
+"935",0.637032,5913,"Dortmund, Stadt",2008
+"936",0.678205,5913,"Dortmund, Stadt",2009
+"937",0.656708,5913,"Dortmund, Stadt",2010
+"938",0.661804,5913,"Dortmund, Stadt",2011
+"939",0.666564,5913,"Dortmund, Stadt",2012
+"940",0.672143,5913,"Dortmund, Stadt",2013
+"941",0.644371,5913,"Dortmund, Stadt",2014
+"942",0.627488,5913,"Dortmund, Stadt",2015
+"943",0.561776,5913,"Dortmund, Stadt",2016
+"944",0.601776,5913,"Dortmund, Stadt",2017
+"945",0.61255,5913,"Dortmund, Stadt",2018
+"946",0.608157,5913,"Dortmund, Stadt",2019
+"947",0.805555,5914,"Hagen, Stadt",1998
+"948",0.778385,5914,"Hagen, Stadt",1999
+"949",0.746441,5914,"Hagen, Stadt",2000
+"950",0.742878,5914,"Hagen, Stadt",2001
+"951",0.700692,5914,"Hagen, Stadt",2002
+"952",0.718853,5914,"Hagen, Stadt",2003
+"953",0.699255,5914,"Hagen, Stadt",2004
+"954",0.684725,5914,"Hagen, Stadt",2005
+"955",0.701109,5914,"Hagen, Stadt",2006
+"956",0.731895,5914,"Hagen, Stadt",2007
+"957",0.730665,5914,"Hagen, Stadt",2008
+"958",0.788383,5914,"Hagen, Stadt",2009
+"959",0.780004,5914,"Hagen, Stadt",2010
+"960",0.736013,5914,"Hagen, Stadt",2011
+"961",0.740181,5914,"Hagen, Stadt",2012
+"962",0.737584,5914,"Hagen, Stadt",2013
+"963",0.731689,5914,"Hagen, Stadt",2014
+"964",0.737082,5914,"Hagen, Stadt",2015
+"965",0.717106,5914,"Hagen, Stadt",2016
+"966",0.74975,5914,"Hagen, Stadt",2017
+"967",0.776892,5914,"Hagen, Stadt",2018
+"968",0.775274,5914,"Hagen, Stadt",2019
+"969",0.856107,5915,"Hamm, Stadt",1998
+"970",0.857225,5915,"Hamm, Stadt",1999
+"971",0.797358,5915,"Hamm, Stadt",2000
+"972",0.824972,5915,"Hamm, Stadt",2001
+"973",0.838393,5915,"Hamm, Stadt",2002
+"974",0.866164,5915,"Hamm, Stadt",2003
+"975",0.859676,5915,"Hamm, Stadt",2004
+"976",0.79311,5915,"Hamm, Stadt",2005
+"977",0.822715,5915,"Hamm, Stadt",2006
+"978",0.805183,5915,"Hamm, Stadt",2007
+"979",0.82074,5915,"Hamm, Stadt",2008
+"980",0.853436,5915,"Hamm, Stadt",2009
+"981",0.835643,5915,"Hamm, Stadt",2010
+"982",0.823173,5915,"Hamm, Stadt",2011
+"983",0.820245,5915,"Hamm, Stadt",2012
+"984",0.84264,5915,"Hamm, Stadt",2013
+"985",0.799969,5915,"Hamm, Stadt",2014
+"986",0.789846,5915,"Hamm, Stadt",2015
+"987",0.752335,5915,"Hamm, Stadt",2016
+"988",0.777291,5915,"Hamm, Stadt",2017
+"989",0.803419,5915,"Hamm, Stadt",2018
+"990",0.77639,5915,"Hamm, Stadt",2019
+"991",0.907351,5916,"Herne, Stadt",1998
+"992",0.870844,5916,"Herne, Stadt",1999
+"993",0.846864,5916,"Herne, Stadt",2000
+"994",0.861876,5916,"Herne, Stadt",2001
+"995",0.86919,5916,"Herne, Stadt",2002
+"996",0.886442,5916,"Herne, Stadt",2003
+"997",0.829765,5916,"Herne, Stadt",2004
+"998",0.796715,5916,"Herne, Stadt",2005
+"999",0.82866,5916,"Herne, Stadt",2006
+"1000",0.816922,5916,"Herne, Stadt",2007
+"1001",0.819068,5916,"Herne, Stadt",2008
+"1002",0.867402,5916,"Herne, Stadt",2009
+"1003",0.875163,5916,"Herne, Stadt",2010
+"1004",0.84513,5916,"Herne, Stadt",2011
+"1005",0.872075,5916,"Herne, Stadt",2012
+"1006",0.887771,5916,"Herne, Stadt",2013
+"1007",0.832687,5916,"Herne, Stadt",2014
+"1008",0.861335,5916,"Herne, Stadt",2015
+"1009",0.803469,5916,"Herne, Stadt",2016
+"1010",0.873298,5916,"Herne, Stadt",2017
+"1011",0.895378,5916,"Herne, Stadt",2018
+"1012",0.866764,5916,"Herne, Stadt",2019
+"1013",0.326142,5954,"Ennepe-Ruhr-Kreis",1998
+"1014",0.319316,5954,"Ennepe-Ruhr-Kreis",1999
+"1015",0.33415,5954,"Ennepe-Ruhr-Kreis",2000
+"1016",0.329274,5954,"Ennepe-Ruhr-Kreis",2001
+"1017",0.288554,5954,"Ennepe-Ruhr-Kreis",2002
+"1018",0.29662,5954,"Ennepe-Ruhr-Kreis",2003
+"1019",0.296994,5954,"Ennepe-Ruhr-Kreis",2004
+"1020",0.253518,5954,"Ennepe-Ruhr-Kreis",2005
+"1021",0.254172,5954,"Ennepe-Ruhr-Kreis",2006
+"1022",0.235716,5954,"Ennepe-Ruhr-Kreis",2007
+"1023",0.269752,5954,"Ennepe-Ruhr-Kreis",2008
+"1024",0.324578,5954,"Ennepe-Ruhr-Kreis",2009
+"1025",0.296006,5954,"Ennepe-Ruhr-Kreis",2010
+"1026",0.310031,5954,"Ennepe-Ruhr-Kreis",2011
+"1027",0.306792,5954,"Ennepe-Ruhr-Kreis",2012
+"1028",0.345872,5954,"Ennepe-Ruhr-Kreis",2013
+"1029",0.321695,5954,"Ennepe-Ruhr-Kreis",2014
+"1030",0.35878,5954,"Ennepe-Ruhr-Kreis",2015
+"1031",0.314867,5954,"Ennepe-Ruhr-Kreis",2016
+"1032",0.339019,5954,"Ennepe-Ruhr-Kreis",2017
+"1033",0.358583,5954,"Ennepe-Ruhr-Kreis",2018
+"1034",0.342144,5954,"Ennepe-Ruhr-Kreis",2019
+"1035",0.509689,5958,"Hochsauerlandkreis",1998
+"1036",0.508719,5958,"Hochsauerlandkreis",1999
+"1037",0.538975,5958,"Hochsauerlandkreis",2000
+"1038",0.579432,5958,"Hochsauerlandkreis",2001
+"1039",0.605164,5958,"Hochsauerlandkreis",2002
+"1040",0.580496,5958,"Hochsauerlandkreis",2003
+"1041",0.568432,5958,"Hochsauerlandkreis",2004
+"1042",0.550453,5958,"Hochsauerlandkreis",2005
+"1043",0.507152,5958,"Hochsauerlandkreis",2006
+"1044",0.474452,5958,"Hochsauerlandkreis",2007
+"1045",0.464555,5958,"Hochsauerlandkreis",2008
+"1046",0.516768,5958,"Hochsauerlandkreis",2009
+"1047",0.490341,5958,"Hochsauerlandkreis",2010
+"1048",0.493817,5958,"Hochsauerlandkreis",2011
+"1049",0.497053,5958,"Hochsauerlandkreis",2012
+"1050",0.457523,5958,"Hochsauerlandkreis",2013
+"1051",0.429857,5958,"Hochsauerlandkreis",2014
+"1052",0.441256,5958,"Hochsauerlandkreis",2015
+"1053",0.428495,5958,"Hochsauerlandkreis",2016
+"1054",0.430146,5958,"Hochsauerlandkreis",2017
+"1055",0.440037,5958,"Hochsauerlandkreis",2018
+"1056",0.401045,5958,"Hochsauerlandkreis",2019
+"1057",0.673147,5962,"Märkischer Kreis",1998
+"1058",0.644925,5962,"Märkischer Kreis",1999
+"1059",0.668614,5962,"Märkischer Kreis",2000
+"1060",0.676739,5962,"Märkischer Kreis",2001
+"1061",0.713745,5962,"Märkischer Kreis",2002
+"1062",0.70407,5962,"Märkischer Kreis",2003
+"1063",0.680261,5962,"Märkischer Kreis",2004
+"1064",0.594586,5962,"Märkischer Kreis",2005
+"1065",0.584028,5962,"Märkischer Kreis",2006
+"1066",0.533103,5962,"Märkischer Kreis",2007
+"1067",0.57735,5962,"Märkischer Kreis",2008
+"1068",0.664188,5962,"Märkischer Kreis",2009
+"1069",0.621702,5962,"Märkischer Kreis",2010
+"1070",0.612044,5962,"Märkischer Kreis",2011
+"1071",0.595177,5962,"Märkischer Kreis",2012
+"1072",0.588124,5962,"Märkischer Kreis",2013
+"1073",0.551188,5962,"Märkischer Kreis",2014
+"1074",0.538889,5962,"Märkischer Kreis",2015
+"1075",0.500847,5962,"Märkischer Kreis",2016
+"1076",0.533125,5962,"Märkischer Kreis",2017
+"1077",0.557539,5962,"Märkischer Kreis",2018
+"1078",0.558865,5962,"Märkischer Kreis",2019
+"1079",0.394246,5966,"Olpe",1998
+"1080",0.403353,5966,"Olpe",1999
+"1081",0.503873,5966,"Olpe",2000
+"1082",0.526503,5966,"Olpe",2001
+"1083",0.598146,5966,"Olpe",2002
+"1084",0.534295,5966,"Olpe",2003
+"1085",0.493969,5966,"Olpe",2004
+"1086",0.448348,5966,"Olpe",2005
+"1087",0.413339,5966,"Olpe",2006
+"1088",0.379077,5966,"Olpe",2007
+"1089",0.348739,5966,"Olpe",2008
+"1090",0.4211,5966,"Olpe",2009
+"1091",0.399758,5966,"Olpe",2010
+"1092",0.393137,5966,"Olpe",2011
+"1093",0.365893,5966,"Olpe",2012
+"1094",0.387573,5966,"Olpe",2013
+"1095",0.316087,5966,"Olpe",2014
+"1096",0.339123,5966,"Olpe",2015
+"1097",0.280954,5966,"Olpe",2016
+"1098",0.274458,5966,"Olpe",2017
+"1099",0.282073,5966,"Olpe",2018
+"1100",0.286715,5966,"Olpe",2019
+"1101",0.347957,5970,"Siegen-Wittgenstein",1998
+"1102",0.338164,5970,"Siegen-Wittgenstein",1999
+"1103",0.372449,5970,"Siegen-Wittgenstein",2000
+"1104",0.371146,5970,"Siegen-Wittgenstein",2001
+"1105",0.358677,5970,"Siegen-Wittgenstein",2002
+"1106",0.35623,5970,"Siegen-Wittgenstein",2003
+"1107",0.364854,5970,"Siegen-Wittgenstein",2004
+"1108",0.345319,5970,"Siegen-Wittgenstein",2005
+"1109",0.270991,5970,"Siegen-Wittgenstein",2006
+"1110",0.257086,5970,"Siegen-Wittgenstein",2007
+"1111",0.264584,5970,"Siegen-Wittgenstein",2008
+"1112",0.333292,5970,"Siegen-Wittgenstein",2009
+"1113",0.336985,5970,"Siegen-Wittgenstein",2010
+"1114",0.32698,5970,"Siegen-Wittgenstein",2011
+"1115",0.294757,5970,"Siegen-Wittgenstein",2012
+"1116",0.338497,5970,"Siegen-Wittgenstein",2013
+"1117",0.313287,5970,"Siegen-Wittgenstein",2014
+"1118",0.352167,5970,"Siegen-Wittgenstein",2015
+"1119",0.311356,5970,"Siegen-Wittgenstein",2016
+"1120",0.313763,5970,"Siegen-Wittgenstein",2017
+"1121",0.316373,5970,"Siegen-Wittgenstein",2018
+"1122",0.320081,5970,"Siegen-Wittgenstein",2019
+"1123",0.466309,5974,"Soest",1998
+"1124",0.479315,5974,"Soest",1999
+"1125",0.506339,5974,"Soest",2000
+"1126",0.504091,5974,"Soest",2001
+"1127",0.549729,5974,"Soest",2002
+"1128",0.532712,5974,"Soest",2003
+"1129",0.53735,5974,"Soest",2004
+"1130",0.493629,5974,"Soest",2005
+"1131",0.468747,5974,"Soest",2006
+"1132",0.464688,5974,"Soest",2007
+"1133",0.448452,5974,"Soest",2008
+"1134",0.494927,5974,"Soest",2009
+"1135",0.470993,5974,"Soest",2010
+"1136",0.477807,5974,"Soest",2011
+"1137",0.454081,5974,"Soest",2012
+"1138",0.449924,5974,"Soest",2013
+"1139",0.418368,5974,"Soest",2014
+"1140",0.423962,5974,"Soest",2015
+"1141",0.405739,5974,"Soest",2016
+"1142",0.428109,5974,"Soest",2017
+"1143",0.405978,5974,"Soest",2018
+"1144",0.410112,5974,"Soest",2019
+"1145",0.594148,5978,"Unna",1998
+"1146",0.592636,5978,"Unna",1999
+"1147",0.609124,5978,"Unna",2000
+"1148",0.600292,5978,"Unna",2001
+"1149",0.581399,5978,"Unna",2002
+"1150",0.603018,5978,"Unna",2003
+"1151",0.627392,5978,"Unna",2004
+"1152",0.571133,5978,"Unna",2005
+"1153",0.58217,5978,"Unna",2006
+"1154",0.560947,5978,"Unna",2007
+"1155",0.579592,5978,"Unna",2008
+"1156",0.613871,5978,"Unna",2009
+"1157",0.613365,5978,"Unna",2010
+"1158",0.608616,5978,"Unna",2011
+"1159",0.575201,5978,"Unna",2012
+"1160",0.59269,5978,"Unna",2013
+"1161",0.561422,5978,"Unna",2014
+"1162",0.550567,5978,"Unna",2015
+"1163",0.522119,5978,"Unna",2016
+"1164",0.55581,5978,"Unna",2017
+"1165",0.557356,5978,"Unna",2018
+"1166",0.547852,5978,"Unna",2019
