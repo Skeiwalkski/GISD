@@ -186,7 +186,7 @@ ggsave("Outfiles/beschAkad_adj.png")
 ```r
 ggplot(Corr_data, aes(GISD_Score, Jahr, color = BeschaeftigteohneAbschluss)) + geom_tile(alpha = 0.5, size =0.5) + 
   theme_rki() + theme(legend.position="bottom") + 
-  scale_color_gradientn(colours = rainbow(5), limits = c(0,30)) + scale_y_discrete(limits=rev) + 
+  scale_color_gradientn(colours = rainbow(5)) + scale_y_discrete(limits=rev) + 
   scale_x_continuous(position = "top") +
   labs(colour = "Anteil Beschäftigter ohne Abschluss", x = "GISD Score", title = "Verteilung der Beschäftigten ohne Abschluss auf den GISD-Score") 
 ```
@@ -204,7 +204,7 @@ ggsave("Outfiles/beschoA.png")
 ```r
 ggplot(Corr_data, aes(GISD_Score, Jahr, color = BeschaeftigteohneAbschluss_adj)) + geom_tile(alpha = 0.5, size =0.5) + 
   theme_rki() + theme(legend.position="bottom") + 
-  scale_color_gradientn(colours = rainbow(5), limits = c(0,30)) + scale_y_discrete(limits=rev) + 
+  scale_color_gradientn(colours = rainbow(5)) + scale_y_discrete(limits=rev) + 
   scale_x_continuous(position = "top") +
   labs(colour = "Anteil Beschäftigter ohne Abschluss (adjusted)", x = "GISD Score", title = "Verteilung der Beschäftigten ohne Abschluss (adj.) auf den GISD-Score")
 ```

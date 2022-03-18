@@ -468,10 +468,10 @@ adj_G8_jahr <- function(data,outcome_name){
   
     mymodell2 <- lm(Outcome ~
                   I(Jahr*Jahr*MEAN) + I(Jahr*MEAN) + G8_jahr + SN_KA + THvor2004, data = mydata  , na.action="na.exclude")
-  print(mymodell2)  
-    mydata <- mydata %>% mutate(coef = summary(mymodell2)$coefficients[4,1], coef_SH = summary(mymodell2)$coefficients[5,1], coef_TH = summary(mymodell2)$coefficients[6,1]) %>%
-                         mutate(Outcome = ifelse(G8_jahr == 1, Outcome - coef, Outcome), Outcome = ifelse(SN_KA == 1, Outcome - coef_SH, Outcome), Outcome = ifelse(THvor2004 == 1, Outcome - coef_TH, Outcome)) %>%
-                         pull(Outcome)
+  print(mymodell2)
+    mydata <- mydata %>% select(Outcome) %>% 
+      mutate(Adjusted = residuals(mymodell2,newdata=mydata)) %>%
+      mutate(Outcome = Adjusted) %>% pull(Outcome)
 }
 
 Impdata.imputed <- Impdata.imputed %>% 
@@ -492,50 +492,13 @@ hist_over_SchulabgaengerohneAbschluss
 hist_over_SchulabgaengerohneAbschluss_adj
 ```
 
-```{r Sensibilisierung auf Ost-West Unterschiede}
-
-Impdata.imputed <- Impdata.imputed %>% mutate(OW = ifelse(Kreis < 11000, 0, 1))
-
-
-OW <- function(data,outcome_name){
-  mydata   <- data %>%
-    select(Gemeindekennziffer, Jahr, OW, "Outcome"=paste(outcome_name)) %>% 
-    mutate(Jahr_Dummy = as.factor(Jahr)) %>% ungroup()
-  
-    mymodell_ow <- lm(Outcome ~ Jahr_Dummy + relevel(Jahr_Dummy, ref = "2012") * OW, data = mydata, na.action="na.exclude")
-    
-  print(mymodell_ow)
-  summary(mymodell_ow)$coefficients[23,1]
-    mydata <- mydata %>% mutate(coef = summary(mymodell_ow)$coefficients[23,1]) %>%
-      mutate(Outcome = ifelse(OW == 1, Outcome - coef, Outcome)) %>%
-      pull(Outcome)
-}
-
-Impdata.imputed <- Impdata.imputed %>% 
-  mutate(BeschaeftigteohneAbschluss_adj = OW(.,"BeschaeftigteohneAbschluss"))
-
-#Adjustmentprüfung
-hist_over_westost <- ggplot() +
-  geom_histogram(data = Impdata.imputed[Impdata.imputed[,"Kreis"]<11000,], aes_string(x = "BeschaeftigteohneAbschluss"), fill ='darkblue')  + 
-  geom_histogram(data = Impdata.imputed[Impdata.imputed[,"Kreis"]>=11000,], aes_string(x = "BeschaeftigteohneAbschluss"), fill ='darkred')  
-
-hist_over_westost_adj <- ggplot() +
-  geom_histogram(data = Impdata.imputed[Impdata.imputed[,"Kreis"]<11000,], aes_string(x = "BeschaeftigteohneAbschluss_adj"), fill ='darkblue')  + 
-  geom_histogram(data = Impdata.imputed[Impdata.imputed[,"Kreis"]>=11000,], aes_string(x = "BeschaeftigteohneAbschluss_adj"), fill ='darkred')
-
-hist_over_westost
-hist_over_westost_adj
-
-```
-
-
 ```{r Messänderung}
 
 Impdata.imputed <- Impdata.imputed %>% mutate(Messaenderung_Besch = ifelse(Jahr < 2013, 1, 0))
 
 hist_over_vor_messanpassung <- ggplot() +
-  geom_histogram(data = Impdata.imputed[Impdata.imputed[,"Kreis"]<11000,], aes_string(x = "BeschaeftigteohneAbschluss_adj"), fill ='darkblue')  + 
-  geom_histogram(data = Impdata.imputed[Impdata.imputed[,"Kreis"]>=11000,], aes_string(x = "BeschaeftigteohneAbschluss_adj"), fill ='darkred')  
+  geom_histogram(data = Impdata.imputed[Impdata.imputed[,"Jahr"]<2013,], aes_string(x = "BeschaeftigteohneAbschluss"), fill ='darkblue')  + 
+  geom_histogram(data = Impdata.imputed[Impdata.imputed[,"Jahr"]>=2013,], aes_string(x = "BeschaeftigteohneAbschluss"), fill ='darkred')  
 
 
 Messaenderung_Besch <- function(data,outcome_name){
@@ -547,24 +510,74 @@ Messaenderung_Besch <- function(data,outcome_name){
                   I(Jahr*Jahr*MEAN) + I(Jahr*MEAN) + Messaenderung_Besch, data = mydata  , na.action="na.exclude")
   
   print(mymodell_Messaenderung)  
-    mydata <- mydata %>% mutate(coef = summary(mymodell_Messaenderung)$coefficients[4,1]) %>%
-      mutate(Outcome = ifelse(Messaenderung_Besch == 1, Outcome - coef, Outcome)) %>%
+    mydata <- mydata %>% select(Outcome) %>%
+      mutate(Adjusted= residuals(mymodell_Messaenderung,newdata = mydata)) %>%
+      mutate(Outcome = Adjusted) %>%
       pull(Outcome)
 }
 
 Impdata.imputed <- Impdata.imputed %>% 
-  mutate(BeschaeftigteohneAbschluss_adj = Messaenderung_Besch(.,"BeschaeftigteohneAbschluss_adj"),
+  mutate(BeschaeftigteohneAbschluss_adj = Messaenderung_Besch(.,"BeschaeftigteohneAbschluss"),
          BeschaeftigtemitakadAbschluss_adj = Messaenderung_Besch(.,"BeschaeftigtemitakadAbschluss"))
 
 #Adjustmentprüfung
 hist_over_nach_messanpassung <- ggplot() +
-  geom_histogram(data = Impdata.imputed[Impdata.imputed[,"Kreis"]<11000,], aes_string(x = "BeschaeftigteohneAbschluss_adj"), fill ='darkblue')  + 
-  geom_histogram(data = Impdata.imputed[Impdata.imputed[,"Kreis"]>=11000,], aes_string(x = "BeschaeftigteohneAbschluss_adj"), fill ='darkred')
+  geom_histogram(data = Impdata.imputed[Impdata.imputed[,"Jahr"]<2013,], aes_string(x = "BeschaeftigteohneAbschluss_adj"), fill ='darkblue')  + 
+  geom_histogram(data = Impdata.imputed[Impdata.imputed[,"Jahr"]>=2013,], aes_string(x = "BeschaeftigteohneAbschluss_adj"), fill ='darkred')
 
 hist_over_vor_messanpassung
 hist_over_nach_messanpassung
 
 ```
+
+
+```{r Sensibilisierung auf Ost-west-Unterschiede}
+
+Impdata.imputed <- Impdata.imputed %>% mutate(OW = ifelse(Kreis < 11000, 0, 1))
+
+# mydata   <- Impdata.imputed %>%
+#    select(Gemeindekennziffer, Jahr, OW, BeschaeftigteohneAbschluss) %>% 
+#    mutate(Jahr_Dummy = as.factor(Jahr)) %>% ungroup()
+#  
+#    mymodell_ow <- lm(BeschaeftigteohneAbschluss ~ Jahr_Dummy + relevel(Jahr_Dummy, ref = "2012") * OW, data = #mydata, na.action="na.exclude")
+#
+#    summary(mymodell_ow)
+
+#Adjustmentprüfung
+hist_over_westost <- ggplot() +
+  geom_histogram(data = Impdata.imputed[Impdata.imputed[,"Kreis"]<11000,], aes_string(x = "BeschaeftigteohneAbschluss_adj"), fill ='darkblue')  + 
+  geom_histogram(data = Impdata.imputed[Impdata.imputed[,"Kreis"]>=11000,], aes_string(x = "BeschaeftigteohneAbschluss_adj"), fill ='darkred') 
+
+
+OW <- function(data,outcome_name){
+  mydata   <- data %>%
+    select(Gemeindekennziffer, Jahr, OW, "Outcome"=paste(outcome_name)) %>% 
+    mutate(Jahr_Dummy = as.factor(Jahr)) %>% ungroup()
+  
+    mymodell_ow <- lm(Outcome ~ Jahr_Dummy + relevel(Jahr_Dummy, ref = "2012") * OW, data = mydata, na.action="na.exclude")
+    
+  print(mymodell_ow)
+  summary(mymodell_ow)$coefficients[23,1]
+    mydata %>% mutate(coef = summary(mymodell_ow)$coefficients[23,1]) %>%
+      mutate(Outcome = ifelse(OW == 1, Outcome - coef, Outcome)) %>%
+      pull(Outcome)
+}
+
+Impdata.imputed <- Impdata.imputed %>% 
+  mutate(BeschaeftigteohneAbschluss_adj = OW(.,"BeschaeftigteohneAbschluss_adj"))
+
+
+hist_over_westost_adj <- ggplot() +
+  geom_histogram(data = Impdata.imputed[Impdata.imputed[,"Kreis"]<11000,], aes_string(x = "BeschaeftigteohneAbschluss_adj"), fill ='darkblue')  + 
+  geom_histogram(data = Impdata.imputed[Impdata.imputed[,"Kreis"]>=11000,], aes_string(x = "BeschaeftigteohneAbschluss_adj"), fill ='darkred')
+
+hist_over_westost
+hist_over_westost_adj
+
+```
+
+
+
 
 ```{r Logarithmierung und Anpassung durch Verbraucherpreisindex}
 
@@ -586,7 +599,9 @@ Impdata.imputed <- Impdata.imputed %>% mutate(Bruttoverdienst_ln = log(Bruttover
 
 ```{r}
 # Stata-Datensatz rausschreiben
-stata_data <- Impdata.imputed %>% mutate(SchulabgmitAbi_adj = SchulabgaengermitHochschulreife_adj,BeschaeftigtemitakadAbschlussadj = BeschaeftigtemitakadAbschluss_adj) %>% select(-SchulabgaengermitHochschulreife_adj, -BeschaeftigtemitakadAbschluss_adj)
+stata_data <- Impdata.imputed %>% 
+  mutate(SchulabgmitAbi_adj = SchulabgaengermitHochschulreife_adj,BeschaeftigtemitakadAbschlussadj = BeschaeftigtemitakadAbschluss_adj) %>% 
+  select(-SchulabgaengermitHochschulreife_adj, -BeschaeftigtemitakadAbschluss_adj)
 write_dta(stata_data, paste0("Outfiles/2022/Stata/Impdata_check_2019.dta"))
 rm(stata_data)
 
@@ -719,12 +734,9 @@ Resultdataset$TS_Bildung_adj <- (Resultdataset$TS_Bildung_adj -min(Resultdataset
 
 # GISD
 Resultdataset$GISD_Score <- Resultdataset$TS_Arbeitswelt_adj+Resultdataset$TS_Einkommen_adj+Resultdataset$TS_Bildung_adj
-Resultdataset <- Resultdataset %>% group_by(Jahr)
-
 for (i in 1998:2019) {
-  Resultdataset <- Resultdataset %>% mutate(GISD_Score = ifelse(Jahr == i, (GISD_Score -min(GISD_Score))/(max(GISD_Score )-min(GISD_Score)), GISD_Score))
+  Resultdataset <- Resultdataset %>% group_by(Jahr) %>% mutate(GISD_Score = ifelse(Jahr == i,(GISD_Score -min(GISD_Score))/(max(GISD_Score)-min(GISD_Score)), GISD_Score)) %>% ungroup()
 }
-Resultdataset <- Resultdataset %>% ungroup()
 
 # Result
 summary(Resultdataset %>% select(TS_Arbeitswelt_adj,TS_Einkommen_adj,TS_Bildung_adj,GISD_Score))
@@ -772,7 +784,7 @@ for(mykennziffer in exportlist$Kennziffern) {
   # Aggregation
   outputdata.agg <- outputdata %>% 
     group_by(Group,Jahr) %>% 
-    dplyr::select(Group,Jahr,"Bevoelkerung",GISD_Score, TS_Bildung_adj, TS_Einkommen_adj, TS_Arbeitswelt_adj) %>% 
+    select(Group,Jahr,"Bevoelkerung",GISD_Score, TS_Bildung_adj, TS_Einkommen_adj, TS_Arbeitswelt_adj) %>% 
     summarise(GISD_Score = weighted.mean(GISD_Score, Bevoelkerung), 
               TS_Bildung_adj = weighted.mean(TS_Bildung_adj, Bevoelkerung), 
               TS_Einkommen_adj = weighted.mean(TS_Einkommen_adj, Bevoelkerung),
@@ -787,13 +799,15 @@ for(mykennziffer in exportlist$Kennziffern) {
   # Daten bereinigen
   names(outputdata.agg)[1] <- mykennziffer
   outputdata.agg <- merge(outputdata.agg,mergedataset,by=mykennziffer) %>%  
-    dplyr::select(mykennziffer,myname,Jahr,Bundesland,"Bevoelkerung",GISD_Score, TS_Bildung_adj, TS_Einkommen_adj, TS_Arbeitswelt_adj) %>%
+    select(mykennziffer,myname,Jahr,Bundesland,"Bevoelkerung",GISD_Score, TS_Bildung_adj, TS_Einkommen_adj, TS_Arbeitswelt_adj) %>%
     group_by(Jahr) %>% as_tibble()
   
   # Rekodierung
   # hier wird der GISD-Score neu normalisiert und die Quintile gebildet
-  outputdata.agg <- outputdata.agg %>%  mutate(GISD_Score = round((GISD_Score -min(GISD_Score ))/(max(GISD_Score )-min(GISD_Score )), digits=6)) %>% 
-                                        group_by(Jahr) %>% mutate(GISD_5 = findInterval(GISD_Score, quantile(GISD_Score,   probs=0:5/5 , type=9)),
+  for (i in 1998:2019) {
+  outputdata.agg <- outputdata.agg %>% group_by(Jahr) %>% mutate(GISD_Score = ifelse(Jahr == i,(GISD_Score -min(GISD_Score))/(max(GISD_Score)-min(GISD_Score)), GISD_Score))
+}
+  outputdata.agg <- outputdata.agg %>% group_by(Jahr) %>% mutate(GISD_5 = findInterval(GISD_Score, quantile(GISD_Score,   probs=0:5/5 , type=9)),
                                         GISD_5 = findInterval(GISD_5, c(1:5)),
                                         GISD_10 = findInterval(GISD_Score, quantile(GISD_Score, probs=0:10/10 , type=9)),
                                         GISD_10 = findInterval(GISD_10, c(1:10)),
@@ -857,7 +871,9 @@ for(mykennziffer in exportlist$Kennziffern) {
   
   
   # Rekodierung Bundesland
-  outputdata.bula <- outputdata.bula %>%  mutate(GISD_Score = round((GISD_Score -min(GISD_Score ))/(max(GISD_Score )-min(GISD_Score )), digits=6)) %>% ungroup()
+  for (i in 1998:2019) {
+  outputdata.bula <- outputdata.bula %>% group_by(Jahr, Bundesland) %>% mutate(GISD_Score = ifelse(Jahr == i,(GISD_Score -min(GISD_Score))/(max(GISD_Score)-min(GISD_Score)), GISD_Score)) %>% ungroup()
+}
                          
   summary(outputdata.bula %>% select(contains("GISD")))
 

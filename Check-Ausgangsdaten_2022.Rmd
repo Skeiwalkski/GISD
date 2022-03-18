@@ -156,7 +156,7 @@ ggsave("Outfiles/2022/Check_Ausgangsdaten/Schuldnerquote.png")
 BeschaeftigteohneAbschluss <- ggplot(Impdata.imputed, aes(as.factor(Gemeindekennziffer), Jahr_fac, color = BeschaeftigteohneAbschluss)) + 
   geom_tile(alpha = 0.5, size=0.5) +
   theme_rki() + theme(axis.text.x = element_text(size=8, angle=35),legend.position="bottom") +
-  scale_color_gradientn(colours = rainbow(5), limits=c(0,30)) + scale_y_discrete(limits = rev) + 
+  scale_color_gradientn(colours = rainbow(5)) + scale_y_discrete(limits = rev) + 
   scale_x_discrete(position = "top", breaks = c(1001000, 3101000, 5111000, 6411000, 7111000, 8111000, 9161000, 10041100, 12051000, 13003000, 14511000, 15001000, 16051000)) +
   labs(colour = "Beschäftigte ohne Abschluss", x = "Gemeindekennziffer", title = "Verteilung Beschäftigten ohne Abschluss nach Gemeindekennziffer")
 
@@ -168,7 +168,7 @@ ggsave("Outfiles/2022/Check_Ausgangsdaten/BeschaeftigteohneAbschluss.png")
 BeschaeftigteohneAbschluss_adj <- ggplot(Impdata.imputed, aes(as.factor(Gemeindekennziffer), Jahr_fac, color = BeschaeftigteohneAbschluss_adj)) + 
   geom_tile(alpha = 0.5, size=0.5) +
   theme_rki() + theme(axis.text.x = element_text(size=8, angle=25),legend.position="bottom") +
-  scale_color_gradientn(colours = rainbow(5), limits=c(0,30)) + scale_y_discrete(limits = rev) + 
+  scale_color_gradientn(colours = rainbow(5)) + scale_y_discrete(limits = rev) + 
   scale_x_discrete(position = "top", breaks = c(1001000, 3101000, 5111000, 6411000, 7111000, 8111000, 9161000, 10041100, 12051000, 13003000, 14511000, 15001000, 16051000)) +
   labs(colour = "adj. Beschäftigte ohne Abschluss", x = "Gemeindekennziffer", title = "Verteilung adj. Beschäftigten ohne Abschluss nach Gemeindekennziffer")
 

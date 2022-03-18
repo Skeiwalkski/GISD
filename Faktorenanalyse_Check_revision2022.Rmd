@@ -66,7 +66,7 @@ TS_Bildung_4items_o <- Impdata.imputed %>% filter(Jahr > 1999) %>% select(Bescha
 # Verschiedene Faktorenanalysen des GISD {.tabset}
 
 
-## Gepoolte Querschnitte
+## Gepoolte Querschnitt
 
 Es werden Hauptkomponentenanalysen für jede der drei Subskalen auf Basis der imputierten Daten geschätzt. 
 
@@ -110,7 +110,6 @@ colnames(Varianz_tab) <- c("Faktoren", "Varianz Arbeitswelt", "Varianz Einkommen
 kable(Varianz_tab, caption = "Varianz der Faktoren (Eigenwerte)")
 ```
 
-
 ### Faktorladungen
 
 ```{r message=FALSE, warning=FALSE}
@@ -138,7 +137,6 @@ GISD_Komponents$Variable <- c("Beschäftigtenquote", "Arbeitslosigkeit", "Brutto
 
 kable(GISD_Komponents, caption = "Faktorladungen und Anteile an den Teilscores sowie am Index")
 ```
-
 
 ## Gepoolte Querschnitte (NUTS2)
 
