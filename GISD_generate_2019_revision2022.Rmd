@@ -469,9 +469,9 @@ adj_G8_jahr <- function(data,outcome_name){
     mymodell2 <- lm(Outcome ~
                   I(Jahr*Jahr*MEAN) + I(Jahr*MEAN) + G8_jahr + SN_KA + THvor2004, data = mydata  , na.action="na.exclude")
   print(mymodell2)
-    mydata <- mydata %>% select(Outcome) %>% 
-      mutate(Adjusted = residuals(mymodell2,newdata=mydata)) %>%
-      mutate(Outcome = Adjusted) %>% pull(Outcome)
+    mydata %>% mutate(coef = summary(mymodell2)$coefficients[4,1], coef_SH = summary(mymodell2)$coefficients[5,1], coef_TH = summary(mymodell2)$coefficients[6,1]) %>%
+      mutate(Outcome = ifelse(G8_jahr == 1, Outcome - coef, Outcome), Outcome = ifelse(SN_KA == 1, Outcome - coef_SH, Outcome), Outcome = ifelse(THvor2004 == 1, Outcome - coef_TH, Outcome)) %>%
+      pull(Outcome)
 }
 
 Impdata.imputed <- Impdata.imputed %>% 
@@ -501,7 +501,7 @@ hist_over_vor_messanpassung <- ggplot() +
   geom_histogram(data = Impdata.imputed[Impdata.imputed[,"Jahr"]>=2013,], aes_string(x = "BeschaeftigteohneAbschluss"), fill ='darkred')  
 
 
-Messaenderung_Besch <- function(data,outcome_name){
+Messaenderung <- function(data,outcome_name){
   mydata   <- data %>%
     select(Gemeindekennziffer, Jahr, Messaenderung_Besch, "Outcome"=paste(outcome_name)) %>% 
     mutate(MEAN=mean(Outcome , na.rm=T)) %>% ungroup()
@@ -509,16 +509,17 @@ Messaenderung_Besch <- function(data,outcome_name){
   mymodell_Messaenderung <- lm(Outcome ~
                   I(Jahr*Jahr*MEAN) + I(Jahr*MEAN) + Messaenderung_Besch, data = mydata  , na.action="na.exclude")
   
-  print(mymodell_Messaenderung)  
-    mydata <- mydata %>% select(Outcome) %>%
-      mutate(Adjusted= residuals(mymodell_Messaenderung,newdata = mydata)) %>%
-      mutate(Outcome = Adjusted) %>%
+  print(mymodell_Messaenderung) 
+  summary(mymodell_Messaenderung)$coefficients[4,1]
+    mydata <- mydata %>% 
+      mutate(coef = summary(mymodell_Messaenderung)$coefficients[4,1]) %>%
+      mutate(Outcome = ifelse(Messaenderung_Besch == 1, Outcome - coef, Outcome)) %>%
       pull(Outcome)
 }
 
 Impdata.imputed <- Impdata.imputed %>% 
-  mutate(BeschaeftigteohneAbschluss_adj = Messaenderung_Besch(.,"BeschaeftigteohneAbschluss"),
-         BeschaeftigtemitakadAbschluss_adj = Messaenderung_Besch(.,"BeschaeftigtemitakadAbschluss"))
+  mutate(BeschaeftigteohneAbschluss_adj = Messaenderung(.,"BeschaeftigteohneAbschluss"),
+         BeschaeftigtemitakadAbschluss_adj = Messaenderung(.,"BeschaeftigtemitakadAbschluss"))
 
 #Adjustmentprüfung
 hist_over_nach_messanpassung <- ggplot() +
