@@ -7,7 +7,7 @@ if (!require(gpclib)) install.packages("gpclib", type="source")
 gpclibPermit()
 
 
-BRD_Gemeinden <- readOGR(dsn = path.expand("S:/OE/FG28/205 Regionale Unterschiede/Referenzdaten/Kartendaten/BRD/Gemeinden_VZ/vz250_01-01.utm32s.shape/vz250_0101"), 
+BRD_Gemeinden <- readOGR(dsn = path.expand("S:/OE/FG28/205 Regionale Unterschiede/Referenzdaten/Kartendaten/BRD/vz250_01-01.utm32s.shape1/vz250_01-01.utm32s.shape/vz250_0101"), 
                      layer = "VZ250_GEM")
 
 
