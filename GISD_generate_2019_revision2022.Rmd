@@ -31,7 +31,7 @@ home <- getwd()
 # Define Outfiles Directory 
 outfiles_dir <- "S:/OE/FG28/205 Regionale Unterschiede/GISD/"
 outfiles_daten <- "C:/projects_rstudio/GISD/Outfiles"
-setwd(outfiles_daten)
+#setwd(outfiles_daten)
 # Create Output directories in working directory if necessary
 dir.create("Outfiles", showWarnings=T)
 dir.create("Outfiles/2022", showWarnings=T)
@@ -103,7 +103,8 @@ Basedata <- Kreise_INKAR %>% select(Kennziffer=krs19) %>% mutate(Jahr=2019)
 # Liste der Variablen generieren
 inputdataset <- list.files("Data/INKAR_1998_2019/")
 
-inputdataset <- inputdataset[-c(5,11)];  
+inputdataset <- inputdataset[-c(13,14)];
+inputdataset
 
 # Einlesen der einzelnen Excelfiles zu den Daten 
 for(file in inputdataset){
@@ -152,10 +153,10 @@ rm(myimport)
 ##Anspielen der NUTS-2 Indikatoren
 NUTS2 <- id_dataset %>% select(NUTS2) %>% mutate(Jahr = 2019) %>% distinct()
 
-inputdataset <- list.files("Data/NUTS2/")
+inputdataset <- list.files("Data/INKAR_1998_2019/NUTS2/")
 
 for(file in inputdataset){
-  suppressMessages(myimport <- read_excel(paste0("Data/NUTS2/",file), skip = 1, sheet = "Daten"))
+  suppressMessages(myimport <- read_excel(paste0("Data/INKAR_1998_2019/NUTS2/",file), skip = 1, sheet = "Daten"))
   names(myimport)[1] <- "NUTS2"
   myimport[2:3] <- NULL
   myimport <- myimport %>% gather(key = "Jahr", value = "Value" , -"NUTS2", convert=T, na.rm = T) %>%
@@ -173,10 +174,10 @@ rm(myimport)
 
 ##Anspielen der Arbeitslosigkeit und Erwerbsbevölkerung auf Kreisebene
 
-inputdataset <- list.files("Data/Indikatoren_Kreisbene/")
+inputdataset <- list.files("Data/INKAR_1998_2019/Indikatoren_Kreisbene/")
 
 for(file in inputdataset){
-  suppressMessages(myimport <- read_excel(paste0("Data/Indikatoren_Kreisbene/",file), skip = 1, sheet = "Daten"))
+  suppressMessages(myimport <- read_excel(paste0("Data/INKAR_1998_2019/Indikatoren_Kreisbene/",file), skip = 1, sheet = "Daten"))
   names(myimport)[1] <- "Kennziffer"
   myimport[2:3] <- NULL
   myimport <- myimport %>% gather(key = "Jahr", value = "Value" , -"Kennziffer", convert=T, na.rm = T) %>%
