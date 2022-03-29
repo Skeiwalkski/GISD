@@ -90,14 +90,13 @@ write_rds(id_dataset, paste0("Outfiles/2022/ID_dataset_2022"))
 ## II. Erzeugen eines Datensatzes mit Kennziffern als ID unabhängig von der Ebene 
 
 In diesem Kapitel werden die Daten der Indikatoren eingelesen und in einem Datensatz zusammengeführt. Die Werte der Indikatoren, die für die Berechnung des GISD verwendet werden, liegen entweder auf Ebende der Gemeinde und Gemeindeverbände oder auf Ebene der Stadt- und Landreise vor. Die Faktorenanalyse zur Bestimmung der Gewichte soll später auf der Gemeindeebene durchgeführt werden. Deshalb werden Informationen der höheren Ebenen jeweils an alle Gemeinden dieser Kreise angespielt wird. Quelle sind die INKAR-Daten der jeweiligen Indikatoren im Excel-Format, die für jede Revision aus der INKAR-Datenbank heruntergeladen werden. Tabelle \@ref(tab:indicators) stellt die Indikatoren dar.
-An dieser Stelle werden auch Quoten für einige Indikatoren berechnet, die nur in absoluten Zahlen vorliegen: Arbeitslosen pro 1000 Einwohner im Erwerbsalter, Anteil der SV Beschäftigte ohne Abschluss sowie der Anteil der SV Beschäftigten mit akad. Abschluss an allen SV Beschäftigten.
+Für einige Indikatoren, die nur in absoluten Zahlen vorliegen werden in diesem Kapitel Quoten bzw. Anteile berechnet: Arbeitslose pro 1000 Einwohner im Erwerbsalter, Anteil der SV Beschäftigte ohne Abschluss sowie der Anteil der SV Beschäftigten mit akad. Abschluss an allen SV Beschäftigten. 
 Gemeinden ohne Bevölkerung werden ausgeschlossen.
 
 
 ```{r Indikatoren einlesen und mit dem ID-Datensatz Zusammeführen, message=FALSE}
 
-# Basis erzeugen: Ausgangspunkt Kreisdaten
-# Es werden Indikatoren allen Ebenen angespielt, als erstes die Kreise.
+# Basisdaten mit allen Kennziffern und Bevölkerung: Kreisebene
 Basedata <- Kreise_INKAR %>% select(Kennziffer=krs19) %>% mutate(Jahr=2019)
 
 # Liste der Variablen generieren
@@ -128,16 +127,19 @@ level_table <- cbind(listofdeterminants,ind_level)
 # Tabelle der Indikatoren mit regionaler Tiefe
 ind_col = c("Indikator","Tiefe des Indikators")
 
-# Datensatz für die Gemeindeverbandsebene generieren
+
+
+
+# Basisdaten mit allen Kennziffern mit Bevölkerung (2019): Gemeindverbandsebene
 Basedata_Gemeindeverbandsebene <- Basedata %>% select(Kennziffer,Jahr,Arbeitslosigkeit,Beschaeftigtenquote,ErwerbsfaehigeBevoelkerung,Einkommensteuer) %>%   
   gather(key,value,3:5) %>% filter(!is.na(value)) %>% spread(key,value) %>% filter(Jahr>=1998) %>% rename("Gemeindeverband"=Kennziffer)
 
-# Datensatz für die Kreisebene generieren 
+# Weiterer Datensatz der Kreisebene, um Daten die auf Gemeindeverbandsebene fehlen mit Kreisinformationen aufzufüllen (vor allem 1998-2000)
 Basedata_Kreisebene <- Basedata %>% select(krs15=Kennziffer,Jahr,listofdeterminants) %>% 
   select(-Arbeitslosigkeit,-Einkommensteuer,-Beschaeftigtenquote, -ErwerbsfaehigeBevoelkerung)%>% filter(Jahr>=1998) %>% rename(Kreis=krs15)
 
 
-# Join different levels
+# Daten der verschiedenen Ebenen werden zusammengespielt
 Workfile <- as.data.frame(expand.grid("Kennziffer"=Gemeinden_INKAR %>% pull(Kennziffer),"Jahr"=seq(min(Basedata$Jahr):max(Basedata$Jahr)) + min(Basedata$Jahr)-1)) %>% mutate(Kreiskennziffer=floor(as.numeric(Kennziffer)/1000)) %>% as_tibble() %>%
    left_join(. , Gemeinden_INKAR,by=c("Kennziffer")) %>%
    select(Gemeindekennziffer="Kennziffer",Kreis="Kreiskennziffer",Gemeindeverband=GVBKennziffer,Jahr,Bevoelkerung="Bevölkerung") %>% mutate(Gemeindeverband=as.numeric(Gemeindeverband), Bevoelkerung=as.numeric(Bevoelkerung)) %>% 
@@ -186,6 +188,8 @@ for(file in inputdataset){
   Workfile <- full_join(Workfile, myimport, by=c("Kreis", "Jahr"))
 }
 
+## Ersetzen fehlender Daten auf Gemeindeverbandsebene durch Daten der Kreisebene (Jahre 1998 bis 2000)
+
 Workfile <- Workfile %>% mutate(ErwerbsfaehigeBevoelkerung = ifelse(Jahr < 2001, ErwerbsfaehigeBevoelkerungKreis, ErwerbsfaehigeBevoelkerung), Arbeitslosigkeit = ifelse(Jahr < 2001, ArbeitslosigkeitKreis, Arbeitslosigkeit), Beschaeftigtenquote = ifelse(Jahr < 2001, BeschaeftigtenquoteKreis, Beschaeftigtenquote)) %>% select(-ErwerbsfaehigeBevoelkerungKreis, -ArbeitslosigkeitKreis, -BeschaeftigtenquoteKreis)
 
 rm(myimport)
@@ -205,7 +209,7 @@ level_table <- level_table[-9,]
 listofdeterminants <- listofdeterminants[-9]
 
 
-#Berechnung der tatsächlichen Arbeitslosenquote und Entfernen Erwerbsfähige Bevölkerung
+#Berechnung der Quote für Arbeitslosigkeit und Entfernen Erwerbsfähige Bevölkerung
 Workfile <- Workfile %>% filter(Bevoelkerung>0) %>% mutate(Arbeitslosigkeit = ifelse(is.na(ErwerbsfaehigeBevoelkerung),NA,round(Arbeitslosigkeit / ErwerbsfaehigeBevoelkerung * 1000, digits = 2)), Arbeitslosigkeit=ifelse(is.nan(Arbeitslosigkeit),NA,Arbeitslosigkeit),
      Arbeitslosigkeit=ifelse(is.infinite(Arbeitslosigkeit),NA,Arbeitslosigkeit)) %>% select(-ErwerbsfaehigeBevoelkerung)
 Basedata <- Basedata %>% select(-ErwerbsfaehigeBevoelkerung)
