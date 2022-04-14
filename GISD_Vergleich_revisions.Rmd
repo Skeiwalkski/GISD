@@ -26,28 +26,43 @@ library("tidyr")
 library(haven)
 library(broom)
 library(knitr)
+library(readxl)
 
 home <- getwd()
 setwd(home)
 ```
 
 ```{r Daten einlesen}
-dat_2014 <- read_dta("Outfiles/2018/Bund/Gemeinde/Gemeinde_long.dta") %>% mutate(Kreis = round(Gemeindekennziffer/1000), digits = 0)
+dat_2018 <- read_dta("Outfiles/2018/Bund/Gemeinde/Gemeinde_long.dta") %>% mutate(Kreis = round(Gemeindekennziffer/1000), digits = 0)
 
-dat_2016 <- read.csv("Outfiles/2020/Bund/Gemeinde/Gemeinde.csv") %>% mutate(Kreis = round(Gemeindekennziffer/1000), digits = 0)
+dat_2020 <- read.csv("Outfiles/2020/Bund/Gemeinde/Gemeinde.csv") %>% mutate(Kreis = round(Gemeindekennziffer/1000), digits = 0)
 
-dat_2017 <- read.csv("Outfiles/2021/Bund/Gemeinde/Gemeinde.csv") %>% mutate(Kreis = round(Gemeindekennziffer/1000), digits = 0)
+dat_2021 <- read.csv("Outfiles/2021/Bund/Gemeinde/Gemeinde.csv") %>% mutate(Kreis = round(Gemeindekennziffer/1000), digits = 0)
 
-dat_2017_v2 <- read.csv("Outfiles/2021_v2/Bund/Gemeinde/Gemeinde.csv") %>% mutate(Kreis = round(Gemeindekennziffer/1000), digits = 0)
+dat_2021_v2 <- read.csv("Outfiles/2021_v2/Bund/Gemeinde/Gemeinde.csv") %>% mutate(Kreis = round(Gemeindekennziffer/1000), digits = 0)
 
-dat_2017_v3 <- read.csv("Outfiles/2021_v3/Bund/Gemeinde/Gemeinde.csv") %>% mutate(Kreis = round(Gemeindekennziffer/1000), digits = 0)
+dat_2021_v3 <- read.csv("Outfiles/2021_v3/Bund/Gemeinde/Gemeinde.csv") %>% mutate(Kreis = round(Gemeindekennziffer/1000), digits = 0)
 
-dat_2019 <- read.csv("Outfiles/2022/Bund/Gemeinde/Gemeinde.csv") %>% mutate(Kreis = round(Gemeindekennziffer/1000), digits = 0)
+dat_2022 <- read.csv("Outfiles/2022/Bund/Gemeinde/Gemeinde.csv") %>% mutate(Kreis = round(Gemeindekennziffer/1000), digits = 0)
 
-dat_2019b <- read.csv("Outfiles/2022b/Bund/Gemeinde/Gemeinde.csv") %>% mutate(Kreis = round(Gemeindekennziffer/1000), digits = 0)
+dat_2022b <- read.csv("Outfiles/2022b/Bund/Gemeinde/Gemeinde.csv") %>% mutate(Kreis = round(Gemeindekennziffer/1000), digits = 0)
 
 
-dat_Lebenserwartung <- read.csv2("INKAR_Lebenswerwartung_Kreise_Geschlecht.csv") %>% mutate(Kreis = as.numeric(ï..Kennziffer), Lebenserwartung.Männer.2014 = Lebenserwartung.MÃ.nner, Lebenserwartung.Männer.2017 = Lebenserwartung.MÃ.nner.1) %>% select(-ï..Kennziffer, -Lebenserwartung.MÃ.nner, -Lebenserwartung.MÃ.nner.1)
+
+Lebenserwartung_Frauen <- read_excel("Data/Lebenserwartung/Lebenserwartung_female_15_16_17.xlsx", skip = 1, sheet = "Daten")
+names(Lebenserwartung_Frauen)[1] <- "Kreis"
+Lebenserwartung_Frauen[2:3] <- NULL
+Lebenserwartung_Frauen <- Lebenserwartung_Frauen %>% gather(key = "Jahr", value = "Value" , -"Kreis", convert=T, na.rm = T) %>% mutate(Kreis = as.numeric(Kreis))
+Lebenserwartung_Frauen <- Lebenserwartung_Frauen %>% group_by(Kreis) %>% mutate(Lebenserwartung_2016 = mean(Value)) %>% ungroup() %>% filter(Jahr == 2016) %>% select(Kreis, Lebenserwartung_2016)
+
+Lebenserwartung_Männer <- read_excel("Data/Lebenserwartung/Lebenserwartung_male_15_16_17.xlsx", skip = 1, sheet = "Daten")
+names(Lebenserwartung_Männer)[1] <- "Kreis"
+Lebenserwartung_Männer[2:3] <- NULL
+Lebenserwartung_Männer <- Lebenserwartung_Männer %>% gather(key = "Jahr", value = "Value" , -"Kreis", convert=T, na.rm = T) %>% mutate(Kreis = as.numeric(Kreis))
+Lebenserwartung_Männer <- Lebenserwartung_Männer %>% group_by(Kreis) %>% mutate(Lebenserwartung_2016 = mean(Value)) %>% ungroup() %>% filter(Jahr == 2016) %>% select(Kreis, Lebenserwartung_2016)
+
+
+dat_Lebenserwartung <- read.csv2("/Data/Lebenserwartung/Lebenserwartung_Geschlecht_15_16_17.xlsx") %>% mutate(Kreis = as.numeric(ï..Kennziffer), Lebenserwartung_Männer_2014 = Lebenserwartung.MÃ.nner) %>% select(-ï..Kennziffer, -Lebenserwartung.MÃ.nner, -Lebenserwartung.MÃ.nner.1)
 
 dat_Leberw_2014 <- dat_2014 %>% filter(Jahr == 2014) %>% left_join(dat_Lebenserwartung, by = "Kreis") %>% select(- Lebenserwartung.Frauen.1, - Lebenserwartung.Männer.2017) %>% distinct(Kreis, .keep_all = TRUE) %>% unique()
 
