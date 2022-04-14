@@ -291,12 +291,18 @@ TimeSeries
 
 # Interpolation der fehlenden Werte über die Zeitreihe (Mittelwert: Vorjahr, Nachjahr)
 Workfile <- Workfile %>%  group_by(Gemeindeverband) %>% 
-  mutate(impu_arblos = ifelse(Bevoelkerung>0,na_interpolation(Arbeitslosigkeit),Arbeitslosigkeit),
-         impu_oA=ifelse(Bevoelkerung>0,na_interpolation(SchulabgaengerohneAbschluss),SchulabgaengerohneAbschluss))  %>% 
+  mutate(impu_arblos = ifelse(Bevoelkerung > 0, na_interpolation(Arbeitslosigkeit), Arbeitslosigkeit),
+         impu_oA = ifelse(Bevoelkerung > 0, na_interpolation(SchulabgaengerohneAbschluss), SchulabgaengerohneAbschluss),
+         impu_BeschoA = ifelse(Jahr == 2012 & Bevoelkerung > 0, na_interpolation(BeschaeftigteohneAbschluss), BeschaeftigteohneAbschluss),
+         impu_BeschakadA = ifelse(Jahr == 2012 & Bevoelkerung > 0, na_interpolation(BeschaeftigtemitakadAbschluss), BeschaeftigtemitakadAbschluss))  %>% 
   select(-Arbeitslosigkeit,
-         -SchulabgaengerohneAbschluss) %>% 
-  rename(Arbeitslosigkeit=impu_arblos,
-         SchulabgaengerohneAbschluss=impu_oA) %>% 
+         -SchulabgaengerohneAbschluss,
+         -BeschaeftigtemitakadAbschluss,
+         -BeschaeftigteohneAbschluss) %>% 
+  rename(Arbeitslosigkeit = impu_arblos,
+         SchulabgaengerohneAbschluss = impu_oA,
+         BeschaeftigteohneAbschluss = impu_BeschoA,
+         BeschaeftigtemitakadAbschluss = impu_BeschakadA) %>% 
   ungroup()
 
 
@@ -432,6 +438,19 @@ for (column in level_table[,1]){
 predictors_list = predictors_list %>% mutate(Missings=as.integer(Missings))
 predictors_list = predictors_list[order(predictors_list$Missings),]
 predictors_list
+
+#Missing betrachten
+Missing_on_Imputationsvars <- Impdata.imputed %>%  filter(is.na(Arbeitslosigkeit))
+Missing_on_Imputationsvars
+
+# Fälle betrachten: 16063104
+TimeSeries_for_Missing <- Impdata.imputed %>%  filter(Gemeindekennziffer==16071103) %>% arrange(Gemeindekennziffer, Jahr, Bevoelkerung)
+TimeSeries_for_Missing
+
+#Aufgrund der variierenden Verfübarkeit von Daten und der Unklarheit über die Indikatoren auf Gemeindeebene, werden die Gemeinden vorerst ausgeschlossen.
+Impdata.imputed <- Impdata.imputed %>% filter(Gemeindekennziffer!=16071103)
+TimeSeries <- Impdata.imputed %>%  filter(Gemeindekennziffer==16071103) %>% select(Gemeindekennziffer, Jahr, listofdeterminants) %>% arrange(Gemeindekennziffer, Jahr)
+TimeSeries
 ```
 
 
