@@ -347,11 +347,10 @@ Impdata <-  Workfile %>%  filter(Jahr>=1998) %>%
 # Impute_function (NOT FOR GROUPED DATA!)
 my_ts_imputer <- function(data,outcome_name){
   mydata   <- data %>% group_by(Gemeindekennziffer) %>%
-    select(Gemeindekennziffer,Jahr,Arbeitslosigkeit,SchulabgaengerohneAbschluss,"Outcome"=paste(outcome_name)) %>% 
+    select(Gemeindekennziffer,Jahr,"Outcome"=paste(outcome_name)) %>% 
     mutate(MEAN=mean(Outcome , na.rm=T)) %>% ungroup()
   mymodell <- lm(Outcome ~
-                  I(Jahr*Jahr*MEAN) + I(Jahr*MEAN) + Arbeitslosigkeit + 
-                   SchulabgaengerohneAbschluss,
+                  I(Jahr*Jahr*MEAN) + I(Jahr*MEAN),
                    data = mydata  , na.action="na.exclude")
   mydata %>% select(Outcome) %>% mutate(Imputed = predict(mymodell, newdata =mydata )) %>%
     mutate(Outcome=ifelse(is.na(Outcome),Imputed,Outcome)) %>% 
@@ -382,11 +381,10 @@ Impdata.imputed <- Impdata.imputed %>% mutate(BundeslandKZ = round(Kreis / 1000)
 
 my_ts_imputer_NUTS2 <- function(data,outcome_name){
   mydata   <- data %>% group_by(BundeslandKZ) %>%
-    select(BundeslandKZ,Jahr,Arbeitslosigkeit,SchulabgaengerohneAbschluss,"Outcome"=paste(outcome_name)) %>% 
+    select(BundeslandKZ,Jahr,"Outcome"=paste(outcome_name)) %>% 
     mutate(MEAN=mean(Outcome , na.rm=T)) %>% ungroup()
   mymodell <- lm(Outcome ~
-                  I(Jahr*Jahr*MEAN) + I(Jahr*MEAN) + Arbeitslosigkeit + 
-                   SchulabgaengerohneAbschluss,
+                  I(Jahr*Jahr*MEAN) + I(Jahr*MEAN),
                    data = mydata  , na.action="na.exclude")
   mydata %>% select(Outcome) %>% mutate(Imputed = predict(mymodell, newdata =mydata )) %>%
     mutate(Outcome=ifelse(is.na(Outcome),Imputed,Outcome)) %>% 
