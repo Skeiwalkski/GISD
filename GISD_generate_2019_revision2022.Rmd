@@ -810,6 +810,8 @@ for (i in 1998:2019) {
   Resultdataset <- Resultdataset %>% group_by(Jahr) %>% mutate(GISD_Score = ifelse(Jahr == i,(GISD_Score -min(GISD_Score))/(max(GISD_Score)-min(GISD_Score)), GISD_Score)) %>% ungroup()
 }
 
+Resultdataset <- Resultdataset %>% mutate(GISD_Score = round(GISD_Score , digits = 5))
+
 # Result
 summary(Resultdataset %>% select(TS_Arbeitswelt_adj,TS_Einkommen_adj,TS_Bildung_adj,GISD_Score))
 str(Resultdataset %>% select(TS_Arbeitswelt_adj,TS_Einkommen_adj,TS_Bildung_adj,GISD_Score))

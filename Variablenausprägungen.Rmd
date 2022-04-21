@@ -1,0 +1,37 @@
+---
+title: "Variablenausprägungen"
+author: "Marvin Reis"
+date: "21 4 2022"
+output:
+  bookdown::html_document2:
+    keep_md: true
+    code_folding: hide
+    toc: true
+    toc_float: true
+    toc_depth: 2
+    number_sections: false
+    theme: cerulean
+    highlight: tango
+---
+
+```{r message=FALSE, warning=FALSE}
+library("knitr")
+```
+
+## Variablenausprägungen
+
+```{r message=FALSE, warning=FALSE}
+Tab_Auspraegungen <- cbind("Variable" = "Gemeindekennziffer / Kreiskennziffer", "Typ" = "Natürliche Zahl", "Ausprägung" = "größer 0", "Beschreibung" = "Individuelle Identifikationsnummer für jede/n Gemeinde / Landkreis / ... in Deutschland")
+
+Tab_Auspraegungen <- rbind(Tab_Auspraegungen, cbind("Variable" = "GISD_Score", "Typ" = "Natürliche Zahl", "Ausprägung" = "0 bis 1", "Beschreibung" = "Vergebener Score anhand der Sozio-Ökonomischen Deprivation der jeweiligen Raumheinheit"))
+
+Tab_Auspraegungen <- rbind(Tab_Auspraegungen, cbind("Variable" = "GISD_5", "Typ" = "Natürliche Zahl", "Ausprägung" = "1 bis 5", "Beschreibung" = "Vergebenes Quintil nach Platzierung der Raumeinheit auf Score-Verteilung"))
+
+Tab_Auspraegungen <- rbind(Tab_Auspraegungen, cbind("Variable" = "GISD_10", "Typ" = "Natürliche Zahl", "Ausprägungen" = "1 bis 10", "Beschreibung" = "Vergebenes Dezil nach Platzierung der Raumeinheit auf Score-Verteilung"))
+
+Tab_Auspraegungen <- rbind(Tab_Auspraegungen, cbind("Variable" = "Name der Gemeinde / des Kreises / ...", "Typ" = "Text", "Ausprägungen" = "Flensburg, Stadt; Kiel, Landeshauptstadt; ... Windischleuba", "Ausprägungen" = "Name der jeweiligen Raumeinheit"))
+
+Tab_Auspraegungen <- rbind(Tab_Auspraegungen, cbind("Variable" = "Jahr", "Typ" = "Natürliche Zahl", "Ausprägung" = "1998 bis 2019", "Beschreibung" = "Jeweiliges Jahr der Datenentnahme / GISD-Score im jeweiligen Jahr"))
+
+kable(Tab_Auspraegungen)
+```
