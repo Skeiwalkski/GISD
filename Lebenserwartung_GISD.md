@@ -1,5 +1,5 @@
 ---
-title: "Scatterplots - Lebenserwartung der Landkreise nach dem GISD"
+title: "Scatterplots - Lebenserwartung und Sozio-Ökonomische Deprivation"
 author: "Marvin Reis"
 date: "21 5 2021"
 output:
@@ -90,3 +90,81 @@ ggplot(GISD_Lebenserw_Kreis, aes(x = GISD_Score, y = Lebenserwartung)) +
 ```
 
 ![](Lebenserwartung_GISD_files/figure-html/unnamed-chunk-6-1.png)<!-- -->
+
+
+
+```r
+GISD_dat <- read.csv("Outfiles/2022/Bund/Kreis/Kreis.csv") %>% select(GISD_5, Jahr, Kreiskennziffer) %>% rename(Kreis = Kreiskennziffer) %>% mutate(GISD_5 = case_when(GISD_5 == 1 ~ 5,
+                                               GISD_5 == 2 ~ 4,
+                                               GISD_5 == 3 ~ 3,
+                                               GISD_5 == 4 ~ 2,
+                                               GISD_5 == 5 ~ 1))
+
+
+
+##Datenaufbereitung der Frauen Daten
+Lebenserwartung_female <- read_excel("Data/Lebenserwartung/Lebenserwartung_female_97_17.xlsx", skip = 1, sheet = "Daten")
+names(Lebenserwartung_female)[1] <- "Kreis"
+Lebenserwartung_female[2:3] <- NULL
+Lebenserwartung_female <- Lebenserwartung_female %>% gather(key = "Jahr", value = "Value" , -"Kreis", convert=T, na.rm = T) %>% mutate(Kreis = as.numeric(Kreis))
+
+Lebenserwartung_Kreise <- Lebenserwartung_female %>% select(Kreis)
+
+for (i in 1998:2016) {
+Lebenserwartung <- Lebenserwartung_female %>% group_by(Kreis) %>% filter(Jahr == i | Jahr == i+1 | Jahr == i-1) %>% mutate(Lebenserwartung_adj = mean(Value)) %>% ungroup() %>% filter(Jahr == i) %>% select(-Value)
+
+Lebenserwartung <- spread(Lebenserwartung, key = Jahr, value = Lebenserwartung_adj)
+
+Lebenserwartung_Kreise <- Lebenserwartung_Kreise %>% left_join(Lebenserwartung, by = c("Kreis"))
+}
+
+Lebenserwartung_female_mean <- gather(Lebenserwartung_Kreise, key = "Jahr", value = "Lebenserwartung_adj", 2:20) %>% mutate(Jahr = as.numeric(Jahr))
+
+Lebenserwartung_female_mean <- Lebenserwartung_female_mean %>% left_join(GISD_dat, by = c("Kreis", "Jahr")) %>% group_by(GISD_5, Jahr) %>% mutate(Lebenserwartung_mean = mean(Lebenserwartung_adj)) %>% ungroup()
+
+
+##Datenaufbereitung der Männer Daten
+Lebenserwartung_male <- read_excel("Data/Lebenserwartung/Lebenserwartung_male_97_17.xlsx", skip = 1, sheet = "Daten")
+names(Lebenserwartung_male)[1] <- "Kreis"
+Lebenserwartung_male[2:3] <- NULL
+Lebenserwartung_male <- Lebenserwartung_male %>% gather(key = "Jahr", value = "Value" , -"Kreis", convert=T, na.rm = T) %>% mutate(Kreis = as.numeric(Kreis))
+
+Lebenserwartung_Kreise <- Lebenserwartung_male %>% select(Kreis)
+
+for (i in 1998:2016) {
+Lebenserwartung <- Lebenserwartung_male %>% group_by(Kreis) %>% filter(Jahr == i | Jahr == i+1 | Jahr == i-1) %>% mutate(Lebenserwartung_adj = mean(Value)) %>% ungroup() %>% filter(Jahr == i) %>% select(-Value)
+
+Lebenserwartung <- spread(Lebenserwartung, key = Jahr, value = Lebenserwartung_adj)
+
+Lebenserwartung_Kreise <- Lebenserwartung_Kreise %>% left_join(Lebenserwartung, by = c("Kreis"))
+}
+
+Lebenserwartung_male_mean <- gather(Lebenserwartung_Kreise, key = "Jahr", value = "Lebenserwartung_adj", 2:20) %>% mutate(Jahr = as.numeric(Jahr))
+
+Lebenserwartung_male_mean <- Lebenserwartung_male_mean %>% left_join(GISD_dat, by = c("Kreis", "Jahr")) %>% group_by(GISD_5, Jahr) %>% mutate(Lebenserwartung_mean = mean(Lebenserwartung_adj)) %>% ungroup()
+```
+
+
+```r
+ggplot(Lebenserwartung_female_mean, aes(x = Jahr, y = Lebenserwartung_mean, col = as.factor(GISD_5))) +
+  geom_line(size = 1.25) +
+  geom_point() +
+  scale_color_rki(labels = c("5", "4", "3", "2", "1"), guide = guide_legend(reverse=TRUE)) +
+  labs(title = "Lebenserwartung von Frauen über die Jahre nach GISD-Quintil", y = "Durchschnittliche Lebenserwartung", col = "GISD-Quintil") +
+  theme_rki()
+```
+
+![](Lebenserwartung_GISD_files/figure-html/unnamed-chunk-8-1.png)<!-- -->
+
+
+```r
+ggplot(Lebenserwartung_male_mean, aes(x = Jahr, y = Lebenserwartung_mean, col = as.factor(GISD_5))) +
+  geom_line(size = 1.25) +
+  geom_point() +
+  scale_color_rki(labels = c("5", "4", "3", "2", "1"), guide = guide_legend(reverse=TRUE)) +
+  labs(title = "Lebenserwartung von Männern über die Jahre nach GISD-Quintil", y = "Durchschnittliche Lebenserwartung", col = "GISD-Quintil") +
+  theme_rki()
+```
+
+![](Lebenserwartung_GISD_files/figure-html/unnamed-chunk-9-1.png)<!-- -->
+
