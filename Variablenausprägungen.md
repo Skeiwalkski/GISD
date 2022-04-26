@@ -42,9 +42,10 @@ kable(Tab_Auspraegungen)
 
 |Variable                              |Typ             |Ausprägung                                                  |Beschreibung                                                                            |
 |:-------------------------------------|:---------------|:-----------------------------------------------------------|:---------------------------------------------------------------------------------------|
-|Gemeindekennziffer / Kreiskennziffer  |Natürliche Zahl |größer 0                                                    |Individuelle Identifikationsnummer für jede/n Gemeinde / Landkreis / ... in Deutschland |
-|GISD_Score                            |Natürliche Zahl |0 bis 1                                                     |Vergebener Score anhand der Sozio-Ökonomischen Deprivation der jeweiligen Raumheinheit  |
-|GISD_5                                |Natürliche Zahl |1 bis 5                                                     |Vergebenes Quintil nach Platzierung der Raumeinheit auf Score-Verteilung                |
-|GISD_10                               |Natürliche Zahl |1 bis 10                                                    |Vergebenes Dezil nach Platzierung der Raumeinheit auf Score-Verteilung                  |
-|Name der Gemeinde / des Kreises / ... |Text            |Flensburg, Stadt; Kiel, Landeshauptstadt; ... Windischleuba |Name der jeweiligen Raumeinheit                                                         |
-|Jahr                                  |Natürliche Zahl |1998 bis 2019                                               |Jeweiliges Jahr der Datenentnahme / GISD-Score im jeweiligen Jahr                       |
+|Gemeindekennziffer, GVBKennziffer, Kreiskennziffer, NUTS2, Raumordnungsregion Nr, PLZ2-5 |Natürliche Zahl mit führenden Nullen oder String (NUTS-2) |größer 0 bzw. DE01,...                                                   |amtliche Regionalschlüssel für Gemeinden, Gemeindeverbände , Stadt- und Landkreise, NUTS-2, Raumordnungsregion sowie Postleitszahl 2-, 3-, 4-, 5-Steller|
+|GISD_Score                            |Dezimalzahl |0 bis 1                                                     |Berechneter Score Sozioökonomischer Deprivation für die jeweilige Raumheinheit  |
+|GISD_5                                |Natürliche Zahl |1 bis 5                                                     |Zugewiesenes GISD-Quintil der Raumeinheit gemäß der jährlichen Verteilung auf der jeweiligen räumlichen Ebene             |
+|GISD_10                               |Natürliche Zahl |1 bis 10                                                    |Zugewiesenes GISD-Dezil der Raumeinheit gemäß der jährlichen Verteilung auf der jeweiligen räumlichen Ebene                   |
+|GISD_k                                |Natürliche Zahl |1 bis 3                                             |1 unterstes Quintil, 2 drei mittlere Qunitile, 3 oberstes Qunitil                 |                      |
+|Name der Raumeinheit |Text            |Flensburg, Stadt; Kiel, Landeshauptstadt; ... Windischleuba |Name der Raumeinheit                                                         |
+|Jahr                                  |Natürliche Zahl |1998 bis 2019                                               |Beobachtungsjahr                   |                      |
