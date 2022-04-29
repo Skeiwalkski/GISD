@@ -150,6 +150,7 @@ ggplot(Lebenserwartung_female_mean, aes(x = Jahr, y = Lebenserwartung_mean, col 
   geom_line(size = 1.25) +
   geom_point() +
   scale_color_rki(labels = c("5", "4", "3", "2", "1"), guide = guide_legend(reverse=TRUE)) +
+  scale_x_continuous(limits = c(1998, 2016), breaks = c(1998, 2000, 2002, 2004, 2006, 2008, 2010, 2012, 2014, 2016), labels = c("1997/1999", "1999/2001", "2001/2003", "2003/2005", "2005/2007", "2007/2009", "2009/2011", "2011/2013", "2013/2015", "2015/2017"), guide = guide_axis(angle = -22.25)) +
   labs(title = "Lebenserwartung von Frauen über die Jahre nach GISD-Quintil", y = "Durchschnittliche Lebenserwartung", col = "GISD-Quintil") +
   theme_rki()
 ```
@@ -162,6 +163,7 @@ ggplot(Lebenserwartung_male_mean, aes(x = Jahr, y = Lebenserwartung_mean, col = 
   geom_line(size = 1.25) +
   geom_point() +
   scale_color_rki(labels = c("5", "4", "3", "2", "1"), guide = guide_legend(reverse=TRUE)) +
+  scale_x_continuous(limits = c(1998, 2016), breaks = c(1998, 2000, 2002, 2004, 2006, 2008, 2010, 2012, 2014, 2016), labels = c("1997/1999", "1999/2001", "2001/2003", "2003/2005", "2005/2007", "2007/2009", "2009/2011", "2011/2013", "2013/2015", "2015/2017"), guide = guide_axis(angle = -22.25)) +
   labs(title = "Lebenserwartung von Männern über die Jahre nach GISD-Quintil", y = "Durchschnittliche Lebenserwartung", col = "GISD-Quintil") +
   theme_rki()
 ```
