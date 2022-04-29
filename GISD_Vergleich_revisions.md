@@ -1616,7 +1616,7 @@ ggplot(dat_Leberw_2018) +
   geom_smooth(aes(x = GISD_Score, y = Lebenserwartung_Männer_2014), method = lm,col = "red", linetype = "dashed", fill = "grey50", alpha = 0.5) +
   labs(x = "GISD-Score", title = "Lebenserwartung der Landkreise nach dem GISD (V2018)", subtitle = "im Jahr 2014, nach Geschlecht, mit Regressionslinie (Linear)",
        y = "Lebenserwartung in Jahren") +
-  scale_colour_identity(name = "Geschlecht", labels = c("Männer", "Frauen"),  guide = "legend") +
+  scale_colour_identity(name = "Geschlecht", labels = c("Männer", "Frauen"),  guide = guide_legend(reverse = TRUE)) +
   theme_rki()
 ```
 
@@ -1635,7 +1635,7 @@ ggplot(dat_Leberw_2020) +
   geom_smooth(aes(x = GISD_Score, y = Lebenserwartung_Männer_2016), method = lm,col = "red", linetype = "dashed", fill = "grey50", alpha = 0.5) +
   labs(x = "GISD-Score", title = "Lebenserwartung der Landkreise nach dem GISD (V2020)", subtitle = "im Jahr 2016, nach Geschlecht, mit Regressionslinie (Linear)",
        y = "Lebenserwartung in Jahren") +
-  scale_colour_identity(name = "Geschlecht", labels = c("Männer", "Frauen"),  guide = "legend") +
+  scale_colour_identity(name = "Geschlecht", labels = c("Männer", "Frauen"),  guide = guide_legend(reverse = TRUE)) +
   theme_rki()
 ```
 
@@ -1654,7 +1654,7 @@ ggplot(dat_Leberw_2021) +
   geom_smooth(aes(x = GISD_Score, y = Lebenserwartung_Männer_2016), method = lm,col = "red", linetype = "dashed", fill = "grey50", alpha = 0.5) +
   labs(x = "GISD-Score", title = "Lebenserwartung der Landkreise nach dem GISD (V2021)", subtitle = "im Jahr 2016, nach Geschlecht, mit Regressionslinie (Linear)",
        y = "Lebenserwartung in Jahren") +
-  scale_colour_identity(name = "Geschlecht", labels = c("Männer", "Frauen"),  guide = "legend") +
+  scale_colour_identity(name = "Geschlecht", labels = c("Männer", "Frauen"),  guide = guide_legend(reverse = TRUE)) +
   theme_rki()
 ```
 
@@ -1673,7 +1673,7 @@ ggplot(dat_Leberw_2021_v2) +
   geom_smooth(aes(x = GISD_Score, y = Lebenserwartung_Männer_2016), method = lm,col = "red", linetype = "dashed", fill = "grey50", alpha = 0.5) +
   labs(x = "GISD-Score", title = "Lebenserwartung der Landkreise nach dem GISD (V2021_v2)", subtitle = "im Jahr 2016, nach Geschlecht, mit Regressionslinie (Linear)",
        y = "Lebenserwartung in Jahren") +
-  scale_colour_identity(name = "Geschlecht", labels = c("Männer", "Frauen"),  guide = "legend") +
+  scale_colour_identity(name = "Geschlecht", labels = c("Männer", "Frauen"),  guide = guide_legend(reverse = TRUE)) +
   theme_rki()
 ```
 
@@ -1692,7 +1692,7 @@ ggplot(dat_Leberw_2021_v3) +
   geom_smooth(aes(x = GISD_Score, y = Lebenserwartung_Männer_2016), method = lm,col = "red", linetype = "dashed", fill = "grey50", alpha = 0.5) +
   labs(x = "GISD-Score", title = "Lebenserwartung der Landkreise nach dem GISD (V2021_v3)", subtitle = "im Jahr 2016, nach Geschlecht, mit Regressionslinie (Linear)",
        y = "Lebenserwartung in Jahren") +
-  scale_colour_identity(name = "Geschlecht", labels = c("Männer", "Frauen"),  guide = "legend") +
+  scale_colour_identity(name = "Geschlecht", labels = c("Männer", "Frauen"),  guide = guide_legend(reverse = TRUE)) +
   theme_rki()
 ```
 
@@ -1711,7 +1711,7 @@ ggplot(dat_Leberw_2022) +
   geom_smooth(aes(x = GISD_Score, y = Lebenserwartung_Männer_2016), method = lm,col = "red", linetype = "dashed", fill = "grey50", alpha = 0.5) +
   labs(x = "GISD-Score", title = "Lebenserwartung der Landkreise nach dem GISD (V2022)", subtitle = "im Jahr 2016, nach Geschlecht, mit Regressionslinie (Linear)",
        y = "Lebenserwartung in Jahren") +
-  scale_colour_identity(name = "Geschlecht", labels = c("Männer", "Frauen"),  guide = "legend") +
+  scale_colour_identity(name = "Geschlecht", labels = c("Männer", "Frauen"),  guide = guide_legend(reverse = TRUE)) +
   theme_rki()
 ```
 
@@ -1729,7 +1729,7 @@ ggplot(dat_Leberw_2022b) +
   geom_smooth(aes(x = GISD_Score, y = Lebenserwartung_Männer_2016), method = lm,col = "red", linetype = "dashed", fill = "grey50", alpha = 0.5) +
   labs(x = "GISD-Score", title = "Lebenserwartung der Landkreise nach dem GISD (V2022b)", subtitle = "im Jahr 2016, nach Geschlecht, mit Regressionslinie (Linear)",
        y = "Lebenserwartung in Jahren") +
-  scale_colour_identity(name = "Geschlecht", labels = c("Männer", "Frauen"),  guide = "legend") +
+  scale_colour_identity(name = "Geschlecht", labels = c("Männer", "Frauen"),  guide = guide_legend(reverse = TRUE)) +
   theme_rki()
 ```
 

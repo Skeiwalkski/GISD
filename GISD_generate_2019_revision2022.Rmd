@@ -892,6 +892,7 @@ for(mykennziffer in exportlist$Kennziffern) {
                                        
   summary(outputdata.agg %>% select(contains("GISD")))
   
+  outputdata.agg <- outputdata.agg %>% mutate(GISD_Score = round(GISD_Score, digits = 5))
   
   # Aktuelles Referenzmodell 
 
@@ -941,7 +942,7 @@ for(mykennziffer in exportlist$Kennziffern) {
   # Daten bereinigen
   names(outputdata.bula)[1] <- mykennziffer
   outputdata.bula <- merge(outputdata.bula,mergedataset,by=mykennziffer) %>%  
-    dplyr::select(mykennziffer,myname,Jahr,Bundesland,"Bevoelkerung",GISD_Score, TS_Bildung_adj, TS_Einkommen_adj, TS_Arbeitswelt_adj) %>%
+    select(mykennziffer,myname,Jahr,Bundesland,"Bevoelkerung",GISD_Score, TS_Bildung_adj, TS_Einkommen_adj, TS_Arbeitswelt_adj) %>%
     group_by(Jahr) %>% as_tibble()
     
   outputdata.bula <- outputdata.bula %>% ungroup() %>% filter(!(Bundesland %in% c("Bremen","Hamburg","Berlin"))) %>% group_by(Jahr,Bundesland)
@@ -953,8 +954,9 @@ for(mykennziffer in exportlist$Kennziffern) {
 }
                          
   summary(outputdata.bula %>% select(contains("GISD")))
-
-
+  
+  outputdata.bula <- outputdata.bula %>% mutate(GISD_Score = round(GISD_Score, digits = 5))
+  
   # Ausgabe Bundesländer
   ListeBula <- unique(outputdata.bula$Bundesland)
   dir.create("Outfiles/2022/Bundesland", showWarnings=F)  
@@ -993,7 +995,7 @@ for (mykennziffer in c("PLZ2","PLZ3","PLZ4","PLZ5")) {
   
   # Datensatzerstellung
   outputdata <- Resultdataset 
-  outputdata <- outputdata %>% dplyr::select(AGS=Gemeindekennziffer,Jahr,GISD_Score)
+  outputdata <- outputdata %>% select(AGS=Gemeindekennziffer,Jahr,GISD_Score)
   outputdata <- left_join(as.data.frame(PLZ.df) %>% ungroup() %>% mutate(AGS=as.numeric(as.character(AGS))),
                           outputdata,by=c("AGS"), all.x = TRUE)
   outputdata <- outputdata %>% filter(!is.na(mykennziffer) & !is.na(EW_Area) & !is.na(Jahr) & EW_Area>0)
