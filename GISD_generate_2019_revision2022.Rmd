@@ -270,7 +270,7 @@ predictors_list = predictors_list[order(predictors_list$Missings),]
 predictors_list
 
 
-Missing_on_Imputationsvars <- Workfile %>%  filter(Jahr>=1998, is.na(Arbeitslosigkeit) |is.na(SchulabgaengerohneAbschluss))
+Missing_on_Imputationsvars <- Workfile %>%  filter(is.na(Arbeitslosigkeit) |is.na(SchulabgaengerohneAbschluss))
 Missing_on_Imputationsvars
 
 
@@ -288,27 +288,35 @@ Workfile <- Workfile %>% filter(Gemeindekennziffer!=16063104)
 TimeSeries <- Workfile %>%  filter(Gemeindekennziffer==16063104) %>% select(Gemeindekennziffer, Jahr, listofdeterminants) %>% arrange(Gemeindekennziffer, Jahr)
 TimeSeries
 
+#2012
+Problemfall_2012 <- Workfile %>% filter(Jahr == 2011 | Jahr == 2012 | Jahr == 2013) %>% filter(Gemeindekennziffer == 1054088) %>% select(Jahr, BeschaeftigteohneAbschluss, BeschaeftigtemitakadAbschluss)
+Problemfall_2012
 
 # Interpolation der fehlenden Werte über die Zeitreihe (Mittelwert: Vorjahr, Nachjahr)
 Workfile <- Workfile %>%  group_by(Gemeindeverband) %>% 
   mutate(impu_arblos = ifelse(Bevoelkerung > 0, na_interpolation(Arbeitslosigkeit), Arbeitslosigkeit),
          impu_oA = ifelse(Bevoelkerung > 0, na_interpolation(SchulabgaengerohneAbschluss), SchulabgaengerohneAbschluss),
-         impu_BeschoA = ifelse(Jahr == 2012 & Bevoelkerung > 0, na_interpolation(BeschaeftigteohneAbschluss), BeschaeftigteohneAbschluss),
-         impu_BeschakadA = ifelse(Jahr == 2012 & Bevoelkerung > 0, na_interpolation(BeschaeftigtemitakadAbschluss), BeschaeftigtemitakadAbschluss))  %>% 
-  select(-Arbeitslosigkeit,
-         -SchulabgaengerohneAbschluss,
-         -BeschaeftigtemitakadAbschluss,
-         -BeschaeftigteohneAbschluss) %>% 
-  rename(Arbeitslosigkeit = impu_arblos,
+         impu_BeschoA = ifelse(Bevoelkerung > 0, na_interpolation(BeschaeftigteohneAbschluss), BeschaeftigteohneAbschluss),
+         impu_BeschakadA = ifelse(Bevoelkerung > 0, na_interpolation(BeschaeftigtemitakadAbschluss), BeschaeftigtemitakadAbschluss))  %>% 
+  mutate(Arbeitslosigkeit = impu_arblos,
          SchulabgaengerohneAbschluss = impu_oA,
-         BeschaeftigteohneAbschluss = impu_BeschoA,
-         BeschaeftigtemitakadAbschluss = impu_BeschakadA) %>% 
+         BeschaeftigteohneAbschluss = ifelse(Jahr == 2012, impu_BeschoA, BeschaeftigteohneAbschluss),
+         BeschaeftigtemitakadAbschluss = ifelse(Jahr == 2012, impu_BeschakadA, BeschaeftigtemitakadAbschluss)) %>%
+  select(-impu_arblos,
+         -impu_oA,
+         -impu_BeschoA,
+         -impu_BeschakadA) %>%
   ungroup()
+
+
+Problemfall_2012 <- Workfile %>% filter(Gemeindekennziffer == 1054088) %>% select(Jahr, BeschaeftigteohneAbschluss, BeschaeftigtemitakadAbschluss)
+Problemfall_2012
 
 
 # Check der Interpolation
 TimeSeries <- Workfile %>%  filter(Gemeindekennziffer==13075152) %>% arrange(Gemeindekennziffer, Jahr, Bevoelkerung)
 TimeSeries
+
 
 
 #Erneut Anzahl der Missings für die Indikatoren
@@ -441,6 +449,9 @@ predictors_list
 Missing_on_Imputationsvars <- Impdata.imputed %>%  filter(is.na(Arbeitslosigkeit))
 Missing_on_Imputationsvars
 
+Problemfall_2012 <- Impdata.imputed %>% filter(Gemeindekennziffer == 1054088) %>% select(Jahr, BeschaeftigteohneAbschluss, BeschaeftigtemitakadAbschluss)
+Problemfall_2012
+
 # Fälle betrachten: 16063104
 TimeSeries_for_Missing <- Impdata.imputed %>%  filter(Gemeindekennziffer==16071103) %>% arrange(Gemeindekennziffer, Jahr, Bevoelkerung)
 TimeSeries_for_Missing
@@ -449,6 +460,8 @@ TimeSeries_for_Missing
 Impdata.imputed <- Impdata.imputed %>% filter(Gemeindekennziffer!=16071103)
 TimeSeries <- Impdata.imputed %>%  filter(Gemeindekennziffer==16071103) %>% select(Gemeindekennziffer, Jahr, listofdeterminants) %>% arrange(Gemeindekennziffer, Jahr)
 TimeSeries
+
+write_rds(Impdata.imputed, paste0("Outfiles/2022/Impdata_check_voradj.rds"))
 ```
 
 
@@ -588,10 +601,10 @@ hist_over_nach_messanpassung
 Impdata.imputed <- Impdata.imputed %>% mutate(OW = ifelse(Kreis < 11000, 0, 1))
 
 # mydata   <- Impdata.imputed %>%
-#    select(Gemeindekennziffer, Jahr, OW, BeschaeftigteohneAbschluss) %>% 
+#    select(Gemeindekennziffer, Jahr, OW, BeschaeftigteohneAbschluss_adj) %>% 
 #    mutate(Jahr_Dummy = as.factor(Jahr)) %>% ungroup()
 #  
-#    mymodell_ow <- lm(BeschaeftigteohneAbschluss ~ Jahr_Dummy + relevel(Jahr_Dummy, ref = "2012") * OW, data = #mydata, na.action="na.exclude")
+#    mymodell_ow <- lm(BeschaeftigteohneAbschluss_adj ~ Jahr_Dummy + relevel(Jahr_Dummy, ref = "2012") * OW, data = #mydata, na.action="na.exclude")
 #
 #    summary(mymodell_ow)
 
@@ -656,8 +669,10 @@ Impdata.imputed <- Impdata.imputed %>% mutate(Bruttoverdienst_ln = log(Bruttover
 ```{r}
 # Stata-Datensatz rausschreiben
 stata_data <- Impdata.imputed %>% 
-  mutate(SchulabgmitAbi_adj = SchulabgaengermitHochschulreife_adj,BeschaeftigtemitakadAbschlussadj = BeschaeftigtemitakadAbschluss_adj) %>% 
-  select(-SchulabgaengermitHochschulreife_adj, -BeschaeftigtemitakadAbschluss_adj)
+  mutate(SchulabgmitAbi_adj = SchulabgaengermitHochschulreife_adj, BeschaeftigteohneAbschlussadj = BeschaeftigteohneAbschluss_adj, BeschaeftigtemitakadAbschlussadj = BeschaeftigtemitakadAbschluss_adj) %>% 
+  select(-SchulabgaengermitHochschulreife_adj,
+         -BeschaeftigteohneAbschluss_adj,
+         -BeschaeftigtemitakadAbschluss_adj)
 write_dta(stata_data, paste0("Outfiles/2022/Stata/Impdata_check_2019.dta"))
 rm(stata_data)
 

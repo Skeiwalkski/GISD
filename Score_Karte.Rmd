@@ -115,6 +115,9 @@ Lander_data <- Lander_data %>% mutate(GISD_5 = case_when(GISD_5 == 1 ~ 5,
                                                           GISD_10 == 10 ~ 1))
 
 rm(GISD_data_Lander)
+
+##Bula
+Bula_data <- readRDS("Data/SHP/BRD_BuLa.rds")
 ```
 
 
