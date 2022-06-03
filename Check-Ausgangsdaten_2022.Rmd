@@ -25,7 +25,7 @@ knitr::opts_chunk$set(echo = TRUE)
 home <- getwd()
 setwd(home)
 
-Impdata.imputed <- readRDS("Outfiles/2022/Impdata_check.rds")
+Impdata.imputed <- readRDS("Outfiles/2022_v03/Impdata_check.rds")
 
 Impdata.imputed <- Impdata.imputed %>% mutate(Jahr_fac = as.factor(Jahr))
 ```
