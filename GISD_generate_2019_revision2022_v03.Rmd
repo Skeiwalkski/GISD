@@ -362,26 +362,7 @@ Workfile <- Workfile %>% mutate(Bruttoverdienst_ln = log(Bruttoverdienst))
 # Die Bildungsvariablen Anteil der Schulabgänger mit Hochschulreife und Anteil der Schulabgänger ohne Abschluss werden als Quote relativ zur Gesamtanzahl der Schulabgänger berechnet. Durch die G8-Schulreformen und ihre Zurücknahme ergeben sich deshalb in den Bundesländern zu verschiedenen Zeitpunkten Verzerrungen. 
 # Diese Verzerrung wird über eine Regressionsmodell herausgerechnet.
 
-# Generierung der Variablen zur Identifikation der Reformen (G8), Rückker zu G9 (SN_KA) und abweichender Anerkennung von Abschlüssen für GymnasiastInnen (THvor2004).
-Workfile <- Workfile %>%
-  mutate(G8 = case_when(Kreis < 2000 & Jahr >= 2016 & Jahr <= 2028 ~ 1,
-                                Kreis > 1999 & Kreis < 3000 & Jahr >= 2010 ~ 1,
-                                Kreis > 2999 & Kreis < 4000 & Jahr >= 2011 & Jahr <= 2024 ~ 1,
-                                Kreis > 3999 & Kreis < 5000 & Jahr >= 2012 ~ 1,
-                                Kreis > 4999 & Kreis < 6000 & Jahr >= 2013 & Jahr <= 2028 ~ 1,
-                                Kreis > 5999 & Kreis < 7000 & Jahr >= 2013 & Jahr <= 2022 ~ 1,
-                                Kreis > 7999 & Kreis < 9000 & Jahr >= 2012 ~ 1,
-                                Kreis > 8999 & Kreis < 10000 & Jahr >= 2011 & Jahr <= 2026 ~ 1,
-                                Kreis > 9999 & Kreis < 11000 & Jahr >= 2009 ~ 1,
-                                Kreis > 10999 & Kreis < 12000 & Jahr >= 2012 ~ 1,
-                                Kreis > 11999 & Kreis < 13000 & Jahr >= 2012 ~ 1,
-                                Kreis > 12999 & Kreis < 14000 & Jahr >= 2008 ~ 1,
-                                Kreis > 13999 & Kreis < 15000 ~ 1,
-                                Kreis > 14999 & Kreis < 16000 & Jahr <= 2001 & Jahr >= 2007 ~ 1,
-                                Kreis > 15999 ~ 1),
-         THvor2004 = ifelse(Jahr < 2004 & Kreis > 15999, 1, 0))
-Workfile$G8[is.na(Workfile$G8)] = 0
-Workfile$THvor2004[is.na(Workfile$THvor2004)] = 0
+# Generierung der Variablen zur Identifikation der Reformen (G8), Rückker zu G9 (SN_KA) und abweichender Anerkennung von Abschlüssen für GymnasiastInnen (THvor2004)
 
 Workfile <- Workfile %>%
   mutate(G8_jahr = case_when(Kreis < 2000 & Jahr == 2016 ~ 1,
@@ -397,10 +378,23 @@ Workfile <- Workfile %>%
                                 Kreis > 11999 & Kreis < 13000 & Jahr == 2012 ~ 1,
                                 Kreis > 12999 & Kreis < 14000 & Jahr == 2008 ~ 1,
                                 Kreis > 14999 & Kreis < 16000 & Jahr == 2007 ~ 1),
-         SN_KA = ifelse(Jahr == 2001 & Kreis > 14999 & Kreis < 16000, 1, 0))
+         SN_KA = ifelse(Jahr == 2001 & Kreis > 14999 & Kreis < 16000, 1, 0),
+         THvor2004 = ifelse(Jahr < 2004 & Kreis > 15999, 1, 0))
 Workfile$G8_jahr[is.na(Workfile$G8_jahr)] = 0
 Workfile$SN_KA[is.na(Workfile$SN_KA)] = 0
+Workfile$THvor2004[is.na(Workfile$THvor2004)] = 0
 
+
+
+#mydata   <- Workfile %>%
+#    group_by(Gemeindekennziffer) %>% 
+#    select(Gemeindekennziffer, Jahr, G8_jahr, SN_KA, THvor2004, SchulabgaengermitHochschulreife) %>% 
+#    mutate(MEAN=mean(SchulabgaengermitHochschulreife , na.rm=T)) %>% ungroup()
+#  
+#    mymodell2 <- lm(SchulabgaengermitHochschulreife ~
+#                  I(Jahr*Jahr*MEAN) + I(Jahr*MEAN) + G8_jahr + SN_KA + THvor2004, data = mydata  , #na.action="na.exclude")
+#
+#    summary(mymodell2)
 
 
 # Anpassung: Ersetzen der Werte in den von Verzerrungen betroffenen Fälle durch um Reformeffekte bereinigte Quoten.
@@ -492,6 +486,16 @@ hist_over_westost_adj
 - Check des Adjustments durch Histogramm
 
 ```{r Messänderung}
+#BeschaeftigteohneAbschluss
+Workfile_spread <- Workfile %>% filter(Jahr == 2013) %>% spread(key = Jahr, value = BeschaeftigteohneAbschluss_adj) %>% select("2013", Gemeindekennziffer ) %>% mutate(Jahr = 2012) %>% rename(BeschaeftigteohneAbschluss_adj = "2013")
+
+Workfile <- Workfile %>% left_join(Workfile_spread, by = c("Gemeindekennziffer", "Jahr")) %>% mutate(BeschaeftigteohneAbschluss_adj = ifelse(Jahr == 2012, BeschaeftigteohneAbschluss_adj.y, BeschaeftigteohneAbschluss_adj.x)) %>% select(-BeschaeftigteohneAbschluss_adj.y, -BeschaeftigteohneAbschluss_adj.x)
+
+#BeschaeftigtemitakadAbschluss
+Workfile_spread <- Workfile %>% filter(Jahr == 2013) %>% spread(key = Jahr, value = BeschaeftigtemitakadAbschluss) %>% select("2013", Gemeindekennziffer ) %>% mutate(Jahr = 2012) %>% rename(BeschaeftigtemitakadAbschluss = "2013")
+
+Workfile <- Workfile %>% left_join(Workfile_spread, by = c("Gemeindekennziffer", "Jahr")) %>% mutate(BeschaeftigtemitakadAbschluss = ifelse(Jahr == 2012, BeschaeftigtemitakadAbschluss.y, BeschaeftigtemitakadAbschluss.x)) %>% select(-BeschaeftigtemitakadAbschluss.y, -BeschaeftigtemitakadAbschluss.x)
+
 
 Workfile <- Workfile %>% mutate(Messaenderung_Besch = ifelse(Jahr > 2012, 1, 0))
 
@@ -926,18 +930,18 @@ for(mykennziffer in exportlist$Kennziffern) {
 
   # Ausgabe Bund
   dir.create("Outfiles/", showWarnings=F)
-  dir.create("Outfiles/2022/", showWarnings=F)
-  dir.create("Outfiles/2022/Bund/", showWarnings=F)  
-  dir.create(paste0("Outfiles/2022/Bund/",mylabel), showWarnings=F)
+  dir.create("Outfiles/2022_v03/", showWarnings=F)
+  dir.create("Outfiles/2022_v03/Bund/", showWarnings=F)  
+  dir.create(paste0("Outfiles/2022_v03/Bund/",mylabel), showWarnings=F)
   mydata <- outputdata.agg %>% ungroup() %>% select(mykennziffer, GISD_Score, GISD_5, GISD_10, GISD_k, myname, Jahr)
-  write.csv(mydata, paste0("Outfiles/2022/Bund/",mylabel,"/",mylabel,".csv"))
+  write.csv(mydata, paste0("Outfiles/2022_v03/Bund/",mylabel,"/",mylabel,".csv"))
   
   names(mydata) <- gsub("\\.","_",make.names(names(mydata)))
   names(mydata) <- gsub("\\?","oe",names(mydata))
   names(mydata) <- gsub("\\?","ae",names(mydata))
   names(mydata) <- gsub("\\?","ue",names(mydata))
   names(mydata) <- gsub("\\?","ss",names(mydata))
-  write_dta(mydata, paste0("Outfiles/2022/Bund/",mylabel,"/",mylabel,"_long.dta"))
+  write_dta(mydata, paste0("Outfiles/2022_v03/Bund/",mylabel,"/",mylabel,"_long.dta"))
   
   
   
@@ -986,19 +990,19 @@ for(mykennziffer in exportlist$Kennziffern) {
   
   # Ausgabe Bundesländer
   ListeBula <- unique(outputdata.bula$Bundesland)
-  dir.create("Outfiles/2022/Bundesland", showWarnings=F)  
+  dir.create("Outfiles/2022_v03/Bundesland", showWarnings=F)  
   for(myland in ListeBula) {
-  dir.create( paste0("Outfiles/2022/Bundesland/",myland), showWarnings=F)  
-    dir.create( paste0("Outfiles/2022/Bundesland/",myland,"/",mylabel), showWarnings=F)  
+  dir.create( paste0("Outfiles/2022_v03/Bundesland/",myland), showWarnings=F)  
+    dir.create( paste0("Outfiles/2022_v03/Bundesland/",myland,"/",mylabel), showWarnings=F)  
     mydata.bula <- outputdata.bula %>% filter(Bundesland==myland) %>% ungroup() %>% select(GISD_Score, mykennziffer, myname, Jahr)
-    write.csv(mydata.bula, paste0("Outfiles/2022/Bundesland/",myland,"/",mylabel,"/",mylabel,".csv"))
+    write.csv(mydata.bula, paste0("Outfiles/2022_v03/Bundesland/",myland,"/",mylabel,"/",mylabel,".csv"))
     
     names(mydata.bula) <- gsub("\\.","_",make.names(names(mydata.bula)))
     names(mydata.bula) <- gsub("\\?","oe",names(mydata.bula))
     names(mydata.bula) <- gsub("\\?","ae",names(mydata.bula))
     names(mydata.bula) <- gsub("\\?","ue",names(mydata.bula))
     names(mydata.bula) <- gsub("\\?","ss",names(mydata.bula))
-    write_dta(mydata.bula, paste0("Outfiles/2022/Bundesland/",myland,"/",mylabel,"/",mylabel,".dta"))
+    write_dta(mydata.bula, paste0("Outfiles/2022_v03/Bundesland/",myland,"/",mylabel,"/",mylabel,".dta"))
   }
   }  
 }
@@ -1044,17 +1048,17 @@ for (mykennziffer in c("PLZ2","PLZ3","PLZ4","PLZ5")) {
   head(outputdata)
   ListeJahre <- unique(outputdata$JAHR)
   dir.create( paste0("Outfiles"), showWarnings=F)
-  dir.create( paste0("Outfiles/2022"), showWarnings=F) 
-  dir.create( paste0("Outfiles/2022/Bund/"), showWarnings=F) 
-  dir.create( paste0("Outfiles/2022/Bund/",mylabel), showWarnings=F) 
+  dir.create( paste0("Outfiles/2022_v03"), showWarnings=F) 
+  dir.create( paste0("Outfiles/2022_v03/Bund/"), showWarnings=F) 
+  dir.create( paste0("Outfiles/2022_v03/Bund/",mylabel), showWarnings=F) 
   mydata <- outputdata %>% ungroup() 
-  write.csv2(mydata, paste0("Outfiles/2022/Bund/",mylabel,"/",mylabel,".csv"))
+  write.csv2(mydata, paste0("Outfiles/2022_v03/Bund/",mylabel,"/",mylabel,".csv"))
   mydata <- outputdata %>% ungroup() 
   names(mydata) <- gsub("\\.","_",make.names(names(mydata)))
   names(mydata) <- gsub("\\?","oe",names(mydata))
   names(mydata) <- gsub("\\?","ae",names(mydata))
   names(mydata) <- gsub("\\?","ue",names(mydata))
   names(mydata) <- gsub("\\?","ss",names(mydata))
-  write_dta(mydata, paste0("Outfiles/2022/Bund/",mylabel,"/",mylabel,"_long.dta"))
+  write_dta(mydata, paste0("Outfiles/2022_v03/Bund/",mylabel,"/",mylabel,"_long.dta"))
   }
 ```

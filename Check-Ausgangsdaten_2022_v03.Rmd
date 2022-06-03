@@ -1,0 +1,251 @@
+---
+title: "Check Ausgangsadaten 2022"
+author: "Marvin Reis"
+date: "3 2 2022"
+output:
+  bookdown::html_document2:
+    keep_md: true
+    code_folding:
+    toc: true
+    toc_float: true
+    toc_depth: 2
+    number_sections: false
+    fig_caption: true
+    theme: cerulean
+    highlight: tango
+---
+
+```{r, include=FALSE}
+library("ggplot2")
+library("rkicolors")
+library("dplyr")
+
+knitr::opts_chunk$set(echo = TRUE)
+
+home <- getwd()
+setwd(home)
+
+Impdata.imputed <- readRDS("Outfiles/2022_v03/Impdata_check.rds")
+
+Impdata.imputed <- Impdata.imputed %>% mutate(Jahr_fac = as.factor(Jahr))
+```
+
+# Vereteilung der Idikatoren über die Gemeinden und Kreise von 1998 bis 2017 {.tabset}
+
+## Arbeitsdimension
+
+
+```{r Arbeitsdimension, echo=FALSE}
+Arbeitslosigkeit <- ggplot(Impdata.imputed, aes(as.factor(Gemeindekennziffer), Jahr_fac, color = Arbeitslosigkeit)) + 
+  geom_tile(alpha = 0.5, size=0.5) +
+  theme_rki() + theme(axis.text.x = element_text(size=8, angle=25),legend.position="bottom") +
+  scale_color_gradientn(colours = rainbow(5)) + scale_y_discrete(limits = rev) + 
+  scale_x_discrete(position = "top", breaks = c(1001000, 3101000, 5111000, 6411000, 7111000, 8111000, 9161000, 10041100, 12051000, 13003000, 14511000, 15001000, 16051000)) +
+  labs(colour = "Arbeitslosigkeit", x = "Gemeindekennziffer", title = "Verteilung Arbeitslosigkeit nach Gemeindekennziffer")
+
+Arbeitslosigkeit
+
+ggsave("Outfiles/2022/Check_Ausgangsdaten/Arbeitslosigkeit.png")
+
+Beschaeftigtenquote <- ggplot(Impdata.imputed, aes(as.factor(Gemeindekennziffer), Jahr_fac, color = Beschaeftigtenquote)) + 
+  geom_tile(alpha = 0.5, size=0.5) +
+  theme_rki() + theme(axis.text.x = element_text(size=8, angle=25),legend.position="bottom") +
+  scale_color_gradientn(colours = rainbow(5), limits=c(0,100)) + scale_y_discrete(limits = rev) + 
+  scale_x_discrete(position = "top", breaks = c(1001000, 3101000, 5111000, 6411000, 7111000, 8111000, 9161000, 10041100, 12051000, 13003000, 14511000, 15001000, 16051000)) +
+  labs(colour = "Beschäftigtenquote", x = "Gemeindekennziffer", title = "Verteilung Beschäftigtenquote nach Gemeindekennziffer")
+
+Beschaeftigtenquote
+
+ggsave("Outfiles/2022/Check_Ausgangsdaten/Beschäftigtenquote.png")
+
+
+Bruttoverdienst <- ggplot(Impdata.imputed, aes(as.factor(Gemeindekennziffer), Jahr_fac, color = Bruttoverdienst)) + 
+  geom_tile(alpha = 0.5, size=0.5) +
+  theme_rki() + theme(axis.text.x = element_text(size=8, angle=25),legend.position="bottom") +
+  scale_color_gradientn(colours = rainbow(5)) + scale_y_discrete(limits = rev) + 
+  scale_x_discrete(position = "top", breaks = c(1001000, 3101000, 5111000, 6411000, 7111000, 8111000, 9161000, 10041100, 12051000, 13003000, 14511000, 15001000, 16051000)) +
+  labs(colour = "Bruttoverdienst", x = "Gemeindekennziffer", title = "Verteilung Bruttoverdienst nach Gemeindekennziffer")
+
+Bruttoverdienst
+
+ggsave("Outfiles/2022/Check_Ausgangsdaten/Bruttoverdienst.png")
+
+
+Bruttoverdienst_ln <- ggplot(Impdata.imputed, aes(as.factor(Gemeindekennziffer), Jahr_fac, color = Bruttoverdienst_ln)) + 
+  geom_tile(alpha = 0.5, size=0.5) +
+  theme_rki() + theme(axis.text.x = element_text(size=8, angle=25),legend.position="bottom") +
+  scale_color_gradientn(colours = rainbow(5)) + scale_y_discrete(limits = rev) + 
+  scale_x_discrete(position = "top", breaks = c(1001000, 3101000, 5111000, 6411000, 7111000, 8111000, 9161000, 10041100, 12051000, 13003000, 14511000, 15001000, 16051000)) +
+  labs(colour = "log. Bruttoverdienst", x = "Gemeindekennziffer", title = "Verteilung log. Bruttoverdienst nach Gemeindekennziffer")
+
+Bruttoverdienst_ln
+
+ggsave("Outfiles/2022/Check_Ausgangsdaten/Bruttoverdienst_ln.png")
+
+```
+
+
+## Einkommensdimension
+
+```{r Einkommensdimension, echo=FALSE}
+Einkommensteuer <- ggplot(Impdata.imputed, aes(as.factor(Gemeindekennziffer), Jahr_fac, color = Einkommensteuer)) + 
+  geom_tile(alpha = 0.5, size=0.5) +
+  theme_rki() + theme(axis.text.x = element_text(size=8, angle=25),legend.position="bottom") +
+  scale_color_gradientn(colours = rainbow(5)) + scale_y_discrete(limits = rev) + 
+  scale_x_discrete(position = "top", breaks = c(1001000, 3101000, 5111000, 6411000, 7111000, 8111000, 9161000, 10041100, 12051000, 13003000, 14511000, 15001000, 16051000)) +
+  labs(colour = "Einkommensteuer", x = "Gemeindekennziffer", title = "Verteilung Einkommensteuer nach Gemeindekennziffer")
+
+Einkommensteuer
+
+ggsave("Outfiles/2022/Check_Ausgangsdaten/Einkommensteuer.png")
+
+
+Einkommensteuer_ln <- ggplot(Impdata.imputed, aes(as.factor(Gemeindekennziffer), Jahr_fac, color = Einkommensteuer_ln)) + 
+  geom_tile(alpha = 0.5, size=0.5) +
+  theme_rki() + theme(axis.text.x = element_text(size=8, angle=25),legend.position="bottom") +
+  scale_color_gradientn(colours = rainbow(5)) + scale_y_discrete(limits = rev) + 
+  scale_x_discrete(position = "top", breaks = c(1001000, 3101000, 5111000, 6411000, 7111000, 8111000, 9161000, 10041100, 12051000, 13003000, 14511000, 15001000, 16051000)) +
+  labs(colour = "log. Einkommensteuer", x = "Gemeindekennziffer", title = "Verteilung log. Einkommensteuer nach Gemeindekennziffer")
+
+Einkommensteuer_ln
+
+ggsave("Outfiles/2022/Check_Ausgangsdaten/Einkommensteuer_ln.png")
+
+
+Haushaltseinkommen <- ggplot(Impdata.imputed, aes(as.factor(Gemeindekennziffer), Jahr_fac, color = Haushaltseinkommen)) + 
+  geom_tile(alpha = 0.5, size=0.5) +
+  theme_rki() + theme(axis.text.x = element_text(size=8, angle=25),legend.position="bottom") +
+  scale_color_gradientn(colours = rainbow(5)) + scale_y_discrete(limits = rev) + 
+  scale_x_discrete(position = "top", breaks = c(1001000, 3101000, 5111000, 6411000, 7111000, 8111000, 9161000, 10041100, 12051000, 13003000, 14511000, 15001000, 16051000)) +
+  labs(colour = "Haushaltseinkommen", x = "Gemeindekennziffer", title = "Verteilung Haushaltseinkommen nach Gemeindekennziffer")
+
+Haushaltseinkommen
+
+ggsave("Outfiles/2022/Check_Ausgangsdaten/Haushaltseinkommen.png")
+
+
+Haushaltseinkommen_ln <- ggplot(Impdata.imputed, aes(as.factor(Gemeindekennziffer), Jahr_fac, color = Haushaltseinkommen_ln)) + 
+  geom_tile(alpha = 0.5, size=0.5) +
+  theme_rki() + theme(axis.text.x = element_text(size=8, angle=25),legend.position="bottom") +
+  scale_color_gradientn(colours = rainbow(5)) + scale_y_discrete(limits = rev) + 
+  scale_x_discrete(position = "top", breaks = c(1001000, 3101000, 5111000, 6411000, 7111000, 8111000, 9161000, 10041100, 12051000, 13003000, 14511000, 15001000, 16051000)) +
+  labs(colour = "log. Haushaltseinkommen", x = "Gemeindekennziffer", title = "Verteilung log. Haushaltseinkommen nach Gemeindekennziffer")
+
+Haushaltseinkommen_ln
+
+ggsave("Outfiles/2022/Check_Ausgangsdaten/Haushaltseinkommen_ln.png")
+
+
+Schuldnerquote <- ggplot(Impdata.imputed, aes(as.factor(Gemeindekennziffer), Jahr_fac, color = Schuldnerquote)) + 
+  geom_tile(alpha = 0.5, size=0.5) +
+  theme_rki() + theme(axis.text.x = element_text(size=8, angle=25),legend.position="bottom") +
+  scale_color_gradientn(colours = rainbow(5)) + scale_y_discrete(limits = rev) + 
+  scale_x_discrete(position = "top", breaks = c(1001000, 3101000, 5111000, 6411000, 7111000, 8111000, 9161000, 10041100, 12051000, 13003000, 14511000, 15001000, 16051000)) +
+  labs(colour = "Schuldnerquote", x = "Gemeindekennziffer", title = "Verteilung Schuldnerquote nach Gemeindekennziffer")
+
+Schuldnerquote
+
+ggsave("Outfiles/2022/Check_Ausgangsdaten/Schuldnerquote.png")
+
+```
+
+
+## Bildungsdimension
+
+```{r Bildungsdimension, echo=FALSE}
+BeschaeftigteohneAbschluss <- ggplot(Impdata.imputed, aes(as.factor(Gemeindekennziffer), Jahr_fac, color = BeschaeftigteohneAbschluss)) + 
+  geom_tile(alpha = 0.5, size=0.5) +
+  theme_rki() + theme(axis.text.x = element_text(size=8, angle=35),legend.position="bottom") +
+  scale_color_gradientn(colours = rainbow(5)) + scale_y_discrete(limits = rev) + 
+  scale_x_discrete(position = "top", breaks = c(1001000, 3101000, 5111000, 6411000, 7111000, 8111000, 9161000, 10041100, 12051000, 13003000, 14511000, 15001000, 16051000)) +
+  labs(colour = "Beschäftigte ohne Abschluss", x = "Gemeindekennziffer", title = "Verteilung Beschäftigten ohne Abschluss nach Gemeindekennziffer")
+
+BeschaeftigteohneAbschluss
+
+ggsave("Outfiles/2022/Check_Ausgangsdaten/BeschaeftigteohneAbschluss.png")
+
+
+BeschaeftigteohneAbschluss_adj <- ggplot(Impdata.imputed, aes(as.factor(Gemeindekennziffer), Jahr_fac, color = BeschaeftigteohneAbschluss_adj)) + 
+  geom_tile(alpha = 0.5, size=0.5) +
+  theme_rki() + theme(axis.text.x = element_text(size=8, angle=25),legend.position="bottom") +
+  scale_color_gradientn(colours = rainbow(5)) + scale_y_discrete(limits = rev) + 
+  scale_x_discrete(position = "top", breaks = c(1001000, 3101000, 5111000, 6411000, 7111000, 8111000, 9161000, 10041100, 12051000, 13003000, 14511000, 15001000, 16051000)) +
+  labs(colour = "adj. Beschäftigte ohne Abschluss", x = "Gemeindekennziffer", title = "Verteilung adj. Beschäftigten ohne Abschluss nach Gemeindekennziffer")
+
+BeschaeftigteohneAbschluss_adj
+
+ggsave("Outfiles/2022/Check_Ausgangsdaten/BeschaeftigteohneAbschluss_adj.png")
+
+
+BeschaeftigtemitakadAbschluss <- ggplot(Impdata.imputed, aes(as.factor(Gemeindekennziffer), Jahr_fac, color = BeschaeftigtemitakadAbschluss)) + 
+  geom_tile(alpha = 0.5, size=0.5) +
+  theme_rki() + theme(axis.text.x = element_text(size=8, angle=25),legend.position="bottom") +
+  scale_color_gradientn(colours = rainbow(5)) + scale_y_discrete(limits = rev) + 
+  scale_x_discrete(position = "top", breaks = c(1001000, 3101000, 5111000, 6411000, 7111000, 8111000, 9161000, 10041100, 12051000, 13003000, 14511000, 15001000, 16051000)) +
+  labs(colour = "Beschäftigte mit akad. Abschluss", x = "Gemeindekennziffer", title = "Verteilung Beschäftigten mit akad. Abschluss nach Gemeindekennziffer")
+
+BeschaeftigtemitakadAbschluss
+
+ggsave("Outfiles/2022/Check_Ausgangsdaten/BeschaeftigtemitakadAbschluss.png")
+
+
+#BeschaeftigtemitakadAbschluss_adj <- ggplot(Impdata.imputed, aes(as.factor(Gemeindekennziffer), Jahr_fac, color = #BeschaeftigtemitakadAbschluss_adj)) + 
+#  geom_tile(alpha = 0.5, size=0.5) +
+#  theme_rki() + theme(axis.text.x = element_text(size=8, angle=25),legend.position="bottom") +
+#  scale_color_gradientn(colours = rainbow(5)) + scale_y_discrete(limits = rev) + 
+#  scale_x_discrete(position = "top", breaks = c(1001000, 3101000, 5111000, 6411000, 7111000, 8111000, 9161000, #10041100, 12051000, 13003000, 14511000, 15001000, 16051000)) +
+#  labs(colour = "Beschäftigte mit akad. Abschluss", x = "Gemeindekennziffer", title = "Verteilung Beschäftigten mit #akad. Abschluss nach Gemeindekennziffer")
+#
+#BeschaeftigtemitakadAbschluss_adj
+#
+#ggsave("Outfiles/2022/Check_Ausgangsdaten/BeschaeftigtemitakadAbschluss_adj.png")
+
+
+SchulabgaengerohneAbschluss <- ggplot(Impdata.imputed, aes(as.factor(Gemeindekennziffer), Jahr_fac, color = SchulabgaengerohneAbschluss)) + 
+  geom_tile(alpha = 0.5, size=0.5) +
+  theme_rki() + theme(axis.text.x = element_text(size=8, angle=30),legend.position="bottom") +
+  scale_color_gradientn(colours = rainbow(5)) + scale_y_discrete(limits = rev) + 
+  scale_x_discrete(position = "top", breaks = c(1001000, 3101000, 5111000, 6411000, 7111000, 8111000, 9161000, 10041100, 12051000, 13003000, 14511000, 15001000, 16051000)) +
+  labs(colour = "schulabgänger ohne Abschluss", x = "Gemeindekennziffer", title = "Verteilung Schulabgänger ohne Abschluss nach Gemeindekennziffer")
+
+SchulabgaengerohneAbschluss
+
+ggsave("Outfiles/2022/Check_Ausgangsdaten/SchulabgaengerohneAbschluss.png")
+
+
+SchulabgaengerohneAbschluss_adj <- ggplot(Impdata.imputed, aes(as.factor(Gemeindekennziffer), Jahr_fac, color = SchulabgaengerohneAbschluss_adj)) + 
+  geom_tile(alpha = 0.5, size=0.5) +
+  theme_rki() + theme(axis.text.x = element_text(size=8, angle=3),legend.position="bottom") +
+  scale_color_gradientn(colours = rainbow(5)) + scale_y_discrete(limits = rev) + 
+  scale_x_discrete(position = "top", breaks = c(1001000, 3101000, 5111000, 6411000, 7111000, 8111000, 9161000, 10041100, 12051000, 13003000, 14511000, 15001000, 16051000)) +
+  labs(colour = "adj. Schulabgänger ohne Abschluss", x = "Gemeindekennziffer", title = "Verteilung adj. Schulabgänger ohne Abschluss nach Gemeindekennziffer")
+
+SchulabgaengerohneAbschluss_adj
+
+ggsave("Outfiles/2022/Check_Ausgangsdaten/SchulabgaengerohneAbschluss_adj.png")
+
+
+SchulabgaengermitHochschulreife <- ggplot(Impdata.imputed, aes(as.factor(Gemeindekennziffer), Jahr_fac, color = SchulabgaengermitHochschulreife)) + 
+  geom_tile(alpha = 0.5, size=0.5) +
+  theme_rki() + theme(axis.text.x = element_text(size=8, angle=25),legend.position="bottom") +
+  scale_color_gradientn(colours = rainbow(5)) + scale_y_discrete(limits = rev) + 
+  scale_x_discrete(position = "top", breaks = c(1001000, 3101000, 5111000, 6411000, 7111000, 8111000, 9161000, 10041100, 12051000, 13003000, 14511000, 15001000, 16051000)) +
+  labs(colour = "Schulabgänger mit Hochschulreife", x = "Gemeindekennziffer", title = "Verteilung Schulabgänger mit Hochschulreife nach Gemeindekennziffer")
+
+SchulabgaengermitHochschulreife
+
+ggsave("Outfiles/2022/Check_Ausgangsdaten/SchulabgaengermitHochschulreife.png")
+
+
+SchulabgaengermitHochschulreife_adj <- ggplot(Impdata.imputed, aes(as.factor(Gemeindekennziffer), Jahr_fac, color = SchulabgaengermitHochschulreife_adj)) + 
+  geom_tile(alpha = 0.5, size=0.5) +
+  theme_rki() + theme(axis.text.x = element_text(size=8, angle=25),legend.position="bottom") +
+  scale_color_gradientn(colours = rainbow(5)) + scale_y_discrete(limits = rev) + 
+  scale_x_discrete(position = "top", breaks = c(1001000, 3101000, 5111000, 6411000, 7111000, 8111000, 9161000, 10041100, 12051000, 13003000, 14511000, 15001000, 16051000)) +
+  labs(colour = "adj. Schulabgänger mit Hochschulreife", x = "Gemeindekennziffer", title = "Verteilung adj.  Schulabgänger mit Hochschulreife nach Gemeindekennziffer")
+
+SchulabgaengermitHochschulreife_adj
+
+ggsave("Outfiles/2022/Check_Ausgangsdaten/SchulabgaengermitHochschulreife_adj.png")
+
+```
