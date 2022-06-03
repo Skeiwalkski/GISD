@@ -119,9 +119,9 @@ Table: (\#tab:unnamed-chunk-2)Varianz der Faktoren (Eigenwerte)
 
 |Faktoren |Varianz Arbeitswelt |Varianz Einkommen |Varianz Bildung |
 |:--------|:-------------------|:-----------------|:---------------|
-|Faktor 1 |1.772               |2.047             |1.499           |
-|Faktor 2 |0.774               |0.771             |0.8             |
-|Faktor 3 |0.454               |0.182             |0.702           |
+|Faktor 1 |1.772               |2.047             |1.572           |
+|Faktor 2 |0.774               |0.771             |0.786           |
+|Faktor 3 |0.454               |0.182             |0.642           |
 
 ### Faktorladungen
 
@@ -164,9 +164,9 @@ Table: (\#tab:unnamed-chunk-3)Faktorladungen und Anteile an den Teilscores sowie
 |Einkommensteuer (log.)                  |Einkommen   |-0.911       |-0.637    |             40.6|        13.5|
 |Haushaltseinkommen (log.)               |Einkommen   |-0.921       |-0.644    |             41.5|        13.8|
 |Schuldnerquote                          |Einkommen   |0.607        |0.424     |             18.0|         6.0|
-|Beschäftigte mit akad. Abschluss (adj.) |Bildung     |0.744        |0.608     |             37.0|        12.3|
-|Beschäftigte ohne Abschluss (adj.)      |Bildung     |-0.711       |-0.581    |             33.8|        11.3|
-|Schulabgänger ohne Abschluss (adj.)     |Bildung     |-0.663       |-0.541    |             29.3|         9.8|
+|Beschäftigte mit akad. Abschluss (adj.) |Bildung     |0.732        |0.584     |             34.1|        11.4|
+|Beschäftigte ohne Abschluss (adj.)      |Bildung     |-0.771       |-0.615    |             37.8|        12.6|
+|Schulabgänger ohne Abschluss (adj.)     |Bildung     |-0.663       |-0.529    |             28.0|         9.3|
 
 ## Gepoolte Querschnitte (NUTS2)
 
@@ -206,11 +206,11 @@ Table: (\#tab:unnamed-chunk-5)Varianz der Faktoren (Eigenwerte)
 
 |Faktoren |Varianz Arbeitswelt |Varianz Einkommen |Varianz Bildung |
 |:--------|:-------------------|:-----------------|:---------------|
-|Faktor 1 |1.772               |2.047             |2.116           |
-|Faktor 2 |0.774               |0.771             |1.203           |
-|Faktor 3 |0.454               |0.182             |0.886           |
-|Faktor 4 |NA                  |NA                |0.514           |
-|Faktor 5 |NA                  |NA                |0.282           |
+|Faktor 1 |1.772               |2.047             |2.188           |
+|Faktor 2 |0.774               |0.771             |1.202           |
+|Faktor 3 |0.454               |0.182             |0.8             |
+|Faktor 4 |NA                  |NA                |0.544           |
+|Faktor 5 |NA                  |NA                |0.265           |
 
 
 ### Faktorladungen
@@ -254,11 +254,11 @@ Table: (\#tab:unnamed-chunk-6)Faktorladungen und Anteile an den Teilscores sowie
 |Einkommensteuer (log.)                 |Einkommen   |-0.911       |-0.637    |             40.6|        13.5|
 |Haushaltseinkommen (log.)              |Einkommen   |-0.921       |-0.644    |             41.5|        13.8|
 |Schuldnerquote                         |Einkommen   |0.607        |0.424     |             18.0|         6.0|
-|Beschäftigte mit akad. Abschluss       |Bildung     |0.814        |0.559     |             31.2|        10.4|
-|Beschäftigte ohne Abschluss (adj.)     |Bildung     |-0.428       |-0.294    |              8.6|         2.9|
-|Bevölkerung mit akad. Abschluss (adj.) |Bildung     |0.834        |0.574     |             32.9|        11.0|
-|Bevölkerung ohne Abschluss             |Bildung     |-0.689       |-0.473    |             22.4|         7.5|
-|Schulabgänger ohne Abschluss (adj.)    |Bildung     |-0.316       |-0.217    |              4.7|         1.6|
+|Beschäftigte mit akad. Abschluss       |Bildung     |0.796        |0.538     |             28.9|         9.6|
+|Beschäftigte ohne Abschluss (adj.)     |Bildung     |-0.564       |-0.381    |             14.5|         4.8|
+|Bevölkerung mit akad. Abschluss (adj.) |Bildung     |0.817        |0.552     |             30.5|        10.2|
+|Bevölkerung ohne Abschluss             |Bildung     |-0.678       |-0.458    |             21.0|         7.0|
+|Schulabgänger ohne Abschluss (adj.)    |Bildung     |-0.334       |-0.226    |              5.1|         1.7|
 
 
 
@@ -298,10 +298,10 @@ Table: (\#tab:unnamed-chunk-8)Varianz der Faktoren (Eigenwerte)
 
 |Faktoren |Varianz Arbeitswelt |Varianz Einkommen |Varianz Bildung |
 |:--------|:-------------------|:-----------------|:---------------|
-|Faktor 1 |1.772               |2.047             |2.001           |
-|Faktor 2 |0.774               |0.771             |1.11            |
-|Faktor 3 |0.454               |0.182             |0.486           |
-|Faktor 4 |NA                  |NA                |0.403           |
+|Faktor 1 |1.772               |2.047             |1.972           |
+|Faktor 2 |0.774               |0.771             |1.108           |
+|Faktor 3 |0.454               |0.182             |0.498           |
+|Faktor 4 |NA                  |NA                |0.423           |
 
 ### Faktorladungen
 
@@ -343,10 +343,10 @@ Table: (\#tab:unnamed-chunk-9)Faktorladungen und Anteile an den Teilscores sowie
 |Einkommensteuer (log.)                  |Einkommen   |-0.911       |-0.637    |             40.6|        13.5|
 |Haushaltseinkommen (log.)               |Einkommen   |-0.921       |-0.644    |             41.5|        13.8|
 |Schuldnerquote                          |Einkommen   |0.607        |0.424     |             18.0|         6.0|
-|Beschäftigte mit akad. Abschluss (adj.) |Bildung     |0.854        |0.603     |             36.4|        12.1|
-|Beschäftigte ohne Abschluss             |Bildung     |-0.696       |-0.492    |             24.2|         8.1|
-|Schulabgänger ohne Abschluss (adj.)     |Bildung     |-0.259       |-0.183    |              3.3|         1.1|
-|Schulabgänger mit Hochschulreife (adj.) |Bildung     |0.849        |0.6       |             36.0|        12.0|
+|Beschäftigte mit akad. Abschluss (adj.) |Bildung     |0.84         |0.599     |             35.9|        12.0|
+|Beschäftigte ohne Abschluss             |Bildung     |-0.694       |-0.495    |             24.5|         8.2|
+|Schulabgänger ohne Abschluss (adj.)     |Bildung     |-0.245       |-0.174    |              3.0|         1.0|
+|Schulabgänger mit Hochschulreife (adj.) |Bildung     |0.85         |0.606     |             36.7|        12.2|
 
 
 
@@ -386,10 +386,10 @@ Table: (\#tab:unnamed-chunk-11)Varianz der Faktoren (Eigenwerte)
 
 |Faktoren |Varianz Arbeitswelt |Varianz Einkommen |Varianz Bildung |
 |:--------|:-------------------|:-----------------|:---------------|
-|Faktor 1 |1.772               |2.047             |1.839           |
-|Faktor 2 |0.774               |0.771             |0.99            |
-|Faktor 3 |0.454               |0.182             |0.799           |
-|Faktor 4 |NA                  |NA                |0.372           |
+|Faktor 1 |1.772               |2.047             |1.918           |
+|Faktor 2 |0.774               |0.771             |0.961           |
+|Faktor 3 |0.454               |0.182             |0.721           |
+|Faktor 4 |NA                  |NA                |0.4             |
 
 ### Faktorladungen
 
@@ -431,10 +431,10 @@ Table: (\#tab:unnamed-chunk-12)Faktorladungen und Anteile an den Teilscores sowi
 |Einkommensteuer (log.)                  |Einkommen   |-0.911       |-0.637    |             40.6|        13.5|
 |Haushaltseinkommen (log.)               |Einkommen   |-0.921       |-0.644    |             41.5|        13.8|
 |Schuldnerquote                          |Einkommen   |0.607        |0.424     |             18.0|         6.0|
-|Beschäftigte mit akad. Abschluss (adj.) |Bildung     |0.86         |0.634     |             40.2|        13.4|
-|Beschäftigte ohne Abschluss (adj.)      |Bildung     |-0.505       |-0.372    |             13.8|         4.6|
-|Schulabgänger ohne Abschluss (adj.)     |Bildung     |-0.523       |-0.386    |             14.9|         5.0|
-|Schulabgänger mit Hochschulreife (adj.) |Bildung     |0.756        |0.557     |             31.0|        10.3|
+|Beschäftigte mit akad. Abschluss (adj.) |Bildung     |0.832        |0.601     |             36.1|        12.0|
+|Beschäftigte ohne Abschluss (adj.)      |Bildung     |-0.63        |-0.455    |             20.7|         6.9|
+|Schulabgänger ohne Abschluss (adj.)     |Bildung     |-0.526       |-0.38     |             14.4|         4.8|
+|Schulabgänger mit Hochschulreife (adj.) |Bildung     |0.743        |0.536     |             28.7|         9.6|
 
 
 ## Faktorenanalyse nur für Daten des Jahres 2019
@@ -635,7 +635,7 @@ Table: (\#tab:unnamed-chunk-18)Faktorladungen und Anteile an den Teilscores sowi
 |Beschäftigte mit akad. Abschluss (adj.) |Bildung     |-0.823       |-0.678    |             46.0|        15.3|
 |Beschäftigte ohne Abschluss (adj.)      |Bildung     |0.477        |0.393     |             15.4|         5.1|
 |Schulabgänger ohne Abschluss (adj.)     |Bildung     |0.691        |0.569     |             32.4|        10.8|
-|Schulabgänger mit Hochschulreife (adj.) |Bildung     |-0.304       |-0.25     |              6.2|         2.1|
+|Schulabgänger mit Hochschulreife (adj.) |Bildung     |-0.304       |-0.251    |              6.3|         2.1|
 
 
 
@@ -687,10 +687,10 @@ Table: (\#tab:unnamed-chunk-21)Korrelation von Arbeitslosigkeit und Faktoren
 
 |                   | Arbeitslosigkeit| Faktor Arbeitswelt| Faktor Einkommen| Faktor Bildung|
 |:------------------|----------------:|------------------:|----------------:|--------------:|
-|Arbeitslosigkeit   |        1.0000000|         -0.8442108|        0.8340554|     -0.4157186|
-|Faktor Arbeitswelt |       -0.8442108|          1.0000000|       -0.8601711|      0.5026440|
-|Faktor Einkommen   |        0.8340554|         -0.8601711|        1.0000000|     -0.5690442|
-|Faktor Bildung     |       -0.4157186|          0.5026440|       -0.5690442|      1.0000000|
+|Arbeitslosigkeit   |        1.0000000|         -0.8442108|        0.8340554|     -0.4218227|
+|Faktor Arbeitswelt |       -0.8442108|          1.0000000|       -0.8601711|      0.5194746|
+|Faktor Einkommen   |        0.8340554|         -0.8601711|        1.0000000|     -0.5700541|
+|Faktor Bildung     |       -0.4218227|          0.5194746|       -0.5700541|      1.0000000|
 
 
 
@@ -723,10 +723,10 @@ Table: (\#tab:unnamed-chunk-22)Korrelation von Arbeitslosigkeit und Faktoren (ge
 
 |                   | Arbeitslosigkeit| Faktor Arbeitswelt| Faktor Einkommen| Faktor Bildung|
 |:------------------|----------------:|------------------:|----------------:|--------------:|
-|Arbeitslosigkeit   |        1.0000000|          0.8442108|        0.8340554|      0.4157186|
-|Faktor Arbeitswelt |        0.8442108|          1.0000000|        0.8601711|      0.5026440|
-|Faktor Einkommen   |        0.8340554|          0.8601711|        1.0000000|      0.5690442|
-|Faktor Bildung     |        0.4157186|          0.5026440|        0.5690442|      1.0000000|
+|Arbeitslosigkeit   |        1.0000000|          0.8442108|        0.8340554|      0.4218227|
+|Faktor Arbeitswelt |        0.8442108|          1.0000000|        0.8601711|      0.5194746|
+|Faktor Einkommen   |        0.8340554|          0.8601711|        1.0000000|      0.5700541|
+|Faktor Bildung     |        0.4218227|          0.5194746|        0.5700541|      1.0000000|
 
 
 ```r
@@ -840,9 +840,9 @@ Table: (\#tab:unnamed-chunk-24)Korrelation der verschiedenen GISD-Scores
 
 |              | GISD-Score| GISD-Score (Bildung 4 Items)| GISD-Score 2019|
 |:-------------|----------:|----------------------------:|---------------:|
-|GISD_Score    |  1.0000000|                    0.7788990|      -0.7124583|
-|GISD_Score_B4 |  0.7788990|                    1.0000000|      -0.9578998|
-|GISD_Score_19 | -0.7124583|                   -0.9578998|       1.0000000|
+|GISD_Score    |  1.0000000|                    0.7800202|      -0.7282559|
+|GISD_Score_B4 |  0.7800202|                    1.0000000|      -0.9632958|
+|GISD_Score_19 | -0.7282559|                   -0.9632958|       1.0000000|
 
 ```r
 #write_rds(Resultdataset, paste0("Outfiles/Resultdata_FaktorCheck.rds"))

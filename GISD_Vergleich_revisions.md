@@ -33,6 +33,8 @@ dat_2022 <- read.csv("Outfiles/2022/Bund/Gemeinde/Gemeinde.csv") %>% mutate(Krei
 
 dat_2022b <- read.csv("Outfiles/2022b/Bund/Gemeinde/Gemeinde.csv") %>% mutate(Kreis = round(Gemeindekennziffer/1000), digits = 0)
 
+dat_2022_v3 <- read.csv("Outfiles/2022_v03/Bund/Gemeinde/Gemeinde.csv") %>% mutate(Kreis = round(Gemeindekennziffer/1000), digits = 0)
+
 
 
 Lebenserwartung_Frauen <- read_excel("Data/Lebenserwartung/Lebenserwartung_female_13_17.xlsx", skip = 1, sheet = "Daten")
@@ -79,6 +81,8 @@ dat_Leberw_2022 <- dat_2022 %>% filter(Jahr == 2016) %>% left_join(dat_Lebenserw
 
 dat_Leberw_2022b <- dat_2022b %>% filter(Jahr == 2016) %>% left_join(dat_Lebenserwartung, by = "Kreis") %>% select(- Lebenserwartung_Frauen_2014, - Lebenserwartung_Männer_2014) %>% distinct(Kreis, .keep_all = TRUE) %>% unique()
 
+dat_Leberw_2022_v3 <- dat_2022_v3 %>% filter(Jahr == 2016) %>% left_join(dat_Lebenserwartung, by = "Kreis") %>% select(- Lebenserwartung_Frauen_2014, - Lebenserwartung_Männer_2014) %>% distinct(Kreis, .keep_all = TRUE) %>% unique()
+
 Gemeindekennziffer <- c("9162000", "16053000", "7317000", "1001000", "14625020", "9188139")
 ```
 
@@ -97,6 +101,8 @@ dat_Leberw_2021_v3$GISD_Score <- (dat_Leberw_2021_v3$GISD_Score -min(dat_Leberw_
 dat_Leberw_2022$GISD_Score <- (dat_Leberw_2022$GISD_Score -min(dat_Leberw_2022$GISD_Score ))/(max(dat_Leberw_2022$GISD_Score )-min(dat_Leberw_2022$GISD_Score))
 
 dat_Leberw_2022b$GISD_Score <- (dat_Leberw_2022b$GISD_Score -min(dat_Leberw_2022b$GISD_Score ))/(max(dat_Leberw_2022b$GISD_Score )-min(dat_Leberw_2022b$GISD_Score))
+
+dat_Leberw_2022_v3$GISD_Score <- (dat_Leberw_2022_v3$GISD_Score -min(dat_Leberw_2022_v3$GISD_Score ))/(max(dat_Leberw_2022_v3$GISD_Score )-min(dat_Leberw_2022_v3$GISD_Score))
 ```
 
 ## Versionen des GISD-Scores über die Zeit {.tabset}
@@ -1734,6 +1740,25 @@ ggplot(dat_Leberw_2022b) +
 ```
 
 ![](GISD_Vergleich_revisions_files/figure-html/V2022b-1.png)<!-- -->
+
+
+```r
+ggplot(dat_Leberw_2022_v3) +
+  geom_point(aes(x = GISD_Score, y = Lebenserwartung_Frauen_2016, col = "navy"), size = 1.5, alpha = 0.5) +
+  geom_point(aes(x = GISD_Score, y = Lebenserwartung_Männer_2016, col = "darkgreen"), size = 1.5, alpha = 0.5) +
+  ylim(74, 88) +
+  xlim(0, 1) +
+  geom_rug(size = 0.5) +
+  geom_smooth(aes(x = GISD_Score, y = Lebenserwartung_Frauen_2016), method = lm,col = "red", linetype = "dashed", fill = "grey50", alpha = 0.5) +
+  geom_smooth(aes(x = GISD_Score, y = Lebenserwartung_Männer_2016), method = lm,col = "red", linetype = "dashed", fill = "grey50", alpha = 0.5) +
+  labs(x = "GISD-Score",
+       y = "Lebenserwartung in Jahren") +
+  scale_colour_identity(name = "Geschlecht", labels = c("Männer", "Frauen"),  guide = guide_legend(reverse = TRUE)) +
+  theme_rki()
+```
+
+![](GISD_Vergleich_revisions_files/figure-html/V2022_v3-1.png)<!-- -->
+
 
 ## Änderungen in der Generierung des GISD
 

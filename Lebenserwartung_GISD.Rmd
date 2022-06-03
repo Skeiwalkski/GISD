@@ -81,7 +81,7 @@ ggplot(GISD_Lebenserw_Kreis, aes(x = GISD_Score, y = Lebenserwartung)) +
 
 
 ```{r message=FALSE, warning=FALSE}
-GISD_dat <- read.csv("Outfiles/2022/Bund/Kreis/Kreis.csv") %>% select(GISD_5, Jahr, Kreiskennziffer) %>% rename(Kreis = Kreiskennziffer) %>% mutate(GISD_5 = case_when(GISD_5 == 1 ~ 5,
+GISD_dat <- read.csv("Outfiles/2022_v03/Bund/Kreis/Kreis.csv") %>% select(GISD_5, Jahr, Kreiskennziffer) %>% rename(Kreis = Kreiskennziffer) %>% mutate(GISD_5 = case_when(GISD_5 == 1 ~ 5,
                                                GISD_5 == 2 ~ 4,
                                                GISD_5 == 3 ~ 3,
                                                GISD_5 == 4 ~ 2,
