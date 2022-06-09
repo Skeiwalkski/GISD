@@ -30,6 +30,8 @@ id_data <- readRDS("Outfiles/2022/ID_dataset_2019")
 
 
 ```{r message=FALSE, warning=FALSE}
+Gemeinden <- id_data %>% select(Bevölkerung, Gemeindekennziffer) %>% group_by(Gemeindekennziffer) %>% mutate(Bev = sum(Bevölkerung)*100) %>% ungroup() %>% select(-Bevölkerung) %>% unique() %>% filter(Bev > 0)
+
 GVB <- id_data %>% select(Bevölkerung, GVBKennziffer) %>% group_by(GVBKennziffer) %>% mutate(Bev = sum(Bevölkerung)*100) %>% ungroup() %>% select(-Bevölkerung) %>% unique() %>% filter(Bev > 0)
 
 Kreis <- id_data %>% select(Bevölkerung, Kreiskennziffer) %>% group_by(Kreiskennziffer) %>% mutate(Bev = sum(Bevölkerung)*100) %>% ungroup() %>% select(-Bevölkerung) %>% unique() %>% filter(Bev > 0)
@@ -39,7 +41,9 @@ ROR <- id_data %>% select(Bevölkerung, `Raumordnungsregion Nr`) %>% group_by(`R
 NUTS2 <- id_data %>% select(Bevölkerung, NUTS2) %>% group_by(NUTS2) %>% mutate(Bev = sum(Bevölkerung)*100) %>% ungroup() %>% select(-Bevölkerung) %>% unique() %>% filter(Bev > 0)
 
 
-Tabelle_Bev <- cbind("Ebene" = "Gemeindeverbände (GVB)", "Anzahl" = nrow(GVB), "Mittlere Bevölkerungszahl" = round(mean(GVB$Bev)), "Minimum" = round(min(GVB$Bev)), "Maximum" = round(max(GVB$Bev)))
+Tabelle_Bev <- cbind("Ebene" = "Gemeinden", "Anzahl" = nrow(Gemeinden), "Mittlere Bevölkerungszahl" = round(mean(Gemeinden$Bev)), "Minimum" = round(min(Gemeinden$Bev)), "Maximum" = round(max(Gemeinden$Bev)))
+
+Tabelle_Bev <- rbind(Tabelle_Bev, cbind("Ebene" = "Gemeindeverbände (GVB)", "Anzahl" = nrow(GVB), "Mittlere Bevölkerungszahl" = round(mean(GVB$Bev)), "Minimum" = round(min(GVB$Bev)), "Maximum" = round(max(GVB$Bev))))
 
 Tabelle_Bev <- rbind(Tabelle_Bev, cbind("Ebene" = "Kreise und kreisfreie Städte (Kreise)", "Anzahl" = nrow(Kreis), "Mittlere Bevölkerungszahl" = round(mean(Kreis$Bev)), "Minimum" = round(min(Kreis$Bev)), "Maximum" = round(max(Kreis$Bev))))
 
