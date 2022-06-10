@@ -17,7 +17,7 @@ output:
 
 ```r
 #Kreise
-GISD_data_Kreis <- read.csv("Outfiles/2022/Bund/Kreis/Kreis.csv") %>% mutate(Kreis = Kreiskennziffer) %>% select(Kreis, GISD_Score, GISD_5, GISD_10) %>% distinct(Kreis, .keep_all = TRUE) %>% unique() %>% lazy_dt()
+GISD_data_Kreis <- read.csv("Outfiles/2022_v03/Bund/Kreis/Kreis.csv") %>% mutate(Kreis = Kreiskennziffer) %>% select(Kreis, GISD_Score, GISD_5, GISD_10) %>% distinct(Kreis, .keep_all = TRUE) %>% unique() %>% lazy_dt()
 
 Kreise_data <- readRDS("Data/SHP/kreise_bkg.rds") %>% lazy_dt() %>% mutate(Kreis = as.numeric(id)) %>% select(-id) %>% left_join(GISD_data_Kreis, by = "Kreis") %>% lazy_dt()
 
@@ -42,7 +42,7 @@ Kreise_data <- Kreise_data %>% mutate(GISD_5 = case_when(GISD_5 == 1 ~ 5,
 rm(GISD_data_Kreis)
 
 #Gemeinden
-GISD_data_Gem <- read.csv("Outfiles/2022/Bund/Gemeinde/Gemeinde.csv") %>% filter(Jahr == 2019) %>% select(Gemeindekennziffer, GISD_Score, GISD_5, GISD_10) %>% distinct(Gemeindekennziffer, .keep_all = TRUE) %>% unique()
+GISD_data_Gem <- read.csv("Outfiles/2022_v03/Bund/Gemeinde/Gemeinde.csv") %>% filter(Jahr == 2019) %>% select(Gemeindekennziffer, GISD_Score, GISD_5, GISD_10) %>% distinct(Gemeindekennziffer, .keep_all = TRUE) %>% unique()
 
 sum(is.na(GISD_data_Gem$GISD_Score))
 ```
@@ -52,7 +52,7 @@ sum(is.na(GISD_data_Gem$GISD_Score))
 ```
 
 ```r
-GISD_data_Kreis <- read.csv("Outfiles/2022/Bund/Kreis/Kreis.csv") %>% filter(Jahr == 2019) %>% mutate(Kreis = Kreiskennziffer, GISD_Score_Kreis = GISD_Score, GISD_5_Kreis = GISD_5, GISD_10_Kreis = GISD_10) %>% select(Kreis, GISD_Score_Kreis, GISD_5_Kreis, GISD_10_Kreis) %>% distinct(Kreis, .keep_all = TRUE)
+GISD_data_Kreis <- read.csv("Outfiles/2022_v03/Bund/Kreis/Kreis.csv") %>% filter(Jahr == 2019) %>% mutate(Kreis = Kreiskennziffer, GISD_Score_Kreis = GISD_Score, GISD_5_Kreis = GISD_5, GISD_10_Kreis = GISD_10) %>% select(Kreis, GISD_Score_Kreis, GISD_5_Kreis, GISD_10_Kreis) %>% distinct(Kreis, .keep_all = TRUE)
 
 Gemeinden_data <- readRDS("Data/SHP/BRD_Gemeinden.rds") %>% mutate(Gemeindekennziffer = as.numeric(id)) %>% select(-id) %>% left_join(GISD_data_Gem, by = "Gemeindekennziffer") %>% mutate(Kreis = floor(Gemeindekennziffer / 1000), Kreis = case_when(Kreis == 3152 | Kreis == 3156 ~ 3159, Kreis != 3152 | Kreis != 3156 ~ Kreis)) %>% left_join(GISD_data_Kreis, by = "Kreis") %>% lazy_dt()
 
@@ -87,7 +87,7 @@ Gemeinden_data <- Gemeinden_data %>% mutate(GISD_5 = case_when(GISD_5 == 1 ~ 5,
 rm(GISD_data_Kreis, GISD_data_Gem)
 
 #Länder
-GISD_data_Lander <- read.csv("Outfiles/2022/Bund/Raumordnungsregion/Raumordnungsregion.csv") %>% mutate(ROR_id = Raumordnungsregion.Nr) %>%  select(ROR_id, GISD_Score, GISD_5, GISD_10) %>% distinct(ROR_id, .keep_all = TRUE) %>% unique() %>% lazy_dt()
+GISD_data_Lander <- read.csv("Outfiles/2022_v03/Bund/Raumordnungsregion/Raumordnungsregion.csv") %>% mutate(ROR_id = Raumordnungsregion.Nr) %>%  select(ROR_id, GISD_Score, GISD_5, GISD_10) %>% distinct(ROR_id, .keep_all = TRUE) %>% unique() %>% lazy_dt()
 
 Lander_data <- readRDS("Data/SHP/ROR_map.rds") %>% lazy_dt() %>% mutate(ROR_id = as.numeric(id)) %>% select(-id) %>% left_join(GISD_data_Lander, by = "ROR_id") %>% lazy_dt()
 
@@ -110,6 +110,9 @@ Lander_data <- Lander_data %>% mutate(GISD_5 = case_when(GISD_5 == 1 ~ 5,
                                                           GISD_10 == 10 ~ 1))
 
 rm(GISD_data_Lander)
+
+##Bula
+Bula_data <- readRDS("Data/SHP/BRD_BuLa.rds")
 ```
 
 
