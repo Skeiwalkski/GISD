@@ -1590,6 +1590,8 @@ ggplot(dat_Leberw_2022_v3) +
        y = "Lebenserwartung in Jahren") +
   scale_colour_identity(name = "Geschlecht", labels = c("Männer", "Frauen"),  guide = guide_legend(reverse = TRUE)) +
   theme_rki()
+
+write.csv(dat_Leberw_2022_v3,"Outfiles/2022_v03/Lebenserwartung_GISD_2022_v03.csv")
 ```
 
 
