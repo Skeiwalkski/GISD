@@ -39,7 +39,7 @@ Kreise_data <- Kreise_data %>% mutate(GISD_5 = case_when(GISD_5 == 1 ~ 5,
                                                           GISD_10 == 9 ~ 2,
                                                           GISD_10 == 10 ~ 1))
 
-rm(GISD_data_Kreis)
+
 
 #Gemeinden
 GISD_data_Gem <- read.csv("Outfiles/2022_v03/Bund/Gemeinde/Gemeinde.csv") %>% filter(Jahr == 2019) %>% select(Gemeindekennziffer, GISD_Score, GISD_5, GISD_10) %>% distinct(Gemeindekennziffer, .keep_all = TRUE) %>% unique()
@@ -84,7 +84,7 @@ Gemeinden_data <- Gemeinden_data %>% mutate(GISD_5 = case_when(GISD_5 == 1 ~ 5,
                                                           GISD_10 == 9 ~ 2,
                                                           GISD_10 == 10 ~ 1))
 
-rm(GISD_data_Kreis, GISD_data_Gem)
+
 
 #Länder
 GISD_data_Lander <- read.csv("Outfiles/2022_v03/Bund/Raumordnungsregion/Raumordnungsregion.csv") %>% mutate(ROR_id = Raumordnungsregion.Nr) %>%  select(ROR_id, GISD_Score, GISD_5, GISD_10) %>% distinct(ROR_id, .keep_all = TRUE) %>% unique() %>% lazy_dt()
@@ -109,7 +109,7 @@ Lander_data <- Lander_data %>% mutate(GISD_5 = case_when(GISD_5 == 1 ~ 5,
                                                           GISD_10 == 9 ~ 2,
                                                           GISD_10 == 10 ~ 1))
 
-rm(GISD_data_Lander)
+
 
 ##Bula
 Bula_data <- readRDS("Data/SHP/BRD_BuLa.rds")
@@ -136,7 +136,7 @@ ggplot(Gemeinden_data, aes(long, lat, group = group, fill = GISD_Score)) +
 ```r
 ggplot(Gemeinden_data, aes(long, lat, group = group, fill = as.factor(GISD_5))) +
   geom_polygon() +
-  scale_fill_rki(palette = "main", name = "GISD-Score (Quintile)", labels = c("5", "4", "3", "2", "1")) +
+  scale_fill_rki(palette = "main", guide="none") +
   coord_equal() +
   theme_rki_void()
 ```
@@ -169,8 +169,8 @@ ggplot(Kreise_data, aes(long, lat, group = group, fill = GISD_Score)) +
 
 ```r
 ggplot(Kreise_data, aes(long, lat, group = group, fill = as.factor(GISD_5))) +
-  geom_polygon(color = "black") +
-  scale_fill_rki(palette = "main", name = "GISD-Score (Quintile)", labels = c("5", "4", "3", "2", "1")) +
+  geom_polygon() +
+  scale_fill_rki(palette = "main", guide="none") +
   coord_equal() +
   theme_rki_void()
 ```
@@ -203,7 +203,7 @@ ggplot(Lander_data, aes(long, lat, group = group, fill = GISD_Score)) +
 
 ```r
 ggplot(Lander_data, aes(long, lat, group = group, fill = as.factor(GISD_5))) +
-  geom_polygon(color = "black") +
+  geom_polygon() +
   scale_fill_rki(palette = "main", name = "GISD-Score (Quintile)", labels = c("5", "4", "3", "2", "1")) +
   coord_equal() +
   theme_rki_void()
