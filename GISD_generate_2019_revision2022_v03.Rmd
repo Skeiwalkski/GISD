@@ -864,10 +864,33 @@ write_dta(Resultdataset, paste0("Outfiles/2022_v03/Stata/Resultdataset.dta"))
 RawResult <- left_join(Resultdataset,id_dataset,by="Gemeindekennziffer")
 
 
+RawResult <- RawResult %>% rename(year = Jahr, 
+                                  population = Bevölkerung, 
+                                  gisd_score = GISD_Score, 
+                                  gemeinde_id = Gemeindekennziffer,
+                                  gvb_id = GVBKennziffer,
+                                  kreis_id = Kreiskennziffer,
+                                  ror_id = `Raumordnungsregion Nr`,
+                                  nuts_2_id = NUTS2,
+                                  gemeinde_name = `Name der Gemeinde`,
+                                  gvb_name = `Name des Gemeindeverbands`,
+                                  kreis_name = `Name des Kreises`,
+                                  ror_name = Raumordnungsregion,
+                                  nuts_2_name = `NUTS2 Name`) %>%
+                            mutate(gemeinde_id = as.character(as.vector(gemeinde_id)),
+                                   gemeinde_id = ifelse(nchar(gemeinde_id)==7,paste0("0",gemeinde_id),gemeinde_id),
+                                   gvb_id = as.character(gvb_id),
+                                   gvb_id = ifelse(nchar(gvb_id)==8,paste0("0",gvb_id),gvb_id),
+                                   kreis_id = as.character(kreis_id),
+                                   kreis_id = ifelse(nchar(kreis_id)==4,paste0("0",kreis_id),kreis_id),
+                                   ror_id = as.character(ror_id),
+                                   ror_id = ifelse(nchar(ror_id)==3,paste0("0",ror_id),ror_id))
+
+
 
 exportlist<- NULL
-exportlist$Kennziffern <- c("Gemeindekennziffer","Kreiskennziffer","GVBKennziffer","Raumordnungsregion Nr","NUTS2")
-exportlist$Namen <- c("Name der Gemeinde","Name des Kreises","Name des Gemeindeverbands","Raumordnungsregion","NUTS2 Name")
+exportlist$Kennziffern <- c("gemeinde_id","kreis_id","gvb_id","ror_id","nuts_2_id")
+exportlist$Namen <- c("gemeinde_name","kreis_name","gvb_name","ror_name","nuts_2_name")
 exportlist$Label <- c("Gemeinde","Kreis","Gemeindeverband","Raumordnungsregion","NUTS2")
 
 
@@ -891,13 +914,13 @@ for(mykennziffer in exportlist$Kennziffern) {
   
   # Aggregation
   outputdata.agg <- outputdata %>% 
-    group_by(Group,Jahr) %>% 
-    select(Group,Jahr,"Bevoelkerung",GISD_Score, TS_Bildung_adj, TS_Einkommen_adj, TS_Arbeitswelt_adj) %>% 
-    summarise(GISD_Score = weighted.mean(GISD_Score, Bevoelkerung), 
-              TS_Bildung_adj = weighted.mean(TS_Bildung_adj, Bevoelkerung), 
-              TS_Einkommen_adj = weighted.mean(TS_Einkommen_adj, Bevoelkerung),
-              TS_Arbeitswelt_adj = weighted.mean(TS_Arbeitswelt_adj, Bevoelkerung),
-              Bevoelkerung = sum(Bevoelkerung))
+    group_by(Group,year) %>% 
+    select(Group,year,"population",gisd_score, TS_Bildung_adj, TS_Einkommen_adj, TS_Arbeitswelt_adj) %>% 
+    summarise(gisd_score = weighted.mean(gisd_score, population), 
+              TS_Bildung_adj = weighted.mean(TS_Bildung_adj, population), 
+              TS_Einkommen_adj = weighted.mean(TS_Einkommen_adj, population),
+              TS_Arbeitswelt_adj = weighted.mean(TS_Arbeitswelt_adj, population),
+              population = sum(population))
   
   
   
@@ -907,23 +930,23 @@ for(mykennziffer in exportlist$Kennziffern) {
   # Daten bereinigen
   names(outputdata.agg)[1] <- mykennziffer
   outputdata.agg <- merge(outputdata.agg,mergedataset,by=mykennziffer) %>%  
-    select(mykennziffer,myname,Jahr,Bundesland,"Bevoelkerung",GISD_Score, TS_Bildung_adj, TS_Einkommen_adj, TS_Arbeitswelt_adj) %>%
-    group_by(Jahr) %>% as_tibble()
+    select(mykennziffer,myname,year,Bundesland,"population",gisd_score, TS_Bildung_adj, TS_Einkommen_adj, TS_Arbeitswelt_adj) %>%
+    group_by(year) %>% as_tibble()
   
   # Rekodierung
   # hier wird der GISD-Score neu normalisiert und die Quintile gebildet
   for (i in 1998:2019) {
-  outputdata.agg <- outputdata.agg %>% group_by(Jahr) %>% mutate(GISD_Score = ifelse(Jahr == i,(GISD_Score -min(GISD_Score))/(max(GISD_Score)-min(GISD_Score)), GISD_Score))
+  outputdata.agg <- outputdata.agg %>% group_by(year) %>% mutate(gisd_score = ifelse(year == i,(gisd_score -min(gisd_score))/(max(gisd_score)-min(gisd_score)), gisd_score))
 }
-  outputdata.agg <- outputdata.agg %>% group_by(Jahr) %>% mutate(GISD_5 = findInterval(GISD_Score, quantile(GISD_Score,   probs=0:5/5 , type=9)),
-                                        GISD_5 = findInterval(GISD_5, c(1:5)),
-                                        GISD_10 = findInterval(GISD_Score, quantile(GISD_Score, probs=0:10/10 , type=9)),
-                                        GISD_10 = findInterval(GISD_10, c(1:10)),
-                                        GISD_k = findInterval(GISD_5, c(1,2,5))) %>% ungroup()
+  outputdata.agg <- outputdata.agg %>% group_by(year) %>% mutate(gisd_5 = findInterval(gisd_score, quantile(gisd_score,   probs=0:5/5 , type=9)),
+                                        gisd_5 = findInterval(gisd_5, c(1:5)),
+                                        gisd_10 = findInterval(gisd_score, quantile(gisd_score, probs=0:10/10 , type=9)),
+                                        gisd_10 = findInterval(gisd_10, c(1:10)),
+                                        gisd_k = findInterval(gisd_5, c(1,2,5))) %>% ungroup()
                                        
-  summary(outputdata.agg %>% select(contains("GISD")))
+  summary(outputdata.agg %>% select(contains("gisd")))
   
-  outputdata.agg <- outputdata.agg %>% mutate(GISD_Score = round(GISD_Score, digits = 5))
+  outputdata.agg <- outputdata.agg %>% mutate(gisd_score = round(gisd_score, digits = 5))
   
   # Aktuelles Referenzmodell 
 
@@ -933,8 +956,8 @@ for(mykennziffer in exportlist$Kennziffern) {
   dir.create("Outfiles/2022_v03/", showWarnings=F)
   dir.create("Outfiles/2022_v03/Bund/", showWarnings=F)  
   dir.create(paste0("Outfiles/2022_v03/Bund/",mylabel), showWarnings=F)
-  mydata <- outputdata.agg %>% ungroup() %>% select(mykennziffer, GISD_Score, GISD_5, GISD_10, GISD_k, myname, Jahr)
-  write.csv(mydata, paste0("Outfiles/2022_v03/Bund/",mylabel,"/",mylabel,".csv"))
+  mydata <- outputdata.agg %>% ungroup() %>% select(mykennziffer, gisd_score, gisd_5, gisd_10, gisd_k, myname, year)
+  write.csv(mydata, paste0("Outfiles/2022_v03/Bund/",mylabel,"/",mylabel,".csv"), row.names=FALSE, fileEncoding="UTF-8")
   
   names(mydata) <- gsub("\\.","_",make.names(names(mydata)))
   names(mydata) <- gsub("\\?","oe",names(mydata))
@@ -948,7 +971,7 @@ for(mykennziffer in exportlist$Kennziffern) {
   
   
   # Ausgabe Bundeslandspezifisch ohne Stadtstaaten und nur für Ebenen Kreis und Gemeindeverband
-  if (mylabel %in% c("GVBKennziffer","Kreis")) {
+  if (mylabel %in% c("gvb_id","Kreis")) {
     
     # Datensatzerstellung
   outputdata <- RawResult 
@@ -961,32 +984,32 @@ for(mykennziffer in exportlist$Kennziffern) {
     
       # Aggregation
   outputdata.bula <- outputdata %>% 
-    group_by(Group,Jahr) %>% 
-    dplyr::select(Group,Jahr,"Bevoelkerung",GISD_Score, TS_Bildung_adj, TS_Einkommen_adj, TS_Arbeitswelt_adj) %>% 
-    summarise(GISD_Score = weighted.mean(GISD_Score, Bevoelkerung), 
-              TS_Bildung_adj = weighted.mean(TS_Bildung_adj, Bevoelkerung), 
-              TS_Einkommen_adj = weighted.mean(TS_Einkommen_adj, Bevoelkerung),
-              TS_Arbeitswelt_adj = weighted.mean(TS_Arbeitswelt_adj, Bevoelkerung),
-              Bevoelkerung = sum(Bevoelkerung))
+    group_by(Group,year) %>% 
+    dplyr::select(Group,year,"population",gisd_score, TS_Bildung_adj, TS_Einkommen_adj, TS_Arbeitswelt_adj) %>% 
+    summarise(gisd_score = weighted.mean(gisd_score, population), 
+              TS_Bildung_adj = weighted.mean(TS_Bildung_adj, population), 
+              TS_Einkommen_adj = weighted.mean(TS_Einkommen_adj, population),
+              TS_Arbeitswelt_adj = weighted.mean(TS_Arbeitswelt_adj, population),
+              population = sum(population))
   
   
   # Daten bereinigen
   names(outputdata.bula)[1] <- mykennziffer
   outputdata.bula <- merge(outputdata.bula,mergedataset,by=mykennziffer) %>%  
-    select(mykennziffer,myname,Jahr,Bundesland,"Bevoelkerung",GISD_Score, TS_Bildung_adj, TS_Einkommen_adj, TS_Arbeitswelt_adj) %>%
-    group_by(Jahr) %>% as_tibble()
+    select(mykennziffer,myname,year,Bundesland,"population",gisd_score, TS_Bildung_adj, TS_Einkommen_adj, TS_Arbeitswelt_adj) %>%
+    group_by(year) %>% as_tibble()
     
-  outputdata.bula <- outputdata.bula %>% ungroup() %>% filter(!(Bundesland %in% c("Bremen","Hamburg","Berlin"))) %>% group_by(Jahr,Bundesland)
+  outputdata.bula <- outputdata.bula %>% ungroup() %>% filter(!(Bundesland %in% c("Bremen","Hamburg","Berlin"))) %>% group_by(year,Bundesland)
   
   
   # Rekodierung Bundesland
   for (i in 1998:2019) {
-  outputdata.bula <- outputdata.bula %>% group_by(Jahr, Bundesland) %>% mutate(GISD_Score = ifelse(Jahr == i,(GISD_Score -min(GISD_Score))/(max(GISD_Score)-min(GISD_Score)), GISD_Score)) %>% ungroup()
+  outputdata.bula <- outputdata.bula %>% group_by(year, Bundesland) %>% mutate(gisd_score = ifelse(year == i,(gisd_score -min(gisd_score))/(max(gisd_score)-min(gisd_score)), gisd_score)) %>% ungroup()
 }
                          
-  summary(outputdata.bula %>% select(contains("GISD")))
+  summary(outputdata.bula %>% select(contains("gisd")))
   
-  outputdata.bula <- outputdata.bula %>% mutate(GISD_Score = round(GISD_Score, digits = 5))
+  outputdata.bula <- outputdata.bula %>% mutate(gisd_score = round(gisd_score, digits = 5))
   
   # Ausgabe Bundesländer
   ListeBula <- unique(outputdata.bula$Bundesland)
@@ -994,8 +1017,8 @@ for(mykennziffer in exportlist$Kennziffern) {
   for(myland in ListeBula) {
   dir.create( paste0("Outfiles/2022_v03/Bundesland/",myland), showWarnings=F)  
     dir.create( paste0("Outfiles/2022_v03/Bundesland/",myland,"/",mylabel), showWarnings=F)  
-    mydata.bula <- outputdata.bula %>% filter(Bundesland==myland) %>% ungroup() %>% select(GISD_Score, mykennziffer, myname, Jahr)
-    write.csv(mydata.bula, paste0("Outfiles/2022_v03/Bundesland/",myland,"/",mylabel,"/",mylabel,".csv"))
+    mydata.bula <- outputdata.bula %>% filter(Bundesland==myland) %>% ungroup() %>% select(gisd_score, mykennziffer, myname, year)
+    write.csv(mydata.bula, paste0("Outfiles/2022_v03/Bundesland/",myland,"/",mylabel,"/",mylabel,".csv"), row.names=FALSE, fileEncoding="UTF-8")
     
     names(mydata.bula) <- gsub("\\.","_",make.names(names(mydata.bula)))
     names(mydata.bula) <- gsub("\\?","oe",names(mydata.bula))
@@ -1025,34 +1048,41 @@ for (mykennziffer in c("PLZ2","PLZ3","PLZ4","PLZ5")) {
   print(paste("Level:",myname,"Label:",mylabel))
   
   # Datensatzerstellung
-  outputdata <- Resultdataset 
-  outputdata <- outputdata %>% select(AGS=Gemeindekennziffer,Jahr,GISD_Score)
+  outputdata <- Resultdataset
+  
+  outputdata <- outputdata %>% rename(gemeinde_id = Gemeindekennziffer, year = Jahr, gisd_score = GISD_Score)
+  
+  outputdata <- outputdata %>% select(AGS=gemeinde_id,year,gisd_score)
   outputdata <- left_join(as.data.frame(PLZ.df) %>% ungroup() %>% mutate(AGS=as.numeric(as.character(AGS))),
                           outputdata,by=c("AGS"), all.x = TRUE)
-  outputdata <- outputdata %>% filter(!is.na(mykennziffer) & !is.na(EW_Area) & !is.na(Jahr) & EW_Area>0)
-  mycol <- which(mykennziffer %in% names(outputdata))
-  outputdata <- outputdata %>% group_by(Jahr,AGS) 
-  outputdata <- outputdata %>% mutate(GISD_Score = weighted.mean(GISD_Score,EW_Area))
-  names(outputdata)[names(outputdata)=="Jahr"]<- "JAHR" # Seltsames Problem Name "Jahr"
-  outputdata <- outputdata %>% group_by_at(vars("JAHR",mykennziffer)) %>% 
-    summarise(GISD_Score = weighted.mean(GISD_Score,EW_Area), Bevölkerung = sum(EW_Area)) %>%
-    group_by(JAHR)
   
-  outputdata <- outputdata %>%  mutate(GISD_Score = round((GISD_Score -min(GISD_Score ))/(max(GISD_Score )-min(GISD_Score )), digits=6),
-                                       GISD_5 = findInterval(GISD_Score, quantile(GISD_Score,   probs=0:5/5 , type=9)),
-                                       GISD_5 = findInterval(GISD_5, c(1:5)),
-                                       GISD_10 = findInterval(GISD_Score, quantile(GISD_Score, probs=0:10/10 , type=9)),
-                                       GISD_10 = findInterval(GISD_10, c(1:10)),
-                                       GISD_k = findInterval(GISD_5, c(1,2,5))) 
+  outputdata <- outputdata %>% mutate(AGS = as.character(AGS),
+                                      AGS = ifelse(nchar(AGS)<8,paste0("0",AGS),AGS))
+  
+  outputdata <- outputdata %>% filter(!is.na(mykennziffer) & !is.na(EW_Area) & !is.na(year) & EW_Area>0)
+  mycol <- which(mykennziffer %in% names(outputdata))
+  outputdata <- outputdata %>% group_by(year,AGS) 
+  outputdata <- outputdata %>% mutate(gisd_score = weighted.mean(gisd_score,EW_Area))
+  #names(outputdata)[names(outputdata)=="year"]<- "JAHR" # Seltsames Problem Name "Jahr"
+  outputdata <- outputdata %>% group_by_at(vars("year",mykennziffer)) %>% 
+    summarise(gisd_score = weighted.mean(gisd_score,EW_Area), population = sum(EW_Area)) %>%
+    group_by(year)
+  
+  outputdata <- outputdata %>%  mutate(gisd_score = round((gisd_score -min(gisd_score ))/(max(gisd_score )-min(gisd_score)), digits=6),
+                                       gisd_5 = findInterval(gisd_score, quantile(gisd_score,   probs=0:5/5 , type=9)),
+                                       gisd_5 = findInterval(gisd_5, c(1:5)),
+                                       gisd_10 = findInterval(gisd_score, quantile(gisd_score, probs=0:10/10 , type=9)),
+                                       gisd_10 = findInterval(gisd_10, c(1:10)),
+                                       gisd_k = findInterval(gisd_5, c(1,2,5)))
   summary(outputdata)            
   head(outputdata)
-  ListeJahre <- unique(outputdata$JAHR)
+  ListeJahre <- unique(outputdata$year)
   dir.create( paste0("Outfiles"), showWarnings=F)
   dir.create( paste0("Outfiles/2022_v03"), showWarnings=F) 
   dir.create( paste0("Outfiles/2022_v03/Bund/"), showWarnings=F) 
   dir.create( paste0("Outfiles/2022_v03/Bund/",mylabel), showWarnings=F) 
   mydata <- outputdata %>% ungroup() 
-  write.csv2(mydata, paste0("Outfiles/2022_v03/Bund/",mylabel,"/",mylabel,".csv"))
+  write.csv(mydata, paste0("Outfiles/2022_v03/Bund/",mylabel,"/",mylabel,".csv"), row.names=FALSE, fileEncoding="UTF-8")
   mydata <- outputdata %>% ungroup() 
   names(mydata) <- gsub("\\.","_",make.names(names(mydata)))
   names(mydata) <- gsub("\\?","oe",names(mydata))
