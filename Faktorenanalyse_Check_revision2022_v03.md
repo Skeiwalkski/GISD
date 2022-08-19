@@ -44,11 +44,24 @@ Impdata.imputed <- readRDS("Outfiles/2022_v03/Impdata_check.rds")
 # Variablenliste für die Faktorenanalyse 
 #print(listofdeterminants)
 
+#Arbeit
 TS_Arbeitswelt <- Impdata.imputed  %>% ungroup() %>% filter(Jahr > 1999) %>%
   select(Beschaeftigtenquote,Arbeitslosigkeit,Bruttoverdienst_ln)
 
-TS_Einkommen   <- Impdata.imputed %>% select(Einkommensteuer_ln,Haushaltseinkommen_ln,Schuldnerquote) 
+TS_Arbeitswelt_GVB <- Impdata.imputed  %>% group_by(Gemeindeverband,Jahr) %>% filter(Jahr > 1999) %>% mutate(Beschaeftigtenquote = weighted.mean(Beschaeftigtenquote,Bevoelkerung), Arbeitslosigkeit = weighted.mean(Arbeitslosigkeit,Bevoelkerung), Bruttoverdienst_ln = weighted.mean(Bruttoverdienst_ln,Bevoelkerung)) %>% ungroup() %>% select(Gemeindeverband,Beschaeftigtenquote,Arbeitslosigkeit,Bruttoverdienst_ln) %>% unique() %>% select(-Gemeindeverband)
 
+TS_Arbeitswelt_Kreis <- Impdata.imputed  %>% group_by(Kreis,Jahr) %>% filter(Jahr > 1999) %>% mutate(Beschaeftigtenquote = weighted.mean(Beschaeftigtenquote,Bevoelkerung), Arbeitslosigkeit = weighted.mean(Arbeitslosigkeit,Bevoelkerung), Bruttoverdienst_ln = weighted.mean(Bruttoverdienst_ln,Bevoelkerung)) %>% ungroup() %>% select(Kreis,Beschaeftigtenquote,Arbeitslosigkeit,Bruttoverdienst_ln) %>% unique() %>% select(-Kreis)
+
+
+#Einkommen
+TS_Einkommen   <- Impdata.imputed %>% filter(Jahr > 1999) %>% select(Einkommensteuer_ln,Haushaltseinkommen_ln,Schuldnerquote)
+
+TS_Einkommen_GVB <- Impdata.imputed  %>% group_by(Gemeindeverband,Jahr) %>% filter(Jahr > 1999) %>% mutate(Einkommensteuer_ln = weighted.mean(Einkommensteuer_ln,Bevoelkerung), Haushaltseinkommen_ln = weighted.mean(Haushaltseinkommen_ln,Bevoelkerung), Schuldnerquote = weighted.mean(Schuldnerquote,Bevoelkerung)) %>% ungroup() %>% select(Gemeindeverband,Einkommensteuer_ln,Haushaltseinkommen_ln,Schuldnerquote) %>% unique() %>% select(-Gemeindeverband)
+
+TS_Einkommen_Kreis <- Impdata.imputed  %>% group_by(Kreis,Jahr) %>% filter(Jahr > 1999) %>% mutate(Einkommensteuer_ln = weighted.mean(Einkommensteuer_ln,Bevoelkerung), Haushaltseinkommen_ln = weighted.mean(Haushaltseinkommen_ln,Bevoelkerung), Schuldnerquote = weighted.mean(Schuldnerquote,Bevoelkerung)) %>% ungroup() %>% select(Kreis,Einkommensteuer_ln,Haushaltseinkommen_ln,Schuldnerquote) %>% unique() %>% select(-Kreis)
+
+
+#Bildung
 TS_Bildung <- Impdata.imputed %>% filter(Jahr > 1999) %>% select(BeschaeftigtemitakadAbschluss_adj,BeschaeftigteohneAbschluss_adj,SchulabgaengerohneAbschluss_adj)
 
 TS_Bildung_NUTS2 <- Impdata.imputed %>% filter(Jahr > 1999) %>% select(BeschaeftigtemitakadAbschluss_adj,BeschaeftigteohneAbschluss_adj,BevoelkerungmitakadAbschluss,BevoelkerungohneAbschluss,SchulabgaengerohneAbschluss_adj)
@@ -59,6 +72,13 @@ TS_Bildung_o <- Impdata.imputed %>% filter(Jahr > 1999) %>% select(Beschaeftigte
 TS_Bildung_4items <- Impdata.imputed %>% filter(Jahr > 1999) %>% select(BeschaeftigtemitakadAbschluss_adj,BeschaeftigteohneAbschluss_adj,SchulabgaengerohneAbschluss_adj, SchulabgaengermitHochschulreife_adj)
 
 TS_Bildung_4items_o <- Impdata.imputed %>% filter(Jahr > 1999) %>% select(BeschaeftigtemitakadAbschluss_adj,BeschaeftigteohneAbschluss,SchulabgaengerohneAbschluss_adj, SchulabgaengermitHochschulreife_adj)
+
+TS_Bildung_GVB <- Impdata.imputed  %>% group_by(Gemeindeverband,Jahr) %>% filter(Jahr > 1999) %>% mutate(BeschaeftigtemitakadAbschluss_adj = weighted.mean(BeschaeftigtemitakadAbschluss_adj,Bevoelkerung), BeschaeftigteohneAbschluss_adj = weighted.mean(BeschaeftigteohneAbschluss_adj,Bevoelkerung), SchulabgaengerohneAbschluss_adj = weighted.mean(SchulabgaengerohneAbschluss_adj,Bevoelkerung)) %>% ungroup() %>% select(Gemeindeverband,BeschaeftigtemitakadAbschluss_adj,BeschaeftigteohneAbschluss_adj,SchulabgaengerohneAbschluss_adj) %>% unique() %>% select(-Gemeindeverband)
+
+TS_Bildung_Kreis <- Impdata.imputed  %>% group_by(Kreis,Jahr) %>% filter(Jahr > 1999) %>% mutate(BeschaeftigtemitakadAbschluss_adj = weighted.mean(BeschaeftigtemitakadAbschluss_adj,Bevoelkerung), BeschaeftigteohneAbschluss_adj = weighted.mean(BeschaeftigteohneAbschluss_adj,Bevoelkerung), SchulabgaengerohneAbschluss_adj = weighted.mean(SchulabgaengerohneAbschluss_adj,Bevoelkerung)) %>% ungroup() %>% select(Kreis,BeschaeftigtemitakadAbschluss_adj,BeschaeftigteohneAbschluss_adj,SchulabgaengerohneAbschluss_adj) %>% unique() %>% select(-Kreis)
+
+#Gesamt
+TS_Gesamt <- Impdata.imputed  %>% ungroup() %>% filter(Jahr > 1999) %>% select(Beschaeftigtenquote,Arbeitslosigkeit,Bruttoverdienst_ln,Einkommensteuer_ln,Haushaltseinkommen_ln,Schuldnerquote,BeschaeftigtemitakadAbschluss_adj,BeschaeftigteohneAbschluss_adj,SchulabgaengerohneAbschluss_adj)
 ```
 
 # Verschiedene Faktorenanalysen des GISD {.tabset}
@@ -73,9 +93,17 @@ Es werden Hauptkomponentenanalysen für jede der drei Subskalen auf Basis der im
 # PCA für die Arbeitsweltdimension
 TS_Arbeitswelt.pca <- prcomp(TS_Arbeitswelt, center = TRUE, scale. = TRUE, retx=TRUE, rank. = 1)
 
+TS_Arbeitswelt_GVB.pca <- prcomp(TS_Arbeitswelt_GVB, center = TRUE, scale. = TRUE, retx=TRUE, rank. = 1)
+
+TS_Arbeitswelt_Kreis.pca <- prcomp(TS_Arbeitswelt_Kreis, center = TRUE, scale. = TRUE, retx=TRUE, rank. = 1)
+
 
 # PCA für die Einkommensdimension
-TS_Einkommen.pca <- prcomp(TS_Einkommen, center = TRUE, scale. = TRUE, retx=TRUE, rank. = 1) 
+TS_Einkommen.pca <- prcomp(TS_Einkommen, center = TRUE, scale. = TRUE, retx=TRUE, rank. = 1)
+
+TS_Einkommen_GVB.pca <- prcomp(TS_Einkommen_GVB, center = TRUE, scale. = TRUE, retx=TRUE, rank. = 1)
+
+TS_Einkommen_Kreis.pca <- prcomp(TS_Einkommen_Kreis, center = TRUE, scale. = TRUE, retx=TRUE, rank. = 1)
 
 
 # PCA für die Bildungsdimension
@@ -86,13 +114,20 @@ TS_Bildung_NUTS2.pca <- prcomp(TS_Bildung_NUTS2, center = TRUE, scale. = TRUE, r
 TS_Bildung_4items.pca <- prcomp(TS_Bildung_4items, center = TRUE, scale. = TRUE, retx=TRUE, rank. = 1)
 
 TS_Bildung_4items_o.pca <- prcomp(TS_Bildung_4items_o, center = TRUE, scale. = TRUE, retx=TRUE, rank. = 1)
+
+TS_Bildung_GVB.pca <- prcomp(TS_Bildung_GVB, center = TRUE, scale. = TRUE, retx=TRUE, rank. = 1)
+
+TS_Bildung_Kreis.pca <- prcomp(TS_Bildung_Kreis, center = TRUE, scale. = TRUE, retx=TRUE, rank. = 1)
+
+# PCA Gesamt
+TS_Gesamt.pca <- prcomp(TS_Gesamt, center = TRUE, scale. = TRUE, retx = TRUE, rank. = 1)
 ```
 
 ### Eigenwerte der Komponenten
 
 
 ```r
-par(mfrow=c(1, 3))
+par(mfrow=c(1, 4))
 plot(TS_Arbeitswelt.pca, main = "Arbeitswelt (Eigenwerte)", ylim=c(0,2.2))
 plot(TS_Einkommen.pca, main = "Einkommen (Eigenwerte)", ylim=c(0,2.2))
 plot(TS_Bildung.pca, main = "Bildung (Eigenwerte)", ylim=c(0,2.2))
@@ -119,11 +154,11 @@ Table: (\#tab:unnamed-chunk-2)Varianz der Faktoren (Eigenwerte)
 
 |Faktoren |Varianz Arbeitswelt |Varianz Einkommen |Varianz Bildung |
 |:--------|:-------------------|:-----------------|:---------------|
-|Faktor 1 |1.772               |2.047             |1.572           |
-|Faktor 2 |0.774               |0.771             |0.786           |
-|Faktor 3 |0.454               |0.182             |0.642           |
+|Faktor 1 |1.772               |2.055             |1.572           |
+|Faktor 2 |0.774               |0.769             |0.786           |
+|Faktor 3 |0.454               |0.176             |0.642           |
 
-### Faktorladungen
+### Faktorladungen auf Gemeindeebene
 
 
 ```r
@@ -161,12 +196,90 @@ Table: (\#tab:unnamed-chunk-3)Faktorladungen und Anteile an den Teilscores sowie
 |Beschäftigtenquote                      |Arbeitswelt |0.64         |0.481     |             23.1|         7.7|
 |Arbeitslosigkeit                        |Arbeitswelt |-0.841       |-0.632    |             39.9|        13.3|
 |Bruttoverdienst (log.)                  |Arbeitswelt |0.81         |0.608     |             37.0|        12.3|
-|Einkommensteuer (log.)                  |Einkommen   |-0.911       |-0.637    |             40.6|        13.5|
-|Haushaltseinkommen (log.)               |Einkommen   |-0.921       |-0.644    |             41.5|        13.8|
-|Schuldnerquote                          |Einkommen   |0.607        |0.424     |             18.0|         6.0|
+|Einkommensteuer (log.)                  |Einkommen   |-0.914       |-0.638    |             40.7|        13.6|
+|Haushaltseinkommen (log.)               |Einkommen   |-0.921       |-0.643    |             41.3|        13.8|
+|Schuldnerquote                          |Einkommen   |0.608        |0.424     |             18.0|         6.0|
 |Beschäftigte mit akad. Abschluss (adj.) |Bildung     |0.732        |0.584     |             34.1|        11.4|
 |Beschäftigte ohne Abschluss (adj.)      |Bildung     |-0.771       |-0.615    |             37.8|        12.6|
 |Schulabgänger ohne Abschluss (adj.)     |Bildung     |-0.663       |-0.529    |             28.0|         9.3|
+
+
+### Faktorladungen auf Gemeindeebene (Unidimensional)
+
+
+```r
+# Componentoverview
+
+GISD_Komponents <- cbind("Teildimension"="Unidimensional","Faktorladung"=round((TS_Gesamt.pca$rotation*sqrt(abs(TS_Gesamt.pca$sdev[1]^2))), digits = 3),"Component"=round(TS_Gesamt.pca$rotation, digits = 3))
+
+GISD_Komponents <- cbind("Variables"=as.data.frame(rownames(GISD_Komponents)),as.data.frame(GISD_Komponents))
+
+rownames(GISD_Komponents) <- NULL
+
+colnames(GISD_Komponents) <- c("Variable","Dimension","Faktorladung","Component")
+
+GISD_Komponents$Variable <- c("Beschäftigtenquote", "Arbeitslosigkeit", "Bruttoverdienst (log.)", "Einkommensteuer (log.)", "Haushaltseinkommen (log.)", "Schuldnerquote", "Beschäftigte mit akad. Abschluss (adj.)", "Beschäftigte ohne Abschluss (adj.)", "Schulabgänger ohne Abschluss (adj.)")
+
+kable(GISD_Komponents, caption = "Faktorladungen und Anteile an den Teilscores sowie am Index (Unidimensional)")
+```
+
+
+
+Table: (\#tab:unnamed-chunk-4)Faktorladungen und Anteile an den Teilscores sowie am Index (Unidimensional)
+
+|Variable                                |Dimension      |Faktorladung |Component |
+|:---------------------------------------|:--------------|:------------|:---------|
+|Beschäftigtenquote                      |Unidimensional |0.503        |0.244     |
+|Arbeitslosigkeit                        |Unidimensional |-0.835       |-0.404    |
+|Bruttoverdienst (log.)                  |Unidimensional |0.756        |0.366     |
+|Einkommensteuer (log.)                  |Unidimensional |0.899        |0.435     |
+|Haushaltseinkommen (log.)               |Unidimensional |0.887        |0.429     |
+|Schuldnerquote                          |Unidimensional |-0.538       |-0.26     |
+|Beschäftigte mit akad. Abschluss (adj.) |Unidimensional |0.461        |0.223     |
+|Beschäftigte ohne Abschluss (adj.)      |Unidimensional |-0.433       |-0.209    |
+|Schulabgänger ohne Abschluss (adj.)     |Unidimensional |-0.682       |-0.33     |
+
+
+
+
+### Faktorladungen nach Ebene
+
+
+```r
+# Componentoverview
+GISD_Komponents <- cbind("Teildimension"="Arbeitswelt","Gemeinde"=round((TS_Arbeitswelt.pca$rotation*sqrt(abs(TS_Arbeitswelt.pca$sdev[1]^2))), digits = 3),"Gemeindeverband"=round((TS_Arbeitswelt_GVB.pca$rotation*sqrt(abs(TS_Arbeitswelt_GVB.pca$sdev[1]^2))), digits = 3),"Kreis"=round((TS_Arbeitswelt_Kreis.pca$rotation*sqrt(abs(TS_Arbeitswelt_Kreis.pca$sdev[1]^2))), digits = 3))
+
+GISD_Komponents <- rbind(GISD_Komponents,cbind("Teildimension"="Einkommen","Gemeinde"=round((TS_Einkommen.pca$rotation*sqrt(abs(TS_Einkommen.pca$sdev[1]^2))), digits = 3), "Gemeindeverband"=round((TS_Einkommen_GVB.pca$rotation*sqrt(abs(TS_Einkommen_GVB.pca$sdev[1]^2))), digits = 3),"Kreis"=round((TS_Einkommen_Kreis.pca$rotation*sqrt(abs(TS_Einkommen_Kreis.pca$sdev[1]^2))), digits = 3)))
+
+GISD_Komponents <- rbind(GISD_Komponents,cbind("Teildimension"="Bildung","Gemeinde"=round((TS_Bildung.pca$rotation*sqrt(abs(TS_Bildung.pca$sdev[1]^2))), digits = 3),"Gemeindeverband"=round((TS_Bildung_GVB.pca$rotation*sqrt(abs(TS_Bildung_GVB.pca$sdev[1]^2))), digits = 3),"Kreis"=round((TS_Bildung_Kreis.pca$rotation*sqrt(abs(TS_Bildung_Kreis.pca$sdev[1]^2))), digits = 3)))
+
+GISD_Komponents <- cbind("Variables"=as.data.frame(rownames(GISD_Komponents)),as.data.frame(GISD_Komponents))
+
+rownames(GISD_Komponents) <- NULL
+
+colnames(GISD_Komponents) <- c("Variable","Dimension","Gemeinde","Gemeindeverband", "Kreis")
+
+
+GISD_Komponents$Variable <- c("Beschäftigtenquote", "Arbeitslosigkeit", "Bruttoverdienst (log.)", "Einkommensteuer (log.)", "Haushaltseinkommen (log.)", "Schuldnerquote", "Beschäftigte mit akad. Abschluss (adj.)", "Beschäftigte ohne Abschluss (adj.)", "Schulabgänger ohne Abschluss (adj.)")
+
+kable(GISD_Komponents, caption = "Faktorladungen auf Gemeinde-, Gemeindeverbands- und Kreisebene")
+```
+
+
+
+Table: (\#tab:unnamed-chunk-5)Faktorladungen auf Gemeinde-, Gemeindeverbands- und Kreisebene
+
+|Variable                                |Dimension   |Gemeinde |Gemeindeverband |Kreis  |
+|:---------------------------------------|:-----------|:--------|:---------------|:------|
+|Beschäftigtenquote                      |Arbeitswelt |0.64     |0.636           |0.726  |
+|Arbeitslosigkeit                        |Arbeitswelt |-0.841   |-0.872          |-0.858 |
+|Bruttoverdienst (log.)                  |Arbeitswelt |0.81     |0.787           |0.679  |
+|Einkommensteuer (log.)                  |Einkommen   |-0.914   |-0.897          |-0.886 |
+|Haushaltseinkommen (log.)               |Einkommen   |-0.921   |-0.918          |-0.933 |
+|Schuldnerquote                          |Einkommen   |0.608    |0.628           |0.604  |
+|Beschäftigte mit akad. Abschluss (adj.) |Bildung     |0.732    |0.719           |0.6    |
+|Beschäftigte ohne Abschluss (adj.)      |Bildung     |-0.771   |-0.775          |-0.711 |
+|Schulabgänger ohne Abschluss (adj.)     |Bildung     |-0.663   |-0.719          |-0.761 |
 
 ## Gepoolte Querschnitte (NUTS2)
 
@@ -180,7 +293,7 @@ plot(TS_Einkommen.pca, main = "Einkommen (Eigenwerte)", ylim=c(0,2.2))
 plot(TS_Bildung_NUTS2.pca, main = "Bildung (Eigenwerte)", ylim=c(0,2.2))
 ```
 
-![](Faktorenanalyse_Check_revision2022_v03_files/figure-html/unnamed-chunk-4-1.png)<!-- -->
+![](Faktorenanalyse_Check_revision2022_v03_files/figure-html/unnamed-chunk-6-1.png)<!-- -->
 
 
 ```r
@@ -202,13 +315,13 @@ kable(Varianz_NUTS2_tab, caption = "Varianz der Faktoren (Eigenwerte)")
 
 
 
-Table: (\#tab:unnamed-chunk-5)Varianz der Faktoren (Eigenwerte)
+Table: (\#tab:unnamed-chunk-7)Varianz der Faktoren (Eigenwerte)
 
 |Faktoren |Varianz Arbeitswelt |Varianz Einkommen |Varianz Bildung |
 |:--------|:-------------------|:-----------------|:---------------|
-|Faktor 1 |1.772               |2.047             |2.188           |
-|Faktor 2 |0.774               |0.771             |1.202           |
-|Faktor 3 |0.454               |0.182             |0.8             |
+|Faktor 1 |1.772               |2.055             |2.188           |
+|Faktor 2 |0.774               |0.769             |1.202           |
+|Faktor 3 |0.454               |0.176             |0.8             |
 |Faktor 4 |NA                  |NA                |0.544           |
 |Faktor 5 |NA                  |NA                |0.265           |
 
@@ -244,16 +357,16 @@ kable(GISD_Komponents, caption = "Faktorladungen und Anteile an den Teilscores s
 
 
 
-Table: (\#tab:unnamed-chunk-6)Faktorladungen und Anteile an den Teilscores sowie am Index
+Table: (\#tab:unnamed-chunk-8)Faktorladungen und Anteile an den Teilscores sowie am Index
 
 |Variable                               |Dimension   |Faktorladung |Component | Anteil Teilscore| Anteil GISD|
 |:--------------------------------------|:-----------|:------------|:---------|----------------:|-----------:|
 |Beschäftigtenquote                     |Arbeitswelt |0.64         |0.481     |             23.1|         7.7|
 |Arbeitslosigkeit                       |Arbeitswelt |-0.841       |-0.632    |             39.9|        13.3|
 |Bruttoverdienst (log.)                 |Arbeitswelt |0.81         |0.608     |             37.0|        12.3|
-|Einkommensteuer (log.)                 |Einkommen   |-0.911       |-0.637    |             40.6|        13.5|
-|Haushaltseinkommen (log.)              |Einkommen   |-0.921       |-0.644    |             41.5|        13.8|
-|Schuldnerquote                         |Einkommen   |0.607        |0.424     |             18.0|         6.0|
+|Einkommensteuer (log.)                 |Einkommen   |-0.914       |-0.638    |             40.7|        13.6|
+|Haushaltseinkommen (log.)              |Einkommen   |-0.921       |-0.643    |             41.3|        13.8|
+|Schuldnerquote                         |Einkommen   |0.608        |0.424     |             18.0|         6.0|
 |Beschäftigte mit akad. Abschluss       |Bildung     |0.796        |0.538     |             28.9|         9.6|
 |Beschäftigte ohne Abschluss (adj.)     |Bildung     |-0.564       |-0.381    |             14.5|         4.8|
 |Bevölkerung mit akad. Abschluss (adj.) |Bildung     |0.817        |0.552     |             30.5|        10.2|
@@ -274,7 +387,7 @@ plot(TS_Einkommen.pca, main = "Einkommen (Eigenwerte)", ylim=c(0,2.2))
 plot(TS_Bildung_4items_o.pca, main = "Bildung (Eigenwerte)", ylim=c(0,2.2))
 ```
 
-![](Faktorenanalyse_Check_revision2022_v03_files/figure-html/unnamed-chunk-7-1.png)<!-- -->
+![](Faktorenanalyse_Check_revision2022_v03_files/figure-html/unnamed-chunk-9-1.png)<!-- -->
 
 
 ```r
@@ -294,13 +407,13 @@ kable(Varianz_B4_tab, caption = "Varianz der Faktoren (Eigenwerte)")
 
 
 
-Table: (\#tab:unnamed-chunk-8)Varianz der Faktoren (Eigenwerte)
+Table: (\#tab:unnamed-chunk-10)Varianz der Faktoren (Eigenwerte)
 
 |Faktoren |Varianz Arbeitswelt |Varianz Einkommen |Varianz Bildung |
 |:--------|:-------------------|:-----------------|:---------------|
-|Faktor 1 |1.772               |2.047             |1.972           |
-|Faktor 2 |0.774               |0.771             |1.108           |
-|Faktor 3 |0.454               |0.182             |0.498           |
+|Faktor 1 |1.772               |2.055             |1.972           |
+|Faktor 2 |0.774               |0.769             |1.108           |
+|Faktor 3 |0.454               |0.176             |0.498           |
 |Faktor 4 |NA                  |NA                |0.423           |
 
 ### Faktorladungen
@@ -333,16 +446,16 @@ kable(GISD_Komponents_4, caption = "Faktorladungen und Anteile an den Teilscores
 
 
 
-Table: (\#tab:unnamed-chunk-9)Faktorladungen und Anteile an den Teilscores sowie am Index
+Table: (\#tab:unnamed-chunk-11)Faktorladungen und Anteile an den Teilscores sowie am Index
 
 |Variable                                |Dimension   |Faktorladung |Component | Anteil Teilscore| Anteil GISD|
 |:---------------------------------------|:-----------|:------------|:---------|----------------:|-----------:|
 |Beschäftigtenquote                      |Arbeitswelt |0.64         |0.481     |             23.1|         7.7|
 |Arbeitslosigkeit                        |Arbeitswelt |-0.841       |-0.632    |             39.9|        13.3|
 |Bruttoverdienst (log.)                  |Arbeitswelt |0.81         |0.608     |             37.0|        12.3|
-|Einkommensteuer (log.)                  |Einkommen   |-0.911       |-0.637    |             40.6|        13.5|
-|Haushaltseinkommen (log.)               |Einkommen   |-0.921       |-0.644    |             41.5|        13.8|
-|Schuldnerquote                          |Einkommen   |0.607        |0.424     |             18.0|         6.0|
+|Einkommensteuer (log.)                  |Einkommen   |-0.914       |-0.638    |             40.7|        13.6|
+|Haushaltseinkommen (log.)               |Einkommen   |-0.921       |-0.643    |             41.3|        13.8|
+|Schuldnerquote                          |Einkommen   |0.608        |0.424     |             18.0|         6.0|
 |Beschäftigte mit akad. Abschluss (adj.) |Bildung     |0.84         |0.599     |             35.9|        12.0|
 |Beschäftigte ohne Abschluss             |Bildung     |-0.694       |-0.495    |             24.5|         8.2|
 |Schulabgänger ohne Abschluss (adj.)     |Bildung     |-0.245       |-0.174    |              3.0|         1.0|
@@ -362,7 +475,7 @@ plot(TS_Einkommen.pca, main = "Einkommen (Eigenwerte)", ylim=c(0,2.2))
 plot(TS_Bildung_4items.pca, main = "Bildung (Eigenwerte)", ylim=c(0,2.2))
 ```
 
-![](Faktorenanalyse_Check_revision2022_v03_files/figure-html/unnamed-chunk-10-1.png)<!-- -->
+![](Faktorenanalyse_Check_revision2022_v03_files/figure-html/unnamed-chunk-12-1.png)<!-- -->
 
 
 ```r
@@ -382,13 +495,13 @@ kable(Varianz_B4_tab, caption = "Varianz der Faktoren (Eigenwerte)")
 
 
 
-Table: (\#tab:unnamed-chunk-11)Varianz der Faktoren (Eigenwerte)
+Table: (\#tab:unnamed-chunk-13)Varianz der Faktoren (Eigenwerte)
 
 |Faktoren |Varianz Arbeitswelt |Varianz Einkommen |Varianz Bildung |
 |:--------|:-------------------|:-----------------|:---------------|
-|Faktor 1 |1.772               |2.047             |1.918           |
-|Faktor 2 |0.774               |0.771             |0.961           |
-|Faktor 3 |0.454               |0.182             |0.721           |
+|Faktor 1 |1.772               |2.055             |1.918           |
+|Faktor 2 |0.774               |0.769             |0.961           |
+|Faktor 3 |0.454               |0.176             |0.721           |
 |Faktor 4 |NA                  |NA                |0.4             |
 
 ### Faktorladungen
@@ -421,16 +534,16 @@ kable(GISD_Komponents_4, caption = "Faktorladungen und Anteile an den Teilscores
 
 
 
-Table: (\#tab:unnamed-chunk-12)Faktorladungen und Anteile an den Teilscores sowie am Index
+Table: (\#tab:unnamed-chunk-14)Faktorladungen und Anteile an den Teilscores sowie am Index
 
 |Variable                                |Dimension   |Faktorladung |Component | Anteil Teilscore| Anteil GISD|
 |:---------------------------------------|:-----------|:------------|:---------|----------------:|-----------:|
 |Beschäftigtenquote                      |Arbeitswelt |0.64         |0.481     |             23.1|         7.7|
 |Arbeitslosigkeit                        |Arbeitswelt |-0.841       |-0.632    |             39.9|        13.3|
 |Bruttoverdienst (log.)                  |Arbeitswelt |0.81         |0.608     |             37.0|        12.3|
-|Einkommensteuer (log.)                  |Einkommen   |-0.911       |-0.637    |             40.6|        13.5|
-|Haushaltseinkommen (log.)               |Einkommen   |-0.921       |-0.644    |             41.5|        13.8|
-|Schuldnerquote                          |Einkommen   |0.607        |0.424     |             18.0|         6.0|
+|Einkommensteuer (log.)                  |Einkommen   |-0.914       |-0.638    |             40.7|        13.6|
+|Haushaltseinkommen (log.)               |Einkommen   |-0.921       |-0.643    |             41.3|        13.8|
+|Schuldnerquote                          |Einkommen   |0.608        |0.424     |             18.0|         6.0|
 |Beschäftigte mit akad. Abschluss (adj.) |Bildung     |0.832        |0.601     |             36.1|        12.0|
 |Beschäftigte ohne Abschluss (adj.)      |Bildung     |-0.63        |-0.455    |             20.7|         6.9|
 |Schulabgänger ohne Abschluss (adj.)     |Bildung     |-0.526       |-0.38     |             14.4|         4.8|
@@ -479,7 +592,7 @@ plot(TS_Einkommen_19.pca, main = "Einkommen (Eigenwerte)", ylim=c(0,2))
 plot(TS_Bildung_19.pca, main = "Bildung (Eigenwerte)", ylim=c(0,2))
 ```
 
-![](Faktorenanalyse_Check_revision2022_v03_files/figure-html/unnamed-chunk-13-1.png)<!-- -->
+![](Faktorenanalyse_Check_revision2022_v03_files/figure-html/unnamed-chunk-15-1.png)<!-- -->
 
 
 ```r
@@ -497,7 +610,7 @@ kable(Varianz19_tab, caption = "Varianz der Faktoren (Eigenwerte) für 2017")
 
 
 
-Table: (\#tab:unnamed-chunk-14)Varianz der Faktoren (Eigenwerte) für 2017
+Table: (\#tab:unnamed-chunk-16)Varianz der Faktoren (Eigenwerte) für 2017
 
 |Faktoren |Varianz Arbeitswelt |Varianz Einkommen |Varianz Bildung |
 |:--------|:-------------------|:-----------------|:---------------|
@@ -535,7 +648,7 @@ kable(GISD_Komponents_19, caption = "Komponenten und Anteile der Dimensionen fü
 
 
 
-Table: (\#tab:unnamed-chunk-15)Komponenten und Anteile der Dimensionen für 2019
+Table: (\#tab:unnamed-chunk-17)Komponenten und Anteile der Dimensionen für 2019
 
 |Variable                                |Dimension   |Faktorladung |Coponent | Anteil Dimension| Anteil GISD|
 |:---------------------------------------|:-----------|:------------|:--------|----------------:|-----------:|
@@ -550,6 +663,33 @@ Table: (\#tab:unnamed-chunk-15)Komponenten und Anteile der Dimensionen für 2019
 |Schulabgänger ohne Abschluss (adj.)     |Bildung     |0.765        |0.633    |             40.1|        13.4|
 
 
+```r
+# Korrelationen
+Data2019 <- Impdata.imputed %>% filter(Jahr == 2019)
+Data2019$TS_Arbeitswelt_19 <- as.numeric(predict(TS_Arbeitswelt_19.pca, newdata = Data2019))
+Data2019$TS_Einkommen_19 <- as.numeric(predict(TS_Einkommen_19.pca , newdata = Data2019))
+Data2019$TS_Bildung_19 <- as.numeric(predict(TS_Bildung_19.pca, newdata = Data2019))
+
+cor_tab_pol <- Data2019 %>% select(TS_Arbeitswelt_19,TS_Einkommen_19,TS_Bildung_19)  %>% cor(use="pairwise.complete.obs")
+
+cor_tab_pol <- cbind(as.data.frame(cor_tab_pol))
+
+colnames(cor_tab_pol) <- c("Faktor Arbeitswelt", "Faktor Einkommen", "Faktor Bildung")
+
+rownames(cor_tab_pol) <- c("Faktor Arbeitswelt", "Faktor Einkommen", "Faktor Bildung")
+
+kable(cor_tab_pol, caption = "Korrelation der Faktoren")
+```
+
+
+
+Table: (\#tab:unnamed-chunk-18)Korrelation der Faktoren
+
+|                   | Faktor Arbeitswelt| Faktor Einkommen| Faktor Bildung|
+|:------------------|------------------:|----------------:|--------------:|
+|Faktor Arbeitswelt |          1.0000000|        0.7580042|     -0.5604231|
+|Faktor Einkommen   |          0.7580042|        1.0000000|     -0.7137393|
+|Faktor Bildung     |         -0.5604231|       -0.7137393|      1.0000000|
 
 ## 4 Items Bildung nur 2019 (Boa adjustiert)
 Gepoolte Querschnitte mit 4 Bildungsitems und Beschäftigte ohne Abschluss adjustiert nur für 2019.
@@ -563,7 +703,7 @@ plot(TS_Einkommen_19.pca, main = "Einkommen (Eigenwerte)", ylim=c(0,2.2))
 plot(TS_Bildung_4items_19.pca, main = "Bildung (Eigenwerte)", ylim=c(0,2.2))
 ```
 
-![](Faktorenanalyse_Check_revision2022_v03_files/figure-html/unnamed-chunk-16-1.png)<!-- -->
+![](Faktorenanalyse_Check_revision2022_v03_files/figure-html/unnamed-chunk-19-1.png)<!-- -->
 
 
 ```r
@@ -583,7 +723,7 @@ kable(Varianz_B4_tab, caption = "Varianz der Faktoren (Eigenwerte)")
 
 
 
-Table: (\#tab:unnamed-chunk-17)Varianz der Faktoren (Eigenwerte)
+Table: (\#tab:unnamed-chunk-20)Varianz der Faktoren (Eigenwerte)
 
 |Faktoren |Varianz Arbeitswelt |Varianz Einkommen |Varianz Bildung |
 |:--------|:-------------------|:-----------------|:---------------|
@@ -622,7 +762,7 @@ kable(GISD_Komponents_4, caption = "Faktorladungen und Anteile an den Teilscores
 
 
 
-Table: (\#tab:unnamed-chunk-18)Faktorladungen und Anteile an den Teilscores sowie am Index für 2019
+Table: (\#tab:unnamed-chunk-21)Faktorladungen und Anteile an den Teilscores sowie am Index für 2019
 
 |Variable                                |Dimension   |Faktorladung |Component | Anteil Teilscore| Anteil GISD|
 |:---------------------------------------|:-----------|:------------|:---------|----------------:|-----------:|
@@ -665,7 +805,7 @@ plot(d_TS_Einkommen, main = "Density Einkommen")
 plot(d_TS_Bildung, main = "Density Bildung")
 ```
 
-![](Faktorenanalyse_Check_revision2022_v03_files/figure-html/unnamed-chunk-20-1.png)<!-- -->
+![](Faktorenanalyse_Check_revision2022_v03_files/figure-html/unnamed-chunk-23-1.png)<!-- -->
 
 
 ```r
@@ -683,14 +823,14 @@ kable(cor_tab, caption = "Korrelation von Arbeitslosigkeit und Faktoren")
 
 
 
-Table: (\#tab:unnamed-chunk-21)Korrelation von Arbeitslosigkeit und Faktoren
+Table: (\#tab:unnamed-chunk-24)Korrelation von Arbeitslosigkeit und Faktoren
 
 |                   | Arbeitslosigkeit| Faktor Arbeitswelt| Faktor Einkommen| Faktor Bildung|
 |:------------------|----------------:|------------------:|----------------:|--------------:|
-|Arbeitslosigkeit   |        1.0000000|         -0.8442108|        0.8340554|     -0.4218227|
-|Faktor Arbeitswelt |       -0.8442108|          1.0000000|       -0.8601711|      0.5194746|
-|Faktor Einkommen   |        0.8340554|         -0.8601711|        1.0000000|     -0.5700541|
-|Faktor Bildung     |       -0.4218227|          0.5194746|       -0.5700541|      1.0000000|
+|Arbeitslosigkeit   |        1.0000000|         -0.8442108|        0.8345237|     -0.4218227|
+|Faktor Arbeitswelt |       -0.8442108|          1.0000000|       -0.8606418|      0.5194746|
+|Faktor Einkommen   |        0.8345237|         -0.8606418|        1.0000000|     -0.5701965|
+|Faktor Bildung     |       -0.4218227|          0.5194746|       -0.5701965|      1.0000000|
 
 
 
@@ -719,14 +859,14 @@ kable(cor_tab_pol, caption = "Korrelation von Arbeitslosigkeit und Faktoren (gep
 
 
 
-Table: (\#tab:unnamed-chunk-22)Korrelation von Arbeitslosigkeit und Faktoren (gepoolt)
+Table: (\#tab:unnamed-chunk-25)Korrelation von Arbeitslosigkeit und Faktoren (gepoolt)
 
 |                   | Arbeitslosigkeit| Faktor Arbeitswelt| Faktor Einkommen| Faktor Bildung|
 |:------------------|----------------:|------------------:|----------------:|--------------:|
-|Arbeitslosigkeit   |        1.0000000|          0.8442108|        0.8340554|      0.4218227|
-|Faktor Arbeitswelt |        0.8442108|          1.0000000|        0.8601711|      0.5194746|
-|Faktor Einkommen   |        0.8340554|          0.8601711|        1.0000000|      0.5700541|
-|Faktor Bildung     |        0.4218227|          0.5194746|        0.5700541|      1.0000000|
+|Arbeitslosigkeit   |        1.0000000|          0.8442108|        0.8345237|      0.4218227|
+|Faktor Arbeitswelt |        0.8442108|          1.0000000|        0.8606418|      0.5194746|
+|Faktor Einkommen   |        0.8345237|          0.8606418|        1.0000000|      0.5701965|
+|Faktor Bildung     |        0.4218227|          0.5194746|        0.5701965|      1.0000000|
 
 
 ```r
@@ -763,7 +903,7 @@ plot(d_TS_Bildung_norm, main = "Density Bildung")
 plot(d_GISD_Score_norm, main = "Density GISD Score")
 ```
 
-![](Faktorenanalyse_Check_revision2022_v03_files/figure-html/unnamed-chunk-23-1.png)<!-- -->
+![](Faktorenanalyse_Check_revision2022_v03_files/figure-html/unnamed-chunk-26-1.png)<!-- -->
 
 
 
@@ -836,13 +976,13 @@ kable(cor_tab_GISDscore, caption = "Korrelation der verschiedenen GISD-Scores")
 
 
 
-Table: (\#tab:unnamed-chunk-24)Korrelation der verschiedenen GISD-Scores
+Table: (\#tab:unnamed-chunk-27)Korrelation der verschiedenen GISD-Scores
 
 |              | GISD-Score| GISD-Score (Bildung 4 Items)| GISD-Score 2019|
 |:-------------|----------:|----------------------------:|---------------:|
-|GISD_Score    |  1.0000000|                    0.7800202|      -0.7282559|
-|GISD_Score_B4 |  0.7800202|                    1.0000000|      -0.9632958|
-|GISD_Score_19 | -0.7282559|                   -0.9632958|       1.0000000|
+|GISD_Score    |  1.0000000|                    0.7794420|      -0.7283062|
+|GISD_Score_B4 |  0.7794420|                    1.0000000|      -0.9634939|
+|GISD_Score_19 | -0.7283062|                   -0.9634939|       1.0000000|
 
 ```r
 #write_rds(Resultdataset, paste0("Outfiles/Resultdata_FaktorCheck.rds"))

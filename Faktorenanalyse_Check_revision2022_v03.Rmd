@@ -45,11 +45,24 @@ Impdata.imputed <- readRDS("Outfiles/2022_v03/Impdata_check.rds")
 # Variablenliste für die Faktorenanalyse 
 #print(listofdeterminants)
 
+#Arbeit
 TS_Arbeitswelt <- Impdata.imputed  %>% ungroup() %>% filter(Jahr > 1999) %>%
   select(Beschaeftigtenquote,Arbeitslosigkeit,Bruttoverdienst_ln)
 
-TS_Einkommen   <- Impdata.imputed %>% select(Einkommensteuer_ln,Haushaltseinkommen_ln,Schuldnerquote) 
+TS_Arbeitswelt_GVB <- Impdata.imputed  %>% group_by(Gemeindeverband,Jahr) %>% filter(Jahr > 1999) %>% mutate(Beschaeftigtenquote = weighted.mean(Beschaeftigtenquote,Bevoelkerung), Arbeitslosigkeit = weighted.mean(Arbeitslosigkeit,Bevoelkerung), Bruttoverdienst_ln = weighted.mean(Bruttoverdienst_ln,Bevoelkerung)) %>% ungroup() %>% select(Gemeindeverband,Beschaeftigtenquote,Arbeitslosigkeit,Bruttoverdienst_ln) %>% unique() %>% select(-Gemeindeverband)
 
+TS_Arbeitswelt_Kreis <- Impdata.imputed  %>% group_by(Kreis,Jahr) %>% filter(Jahr > 1999) %>% mutate(Beschaeftigtenquote = weighted.mean(Beschaeftigtenquote,Bevoelkerung), Arbeitslosigkeit = weighted.mean(Arbeitslosigkeit,Bevoelkerung), Bruttoverdienst_ln = weighted.mean(Bruttoverdienst_ln,Bevoelkerung)) %>% ungroup() %>% select(Kreis,Beschaeftigtenquote,Arbeitslosigkeit,Bruttoverdienst_ln) %>% unique() %>% select(-Kreis)
+
+
+#Einkommen
+TS_Einkommen   <- Impdata.imputed %>% filter(Jahr > 1999) %>% select(Einkommensteuer_ln,Haushaltseinkommen_ln,Schuldnerquote)
+
+TS_Einkommen_GVB <- Impdata.imputed  %>% group_by(Gemeindeverband,Jahr) %>% filter(Jahr > 1999) %>% mutate(Einkommensteuer_ln = weighted.mean(Einkommensteuer_ln,Bevoelkerung), Haushaltseinkommen_ln = weighted.mean(Haushaltseinkommen_ln,Bevoelkerung), Schuldnerquote = weighted.mean(Schuldnerquote,Bevoelkerung)) %>% ungroup() %>% select(Gemeindeverband,Einkommensteuer_ln,Haushaltseinkommen_ln,Schuldnerquote) %>% unique() %>% select(-Gemeindeverband)
+
+TS_Einkommen_Kreis <- Impdata.imputed  %>% group_by(Kreis,Jahr) %>% filter(Jahr > 1999) %>% mutate(Einkommensteuer_ln = weighted.mean(Einkommensteuer_ln,Bevoelkerung), Haushaltseinkommen_ln = weighted.mean(Haushaltseinkommen_ln,Bevoelkerung), Schuldnerquote = weighted.mean(Schuldnerquote,Bevoelkerung)) %>% ungroup() %>% select(Kreis,Einkommensteuer_ln,Haushaltseinkommen_ln,Schuldnerquote) %>% unique() %>% select(-Kreis)
+
+
+#Bildung
 TS_Bildung <- Impdata.imputed %>% filter(Jahr > 1999) %>% select(BeschaeftigtemitakadAbschluss_adj,BeschaeftigteohneAbschluss_adj,SchulabgaengerohneAbschluss_adj)
 
 TS_Bildung_NUTS2 <- Impdata.imputed %>% filter(Jahr > 1999) %>% select(BeschaeftigtemitakadAbschluss_adj,BeschaeftigteohneAbschluss_adj,BevoelkerungmitakadAbschluss,BevoelkerungohneAbschluss,SchulabgaengerohneAbschluss_adj)
@@ -60,6 +73,13 @@ TS_Bildung_o <- Impdata.imputed %>% filter(Jahr > 1999) %>% select(Beschaeftigte
 TS_Bildung_4items <- Impdata.imputed %>% filter(Jahr > 1999) %>% select(BeschaeftigtemitakadAbschluss_adj,BeschaeftigteohneAbschluss_adj,SchulabgaengerohneAbschluss_adj, SchulabgaengermitHochschulreife_adj)
 
 TS_Bildung_4items_o <- Impdata.imputed %>% filter(Jahr > 1999) %>% select(BeschaeftigtemitakadAbschluss_adj,BeschaeftigteohneAbschluss,SchulabgaengerohneAbschluss_adj, SchulabgaengermitHochschulreife_adj)
+
+TS_Bildung_GVB <- Impdata.imputed  %>% group_by(Gemeindeverband,Jahr) %>% filter(Jahr > 1999) %>% mutate(BeschaeftigtemitakadAbschluss_adj = weighted.mean(BeschaeftigtemitakadAbschluss_adj,Bevoelkerung), BeschaeftigteohneAbschluss_adj = weighted.mean(BeschaeftigteohneAbschluss_adj,Bevoelkerung), SchulabgaengerohneAbschluss_adj = weighted.mean(SchulabgaengerohneAbschluss_adj,Bevoelkerung)) %>% ungroup() %>% select(Gemeindeverband,BeschaeftigtemitakadAbschluss_adj,BeschaeftigteohneAbschluss_adj,SchulabgaengerohneAbschluss_adj) %>% unique() %>% select(-Gemeindeverband)
+
+TS_Bildung_Kreis <- Impdata.imputed  %>% group_by(Kreis,Jahr) %>% filter(Jahr > 1999) %>% mutate(BeschaeftigtemitakadAbschluss_adj = weighted.mean(BeschaeftigtemitakadAbschluss_adj,Bevoelkerung), BeschaeftigteohneAbschluss_adj = weighted.mean(BeschaeftigteohneAbschluss_adj,Bevoelkerung), SchulabgaengerohneAbschluss_adj = weighted.mean(SchulabgaengerohneAbschluss_adj,Bevoelkerung)) %>% ungroup() %>% select(Kreis,BeschaeftigtemitakadAbschluss_adj,BeschaeftigteohneAbschluss_adj,SchulabgaengerohneAbschluss_adj) %>% unique() %>% select(-Kreis)
+
+#Gesamt
+TS_Gesamt <- Impdata.imputed  %>% ungroup() %>% filter(Jahr > 1999) %>% select(Beschaeftigtenquote,Arbeitslosigkeit,Bruttoverdienst_ln,Einkommensteuer_ln,Haushaltseinkommen_ln,Schuldnerquote,BeschaeftigtemitakadAbschluss_adj,BeschaeftigteohneAbschluss_adj,SchulabgaengerohneAbschluss_adj)
 
 ```
 
@@ -74,9 +94,17 @@ Es werden Hauptkomponentenanalysen für jede der drei Subskalen auf Basis der im
 # PCA für die Arbeitsweltdimension
 TS_Arbeitswelt.pca <- prcomp(TS_Arbeitswelt, center = TRUE, scale. = TRUE, retx=TRUE, rank. = 1)
 
+TS_Arbeitswelt_GVB.pca <- prcomp(TS_Arbeitswelt_GVB, center = TRUE, scale. = TRUE, retx=TRUE, rank. = 1)
+
+TS_Arbeitswelt_Kreis.pca <- prcomp(TS_Arbeitswelt_Kreis, center = TRUE, scale. = TRUE, retx=TRUE, rank. = 1)
+
 
 # PCA für die Einkommensdimension
-TS_Einkommen.pca <- prcomp(TS_Einkommen, center = TRUE, scale. = TRUE, retx=TRUE, rank. = 1) 
+TS_Einkommen.pca <- prcomp(TS_Einkommen, center = TRUE, scale. = TRUE, retx=TRUE, rank. = 1)
+
+TS_Einkommen_GVB.pca <- prcomp(TS_Einkommen_GVB, center = TRUE, scale. = TRUE, retx=TRUE, rank. = 1)
+
+TS_Einkommen_Kreis.pca <- prcomp(TS_Einkommen_Kreis, center = TRUE, scale. = TRUE, retx=TRUE, rank. = 1)
 
 
 # PCA für die Bildungsdimension
@@ -87,12 +115,19 @@ TS_Bildung_NUTS2.pca <- prcomp(TS_Bildung_NUTS2, center = TRUE, scale. = TRUE, r
 TS_Bildung_4items.pca <- prcomp(TS_Bildung_4items, center = TRUE, scale. = TRUE, retx=TRUE, rank. = 1)
 
 TS_Bildung_4items_o.pca <- prcomp(TS_Bildung_4items_o, center = TRUE, scale. = TRUE, retx=TRUE, rank. = 1)
+
+TS_Bildung_GVB.pca <- prcomp(TS_Bildung_GVB, center = TRUE, scale. = TRUE, retx=TRUE, rank. = 1)
+
+TS_Bildung_Kreis.pca <- prcomp(TS_Bildung_Kreis, center = TRUE, scale. = TRUE, retx=TRUE, rank. = 1)
+
+# PCA Gesamt
+TS_Gesamt.pca <- prcomp(TS_Gesamt, center = TRUE, scale. = TRUE, retx = TRUE, rank. = 1)
 ```
 
 ### Eigenwerte der Komponenten
 
 ```{r , message=FALSE, warning=FALSE}
-par(mfrow=c(1, 3))
+par(mfrow=c(1, 4))
 plot(TS_Arbeitswelt.pca, main = "Arbeitswelt (Eigenwerte)", ylim=c(0,2.2))
 plot(TS_Einkommen.pca, main = "Einkommen (Eigenwerte)", ylim=c(0,2.2))
 plot(TS_Bildung.pca, main = "Bildung (Eigenwerte)", ylim=c(0,2.2))
@@ -110,7 +145,7 @@ colnames(Varianz_tab) <- c("Faktoren", "Varianz Arbeitswelt", "Varianz Einkommen
 kable(Varianz_tab, caption = "Varianz der Faktoren (Eigenwerte)")
 ```
 
-### Faktorladungen
+### Faktorladungen auf Gemeindeebene
 
 ```{r message=FALSE, warning=FALSE}
 # Componentoverview
@@ -136,6 +171,50 @@ colnames(GISD_Komponents) <- c("Variable","Dimension","Faktorladung","Component"
 GISD_Komponents$Variable <- c("Beschäftigtenquote", "Arbeitslosigkeit", "Bruttoverdienst (log.)", "Einkommensteuer (log.)", "Haushaltseinkommen (log.)", "Schuldnerquote", "Beschäftigte mit akad. Abschluss (adj.)", "Beschäftigte ohne Abschluss (adj.)", "Schulabgänger ohne Abschluss (adj.)")
 
 kable(GISD_Komponents, caption = "Faktorladungen und Anteile an den Teilscores sowie am Index")
+```
+
+
+### Faktorladungen auf Gemeindeebene (Unidimensional)
+
+```{r message=FALSE, warning=FALSE}
+# Componentoverview
+
+GISD_Komponents <- cbind("Teildimension"="Unidimensional","Faktorladung"=round((TS_Gesamt.pca$rotation*sqrt(abs(TS_Gesamt.pca$sdev[1]^2))), digits = 3),"Component"=round(TS_Gesamt.pca$rotation, digits = 3))
+
+GISD_Komponents <- cbind("Variables"=as.data.frame(rownames(GISD_Komponents)),as.data.frame(GISD_Komponents))
+
+rownames(GISD_Komponents) <- NULL
+
+colnames(GISD_Komponents) <- c("Variable","Dimension","Faktorladung","Component")
+
+GISD_Komponents$Variable <- c("Beschäftigtenquote", "Arbeitslosigkeit", "Bruttoverdienst (log.)", "Einkommensteuer (log.)", "Haushaltseinkommen (log.)", "Schuldnerquote", "Beschäftigte mit akad. Abschluss (adj.)", "Beschäftigte ohne Abschluss (adj.)", "Schulabgänger ohne Abschluss (adj.)")
+
+kable(GISD_Komponents, caption = "Faktorladungen und Anteile an den Teilscores sowie am Index (Unidimensional)")
+```
+
+
+
+
+### Faktorladungen nach Ebene
+
+```{r message=FALSE, warning=FALSE}
+# Componentoverview
+GISD_Komponents <- cbind("Teildimension"="Arbeitswelt","Gemeinde"=round((TS_Arbeitswelt.pca$rotation*sqrt(abs(TS_Arbeitswelt.pca$sdev[1]^2))), digits = 3),"Gemeindeverband"=round((TS_Arbeitswelt_GVB.pca$rotation*sqrt(abs(TS_Arbeitswelt_GVB.pca$sdev[1]^2))), digits = 3),"Kreis"=round((TS_Arbeitswelt_Kreis.pca$rotation*sqrt(abs(TS_Arbeitswelt_Kreis.pca$sdev[1]^2))), digits = 3))
+
+GISD_Komponents <- rbind(GISD_Komponents,cbind("Teildimension"="Einkommen","Gemeinde"=round((TS_Einkommen.pca$rotation*sqrt(abs(TS_Einkommen.pca$sdev[1]^2))), digits = 3), "Gemeindeverband"=round((TS_Einkommen_GVB.pca$rotation*sqrt(abs(TS_Einkommen_GVB.pca$sdev[1]^2))), digits = 3),"Kreis"=round((TS_Einkommen_Kreis.pca$rotation*sqrt(abs(TS_Einkommen_Kreis.pca$sdev[1]^2))), digits = 3)))
+
+GISD_Komponents <- rbind(GISD_Komponents,cbind("Teildimension"="Bildung","Gemeinde"=round((TS_Bildung.pca$rotation*sqrt(abs(TS_Bildung.pca$sdev[1]^2))), digits = 3),"Gemeindeverband"=round((TS_Bildung_GVB.pca$rotation*sqrt(abs(TS_Bildung_GVB.pca$sdev[1]^2))), digits = 3),"Kreis"=round((TS_Bildung_Kreis.pca$rotation*sqrt(abs(TS_Bildung_Kreis.pca$sdev[1]^2))), digits = 3)))
+
+GISD_Komponents <- cbind("Variables"=as.data.frame(rownames(GISD_Komponents)),as.data.frame(GISD_Komponents))
+
+rownames(GISD_Komponents) <- NULL
+
+colnames(GISD_Komponents) <- c("Variable","Dimension","Gemeinde","Gemeindeverband", "Kreis")
+
+
+GISD_Komponents$Variable <- c("Beschäftigtenquote", "Arbeitslosigkeit", "Bruttoverdienst (log.)", "Einkommensteuer (log.)", "Haushaltseinkommen (log.)", "Schuldnerquote", "Beschäftigte mit akad. Abschluss (adj.)", "Beschäftigte ohne Abschluss (adj.)", "Schulabgänger ohne Abschluss (adj.)")
+
+kable(GISD_Komponents, caption = "Faktorladungen auf Gemeinde-, Gemeindeverbands- und Kreisebene")
 ```
 
 ## Gepoolte Querschnitte (NUTS2)
@@ -386,7 +465,23 @@ GISD_Komponents_19$Variable <- c("Beschäftigtenquote", "Arbeitslosigkeit", "Bru
 kable(GISD_Komponents_19, caption = "Komponenten und Anteile der Dimensionen für 2019")
 ```
 
+```{r}
+# Korrelationen
+Data2019 <- Impdata.imputed %>% filter(Jahr == 2019)
+Data2019$TS_Arbeitswelt_19 <- as.numeric(predict(TS_Arbeitswelt_19.pca, newdata = Data2019))
+Data2019$TS_Einkommen_19 <- as.numeric(predict(TS_Einkommen_19.pca , newdata = Data2019))
+Data2019$TS_Bildung_19 <- as.numeric(predict(TS_Bildung_19.pca, newdata = Data2019))
 
+cor_tab_pol <- Data2019 %>% select(TS_Arbeitswelt_19,TS_Einkommen_19,TS_Bildung_19)  %>% cor(use="pairwise.complete.obs")
+
+cor_tab_pol <- cbind(as.data.frame(cor_tab_pol))
+
+colnames(cor_tab_pol) <- c("Faktor Arbeitswelt", "Faktor Einkommen", "Faktor Bildung")
+
+rownames(cor_tab_pol) <- c("Faktor Arbeitswelt", "Faktor Einkommen", "Faktor Bildung")
+
+kable(cor_tab_pol, caption = "Korrelation der Faktoren")
+```
 
 ## 4 Items Bildung nur 2019 (Boa adjustiert)
 Gepoolte Querschnitte mit 4 Bildungsitems und Beschäftigte ohne Abschluss adjustiert nur für 2019.
