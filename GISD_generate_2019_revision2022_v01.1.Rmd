@@ -34,10 +34,10 @@ outfiles_daten <- "C:/projects_rstudio/GISD/Outfiles"
 #setwd(outfiles_daten)
 # Create Output directories in working directory if necessary
 dir.create("Outfiles", showWarnings=T)
-dir.create("Outfiles/2022_v03", showWarnings=T)
-dir.create("Outfiles/2022_v03/Bund", showWarnings=T)
-dir.create("Outfiles/2022_v03/Other", showWarnings=T)
-dir.create("Outfiles/2022_v03/Stata", showWarnings=T)
+dir.create("Outfiles/2022_v01.1", showWarnings=T)
+dir.create("Outfiles/2022_v01.1/Bund", showWarnings=T)
+dir.create("Outfiles/2022_v01.1/Other", showWarnings=T)
+dir.create("Outfiles/2022_v01.1/Stata", showWarnings=T)
 setwd(home)
 getwd()
 ```
@@ -55,7 +55,7 @@ print_missings = function(data) {
 
 load_dataset = function(sheet) {
   suppressMessages(
-    read_excel("Data/Referenz/Referenz_1998_2019_v1.1.xls", sheet = sheet, na = "NA")
+    read_excel("Data/Referenz/Referenz_1998_2019.xls", sheet = sheet, na = "NA")
   )
 }
 
@@ -82,9 +82,13 @@ id_dataset <- Gemeinden_INKAR %>%
                                                   NUTS2,
                                                   "NUTS2 Name"=NUTS2name,
                                                   "Bundesland"=Bundesland),by="Kreiskennziffer")%>%
-              left_join(.,Gemeindeverbaende_INKAR, by="GVBKennziffer")
+              left_join(.,Gemeindeverbaende_INKAR, by="GVBKennziffer") %>%
+              select(-Bevölkerung)
 
-write_rds(id_dataset, paste0("Outfiles/2022_v03/ID_dataset_2022"))
+id_dataset <- id_dataset %>% left_join(readRDS("Outfiles/2022_v01.1/Bevölkerung.rds"), by = c("Gemeindekennziffer", "GVBKennziffer", "Kreiskennziffer", "Raumordnungsregion Nr", "NUTS2"))
+
+
+write_rds(id_dataset, paste0("Outfiles/2022_v01.1/ID_dataset_2022"))
 ```
 
 ## II. Erzeugen eines Datensatzes mit Kennziffern als ID unabhängig von der Ebene 
@@ -197,7 +201,7 @@ rm(myimport)
 
 ##Erstellen eines Datensatzes mit Bevölkerungslosen Gemeinden und Entfernen dieser für die bevorstehende Imputation und die Faktoranalyse
 Gemeinden_ohne_Bevoelkerung <- Workfile %>% filter(Bevoelkerung==0)
-write_dta(Gemeinden_ohne_Bevoelkerung, paste0("Outfiles/Gemeinden_ohne_Bevoelkerung.dta"))
+write_dta(Gemeinden_ohne_Bevoelkerung, paste0("Outfiles/2022_v01.1/Gemeinden_ohne_Bevoelkerung.dta"))
 rm(Gemeinden_ohne_Bevoelkerung)
 
 
@@ -221,7 +225,7 @@ listofdeterminants <- listofdeterminants[-4]
 
 ##Ausschreiben eines Vorab-Workfiles zur Überprüfung der Arbeitslosenquote
 Workfile <- Workfile %>% filter(Bevoelkerung>0)
-write_dta(Workfile, paste0("Outfiles/2022_v03/Workfile_vorab.dta"))
+write_dta(Workfile, paste0("Outfiles/2022_v01.1/Workfile_vorab.dta"))
 
 
 # Stata-Datensatz rausschreiben
@@ -689,11 +693,11 @@ stata_data <- Impdata.imputed %>%
   select(-SchulabgaengermitHochschulreife_adj,
          -BeschaeftigteohneAbschluss_adj,
          -BeschaeftigtemitakadAbschluss_adj)
-write_dta(stata_data, paste0("Outfiles/2022_v03/Stata/Impdata_check_2019.dta"))
+write_dta(stata_data, paste0("Outfiles/2022_v01.1/Stata/Impdata_check_2019.dta"))
 rm(stata_data)
 
 # RDS-Datensatz rausschreiben
-write_rds(Impdata.imputed, paste0("Outfiles/2022_v03/Impdata_check.rds"))
+write_rds(Impdata.imputed, paste0("Outfiles/2022_v01.1/Impdata_check.rds"))
 
 ```
 
@@ -825,7 +829,7 @@ Resultdataset %>% select(Arbeitslosigkeit,TS_Arbeitswelt_adj,TS_Einkommen_adj,TS
 GISD_Komponents
 
 # Tabelle der Komponenten mit den Anteilen ausgeben und gespeichert
-save(GISD_Komponents, file="Outfiles/2022_v03/GISD_Komponents.RData")
+save(GISD_Komponents, file="Outfiles/2022_v01.1/GISD_Komponents.RData")
 
 
 
@@ -851,8 +855,8 @@ str(Resultdataset %>% select(TS_Arbeitswelt_adj,TS_Einkommen_adj,TS_Bildung_adj,
 # Teilscores und GISD-Score in Datensatz speichern
 Resultdataset <- Resultdataset %>% select(Gemeindekennziffer,Jahr,Bevoelkerung,contains("TS_"),contains("GISD_Score"))
 
-write_rds(Resultdataset, paste0("Outfiles/2022_v03/Resultdataset.rds"))
-write_dta(Resultdataset, paste0("Outfiles/2022_v03/Stata/Resultdataset.dta"))
+write_rds(Resultdataset, paste0("Outfiles/2022_v01.1/Resultdataset.rds"))
+write_dta(Resultdataset, paste0("Outfiles/2022_v01.1/Stata/Resultdataset.dta"))
 ```
 
 ## V.  Datenexport - Erstellung der Datensätze 
@@ -953,17 +957,17 @@ for(mykennziffer in exportlist$Kennziffern) {
 
   # Ausgabe Bund
   dir.create("Outfiles/", showWarnings=F)
-  dir.create("Outfiles/2022_v03/", showWarnings=F)
-  dir.create("Outfiles/2022_v03/Bund/", showWarnings=F)
+  dir.create("Outfiles/2022_v01.1/", showWarnings=F)
+  dir.create("Outfiles/2022_v01.1/Bund/", showWarnings=F)
   mydata <- outputdata.agg %>% ungroup() %>% select(mykennziffer, gisd_score, gisd_5, gisd_10, gisd_k, myname, year)
-  write.csv(mydata, paste0("Outfiles/2022_v03/Bund/GISD_Bund_",mylabel,".csv"), row.names=FALSE, fileEncoding="UTF-8")
+  write.csv(mydata, paste0("Outfiles/2022_v01.1/Bund/GISD_Bund_",mylabel,".csv"), row.names=FALSE, fileEncoding="UTF-8")
   
   names(mydata) <- gsub("\\.","_",make.names(names(mydata)))
   names(mydata) <- gsub("\\?","oe",names(mydata))
   names(mydata) <- gsub("\\?","ae",names(mydata))
   names(mydata) <- gsub("\\?","ue",names(mydata))
   names(mydata) <- gsub("\\?","ss",names(mydata))
-  write_dta(mydata, paste0("Outfiles/2022_v03/Bund/GISD_Bund_",mylabel,"_long.dta"))
+  write_dta(mydata, paste0("Outfiles/2022_v01.1/Bund/GISD_Bund_",mylabel,"_long.dta"))
   
   
   
@@ -1012,17 +1016,17 @@ for(mykennziffer in exportlist$Kennziffern) {
   
   # Ausgabe Bundesländer
   ListeBula <- unique(outputdata.bula$Bundesland)
-  dir.create("Outfiles/2022_v03/Bundesland", showWarnings=F)  
+  dir.create("Outfiles/2022_v01.1/Bundesland", showWarnings=F)  
   for(myland in ListeBula) {
     mydata.bula <- outputdata.bula %>% filter(Bundesland==myland) %>% ungroup() %>% select(gisd_score, mykennziffer, myname, year)
-    write.csv(mydata.bula, paste0("Outfiles/2022_v03/Bundesland/GISD_",myland,"_",mylabel,".csv"), row.names=FALSE, fileEncoding="UTF-8")
+    write.csv(mydata.bula, paste0("Outfiles/2022_v01.1/Bundesland/GISD_",myland,"_",mylabel,".csv"), row.names=FALSE, fileEncoding="UTF-8")
     
     names(mydata.bula) <- gsub("\\.","_",make.names(names(mydata.bula)))
     names(mydata.bula) <- gsub("\\?","oe",names(mydata.bula))
     names(mydata.bula) <- gsub("\\?","ae",names(mydata.bula))
     names(mydata.bula) <- gsub("\\?","ue",names(mydata.bula))
     names(mydata.bula) <- gsub("\\?","ss",names(mydata.bula))
-    write_dta(mydata.bula, paste0("Outfiles/2022_v03/Bundesland/GISD_",myland,"_",mylabel,".dta"))
+    write_dta(mydata.bula, paste0("Outfiles/2022_v01.1/Bundesland/GISD_",myland,"_",mylabel,".dta"))
   }
   }  
 }
@@ -1075,16 +1079,16 @@ for (mykennziffer in c("PLZ2","PLZ3","PLZ4","PLZ5")) {
   head(outputdata)
   ListeJahre <- unique(outputdata$year)
   dir.create( paste0("Outfiles"), showWarnings=F)
-  dir.create( paste0("Outfiles/2022_v03"), showWarnings=F) 
-  dir.create( paste0("Outfiles/2022_v03/Bund/"), showWarnings=F) 
+  dir.create( paste0("Outfiles/2022_v01.1"), showWarnings=F) 
+  dir.create( paste0("Outfiles/2022_v01.1/Bund/"), showWarnings=F) 
   mydata <- outputdata %>% ungroup() 
-  write.csv(mydata, paste0("Outfiles/2022_v03/Bund/GISD_Bund_",mylabel,".csv"), row.names=FALSE, fileEncoding="UTF-8")
+  write.csv(mydata, paste0("Outfiles/2022_v01.1/Bund/GISD_Bund_",mylabel,".csv"), row.names=FALSE, fileEncoding="UTF-8")
   mydata <- outputdata %>% ungroup() 
   names(mydata) <- gsub("\\.","_",make.names(names(mydata)))
   names(mydata) <- gsub("\\?","oe",names(mydata))
   names(mydata) <- gsub("\\?","ae",names(mydata))
   names(mydata) <- gsub("\\?","ue",names(mydata))
   names(mydata) <- gsub("\\?","ss",names(mydata))
-  write_dta(mydata, paste0("Outfiles/2022_v03/Bund/GISD_Bund_",mylabel,"_long.dta"))
+  write_dta(mydata, paste0("Outfiles/2022_v01.1/Bund/GISD_Bund_",mylabel,"_long.dta"))
   }
 ```

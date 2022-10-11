@@ -33,7 +33,9 @@ referenz_gvb <- read_excel("Data/Referenz/Referenz_1998_2019.xls", sheet = "Geme
 
 referenz_ror_nuts <- read_excel("Data/Referenz/Referenz_1998_2019.xls", sheet = "KRS") %>% rename(Kreiskennziffer = krs19, `Raumordnungsregion Nr` = ROR11) %>% select(`Raumordnungsregion Nr`, Kreiskennziffer, NUTS2)
 
-gesamt <- destatis %>% left_join(referenz_gvb, by = "Gemeindekennziffer") %>% left_join(referenz_ror_nuts, by = "Kreiskennziffer") %>% unique()
+gesamt <- destatis %>% left_join(referenz_gvb, by = "Gemeindekennziffer") %>% left_join(referenz_ror_nuts, by = "Kreiskennziffer") %>% unique() %>% select(-Gemeindename)
+
+saveRDS(gesamt, paste0("Outfiles/2022_v01.1/Bevölkerung.rds"))
 ```
 
 
