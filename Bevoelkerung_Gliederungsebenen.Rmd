@@ -21,35 +21,43 @@ library("dplyr")
 library("tidyr")
 library(bookdown)
 library(knitr)
+library(haven)
+library(readxl)
 
 home <- getwd()
 setwd(home)
 
-id_data <- readRDS("Outfiles/2022/ID_dataset_2019")
+destatis <- read_xlsx("Datea/Referenz/") %>% mutate(Gemeindekennziffer = as.numeric(paste0(...3,...4,...5,...7)), Kreiskennziffer = as.numeric(paste0(...3,...4,...5)), Bevölkerung = as.numeric(...10), Gemeindename = ...8) %>% filter(Bevölkerung != is.na(NA)) %>% select(Gemeindekennziffer, Kreiskennziffer, Bevölkerung, Gemeindename)
+
+referenz_gvb <- read_excel("Data/Referenz/Referenz_1998_2019.xls", sheet = "Gemeinden-GVB") %>% rename(GVBKennziffer = gvb19, Gemeindekennziffer = gem19) %>% select(GVBKennziffer, Gemeindekennziffer)
+
+referenz_ror_nuts <- read_excel("Data/Referenz/Referenz_1998_2019.xls", sheet = "KRS") %>% rename(Kreiskennziffer = krs19, `Raumordnungsregion Nr` = ROR11) %>% select(`Raumordnungsregion Nr`, Kreiskennziffer, NUTS2)
+
+gesamt <- destatis %>% left_join(referenz_gvb, by = "Gemeindekennziffer") %>% left_join(referenz_ror_nuts, by = "Kreiskennziffer") %>% unique()
 ```
 
 
 ```{r message=FALSE, warning=FALSE}
-Gemeinden <- id_data %>% select(Bevölkerung, Gemeindekennziffer) %>% group_by(Gemeindekennziffer) %>% mutate(Bev = sum(Bevölkerung)*100) %>% ungroup() %>% select(-Bevölkerung) %>% unique() %>% filter(Bev > 0)
+Gemeinden <- gesamt %>% select(Bevölkerung, Gemeindekennziffer) %>% unique() %>% filter(Bevölkerung > 0)
 
-GVB <- id_data %>% select(Bevölkerung, GVBKennziffer) %>% group_by(GVBKennziffer) %>% mutate(Bev = sum(Bevölkerung)*100) %>% ungroup() %>% select(-Bevölkerung) %>% unique() %>% filter(Bev > 0)
+GVB <- gesamt %>% select(Bevölkerung, GVBKennziffer) %>% group_by(GVBKennziffer) %>% mutate(Bevölkerung = sum(Bevölkerung)) %>% ungroup() %>% unique() %>% filter(Bevölkerung > 0)
 
-Kreis <- id_data %>% select(Bevölkerung, Kreiskennziffer) %>% group_by(Kreiskennziffer) %>% mutate(Bev = sum(Bevölkerung)*100) %>% ungroup() %>% select(-Bevölkerung) %>% unique() %>% filter(Bev > 0)
+Kreis <- gesamt %>% select(Bevölkerung, Kreiskennziffer) %>% group_by(Kreiskennziffer) %>% mutate(Bevölkerung = sum(Bevölkerung)) %>% ungroup() %>% unique() %>% filter(Bevölkerung > 0)
 
-ROR <- id_data %>% select(Bevölkerung, `Raumordnungsregion Nr`) %>% group_by(`Raumordnungsregion Nr`) %>% mutate(Bev = sum(Bevölkerung)*100) %>% ungroup() %>% select(-Bevölkerung) %>% unique() %>% filter(Bev > 0)
+ROR <- gesamt %>% select(Bevölkerung, `Raumordnungsregion Nr`) %>% group_by(`Raumordnungsregion Nr`) %>% mutate(Bevölkerung = sum(Bevölkerung)) %>% ungroup() %>% unique() %>% filter(Bevölkerung > 0)
 
-NUTS2 <- id_data %>% select(Bevölkerung, NUTS2) %>% group_by(NUTS2) %>% mutate(Bev = sum(Bevölkerung)*100) %>% ungroup() %>% select(-Bevölkerung) %>% unique() %>% filter(Bev > 0)
+NUTS2 <- gesamt %>% select(Bevölkerung, NUTS2) %>% group_by(NUTS2) %>% mutate(Bevölkerung = sum(Bevölkerung)) %>% ungroup() %>% unique() %>% filter(Bevölkerung > 0)
 
 
-Tabelle_Bev <- cbind("Ebene" = "Gemeinden", "Anzahl" = nrow(Gemeinden), "Mittlere Bevölkerungszahl" = round(mean(Gemeinden$Bev)), "Minimum" = round(min(Gemeinden$Bev)), "Maximum" = round(max(Gemeinden$Bev)))
+Tabelle_Bev <- cbind("Ebene" = "Gemeinden", "Anzahl" = nrow(Gemeinden), "Mittlere Bevölkerungszahl" = round(mean(Gemeinden$Bevölkerung)), "Minimum" = round(min(Gemeinden$Bevölkerung)), "Maximum" = round(max(Gemeinden$Bevölkerung)))
 
-Tabelle_Bev <- rbind(Tabelle_Bev, cbind("Ebene" = "Gemeindeverbände (GVB)", "Anzahl" = nrow(GVB), "Mittlere Bevölkerungszahl" = round(mean(GVB$Bev)), "Minimum" = round(min(GVB$Bev)), "Maximum" = round(max(GVB$Bev))))
+Tabelle_Bev <- rbind(Tabelle_Bev, cbind("Ebene" = "Gemeindeverbände (GVB)", "Anzahl" = nrow(GVB), "Mittlere Bevölkerungszahl" = round(mean(GVB$Bevölkerung)), "Minimum" = round(min(GVB$Bevölkerung)), "Maximum" = round(max(GVB$Bevölkerung))))
 
-Tabelle_Bev <- rbind(Tabelle_Bev, cbind("Ebene" = "Kreise und kreisfreie Städte (Kreise)", "Anzahl" = nrow(Kreis), "Mittlere Bevölkerungszahl" = round(mean(Kreis$Bev)), "Minimum" = round(min(Kreis$Bev)), "Maximum" = round(max(Kreis$Bev))))
+Tabelle_Bev <- rbind(Tabelle_Bev, cbind("Ebene" = "Kreise und kreisfreie Städte (Kreise)", "Anzahl" = nrow(Kreis), "Mittlere Bevölkerungszahl" = round(mean(Kreis$Bevölkerung)), "Minimum" = round(min(Kreis$Bevölkerung)), "Maximum" = round(max(Kreis$Bevölkerung))))
 
-Tabelle_Bev <- rbind(Tabelle_Bev, cbind("Ebene" = "Raumordnungsregionen (ROR)", "Anzahl" = nrow(ROR), "Mittlere Bevölkerungszahl" = round(mean(ROR$Bev)), "Minimum" = round(min(ROR$Bev)), "Maximum" = round(max(ROR$Bev))))
+Tabelle_Bev <- rbind(Tabelle_Bev, cbind("Ebene" = "Raumordnungsregionen (ROR)", "Anzahl" = nrow(ROR), "Mittlere Bevölkerungszahl" = round(mean(ROR$Bevölkerung)), "Minimum" = round(min(ROR$Bevölkerung)), "Maximum" = round(max(ROR$Bevölkerung))))
 
-Tabelle_Bev <- rbind(Tabelle_Bev, cbind("Ebene" = "NUTS-2", "Anzahl" = nrow(NUTS2), "Mittlere Bevölkerungszahl" = round(mean(NUTS2$Bev)), "Minimum" = round(min(NUTS2$Bev)), "Maximum" = round(max(NUTS2$Bev))))
+Tabelle_Bev <- rbind(Tabelle_Bev, cbind("Ebene" = "NUTS-2", "Anzahl" = nrow(NUTS2), "Mittlere Bevölkerungszahl" = round(mean(NUTS2$Bevölkerung)), "Minimum" = round(min(NUTS2$Bevölkerung)), "Maximum" = round(max(NUTS2$Bevölkerung))))
 
 kable(Tabelle_Bev, caption = "Räumliche Gliederungsebenen in Deutschland und ihre Bevölkerungszahlen")
 ```
