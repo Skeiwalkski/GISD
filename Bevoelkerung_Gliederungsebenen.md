@@ -1,5 +1,5 @@
 ---
-title: "Räumliche Gleiderungsebenen - Bevölerungszahlen"
+title: "Räumliche Gleiderungsebenen - Bevölkerungszahlen"
 author: "Marvin Reis"
 date: "21 1 2022"
 output:

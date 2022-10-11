@@ -1,5 +1,5 @@
 ---
-title: "Räumliche Gleiderungsebenen - Bevölerungszahlen"
+title: "Räumliche Gleiderungsebenen - Bevölkerungszahlen"
 author: "Marvin Reis"
 date: "21 1 2022"
 output:
@@ -27,7 +27,7 @@ library(readxl)
 home <- getwd()
 setwd(home)
 
-destatis <- read_xlsx("Datea/Referenz/") %>% mutate(Gemeindekennziffer = as.numeric(paste0(...3,...4,...5,...7)), Kreiskennziffer = as.numeric(paste0(...3,...4,...5)), Bevölkerung = as.numeric(...10), Gemeindename = ...8) %>% filter(Bevölkerung != is.na(NA)) %>% select(Gemeindekennziffer, Kreiskennziffer, Bevölkerung, Gemeindename)
+destatis <- read_excel("Data/Referenz/31122019_Auszug_GV.xlsx", sheet = "Onlineprodukt_Gemeinden_311219") %>% mutate(Gemeindekennziffer = as.numeric(paste0(...3,...4,...5,...7)), Kreiskennziffer = as.numeric(paste0(...3,...4,...5)), Bevölkerung = as.numeric(...10), Gemeindename = ...8) %>% filter(Bevölkerung != is.na(NA)) %>% select(Gemeindekennziffer, Kreiskennziffer, Bevölkerung, Gemeindename)
 
 referenz_gvb <- read_excel("Data/Referenz/Referenz_1998_2019.xls", sheet = "Gemeinden-GVB") %>% rename(GVBKennziffer = gvb19, Gemeindekennziffer = gem19) %>% select(GVBKennziffer, Gemeindekennziffer)
 
