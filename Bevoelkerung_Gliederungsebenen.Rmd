@@ -27,7 +27,16 @@ library(readxl)
 home <- getwd()
 setwd(home)
 
-destatis <- read_excel("Data/Referenz/31122019_Auszug_GV.xlsx", sheet = "Onlineprodukt_Gemeinden_311219") %>% mutate(Gemeindekennziffer = as.numeric(paste0(...3,...4,...5,...7)), Kreiskennziffer = as.numeric(paste0(...3,...4,...5)), Bevölkerung = as.numeric(...10), Gemeindename = ...8) %>% filter(Bevölkerung != is.na(NA)) %>% select(Gemeindekennziffer, Kreiskennziffer, Bevölkerung, Gemeindename)
+destatis_2019 <- read_excel("Data/Referenz/31122019_Auszug_GV.xlsx", sheet = "Onlineprodukt_Gemeinden_311219") %>% mutate(Gemeindekennziffer = as.numeric(paste0(...3,...4,...5,...7)), Kreiskennziffer = as.numeric(paste0(...3,...4,...5)), Bevölkerung_2019 = as.numeric(...10), Gemeindename = ...8) %>% filter(Bevölkerung_2019 != is.na(NA)) %>% select(Gemeindekennziffer, Kreiskennziffer, Bevölkerung_2019, Gemeindename)
+
+destatis_2018 <- read_excel("Data/Referenz/31122018_Auszug_GV.xlsx", sheet = "Onlineprodukt_Gemeinden_311218") %>% mutate(Gem_2018 = as.numeric(paste0(...3,...4,...5,...7)), Kreiskennziffer = as.numeric(paste0(...3,...4,...5)), Bevölkerung_2018 = as.numeric(...10)) %>% filter(Bevölkerung_2018 != is.na(NA)) %>% select(Gem_2018, Kreiskennziffer, Bevölkerung_2018)
+
+umstieg <- read_excel("Data/Referenz/ref-gemeinden-2010-2020.xlsx", sheet = "2018-2019") %>% select(Gem_2018, Gem_2019)
+
+destatis_2018 <- destatis_2018 %>% left_join(umstieg, by = "Gem_2018") %>% group_by(Gem_2019) %>% mutate(Bevölkerung_2018 = sum(Bevölkerung_2018)) %>% ungroup() %>% select(-Gem_2018) %>% unique() %>% rename(Gemeindekennziffer = Gem_2019)
+
+destatis <- destatis_2018 %>% left_join(destatis_2019, by = c("Gemeindekennziffer", "Kreiskennziffer")) %>% unique() %>% filter(Bevölkerung_2019 != is.na(NA)) %>% mutate(Bevölkerung = round((Bevölkerung_2018 + Bevölkerung_2019)/2)) %>%
+  select(-Bevölkerung_2018, -Bevölkerung_2019)
 
 referenz_gvb <- read_excel("Data/Referenz/Referenz_1998_2019.xls", sheet = "Gemeinden-GVB") %>% rename(GVBKennziffer = gvb19, Gemeindekennziffer = gem19) %>% select(GVBKennziffer, Gemeindekennziffer)
 
