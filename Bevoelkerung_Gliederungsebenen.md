@@ -49,8 +49,8 @@ Table: (\#tab:unnamed-chunk-2)Räumliche Gliederungsebenen in Deutschland und ih
 
 |Ebene                                 |Anzahl |Mittlere Bevölkerungszahl |Minimum |Maximum |
 |:-------------------------------------|:------|:-------------------------|:-------|:-------|
-|Gemeinden                             |10799  |7701                      |10      |3669491 |
-|Gemeindeverbände (GVB)                |4411   |18854                     |324     |3669491 |
-|Kreise und kreisfreie Städte (Kreise) |401    |207398                    |34193   |3669491 |
-|Raumordnungsregionen (ROR)            |96     |866320                    |194363  |3669491 |
-|NUTS-2                                |38     |2188598                   |533113  |5207457 |
+|Gemeinden                             |10799  |7695                      |8       |3657158 |
+|Gemeindeverbände (GVB)                |4411   |18838                     |322     |3657158 |
+|Kreise und kreisfreie Städte (Kreise) |401    |207214                    |34201   |3657158 |
+|Raumordnungsregionen (ROR)            |96     |865552                    |195054  |3657158 |
+|NUTS-2                                |38     |2186658                   |532054  |5204888 |
