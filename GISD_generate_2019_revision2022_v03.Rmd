@@ -970,7 +970,7 @@ for(mykennziffer in exportlist$Kennziffern) {
   
   
   # Ausgabe Bundeslandspezifisch ohne Stadtstaaten und nur für Ebenen Kreis und Gemeindeverband
-  if (mylabel %in% c("Gemeindeverband","Kreis")) {
+  if (mylabel %in% c("Gemeinde","Gemeindeverband","Kreis")) {
     
     # Datensatzerstellung
   outputdata <- RawResult 
