@@ -1052,16 +1052,10 @@ outputdata.agg <- outputdata.agg %>%
   write_dta(mydata, paste0("Outfiles/2022_v03/Bund/GISD_Bund_",mylabel,"_long.dta"))
   
   
-  
-  
-  
-<<<<<<< HEAD
+
 # Ausgabe Bundeslandspezifisch ohne Stadtstaaten und nur für Ebenen Kreis und Gemeindeverband
   if (mylabel %in% c("Gemeindeverband","Kreis")) {
-=======
-  # Ausgabe Bundeslandspezifisch ohne Stadtstaaten und nur für Ebenen Kreis und Gemeindeverband
-  if (mylabel %in% c("Gemeinde","Gemeindeverband","Kreis")) {
->>>>>>> a2a58bc7b5a6ef96d36d4038bf240bdc769bf70a
+
     
     # Datensatzerstellung
   outputdata <- RawResult 
