@@ -1,0 +1,4 @@
+net install rkistyle, from(S:\OE\FG28\Tausch\Stata_Tools)
+net install rkistyle2, from(S:\OE\FG28\Tausch\Stata_Tools)
+net install rkistylehc, from(S:\OE\FG28\Tausch\Stata_Tools)
+net install tabgenerators, from(S:\OE\FG28\Tausch\Stata_Tools)
