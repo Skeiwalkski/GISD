@@ -1,6 +1,10 @@
 
 ##an Niels: Komplettes Script ausführen, Tabelle in Console am Ende gibt die Werte aus
 
+library(haven)
+library(readxl)
+library(dplyr)
+library(tidyr)
 
 ###Daten Einlesen
 
@@ -35,7 +39,7 @@ mod_Frauen <- lm(Lebenserwartung_Frauen_2016 ~ GISD_Score, data = dat_Leberw_202
 summary(mod_Frauen)
 
 mod_Männer <- lm(Lebenserwartung_Männer_2016 ~ GISD_Score, data = dat_Leberw_2022)
-summary(mod_Frauen)
+summary(mod_Männer)
 
 
 #Frauen
