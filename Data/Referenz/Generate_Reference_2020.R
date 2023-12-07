@@ -3,6 +3,7 @@
 # Beispiel: Wir haben Population für 1989 Berlin Ost und Berlin West.
 #           1990 fusionieren sie zu Gesamt-Berlin. Am Ende des Prozesses
 #           haben wir die Population für Gesamt-Berlin für das Jahr 1989
+#           (und Berlin Ost und West dann nicht mehr vorhanden in 1989)
 
 #           Langweiler Wald war 2018 eigenständig und wird auf 2019
 #           auf die Dörfer A B C aufgeteilt. Am Ende des Prozesses
