@@ -1,12 +1,13 @@
 ---
 title: "GISD - German Index of Socio-Economic Deprivation - Revision 2023"
-author: "Omar Soliman, Marvin Reis"
+author: "Lola Omar Soliman, Marvin Reis"
 date: "21 11 2023"
 output: html_document
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+options(scipen=999) #Dezimal-Zahlendarstellung erzwingen
 ```
 
 ## 0. Benötigte Pakete und Dateipfadsetzung
@@ -41,7 +42,6 @@ currentrevision <- "2023_v1"
 dir.create("Outfiles", showWarnings=T)
 dir.create(paste0("Outfiles/",currentrevision), showWarnings=T)
 dir.create(paste0("Outfiles/",currentrevision,"/Bund"), showWarnings=T)
-dir.create(paste0("Outfiles/",currentrevision,"/Other"), showWarnings=T)
 dir.create(paste0("Outfiles/",currentrevision,"/Stata"), showWarnings=T)
 ```
 
@@ -54,18 +54,10 @@ Zunächst wird ein Datensatz (ID-Datensatz) generiert, in welchem den kleinsten 
 
 # Referenz laden/generieren
 if (!file.exists("Data/Referenz/Erzeugte Referenzen/Referenz_1998_2020.xlsx")) { # Falls noch nicht vorhanden
-  source("Data/Referenz/Generate_Reference_2020.R") # Skript wurde per Hand geschrieben, muss jährlich aktualisiert werden
+  source("Data/Referenz/Generate_Reference_2020.R") # Führe Skript aus (Skript zur Generierung muss jährlich aktualisiert werden)
   }
 
-# Funktion zum NA-Values ausgeben lassen
-print_missings = function(data) {
-  df = data[-1,];        # Erste Reihe exkludieren
-  if(sum(is.na(df))>0)   # Wenn mind. 1 Datenpunkt NA ist, dann:
-  {print("Missing observations: ");   # Printe Präfix
-    print(df[!complete.cases(df),])}; # Printe jede Zeile wo es eine Spalte mit NA gibt
-  df}                    # Returne den Datensatz
-
-# Funktion zum Sheets aus Referenz laden
+# Funktion um Sheets aus Referenz zu laden
 load_dataset = function(sheet) {
   suppressMessages(
     read_excel("Data/Referenz/Erzeugte Referenzen/Referenz_1998_2020.xlsx",
@@ -93,21 +85,21 @@ Kreise_INKAR <- load_dataset("KRS") %>%
 
 
 # Die drei Datensätze werden nun ausgehend vom Gemeindedatensatz zu einem ID-Datensatz zusammmengefügt
-id_dataset <- Gemeinden_INKAR %>% 
-              select(Gemeindekennziffer = Kennziffer,
-                     "Name der Gemeinde" = gemeindename,
-                     GVBKennziffer,
-                     Bevoelkerung) %>% 
-              mutate(Kreiskennziffer=floor(Gemeindekennziffer/1000)) %>% #Bitte für jedes Jahr neu prüfen ob Population in 100ern oder in 1000ern angegeben wird
-              left_join(., Kreise_INKAR %>% select("Kreiskennziffer"=kkz,
-                                                  "Name des Kreises"=kreisname,
-                                                  "Raumordnungsregion Nr"=ROR11,
-                                                  "Raumordnungsregion"=ROR11name,
-                                                  NUTS2,
-                                                  "NUTS2 Name"=NUTS2name,
-                                                  "Bundesland"=Bundesland),
-                        by="Kreiskennziffer") %>%
-              left_join(.,Gemeindeverbaende_INKAR, by="GVBKennziffer")
+id_dataset <- Gemeinden_INKAR %>%
+  select(Gemeindekennziffer = Kennziffer,
+         "Name der Gemeinde" = gemeindename,
+         GVBKennziffer,
+         Bevoelkerung) %>% #Achtung: BBSR ist nicht konsistent. Population muss in 100 sein. Bitte jährlich in Generate_Reference prüfen.
+  mutate(Kreiskennziffer=floor(Gemeindekennziffer/1000)) %>%
+  left_join(., Kreise_INKAR %>% select("Kreiskennziffer"=kkz,
+                                       "Name des Kreises"=kreisname,
+                                       "Raumordnungsregion Nr"=ROR11,
+                                       "Raumordnungsregion"=ROR11name,
+                                       NUTS2,
+                                       "NUTS2 Name"=NUTS2name,
+                                       "Bundesland"=Bundesland),
+            by="Kreiskennziffer") %>%
+  left_join(.,Gemeindeverbaende_INKAR, by="GVBKennziffer")
 
 write_rds(id_dataset, paste0("Outfiles/",currentrevision,"/ID_dataset_",currentrevision,".rds"))
 ```
@@ -526,7 +518,7 @@ hist_over_nach_messanpassung
 - Imputation für Schulabgänger mit Hochschlusabschluss (Regression auf Basis aller Indikatoren)
 - Erneute Ausgabe möglicher Missings
 
-```{r}
+```{r Imputation}
 # Imputation
 
 # Imputationsdatensatz generieren
@@ -646,19 +638,19 @@ Missing_on_Imputationsvars <- Impdata.imputed %>%  filter(is.na(Einkommensteuer_
 Missing_on_Imputationsvars
 
 
-# Fälle betrachten: 16063104
+# Fälle betrachten: 16063104 (Amt Creuzburg)
 TimeSeries_for_Missing <- Impdata.imputed %>%  filter(Gemeindekennziffer==16063104) %>% arrange(Gemeindekennziffer, Jahr, Bevoelkerung)
 TimeSeries_for_Missing
 
 #Aufgrund der variierenden Verfübarkeit von Daten und der Unklarheit über die Indikatoren auf Gemeindeebene, werden die Gemeinden vorerst ausgeschlossen.
 Impdata.imputed <- Impdata.imputed %>% filter(Gemeindekennziffer!=16063104)
-TimeSeries <- Impdata.imputed %>%  filter(Gemeindekennziffer==16063104) %>% select(Gemeindekennziffer, Jahr, listofdeterminants) %>% arrange(Gemeindekennziffer, Jahr)
+TimeSeries <- Impdata.imputed %>% filter(Gemeindekennziffer==16063104) %>% select(Gemeindekennziffer, Jahr, listofdeterminants) %>% arrange(Gemeindekennziffer, Jahr)
 TimeSeries
 ```
 
 - Ausschreiben des aktuellen Datensatzes als STATA- und RDS-File
 
-```{r}
+```{r Imp-Export}
 # Stata-Datensatz rausschreiben
 stata_data <- Impdata.imputed %>% 
   mutate(SchulabgmitAbi_adj = SchulabgaengermitHochschulreife_adj, BeschaeftigteohneAbschlussadj = BeschaeftigteohneAbschluss_adj, BeschaeftigtemitakadAbschlussadj = BeschaeftigtemitakadAbschluss_adj) %>% 
@@ -827,15 +819,212 @@ str(Resultdataset %>% select(TS_Arbeitswelt_adj,TS_Einkommen_adj,TS_Bildung_adj,
 # Teilscores und GISD-Score in Datensatz speichern
 Resultdataset <- Resultdataset %>% select(Gemeindekennziffer,Jahr,Bevoelkerung,contains("TS_"),contains("GISD_Score"))
 
-write_rds(Resultdataset, paste0("Outfiles/",currentrevision,"/Resultdataset.rds"))
-write_dta(Resultdataset, paste0("Outfiles/",currentrevision,"/Stata/Resultdataset.dta"))
+write_rds(Resultdataset, paste0("Outfiles/",currentrevision,"/Resultdataset_raw.rds"))
+write_dta(Resultdataset, paste0("Outfiles/",currentrevision,"/Stata/Resultdataset_raw.dta"))
 ```
 
-## V.  Datenexport - Erstellung der Datensätze 
+## V. Korrektur ausgewählter Ausreißer im Einkommens-Teilscore
 
-- Ausschreibeen des GISD-Scores in den Outfiles-Ordner (für Bund und Bundesland; jeweils als .csv oder .dta für Stata)
+- Imputation durch Mittelwert des Vor- und Nachjahres mit Z-basierter Selektion (für einen tieferen Einblick siehe Score_Imputation.Rmd)
 
-```{r echo=FALSE}
+``` {r Ausreißer, echo=FALSE}
+# Bundesländer zuordnen
+bl_zuordnung <- tibble(gkz_prefix = c("01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16"),
+                       Bundesland = c("Schleswig-Holstein", "Freie und Hansestadt Hamburg", "Niedersachsen", "Freie Hansestadt Bremen",
+                                      "Nordrhein-Westfalen", "Hessen", "Rheinland-Pfalz", "Baden-Württemberg", "Freistaat Bayern", "Saarland",
+                                      "Berlin", "Brandenburg", "Mecklenburg-Vorpommern", "Freistaat Sachsen", "Sachsen-Anhalt", "Freistaat Thüringen"))
+
+
+# Teilscores aufbereiten
+Scores <-  Resultdataset %>% 
+  rename(Gesamtscore = GISD_Score,
+         Arbeitswelt = TS_Arbeitswelt_adj,
+         Einkommen = TS_Einkommen_adj,
+         Bildung = TS_Bildung_adj) %>% 
+    #Leading Zero nachtragen
+  mutate(Gemeindekennziffer = as.character(Gemeindekennziffer)) %>% 
+  mutate(Gemeindekennziffer = if_else(str_length(Gemeindekennziffer) == 7,
+                              str_pad(Gemeindekennziffer, 8, pad = "0"),
+                              Gemeindekennziffer)) %>%
+    #Auf wide reshapen
+  pivot_longer(cols = c(Gesamtscore, Arbeitswelt, Einkommen, Bildung),
+               names_to = "Dimension",
+               values_to = "Score") %>% 
+    #Erste zwei Stellen der GKZ extrahieren und Bundesland zuordnen
+  mutate(gkz_prefix = substr(Gemeindekennziffer, 1, 2)) %>%
+  left_join(bl_zuordnung, by = "gkz_prefix") %>% 
+  select(-gkz_prefix) %>%
+    #Scores auf 0 bis 1 normalisieren (in Relation zu den anderen Gemeinden des selben Jahres)
+  group_by(Jahr, Dimension) %>% 
+  mutate(Score_nrml = scales::rescale(Score, to = c(0, 1))) %>% 
+  ungroup() %>%
+    #Z-Score berechnen (in Relation zu den anderen Jahren der selben Gemeinde)
+  group_by(Gemeindekennziffer, Dimension) %>%
+  mutate(mean_score = mean(Score, na.rm = TRUE),
+         sd_score = sd(Score, na.rm = TRUE),
+         z = (Score - mean_score) / sd_score) %>%
+  ungroup()
+
+
+# Übersicht
+# Rohdaten
+Uebersicht_scores <- ggplot(Scores, aes(x = Jahr, y = Score, group = Gemeindekennziffer)) +
+  geom_line(alpha = 0.3, linewidth = 0.1) +
+  labs(subtitle = "Teilscores des GISD (roh)", y = NULL) +
+  scale_x_continuous(breaks = seq(1998, 2020, by = 1), minor_breaks = NULL) +
+  facet_wrap(~Dimension, ncol = 1, strip.position = "right", scales = "free_x") +
+  theme_bw()
+print(Uebersicht_scores)
+
+# Rohdaten (normalisiert)
+Uebersicht_scores_nrml <- ggplot(Scores, aes(x = Jahr, y = Score_nrml, group = Gemeindekennziffer)) +
+  geom_line(alpha = 0.3, linewidth = 0.1) +
+  labs(subtitle = "Teilscores des GISD (auf das Jahr normalisiert)", y = NULL) +
+  scale_x_continuous(breaks = seq(1998, 2020, by = 1), minor_breaks = NULL) +
+  facet_wrap(~Dimension, ncol = 1, strip.position = "right", scales = "free_x") +
+  theme_bw()
+print(Uebersicht_scores_nrml)
+
+# Z-Scores
+Uebersicht_z <- ggplot(Scores, aes(x = Jahr, y = z, group = Gemeindekennziffer)) +
+  geom_line(alpha = 0.3, linewidth = 0.1) +
+  labs(subtitle = "Z-Werte der Teilscores des GISD (Referenzrahmen: Gemeinde)", y = NULL) +
+  scale_x_continuous(breaks = seq(1998, 2020, by = 1), minor_breaks = NULL) +
+  facet_wrap(~Dimension, ncol = 1, strip.position = "right", scales = "free_x") +
+  theme_bw()
+print(Uebersicht_z)
+
+
+# Subset mit allen zu imputierenden Gemeinde-Jahren extrahieren
+rs.niedersachsen <- Scores %>%
+  filter(Dimension == "Einkommen", 
+         Bundesland == "Niedersachsen",
+         z >= 2,
+         !Jahr == 1998) #1998 kann nicht imputiert werden
+
+rs.bayern <- Scores %>% 
+  filter(Dimension == "Einkommen",
+         Bundesland == "Freistaat Bayern",
+         (Jahr == 2017 |
+           Jahr == 2012 & z <= -1.5 |
+           Jahr == 2004 & (z <= -1 |z >= 2)))
+
+rs.nrw_schleho <- Scores %>%
+  filter(Dimension == "Einkommen",
+         Jahr == 2004 & Bundesland == "Nordrhein-Westfalen" |
+          Jahr == 2017 & (Bundesland == "Nordrhein-Westfalen" |
+                            Bundesland == "Schleswig-Holstein") & z <= -2)
+
+rs.bawu <- Scores %>% 
+  filter(Dimension == "Einkommen",
+         Bundesland == "Baden-Württemberg",
+         ((Jahr == 2001 | Jahr == 2015 | Jahr == 2017) & z <= -2) |
+           (Jahr == 2016 & z >= 1) |
+           (Jahr == 2017 & (z >= 0 & z <= 0.2)))
+
+rs.imp <- bind_rows(rs.niedersachsen, rs.bayern, rs.nrw_schleho, rs.bawu) %>% 
+    #Gemeinde-Jahr-String für Zuordnung
+  mutate(gkz_j = paste0(Gemeindekennziffer,"_",as.character(Jahr)))
+
+
+# Imputieren der Ausreißer durch Mittelwert von Vorjahr und Nachjahr
+Scores.imp <- Scores %>%
+  filter(Dimension == "Einkommen") %>% 
+    #Gemeinde-Jahr-String für Zuordnung
+  mutate(gkz_j = paste0(Gemeindekennziffer,"_",as.character(Jahr))) %>% 
+    #Imputieren
+  arrange(Gemeindekennziffer, Jahr) %>%
+  group_by(Gemeindekennziffer) %>%
+  mutate(Score = if_else(gkz_j %in% rs.imp$gkz_j & Dimension == "Einkommen",
+                         (lag(Score, 1) + lead(Score, 1)) / 2,
+                         Score),
+         Imputed = if_else(gkz_j %in% rs.imp$gkz_j & Dimension == "Einkommen",
+                           1,
+                           0),
+         Gemeindekennziffer = as.numeric(Gemeindekennziffer)) %>% 
+  ungroup() %>% 
+    #Nur neu imputierte Scores behalten
+  filter(Imputed == 1) %>% 
+  select(Gemeindekennziffer, Jahr, newscore = Score)
+
+# Score im Datensatz austauschen
+Scores.temp <- Resultdataset %>%
+  left_join(Scores.imp, by = c("Gemeindekennziffer", "Jahr")) %>% 
+  mutate(oldscore = if_else(is.na(newscore),
+                            NA,
+                            TS_Einkommen_adj),
+         TS_Einkommen_adj = if_else(is.na(newscore),
+                                    TS_Einkommen_adj,
+                                    newscore))
+
+
+# Komponenten renormalisieren
+Scores.adj <- Scores.temp %>%
+  mutate(TS_Arbeitswelt_adj=(TS_Arbeitswelt_adj-min(TS_Arbeitswelt_adj))/(max(TS_Arbeitswelt_adj)-min(TS_Arbeitswelt_adj)),
+         TS_Einkommen_adj  =(TS_Einkommen_adj  -min(TS_Einkommen_adj))  /(max(TS_Einkommen_adj)  -min(TS_Einkommen_adj)),
+         TS_Bildung_adj    =(TS_Bildung_adj    -min(TS_Bildung_adj))    /(max(TS_Bildung_adj)    -min(TS_Bildung_adj)),
+         GISD_Score = TS_Arbeitswelt_adj + TS_Einkommen_adj + TS_Bildung_adj) %>%
+  group_by(Jahr) %>%
+  mutate(GISD_Score=(GISD_Score-min(GISD_Score)) / (max(GISD_Score)-min(GISD_Score)),
+         GISD_Score=round(GISD_Score, digits=5)) %>%
+  ungroup()
+
+
+## Nachprüfen
+Scores.neu <- Scores.adj %>%
+  rename(Gesamtscore = GISD_Score,
+         Arbeitswelt = TS_Arbeitswelt_adj,
+         Einkommen = TS_Einkommen_adj,
+         Bildung = TS_Bildung_adj) %>% 
+    #Auf wide reshapen
+  pivot_longer(cols = c(Gesamtscore, Arbeitswelt, Einkommen, Bildung),
+               names_to = "Dimension",
+               values_to = "Score") %>%
+    #Scores auf 0 bis 1 normalisieren (in Relation zu den anderen Gemeinden des selben Jahres)
+  group_by(Jahr, Dimension) %>% 
+  mutate(Score_nrml = scales::rescale(Score, to = c(0, 1))) %>% 
+  ungroup()
+
+# Adjusted Rohdaten
+Uebersicht_scores_adj <- ggplot(Scores.neu, aes(x = Jahr, y = Score, group = Gemeindekennziffer)) +
+  geom_line(alpha = 0.3, linewidth = 0.1) +
+  labs(subtitle = "Adjusted Teilscores des GISD (roh)", y = NULL) +
+  scale_x_continuous(breaks = seq(1998, 2020, by = 1), minor_breaks = NULL) +
+  facet_wrap(~Dimension, ncol = 1, strip.position = "right", scales = "free_x") +
+  theme_bw()
+print(Uebersicht_scores_adj)
+
+# Adjusted Rohdaten (normalisiert)
+Uebersicht_scores_nrml_adj <- ggplot(Scores.neu, aes(x = Jahr, y = Score_nrml, group = Gemeindekennziffer)) +
+  geom_line(alpha = 0.3, linewidth = 0.1) +
+  labs(subtitle = "Adjusted Teilscores des GISD (auf das Jahr normalisiert)", y = NULL) +
+  scale_x_continuous(breaks = seq(1998, 2020, by = 1), minor_breaks = NULL) +
+  facet_wrap(~Dimension, ncol = 1, strip.position = "right", scales = "free_x") +
+  theme_bw()
+print(Uebersicht_scores_nrml_adj)
+
+# Übernehmen und exportieren
+Resultdataset.raw <- Resultdataset
+
+Resultdataset <- Scores.neu %>% 
+  select(-oldscore, -newscore, -Score_nrml)
+
+write_rds(Resultdataset, paste0("Outfiles/",currentrevision,"/Resultdataset.rds"))
+write_dta(Resultdataset, paste0("Outfiles/",currentrevision,"/Stata/Resultdataset.dta"))
+
+rm(Scores, Scores.imp, Scores.temp, Scores.adj, Scores.neu,
+   rs.niedersachsen, rs.bayern, rs.nrw_schleho, rs.bawu, rs.imp,
+   Uebersicht_scores, Uebersicht_scores_nrml, Uebersicht_z,
+   Uebersicht_scores_adj, Uebersicht_scores_nrml_adj,
+   bl_zuordnung)
+
+```
+
+## VI.  Datenexport - Erstellung der Datensätze 
+
+- Ausschreiben des GISD-Scores in den Outfiles-Ordner (für Bund und Bundesland; jeweils als .csv oder .dta für Stata)
+
+```{r Export, echo=FALSE}
 # Merge IDs to Resultdataset
 RawResult <- left_join(Resultdataset %>%
                          select(-Bevoelkerung),
@@ -1011,11 +1200,11 @@ for(mykennziffer in exportlist$Kennziffern) {
 ```
 
 
-## VI.  Datensätze für PLZ generieren
+## VII.  Datensätze für PLZ generieren
 
 - Ausschreiben des GISD-Scores nach Postleitzahl
 
-```{r eval=FALSE, include=FALSE}
+```{r PLZ, eval=FALSE, include=FALSE}
 # Output Postcode Data
 load("Data/SHP/GEM_Zipcode_Intersections_2015.RData") # AGS/Postcode-Intersections-Dataset in sf format
 
