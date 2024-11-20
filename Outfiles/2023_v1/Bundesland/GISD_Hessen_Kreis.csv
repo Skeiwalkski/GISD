@@ -1,0 +1,599 @@
+"gisd_score","kreis_id","kreis_name","year"
+0.35862,"06411","Darmstadt, Stadt",1998
+0.31832,"06411","Darmstadt, Stadt",1999
+0.32619,"06411","Darmstadt, Stadt",2000
+0.34851,"06411","Darmstadt, Stadt",2001
+0.35334,"06411","Darmstadt, Stadt",2002
+0.33201,"06411","Darmstadt, Stadt",2003
+0.38742,"06411","Darmstadt, Stadt",2004
+0.3596,"06411","Darmstadt, Stadt",2005
+0.35418,"06411","Darmstadt, Stadt",2006
+0.3273,"06411","Darmstadt, Stadt",2007
+0.3302,"06411","Darmstadt, Stadt",2008
+0.29169,"06411","Darmstadt, Stadt",2009
+0.29389,"06411","Darmstadt, Stadt",2010
+0.30895,"06411","Darmstadt, Stadt",2011
+0.2678,"06411","Darmstadt, Stadt",2012
+0.26602,"06411","Darmstadt, Stadt",2013
+0.27928,"06411","Darmstadt, Stadt",2014
+0.29275,"06411","Darmstadt, Stadt",2015
+0.27764,"06411","Darmstadt, Stadt",2016
+0.21084,"06411","Darmstadt, Stadt",2017
+0.21309,"06411","Darmstadt, Stadt",2018
+0.23509,"06411","Darmstadt, Stadt",2019
+0.2218,"06411","Darmstadt, Stadt",2020
+0.42824,"06412","Frankfurt am Main, Stadt",1998
+0.40379,"06412","Frankfurt am Main, Stadt",1999
+0.40575,"06412","Frankfurt am Main, Stadt",2000
+0.40621,"06412","Frankfurt am Main, Stadt",2001
+0.42123,"06412","Frankfurt am Main, Stadt",2002
+0.41412,"06412","Frankfurt am Main, Stadt",2003
+0.4219,"06412","Frankfurt am Main, Stadt",2004
+0.41271,"06412","Frankfurt am Main, Stadt",2005
+0.43668,"06412","Frankfurt am Main, Stadt",2006
+0.42921,"06412","Frankfurt am Main, Stadt",2007
+0.38398,"06412","Frankfurt am Main, Stadt",2008
+0.36603,"06412","Frankfurt am Main, Stadt",2009
+0.3703,"06412","Frankfurt am Main, Stadt",2010
+0.35622,"06412","Frankfurt am Main, Stadt",2011
+0.31435,"06412","Frankfurt am Main, Stadt",2012
+0.32405,"06412","Frankfurt am Main, Stadt",2013
+0.31859,"06412","Frankfurt am Main, Stadt",2014
+0.3066,"06412","Frankfurt am Main, Stadt",2015
+0.31011,"06412","Frankfurt am Main, Stadt",2016
+0.27384,"06412","Frankfurt am Main, Stadt",2017
+0.25074,"06412","Frankfurt am Main, Stadt",2018
+0.27163,"06412","Frankfurt am Main, Stadt",2019
+0.24635,"06412","Frankfurt am Main, Stadt",2020
+1,"06413","Offenbach am Main, Stadt",1998
+1,"06413","Offenbach am Main, Stadt",1999
+1,"06413","Offenbach am Main, Stadt",2000
+1,"06413","Offenbach am Main, Stadt",2001
+1,"06413","Offenbach am Main, Stadt",2002
+1,"06413","Offenbach am Main, Stadt",2003
+1,"06413","Offenbach am Main, Stadt",2004
+1,"06413","Offenbach am Main, Stadt",2005
+1,"06413","Offenbach am Main, Stadt",2006
+1,"06413","Offenbach am Main, Stadt",2007
+1,"06413","Offenbach am Main, Stadt",2008
+1,"06413","Offenbach am Main, Stadt",2009
+1,"06413","Offenbach am Main, Stadt",2010
+1,"06413","Offenbach am Main, Stadt",2011
+1,"06413","Offenbach am Main, Stadt",2012
+1,"06413","Offenbach am Main, Stadt",2013
+1,"06413","Offenbach am Main, Stadt",2014
+1,"06413","Offenbach am Main, Stadt",2015
+1,"06413","Offenbach am Main, Stadt",2016
+1,"06413","Offenbach am Main, Stadt",2017
+1,"06413","Offenbach am Main, Stadt",2018
+1,"06413","Offenbach am Main, Stadt",2019
+1,"06413","Offenbach am Main, Stadt",2020
+0.59525,"06414","Wiesbaden, Stadt",1998
+0.55016,"06414","Wiesbaden, Stadt",1999
+0.56687,"06414","Wiesbaden, Stadt",2000
+0.59001,"06414","Wiesbaden, Stadt",2001
+0.59221,"06414","Wiesbaden, Stadt",2002
+0.57782,"06414","Wiesbaden, Stadt",2003
+0.55508,"06414","Wiesbaden, Stadt",2004
+0.56201,"06414","Wiesbaden, Stadt",2005
+0.54034,"06414","Wiesbaden, Stadt",2006
+0.52224,"06414","Wiesbaden, Stadt",2007
+0.56695,"06414","Wiesbaden, Stadt",2008
+0.5592,"06414","Wiesbaden, Stadt",2009
+0.56098,"06414","Wiesbaden, Stadt",2010
+0.57213,"06414","Wiesbaden, Stadt",2011
+0.53307,"06414","Wiesbaden, Stadt",2012
+0.54491,"06414","Wiesbaden, Stadt",2013
+0.54344,"06414","Wiesbaden, Stadt",2014
+0.50059,"06414","Wiesbaden, Stadt",2015
+0.55405,"06414","Wiesbaden, Stadt",2016
+0.54949,"06414","Wiesbaden, Stadt",2017
+0.58075,"06414","Wiesbaden, Stadt",2018
+0.56804,"06414","Wiesbaden, Stadt",2019
+0.54923,"06414","Wiesbaden, Stadt",2020
+0.45577,"06431","Bergstraße",1998
+0.4477,"06431","Bergstraße",1999
+0.46637,"06431","Bergstraße",2000
+0.47,"06431","Bergstraße",2001
+0.45707,"06431","Bergstraße",2002
+0.42747,"06431","Bergstraße",2003
+0.45451,"06431","Bergstraße",2004
+0.4346,"06431","Bergstraße",2005
+0.4416,"06431","Bergstraße",2006
+0.43106,"06431","Bergstraße",2007
+0.47048,"06431","Bergstraße",2008
+0.45568,"06431","Bergstraße",2009
+0.45253,"06431","Bergstraße",2010
+0.4722,"06431","Bergstraße",2011
+0.46682,"06431","Bergstraße",2012
+0.45363,"06431","Bergstraße",2013
+0.46248,"06431","Bergstraße",2014
+0.48352,"06431","Bergstraße",2015
+0.47582,"06431","Bergstraße",2016
+0.454,"06431","Bergstraße",2017
+0.45541,"06431","Bergstraße",2018
+0.46635,"06431","Bergstraße",2019
+0.46476,"06431","Bergstraße",2020
+0.43137,"06432","Darmstadt-Dieburg",1998
+0.43806,"06432","Darmstadt-Dieburg",1999
+0.46185,"06432","Darmstadt-Dieburg",2000
+0.49486,"06432","Darmstadt-Dieburg",2001
+0.48592,"06432","Darmstadt-Dieburg",2002
+0.42643,"06432","Darmstadt-Dieburg",2003
+0.42194,"06432","Darmstadt-Dieburg",2004
+0.42296,"06432","Darmstadt-Dieburg",2005
+0.43472,"06432","Darmstadt-Dieburg",2006
+0.42499,"06432","Darmstadt-Dieburg",2007
+0.46423,"06432","Darmstadt-Dieburg",2008
+0.42048,"06432","Darmstadt-Dieburg",2009
+0.44196,"06432","Darmstadt-Dieburg",2010
+0.42954,"06432","Darmstadt-Dieburg",2011
+0.44085,"06432","Darmstadt-Dieburg",2012
+0.44547,"06432","Darmstadt-Dieburg",2013
+0.44382,"06432","Darmstadt-Dieburg",2014
+0.44509,"06432","Darmstadt-Dieburg",2015
+0.4603,"06432","Darmstadt-Dieburg",2016
+0.44595,"06432","Darmstadt-Dieburg",2017
+0.46305,"06432","Darmstadt-Dieburg",2018
+0.46543,"06432","Darmstadt-Dieburg",2019
+0.46096,"06432","Darmstadt-Dieburg",2020
+0.47125,"06433","Groß-Gerau",1998
+0.448,"06433","Groß-Gerau",1999
+0.47949,"06433","Groß-Gerau",2000
+0.51047,"06433","Groß-Gerau",2001
+0.48867,"06433","Groß-Gerau",2002
+0.47141,"06433","Groß-Gerau",2003
+0.52249,"06433","Groß-Gerau",2004
+0.51536,"06433","Groß-Gerau",2005
+0.52123,"06433","Groß-Gerau",2006
+0.49716,"06433","Groß-Gerau",2007
+0.52571,"06433","Groß-Gerau",2008
+0.501,"06433","Groß-Gerau",2009
+0.49609,"06433","Groß-Gerau",2010
+0.52286,"06433","Groß-Gerau",2011
+0.53221,"06433","Groß-Gerau",2012
+0.52717,"06433","Groß-Gerau",2013
+0.55735,"06433","Groß-Gerau",2014
+0.54374,"06433","Groß-Gerau",2015
+0.5643,"06433","Groß-Gerau",2016
+0.55374,"06433","Groß-Gerau",2017
+0.5548,"06433","Groß-Gerau",2018
+0.58698,"06433","Groß-Gerau",2019
+0.60996,"06433","Groß-Gerau",2020
+0,"06434","Hochtaunuskreis",1998
+0,"06434","Hochtaunuskreis",1999
+0,"06434","Hochtaunuskreis",2000
+0,"06434","Hochtaunuskreis",2001
+0,"06434","Hochtaunuskreis",2002
+0,"06434","Hochtaunuskreis",2003
+0,"06434","Hochtaunuskreis",2004
+0,"06434","Hochtaunuskreis",2005
+0,"06434","Hochtaunuskreis",2006
+0,"06434","Hochtaunuskreis",2007
+0,"06434","Hochtaunuskreis",2008
+0,"06434","Hochtaunuskreis",2009
+0,"06434","Hochtaunuskreis",2010
+0,"06434","Hochtaunuskreis",2011
+0,"06434","Hochtaunuskreis",2012
+0,"06434","Hochtaunuskreis",2013
+0,"06434","Hochtaunuskreis",2014
+0,"06434","Hochtaunuskreis",2015
+0,"06434","Hochtaunuskreis",2016
+0,"06434","Hochtaunuskreis",2017
+0,"06434","Hochtaunuskreis",2018
+0,"06434","Hochtaunuskreis",2019
+0,"06434","Hochtaunuskreis",2020
+0.57423,"06435","Main-Kinzig-Kreis",1998
+0.55077,"06435","Main-Kinzig-Kreis",1999
+0.57776,"06435","Main-Kinzig-Kreis",2000
+0.59553,"06435","Main-Kinzig-Kreis",2001
+0.62548,"06435","Main-Kinzig-Kreis",2002
+0.56283,"06435","Main-Kinzig-Kreis",2003
+0.59629,"06435","Main-Kinzig-Kreis",2004
+0.56681,"06435","Main-Kinzig-Kreis",2005
+0.55468,"06435","Main-Kinzig-Kreis",2006
+0.54811,"06435","Main-Kinzig-Kreis",2007
+0.60027,"06435","Main-Kinzig-Kreis",2008
+0.56634,"06435","Main-Kinzig-Kreis",2009
+0.564,"06435","Main-Kinzig-Kreis",2010
+0.55233,"06435","Main-Kinzig-Kreis",2011
+0.5581,"06435","Main-Kinzig-Kreis",2012
+0.53551,"06435","Main-Kinzig-Kreis",2013
+0.55286,"06435","Main-Kinzig-Kreis",2014
+0.54969,"06435","Main-Kinzig-Kreis",2015
+0.55736,"06435","Main-Kinzig-Kreis",2016
+0.55371,"06435","Main-Kinzig-Kreis",2017
+0.56213,"06435","Main-Kinzig-Kreis",2018
+0.58911,"06435","Main-Kinzig-Kreis",2019
+0.5607,"06435","Main-Kinzig-Kreis",2020
+0.095,"06436","Main-Taunus-Kreis",1998
+0.08781,"06436","Main-Taunus-Kreis",1999
+0.06385,"06436","Main-Taunus-Kreis",2000
+0.06951,"06436","Main-Taunus-Kreis",2001
+0.02892,"06436","Main-Taunus-Kreis",2002
+0.02774,"06436","Main-Taunus-Kreis",2003
+0.03512,"06436","Main-Taunus-Kreis",2004
+0.02042,"06436","Main-Taunus-Kreis",2005
+0.09884,"06436","Main-Taunus-Kreis",2006
+0.1106,"06436","Main-Taunus-Kreis",2007
+0.03892,"06436","Main-Taunus-Kreis",2008
+0.06201,"06436","Main-Taunus-Kreis",2009
+0.05362,"06436","Main-Taunus-Kreis",2010
+0.05061,"06436","Main-Taunus-Kreis",2011
+0.03403,"06436","Main-Taunus-Kreis",2012
+0.03682,"06436","Main-Taunus-Kreis",2013
+0.06774,"06436","Main-Taunus-Kreis",2014
+0.10029,"06436","Main-Taunus-Kreis",2015
+0.09641,"06436","Main-Taunus-Kreis",2016
+0.08851,"06436","Main-Taunus-Kreis",2017
+0.10559,"06436","Main-Taunus-Kreis",2018
+0.07493,"06436","Main-Taunus-Kreis",2019
+0.07265,"06436","Main-Taunus-Kreis",2020
+0.65856,"06437","Odenwaldkreis",1998
+0.67287,"06437","Odenwaldkreis",1999
+0.70331,"06437","Odenwaldkreis",2000
+0.70209,"06437","Odenwaldkreis",2001
+0.76695,"06437","Odenwaldkreis",2002
+0.70743,"06437","Odenwaldkreis",2003
+0.71143,"06437","Odenwaldkreis",2004
+0.68405,"06437","Odenwaldkreis",2005
+0.68119,"06437","Odenwaldkreis",2006
+0.66672,"06437","Odenwaldkreis",2007
+0.72904,"06437","Odenwaldkreis",2008
+0.72095,"06437","Odenwaldkreis",2009
+0.75549,"06437","Odenwaldkreis",2010
+0.76158,"06437","Odenwaldkreis",2011
+0.78226,"06437","Odenwaldkreis",2012
+0.71828,"06437","Odenwaldkreis",2013
+0.72912,"06437","Odenwaldkreis",2014
+0.78061,"06437","Odenwaldkreis",2015
+0.7706,"06437","Odenwaldkreis",2016
+0.77846,"06437","Odenwaldkreis",2017
+0.76509,"06437","Odenwaldkreis",2018
+0.8314,"06437","Odenwaldkreis",2019
+0.75636,"06437","Odenwaldkreis",2020
+0.40673,"06438","Offenbach",1998
+0.38906,"06438","Offenbach",1999
+0.40311,"06438","Offenbach",2000
+0.40431,"06438","Offenbach",2001
+0.40176,"06438","Offenbach",2002
+0.39517,"06438","Offenbach",2003
+0.43634,"06438","Offenbach",2004
+0.41308,"06438","Offenbach",2005
+0.41569,"06438","Offenbach",2006
+0.42447,"06438","Offenbach",2007
+0.41287,"06438","Offenbach",2008
+0.37802,"06438","Offenbach",2009
+0.39296,"06438","Offenbach",2010
+0.39158,"06438","Offenbach",2011
+0.4073,"06438","Offenbach",2012
+0.39345,"06438","Offenbach",2013
+0.39434,"06438","Offenbach",2014
+0.43102,"06438","Offenbach",2015
+0.44086,"06438","Offenbach",2016
+0.41813,"06438","Offenbach",2017
+0.40954,"06438","Offenbach",2018
+0.44563,"06438","Offenbach",2019
+0.4254,"06438","Offenbach",2020
+0.37822,"06439","Rheingau-Taunus-Kreis",1998
+0.3696,"06439","Rheingau-Taunus-Kreis",1999
+0.36891,"06439","Rheingau-Taunus-Kreis",2000
+0.35984,"06439","Rheingau-Taunus-Kreis",2001
+0.42655,"06439","Rheingau-Taunus-Kreis",2002
+0.37191,"06439","Rheingau-Taunus-Kreis",2003
+0.37775,"06439","Rheingau-Taunus-Kreis",2004
+0.35363,"06439","Rheingau-Taunus-Kreis",2005
+0.35368,"06439","Rheingau-Taunus-Kreis",2006
+0.3503,"06439","Rheingau-Taunus-Kreis",2007
+0.38234,"06439","Rheingau-Taunus-Kreis",2008
+0.36803,"06439","Rheingau-Taunus-Kreis",2009
+0.35511,"06439","Rheingau-Taunus-Kreis",2010
+0.36233,"06439","Rheingau-Taunus-Kreis",2011
+0.39452,"06439","Rheingau-Taunus-Kreis",2012
+0.37378,"06439","Rheingau-Taunus-Kreis",2013
+0.36658,"06439","Rheingau-Taunus-Kreis",2014
+0.40783,"06439","Rheingau-Taunus-Kreis",2015
+0.41106,"06439","Rheingau-Taunus-Kreis",2016
+0.3844,"06439","Rheingau-Taunus-Kreis",2017
+0.39601,"06439","Rheingau-Taunus-Kreis",2018
+0.42118,"06439","Rheingau-Taunus-Kreis",2019
+0.36587,"06439","Rheingau-Taunus-Kreis",2020
+0.46443,"06440","Wetteraukreis",1998
+0.45755,"06440","Wetteraukreis",1999
+0.46429,"06440","Wetteraukreis",2000
+0.47377,"06440","Wetteraukreis",2001
+0.50166,"06440","Wetteraukreis",2002
+0.47072,"06440","Wetteraukreis",2003
+0.47886,"06440","Wetteraukreis",2004
+0.45644,"06440","Wetteraukreis",2005
+0.45793,"06440","Wetteraukreis",2006
+0.4411,"06440","Wetteraukreis",2007
+0.48826,"06440","Wetteraukreis",2008
+0.44832,"06440","Wetteraukreis",2009
+0.45847,"06440","Wetteraukreis",2010
+0.44391,"06440","Wetteraukreis",2011
+0.46317,"06440","Wetteraukreis",2012
+0.47267,"06440","Wetteraukreis",2013
+0.47514,"06440","Wetteraukreis",2014
+0.49327,"06440","Wetteraukreis",2015
+0.49332,"06440","Wetteraukreis",2016
+0.46375,"06440","Wetteraukreis",2017
+0.47424,"06440","Wetteraukreis",2018
+0.50026,"06440","Wetteraukreis",2019
+0.48649,"06440","Wetteraukreis",2020
+0.65569,"06531","Gießen",1998
+0.60836,"06531","Gießen",1999
+0.60132,"06531","Gießen",2000
+0.66766,"06531","Gießen",2001
+0.64917,"06531","Gießen",2002
+0.61078,"06531","Gießen",2003
+0.6492,"06531","Gießen",2004
+0.62078,"06531","Gießen",2005
+0.62922,"06531","Gießen",2006
+0.62592,"06531","Gießen",2007
+0.66381,"06531","Gießen",2008
+0.63184,"06531","Gießen",2009
+0.6201,"06531","Gießen",2010
+0.62234,"06531","Gießen",2011
+0.59649,"06531","Gießen",2012
+0.61649,"06531","Gießen",2013
+0.6204,"06531","Gießen",2014
+0.62185,"06531","Gießen",2015
+0.62021,"06531","Gießen",2016
+0.60678,"06531","Gießen",2017
+0.61329,"06531","Gießen",2018
+0.63961,"06531","Gießen",2019
+0.61829,"06531","Gießen",2020
+0.64321,"06532","Lahn-Dill-Kreis",1998
+0.60096,"06532","Lahn-Dill-Kreis",1999
+0.63379,"06532","Lahn-Dill-Kreis",2000
+0.66514,"06532","Lahn-Dill-Kreis",2001
+0.66898,"06532","Lahn-Dill-Kreis",2002
+0.66249,"06532","Lahn-Dill-Kreis",2003
+0.64171,"06532","Lahn-Dill-Kreis",2004
+0.61468,"06532","Lahn-Dill-Kreis",2005
+0.59579,"06532","Lahn-Dill-Kreis",2006
+0.56754,"06532","Lahn-Dill-Kreis",2007
+0.621,"06532","Lahn-Dill-Kreis",2008
+0.6164,"06532","Lahn-Dill-Kreis",2009
+0.6267,"06532","Lahn-Dill-Kreis",2010
+0.62795,"06532","Lahn-Dill-Kreis",2011
+0.62072,"06532","Lahn-Dill-Kreis",2012
+0.61283,"06532","Lahn-Dill-Kreis",2013
+0.61026,"06532","Lahn-Dill-Kreis",2014
+0.63504,"06532","Lahn-Dill-Kreis",2015
+0.64638,"06532","Lahn-Dill-Kreis",2016
+0.63356,"06532","Lahn-Dill-Kreis",2017
+0.65153,"06532","Lahn-Dill-Kreis",2018
+0.68099,"06532","Lahn-Dill-Kreis",2019
+0.64286,"06532","Lahn-Dill-Kreis",2020
+0.61456,"06533","Limburg-Weilburg",1998
+0.62121,"06533","Limburg-Weilburg",1999
+0.67055,"06533","Limburg-Weilburg",2000
+0.69223,"06533","Limburg-Weilburg",2001
+0.69696,"06533","Limburg-Weilburg",2002
+0.63714,"06533","Limburg-Weilburg",2003
+0.69116,"06533","Limburg-Weilburg",2004
+0.65248,"06533","Limburg-Weilburg",2005
+0.60652,"06533","Limburg-Weilburg",2006
+0.593,"06533","Limburg-Weilburg",2007
+0.64133,"06533","Limburg-Weilburg",2008
+0.57086,"06533","Limburg-Weilburg",2009
+0.59521,"06533","Limburg-Weilburg",2010
+0.61671,"06533","Limburg-Weilburg",2011
+0.63253,"06533","Limburg-Weilburg",2012
+0.62478,"06533","Limburg-Weilburg",2013
+0.63175,"06533","Limburg-Weilburg",2014
+0.62786,"06533","Limburg-Weilburg",2015
+0.61933,"06533","Limburg-Weilburg",2016
+0.64805,"06533","Limburg-Weilburg",2017
+0.64085,"06533","Limburg-Weilburg",2018
+0.67688,"06533","Limburg-Weilburg",2019
+0.64514,"06533","Limburg-Weilburg",2020
+0.63259,"06534","Marburg-Biedenkopf",1998
+0.56696,"06534","Marburg-Biedenkopf",1999
+0.58021,"06534","Marburg-Biedenkopf",2000
+0.61695,"06534","Marburg-Biedenkopf",2001
+0.69797,"06534","Marburg-Biedenkopf",2002
+0.64252,"06534","Marburg-Biedenkopf",2003
+0.60889,"06534","Marburg-Biedenkopf",2004
+0.59013,"06534","Marburg-Biedenkopf",2005
+0.60832,"06534","Marburg-Biedenkopf",2006
+0.59296,"06534","Marburg-Biedenkopf",2007
+0.60479,"06534","Marburg-Biedenkopf",2008
+0.59176,"06534","Marburg-Biedenkopf",2009
+0.59481,"06534","Marburg-Biedenkopf",2010
+0.59306,"06534","Marburg-Biedenkopf",2011
+0.58316,"06534","Marburg-Biedenkopf",2012
+0.56118,"06534","Marburg-Biedenkopf",2013
+0.55119,"06534","Marburg-Biedenkopf",2014
+0.58055,"06534","Marburg-Biedenkopf",2015
+0.59527,"06534","Marburg-Biedenkopf",2016
+0.59275,"06534","Marburg-Biedenkopf",2017
+0.59075,"06534","Marburg-Biedenkopf",2018
+0.59877,"06534","Marburg-Biedenkopf",2019
+0.5849,"06534","Marburg-Biedenkopf",2020
+0.68383,"06535","Vogelsbergkreis",1998
+0.70376,"06535","Vogelsbergkreis",1999
+0.7351,"06535","Vogelsbergkreis",2000
+0.76274,"06535","Vogelsbergkreis",2001
+0.80503,"06535","Vogelsbergkreis",2002
+0.72255,"06535","Vogelsbergkreis",2003
+0.66912,"06535","Vogelsbergkreis",2004
+0.64311,"06535","Vogelsbergkreis",2005
+0.61662,"06535","Vogelsbergkreis",2006
+0.59777,"06535","Vogelsbergkreis",2007
+0.65149,"06535","Vogelsbergkreis",2008
+0.69112,"06535","Vogelsbergkreis",2009
+0.65582,"06535","Vogelsbergkreis",2010
+0.66347,"06535","Vogelsbergkreis",2011
+0.64451,"06535","Vogelsbergkreis",2012
+0.61884,"06535","Vogelsbergkreis",2013
+0.62012,"06535","Vogelsbergkreis",2014
+0.64807,"06535","Vogelsbergkreis",2015
+0.70108,"06535","Vogelsbergkreis",2016
+0.71768,"06535","Vogelsbergkreis",2017
+0.69727,"06535","Vogelsbergkreis",2018
+0.72525,"06535","Vogelsbergkreis",2019
+0.69337,"06535","Vogelsbergkreis",2020
+0.94782,"06611","Kassel, Stadt",1998
+0.85848,"06611","Kassel, Stadt",1999
+0.92234,"06611","Kassel, Stadt",2000
+0.94668,"06611","Kassel, Stadt",2001
+0.98518,"06611","Kassel, Stadt",2002
+0.94231,"06611","Kassel, Stadt",2003
+0.92317,"06611","Kassel, Stadt",2004
+0.9281,"06611","Kassel, Stadt",2005
+0.87712,"06611","Kassel, Stadt",2006
+0.83111,"06611","Kassel, Stadt",2007
+0.83132,"06611","Kassel, Stadt",2008
+0.80952,"06611","Kassel, Stadt",2009
+0.81254,"06611","Kassel, Stadt",2010
+0.82985,"06611","Kassel, Stadt",2011
+0.81139,"06611","Kassel, Stadt",2012
+0.8092,"06611","Kassel, Stadt",2013
+0.80208,"06611","Kassel, Stadt",2014
+0.78606,"06611","Kassel, Stadt",2015
+0.78742,"06611","Kassel, Stadt",2016
+0.77847,"06611","Kassel, Stadt",2017
+0.77156,"06611","Kassel, Stadt",2018
+0.77553,"06611","Kassel, Stadt",2019
+0.77032,"06611","Kassel, Stadt",2020
+0.57576,"06631","Fulda",1998
+0.54413,"06631","Fulda",1999
+0.57297,"06631","Fulda",2000
+0.62016,"06631","Fulda",2001
+0.61966,"06631","Fulda",2002
+0.59299,"06631","Fulda",2003
+0.61269,"06631","Fulda",2004
+0.53913,"06631","Fulda",2005
+0.52763,"06631","Fulda",2006
+0.51404,"06631","Fulda",2007
+0.56212,"06631","Fulda",2008
+0.56316,"06631","Fulda",2009
+0.54571,"06631","Fulda",2010
+0.52764,"06631","Fulda",2011
+0.53192,"06631","Fulda",2012
+0.5066,"06631","Fulda",2013
+0.50778,"06631","Fulda",2014
+0.51924,"06631","Fulda",2015
+0.53872,"06631","Fulda",2016
+0.51012,"06631","Fulda",2017
+0.51117,"06631","Fulda",2018
+0.54027,"06631","Fulda",2019
+0.52837,"06631","Fulda",2020
+0.61737,"06632","Hersfeld-Rotenburg",1998
+0.58458,"06632","Hersfeld-Rotenburg",1999
+0.66432,"06632","Hersfeld-Rotenburg",2000
+0.68657,"06632","Hersfeld-Rotenburg",2001
+0.67293,"06632","Hersfeld-Rotenburg",2002
+0.5977,"06632","Hersfeld-Rotenburg",2003
+0.61475,"06632","Hersfeld-Rotenburg",2004
+0.59036,"06632","Hersfeld-Rotenburg",2005
+0.60435,"06632","Hersfeld-Rotenburg",2006
+0.58487,"06632","Hersfeld-Rotenburg",2007
+0.5849,"06632","Hersfeld-Rotenburg",2008
+0.59042,"06632","Hersfeld-Rotenburg",2009
+0.56416,"06632","Hersfeld-Rotenburg",2010
+0.5494,"06632","Hersfeld-Rotenburg",2011
+0.58039,"06632","Hersfeld-Rotenburg",2012
+0.5733,"06632","Hersfeld-Rotenburg",2013
+0.56255,"06632","Hersfeld-Rotenburg",2014
+0.61532,"06632","Hersfeld-Rotenburg",2015
+0.60947,"06632","Hersfeld-Rotenburg",2016
+0.60745,"06632","Hersfeld-Rotenburg",2017
+0.60247,"06632","Hersfeld-Rotenburg",2018
+0.61598,"06632","Hersfeld-Rotenburg",2019
+0.61487,"06632","Hersfeld-Rotenburg",2020
+0.48637,"06633","Kassel",1998
+0.47353,"06633","Kassel",1999
+0.53844,"06633","Kassel",2000
+0.55473,"06633","Kassel",2001
+0.56717,"06633","Kassel",2002
+0.51397,"06633","Kassel",2003
+0.50591,"06633","Kassel",2004
+0.49858,"06633","Kassel",2005
+0.49289,"06633","Kassel",2006
+0.46668,"06633","Kassel",2007
+0.45253,"06633","Kassel",2008
+0.47326,"06633","Kassel",2009
+0.4508,"06633","Kassel",2010
+0.45028,"06633","Kassel",2011
+0.48324,"06633","Kassel",2012
+0.45688,"06633","Kassel",2013
+0.46852,"06633","Kassel",2014
+0.45848,"06633","Kassel",2015
+0.4857,"06633","Kassel",2016
+0.48366,"06633","Kassel",2017
+0.46524,"06633","Kassel",2018
+0.48567,"06633","Kassel",2019
+0.48283,"06633","Kassel",2020
+0.66885,"06634","Schwalm-Eder-Kreis",1998
+0.62177,"06634","Schwalm-Eder-Kreis",1999
+0.73892,"06634","Schwalm-Eder-Kreis",2000
+0.74107,"06634","Schwalm-Eder-Kreis",2001
+0.79469,"06634","Schwalm-Eder-Kreis",2002
+0.70884,"06634","Schwalm-Eder-Kreis",2003
+0.6994,"06634","Schwalm-Eder-Kreis",2004
+0.64936,"06634","Schwalm-Eder-Kreis",2005
+0.65284,"06634","Schwalm-Eder-Kreis",2006
+0.6198,"06634","Schwalm-Eder-Kreis",2007
+0.65349,"06634","Schwalm-Eder-Kreis",2008
+0.6339,"06634","Schwalm-Eder-Kreis",2009
+0.62196,"06634","Schwalm-Eder-Kreis",2010
+0.64838,"06634","Schwalm-Eder-Kreis",2011
+0.6674,"06634","Schwalm-Eder-Kreis",2012
+0.63323,"06634","Schwalm-Eder-Kreis",2013
+0.62344,"06634","Schwalm-Eder-Kreis",2014
+0.62931,"06634","Schwalm-Eder-Kreis",2015
+0.67209,"06634","Schwalm-Eder-Kreis",2016
+0.63646,"06634","Schwalm-Eder-Kreis",2017
+0.63276,"06634","Schwalm-Eder-Kreis",2018
+0.65803,"06634","Schwalm-Eder-Kreis",2019
+0.62778,"06634","Schwalm-Eder-Kreis",2020
+0.72796,"06635","Waldeck-Frankenberg",1998
+0.70992,"06635","Waldeck-Frankenberg",1999
+0.74805,"06635","Waldeck-Frankenberg",2000
+0.76494,"06635","Waldeck-Frankenberg",2001
+0.80252,"06635","Waldeck-Frankenberg",2002
+0.7482,"06635","Waldeck-Frankenberg",2003
+0.74614,"06635","Waldeck-Frankenberg",2004
+0.72435,"06635","Waldeck-Frankenberg",2005
+0.70067,"06635","Waldeck-Frankenberg",2006
+0.68072,"06635","Waldeck-Frankenberg",2007
+0.75107,"06635","Waldeck-Frankenberg",2008
+0.74348,"06635","Waldeck-Frankenberg",2009
+0.71727,"06635","Waldeck-Frankenberg",2010
+0.70118,"06635","Waldeck-Frankenberg",2011
+0.68952,"06635","Waldeck-Frankenberg",2012
+0.67092,"06635","Waldeck-Frankenberg",2013
+0.67734,"06635","Waldeck-Frankenberg",2014
+0.69007,"06635","Waldeck-Frankenberg",2015
+0.67581,"06635","Waldeck-Frankenberg",2016
+0.65697,"06635","Waldeck-Frankenberg",2017
+0.6493,"06635","Waldeck-Frankenberg",2018
+0.70213,"06635","Waldeck-Frankenberg",2019
+0.63848,"06635","Waldeck-Frankenberg",2020
+0.75078,"06636","Werra-Meißner-Kreis",1998
+0.72364,"06636","Werra-Meißner-Kreis",1999
+0.72098,"06636","Werra-Meißner-Kreis",2000
+0.75574,"06636","Werra-Meißner-Kreis",2001
+0.76312,"06636","Werra-Meißner-Kreis",2002
+0.73526,"06636","Werra-Meißner-Kreis",2003
+0.75462,"06636","Werra-Meißner-Kreis",2004
+0.71966,"06636","Werra-Meißner-Kreis",2005
+0.69776,"06636","Werra-Meißner-Kreis",2006
+0.66322,"06636","Werra-Meißner-Kreis",2007
+0.75198,"06636","Werra-Meißner-Kreis",2008
+0.71374,"06636","Werra-Meißner-Kreis",2009
+0.74146,"06636","Werra-Meißner-Kreis",2010
+0.73618,"06636","Werra-Meißner-Kreis",2011
+0.78944,"06636","Werra-Meißner-Kreis",2012
+0.76963,"06636","Werra-Meißner-Kreis",2013
+0.73891,"06636","Werra-Meißner-Kreis",2014
+0.75267,"06636","Werra-Meißner-Kreis",2015
+0.76885,"06636","Werra-Meißner-Kreis",2016
+0.76834,"06636","Werra-Meißner-Kreis",2017
+0.78018,"06636","Werra-Meißner-Kreis",2018
+0.78561,"06636","Werra-Meißner-Kreis",2019
+0.73816,"06636","Werra-Meißner-Kreis",2020

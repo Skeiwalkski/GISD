@@ -1,0 +1,829 @@
+"gisd_score","kreis_id","kreis_name","year"
+0.37883,"07111","Koblenz, Stadt",1998
+0.3734,"07111","Koblenz, Stadt",1999
+0.37811,"07111","Koblenz, Stadt",2000
+0.36873,"07111","Koblenz, Stadt",2001
+0.39352,"07111","Koblenz, Stadt",2002
+0.38465,"07111","Koblenz, Stadt",2003
+0.36295,"07111","Koblenz, Stadt",2004
+0.44494,"07111","Koblenz, Stadt",2005
+0.41998,"07111","Koblenz, Stadt",2006
+0.42077,"07111","Koblenz, Stadt",2007
+0.46432,"07111","Koblenz, Stadt",2008
+0.45748,"07111","Koblenz, Stadt",2009
+0.4934,"07111","Koblenz, Stadt",2010
+0.42706,"07111","Koblenz, Stadt",2011
+0.41704,"07111","Koblenz, Stadt",2012
+0.4162,"07111","Koblenz, Stadt",2013
+0.42145,"07111","Koblenz, Stadt",2014
+0.40124,"07111","Koblenz, Stadt",2015
+0.37778,"07111","Koblenz, Stadt",2016
+0.38809,"07111","Koblenz, Stadt",2017
+0.39164,"07111","Koblenz, Stadt",2018
+0.35502,"07111","Koblenz, Stadt",2019
+0.37703,"07111","Koblenz, Stadt",2020
+0.32348,"07131","Ahrweiler",1998
+0.32549,"07131","Ahrweiler",1999
+0.32464,"07131","Ahrweiler",2000
+0.33723,"07131","Ahrweiler",2001
+0.4053,"07131","Ahrweiler",2002
+0.43974,"07131","Ahrweiler",2003
+0.37835,"07131","Ahrweiler",2004
+0.3602,"07131","Ahrweiler",2005
+0.3526,"07131","Ahrweiler",2006
+0.33529,"07131","Ahrweiler",2007
+0.39062,"07131","Ahrweiler",2008
+0.36629,"07131","Ahrweiler",2009
+0.37789,"07131","Ahrweiler",2010
+0.33476,"07131","Ahrweiler",2011
+0.33992,"07131","Ahrweiler",2012
+0.34092,"07131","Ahrweiler",2013
+0.31734,"07131","Ahrweiler",2014
+0.33418,"07131","Ahrweiler",2015
+0.29639,"07131","Ahrweiler",2016
+0.28489,"07131","Ahrweiler",2017
+0.29012,"07131","Ahrweiler",2018
+0.31008,"07131","Ahrweiler",2019
+0.31905,"07131","Ahrweiler",2020
+0.55395,"07132","Altenkirchen (Westerwald)",1998
+0.55643,"07132","Altenkirchen (Westerwald)",1999
+0.58062,"07132","Altenkirchen (Westerwald)",2000
+0.54869,"07132","Altenkirchen (Westerwald)",2001
+0.55655,"07132","Altenkirchen (Westerwald)",2002
+0.58251,"07132","Altenkirchen (Westerwald)",2003
+0.55297,"07132","Altenkirchen (Westerwald)",2004
+0.61746,"07132","Altenkirchen (Westerwald)",2005
+0.60875,"07132","Altenkirchen (Westerwald)",2006
+0.59964,"07132","Altenkirchen (Westerwald)",2007
+0.60664,"07132","Altenkirchen (Westerwald)",2008
+0.67933,"07132","Altenkirchen (Westerwald)",2009
+0.65239,"07132","Altenkirchen (Westerwald)",2010
+0.57511,"07132","Altenkirchen (Westerwald)",2011
+0.56434,"07132","Altenkirchen (Westerwald)",2012
+0.57444,"07132","Altenkirchen (Westerwald)",2013
+0.57302,"07132","Altenkirchen (Westerwald)",2014
+0.57552,"07132","Altenkirchen (Westerwald)",2015
+0.5724,"07132","Altenkirchen (Westerwald)",2016
+0.55224,"07132","Altenkirchen (Westerwald)",2017
+0.54797,"07132","Altenkirchen (Westerwald)",2018
+0.5217,"07132","Altenkirchen (Westerwald)",2019
+0.56082,"07132","Altenkirchen (Westerwald)",2020
+0.48563,"07133","Bad Kreuznach",1998
+0.4842,"07133","Bad Kreuznach",1999
+0.51276,"07133","Bad Kreuznach",2000
+0.5272,"07133","Bad Kreuznach",2001
+0.49016,"07133","Bad Kreuznach",2002
+0.48303,"07133","Bad Kreuznach",2003
+0.44299,"07133","Bad Kreuznach",2004
+0.49514,"07133","Bad Kreuznach",2005
+0.50071,"07133","Bad Kreuznach",2006
+0.48331,"07133","Bad Kreuznach",2007
+0.5023,"07133","Bad Kreuznach",2008
+0.52818,"07133","Bad Kreuznach",2009
+0.50995,"07133","Bad Kreuznach",2010
+0.47453,"07133","Bad Kreuznach",2011
+0.49378,"07133","Bad Kreuznach",2012
+0.49444,"07133","Bad Kreuznach",2013
+0.48922,"07133","Bad Kreuznach",2014
+0.50979,"07133","Bad Kreuznach",2015
+0.47699,"07133","Bad Kreuznach",2016
+0.50997,"07133","Bad Kreuznach",2017
+0.47308,"07133","Bad Kreuznach",2018
+0.47746,"07133","Bad Kreuznach",2019
+0.52975,"07133","Bad Kreuznach",2020
+0.66296,"07134","Birkenfeld",1998
+0.65755,"07134","Birkenfeld",1999
+0.67904,"07134","Birkenfeld",2000
+0.69402,"07134","Birkenfeld",2001
+0.64259,"07134","Birkenfeld",2002
+0.64993,"07134","Birkenfeld",2003
+0.54786,"07134","Birkenfeld",2004
+0.60328,"07134","Birkenfeld",2005
+0.61229,"07134","Birkenfeld",2006
+0.55939,"07134","Birkenfeld",2007
+0.62163,"07134","Birkenfeld",2008
+0.65996,"07134","Birkenfeld",2009
+0.6239,"07134","Birkenfeld",2010
+0.563,"07134","Birkenfeld",2011
+0.57625,"07134","Birkenfeld",2012
+0.577,"07134","Birkenfeld",2013
+0.64283,"07134","Birkenfeld",2014
+0.68833,"07134","Birkenfeld",2015
+0.60455,"07134","Birkenfeld",2016
+0.57533,"07134","Birkenfeld",2017
+0.57747,"07134","Birkenfeld",2018
+0.60293,"07134","Birkenfeld",2019
+0.62938,"07134","Birkenfeld",2020
+0.40627,"07135","Cochem-Zell",1998
+0.41254,"07135","Cochem-Zell",1999
+0.47401,"07135","Cochem-Zell",2000
+0.45939,"07135","Cochem-Zell",2001
+0.48619,"07135","Cochem-Zell",2002
+0.44806,"07135","Cochem-Zell",2003
+0.42526,"07135","Cochem-Zell",2004
+0.48819,"07135","Cochem-Zell",2005
+0.47607,"07135","Cochem-Zell",2006
+0.46886,"07135","Cochem-Zell",2007
+0.53135,"07135","Cochem-Zell",2008
+0.50592,"07135","Cochem-Zell",2009
+0.52917,"07135","Cochem-Zell",2010
+0.48667,"07135","Cochem-Zell",2011
+0.46062,"07135","Cochem-Zell",2012
+0.50052,"07135","Cochem-Zell",2013
+0.47785,"07135","Cochem-Zell",2014
+0.52398,"07135","Cochem-Zell",2015
+0.45851,"07135","Cochem-Zell",2016
+0.42485,"07135","Cochem-Zell",2017
+0.4856,"07135","Cochem-Zell",2018
+0.46818,"07135","Cochem-Zell",2019
+0.49389,"07135","Cochem-Zell",2020
+0.41856,"07137","Mayen-Koblenz",1998
+0.42314,"07137","Mayen-Koblenz",1999
+0.39819,"07137","Mayen-Koblenz",2000
+0.45174,"07137","Mayen-Koblenz",2001
+0.46313,"07137","Mayen-Koblenz",2002
+0.46652,"07137","Mayen-Koblenz",2003
+0.44579,"07137","Mayen-Koblenz",2004
+0.45757,"07137","Mayen-Koblenz",2005
+0.45754,"07137","Mayen-Koblenz",2006
+0.44461,"07137","Mayen-Koblenz",2007
+0.47778,"07137","Mayen-Koblenz",2008
+0.46394,"07137","Mayen-Koblenz",2009
+0.48564,"07137","Mayen-Koblenz",2010
+0.43518,"07137","Mayen-Koblenz",2011
+0.43568,"07137","Mayen-Koblenz",2012
+0.43446,"07137","Mayen-Koblenz",2013
+0.42324,"07137","Mayen-Koblenz",2014
+0.43267,"07137","Mayen-Koblenz",2015
+0.41303,"07137","Mayen-Koblenz",2016
+0.38333,"07137","Mayen-Koblenz",2017
+0.36774,"07137","Mayen-Koblenz",2018
+0.36218,"07137","Mayen-Koblenz",2019
+0.36028,"07137","Mayen-Koblenz",2020
+0.35279,"07138","Neuwied",1998
+0.35876,"07138","Neuwied",1999
+0.38789,"07138","Neuwied",2000
+0.42707,"07138","Neuwied",2001
+0.44709,"07138","Neuwied",2002
+0.41979,"07138","Neuwied",2003
+0.4021,"07138","Neuwied",2004
+0.46127,"07138","Neuwied",2005
+0.45162,"07138","Neuwied",2006
+0.40269,"07138","Neuwied",2007
+0.48054,"07138","Neuwied",2008
+0.5013,"07138","Neuwied",2009
+0.4604,"07138","Neuwied",2010
+0.4412,"07138","Neuwied",2011
+0.47602,"07138","Neuwied",2012
+0.50771,"07138","Neuwied",2013
+0.46697,"07138","Neuwied",2014
+0.49098,"07138","Neuwied",2015
+0.48716,"07138","Neuwied",2016
+0.45412,"07138","Neuwied",2017
+0.47347,"07138","Neuwied",2018
+0.46089,"07138","Neuwied",2019
+0.50878,"07138","Neuwied",2020
+0.40666,"07140","Rhein-Hunsrück-Kreis",1998
+0.40408,"07140","Rhein-Hunsrück-Kreis",1999
+0.44848,"07140","Rhein-Hunsrück-Kreis",2000
+0.4145,"07140","Rhein-Hunsrück-Kreis",2001
+0.44065,"07140","Rhein-Hunsrück-Kreis",2002
+0.43143,"07140","Rhein-Hunsrück-Kreis",2003
+0.37927,"07140","Rhein-Hunsrück-Kreis",2004
+0.43405,"07140","Rhein-Hunsrück-Kreis",2005
+0.40071,"07140","Rhein-Hunsrück-Kreis",2006
+0.43417,"07140","Rhein-Hunsrück-Kreis",2007
+0.44573,"07140","Rhein-Hunsrück-Kreis",2008
+0.44559,"07140","Rhein-Hunsrück-Kreis",2009
+0.38716,"07140","Rhein-Hunsrück-Kreis",2010
+0.36811,"07140","Rhein-Hunsrück-Kreis",2011
+0.39019,"07140","Rhein-Hunsrück-Kreis",2012
+0.38174,"07140","Rhein-Hunsrück-Kreis",2013
+0.38393,"07140","Rhein-Hunsrück-Kreis",2014
+0.42214,"07140","Rhein-Hunsrück-Kreis",2015
+0.35238,"07140","Rhein-Hunsrück-Kreis",2016
+0.36467,"07140","Rhein-Hunsrück-Kreis",2017
+0.3204,"07140","Rhein-Hunsrück-Kreis",2018
+0.32762,"07140","Rhein-Hunsrück-Kreis",2019
+0.35543,"07140","Rhein-Hunsrück-Kreis",2020
+0.39908,"07141","Rhein-Lahn-Kreis",1998
+0.40106,"07141","Rhein-Lahn-Kreis",1999
+0.44947,"07141","Rhein-Lahn-Kreis",2000
+0.45142,"07141","Rhein-Lahn-Kreis",2001
+0.46326,"07141","Rhein-Lahn-Kreis",2002
+0.48625,"07141","Rhein-Lahn-Kreis",2003
+0.42762,"07141","Rhein-Lahn-Kreis",2004
+0.47108,"07141","Rhein-Lahn-Kreis",2005
+0.45448,"07141","Rhein-Lahn-Kreis",2006
+0.4428,"07141","Rhein-Lahn-Kreis",2007
+0.47137,"07141","Rhein-Lahn-Kreis",2008
+0.48582,"07141","Rhein-Lahn-Kreis",2009
+0.46102,"07141","Rhein-Lahn-Kreis",2010
+0.4428,"07141","Rhein-Lahn-Kreis",2011
+0.42673,"07141","Rhein-Lahn-Kreis",2012
+0.48766,"07141","Rhein-Lahn-Kreis",2013
+0.44189,"07141","Rhein-Lahn-Kreis",2014
+0.49602,"07141","Rhein-Lahn-Kreis",2015
+0.46009,"07141","Rhein-Lahn-Kreis",2016
+0.47161,"07141","Rhein-Lahn-Kreis",2017
+0.43807,"07141","Rhein-Lahn-Kreis",2018
+0.45381,"07141","Rhein-Lahn-Kreis",2019
+0.41931,"07141","Rhein-Lahn-Kreis",2020
+0.40263,"07143","Westerwaldkreis",1998
+0.40719,"07143","Westerwaldkreis",1999
+0.44398,"07143","Westerwaldkreis",2000
+0.44909,"07143","Westerwaldkreis",2001
+0.44041,"07143","Westerwaldkreis",2002
+0.447,"07143","Westerwaldkreis",2003
+0.4102,"07143","Westerwaldkreis",2004
+0.46976,"07143","Westerwaldkreis",2005
+0.44184,"07143","Westerwaldkreis",2006
+0.44372,"07143","Westerwaldkreis",2007
+0.45429,"07143","Westerwaldkreis",2008
+0.45938,"07143","Westerwaldkreis",2009
+0.47478,"07143","Westerwaldkreis",2010
+0.42568,"07143","Westerwaldkreis",2011
+0.42003,"07143","Westerwaldkreis",2012
+0.39882,"07143","Westerwaldkreis",2013
+0.41332,"07143","Westerwaldkreis",2014
+0.41759,"07143","Westerwaldkreis",2015
+0.39775,"07143","Westerwaldkreis",2016
+0.43899,"07143","Westerwaldkreis",2017
+0.42138,"07143","Westerwaldkreis",2018
+0.39498,"07143","Westerwaldkreis",2019
+0.41383,"07143","Westerwaldkreis",2020
+0.46465,"07211","Trier, Stadt",1998
+0.46937,"07211","Trier, Stadt",1999
+0.51738,"07211","Trier, Stadt",2000
+0.50812,"07211","Trier, Stadt",2001
+0.49228,"07211","Trier, Stadt",2002
+0.48586,"07211","Trier, Stadt",2003
+0.46096,"07211","Trier, Stadt",2004
+0.49238,"07211","Trier, Stadt",2005
+0.53795,"07211","Trier, Stadt",2006
+0.54957,"07211","Trier, Stadt",2007
+0.59342,"07211","Trier, Stadt",2008
+0.57315,"07211","Trier, Stadt",2009
+0.58298,"07211","Trier, Stadt",2010
+0.55348,"07211","Trier, Stadt",2011
+0.51588,"07211","Trier, Stadt",2012
+0.52798,"07211","Trier, Stadt",2013
+0.53063,"07211","Trier, Stadt",2014
+0.62139,"07211","Trier, Stadt",2015
+0.51698,"07211","Trier, Stadt",2016
+0.51593,"07211","Trier, Stadt",2017
+0.51375,"07211","Trier, Stadt",2018
+0.54841,"07211","Trier, Stadt",2019
+0.54502,"07211","Trier, Stadt",2020
+0.35424,"07231","Bernkastel-Wittlich",1998
+0.35773,"07231","Bernkastel-Wittlich",1999
+0.43539,"07231","Bernkastel-Wittlich",2000
+0.44978,"07231","Bernkastel-Wittlich",2001
+0.48239,"07231","Bernkastel-Wittlich",2002
+0.42213,"07231","Bernkastel-Wittlich",2003
+0.41301,"07231","Bernkastel-Wittlich",2004
+0.41225,"07231","Bernkastel-Wittlich",2005
+0.4036,"07231","Bernkastel-Wittlich",2006
+0.41808,"07231","Bernkastel-Wittlich",2007
+0.42472,"07231","Bernkastel-Wittlich",2008
+0.45085,"07231","Bernkastel-Wittlich",2009
+0.41658,"07231","Bernkastel-Wittlich",2010
+0.42122,"07231","Bernkastel-Wittlich",2011
+0.44185,"07231","Bernkastel-Wittlich",2012
+0.43588,"07231","Bernkastel-Wittlich",2013
+0.47887,"07231","Bernkastel-Wittlich",2014
+0.46899,"07231","Bernkastel-Wittlich",2015
+0.43974,"07231","Bernkastel-Wittlich",2016
+0.44954,"07231","Bernkastel-Wittlich",2017
+0.46287,"07231","Bernkastel-Wittlich",2018
+0.4587,"07231","Bernkastel-Wittlich",2019
+0.46021,"07231","Bernkastel-Wittlich",2020
+0.48163,"07232","Eifelkreis Bitburg-Prüm",1998
+0.48547,"07232","Eifelkreis Bitburg-Prüm",1999
+0.49765,"07232","Eifelkreis Bitburg-Prüm",2000
+0.53829,"07232","Eifelkreis Bitburg-Prüm",2001
+0.57588,"07232","Eifelkreis Bitburg-Prüm",2002
+0.55617,"07232","Eifelkreis Bitburg-Prüm",2003
+0.50307,"07232","Eifelkreis Bitburg-Prüm",2004
+0.5107,"07232","Eifelkreis Bitburg-Prüm",2005
+0.51653,"07232","Eifelkreis Bitburg-Prüm",2006
+0.51117,"07232","Eifelkreis Bitburg-Prüm",2007
+0.55629,"07232","Eifelkreis Bitburg-Prüm",2008
+0.61224,"07232","Eifelkreis Bitburg-Prüm",2009
+0.58767,"07232","Eifelkreis Bitburg-Prüm",2010
+0.5227,"07232","Eifelkreis Bitburg-Prüm",2011
+0.54228,"07232","Eifelkreis Bitburg-Prüm",2012
+0.53599,"07232","Eifelkreis Bitburg-Prüm",2013
+0.53306,"07232","Eifelkreis Bitburg-Prüm",2014
+0.5518,"07232","Eifelkreis Bitburg-Prüm",2015
+0.54955,"07232","Eifelkreis Bitburg-Prüm",2016
+0.56684,"07232","Eifelkreis Bitburg-Prüm",2017
+0.54872,"07232","Eifelkreis Bitburg-Prüm",2018
+0.55769,"07232","Eifelkreis Bitburg-Prüm",2019
+0.6045,"07232","Eifelkreis Bitburg-Prüm",2020
+0.37667,"07233","Vulkaneifel",1998
+0.38122,"07233","Vulkaneifel",1999
+0.39181,"07233","Vulkaneifel",2000
+0.42467,"07233","Vulkaneifel",2001
+0.45542,"07233","Vulkaneifel",2002
+0.42675,"07233","Vulkaneifel",2003
+0.40906,"07233","Vulkaneifel",2004
+0.45954,"07233","Vulkaneifel",2005
+0.4335,"07233","Vulkaneifel",2006
+0.44307,"07233","Vulkaneifel",2007
+0.4885,"07233","Vulkaneifel",2008
+0.46338,"07233","Vulkaneifel",2009
+0.5019,"07233","Vulkaneifel",2010
+0.4699,"07233","Vulkaneifel",2011
+0.48841,"07233","Vulkaneifel",2012
+0.50035,"07233","Vulkaneifel",2013
+0.50851,"07233","Vulkaneifel",2014
+0.52662,"07233","Vulkaneifel",2015
+0.50176,"07233","Vulkaneifel",2016
+0.48133,"07233","Vulkaneifel",2017
+0.49961,"07233","Vulkaneifel",2018
+0.45335,"07233","Vulkaneifel",2019
+0.46684,"07233","Vulkaneifel",2020
+0.34396,"07235","Trier-Saarburg",1998
+0.35557,"07235","Trier-Saarburg",1999
+0.45528,"07235","Trier-Saarburg",2000
+0.47148,"07235","Trier-Saarburg",2001
+0.48386,"07235","Trier-Saarburg",2002
+0.41779,"07235","Trier-Saarburg",2003
+0.43752,"07235","Trier-Saarburg",2004
+0.47807,"07235","Trier-Saarburg",2005
+0.41961,"07235","Trier-Saarburg",2006
+0.41509,"07235","Trier-Saarburg",2007
+0.50766,"07235","Trier-Saarburg",2008
+0.55622,"07235","Trier-Saarburg",2009
+0.54989,"07235","Trier-Saarburg",2010
+0.4975,"07235","Trier-Saarburg",2011
+0.5116,"07235","Trier-Saarburg",2012
+0.54598,"07235","Trier-Saarburg",2013
+0.51435,"07235","Trier-Saarburg",2014
+0.55649,"07235","Trier-Saarburg",2015
+0.56537,"07235","Trier-Saarburg",2016
+0.53775,"07235","Trier-Saarburg",2017
+0.48615,"07235","Trier-Saarburg",2018
+0.48544,"07235","Trier-Saarburg",2019
+0.52132,"07235","Trier-Saarburg",2020
+0.44415,"07311","Frankenthal (Pfalz), Stadt",1998
+0.44337,"07311","Frankenthal (Pfalz), Stadt",1999
+0.47383,"07311","Frankenthal (Pfalz), Stadt",2000
+0.53485,"07311","Frankenthal (Pfalz), Stadt",2001
+0.61551,"07311","Frankenthal (Pfalz), Stadt",2002
+0.56648,"07311","Frankenthal (Pfalz), Stadt",2003
+0.49148,"07311","Frankenthal (Pfalz), Stadt",2004
+0.52602,"07311","Frankenthal (Pfalz), Stadt",2005
+0.57089,"07311","Frankenthal (Pfalz), Stadt",2006
+0.49702,"07311","Frankenthal (Pfalz), Stadt",2007
+0.55723,"07311","Frankenthal (Pfalz), Stadt",2008
+0.53756,"07311","Frankenthal (Pfalz), Stadt",2009
+0.53172,"07311","Frankenthal (Pfalz), Stadt",2010
+0.50673,"07311","Frankenthal (Pfalz), Stadt",2011
+0.43337,"07311","Frankenthal (Pfalz), Stadt",2012
+0.48321,"07311","Frankenthal (Pfalz), Stadt",2013
+0.44815,"07311","Frankenthal (Pfalz), Stadt",2014
+0.46854,"07311","Frankenthal (Pfalz), Stadt",2015
+0.45958,"07311","Frankenthal (Pfalz), Stadt",2016
+0.53067,"07311","Frankenthal (Pfalz), Stadt",2017
+0.53465,"07311","Frankenthal (Pfalz), Stadt",2018
+0.60428,"07311","Frankenthal (Pfalz), Stadt",2019
+0.60124,"07311","Frankenthal (Pfalz), Stadt",2020
+0.69987,"07312","Kaiserslautern, Stadt",1998
+0.68257,"07312","Kaiserslautern, Stadt",1999
+0.60648,"07312","Kaiserslautern, Stadt",2000
+0.66242,"07312","Kaiserslautern, Stadt",2001
+0.60731,"07312","Kaiserslautern, Stadt",2002
+0.63181,"07312","Kaiserslautern, Stadt",2003
+0.60723,"07312","Kaiserslautern, Stadt",2004
+0.63069,"07312","Kaiserslautern, Stadt",2005
+0.69692,"07312","Kaiserslautern, Stadt",2006
+0.67051,"07312","Kaiserslautern, Stadt",2007
+0.70837,"07312","Kaiserslautern, Stadt",2008
+0.69548,"07312","Kaiserslautern, Stadt",2009
+0.75455,"07312","Kaiserslautern, Stadt",2010
+0.64015,"07312","Kaiserslautern, Stadt",2011
+0.63802,"07312","Kaiserslautern, Stadt",2012
+0.65194,"07312","Kaiserslautern, Stadt",2013
+0.6817,"07312","Kaiserslautern, Stadt",2014
+0.6245,"07312","Kaiserslautern, Stadt",2015
+0.63097,"07312","Kaiserslautern, Stadt",2016
+0.63218,"07312","Kaiserslautern, Stadt",2017
+0.61961,"07312","Kaiserslautern, Stadt",2018
+0.63139,"07312","Kaiserslautern, Stadt",2019
+0.62558,"07312","Kaiserslautern, Stadt",2020
+0.37694,"07313","Landau in der Pfalz, Stadt",1998
+0.3786,"07313","Landau in der Pfalz, Stadt",1999
+0.41669,"07313","Landau in der Pfalz, Stadt",2000
+0.36339,"07313","Landau in der Pfalz, Stadt",2001
+0.4704,"07313","Landau in der Pfalz, Stadt",2002
+0.3286,"07313","Landau in der Pfalz, Stadt",2003
+0.39371,"07313","Landau in der Pfalz, Stadt",2004
+0.40993,"07313","Landau in der Pfalz, Stadt",2005
+0.43918,"07313","Landau in der Pfalz, Stadt",2006
+0.41328,"07313","Landau in der Pfalz, Stadt",2007
+0.49176,"07313","Landau in der Pfalz, Stadt",2008
+0.41376,"07313","Landau in der Pfalz, Stadt",2009
+0.458,"07313","Landau in der Pfalz, Stadt",2010
+0.39502,"07313","Landau in der Pfalz, Stadt",2011
+0.36897,"07313","Landau in der Pfalz, Stadt",2012
+0.36725,"07313","Landau in der Pfalz, Stadt",2013
+0.38302,"07313","Landau in der Pfalz, Stadt",2014
+0.46899,"07313","Landau in der Pfalz, Stadt",2015
+0.46057,"07313","Landau in der Pfalz, Stadt",2016
+0.4038,"07313","Landau in der Pfalz, Stadt",2017
+0.38557,"07313","Landau in der Pfalz, Stadt",2018
+0.35775,"07313","Landau in der Pfalz, Stadt",2019
+0.425,"07313","Landau in der Pfalz, Stadt",2020
+0.55584,"07314","Ludwigshafen am Rhein, Stadt",1998
+0.55891,"07314","Ludwigshafen am Rhein, Stadt",1999
+0.55003,"07314","Ludwigshafen am Rhein, Stadt",2000
+0.64847,"07314","Ludwigshafen am Rhein, Stadt",2001
+0.59826,"07314","Ludwigshafen am Rhein, Stadt",2002
+0.68121,"07314","Ludwigshafen am Rhein, Stadt",2003
+0.61079,"07314","Ludwigshafen am Rhein, Stadt",2004
+0.60398,"07314","Ludwigshafen am Rhein, Stadt",2005
+0.62654,"07314","Ludwigshafen am Rhein, Stadt",2006
+0.69262,"07314","Ludwigshafen am Rhein, Stadt",2007
+0.67409,"07314","Ludwigshafen am Rhein, Stadt",2008
+0.61606,"07314","Ludwigshafen am Rhein, Stadt",2009
+0.65837,"07314","Ludwigshafen am Rhein, Stadt",2010
+0.58287,"07314","Ludwigshafen am Rhein, Stadt",2011
+0.5139,"07314","Ludwigshafen am Rhein, Stadt",2012
+0.53732,"07314","Ludwigshafen am Rhein, Stadt",2013
+0.59081,"07314","Ludwigshafen am Rhein, Stadt",2014
+0.5817,"07314","Ludwigshafen am Rhein, Stadt",2015
+0.59117,"07314","Ludwigshafen am Rhein, Stadt",2016
+0.65624,"07314","Ludwigshafen am Rhein, Stadt",2017
+0.63289,"07314","Ludwigshafen am Rhein, Stadt",2018
+0.63372,"07314","Ludwigshafen am Rhein, Stadt",2019
+0.65918,"07314","Ludwigshafen am Rhein, Stadt",2020
+0.03381,"07315","Mainz, Stadt",1998
+0.00984,"07315","Mainz, Stadt",1999
+0,"07315","Mainz, Stadt",2000
+0,"07315","Mainz, Stadt",2001
+0,"07315","Mainz, Stadt",2002
+0.01359,"07315","Mainz, Stadt",2003
+0,"07315","Mainz, Stadt",2004
+0.05076,"07315","Mainz, Stadt",2005
+0.05644,"07315","Mainz, Stadt",2006
+0.04398,"07315","Mainz, Stadt",2007
+0.07345,"07315","Mainz, Stadt",2008
+0.0696,"07315","Mainz, Stadt",2009
+0.05655,"07315","Mainz, Stadt",2010
+0.05611,"07315","Mainz, Stadt",2011
+0,"07315","Mainz, Stadt",2012
+0,"07315","Mainz, Stadt",2013
+0.00085,"07315","Mainz, Stadt",2014
+0.03199,"07315","Mainz, Stadt",2015
+0,"07315","Mainz, Stadt",2016
+0,"07315","Mainz, Stadt",2017
+0,"07315","Mainz, Stadt",2018
+0,"07315","Mainz, Stadt",2019
+0,"07315","Mainz, Stadt",2020
+0.35367,"07316","Neustadt an der Weinstraße, Stadt",1998
+0.35343,"07316","Neustadt an der Weinstraße, Stadt",1999
+0.38194,"07316","Neustadt an der Weinstraße, Stadt",2000
+0.35778,"07316","Neustadt an der Weinstraße, Stadt",2001
+0.43133,"07316","Neustadt an der Weinstraße, Stadt",2002
+0.41021,"07316","Neustadt an der Weinstraße, Stadt",2003
+0.31196,"07316","Neustadt an der Weinstraße, Stadt",2004
+0.37737,"07316","Neustadt an der Weinstraße, Stadt",2005
+0.37642,"07316","Neustadt an der Weinstraße, Stadt",2006
+0.32156,"07316","Neustadt an der Weinstraße, Stadt",2007
+0.42132,"07316","Neustadt an der Weinstraße, Stadt",2008
+0.41216,"07316","Neustadt an der Weinstraße, Stadt",2009
+0.37687,"07316","Neustadt an der Weinstraße, Stadt",2010
+0.34211,"07316","Neustadt an der Weinstraße, Stadt",2011
+0.28849,"07316","Neustadt an der Weinstraße, Stadt",2012
+0.32013,"07316","Neustadt an der Weinstraße, Stadt",2013
+0.28474,"07316","Neustadt an der Weinstraße, Stadt",2014
+0.296,"07316","Neustadt an der Weinstraße, Stadt",2015
+0.26582,"07316","Neustadt an der Weinstraße, Stadt",2016
+0.27148,"07316","Neustadt an der Weinstraße, Stadt",2017
+0.24689,"07316","Neustadt an der Weinstraße, Stadt",2018
+0.28066,"07316","Neustadt an der Weinstraße, Stadt",2019
+0.27091,"07316","Neustadt an der Weinstraße, Stadt",2020
+1,"07317","Pirmasens, Stadt",1998
+1,"07317","Pirmasens, Stadt",1999
+1,"07317","Pirmasens, Stadt",2000
+1,"07317","Pirmasens, Stadt",2001
+1,"07317","Pirmasens, Stadt",2002
+1,"07317","Pirmasens, Stadt",2003
+1,"07317","Pirmasens, Stadt",2004
+1,"07317","Pirmasens, Stadt",2005
+1,"07317","Pirmasens, Stadt",2006
+1,"07317","Pirmasens, Stadt",2007
+1,"07317","Pirmasens, Stadt",2008
+1,"07317","Pirmasens, Stadt",2009
+1,"07317","Pirmasens, Stadt",2010
+1,"07317","Pirmasens, Stadt",2011
+1,"07317","Pirmasens, Stadt",2012
+1,"07317","Pirmasens, Stadt",2013
+1,"07317","Pirmasens, Stadt",2014
+1,"07317","Pirmasens, Stadt",2015
+1,"07317","Pirmasens, Stadt",2016
+1,"07317","Pirmasens, Stadt",2017
+1,"07317","Pirmasens, Stadt",2018
+1,"07317","Pirmasens, Stadt",2019
+1,"07317","Pirmasens, Stadt",2020
+0.27587,"07318","Speyer, Stadt",1998
+0.26733,"07318","Speyer, Stadt",1999
+0.33065,"07318","Speyer, Stadt",2000
+0.36675,"07318","Speyer, Stadt",2001
+0.36669,"07318","Speyer, Stadt",2002
+0.37008,"07318","Speyer, Stadt",2003
+0.32572,"07318","Speyer, Stadt",2004
+0.32367,"07318","Speyer, Stadt",2005
+0.28125,"07318","Speyer, Stadt",2006
+0.25248,"07318","Speyer, Stadt",2007
+0.30931,"07318","Speyer, Stadt",2008
+0.32431,"07318","Speyer, Stadt",2009
+0.29735,"07318","Speyer, Stadt",2010
+0.22165,"07318","Speyer, Stadt",2011
+0.24126,"07318","Speyer, Stadt",2012
+0.24021,"07318","Speyer, Stadt",2013
+0.23064,"07318","Speyer, Stadt",2014
+0.23486,"07318","Speyer, Stadt",2015
+0.24296,"07318","Speyer, Stadt",2016
+0.22363,"07318","Speyer, Stadt",2017
+0.23013,"07318","Speyer, Stadt",2018
+0.199,"07318","Speyer, Stadt",2019
+0.26795,"07318","Speyer, Stadt",2020
+0.65271,"07319","Worms, Stadt",1998
+0.65649,"07319","Worms, Stadt",1999
+0.68754,"07319","Worms, Stadt",2000
+0.70446,"07319","Worms, Stadt",2001
+0.67148,"07319","Worms, Stadt",2002
+0.64859,"07319","Worms, Stadt",2003
+0.62864,"07319","Worms, Stadt",2004
+0.67009,"07319","Worms, Stadt",2005
+0.73913,"07319","Worms, Stadt",2006
+0.71759,"07319","Worms, Stadt",2007
+0.70198,"07319","Worms, Stadt",2008
+0.70344,"07319","Worms, Stadt",2009
+0.68835,"07319","Worms, Stadt",2010
+0.58317,"07319","Worms, Stadt",2011
+0.62651,"07319","Worms, Stadt",2012
+0.67893,"07319","Worms, Stadt",2013
+0.69763,"07319","Worms, Stadt",2014
+0.69004,"07319","Worms, Stadt",2015
+0.7117,"07319","Worms, Stadt",2016
+0.67842,"07319","Worms, Stadt",2017
+0.65446,"07319","Worms, Stadt",2018
+0.63802,"07319","Worms, Stadt",2019
+0.66482,"07319","Worms, Stadt",2020
+0.49827,"07320","Zweibrücken, Stadt",1998
+0.49439,"07320","Zweibrücken, Stadt",1999
+0.50459,"07320","Zweibrücken, Stadt",2000
+0.54087,"07320","Zweibrücken, Stadt",2001
+0.60005,"07320","Zweibrücken, Stadt",2002
+0.57174,"07320","Zweibrücken, Stadt",2003
+0.57592,"07320","Zweibrücken, Stadt",2004
+0.57548,"07320","Zweibrücken, Stadt",2005
+0.59486,"07320","Zweibrücken, Stadt",2006
+0.52157,"07320","Zweibrücken, Stadt",2007
+0.55746,"07320","Zweibrücken, Stadt",2008
+0.56389,"07320","Zweibrücken, Stadt",2009
+0.51515,"07320","Zweibrücken, Stadt",2010
+0.48098,"07320","Zweibrücken, Stadt",2011
+0.5178,"07320","Zweibrücken, Stadt",2012
+0.52029,"07320","Zweibrücken, Stadt",2013
+0.47242,"07320","Zweibrücken, Stadt",2014
+0.5889,"07320","Zweibrücken, Stadt",2015
+0.57009,"07320","Zweibrücken, Stadt",2016
+0.56942,"07320","Zweibrücken, Stadt",2017
+0.50713,"07320","Zweibrücken, Stadt",2018
+0.5036,"07320","Zweibrücken, Stadt",2019
+0.53262,"07320","Zweibrücken, Stadt",2020
+0.35628,"07331","Alzey-Worms",1998
+0.36192,"07331","Alzey-Worms",1999
+0.40637,"07331","Alzey-Worms",2000
+0.40031,"07331","Alzey-Worms",2001
+0.35255,"07331","Alzey-Worms",2002
+0.3915,"07331","Alzey-Worms",2003
+0.38301,"07331","Alzey-Worms",2004
+0.39551,"07331","Alzey-Worms",2005
+0.4238,"07331","Alzey-Worms",2006
+0.36371,"07331","Alzey-Worms",2007
+0.42978,"07331","Alzey-Worms",2008
+0.39749,"07331","Alzey-Worms",2009
+0.3465,"07331","Alzey-Worms",2010
+0.35374,"07331","Alzey-Worms",2011
+0.3548,"07331","Alzey-Worms",2012
+0.33716,"07331","Alzey-Worms",2013
+0.32777,"07331","Alzey-Worms",2014
+0.37317,"07331","Alzey-Worms",2015
+0.38756,"07331","Alzey-Worms",2016
+0.34714,"07331","Alzey-Worms",2017
+0.35747,"07331","Alzey-Worms",2018
+0.35529,"07331","Alzey-Worms",2019
+0.36085,"07331","Alzey-Worms",2020
+0.25331,"07332","Bad Dürkheim",1998
+0.25512,"07332","Bad Dürkheim",1999
+0.29032,"07332","Bad Dürkheim",2000
+0.30836,"07332","Bad Dürkheim",2001
+0.27637,"07332","Bad Dürkheim",2002
+0.24982,"07332","Bad Dürkheim",2003
+0.2386,"07332","Bad Dürkheim",2004
+0.24332,"07332","Bad Dürkheim",2005
+0.27838,"07332","Bad Dürkheim",2006
+0.24299,"07332","Bad Dürkheim",2007
+0.28335,"07332","Bad Dürkheim",2008
+0.29766,"07332","Bad Dürkheim",2009
+0.30189,"07332","Bad Dürkheim",2010
+0.26197,"07332","Bad Dürkheim",2011
+0.26869,"07332","Bad Dürkheim",2012
+0.26358,"07332","Bad Dürkheim",2013
+0.2953,"07332","Bad Dürkheim",2014
+0.31722,"07332","Bad Dürkheim",2015
+0.33662,"07332","Bad Dürkheim",2016
+0.30951,"07332","Bad Dürkheim",2017
+0.31259,"07332","Bad Dürkheim",2018
+0.2579,"07332","Bad Dürkheim",2019
+0.30402,"07332","Bad Dürkheim",2020
+0.48549,"07333","Donnersbergkreis",1998
+0.48698,"07333","Donnersbergkreis",1999
+0.57037,"07333","Donnersbergkreis",2000
+0.55025,"07333","Donnersbergkreis",2001
+0.58592,"07333","Donnersbergkreis",2002
+0.58149,"07333","Donnersbergkreis",2003
+0.52739,"07333","Donnersbergkreis",2004
+0.54846,"07333","Donnersbergkreis",2005
+0.52155,"07333","Donnersbergkreis",2006
+0.52256,"07333","Donnersbergkreis",2007
+0.54329,"07333","Donnersbergkreis",2008
+0.55574,"07333","Donnersbergkreis",2009
+0.55738,"07333","Donnersbergkreis",2010
+0.50332,"07333","Donnersbergkreis",2011
+0.48986,"07333","Donnersbergkreis",2012
+0.50667,"07333","Donnersbergkreis",2013
+0.49924,"07333","Donnersbergkreis",2014
+0.48072,"07333","Donnersbergkreis",2015
+0.47784,"07333","Donnersbergkreis",2016
+0.52657,"07333","Donnersbergkreis",2017
+0.48087,"07333","Donnersbergkreis",2018
+0.53751,"07333","Donnersbergkreis",2019
+0.48465,"07333","Donnersbergkreis",2020
+0.32297,"07334","Germersheim",1998
+0.31731,"07334","Germersheim",1999
+0.3862,"07334","Germersheim",2000
+0.39162,"07334","Germersheim",2001
+0.39906,"07334","Germersheim",2002
+0.40422,"07334","Germersheim",2003
+0.32139,"07334","Germersheim",2004
+0.30448,"07334","Germersheim",2005
+0.32315,"07334","Germersheim",2006
+0.26501,"07334","Germersheim",2007
+0.30735,"07334","Germersheim",2008
+0.28978,"07334","Germersheim",2009
+0.29167,"07334","Germersheim",2010
+0.24497,"07334","Germersheim",2011
+0.29676,"07334","Germersheim",2012
+0.25257,"07334","Germersheim",2013
+0.281,"07334","Germersheim",2014
+0.26136,"07334","Germersheim",2015
+0.27988,"07334","Germersheim",2016
+0.29005,"07334","Germersheim",2017
+0.23681,"07334","Germersheim",2018
+0.21955,"07334","Germersheim",2019
+0.2801,"07334","Germersheim",2020
+0.60162,"07335","Kaiserslautern",1998
+0.59729,"07335","Kaiserslautern",1999
+0.57763,"07335","Kaiserslautern",2000
+0.54736,"07335","Kaiserslautern",2001
+0.55872,"07335","Kaiserslautern",2002
+0.5134,"07335","Kaiserslautern",2003
+0.52929,"07335","Kaiserslautern",2004
+0.4885,"07335","Kaiserslautern",2005
+0.50746,"07335","Kaiserslautern",2006
+0.55859,"07335","Kaiserslautern",2007
+0.5354,"07335","Kaiserslautern",2008
+0.53573,"07335","Kaiserslautern",2009
+0.55342,"07335","Kaiserslautern",2010
+0.49048,"07335","Kaiserslautern",2011
+0.49718,"07335","Kaiserslautern",2012
+0.52996,"07335","Kaiserslautern",2013
+0.50845,"07335","Kaiserslautern",2014
+0.52999,"07335","Kaiserslautern",2015
+0.46825,"07335","Kaiserslautern",2016
+0.49568,"07335","Kaiserslautern",2017
+0.52302,"07335","Kaiserslautern",2018
+0.493,"07335","Kaiserslautern",2019
+0.54325,"07335","Kaiserslautern",2020
+0.53285,"07336","Kusel",1998
+0.52277,"07336","Kusel",1999
+0.57523,"07336","Kusel",2000
+0.56168,"07336","Kusel",2001
+0.63568,"07336","Kusel",2002
+0.62859,"07336","Kusel",2003
+0.55051,"07336","Kusel",2004
+0.61299,"07336","Kusel",2005
+0.61309,"07336","Kusel",2006
+0.62453,"07336","Kusel",2007
+0.60205,"07336","Kusel",2008
+0.65388,"07336","Kusel",2009
+0.60871,"07336","Kusel",2010
+0.55564,"07336","Kusel",2011
+0.57082,"07336","Kusel",2012
+0.5452,"07336","Kusel",2013
+0.5788,"07336","Kusel",2014
+0.60254,"07336","Kusel",2015
+0.56599,"07336","Kusel",2016
+0.63422,"07336","Kusel",2017
+0.64284,"07336","Kusel",2018
+0.57628,"07336","Kusel",2019
+0.55757,"07336","Kusel",2020
+0.26352,"07337","Südliche Weinstraße",1998
+0.26812,"07337","Südliche Weinstraße",1999
+0.33412,"07337","Südliche Weinstraße",2000
+0.36401,"07337","Südliche Weinstraße",2001
+0.34427,"07337","Südliche Weinstraße",2002
+0.33148,"07337","Südliche Weinstraße",2003
+0.28025,"07337","Südliche Weinstraße",2004
+0.27673,"07337","Südliche Weinstraße",2005
+0.2632,"07337","Südliche Weinstraße",2006
+0.25165,"07337","Südliche Weinstraße",2007
+0.30972,"07337","Südliche Weinstraße",2008
+0.3361,"07337","Südliche Weinstraße",2009
+0.33252,"07337","Südliche Weinstraße",2010
+0.28691,"07337","Südliche Weinstraße",2011
+0.32026,"07337","Südliche Weinstraße",2012
+0.30438,"07337","Südliche Weinstraße",2013
+0.29275,"07337","Südliche Weinstraße",2014
+0.33191,"07337","Südliche Weinstraße",2015
+0.30446,"07337","Südliche Weinstraße",2016
+0.30832,"07337","Südliche Weinstraße",2017
+0.26343,"07337","Südliche Weinstraße",2018
+0.2709,"07337","Südliche Weinstraße",2019
+0.29924,"07337","Südliche Weinstraße",2020
+0.10805,"07338","Rhein-Pfalz-Kreis",1998
+0.1088,"07338","Rhein-Pfalz-Kreis",1999
+0.1809,"07338","Rhein-Pfalz-Kreis",2000
+0.15579,"07338","Rhein-Pfalz-Kreis",2001
+0.18027,"07338","Rhein-Pfalz-Kreis",2002
+0.1437,"07338","Rhein-Pfalz-Kreis",2003
+0.14245,"07338","Rhein-Pfalz-Kreis",2004
+0.12892,"07338","Rhein-Pfalz-Kreis",2005
+0.141,"07338","Rhein-Pfalz-Kreis",2006
+0.10505,"07338","Rhein-Pfalz-Kreis",2007
+0.19193,"07338","Rhein-Pfalz-Kreis",2008
+0.21116,"07338","Rhein-Pfalz-Kreis",2009
+0.17236,"07338","Rhein-Pfalz-Kreis",2010
+0.15831,"07338","Rhein-Pfalz-Kreis",2011
+0.14942,"07338","Rhein-Pfalz-Kreis",2012
+0.13346,"07338","Rhein-Pfalz-Kreis",2013
+0.11086,"07338","Rhein-Pfalz-Kreis",2014
+0.12672,"07338","Rhein-Pfalz-Kreis",2015
+0.15293,"07338","Rhein-Pfalz-Kreis",2016
+0.14108,"07338","Rhein-Pfalz-Kreis",2017
+0.14045,"07338","Rhein-Pfalz-Kreis",2018
+0.13138,"07338","Rhein-Pfalz-Kreis",2019
+0.14727,"07338","Rhein-Pfalz-Kreis",2020
+0,"07339","Mainz-Bingen",1998
+0,"07339","Mainz-Bingen",1999
+0.05036,"07339","Mainz-Bingen",2000
+0.02574,"07339","Mainz-Bingen",2001
+0.03513,"07339","Mainz-Bingen",2002
+0,"07339","Mainz-Bingen",2003
+0.00088,"07339","Mainz-Bingen",2004
+0,"07339","Mainz-Bingen",2005
+0,"07339","Mainz-Bingen",2006
+0,"07339","Mainz-Bingen",2007
+0,"07339","Mainz-Bingen",2008
+0,"07339","Mainz-Bingen",2009
+0,"07339","Mainz-Bingen",2010
+0,"07339","Mainz-Bingen",2011
+0.06254,"07339","Mainz-Bingen",2012
+0.01589,"07339","Mainz-Bingen",2013
+0,"07339","Mainz-Bingen",2014
+0,"07339","Mainz-Bingen",2015
+0.03766,"07339","Mainz-Bingen",2016
+0.05077,"07339","Mainz-Bingen",2017
+0.03932,"07339","Mainz-Bingen",2018
+0.04065,"07339","Mainz-Bingen",2019
+0.0568,"07339","Mainz-Bingen",2020
+0.48389,"07340","Südwestpfalz",1998
+0.48916,"07340","Südwestpfalz",1999
+0.5408,"07340","Südwestpfalz",2000
+0.49038,"07340","Südwestpfalz",2001
+0.52826,"07340","Südwestpfalz",2002
+0.48645,"07340","Südwestpfalz",2003
+0.48757,"07340","Südwestpfalz",2004
+0.49247,"07340","Südwestpfalz",2005
+0.44808,"07340","Südwestpfalz",2006
+0.48882,"07340","Südwestpfalz",2007
+0.52326,"07340","Südwestpfalz",2008
+0.52702,"07340","Südwestpfalz",2009
+0.48733,"07340","Südwestpfalz",2010
+0.45948,"07340","Südwestpfalz",2011
+0.43401,"07340","Südwestpfalz",2012
+0.42086,"07340","Südwestpfalz",2013
+0.39979,"07340","Südwestpfalz",2014
+0.44384,"07340","Südwestpfalz",2015
+0.43721,"07340","Südwestpfalz",2016
+0.42452,"07340","Südwestpfalz",2017
+0.38468,"07340","Südwestpfalz",2018
+0.39858,"07340","Südwestpfalz",2019
+0.3939,"07340","Südwestpfalz",2020

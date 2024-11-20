@@ -5,23 +5,24 @@
 #           haben wir die Population für Gesamt-Berlin für das Jahr 1989
 #           (und Berlin Ost und West dann nicht mehr vorhanden in 1989)
 
-#           Langweiler Wald war 2018 eigenständig und wird auf 2019
+#           Langweiler Wald war 2019 eigenständig und wird 2020
 #           auf die Dörfer A B C aufgeteilt. Am Ende des Prozesses
 #           Haben wir die Population von A B und C inkl. Langweiler Wald-Anteil
-#           für 2018 (Langweiler Wald dann nicht mehr vorhanden in 2018).
+#           für 2019 (Langweiler Wald dann nicht mehr vorhanden in 2019).
 
 # WARNUNG: BBSR ist nicht konsistent mit Bevölkerungszahlen.
 #          Manchmal in 100 (z.B. Flensburg 906), manchmal in 1000 (Flensburg 90,6)
 #          Wenn auf das nächste Jahr geupdated wird unbedingt sicherstellen dass
-#          alles wieder zusammenpasst.
+#          alles wieder zusammenpasst. Wir halten alles auf 100.
 
 ### REFERENZEN VOM BBSR BESORGEN WENN NOCH NICHT VORHANDEN
+
 ## Umsteigeschlüssel Gemeinden
 # (Quelle: https://www.bbsr.bund.de/BBSR/DE/forschung/raumbeobachtung/umstiegsschluessel/umsteigeschluessel.html)
 if (!file.exists("Data/Referenz/ref-gemeinden-2010-2020.xlsx")) {
-url <- "https://www.bbsr.bund.de/BBSR/DE/forschung/raumbeobachtung/umstiegsschluessel/ref-gemeinden-2010-2020.xlsx?__blob=publicationFile&v=5"
-download.file(url, destfile = "Data/Referenz/ref-gemeinden-2010-2020.xlsx", mode = "wb")
-rm(url)
+  url <- "https://www.bbsr.bund.de/BBSR/DE/forschung/raumbeobachtung/umstiegsschluessel/ref-gemeinden-2010-2020.xlsx?__blob=publicationFile&v=5"
+  download.file(url, destfile = "Data/Referenz/ref-gemeinden-2010-2020.xlsx", mode = "wb")
+  rm(url)
 }
 
 ## Gemeinden-Gemeindeverbands-Schlüssel

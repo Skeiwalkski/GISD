@@ -1,0 +1,2305 @@
+"gisd_score","kreis_id","kreis_name","year"
+0.43843,"09161","Ingolstadt",1998
+0.4204,"09161","Ingolstadt",1999
+0.47062,"09161","Ingolstadt",2000
+0.51173,"09161","Ingolstadt",2001
+0.57267,"09161","Ingolstadt",2002
+0.53098,"09161","Ingolstadt",2003
+0.45966,"09161","Ingolstadt",2004
+0.46316,"09161","Ingolstadt",2005
+0.46438,"09161","Ingolstadt",2006
+0.49079,"09161","Ingolstadt",2007
+0.50655,"09161","Ingolstadt",2008
+0.49054,"09161","Ingolstadt",2009
+0.46937,"09161","Ingolstadt",2010
+0.44842,"09161","Ingolstadt",2011
+0.3956,"09161","Ingolstadt",2012
+0.33575,"09161","Ingolstadt",2013
+0.32012,"09161","Ingolstadt",2014
+0.24909,"09161","Ingolstadt",2015
+0.20352,"09161","Ingolstadt",2016
+0.1967,"09161","Ingolstadt",2017
+0.23154,"09161","Ingolstadt",2018
+0.22895,"09161","Ingolstadt",2019
+0.25462,"09161","Ingolstadt",2020
+0.27502,"09161","Ingolstadt",2021
+0.24204,"09162","München, Landeshauptstadt",1998
+0.20037,"09162","München, Landeshauptstadt",1999
+0.14277,"09162","München, Landeshauptstadt",2000
+0.20435,"09162","München, Landeshauptstadt",2001
+0.19881,"09162","München, Landeshauptstadt",2002
+0.24434,"09162","München, Landeshauptstadt",2003
+0.21423,"09162","München, Landeshauptstadt",2004
+0.25486,"09162","München, Landeshauptstadt",2005
+0.26272,"09162","München, Landeshauptstadt",2006
+0.27669,"09162","München, Landeshauptstadt",2007
+0.27658,"09162","München, Landeshauptstadt",2008
+0.27902,"09162","München, Landeshauptstadt",2009
+0.28234,"09162","München, Landeshauptstadt",2010
+0.26947,"09162","München, Landeshauptstadt",2011
+0.20346,"09162","München, Landeshauptstadt",2012
+0.19345,"09162","München, Landeshauptstadt",2013
+0.13762,"09162","München, Landeshauptstadt",2014
+0.1537,"09162","München, Landeshauptstadt",2015
+0.05545,"09162","München, Landeshauptstadt",2016
+0.04076,"09162","München, Landeshauptstadt",2017
+0.05547,"09162","München, Landeshauptstadt",2018
+0.05315,"09162","München, Landeshauptstadt",2019
+0.05563,"09162","München, Landeshauptstadt",2020
+0.0687,"09162","München, Landeshauptstadt",2021
+0.62028,"09163","Rosenheim, Stadt",1998
+0.69613,"09163","Rosenheim, Stadt",1999
+0.67256,"09163","Rosenheim, Stadt",2000
+0.68078,"09163","Rosenheim, Stadt",2001
+0.65697,"09163","Rosenheim, Stadt",2002
+0.63291,"09163","Rosenheim, Stadt",2003
+0.58676,"09163","Rosenheim, Stadt",2004
+0.61393,"09163","Rosenheim, Stadt",2005
+0.64991,"09163","Rosenheim, Stadt",2006
+0.70233,"09163","Rosenheim, Stadt",2007
+0.70345,"09163","Rosenheim, Stadt",2008
+0.72118,"09163","Rosenheim, Stadt",2009
+0.74558,"09163","Rosenheim, Stadt",2010
+0.72049,"09163","Rosenheim, Stadt",2011
+0.7246,"09163","Rosenheim, Stadt",2012
+0.72734,"09163","Rosenheim, Stadt",2013
+0.72549,"09163","Rosenheim, Stadt",2014
+0.66879,"09163","Rosenheim, Stadt",2015
+0.64025,"09163","Rosenheim, Stadt",2016
+0.58747,"09163","Rosenheim, Stadt",2017
+0.65097,"09163","Rosenheim, Stadt",2018
+0.60409,"09163","Rosenheim, Stadt",2019
+0.57704,"09163","Rosenheim, Stadt",2020
+0.58317,"09163","Rosenheim, Stadt",2021
+0.4998,"09171","Altötting",1998
+0.57163,"09171","Altötting",1999
+0.57267,"09171","Altötting",2000
+0.66031,"09171","Altötting",2001
+0.60495,"09171","Altötting",2002
+0.5774,"09171","Altötting",2003
+0.53887,"09171","Altötting",2004
+0.52517,"09171","Altötting",2005
+0.50058,"09171","Altötting",2006
+0.50533,"09171","Altötting",2007
+0.51239,"09171","Altötting",2008
+0.52761,"09171","Altötting",2009
+0.53904,"09171","Altötting",2010
+0.53745,"09171","Altötting",2011
+0.51148,"09171","Altötting",2012
+0.55509,"09171","Altötting",2013
+0.54375,"09171","Altötting",2014
+0.53116,"09171","Altötting",2015
+0.53053,"09171","Altötting",2016
+0.5165,"09171","Altötting",2017
+0.50868,"09171","Altötting",2018
+0.4874,"09171","Altötting",2019
+0.47998,"09171","Altötting",2020
+0.49182,"09171","Altötting",2021
+0.59856,"09172","Berchtesgadener Land",1998
+0.61947,"09172","Berchtesgadener Land",1999
+0.59482,"09172","Berchtesgadener Land",2000
+0.69191,"09172","Berchtesgadener Land",2001
+0.64689,"09172","Berchtesgadener Land",2002
+0.66416,"09172","Berchtesgadener Land",2003
+0.63822,"09172","Berchtesgadener Land",2004
+0.64377,"09172","Berchtesgadener Land",2005
+0.64473,"09172","Berchtesgadener Land",2006
+0.69357,"09172","Berchtesgadener Land",2007
+0.75219,"09172","Berchtesgadener Land",2008
+0.73,"09172","Berchtesgadener Land",2009
+0.74678,"09172","Berchtesgadener Land",2010
+0.77109,"09172","Berchtesgadener Land",2011
+0.78815,"09172","Berchtesgadener Land",2012
+0.76892,"09172","Berchtesgadener Land",2013
+0.75685,"09172","Berchtesgadener Land",2014
+0.75399,"09172","Berchtesgadener Land",2015
+0.7004,"09172","Berchtesgadener Land",2016
+0.67005,"09172","Berchtesgadener Land",2017
+0.66605,"09172","Berchtesgadener Land",2018
+0.66905,"09172","Berchtesgadener Land",2019
+0.6368,"09172","Berchtesgadener Land",2020
+0.67345,"09172","Berchtesgadener Land",2021
+0.39498,"09173","Bad Tölz-Wolfratshausen",1998
+0.41874,"09173","Bad Tölz-Wolfratshausen",1999
+0.35936,"09173","Bad Tölz-Wolfratshausen",2000
+0.40146,"09173","Bad Tölz-Wolfratshausen",2001
+0.39133,"09173","Bad Tölz-Wolfratshausen",2002
+0.39444,"09173","Bad Tölz-Wolfratshausen",2003
+0.38434,"09173","Bad Tölz-Wolfratshausen",2004
+0.37325,"09173","Bad Tölz-Wolfratshausen",2005
+0.37631,"09173","Bad Tölz-Wolfratshausen",2006
+0.43066,"09173","Bad Tölz-Wolfratshausen",2007
+0.4474,"09173","Bad Tölz-Wolfratshausen",2008
+0.44726,"09173","Bad Tölz-Wolfratshausen",2009
+0.48017,"09173","Bad Tölz-Wolfratshausen",2010
+0.47332,"09173","Bad Tölz-Wolfratshausen",2011
+0.45934,"09173","Bad Tölz-Wolfratshausen",2012
+0.44681,"09173","Bad Tölz-Wolfratshausen",2013
+0.46253,"09173","Bad Tölz-Wolfratshausen",2014
+0.45557,"09173","Bad Tölz-Wolfratshausen",2015
+0.44667,"09173","Bad Tölz-Wolfratshausen",2016
+0.40481,"09173","Bad Tölz-Wolfratshausen",2017
+0.42912,"09173","Bad Tölz-Wolfratshausen",2018
+0.43872,"09173","Bad Tölz-Wolfratshausen",2019
+0.40353,"09173","Bad Tölz-Wolfratshausen",2020
+0.40056,"09173","Bad Tölz-Wolfratshausen",2021
+0.38093,"09174","Dachau",1998
+0.41688,"09174","Dachau",1999
+0.33739,"09174","Dachau",2000
+0.39369,"09174","Dachau",2001
+0.35813,"09174","Dachau",2002
+0.33744,"09174","Dachau",2003
+0.39224,"09174","Dachau",2004
+0.34755,"09174","Dachau",2005
+0.35765,"09174","Dachau",2006
+0.42324,"09174","Dachau",2007
+0.44004,"09174","Dachau",2008
+0.43978,"09174","Dachau",2009
+0.44383,"09174","Dachau",2010
+0.4833,"09174","Dachau",2011
+0.46855,"09174","Dachau",2012
+0.48353,"09174","Dachau",2013
+0.43507,"09174","Dachau",2014
+0.42736,"09174","Dachau",2015
+0.39422,"09174","Dachau",2016
+0.39461,"09174","Dachau",2017
+0.41753,"09174","Dachau",2018
+0.47983,"09174","Dachau",2019
+0.42283,"09174","Dachau",2020
+0.40243,"09174","Dachau",2021
+0.1984,"09175","Ebersberg",1998
+0.23173,"09175","Ebersberg",1999
+0.14553,"09175","Ebersberg",2000
+0.16414,"09175","Ebersberg",2001
+0.19075,"09175","Ebersberg",2002
+0.20786,"09175","Ebersberg",2003
+0.11501,"09175","Ebersberg",2004
+0.15269,"09175","Ebersberg",2005
+0.15496,"09175","Ebersberg",2006
+0.19321,"09175","Ebersberg",2007
+0.23125,"09175","Ebersberg",2008
+0.21599,"09175","Ebersberg",2009
+0.25191,"09175","Ebersberg",2010
+0.2832,"09175","Ebersberg",2011
+0.26767,"09175","Ebersberg",2012
+0.31051,"09175","Ebersberg",2013
+0.2577,"09175","Ebersberg",2014
+0.28111,"09175","Ebersberg",2015
+0.26693,"09175","Ebersberg",2016
+0.25186,"09175","Ebersberg",2017
+0.30399,"09175","Ebersberg",2018
+0.27722,"09175","Ebersberg",2019
+0.25429,"09175","Ebersberg",2020
+0.28214,"09175","Ebersberg",2021
+0.42726,"09176","Eichstätt",1998
+0.43862,"09176","Eichstätt",1999
+0.46203,"09176","Eichstätt",2000
+0.49199,"09176","Eichstätt",2001
+0.55328,"09176","Eichstätt",2002
+0.50965,"09176","Eichstätt",2003
+0.41863,"09176","Eichstätt",2004
+0.42332,"09176","Eichstätt",2005
+0.41577,"09176","Eichstätt",2006
+0.48169,"09176","Eichstätt",2007
+0.49095,"09176","Eichstätt",2008
+0.48556,"09176","Eichstätt",2009
+0.48319,"09176","Eichstätt",2010
+0.48571,"09176","Eichstätt",2011
+0.43846,"09176","Eichstätt",2012
+0.42446,"09176","Eichstätt",2013
+0.40515,"09176","Eichstätt",2014
+0.38312,"09176","Eichstätt",2015
+0.35845,"09176","Eichstätt",2016
+0.33409,"09176","Eichstätt",2017
+0.353,"09176","Eichstätt",2018
+0.37355,"09176","Eichstätt",2019
+0.34227,"09176","Eichstätt",2020
+0.39692,"09176","Eichstätt",2021
+0.40366,"09177","Erding",1998
+0.4449,"09177","Erding",1999
+0.45844,"09177","Erding",2000
+0.45672,"09177","Erding",2001
+0.43088,"09177","Erding",2002
+0.44516,"09177","Erding",2003
+0.41675,"09177","Erding",2004
+0.42047,"09177","Erding",2005
+0.40791,"09177","Erding",2006
+0.48593,"09177","Erding",2007
+0.4952,"09177","Erding",2008
+0.49038,"09177","Erding",2009
+0.49321,"09177","Erding",2010
+0.52514,"09177","Erding",2011
+0.48074,"09177","Erding",2012
+0.49361,"09177","Erding",2013
+0.47679,"09177","Erding",2014
+0.48223,"09177","Erding",2015
+0.45547,"09177","Erding",2016
+0.41297,"09177","Erding",2017
+0.42862,"09177","Erding",2018
+0.43426,"09177","Erding",2019
+0.42766,"09177","Erding",2020
+0.45139,"09177","Erding",2021
+0.38601,"09178","Freising",1998
+0.38917,"09178","Freising",1999
+0.40873,"09178","Freising",2000
+0.41343,"09178","Freising",2001
+0.38199,"09178","Freising",2002
+0.41151,"09178","Freising",2003
+0.36998,"09178","Freising",2004
+0.37819,"09178","Freising",2005
+0.37209,"09178","Freising",2006
+0.44173,"09178","Freising",2007
+0.39887,"09178","Freising",2008
+0.36868,"09178","Freising",2009
+0.3741,"09178","Freising",2010
+0.37656,"09178","Freising",2011
+0.35588,"09178","Freising",2012
+0.38756,"09178","Freising",2013
+0.378,"09178","Freising",2014
+0.38709,"09178","Freising",2015
+0.35138,"09178","Freising",2016
+0.33008,"09178","Freising",2017
+0.36054,"09178","Freising",2018
+0.36163,"09178","Freising",2019
+0.36181,"09178","Freising",2020
+0.36513,"09178","Freising",2021
+0.2967,"09179","Fürstenfeldbruck",1998
+0.30302,"09179","Fürstenfeldbruck",1999
+0.27513,"09179","Fürstenfeldbruck",2000
+0.26981,"09179","Fürstenfeldbruck",2001
+0.22653,"09179","Fürstenfeldbruck",2002
+0.24373,"09179","Fürstenfeldbruck",2003
+0.22965,"09179","Fürstenfeldbruck",2004
+0.22514,"09179","Fürstenfeldbruck",2005
+0.26282,"09179","Fürstenfeldbruck",2006
+0.33202,"09179","Fürstenfeldbruck",2007
+0.32899,"09179","Fürstenfeldbruck",2008
+0.34292,"09179","Fürstenfeldbruck",2009
+0.32857,"09179","Fürstenfeldbruck",2010
+0.34903,"09179","Fürstenfeldbruck",2011
+0.35515,"09179","Fürstenfeldbruck",2012
+0.34905,"09179","Fürstenfeldbruck",2013
+0.35341,"09179","Fürstenfeldbruck",2014
+0.34918,"09179","Fürstenfeldbruck",2015
+0.35045,"09179","Fürstenfeldbruck",2016
+0.32369,"09179","Fürstenfeldbruck",2017
+0.33029,"09179","Fürstenfeldbruck",2018
+0.34938,"09179","Fürstenfeldbruck",2019
+0.31839,"09179","Fürstenfeldbruck",2020
+0.33843,"09179","Fürstenfeldbruck",2021
+0.53011,"09180","Garmisch-Partenkirchen",1998
+0.51702,"09180","Garmisch-Partenkirchen",1999
+0.50074,"09180","Garmisch-Partenkirchen",2000
+0.51028,"09180","Garmisch-Partenkirchen",2001
+0.53447,"09180","Garmisch-Partenkirchen",2002
+0.54368,"09180","Garmisch-Partenkirchen",2003
+0.52707,"09180","Garmisch-Partenkirchen",2004
+0.54,"09180","Garmisch-Partenkirchen",2005
+0.5191,"09180","Garmisch-Partenkirchen",2006
+0.6116,"09180","Garmisch-Partenkirchen",2007
+0.63872,"09180","Garmisch-Partenkirchen",2008
+0.6045,"09180","Garmisch-Partenkirchen",2009
+0.61933,"09180","Garmisch-Partenkirchen",2010
+0.6378,"09180","Garmisch-Partenkirchen",2011
+0.62029,"09180","Garmisch-Partenkirchen",2012
+0.62646,"09180","Garmisch-Partenkirchen",2013
+0.60339,"09180","Garmisch-Partenkirchen",2014
+0.63164,"09180","Garmisch-Partenkirchen",2015
+0.58813,"09180","Garmisch-Partenkirchen",2016
+0.56059,"09180","Garmisch-Partenkirchen",2017
+0.56623,"09180","Garmisch-Partenkirchen",2018
+0.54088,"09180","Garmisch-Partenkirchen",2019
+0.5141,"09180","Garmisch-Partenkirchen",2020
+0.51646,"09180","Garmisch-Partenkirchen",2021
+0.41107,"09181","Landsberg am Lech",1998
+0.39507,"09181","Landsberg am Lech",1999
+0.39821,"09181","Landsberg am Lech",2000
+0.42506,"09181","Landsberg am Lech",2001
+0.45401,"09181","Landsberg am Lech",2002
+0.48935,"09181","Landsberg am Lech",2003
+0.45291,"09181","Landsberg am Lech",2004
+0.47853,"09181","Landsberg am Lech",2005
+0.43973,"09181","Landsberg am Lech",2006
+0.50416,"09181","Landsberg am Lech",2007
+0.47834,"09181","Landsberg am Lech",2008
+0.50942,"09181","Landsberg am Lech",2009
+0.51928,"09181","Landsberg am Lech",2010
+0.49544,"09181","Landsberg am Lech",2011
+0.46145,"09181","Landsberg am Lech",2012
+0.47572,"09181","Landsberg am Lech",2013
+0.44941,"09181","Landsberg am Lech",2014
+0.45616,"09181","Landsberg am Lech",2015
+0.42826,"09181","Landsberg am Lech",2016
+0.39283,"09181","Landsberg am Lech",2017
+0.41636,"09181","Landsberg am Lech",2018
+0.4165,"09181","Landsberg am Lech",2019
+0.40762,"09181","Landsberg am Lech",2020
+0.3869,"09181","Landsberg am Lech",2021
+0.31721,"09182","Miesbach",1998
+0.35181,"09182","Miesbach",1999
+0.31395,"09182","Miesbach",2000
+0.35673,"09182","Miesbach",2001
+0.34053,"09182","Miesbach",2002
+0.36773,"09182","Miesbach",2003
+0.36477,"09182","Miesbach",2004
+0.45327,"09182","Miesbach",2005
+0.33612,"09182","Miesbach",2006
+0.3724,"09182","Miesbach",2007
+0.39953,"09182","Miesbach",2008
+0.43129,"09182","Miesbach",2009
+0.45099,"09182","Miesbach",2010
+0.45291,"09182","Miesbach",2011
+0.40338,"09182","Miesbach",2012
+0.37883,"09182","Miesbach",2013
+0.389,"09182","Miesbach",2014
+0.40007,"09182","Miesbach",2015
+0.35345,"09182","Miesbach",2016
+0.39506,"09182","Miesbach",2017
+0.35634,"09182","Miesbach",2018
+0.33988,"09182","Miesbach",2019
+0.32991,"09182","Miesbach",2020
+0.31545,"09182","Miesbach",2021
+0.73037,"09183","Mühldorf a.Inn",1998
+0.7706,"09183","Mühldorf a.Inn",1999
+0.74245,"09183","Mühldorf a.Inn",2000
+0.80564,"09183","Mühldorf a.Inn",2001
+0.89749,"09183","Mühldorf a.Inn",2002
+0.75828,"09183","Mühldorf a.Inn",2003
+0.72373,"09183","Mühldorf a.Inn",2004
+0.72212,"09183","Mühldorf a.Inn",2005
+0.6891,"09183","Mühldorf a.Inn",2006
+0.75804,"09183","Mühldorf a.Inn",2007
+0.76358,"09183","Mühldorf a.Inn",2008
+0.75534,"09183","Mühldorf a.Inn",2009
+0.76674,"09183","Mühldorf a.Inn",2010
+0.76392,"09183","Mühldorf a.Inn",2011
+0.68068,"09183","Mühldorf a.Inn",2012
+0.72256,"09183","Mühldorf a.Inn",2013
+0.69626,"09183","Mühldorf a.Inn",2014
+0.702,"09183","Mühldorf a.Inn",2015
+0.67559,"09183","Mühldorf a.Inn",2016
+0.64842,"09183","Mühldorf a.Inn",2017
+0.67305,"09183","Mühldorf a.Inn",2018
+0.6451,"09183","Mühldorf a.Inn",2019
+0.61652,"09183","Mühldorf a.Inn",2020
+0.66551,"09183","Mühldorf a.Inn",2021
+0,"09184","München",1998
+0,"09184","München",1999
+0,"09184","München",2000
+0,"09184","München",2001
+0,"09184","München",2002
+0,"09184","München",2003
+0.00513,"09184","München",2004
+0,"09184","München",2005
+0,"09184","München",2006
+0,"09184","München",2007
+0,"09184","München",2008
+0,"09184","München",2009
+0,"09184","München",2010
+0,"09184","München",2011
+0,"09184","München",2012
+0,"09184","München",2013
+0,"09184","München",2014
+0,"09184","München",2015
+0,"09184","München",2016
+0,"09184","München",2017
+0,"09184","München",2018
+0,"09184","München",2019
+0,"09184","München",2020
+0,"09184","München",2021
+0.64178,"09185","Neuburg-Schrobenhausen",1998
+0.61827,"09185","Neuburg-Schrobenhausen",1999
+0.63391,"09185","Neuburg-Schrobenhausen",2000
+0.6348,"09185","Neuburg-Schrobenhausen",2001
+0.61592,"09185","Neuburg-Schrobenhausen",2002
+0.60338,"09185","Neuburg-Schrobenhausen",2003
+0.55776,"09185","Neuburg-Schrobenhausen",2004
+0.58618,"09185","Neuburg-Schrobenhausen",2005
+0.57648,"09185","Neuburg-Schrobenhausen",2006
+0.60501,"09185","Neuburg-Schrobenhausen",2007
+0.62652,"09185","Neuburg-Schrobenhausen",2008
+0.63226,"09185","Neuburg-Schrobenhausen",2009
+0.65584,"09185","Neuburg-Schrobenhausen",2010
+0.66605,"09185","Neuburg-Schrobenhausen",2011
+0.6757,"09185","Neuburg-Schrobenhausen",2012
+0.63638,"09185","Neuburg-Schrobenhausen",2013
+0.5971,"09185","Neuburg-Schrobenhausen",2014
+0.59205,"09185","Neuburg-Schrobenhausen",2015
+0.56084,"09185","Neuburg-Schrobenhausen",2016
+0.57372,"09185","Neuburg-Schrobenhausen",2017
+0.57978,"09185","Neuburg-Schrobenhausen",2018
+0.57196,"09185","Neuburg-Schrobenhausen",2019
+0.51747,"09185","Neuburg-Schrobenhausen",2020
+0.52985,"09185","Neuburg-Schrobenhausen",2021
+0.44995,"09186","Pfaffenhofen a.d.Ilm",1998
+0.46102,"09186","Pfaffenhofen a.d.Ilm",1999
+0.52224,"09186","Pfaffenhofen a.d.Ilm",2000
+0.53081,"09186","Pfaffenhofen a.d.Ilm",2001
+0.537,"09186","Pfaffenhofen a.d.Ilm",2002
+0.54152,"09186","Pfaffenhofen a.d.Ilm",2003
+0.50998,"09186","Pfaffenhofen a.d.Ilm",2004
+0.48009,"09186","Pfaffenhofen a.d.Ilm",2005
+0.44395,"09186","Pfaffenhofen a.d.Ilm",2006
+0.51305,"09186","Pfaffenhofen a.d.Ilm",2007
+0.56402,"09186","Pfaffenhofen a.d.Ilm",2008
+0.53908,"09186","Pfaffenhofen a.d.Ilm",2009
+0.45457,"09186","Pfaffenhofen a.d.Ilm",2010
+0.47348,"09186","Pfaffenhofen a.d.Ilm",2011
+0.43195,"09186","Pfaffenhofen a.d.Ilm",2012
+0.46754,"09186","Pfaffenhofen a.d.Ilm",2013
+0.39892,"09186","Pfaffenhofen a.d.Ilm",2014
+0.40289,"09186","Pfaffenhofen a.d.Ilm",2015
+0.37369,"09186","Pfaffenhofen a.d.Ilm",2016
+0.37692,"09186","Pfaffenhofen a.d.Ilm",2017
+0.3782,"09186","Pfaffenhofen a.d.Ilm",2018
+0.40812,"09186","Pfaffenhofen a.d.Ilm",2019
+0.3774,"09186","Pfaffenhofen a.d.Ilm",2020
+0.43526,"09186","Pfaffenhofen a.d.Ilm",2021
+0.45385,"09187","Rosenheim",1998
+0.5042,"09187","Rosenheim",1999
+0.47807,"09187","Rosenheim",2000
+0.53356,"09187","Rosenheim",2001
+0.53075,"09187","Rosenheim",2002
+0.52565,"09187","Rosenheim",2003
+0.47296,"09187","Rosenheim",2004
+0.46803,"09187","Rosenheim",2005
+0.43931,"09187","Rosenheim",2006
+0.47087,"09187","Rosenheim",2007
+0.5101,"09187","Rosenheim",2008
+0.54176,"09187","Rosenheim",2009
+0.56968,"09187","Rosenheim",2010
+0.56354,"09187","Rosenheim",2011
+0.55117,"09187","Rosenheim",2012
+0.54534,"09187","Rosenheim",2013
+0.50092,"09187","Rosenheim",2014
+0.49848,"09187","Rosenheim",2015
+0.46575,"09187","Rosenheim",2016
+0.42949,"09187","Rosenheim",2017
+0.46158,"09187","Rosenheim",2018
+0.45555,"09187","Rosenheim",2019
+0.4558,"09187","Rosenheim",2020
+0.4701,"09187","Rosenheim",2021
+0.10307,"09188","Starnberg",1998
+0.10072,"09188","Starnberg",1999
+0.04847,"09188","Starnberg",2000
+0.05566,"09188","Starnberg",2001
+0.0234,"09188","Starnberg",2002
+0.06355,"09188","Starnberg",2003
+0,"09188","Starnberg",2004
+0.00957,"09188","Starnberg",2005
+0.00434,"09188","Starnberg",2006
+0.03986,"09188","Starnberg",2007
+0.1031,"09188","Starnberg",2008
+0.09523,"09188","Starnberg",2009
+0.10496,"09188","Starnberg",2010
+0.08854,"09188","Starnberg",2011
+0.0534,"09188","Starnberg",2012
+0.07404,"09188","Starnberg",2013
+0.03628,"09188","Starnberg",2014
+0.05063,"09188","Starnberg",2015
+0.04537,"09188","Starnberg",2016
+0.04539,"09188","Starnberg",2017
+0.0311,"09188","Starnberg",2018
+0.07994,"09188","Starnberg",2019
+0.08073,"09188","Starnberg",2020
+0.06928,"09188","Starnberg",2021
+0.50645,"09189","Traunstein",1998
+0.53045,"09189","Traunstein",1999
+0.55211,"09189","Traunstein",2000
+0.64073,"09189","Traunstein",2001
+0.60377,"09189","Traunstein",2002
+0.5967,"09189","Traunstein",2003
+0.55347,"09189","Traunstein",2004
+0.55144,"09189","Traunstein",2005
+0.54404,"09189","Traunstein",2006
+0.59297,"09189","Traunstein",2007
+0.60223,"09189","Traunstein",2008
+0.61909,"09189","Traunstein",2009
+0.59843,"09189","Traunstein",2010
+0.63483,"09189","Traunstein",2011
+0.60238,"09189","Traunstein",2012
+0.59925,"09189","Traunstein",2013
+0.5636,"09189","Traunstein",2014
+0.58618,"09189","Traunstein",2015
+0.53661,"09189","Traunstein",2016
+0.50637,"09189","Traunstein",2017
+0.52421,"09189","Traunstein",2018
+0.51114,"09189","Traunstein",2019
+0.49486,"09189","Traunstein",2020
+0.50914,"09189","Traunstein",2021
+0.46879,"09190","Weilheim-Schongau",1998
+0.49251,"09190","Weilheim-Schongau",1999
+0.51239,"09190","Weilheim-Schongau",2000
+0.56677,"09190","Weilheim-Schongau",2001
+0.53773,"09190","Weilheim-Schongau",2002
+0.52645,"09190","Weilheim-Schongau",2003
+0.5026,"09190","Weilheim-Schongau",2004
+0.49943,"09190","Weilheim-Schongau",2005
+0.51374,"09190","Weilheim-Schongau",2006
+0.51974,"09190","Weilheim-Schongau",2007
+0.53659,"09190","Weilheim-Schongau",2008
+0.52415,"09190","Weilheim-Schongau",2009
+0.51548,"09190","Weilheim-Schongau",2010
+0.55215,"09190","Weilheim-Schongau",2011
+0.5385,"09190","Weilheim-Schongau",2012
+0.53827,"09190","Weilheim-Schongau",2013
+0.52022,"09190","Weilheim-Schongau",2014
+0.53048,"09190","Weilheim-Schongau",2015
+0.47178,"09190","Weilheim-Schongau",2016
+0.46072,"09190","Weilheim-Schongau",2017
+0.49411,"09190","Weilheim-Schongau",2018
+0.48903,"09190","Weilheim-Schongau",2019
+0.45485,"09190","Weilheim-Schongau",2020
+0.46455,"09190","Weilheim-Schongau",2021
+0.59228,"09261","Landshut, Stadt",1998
+0.60876,"09261","Landshut, Stadt",1999
+0.55447,"09261","Landshut, Stadt",2000
+0.56703,"09261","Landshut, Stadt",2001
+0.58597,"09261","Landshut, Stadt",2002
+0.53893,"09261","Landshut, Stadt",2003
+0.5037,"09261","Landshut, Stadt",2004
+0.53271,"09261","Landshut, Stadt",2005
+0.56874,"09261","Landshut, Stadt",2006
+0.59594,"09261","Landshut, Stadt",2007
+0.60771,"09261","Landshut, Stadt",2008
+0.58733,"09261","Landshut, Stadt",2009
+0.62908,"09261","Landshut, Stadt",2010
+0.64333,"09261","Landshut, Stadt",2011
+0.61396,"09261","Landshut, Stadt",2012
+0.57946,"09261","Landshut, Stadt",2013
+0.60306,"09261","Landshut, Stadt",2014
+0.59053,"09261","Landshut, Stadt",2015
+0.55462,"09261","Landshut, Stadt",2016
+0.50976,"09261","Landshut, Stadt",2017
+0.52049,"09261","Landshut, Stadt",2018
+0.57116,"09261","Landshut, Stadt",2019
+0.53755,"09261","Landshut, Stadt",2020
+0.52219,"09261","Landshut, Stadt",2021
+0.62179,"09262","Passau, Stadt",1998
+0.63632,"09262","Passau, Stadt",1999
+0.64083,"09262","Passau, Stadt",2000
+0.60044,"09262","Passau, Stadt",2001
+0.63383,"09262","Passau, Stadt",2002
+0.65466,"09262","Passau, Stadt",2003
+0.58191,"09262","Passau, Stadt",2004
+0.65556,"09262","Passau, Stadt",2005
+0.67208,"09262","Passau, Stadt",2006
+0.68947,"09262","Passau, Stadt",2007
+0.72937,"09262","Passau, Stadt",2008
+0.73004,"09262","Passau, Stadt",2009
+0.7437,"09262","Passau, Stadt",2010
+0.76968,"09262","Passau, Stadt",2011
+0.68764,"09262","Passau, Stadt",2012
+0.69391,"09262","Passau, Stadt",2013
+0.68132,"09262","Passau, Stadt",2014
+0.72214,"09262","Passau, Stadt",2015
+0.70305,"09262","Passau, Stadt",2016
+0.65282,"09262","Passau, Stadt",2017
+0.69305,"09262","Passau, Stadt",2018
+0.70924,"09262","Passau, Stadt",2019
+0.64292,"09262","Passau, Stadt",2020
+0.66467,"09262","Passau, Stadt",2021
+0.7877,"09263","Straubing",1998
+0.80216,"09263","Straubing",1999
+0.81111,"09263","Straubing",2000
+0.88065,"09263","Straubing",2001
+0.80046,"09263","Straubing",2002
+0.77611,"09263","Straubing",2003
+0.74458,"09263","Straubing",2004
+0.78504,"09263","Straubing",2005
+0.79148,"09263","Straubing",2006
+0.78894,"09263","Straubing",2007
+0.85768,"09263","Straubing",2008
+0.85648,"09263","Straubing",2009
+0.86357,"09263","Straubing",2010
+0.86452,"09263","Straubing",2011
+0.83259,"09263","Straubing",2012
+0.86314,"09263","Straubing",2013
+0.81681,"09263","Straubing",2014
+0.8895,"09263","Straubing",2015
+0.85334,"09263","Straubing",2016
+0.7951,"09263","Straubing",2017
+0.83912,"09263","Straubing",2018
+0.80894,"09263","Straubing",2019
+0.78922,"09263","Straubing",2020
+0.87231,"09263","Straubing",2021
+0.63723,"09271","Deggendorf",1998
+0.70019,"09271","Deggendorf",1999
+0.74934,"09271","Deggendorf",2000
+0.76708,"09271","Deggendorf",2001
+0.80825,"09271","Deggendorf",2002
+0.7815,"09271","Deggendorf",2003
+0.74291,"09271","Deggendorf",2004
+0.71922,"09271","Deggendorf",2005
+0.71406,"09271","Deggendorf",2006
+0.72932,"09271","Deggendorf",2007
+0.76417,"09271","Deggendorf",2008
+0.75306,"09271","Deggendorf",2009
+0.77261,"09271","Deggendorf",2010
+0.75152,"09271","Deggendorf",2011
+0.72666,"09271","Deggendorf",2012
+0.74358,"09271","Deggendorf",2013
+0.70206,"09271","Deggendorf",2014
+0.69637,"09271","Deggendorf",2015
+0.68516,"09271","Deggendorf",2016
+0.66489,"09271","Deggendorf",2017
+0.61516,"09271","Deggendorf",2018
+0.62871,"09271","Deggendorf",2019
+0.59487,"09271","Deggendorf",2020
+0.61215,"09271","Deggendorf",2021
+0.84313,"09272","Freyung-Grafenau",1998
+0.87074,"09272","Freyung-Grafenau",1999
+0.88621,"09272","Freyung-Grafenau",2000
+0.88448,"09272","Freyung-Grafenau",2001
+0.95885,"09272","Freyung-Grafenau",2002
+0.998,"09272","Freyung-Grafenau",2003
+0.92314,"09272","Freyung-Grafenau",2004
+0.92218,"09272","Freyung-Grafenau",2005
+0.89124,"09272","Freyung-Grafenau",2006
+0.90389,"09272","Freyung-Grafenau",2007
+0.94387,"09272","Freyung-Grafenau",2008
+0.96606,"09272","Freyung-Grafenau",2009
+0.95288,"09272","Freyung-Grafenau",2010
+0.99618,"09272","Freyung-Grafenau",2011
+0.91258,"09272","Freyung-Grafenau",2012
+0.90181,"09272","Freyung-Grafenau",2013
+0.89132,"09272","Freyung-Grafenau",2014
+0.83803,"09272","Freyung-Grafenau",2015
+0.8019,"09272","Freyung-Grafenau",2016
+0.73766,"09272","Freyung-Grafenau",2017
+0.75383,"09272","Freyung-Grafenau",2018
+0.74961,"09272","Freyung-Grafenau",2019
+0.68187,"09272","Freyung-Grafenau",2020
+0.69251,"09272","Freyung-Grafenau",2021
+0.65299,"09273","Kelheim",1998
+0.6624,"09273","Kelheim",1999
+0.72533,"09273","Kelheim",2000
+0.75836,"09273","Kelheim",2001
+0.70134,"09273","Kelheim",2002
+0.64959,"09273","Kelheim",2003
+0.64858,"09273","Kelheim",2004
+0.60994,"09273","Kelheim",2005
+0.59351,"09273","Kelheim",2006
+0.68557,"09273","Kelheim",2007
+0.65262,"09273","Kelheim",2008
+0.69295,"09273","Kelheim",2009
+0.69699,"09273","Kelheim",2010
+0.70507,"09273","Kelheim",2011
+0.69974,"09273","Kelheim",2012
+0.68827,"09273","Kelheim",2013
+0.64738,"09273","Kelheim",2014
+0.66163,"09273","Kelheim",2015
+0.6328,"09273","Kelheim",2016
+0.62375,"09273","Kelheim",2017
+0.64601,"09273","Kelheim",2018
+0.63322,"09273","Kelheim",2019
+0.59195,"09273","Kelheim",2020
+0.60848,"09273","Kelheim",2021
+0.47454,"09274","Landshut",1998
+0.49645,"09274","Landshut",1999
+0.52053,"09274","Landshut",2000
+0.56217,"09274","Landshut",2001
+0.55088,"09274","Landshut",2002
+0.58149,"09274","Landshut",2003
+0.54006,"09274","Landshut",2004
+0.56584,"09274","Landshut",2005
+0.52156,"09274","Landshut",2006
+0.54015,"09274","Landshut",2007
+0.57657,"09274","Landshut",2008
+0.59606,"09274","Landshut",2009
+0.57842,"09274","Landshut",2010
+0.58577,"09274","Landshut",2011
+0.52856,"09274","Landshut",2012
+0.56044,"09274","Landshut",2013
+0.55517,"09274","Landshut",2014
+0.54858,"09274","Landshut",2015
+0.52111,"09274","Landshut",2016
+0.4849,"09274","Landshut",2017
+0.50853,"09274","Landshut",2018
+0.51627,"09274","Landshut",2019
+0.48317,"09274","Landshut",2020
+0.49305,"09274","Landshut",2021
+0.74645,"09275","Passau",1998
+0.81971,"09275","Passau",1999
+0.81427,"09275","Passau",2000
+0.85597,"09275","Passau",2001
+0.89792,"09275","Passau",2002
+0.82983,"09275","Passau",2003
+0.77543,"09275","Passau",2004
+0.78565,"09275","Passau",2005
+0.76175,"09275","Passau",2006
+0.80801,"09275","Passau",2007
+0.82632,"09275","Passau",2008
+0.82961,"09275","Passau",2009
+0.84036,"09275","Passau",2010
+0.87559,"09275","Passau",2011
+0.82931,"09275","Passau",2012
+0.82716,"09275","Passau",2013
+0.78933,"09275","Passau",2014
+0.78617,"09275","Passau",2015
+0.7625,"09275","Passau",2016
+0.7283,"09275","Passau",2017
+0.75267,"09275","Passau",2018
+0.72742,"09275","Passau",2019
+0.67829,"09275","Passau",2020
+0.69814,"09275","Passau",2021
+0.80274,"09276","Regen",1998
+0.8551,"09276","Regen",1999
+0.83107,"09276","Regen",2000
+0.85478,"09276","Regen",2001
+0.90876,"09276","Regen",2002
+0.90614,"09276","Regen",2003
+0.88459,"09276","Regen",2004
+0.84221,"09276","Regen",2005
+0.85207,"09276","Regen",2006
+0.86061,"09276","Regen",2007
+0.92103,"09276","Regen",2008
+0.94698,"09276","Regen",2009
+0.93048,"09276","Regen",2010
+0.90234,"09276","Regen",2011
+0.83106,"09276","Regen",2012
+0.85138,"09276","Regen",2013
+0.79043,"09276","Regen",2014
+0.83244,"09276","Regen",2015
+0.79151,"09276","Regen",2016
+0.77494,"09276","Regen",2017
+0.74762,"09276","Regen",2018
+0.70966,"09276","Regen",2019
+0.70889,"09276","Regen",2020
+0.74651,"09276","Regen",2021
+0.6616,"09277","Rottal-Inn",1998
+0.76809,"09277","Rottal-Inn",1999
+0.72856,"09277","Rottal-Inn",2000
+0.82209,"09277","Rottal-Inn",2001
+0.77827,"09277","Rottal-Inn",2002
+0.81248,"09277","Rottal-Inn",2003
+0.78301,"09277","Rottal-Inn",2004
+0.77057,"09277","Rottal-Inn",2005
+0.75545,"09277","Rottal-Inn",2006
+0.81473,"09277","Rottal-Inn",2007
+0.83795,"09277","Rottal-Inn",2008
+0.82461,"09277","Rottal-Inn",2009
+0.79227,"09277","Rottal-Inn",2010
+0.83915,"09277","Rottal-Inn",2011
+0.79648,"09277","Rottal-Inn",2012
+0.77695,"09277","Rottal-Inn",2013
+0.7688,"09277","Rottal-Inn",2014
+0.75285,"09277","Rottal-Inn",2015
+0.72099,"09277","Rottal-Inn",2016
+0.69293,"09277","Rottal-Inn",2017
+0.72771,"09277","Rottal-Inn",2018
+0.7075,"09277","Rottal-Inn",2019
+0.65989,"09277","Rottal-Inn",2020
+0.67938,"09277","Rottal-Inn",2021
+0.643,"09278","Straubing-Bogen",1998
+0.66326,"09278","Straubing-Bogen",1999
+0.68372,"09278","Straubing-Bogen",2000
+0.75621,"09278","Straubing-Bogen",2001
+0.72805,"09278","Straubing-Bogen",2002
+0.7462,"09278","Straubing-Bogen",2003
+0.65134,"09278","Straubing-Bogen",2004
+0.66589,"09278","Straubing-Bogen",2005
+0.6321,"09278","Straubing-Bogen",2006
+0.71326,"09278","Straubing-Bogen",2007
+0.7224,"09278","Straubing-Bogen",2008
+0.74967,"09278","Straubing-Bogen",2009
+0.77032,"09278","Straubing-Bogen",2010
+0.75474,"09278","Straubing-Bogen",2011
+0.71194,"09278","Straubing-Bogen",2012
+0.66837,"09278","Straubing-Bogen",2013
+0.67733,"09278","Straubing-Bogen",2014
+0.65651,"09278","Straubing-Bogen",2015
+0.65673,"09278","Straubing-Bogen",2016
+0.61998,"09278","Straubing-Bogen",2017
+0.60429,"09278","Straubing-Bogen",2018
+0.60931,"09278","Straubing-Bogen",2019
+0.61488,"09278","Straubing-Bogen",2020
+0.60571,"09278","Straubing-Bogen",2021
+0.53766,"09279","Dingolfing-Landau",1998
+0.57334,"09279","Dingolfing-Landau",1999
+0.623,"09279","Dingolfing-Landau",2000
+0.63308,"09279","Dingolfing-Landau",2001
+0.61572,"09279","Dingolfing-Landau",2002
+0.61004,"09279","Dingolfing-Landau",2003
+0.58704,"09279","Dingolfing-Landau",2004
+0.56314,"09279","Dingolfing-Landau",2005
+0.52988,"09279","Dingolfing-Landau",2006
+0.56487,"09279","Dingolfing-Landau",2007
+0.63604,"09279","Dingolfing-Landau",2008
+0.61761,"09279","Dingolfing-Landau",2009
+0.63138,"09279","Dingolfing-Landau",2010
+0.65166,"09279","Dingolfing-Landau",2011
+0.57841,"09279","Dingolfing-Landau",2012
+0.60729,"09279","Dingolfing-Landau",2013
+0.58474,"09279","Dingolfing-Landau",2014
+0.53029,"09279","Dingolfing-Landau",2015
+0.50414,"09279","Dingolfing-Landau",2016
+0.49081,"09279","Dingolfing-Landau",2017
+0.48559,"09279","Dingolfing-Landau",2018
+0.50011,"09279","Dingolfing-Landau",2019
+0.49984,"09279","Dingolfing-Landau",2020
+0.5278,"09279","Dingolfing-Landau",2021
+0.81719,"09361","Amberg",1998
+0.87486,"09361","Amberg",1999
+0.88094,"09361","Amberg",2000
+0.93923,"09361","Amberg",2001
+0.9,"09361","Amberg",2002
+0.9155,"09361","Amberg",2003
+0.84463,"09361","Amberg",2004
+0.76528,"09361","Amberg",2005
+0.81059,"09361","Amberg",2006
+0.78127,"09361","Amberg",2007
+0.84485,"09361","Amberg",2008
+0.85414,"09361","Amberg",2009
+0.82459,"09361","Amberg",2010
+0.83364,"09361","Amberg",2011
+0.78763,"09361","Amberg",2012
+0.86536,"09361","Amberg",2013
+0.75805,"09361","Amberg",2014
+0.76009,"09361","Amberg",2015
+0.79173,"09361","Amberg",2016
+0.74134,"09361","Amberg",2017
+0.73068,"09361","Amberg",2018
+0.71467,"09361","Amberg",2019
+0.69888,"09361","Amberg",2020
+0.73977,"09361","Amberg",2021
+0.46452,"09362","Regensburg, Stadt",1998
+0.50495,"09362","Regensburg, Stadt",1999
+0.48746,"09362","Regensburg, Stadt",2000
+0.55234,"09362","Regensburg, Stadt",2001
+0.50758,"09362","Regensburg, Stadt",2002
+0.49955,"09362","Regensburg, Stadt",2003
+0.44654,"09362","Regensburg, Stadt",2004
+0.45001,"09362","Regensburg, Stadt",2005
+0.44386,"09362","Regensburg, Stadt",2006
+0.44544,"09362","Regensburg, Stadt",2007
+0.4773,"09362","Regensburg, Stadt",2008
+0.48212,"09362","Regensburg, Stadt",2009
+0.4897,"09362","Regensburg, Stadt",2010
+0.47825,"09362","Regensburg, Stadt",2011
+0.45204,"09362","Regensburg, Stadt",2012
+0.4722,"09362","Regensburg, Stadt",2013
+0.42927,"09362","Regensburg, Stadt",2014
+0.40437,"09362","Regensburg, Stadt",2015
+0.37762,"09362","Regensburg, Stadt",2016
+0.34189,"09362","Regensburg, Stadt",2017
+0.3667,"09362","Regensburg, Stadt",2018
+0.41915,"09362","Regensburg, Stadt",2019
+0.3725,"09362","Regensburg, Stadt",2020
+0.38809,"09362","Regensburg, Stadt",2021
+0.81217,"09363","Weiden i.d.OPf.",1998
+0.83063,"09363","Weiden i.d.OPf.",1999
+0.76764,"09363","Weiden i.d.OPf.",2000
+0.82875,"09363","Weiden i.d.OPf.",2001
+0.78067,"09363","Weiden i.d.OPf.",2002
+0.84042,"09363","Weiden i.d.OPf.",2003
+0.77951,"09363","Weiden i.d.OPf.",2004
+0.82538,"09363","Weiden i.d.OPf.",2005
+0.81308,"09363","Weiden i.d.OPf.",2006
+0.89664,"09363","Weiden i.d.OPf.",2007
+0.90044,"09363","Weiden i.d.OPf.",2008
+0.94137,"09363","Weiden i.d.OPf.",2009
+0.92467,"09363","Weiden i.d.OPf.",2010
+1,"09363","Weiden i.d.OPf.",2011
+0.93433,"09363","Weiden i.d.OPf.",2012
+0.97173,"09363","Weiden i.d.OPf.",2013
+0.93808,"09363","Weiden i.d.OPf.",2014
+0.88112,"09363","Weiden i.d.OPf.",2015
+0.83381,"09363","Weiden i.d.OPf.",2016
+0.81923,"09363","Weiden i.d.OPf.",2017
+0.84654,"09363","Weiden i.d.OPf.",2018
+0.83007,"09363","Weiden i.d.OPf.",2019
+0.77561,"09363","Weiden i.d.OPf.",2020
+0.76983,"09363","Weiden i.d.OPf.",2021
+0.6727,"09371","Amberg-Sulzbach",1998
+0.72011,"09371","Amberg-Sulzbach",1999
+0.75148,"09371","Amberg-Sulzbach",2000
+0.76616,"09371","Amberg-Sulzbach",2001
+0.71044,"09371","Amberg-Sulzbach",2002
+0.77232,"09371","Amberg-Sulzbach",2003
+0.68444,"09371","Amberg-Sulzbach",2004
+0.69761,"09371","Amberg-Sulzbach",2005
+0.65924,"09371","Amberg-Sulzbach",2006
+0.66779,"09371","Amberg-Sulzbach",2007
+0.73544,"09371","Amberg-Sulzbach",2008
+0.76747,"09371","Amberg-Sulzbach",2009
+0.74475,"09371","Amberg-Sulzbach",2010
+0.76692,"09371","Amberg-Sulzbach",2011
+0.67747,"09371","Amberg-Sulzbach",2012
+0.6863,"09371","Amberg-Sulzbach",2013
+0.64448,"09371","Amberg-Sulzbach",2014
+0.64018,"09371","Amberg-Sulzbach",2015
+0.63485,"09371","Amberg-Sulzbach",2016
+0.59246,"09371","Amberg-Sulzbach",2017
+0.62457,"09371","Amberg-Sulzbach",2018
+0.6007,"09371","Amberg-Sulzbach",2019
+0.58096,"09371","Amberg-Sulzbach",2020
+0.5887,"09371","Amberg-Sulzbach",2021
+0.72152,"09372","Cham",1998
+0.742,"09372","Cham",1999
+0.77165,"09372","Cham",2000
+0.81247,"09372","Cham",2001
+0.84613,"09372","Cham",2002
+0.83559,"09372","Cham",2003
+0.78764,"09372","Cham",2004
+0.78691,"09372","Cham",2005
+0.79897,"09372","Cham",2006
+0.80703,"09372","Cham",2007
+0.82486,"09372","Cham",2008
+0.83638,"09372","Cham",2009
+0.82211,"09372","Cham",2010
+0.8299,"09372","Cham",2011
+0.77074,"09372","Cham",2012
+0.7792,"09372","Cham",2013
+0.74457,"09372","Cham",2014
+0.76383,"09372","Cham",2015
+0.70094,"09372","Cham",2016
+0.70259,"09372","Cham",2017
+0.67816,"09372","Cham",2018
+0.6792,"09372","Cham",2019
+0.65485,"09372","Cham",2020
+0.6526,"09372","Cham",2021
+0.58834,"09373","Neumarkt i.d.OPf.",1998
+0.59115,"09373","Neumarkt i.d.OPf.",1999
+0.6091,"09373","Neumarkt i.d.OPf.",2000
+0.70044,"09373","Neumarkt i.d.OPf.",2001
+0.64169,"09373","Neumarkt i.d.OPf.",2002
+0.65504,"09373","Neumarkt i.d.OPf.",2003
+0.61808,"09373","Neumarkt i.d.OPf.",2004
+0.63468,"09373","Neumarkt i.d.OPf.",2005
+0.58799,"09373","Neumarkt i.d.OPf.",2006
+0.64833,"09373","Neumarkt i.d.OPf.",2007
+0.63944,"09373","Neumarkt i.d.OPf.",2008
+0.64645,"09373","Neumarkt i.d.OPf.",2009
+0.65537,"09373","Neumarkt i.d.OPf.",2010
+0.65597,"09373","Neumarkt i.d.OPf.",2011
+0.63194,"09373","Neumarkt i.d.OPf.",2012
+0.60808,"09373","Neumarkt i.d.OPf.",2013
+0.59523,"09373","Neumarkt i.d.OPf.",2014
+0.56899,"09373","Neumarkt i.d.OPf.",2015
+0.52005,"09373","Neumarkt i.d.OPf.",2016
+0.48575,"09373","Neumarkt i.d.OPf.",2017
+0.50785,"09373","Neumarkt i.d.OPf.",2018
+0.51208,"09373","Neumarkt i.d.OPf.",2019
+0.48893,"09373","Neumarkt i.d.OPf.",2020
+0.50614,"09373","Neumarkt i.d.OPf.",2021
+0.69776,"09374","Neustadt a.d.Waldnaab",1998
+0.74641,"09374","Neustadt a.d.Waldnaab",1999
+0.72918,"09374","Neustadt a.d.Waldnaab",2000
+0.7948,"09374","Neustadt a.d.Waldnaab",2001
+0.83329,"09374","Neustadt a.d.Waldnaab",2002
+0.79121,"09374","Neustadt a.d.Waldnaab",2003
+0.70829,"09374","Neustadt a.d.Waldnaab",2004
+0.7805,"09374","Neustadt a.d.Waldnaab",2005
+0.77572,"09374","Neustadt a.d.Waldnaab",2006
+0.81366,"09374","Neustadt a.d.Waldnaab",2007
+0.87473,"09374","Neustadt a.d.Waldnaab",2008
+0.86872,"09374","Neustadt a.d.Waldnaab",2009
+0.85983,"09374","Neustadt a.d.Waldnaab",2010
+0.89598,"09374","Neustadt a.d.Waldnaab",2011
+0.82736,"09374","Neustadt a.d.Waldnaab",2012
+0.81063,"09374","Neustadt a.d.Waldnaab",2013
+0.79374,"09374","Neustadt a.d.Waldnaab",2014
+0.79035,"09374","Neustadt a.d.Waldnaab",2015
+0.71323,"09374","Neustadt a.d.Waldnaab",2016
+0.75052,"09374","Neustadt a.d.Waldnaab",2017
+0.73623,"09374","Neustadt a.d.Waldnaab",2018
+0.70026,"09374","Neustadt a.d.Waldnaab",2019
+0.68113,"09374","Neustadt a.d.Waldnaab",2020
+0.66594,"09374","Neustadt a.d.Waldnaab",2021
+0.51628,"09375","Regensburg",1998
+0.55326,"09375","Regensburg",1999
+0.55617,"09375","Regensburg",2000
+0.60127,"09375","Regensburg",2001
+0.55259,"09375","Regensburg",2002
+0.56174,"09375","Regensburg",2003
+0.50062,"09375","Regensburg",2004
+0.51135,"09375","Regensburg",2005
+0.47273,"09375","Regensburg",2006
+0.52333,"09375","Regensburg",2007
+0.53713,"09375","Regensburg",2008
+0.56232,"09375","Regensburg",2009
+0.54227,"09375","Regensburg",2010
+0.55766,"09375","Regensburg",2011
+0.49995,"09375","Regensburg",2012
+0.53643,"09375","Regensburg",2013
+0.50886,"09375","Regensburg",2014
+0.50582,"09375","Regensburg",2015
+0.483,"09375","Regensburg",2016
+0.47077,"09375","Regensburg",2017
+0.48495,"09375","Regensburg",2018
+0.48003,"09375","Regensburg",2019
+0.46745,"09375","Regensburg",2020
+0.48736,"09375","Regensburg",2021
+0.67195,"09376","Schwandorf",1998
+0.76201,"09376","Schwandorf",1999
+0.73229,"09376","Schwandorf",2000
+0.7615,"09376","Schwandorf",2001
+0.77391,"09376","Schwandorf",2002
+0.78527,"09376","Schwandorf",2003
+0.7449,"09376","Schwandorf",2004
+0.73159,"09376","Schwandorf",2005
+0.69311,"09376","Schwandorf",2006
+0.75794,"09376","Schwandorf",2007
+0.75599,"09376","Schwandorf",2008
+0.79252,"09376","Schwandorf",2009
+0.77299,"09376","Schwandorf",2010
+0.81188,"09376","Schwandorf",2011
+0.75526,"09376","Schwandorf",2012
+0.75507,"09376","Schwandorf",2013
+0.72511,"09376","Schwandorf",2014
+0.72704,"09376","Schwandorf",2015
+0.70089,"09376","Schwandorf",2016
+0.6552,"09376","Schwandorf",2017
+0.65414,"09376","Schwandorf",2018
+0.66206,"09376","Schwandorf",2019
+0.66381,"09376","Schwandorf",2020
+0.6754,"09376","Schwandorf",2021
+0.69157,"09377","Tirschenreuth",1998
+0.69693,"09377","Tirschenreuth",1999
+0.76972,"09377","Tirschenreuth",2000
+0.77115,"09377","Tirschenreuth",2001
+0.80433,"09377","Tirschenreuth",2002
+0.84879,"09377","Tirschenreuth",2003
+0.73416,"09377","Tirschenreuth",2004
+0.76223,"09377","Tirschenreuth",2005
+0.76035,"09377","Tirschenreuth",2006
+0.81243,"09377","Tirschenreuth",2007
+0.82858,"09377","Tirschenreuth",2008
+0.78988,"09377","Tirschenreuth",2009
+0.80058,"09377","Tirschenreuth",2010
+0.87186,"09377","Tirschenreuth",2011
+0.80775,"09377","Tirschenreuth",2012
+0.82734,"09377","Tirschenreuth",2013
+0.74496,"09377","Tirschenreuth",2014
+0.74677,"09377","Tirschenreuth",2015
+0.71921,"09377","Tirschenreuth",2016
+0.63794,"09377","Tirschenreuth",2017
+0.67403,"09377","Tirschenreuth",2018
+0.64675,"09377","Tirschenreuth",2019
+0.59987,"09377","Tirschenreuth",2020
+0.59135,"09377","Tirschenreuth",2021
+0.65305,"09461","Bamberg, Stadt",1998
+0.64442,"09461","Bamberg, Stadt",1999
+0.57875,"09461","Bamberg, Stadt",2000
+0.58599,"09461","Bamberg, Stadt",2001
+0.651,"09461","Bamberg, Stadt",2002
+0.58721,"09461","Bamberg, Stadt",2003
+0.56225,"09461","Bamberg, Stadt",2004
+0.59658,"09461","Bamberg, Stadt",2005
+0.59682,"09461","Bamberg, Stadt",2006
+0.64868,"09461","Bamberg, Stadt",2007
+0.66233,"09461","Bamberg, Stadt",2008
+0.65492,"09461","Bamberg, Stadt",2009
+0.63871,"09461","Bamberg, Stadt",2010
+0.66704,"09461","Bamberg, Stadt",2011
+0.64946,"09461","Bamberg, Stadt",2012
+0.63202,"09461","Bamberg, Stadt",2013
+0.62218,"09461","Bamberg, Stadt",2014
+0.6455,"09461","Bamberg, Stadt",2015
+0.60229,"09461","Bamberg, Stadt",2016
+0.54306,"09461","Bamberg, Stadt",2017
+0.55156,"09461","Bamberg, Stadt",2018
+0.5253,"09461","Bamberg, Stadt",2019
+0.50932,"09461","Bamberg, Stadt",2020
+0.50739,"09461","Bamberg, Stadt",2021
+0.64872,"09462","Bayreuth, Stadt",1998
+0.69509,"09462","Bayreuth, Stadt",1999
+0.67243,"09462","Bayreuth, Stadt",2000
+0.7106,"09462","Bayreuth, Stadt",2001
+0.74274,"09462","Bayreuth, Stadt",2002
+0.73487,"09462","Bayreuth, Stadt",2003
+0.66838,"09462","Bayreuth, Stadt",2004
+0.66157,"09462","Bayreuth, Stadt",2005
+0.67748,"09462","Bayreuth, Stadt",2006
+0.75363,"09462","Bayreuth, Stadt",2007
+0.77898,"09462","Bayreuth, Stadt",2008
+0.74393,"09462","Bayreuth, Stadt",2009
+0.75255,"09462","Bayreuth, Stadt",2010
+0.75872,"09462","Bayreuth, Stadt",2011
+0.73286,"09462","Bayreuth, Stadt",2012
+0.73316,"09462","Bayreuth, Stadt",2013
+0.72113,"09462","Bayreuth, Stadt",2014
+0.72533,"09462","Bayreuth, Stadt",2015
+0.68931,"09462","Bayreuth, Stadt",2016
+0.62525,"09462","Bayreuth, Stadt",2017
+0.66977,"09462","Bayreuth, Stadt",2018
+0.68021,"09462","Bayreuth, Stadt",2019
+0.61177,"09462","Bayreuth, Stadt",2020
+0.61498,"09462","Bayreuth, Stadt",2021
+0.60343,"09463","Coburg, Stadt",1998
+0.60094,"09463","Coburg, Stadt",1999
+0.60636,"09463","Coburg, Stadt",2000
+0.67315,"09463","Coburg, Stadt",2001
+0.71218,"09463","Coburg, Stadt",2002
+0.70905,"09463","Coburg, Stadt",2003
+0.6076,"09463","Coburg, Stadt",2004
+0.59692,"09463","Coburg, Stadt",2005
+0.64582,"09463","Coburg, Stadt",2006
+0.64862,"09463","Coburg, Stadt",2007
+0.63585,"09463","Coburg, Stadt",2008
+0.64669,"09463","Coburg, Stadt",2009
+0.60704,"09463","Coburg, Stadt",2010
+0.62045,"09463","Coburg, Stadt",2011
+0.5787,"09463","Coburg, Stadt",2012
+0.57727,"09463","Coburg, Stadt",2013
+0.55268,"09463","Coburg, Stadt",2014
+0.50236,"09463","Coburg, Stadt",2015
+0.48885,"09463","Coburg, Stadt",2016
+0.48766,"09463","Coburg, Stadt",2017
+0.48537,"09463","Coburg, Stadt",2018
+0.50664,"09463","Coburg, Stadt",2019
+0.44349,"09463","Coburg, Stadt",2020
+0.4512,"09463","Coburg, Stadt",2021
+1,"09464","Hof, Stadt",1998
+1,"09464","Hof, Stadt",1999
+1,"09464","Hof, Stadt",2000
+1,"09464","Hof, Stadt",2001
+1,"09464","Hof, Stadt",2002
+1,"09464","Hof, Stadt",2003
+1,"09464","Hof, Stadt",2004
+1,"09464","Hof, Stadt",2005
+1,"09464","Hof, Stadt",2006
+1,"09464","Hof, Stadt",2007
+1,"09464","Hof, Stadt",2008
+1,"09464","Hof, Stadt",2009
+1,"09464","Hof, Stadt",2010
+0.99415,"09464","Hof, Stadt",2011
+1,"09464","Hof, Stadt",2012
+1,"09464","Hof, Stadt",2013
+1,"09464","Hof, Stadt",2014
+1,"09464","Hof, Stadt",2015
+1,"09464","Hof, Stadt",2016
+1,"09464","Hof, Stadt",2017
+1,"09464","Hof, Stadt",2018
+1,"09464","Hof, Stadt",2019
+1,"09464","Hof, Stadt",2020
+1,"09464","Hof, Stadt",2021
+0.664,"09471","Bamberg",1998
+0.66028,"09471","Bamberg",1999
+0.66849,"09471","Bamberg",2000
+0.67135,"09471","Bamberg",2001
+0.70551,"09471","Bamberg",2002
+0.67059,"09471","Bamberg",2003
+0.62873,"09471","Bamberg",2004
+0.63723,"09471","Bamberg",2005
+0.62926,"09471","Bamberg",2006
+0.71088,"09471","Bamberg",2007
+0.69536,"09471","Bamberg",2008
+0.70444,"09471","Bamberg",2009
+0.70376,"09471","Bamberg",2010
+0.7368,"09471","Bamberg",2011
+0.67252,"09471","Bamberg",2012
+0.67681,"09471","Bamberg",2013
+0.67259,"09471","Bamberg",2014
+0.65699,"09471","Bamberg",2015
+0.61916,"09471","Bamberg",2016
+0.59815,"09471","Bamberg",2017
+0.63753,"09471","Bamberg",2018
+0.63394,"09471","Bamberg",2019
+0.61384,"09471","Bamberg",2020
+0.64629,"09471","Bamberg",2021
+0.5544,"09472","Bayreuth",1998
+0.60216,"09472","Bayreuth",1999
+0.65328,"09472","Bayreuth",2000
+0.71452,"09472","Bayreuth",2001
+0.68838,"09472","Bayreuth",2002
+0.65198,"09472","Bayreuth",2003
+0.60215,"09472","Bayreuth",2004
+0.67039,"09472","Bayreuth",2005
+0.61633,"09472","Bayreuth",2006
+0.67317,"09472","Bayreuth",2007
+0.67827,"09472","Bayreuth",2008
+0.66385,"09472","Bayreuth",2009
+0.64868,"09472","Bayreuth",2010
+0.67794,"09472","Bayreuth",2011
+0.69535,"09472","Bayreuth",2012
+0.69057,"09472","Bayreuth",2013
+0.66012,"09472","Bayreuth",2014
+0.6628,"09472","Bayreuth",2015
+0.59398,"09472","Bayreuth",2016
+0.57452,"09472","Bayreuth",2017
+0.5947,"09472","Bayreuth",2018
+0.57676,"09472","Bayreuth",2019
+0.57166,"09472","Bayreuth",2020
+0.54722,"09472","Bayreuth",2021
+0.68356,"09473","Coburg",1998
+0.78131,"09473","Coburg",1999
+0.62546,"09473","Coburg",2000
+0.6478,"09473","Coburg",2001
+0.72754,"09473","Coburg",2002
+0.78214,"09473","Coburg",2003
+0.73166,"09473","Coburg",2004
+0.74315,"09473","Coburg",2005
+0.67211,"09473","Coburg",2006
+0.69034,"09473","Coburg",2007
+0.74095,"09473","Coburg",2008
+0.7429,"09473","Coburg",2009
+0.75846,"09473","Coburg",2010
+0.76058,"09473","Coburg",2011
+0.77965,"09473","Coburg",2012
+0.71712,"09473","Coburg",2013
+0.7228,"09473","Coburg",2014
+0.64823,"09473","Coburg",2015
+0.64697,"09473","Coburg",2016
+0.6704,"09473","Coburg",2017
+0.70135,"09473","Coburg",2018
+0.67781,"09473","Coburg",2019
+0.62942,"09473","Coburg",2020
+0.68433,"09473","Coburg",2021
+0.51985,"09474","Forchheim",1998
+0.5337,"09474","Forchheim",1999
+0.49278,"09474","Forchheim",2000
+0.51569,"09474","Forchheim",2001
+0.51194,"09474","Forchheim",2002
+0.54188,"09474","Forchheim",2003
+0.47969,"09474","Forchheim",2004
+0.47901,"09474","Forchheim",2005
+0.49581,"09474","Forchheim",2006
+0.54753,"09474","Forchheim",2007
+0.53936,"09474","Forchheim",2008
+0.52429,"09474","Forchheim",2009
+0.54134,"09474","Forchheim",2010
+0.56869,"09474","Forchheim",2011
+0.54021,"09474","Forchheim",2012
+0.55432,"09474","Forchheim",2013
+0.54083,"09474","Forchheim",2014
+0.50809,"09474","Forchheim",2015
+0.48489,"09474","Forchheim",2016
+0.47782,"09474","Forchheim",2017
+0.46233,"09474","Forchheim",2018
+0.50379,"09474","Forchheim",2019
+0.43477,"09474","Forchheim",2020
+0.43007,"09474","Forchheim",2021
+0.6208,"09475","Hof",1998
+0.64966,"09475","Hof",1999
+0.63223,"09475","Hof",2000
+0.66152,"09475","Hof",2001
+0.74711,"09475","Hof",2002
+0.775,"09475","Hof",2003
+0.68945,"09475","Hof",2004
+0.69532,"09475","Hof",2005
+0.68763,"09475","Hof",2006
+0.73505,"09475","Hof",2007
+0.74454,"09475","Hof",2008
+0.75555,"09475","Hof",2009
+0.73449,"09475","Hof",2010
+0.8041,"09475","Hof",2011
+0.75228,"09475","Hof",2012
+0.77275,"09475","Hof",2013
+0.72237,"09475","Hof",2014
+0.74883,"09475","Hof",2015
+0.70775,"09475","Hof",2016
+0.65651,"09475","Hof",2017
+0.67388,"09475","Hof",2018
+0.6793,"09475","Hof",2019
+0.62751,"09475","Hof",2020
+0.65287,"09475","Hof",2021
+0.7216,"09476","Kronach",1998
+0.78848,"09476","Kronach",1999
+0.8817,"09476","Kronach",2000
+0.81664,"09476","Kronach",2001
+0.88379,"09476","Kronach",2002
+0.88934,"09476","Kronach",2003
+0.8338,"09476","Kronach",2004
+0.86401,"09476","Kronach",2005
+0.80246,"09476","Kronach",2006
+0.80002,"09476","Kronach",2007
+0.80059,"09476","Kronach",2008
+0.79238,"09476","Kronach",2009
+0.79816,"09476","Kronach",2010
+0.78967,"09476","Kronach",2011
+0.7849,"09476","Kronach",2012
+0.84816,"09476","Kronach",2013
+0.81075,"09476","Kronach",2014
+0.75678,"09476","Kronach",2015
+0.71249,"09476","Kronach",2016
+0.6864,"09476","Kronach",2017
+0.69507,"09476","Kronach",2018
+0.72717,"09476","Kronach",2019
+0.66634,"09476","Kronach",2020
+0.68358,"09476","Kronach",2021
+0.65959,"09477","Kulmbach",1998
+0.75238,"09477","Kulmbach",1999
+0.71606,"09477","Kulmbach",2000
+0.77472,"09477","Kulmbach",2001
+0.76946,"09477","Kulmbach",2002
+0.76916,"09477","Kulmbach",2003
+0.71799,"09477","Kulmbach",2004
+0.68518,"09477","Kulmbach",2005
+0.68081,"09477","Kulmbach",2006
+0.77226,"09477","Kulmbach",2007
+0.72291,"09477","Kulmbach",2008
+0.72908,"09477","Kulmbach",2009
+0.76444,"09477","Kulmbach",2010
+0.75241,"09477","Kulmbach",2011
+0.74626,"09477","Kulmbach",2012
+0.78532,"09477","Kulmbach",2013
+0.69965,"09477","Kulmbach",2014
+0.69521,"09477","Kulmbach",2015
+0.65999,"09477","Kulmbach",2016
+0.63614,"09477","Kulmbach",2017
+0.62572,"09477","Kulmbach",2018
+0.62976,"09477","Kulmbach",2019
+0.61035,"09477","Kulmbach",2020
+0.62518,"09477","Kulmbach",2021
+0.65154,"09478","Lichtenfels",1998
+0.73962,"09478","Lichtenfels",1999
+0.75752,"09478","Lichtenfels",2000
+0.80523,"09478","Lichtenfels",2001
+0.79729,"09478","Lichtenfels",2002
+0.78596,"09478","Lichtenfels",2003
+0.76528,"09478","Lichtenfels",2004
+0.80654,"09478","Lichtenfels",2005
+0.85931,"09478","Lichtenfels",2006
+0.82938,"09478","Lichtenfels",2007
+0.84299,"09478","Lichtenfels",2008
+0.83203,"09478","Lichtenfels",2009
+0.81856,"09478","Lichtenfels",2010
+0.84648,"09478","Lichtenfels",2011
+0.8569,"09478","Lichtenfels",2012
+0.89226,"09478","Lichtenfels",2013
+0.8465,"09478","Lichtenfels",2014
+0.82312,"09478","Lichtenfels",2015
+0.75177,"09478","Lichtenfels",2016
+0.73063,"09478","Lichtenfels",2017
+0.7532,"09478","Lichtenfels",2018
+0.74186,"09478","Lichtenfels",2019
+0.74014,"09478","Lichtenfels",2020
+0.7086,"09478","Lichtenfels",2021
+0.8616,"09479","Wunsiedel i.Fichtelgebirge",1998
+0.89825,"09479","Wunsiedel i.Fichtelgebirge",1999
+0.9353,"09479","Wunsiedel i.Fichtelgebirge",2000
+0.99642,"09479","Wunsiedel i.Fichtelgebirge",2001
+0.95985,"09479","Wunsiedel i.Fichtelgebirge",2002
+0.98787,"09479","Wunsiedel i.Fichtelgebirge",2003
+0.92211,"09479","Wunsiedel i.Fichtelgebirge",2004
+0.90403,"09479","Wunsiedel i.Fichtelgebirge",2005
+0.85704,"09479","Wunsiedel i.Fichtelgebirge",2006
+0.92746,"09479","Wunsiedel i.Fichtelgebirge",2007
+0.9256,"09479","Wunsiedel i.Fichtelgebirge",2008
+0.95962,"09479","Wunsiedel i.Fichtelgebirge",2009
+0.93567,"09479","Wunsiedel i.Fichtelgebirge",2010
+0.97759,"09479","Wunsiedel i.Fichtelgebirge",2011
+0.9075,"09479","Wunsiedel i.Fichtelgebirge",2012
+0.90852,"09479","Wunsiedel i.Fichtelgebirge",2013
+0.86778,"09479","Wunsiedel i.Fichtelgebirge",2014
+0.86364,"09479","Wunsiedel i.Fichtelgebirge",2015
+0.85075,"09479","Wunsiedel i.Fichtelgebirge",2016
+0.80783,"09479","Wunsiedel i.Fichtelgebirge",2017
+0.85388,"09479","Wunsiedel i.Fichtelgebirge",2018
+0.82111,"09479","Wunsiedel i.Fichtelgebirge",2019
+0.77651,"09479","Wunsiedel i.Fichtelgebirge",2020
+0.76656,"09479","Wunsiedel i.Fichtelgebirge",2021
+0.70011,"09561","Ansbach, Stadt",1998
+0.68486,"09561","Ansbach, Stadt",1999
+0.66834,"09561","Ansbach, Stadt",2000
+0.7127,"09561","Ansbach, Stadt",2001
+0.7015,"09561","Ansbach, Stadt",2002
+0.71667,"09561","Ansbach, Stadt",2003
+0.67759,"09561","Ansbach, Stadt",2004
+0.66442,"09561","Ansbach, Stadt",2005
+0.67101,"09561","Ansbach, Stadt",2006
+0.7464,"09561","Ansbach, Stadt",2007
+0.78635,"09561","Ansbach, Stadt",2008
+0.79722,"09561","Ansbach, Stadt",2009
+0.76101,"09561","Ansbach, Stadt",2010
+0.75733,"09561","Ansbach, Stadt",2011
+0.73087,"09561","Ansbach, Stadt",2012
+0.77629,"09561","Ansbach, Stadt",2013
+0.71569,"09561","Ansbach, Stadt",2014
+0.75698,"09561","Ansbach, Stadt",2015
+0.72956,"09561","Ansbach, Stadt",2016
+0.74488,"09561","Ansbach, Stadt",2017
+0.75061,"09561","Ansbach, Stadt",2018
+0.7196,"09561","Ansbach, Stadt",2019
+0.68369,"09561","Ansbach, Stadt",2020
+0.72477,"09561","Ansbach, Stadt",2021
+0.19603,"09562","Erlangen",1998
+0.21994,"09562","Erlangen",1999
+0.15858,"09562","Erlangen",2000
+0.17516,"09562","Erlangen",2001
+0.18552,"09562","Erlangen",2002
+0.20184,"09562","Erlangen",2003
+0.14127,"09562","Erlangen",2004
+0.18109,"09562","Erlangen",2005
+0.14032,"09562","Erlangen",2006
+0.17569,"09562","Erlangen",2007
+0.1927,"09562","Erlangen",2008
+0.15611,"09562","Erlangen",2009
+0.15803,"09562","Erlangen",2010
+0.12077,"09562","Erlangen",2011
+0.09857,"09562","Erlangen",2012
+0.11361,"09562","Erlangen",2013
+0.09968,"09562","Erlangen",2014
+0.1125,"09562","Erlangen",2015
+0.13105,"09562","Erlangen",2016
+0.13115,"09562","Erlangen",2017
+0.13752,"09562","Erlangen",2018
+0.16715,"09562","Erlangen",2019
+0.13748,"09562","Erlangen",2020
+0.16527,"09562","Erlangen",2021
+0.72591,"09563","Fürth, Stadt",1998
+0.74466,"09563","Fürth, Stadt",1999
+0.77405,"09563","Fürth, Stadt",2000
+0.75419,"09563","Fürth, Stadt",2001
+0.72641,"09563","Fürth, Stadt",2002
+0.74144,"09563","Fürth, Stadt",2003
+0.75896,"09563","Fürth, Stadt",2004
+0.80064,"09563","Fürth, Stadt",2005
+0.75507,"09563","Fürth, Stadt",2006
+0.84795,"09563","Fürth, Stadt",2007
+0.76771,"09563","Fürth, Stadt",2008
+0.72946,"09563","Fürth, Stadt",2009
+0.74817,"09563","Fürth, Stadt",2010
+0.73656,"09563","Fürth, Stadt",2011
+0.72501,"09563","Fürth, Stadt",2012
+0.75273,"09563","Fürth, Stadt",2013
+0.71708,"09563","Fürth, Stadt",2014
+0.69106,"09563","Fürth, Stadt",2015
+0.66293,"09563","Fürth, Stadt",2016
+0.68648,"09563","Fürth, Stadt",2017
+0.69063,"09563","Fürth, Stadt",2018
+0.66864,"09563","Fürth, Stadt",2019
+0.60834,"09563","Fürth, Stadt",2020
+0.66541,"09563","Fürth, Stadt",2021
+0.75974,"09564","Nürnberg",1998
+0.7785,"09564","Nürnberg",1999
+0.75556,"09564","Nürnberg",2000
+0.83278,"09564","Nürnberg",2001
+0.7931,"09564","Nürnberg",2002
+0.80159,"09564","Nürnberg",2003
+0.77028,"09564","Nürnberg",2004
+0.76728,"09564","Nürnberg",2005
+0.76166,"09564","Nürnberg",2006
+0.79813,"09564","Nürnberg",2007
+0.77376,"09564","Nürnberg",2008
+0.75247,"09564","Nürnberg",2009
+0.76553,"09564","Nürnberg",2010
+0.74297,"09564","Nürnberg",2011
+0.70968,"09564","Nürnberg",2012
+0.74258,"09564","Nürnberg",2013
+0.73249,"09564","Nürnberg",2014
+0.6854,"09564","Nürnberg",2015
+0.64805,"09564","Nürnberg",2016
+0.63367,"09564","Nürnberg",2017
+0.66812,"09564","Nürnberg",2018
+0.65738,"09564","Nürnberg",2019
+0.60234,"09564","Nürnberg",2020
+0.62648,"09564","Nürnberg",2021
+0.52523,"09565","Schwabach",1998
+0.53697,"09565","Schwabach",1999
+0.50353,"09565","Schwabach",2000
+0.47402,"09565","Schwabach",2001
+0.52254,"09565","Schwabach",2002
+0.61079,"09565","Schwabach",2003
+0.55789,"09565","Schwabach",2004
+0.54246,"09565","Schwabach",2005
+0.54991,"09565","Schwabach",2006
+0.6071,"09565","Schwabach",2007
+0.62838,"09565","Schwabach",2008
+0.65673,"09565","Schwabach",2009
+0.65647,"09565","Schwabach",2010
+0.66893,"09565","Schwabach",2011
+0.61039,"09565","Schwabach",2012
+0.63437,"09565","Schwabach",2013
+0.66579,"09565","Schwabach",2014
+0.60548,"09565","Schwabach",2015
+0.59897,"09565","Schwabach",2016
+0.54762,"09565","Schwabach",2017
+0.54953,"09565","Schwabach",2018
+0.52473,"09565","Schwabach",2019
+0.50109,"09565","Schwabach",2020
+0.54638,"09565","Schwabach",2021
+0.68739,"09571","Ansbach",1998
+0.71003,"09571","Ansbach",1999
+0.77121,"09571","Ansbach",2000
+0.78574,"09571","Ansbach",2001
+0.81744,"09571","Ansbach",2002
+0.78493,"09571","Ansbach",2003
+0.78021,"09571","Ansbach",2004
+0.76964,"09571","Ansbach",2005
+0.73376,"09571","Ansbach",2006
+0.77595,"09571","Ansbach",2007
+0.76553,"09571","Ansbach",2008
+0.7771,"09571","Ansbach",2009
+0.75547,"09571","Ansbach",2010
+0.77114,"09571","Ansbach",2011
+0.74427,"09571","Ansbach",2012
+0.78916,"09571","Ansbach",2013
+0.73102,"09571","Ansbach",2014
+0.72759,"09571","Ansbach",2015
+0.68159,"09571","Ansbach",2016
+0.67028,"09571","Ansbach",2017
+0.69001,"09571","Ansbach",2018
+0.68549,"09571","Ansbach",2019
+0.65916,"09571","Ansbach",2020
+0.65678,"09571","Ansbach",2021
+0.32768,"09572","Erlangen-Höchstadt",1998
+0.34416,"09572","Erlangen-Höchstadt",1999
+0.36277,"09572","Erlangen-Höchstadt",2000
+0.31755,"09572","Erlangen-Höchstadt",2001
+0.30455,"09572","Erlangen-Höchstadt",2002
+0.33742,"09572","Erlangen-Höchstadt",2003
+0.25824,"09572","Erlangen-Höchstadt",2004
+0.23879,"09572","Erlangen-Höchstadt",2005
+0.22033,"09572","Erlangen-Höchstadt",2006
+0.26605,"09572","Erlangen-Höchstadt",2007
+0.28389,"09572","Erlangen-Höchstadt",2008
+0.32087,"09572","Erlangen-Höchstadt",2009
+0.33973,"09572","Erlangen-Höchstadt",2010
+0.33176,"09572","Erlangen-Höchstadt",2011
+0.31516,"09572","Erlangen-Höchstadt",2012
+0.2977,"09572","Erlangen-Höchstadt",2013
+0.3009,"09572","Erlangen-Höchstadt",2014
+0.29913,"09572","Erlangen-Höchstadt",2015
+0.29188,"09572","Erlangen-Höchstadt",2016
+0.23002,"09572","Erlangen-Höchstadt",2017
+0.27647,"09572","Erlangen-Höchstadt",2018
+0.26696,"09572","Erlangen-Höchstadt",2019
+0.26084,"09572","Erlangen-Höchstadt",2020
+0.28211,"09572","Erlangen-Höchstadt",2021
+0.48183,"09573","Fürth",1998
+0.4916,"09573","Fürth",1999
+0.47295,"09573","Fürth",2000
+0.46217,"09573","Fürth",2001
+0.44782,"09573","Fürth",2002
+0.47467,"09573","Fürth",2003
+0.44553,"09573","Fürth",2004
+0.4436,"09573","Fürth",2005
+0.43667,"09573","Fürth",2006
+0.46337,"09573","Fürth",2007
+0.50773,"09573","Fürth",2008
+0.52278,"09573","Fürth",2009
+0.52947,"09573","Fürth",2010
+0.53294,"09573","Fürth",2011
+0.51065,"09573","Fürth",2012
+0.51083,"09573","Fürth",2013
+0.49876,"09573","Fürth",2014
+0.4872,"09573","Fürth",2015
+0.47762,"09573","Fürth",2016
+0.47326,"09573","Fürth",2017
+0.48824,"09573","Fürth",2018
+0.47548,"09573","Fürth",2019
+0.46852,"09573","Fürth",2020
+0.47263,"09573","Fürth",2021
+0.46616,"09574","Nürnberger Land",1998
+0.47986,"09574","Nürnberger Land",1999
+0.47441,"09574","Nürnberger Land",2000
+0.50973,"09574","Nürnberger Land",2001
+0.46246,"09574","Nürnberger Land",2002
+0.48706,"09574","Nürnberger Land",2003
+0.45176,"09574","Nürnberger Land",2004
+0.45897,"09574","Nürnberger Land",2005
+0.48386,"09574","Nürnberger Land",2006
+0.53768,"09574","Nürnberger Land",2007
+0.55032,"09574","Nürnberger Land",2008
+0.55286,"09574","Nürnberger Land",2009
+0.54304,"09574","Nürnberger Land",2010
+0.55451,"09574","Nürnberger Land",2011
+0.5546,"09574","Nürnberger Land",2012
+0.55931,"09574","Nürnberger Land",2013
+0.56872,"09574","Nürnberger Land",2014
+0.56644,"09574","Nürnberger Land",2015
+0.54497,"09574","Nürnberger Land",2016
+0.48274,"09574","Nürnberger Land",2017
+0.49042,"09574","Nürnberger Land",2018
+0.52048,"09574","Nürnberger Land",2019
+0.51565,"09574","Nürnberger Land",2020
+0.48317,"09574","Nürnberger Land",2021
+0.64516,"09575","Neustadt a.d.Aisch-Bad Windsheim",1998
+0.66216,"09575","Neustadt a.d.Aisch-Bad Windsheim",1999
+0.67889,"09575","Neustadt a.d.Aisch-Bad Windsheim",2000
+0.72574,"09575","Neustadt a.d.Aisch-Bad Windsheim",2001
+0.68842,"09575","Neustadt a.d.Aisch-Bad Windsheim",2002
+0.70328,"09575","Neustadt a.d.Aisch-Bad Windsheim",2003
+0.64836,"09575","Neustadt a.d.Aisch-Bad Windsheim",2004
+0.66553,"09575","Neustadt a.d.Aisch-Bad Windsheim",2005
+0.63152,"09575","Neustadt a.d.Aisch-Bad Windsheim",2006
+0.69309,"09575","Neustadt a.d.Aisch-Bad Windsheim",2007
+0.7126,"09575","Neustadt a.d.Aisch-Bad Windsheim",2008
+0.71652,"09575","Neustadt a.d.Aisch-Bad Windsheim",2009
+0.7234,"09575","Neustadt a.d.Aisch-Bad Windsheim",2010
+0.75159,"09575","Neustadt a.d.Aisch-Bad Windsheim",2011
+0.74144,"09575","Neustadt a.d.Aisch-Bad Windsheim",2012
+0.76693,"09575","Neustadt a.d.Aisch-Bad Windsheim",2013
+0.70648,"09575","Neustadt a.d.Aisch-Bad Windsheim",2014
+0.69102,"09575","Neustadt a.d.Aisch-Bad Windsheim",2015
+0.69346,"09575","Neustadt a.d.Aisch-Bad Windsheim",2016
+0.69362,"09575","Neustadt a.d.Aisch-Bad Windsheim",2017
+0.72281,"09575","Neustadt a.d.Aisch-Bad Windsheim",2018
+0.66123,"09575","Neustadt a.d.Aisch-Bad Windsheim",2019
+0.64833,"09575","Neustadt a.d.Aisch-Bad Windsheim",2020
+0.66897,"09575","Neustadt a.d.Aisch-Bad Windsheim",2021
+0.53687,"09576","Roth",1998
+0.59447,"09576","Roth",1999
+0.49293,"09576","Roth",2000
+0.54272,"09576","Roth",2001
+0.51644,"09576","Roth",2002
+0.56299,"09576","Roth",2003
+0.56346,"09576","Roth",2004
+0.55255,"09576","Roth",2005
+0.55992,"09576","Roth",2006
+0.57011,"09576","Roth",2007
+0.59299,"09576","Roth",2008
+0.58557,"09576","Roth",2009
+0.61508,"09576","Roth",2010
+0.61762,"09576","Roth",2011
+0.63079,"09576","Roth",2012
+0.65555,"09576","Roth",2013
+0.65118,"09576","Roth",2014
+0.6465,"09576","Roth",2015
+0.6188,"09576","Roth",2016
+0.59267,"09576","Roth",2017
+0.58411,"09576","Roth",2018
+0.55482,"09576","Roth",2019
+0.53289,"09576","Roth",2020
+0.54961,"09576","Roth",2021
+0.71653,"09577","Weißenburg-Gunzenhausen",1998
+0.70955,"09577","Weißenburg-Gunzenhausen",1999
+0.70684,"09577","Weißenburg-Gunzenhausen",2000
+0.74205,"09577","Weißenburg-Gunzenhausen",2001
+0.75875,"09577","Weißenburg-Gunzenhausen",2002
+0.76142,"09577","Weißenburg-Gunzenhausen",2003
+0.72816,"09577","Weißenburg-Gunzenhausen",2004
+0.729,"09577","Weißenburg-Gunzenhausen",2005
+0.71944,"09577","Weißenburg-Gunzenhausen",2006
+0.75778,"09577","Weißenburg-Gunzenhausen",2007
+0.80781,"09577","Weißenburg-Gunzenhausen",2008
+0.83635,"09577","Weißenburg-Gunzenhausen",2009
+0.80123,"09577","Weißenburg-Gunzenhausen",2010
+0.81855,"09577","Weißenburg-Gunzenhausen",2011
+0.76322,"09577","Weißenburg-Gunzenhausen",2012
+0.75306,"09577","Weißenburg-Gunzenhausen",2013
+0.75145,"09577","Weißenburg-Gunzenhausen",2014
+0.74857,"09577","Weißenburg-Gunzenhausen",2015
+0.72009,"09577","Weißenburg-Gunzenhausen",2016
+0.68186,"09577","Weißenburg-Gunzenhausen",2017
+0.7002,"09577","Weißenburg-Gunzenhausen",2018
+0.72496,"09577","Weißenburg-Gunzenhausen",2019
+0.68345,"09577","Weißenburg-Gunzenhausen",2020
+0.69797,"09577","Weißenburg-Gunzenhausen",2021
+0.64586,"09661","Aschaffenburg, Stadt",1998
+0.70764,"09661","Aschaffenburg, Stadt",1999
+0.76036,"09661","Aschaffenburg, Stadt",2000
+0.68012,"09661","Aschaffenburg, Stadt",2001
+0.71309,"09661","Aschaffenburg, Stadt",2002
+0.72617,"09661","Aschaffenburg, Stadt",2003
+0.68062,"09661","Aschaffenburg, Stadt",2004
+0.70201,"09661","Aschaffenburg, Stadt",2005
+0.6588,"09661","Aschaffenburg, Stadt",2006
+0.72914,"09661","Aschaffenburg, Stadt",2007
+0.7274,"09661","Aschaffenburg, Stadt",2008
+0.71474,"09661","Aschaffenburg, Stadt",2009
+0.72348,"09661","Aschaffenburg, Stadt",2010
+0.7299,"09661","Aschaffenburg, Stadt",2011
+0.66776,"09661","Aschaffenburg, Stadt",2012
+0.69001,"09661","Aschaffenburg, Stadt",2013
+0.66306,"09661","Aschaffenburg, Stadt",2014
+0.66137,"09661","Aschaffenburg, Stadt",2015
+0.62169,"09661","Aschaffenburg, Stadt",2016
+0.55931,"09661","Aschaffenburg, Stadt",2017
+0.63833,"09661","Aschaffenburg, Stadt",2018
+0.62565,"09661","Aschaffenburg, Stadt",2019
+0.59819,"09661","Aschaffenburg, Stadt",2020
+0.64464,"09661","Aschaffenburg, Stadt",2021
+0.82217,"09662","Schweinfurt, Stadt",1998
+0.78894,"09662","Schweinfurt, Stadt",1999
+0.79981,"09662","Schweinfurt, Stadt",2000
+0.84306,"09662","Schweinfurt, Stadt",2001
+0.84975,"09662","Schweinfurt, Stadt",2002
+0.8615,"09662","Schweinfurt, Stadt",2003
+0.80356,"09662","Schweinfurt, Stadt",2004
+0.86592,"09662","Schweinfurt, Stadt",2005
+0.8166,"09662","Schweinfurt, Stadt",2006
+0.87742,"09662","Schweinfurt, Stadt",2007
+0.83268,"09662","Schweinfurt, Stadt",2008
+0.85647,"09662","Schweinfurt, Stadt",2009
+0.84501,"09662","Schweinfurt, Stadt",2010
+0.83032,"09662","Schweinfurt, Stadt",2011
+0.73959,"09662","Schweinfurt, Stadt",2012
+0.80591,"09662","Schweinfurt, Stadt",2013
+0.74564,"09662","Schweinfurt, Stadt",2014
+0.74751,"09662","Schweinfurt, Stadt",2015
+0.73987,"09662","Schweinfurt, Stadt",2016
+0.77225,"09662","Schweinfurt, Stadt",2017
+0.79615,"09662","Schweinfurt, Stadt",2018
+0.75703,"09662","Schweinfurt, Stadt",2019
+0.69024,"09662","Schweinfurt, Stadt",2020
+0.70068,"09662","Schweinfurt, Stadt",2021
+0.53068,"09663","Würzburg, Stadt",1998
+0.50689,"09663","Würzburg, Stadt",1999
+0.46618,"09663","Würzburg, Stadt",2000
+0.53521,"09663","Würzburg, Stadt",2001
+0.52728,"09663","Würzburg, Stadt",2002
+0.53992,"09663","Würzburg, Stadt",2003
+0.51563,"09663","Würzburg, Stadt",2004
+0.5233,"09663","Würzburg, Stadt",2005
+0.53556,"09663","Würzburg, Stadt",2006
+0.59186,"09663","Würzburg, Stadt",2007
+0.57258,"09663","Würzburg, Stadt",2008
+0.59429,"09663","Würzburg, Stadt",2009
+0.58271,"09663","Würzburg, Stadt",2010
+0.55196,"09663","Würzburg, Stadt",2011
+0.52547,"09663","Würzburg, Stadt",2012
+0.51462,"09663","Würzburg, Stadt",2013
+0.49336,"09663","Würzburg, Stadt",2014
+0.47382,"09663","Würzburg, Stadt",2015
+0.44321,"09663","Würzburg, Stadt",2016
+0.40361,"09663","Würzburg, Stadt",2017
+0.449,"09663","Würzburg, Stadt",2018
+0.45956,"09663","Würzburg, Stadt",2019
+0.42964,"09663","Würzburg, Stadt",2020
+0.44708,"09663","Würzburg, Stadt",2021
+0.54974,"09671","Aschaffenburg",1998
+0.5469,"09671","Aschaffenburg",1999
+0.59086,"09671","Aschaffenburg",2000
+0.60588,"09671","Aschaffenburg",2001
+0.56178,"09671","Aschaffenburg",2002
+0.55885,"09671","Aschaffenburg",2003
+0.52734,"09671","Aschaffenburg",2004
+0.50423,"09671","Aschaffenburg",2005
+0.51602,"09671","Aschaffenburg",2006
+0.52094,"09671","Aschaffenburg",2007
+0.53127,"09671","Aschaffenburg",2008
+0.55923,"09671","Aschaffenburg",2009
+0.55933,"09671","Aschaffenburg",2010
+0.57159,"09671","Aschaffenburg",2011
+0.54821,"09671","Aschaffenburg",2012
+0.57507,"09671","Aschaffenburg",2013
+0.53175,"09671","Aschaffenburg",2014
+0.53582,"09671","Aschaffenburg",2015
+0.59695,"09671","Aschaffenburg",2016
+0.51267,"09671","Aschaffenburg",2017
+0.52073,"09671","Aschaffenburg",2018
+0.49853,"09671","Aschaffenburg",2019
+0.52055,"09671","Aschaffenburg",2020
+0.49567,"09671","Aschaffenburg",2021
+0.6571,"09672","Bad Kissingen",1998
+0.68544,"09672","Bad Kissingen",1999
+0.66018,"09672","Bad Kissingen",2000
+0.74045,"09672","Bad Kissingen",2001
+0.70474,"09672","Bad Kissingen",2002
+0.76225,"09672","Bad Kissingen",2003
+0.68501,"09672","Bad Kissingen",2004
+0.65563,"09672","Bad Kissingen",2005
+0.66719,"09672","Bad Kissingen",2006
+0.72424,"09672","Bad Kissingen",2007
+0.76896,"09672","Bad Kissingen",2008
+0.73336,"09672","Bad Kissingen",2009
+0.74263,"09672","Bad Kissingen",2010
+0.77742,"09672","Bad Kissingen",2011
+0.74922,"09672","Bad Kissingen",2012
+0.70711,"09672","Bad Kissingen",2013
+0.69372,"09672","Bad Kissingen",2014
+0.71012,"09672","Bad Kissingen",2015
+0.68417,"09672","Bad Kissingen",2016
+0.68926,"09672","Bad Kissingen",2017
+0.67185,"09672","Bad Kissingen",2018
+0.65433,"09672","Bad Kissingen",2019
+0.6221,"09672","Bad Kissingen",2020
+0.64163,"09672","Bad Kissingen",2021
+0.63533,"09673","Rhön-Grabfeld",1998
+0.6695,"09673","Rhön-Grabfeld",1999
+0.70601,"09673","Rhön-Grabfeld",2000
+0.67763,"09673","Rhön-Grabfeld",2001
+0.7066,"09673","Rhön-Grabfeld",2002
+0.7628,"09673","Rhön-Grabfeld",2003
+0.69653,"09673","Rhön-Grabfeld",2004
+0.69139,"09673","Rhön-Grabfeld",2005
+0.63411,"09673","Rhön-Grabfeld",2006
+0.69224,"09673","Rhön-Grabfeld",2007
+0.72345,"09673","Rhön-Grabfeld",2008
+0.70625,"09673","Rhön-Grabfeld",2009
+0.70139,"09673","Rhön-Grabfeld",2010
+0.71399,"09673","Rhön-Grabfeld",2011
+0.6756,"09673","Rhön-Grabfeld",2012
+0.70031,"09673","Rhön-Grabfeld",2013
+0.62559,"09673","Rhön-Grabfeld",2014
+0.6264,"09673","Rhön-Grabfeld",2015
+0.62608,"09673","Rhön-Grabfeld",2016
+0.58942,"09673","Rhön-Grabfeld",2017
+0.62958,"09673","Rhön-Grabfeld",2018
+0.58343,"09673","Rhön-Grabfeld",2019
+0.54738,"09673","Rhön-Grabfeld",2020
+0.55805,"09673","Rhön-Grabfeld",2021
+0.69648,"09674","Haßberge",1998
+0.79802,"09674","Haßberge",1999
+0.81094,"09674","Haßberge",2000
+0.82132,"09674","Haßberge",2001
+0.84698,"09674","Haßberge",2002
+0.81928,"09674","Haßberge",2003
+0.7789,"09674","Haßberge",2004
+0.74007,"09674","Haßberge",2005
+0.77741,"09674","Haßberge",2006
+0.81585,"09674","Haßberge",2007
+0.84963,"09674","Haßberge",2008
+0.86932,"09674","Haßberge",2009
+0.85188,"09674","Haßberge",2010
+0.84924,"09674","Haßberge",2011
+0.84594,"09674","Haßberge",2012
+0.80494,"09674","Haßberge",2013
+0.79124,"09674","Haßberge",2014
+0.78368,"09674","Haßberge",2015
+0.76139,"09674","Haßberge",2016
+0.67938,"09674","Haßberge",2017
+0.69301,"09674","Haßberge",2018
+0.72594,"09674","Haßberge",2019
+0.65495,"09674","Haßberge",2020
+0.66851,"09674","Haßberge",2021
+0.62488,"09675","Kitzingen",1998
+0.66111,"09675","Kitzingen",1999
+0.62809,"09675","Kitzingen",2000
+0.67278,"09675","Kitzingen",2001
+0.64639,"09675","Kitzingen",2002
+0.64542,"09675","Kitzingen",2003
+0.57699,"09675","Kitzingen",2004
+0.57353,"09675","Kitzingen",2005
+0.60937,"09675","Kitzingen",2006
+0.66469,"09675","Kitzingen",2007
+0.68017,"09675","Kitzingen",2008
+0.67573,"09675","Kitzingen",2009
+0.68667,"09675","Kitzingen",2010
+0.69269,"09675","Kitzingen",2011
+0.70659,"09675","Kitzingen",2012
+0.73323,"09675","Kitzingen",2013
+0.6824,"09675","Kitzingen",2014
+0.67194,"09675","Kitzingen",2015
+0.6256,"09675","Kitzingen",2016
+0.57519,"09675","Kitzingen",2017
+0.64885,"09675","Kitzingen",2018
+0.65062,"09675","Kitzingen",2019
+0.5785,"09675","Kitzingen",2020
+0.60381,"09675","Kitzingen",2021
+0.71352,"09676","Miltenberg",1998
+0.76674,"09676","Miltenberg",1999
+0.73447,"09676","Miltenberg",2000
+0.79036,"09676","Miltenberg",2001
+0.80422,"09676","Miltenberg",2002
+0.79942,"09676","Miltenberg",2003
+0.73552,"09676","Miltenberg",2004
+0.74041,"09676","Miltenberg",2005
+0.69913,"09676","Miltenberg",2006
+0.73561,"09676","Miltenberg",2007
+0.76555,"09676","Miltenberg",2008
+0.77027,"09676","Miltenberg",2009
+0.76401,"09676","Miltenberg",2010
+0.81581,"09676","Miltenberg",2011
+0.78292,"09676","Miltenberg",2012
+0.77903,"09676","Miltenberg",2013
+0.7697,"09676","Miltenberg",2014
+0.73728,"09676","Miltenberg",2015
+0.70456,"09676","Miltenberg",2016
+0.68342,"09676","Miltenberg",2017
+0.70818,"09676","Miltenberg",2018
+0.68098,"09676","Miltenberg",2019
+0.66383,"09676","Miltenberg",2020
+0.6765,"09676","Miltenberg",2021
+0.44817,"09677","Main-Spessart",1998
+0.4741,"09677","Main-Spessart",1999
+0.50038,"09677","Main-Spessart",2000
+0.55534,"09677","Main-Spessart",2001
+0.57438,"09677","Main-Spessart",2002
+0.57941,"09677","Main-Spessart",2003
+0.50266,"09677","Main-Spessart",2004
+0.54757,"09677","Main-Spessart",2005
+0.51965,"09677","Main-Spessart",2006
+0.50841,"09677","Main-Spessart",2007
+0.54479,"09677","Main-Spessart",2008
+0.55285,"09677","Main-Spessart",2009
+0.54058,"09677","Main-Spessart",2010
+0.57012,"09677","Main-Spessart",2011
+0.55036,"09677","Main-Spessart",2012
+0.57278,"09677","Main-Spessart",2013
+0.52978,"09677","Main-Spessart",2014
+0.50796,"09677","Main-Spessart",2015
+0.50125,"09677","Main-Spessart",2016
+0.47348,"09677","Main-Spessart",2017
+0.48316,"09677","Main-Spessart",2018
+0.47555,"09677","Main-Spessart",2019
+0.46922,"09677","Main-Spessart",2020
+0.47595,"09677","Main-Spessart",2021
+0.80916,"09678","Schweinfurt",1998
+0.80567,"09678","Schweinfurt",1999
+0.77461,"09678","Schweinfurt",2000
+0.74396,"09678","Schweinfurt",2001
+0.77794,"09678","Schweinfurt",2002
+0.79043,"09678","Schweinfurt",2003
+0.68546,"09678","Schweinfurt",2004
+0.65011,"09678","Schweinfurt",2005
+0.68725,"09678","Schweinfurt",2006
+0.73345,"09678","Schweinfurt",2007
+0.78179,"09678","Schweinfurt",2008
+0.73779,"09678","Schweinfurt",2009
+0.75154,"09678","Schweinfurt",2010
+0.79404,"09678","Schweinfurt",2011
+0.74802,"09678","Schweinfurt",2012
+0.72264,"09678","Schweinfurt",2013
+0.76631,"09678","Schweinfurt",2014
+0.69438,"09678","Schweinfurt",2015
+0.72306,"09678","Schweinfurt",2016
+0.68375,"09678","Schweinfurt",2017
+0.67559,"09678","Schweinfurt",2018
+0.63773,"09678","Schweinfurt",2019
+0.58736,"09678","Schweinfurt",2020
+0.66434,"09678","Schweinfurt",2021
+0.47053,"09679","Würzburg",1998
+0.43891,"09679","Würzburg",1999
+0.44671,"09679","Würzburg",2000
+0.44075,"09679","Würzburg",2001
+0.46501,"09679","Würzburg",2002
+0.52077,"09679","Würzburg",2003
+0.43613,"09679","Würzburg",2004
+0.48985,"09679","Würzburg",2005
+0.46958,"09679","Würzburg",2006
+0.50239,"09679","Würzburg",2007
+0.5303,"09679","Würzburg",2008
+0.49896,"09679","Würzburg",2009
+0.50927,"09679","Würzburg",2010
+0.54282,"09679","Würzburg",2011
+0.50859,"09679","Würzburg",2012
+0.54273,"09679","Würzburg",2013
+0.50375,"09679","Würzburg",2014
+0.57295,"09679","Würzburg",2015
+0.54668,"09679","Würzburg",2016
+0.54332,"09679","Würzburg",2017
+0.46759,"09679","Würzburg",2018
+0.50723,"09679","Würzburg",2019
+0.47666,"09679","Würzburg",2020
+0.49716,"09679","Würzburg",2021
+0.73187,"09761","Augsburg, Stadt",1998
+0.74484,"09761","Augsburg, Stadt",1999
+0.73569,"09761","Augsburg, Stadt",2000
+0.75617,"09761","Augsburg, Stadt",2001
+0.75144,"09761","Augsburg, Stadt",2002
+0.75753,"09761","Augsburg, Stadt",2003
+0.74842,"09761","Augsburg, Stadt",2004
+0.76404,"09761","Augsburg, Stadt",2005
+0.7633,"09761","Augsburg, Stadt",2006
+0.81342,"09761","Augsburg, Stadt",2007
+0.78319,"09761","Augsburg, Stadt",2008
+0.78139,"09761","Augsburg, Stadt",2009
+0.77246,"09761","Augsburg, Stadt",2010
+0.81437,"09761","Augsburg, Stadt",2011
+0.76929,"09761","Augsburg, Stadt",2012
+0.79946,"09761","Augsburg, Stadt",2013
+0.76541,"09761","Augsburg, Stadt",2014
+0.73976,"09761","Augsburg, Stadt",2015
+0.70411,"09761","Augsburg, Stadt",2016
+0.67966,"09761","Augsburg, Stadt",2017
+0.67886,"09761","Augsburg, Stadt",2018
+0.67559,"09761","Augsburg, Stadt",2019
+0.64488,"09761","Augsburg, Stadt",2020
+0.65802,"09761","Augsburg, Stadt",2021
+0.89274,"09762","Kaufbeuren",1998
+0.83202,"09762","Kaufbeuren",1999
+0.81694,"09762","Kaufbeuren",2000
+0.92691,"09762","Kaufbeuren",2001
+0.81549,"09762","Kaufbeuren",2002
+0.82472,"09762","Kaufbeuren",2003
+0.80303,"09762","Kaufbeuren",2004
+0.85474,"09762","Kaufbeuren",2005
+0.79447,"09762","Kaufbeuren",2006
+0.90891,"09762","Kaufbeuren",2007
+0.8929,"09762","Kaufbeuren",2008
+0.90128,"09762","Kaufbeuren",2009
+0.92028,"09762","Kaufbeuren",2010
+0.95168,"09762","Kaufbeuren",2011
+0.85494,"09762","Kaufbeuren",2012
+0.88681,"09762","Kaufbeuren",2013
+0.89643,"09762","Kaufbeuren",2014
+0.90032,"09762","Kaufbeuren",2015
+0.87243,"09762","Kaufbeuren",2016
+0.77753,"09762","Kaufbeuren",2017
+0.7794,"09762","Kaufbeuren",2018
+0.76823,"09762","Kaufbeuren",2019
+0.76344,"09762","Kaufbeuren",2020
+0.75274,"09762","Kaufbeuren",2021
+0.68878,"09763","Kempten (Allgäu)",1998
+0.76741,"09763","Kempten (Allgäu)",1999
+0.7169,"09763","Kempten (Allgäu)",2000
+0.7746,"09763","Kempten (Allgäu)",2001
+0.73844,"09763","Kempten (Allgäu)",2002
+0.76297,"09763","Kempten (Allgäu)",2003
+0.76157,"09763","Kempten (Allgäu)",2004
+0.78845,"09763","Kempten (Allgäu)",2005
+0.78386,"09763","Kempten (Allgäu)",2006
+0.79988,"09763","Kempten (Allgäu)",2007
+0.81315,"09763","Kempten (Allgäu)",2008
+0.83295,"09763","Kempten (Allgäu)",2009
+0.81347,"09763","Kempten (Allgäu)",2010
+0.87809,"09763","Kempten (Allgäu)",2011
+0.82477,"09763","Kempten (Allgäu)",2012
+0.84682,"09763","Kempten (Allgäu)",2013
+0.84782,"09763","Kempten (Allgäu)",2014
+0.83726,"09763","Kempten (Allgäu)",2015
+0.78201,"09763","Kempten (Allgäu)",2016
+0.74346,"09763","Kempten (Allgäu)",2017
+0.7494,"09763","Kempten (Allgäu)",2018
+0.72956,"09763","Kempten (Allgäu)",2019
+0.67312,"09763","Kempten (Allgäu)",2020
+0.66867,"09763","Kempten (Allgäu)",2021
+0.69372,"09764","Memmingen",1998
+0.75428,"09764","Memmingen",1999
+0.68763,"09764","Memmingen",2000
+0.77018,"09764","Memmingen",2001
+0.78853,"09764","Memmingen",2002
+0.80824,"09764","Memmingen",2003
+0.71895,"09764","Memmingen",2004
+0.73443,"09764","Memmingen",2005
+0.74774,"09764","Memmingen",2006
+0.71451,"09764","Memmingen",2007
+0.72818,"09764","Memmingen",2008
+0.75604,"09764","Memmingen",2009
+0.81857,"09764","Memmingen",2010
+0.82339,"09764","Memmingen",2011
+0.7047,"09764","Memmingen",2012
+0.78716,"09764","Memmingen",2013
+0.72671,"09764","Memmingen",2014
+0.75635,"09764","Memmingen",2015
+0.71331,"09764","Memmingen",2016
+0.72451,"09764","Memmingen",2017
+0.72374,"09764","Memmingen",2018
+0.70433,"09764","Memmingen",2019
+0.66282,"09764","Memmingen",2020
+0.6896,"09764","Memmingen",2021
+0.51196,"09771","Aichach-Friedberg",1998
+0.52404,"09771","Aichach-Friedberg",1999
+0.50316,"09771","Aichach-Friedberg",2000
+0.49506,"09771","Aichach-Friedberg",2001
+0.53898,"09771","Aichach-Friedberg",2002
+0.53606,"09771","Aichach-Friedberg",2003
+0.51993,"09771","Aichach-Friedberg",2004
+0.51176,"09771","Aichach-Friedberg",2005
+0.50296,"09771","Aichach-Friedberg",2006
+0.58078,"09771","Aichach-Friedberg",2007
+0.57904,"09771","Aichach-Friedberg",2008
+0.59762,"09771","Aichach-Friedberg",2009
+0.62468,"09771","Aichach-Friedberg",2010
+0.60829,"09771","Aichach-Friedberg",2011
+0.53971,"09771","Aichach-Friedberg",2012
+0.53968,"09771","Aichach-Friedberg",2013
+0.50921,"09771","Aichach-Friedberg",2014
+0.53567,"09771","Aichach-Friedberg",2015
+0.5022,"09771","Aichach-Friedberg",2016
+0.48678,"09771","Aichach-Friedberg",2017
+0.49997,"09771","Aichach-Friedberg",2018
+0.51082,"09771","Aichach-Friedberg",2019
+0.46319,"09771","Aichach-Friedberg",2020
+0.48123,"09771","Aichach-Friedberg",2021
+0.55158,"09772","Augsburg",1998
+0.55556,"09772","Augsburg",1999
+0.52833,"09772","Augsburg",2000
+0.57393,"09772","Augsburg",2001
+0.53497,"09772","Augsburg",2002
+0.55033,"09772","Augsburg",2003
+0.49265,"09772","Augsburg",2004
+0.55089,"09772","Augsburg",2005
+0.52173,"09772","Augsburg",2006
+0.56405,"09772","Augsburg",2007
+0.57277,"09772","Augsburg",2008
+0.58351,"09772","Augsburg",2009
+0.59151,"09772","Augsburg",2010
+0.5861,"09772","Augsburg",2011
+0.55527,"09772","Augsburg",2012
+0.59171,"09772","Augsburg",2013
+0.55353,"09772","Augsburg",2014
+0.57099,"09772","Augsburg",2015
+0.52389,"09772","Augsburg",2016
+0.50679,"09772","Augsburg",2017
+0.53121,"09772","Augsburg",2018
+0.53568,"09772","Augsburg",2019
+0.51315,"09772","Augsburg",2020
+0.51595,"09772","Augsburg",2021
+0.73236,"09773","Dillingen a.d.Donau",1998
+0.69658,"09773","Dillingen a.d.Donau",1999
+0.70969,"09773","Dillingen a.d.Donau",2000
+0.76975,"09773","Dillingen a.d.Donau",2001
+0.72846,"09773","Dillingen a.d.Donau",2002
+0.68825,"09773","Dillingen a.d.Donau",2003
+0.71202,"09773","Dillingen a.d.Donau",2004
+0.72963,"09773","Dillingen a.d.Donau",2005
+0.69636,"09773","Dillingen a.d.Donau",2006
+0.74782,"09773","Dillingen a.d.Donau",2007
+0.73649,"09773","Dillingen a.d.Donau",2008
+0.7291,"09773","Dillingen a.d.Donau",2009
+0.73254,"09773","Dillingen a.d.Donau",2010
+0.72371,"09773","Dillingen a.d.Donau",2011
+0.68186,"09773","Dillingen a.d.Donau",2012
+0.73215,"09773","Dillingen a.d.Donau",2013
+0.70296,"09773","Dillingen a.d.Donau",2014
+0.70182,"09773","Dillingen a.d.Donau",2015
+0.67014,"09773","Dillingen a.d.Donau",2016
+0.64829,"09773","Dillingen a.d.Donau",2017
+0.67233,"09773","Dillingen a.d.Donau",2018
+0.66424,"09773","Dillingen a.d.Donau",2019
+0.63251,"09773","Dillingen a.d.Donau",2020
+0.64337,"09773","Dillingen a.d.Donau",2021
+0.68677,"09774","Günzburg",1998
+0.69296,"09774","Günzburg",1999
+0.75888,"09774","Günzburg",2000
+0.73448,"09774","Günzburg",2001
+0.72933,"09774","Günzburg",2002
+0.72436,"09774","Günzburg",2003
+0.70227,"09774","Günzburg",2004
+0.71519,"09774","Günzburg",2005
+0.68126,"09774","Günzburg",2006
+0.68998,"09774","Günzburg",2007
+0.69079,"09774","Günzburg",2008
+0.72302,"09774","Günzburg",2009
+0.73034,"09774","Günzburg",2010
+0.70267,"09774","Günzburg",2011
+0.71948,"09774","Günzburg",2012
+0.737,"09774","Günzburg",2013
+0.72645,"09774","Günzburg",2014
+0.72134,"09774","Günzburg",2015
+0.67077,"09774","Günzburg",2016
+0.64373,"09774","Günzburg",2017
+0.66059,"09774","Günzburg",2018
+0.66245,"09774","Günzburg",2019
+0.62579,"09774","Günzburg",2020
+0.64133,"09774","Günzburg",2021
+0.60909,"09775","Neu-Ulm",1998
+0.57354,"09775","Neu-Ulm",1999
+0.60216,"09775","Neu-Ulm",2000
+0.64106,"09775","Neu-Ulm",2001
+0.60003,"09775","Neu-Ulm",2002
+0.57536,"09775","Neu-Ulm",2003
+0.55606,"09775","Neu-Ulm",2004
+0.57863,"09775","Neu-Ulm",2005
+0.50622,"09775","Neu-Ulm",2006
+0.54774,"09775","Neu-Ulm",2007
+0.56763,"09775","Neu-Ulm",2008
+0.60384,"09775","Neu-Ulm",2009
+0.60711,"09775","Neu-Ulm",2010
+0.60608,"09775","Neu-Ulm",2011
+0.61106,"09775","Neu-Ulm",2012
+0.65762,"09775","Neu-Ulm",2013
+0.56971,"09775","Neu-Ulm",2014
+0.58551,"09775","Neu-Ulm",2015
+0.58705,"09775","Neu-Ulm",2016
+0.56575,"09775","Neu-Ulm",2017
+0.56748,"09775","Neu-Ulm",2018
+0.56314,"09775","Neu-Ulm",2019
+0.52734,"09775","Neu-Ulm",2020
+0.58762,"09775","Neu-Ulm",2021
+0.53087,"09776","Lindau (Bodensee)",1998
+0.49978,"09776","Lindau (Bodensee)",1999
+0.58876,"09776","Lindau (Bodensee)",2000
+0.51098,"09776","Lindau (Bodensee)",2001
+0.57584,"09776","Lindau (Bodensee)",2002
+0.55518,"09776","Lindau (Bodensee)",2003
+0.50487,"09776","Lindau (Bodensee)",2004
+0.57747,"09776","Lindau (Bodensee)",2005
+0.55425,"09776","Lindau (Bodensee)",2006
+0.65842,"09776","Lindau (Bodensee)",2007
+0.60825,"09776","Lindau (Bodensee)",2008
+0.60772,"09776","Lindau (Bodensee)",2009
+0.6011,"09776","Lindau (Bodensee)",2010
+0.59277,"09776","Lindau (Bodensee)",2011
+0.5555,"09776","Lindau (Bodensee)",2012
+0.58346,"09776","Lindau (Bodensee)",2013
+0.52637,"09776","Lindau (Bodensee)",2014
+0.5514,"09776","Lindau (Bodensee)",2015
+0.53446,"09776","Lindau (Bodensee)",2016
+0.48068,"09776","Lindau (Bodensee)",2017
+0.49488,"09776","Lindau (Bodensee)",2018
+0.53667,"09776","Lindau (Bodensee)",2019
+0.512,"09776","Lindau (Bodensee)",2020
+0.52486,"09776","Lindau (Bodensee)",2021
+0.54467,"09777","Ostallgäu",1998
+0.56426,"09777","Ostallgäu",1999
+0.55069,"09777","Ostallgäu",2000
+0.57113,"09777","Ostallgäu",2001
+0.58139,"09777","Ostallgäu",2002
+0.61586,"09777","Ostallgäu",2003
+0.54654,"09777","Ostallgäu",2004
+0.57583,"09777","Ostallgäu",2005
+0.54173,"09777","Ostallgäu",2006
+0.55152,"09777","Ostallgäu",2007
+0.58781,"09777","Ostallgäu",2008
+0.59664,"09777","Ostallgäu",2009
+0.60659,"09777","Ostallgäu",2010
+0.6088,"09777","Ostallgäu",2011
+0.55507,"09777","Ostallgäu",2012
+0.59062,"09777","Ostallgäu",2013
+0.56173,"09777","Ostallgäu",2014
+0.54453,"09777","Ostallgäu",2015
+0.54553,"09777","Ostallgäu",2016
+0.50874,"09777","Ostallgäu",2017
+0.50004,"09777","Ostallgäu",2018
+0.50035,"09777","Ostallgäu",2019
+0.51948,"09777","Ostallgäu",2020
+0.4924,"09777","Ostallgäu",2021
+0.50788,"09778","Unterallgäu",1998
+0.47983,"09778","Unterallgäu",1999
+0.53764,"09778","Unterallgäu",2000
+0.58827,"09778","Unterallgäu",2001
+0.5841,"09778","Unterallgäu",2002
+0.54269,"09778","Unterallgäu",2003
+0.47808,"09778","Unterallgäu",2004
+0.49773,"09778","Unterallgäu",2005
+0.47857,"09778","Unterallgäu",2006
+0.50917,"09778","Unterallgäu",2007
+0.55571,"09778","Unterallgäu",2008
+0.55466,"09778","Unterallgäu",2009
+0.54005,"09778","Unterallgäu",2010
+0.56337,"09778","Unterallgäu",2011
+0.54392,"09778","Unterallgäu",2012
+0.56262,"09778","Unterallgäu",2013
+0.53735,"09778","Unterallgäu",2014
+0.52216,"09778","Unterallgäu",2015
+0.48518,"09778","Unterallgäu",2016
+0.48187,"09778","Unterallgäu",2017
+0.47967,"09778","Unterallgäu",2018
+0.48698,"09778","Unterallgäu",2019
+0.46523,"09778","Unterallgäu",2020
+0.4662,"09778","Unterallgäu",2021
+0.52448,"09779","Donau-Ries",1998
+0.54279,"09779","Donau-Ries",1999
+0.58916,"09779","Donau-Ries",2000
+0.60182,"09779","Donau-Ries",2001
+0.62758,"09779","Donau-Ries",2002
+0.61402,"09779","Donau-Ries",2003
+0.54795,"09779","Donau-Ries",2004
+0.55882,"09779","Donau-Ries",2005
+0.56912,"09779","Donau-Ries",2006
+0.6122,"09779","Donau-Ries",2007
+0.61194,"09779","Donau-Ries",2008
+0.5871,"09779","Donau-Ries",2009
+0.59395,"09779","Donau-Ries",2010
+0.61893,"09779","Donau-Ries",2011
+0.57532,"09779","Donau-Ries",2012
+0.54754,"09779","Donau-Ries",2013
+0.52826,"09779","Donau-Ries",2014
+0.52096,"09779","Donau-Ries",2015
+0.50919,"09779","Donau-Ries",2016
+0.48715,"09779","Donau-Ries",2017
+0.47868,"09779","Donau-Ries",2018
+0.49488,"09779","Donau-Ries",2019
+0.45488,"09779","Donau-Ries",2020
+0.50775,"09779","Donau-Ries",2021
+0.51979,"09780","Oberallgäu",1998
+0.57914,"09780","Oberallgäu",1999
+0.58103,"09780","Oberallgäu",2000
+0.56207,"09780","Oberallgäu",2001
+0.54672,"09780","Oberallgäu",2002
+0.58596,"09780","Oberallgäu",2003
+0.54164,"09780","Oberallgäu",2004
+0.537,"09780","Oberallgäu",2005
+0.52695,"09780","Oberallgäu",2006
+0.56858,"09780","Oberallgäu",2007
+0.59026,"09780","Oberallgäu",2008
+0.57569,"09780","Oberallgäu",2009
+0.58575,"09780","Oberallgäu",2010
+0.6167,"09780","Oberallgäu",2011
+0.58411,"09780","Oberallgäu",2012
+0.59946,"09780","Oberallgäu",2013
+0.57284,"09780","Oberallgäu",2014
+0.56757,"09780","Oberallgäu",2015
+0.54514,"09780","Oberallgäu",2016
+0.53321,"09780","Oberallgäu",2017
+0.51421,"09780","Oberallgäu",2018
+0.49685,"09780","Oberallgäu",2019
+0.48687,"09780","Oberallgäu",2020
+0.48246,"09780","Oberallgäu",2021
