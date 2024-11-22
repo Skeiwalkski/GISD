@@ -1,0 +1,969 @@
+"gisd_score","kreis_id","kreis_name","year"
+0.08685,"08111","Stuttgart, Stadt",1998
+0.05361,"08111","Stuttgart, Stadt",1999
+0.11671,"08111","Stuttgart, Stadt",2000
+0.09765,"08111","Stuttgart, Stadt",2001
+0.17666,"08111","Stuttgart, Stadt",2002
+0.14683,"08111","Stuttgart, Stadt",2003
+0.06246,"08111","Stuttgart, Stadt",2004
+0.05278,"08111","Stuttgart, Stadt",2005
+0.08461,"08111","Stuttgart, Stadt",2006
+0.04925,"08111","Stuttgart, Stadt",2007
+0.05493,"08111","Stuttgart, Stadt",2008
+0.08741,"08111","Stuttgart, Stadt",2009
+0.05587,"08111","Stuttgart, Stadt",2010
+0.05217,"08111","Stuttgart, Stadt",2011
+0.12629,"08111","Stuttgart, Stadt",2012
+0.14822,"08111","Stuttgart, Stadt",2013
+0.10069,"08111","Stuttgart, Stadt",2014
+0.10202,"08111","Stuttgart, Stadt",2015
+0.10377,"08111","Stuttgart, Stadt",2016
+0,"08111","Stuttgart, Stadt",2017
+0.06841,"08111","Stuttgart, Stadt",2018
+0.03029,"08111","Stuttgart, Stadt",2019
+0,"08115","Böblingen",1998
+0.02263,"08115","Böblingen",1999
+0.0307,"08115","Böblingen",2000
+0.00271,"08115","Böblingen",2001
+0.09706,"08115","Böblingen",2002
+0.10653,"08115","Böblingen",2003
+0.01886,"08115","Böblingen",2004
+0,"08115","Böblingen",2005
+0,"08115","Böblingen",2006
+0,"08115","Böblingen",2007
+0,"08115","Böblingen",2008
+0.04267,"08115","Böblingen",2009
+0.01324,"08115","Böblingen",2010
+0,"08115","Böblingen",2011
+0.1213,"08115","Böblingen",2012
+0.12882,"08115","Böblingen",2013
+0.09898,"08115","Böblingen",2014
+0.09619,"08115","Böblingen",2015
+0.11209,"08115","Böblingen",2016
+0.0891,"08115","Böblingen",2017
+0.12273,"08115","Böblingen",2018
+0.0878,"08115","Böblingen",2019
+0.05688,"08116","Esslingen",1998
+0.08004,"08116","Esslingen",1999
+0.16846,"08116","Esslingen",2000
+0.12497,"08116","Esslingen",2001
+0.14808,"08116","Esslingen",2002
+0.16397,"08116","Esslingen",2003
+0.09431,"08116","Esslingen",2004
+0.06594,"08116","Esslingen",2005
+0.09702,"08116","Esslingen",2006
+0.11378,"08116","Esslingen",2007
+0.1168,"08116","Esslingen",2008
+0.15346,"08116","Esslingen",2009
+0.13285,"08116","Esslingen",2010
+0.16752,"08116","Esslingen",2011
+0.24037,"08116","Esslingen",2012
+0.25765,"08116","Esslingen",2013
+0.22718,"08116","Esslingen",2014
+0.21729,"08116","Esslingen",2015
+0.24517,"08116","Esslingen",2016
+0.1836,"08116","Esslingen",2017
+0.24533,"08116","Esslingen",2018
+0.21282,"08116","Esslingen",2019
+0.53169,"08117","Göppingen",1998
+0.44602,"08117","Göppingen",1999
+0.50774,"08117","Göppingen",2000
+0.51921,"08117","Göppingen",2001
+0.5657,"08117","Göppingen",2002
+0.55476,"08117","Göppingen",2003
+0.5071,"08117","Göppingen",2004
+0.50055,"08117","Göppingen",2005
+0.513,"08117","Göppingen",2006
+0.55076,"08117","Göppingen",2007
+0.53808,"08117","Göppingen",2008
+0.58191,"08117","Göppingen",2009
+0.53763,"08117","Göppingen",2010
+0.54031,"08117","Göppingen",2011
+0.58824,"08117","Göppingen",2012
+0.59436,"08117","Göppingen",2013
+0.55399,"08117","Göppingen",2014
+0.55717,"08117","Göppingen",2015
+0.56048,"08117","Göppingen",2016
+0.55153,"08117","Göppingen",2017
+0.56405,"08117","Göppingen",2018
+0.56217,"08117","Göppingen",2019
+0.12591,"08118","Ludwigsburg",1998
+0.14177,"08118","Ludwigsburg",1999
+0.19216,"08118","Ludwigsburg",2000
+0.17754,"08118","Ludwigsburg",2001
+0.21847,"08118","Ludwigsburg",2002
+0.19385,"08118","Ludwigsburg",2003
+0.13997,"08118","Ludwigsburg",2004
+0.11562,"08118","Ludwigsburg",2005
+0.14671,"08118","Ludwigsburg",2006
+0.18254,"08118","Ludwigsburg",2007
+0.19123,"08118","Ludwigsburg",2008
+0.21857,"08118","Ludwigsburg",2009
+0.20411,"08118","Ludwigsburg",2010
+0.20723,"08118","Ludwigsburg",2011
+0.26775,"08118","Ludwigsburg",2012
+0.29764,"08118","Ludwigsburg",2013
+0.2613,"08118","Ludwigsburg",2014
+0.23362,"08118","Ludwigsburg",2015
+0.21597,"08118","Ludwigsburg",2016
+0.18886,"08118","Ludwigsburg",2017
+0.21712,"08118","Ludwigsburg",2018
+0.18682,"08118","Ludwigsburg",2019
+0.32022,"08119","Rems-Murr-Kreis",1998
+0.34399,"08119","Rems-Murr-Kreis",1999
+0.3509,"08119","Rems-Murr-Kreis",2000
+0.30284,"08119","Rems-Murr-Kreis",2001
+0.33708,"08119","Rems-Murr-Kreis",2002
+0.34305,"08119","Rems-Murr-Kreis",2003
+0.29447,"08119","Rems-Murr-Kreis",2004
+0.29194,"08119","Rems-Murr-Kreis",2005
+0.36008,"08119","Rems-Murr-Kreis",2006
+0.35997,"08119","Rems-Murr-Kreis",2007
+0.34235,"08119","Rems-Murr-Kreis",2008
+0.36,"08119","Rems-Murr-Kreis",2009
+0.32575,"08119","Rems-Murr-Kreis",2010
+0.37654,"08119","Rems-Murr-Kreis",2011
+0.43529,"08119","Rems-Murr-Kreis",2012
+0.46072,"08119","Rems-Murr-Kreis",2013
+0.41774,"08119","Rems-Murr-Kreis",2014
+0.43067,"08119","Rems-Murr-Kreis",2015
+0.43954,"08119","Rems-Murr-Kreis",2016
+0.40239,"08119","Rems-Murr-Kreis",2017
+0.41842,"08119","Rems-Murr-Kreis",2018
+0.41027,"08119","Rems-Murr-Kreis",2019
+0.65924,"08121","Heilbronn, Stadt",1998
+0.66202,"08121","Heilbronn, Stadt",1999
+0.96785,"08121","Heilbronn, Stadt",2000
+0.88191,"08121","Heilbronn, Stadt",2001
+0.95849,"08121","Heilbronn, Stadt",2002
+0.89801,"08121","Heilbronn, Stadt",2003
+0.77553,"08121","Heilbronn, Stadt",2004
+0.75441,"08121","Heilbronn, Stadt",2005
+0.73199,"08121","Heilbronn, Stadt",2006
+0.67516,"08121","Heilbronn, Stadt",2007
+0.58739,"08121","Heilbronn, Stadt",2008
+0.58164,"08121","Heilbronn, Stadt",2009
+0.51751,"08121","Heilbronn, Stadt",2010
+0.51798,"08121","Heilbronn, Stadt",2011
+0.59973,"08121","Heilbronn, Stadt",2012
+0.64232,"08121","Heilbronn, Stadt",2013
+0.64082,"08121","Heilbronn, Stadt",2014
+0.54361,"08121","Heilbronn, Stadt",2015
+0.46368,"08121","Heilbronn, Stadt",2016
+0.39357,"08121","Heilbronn, Stadt",2017
+0.44651,"08121","Heilbronn, Stadt",2018
+0.40639,"08121","Heilbronn, Stadt",2019
+0.26911,"08125","Heilbronn",1998
+0.27583,"08125","Heilbronn",1999
+0.38235,"08125","Heilbronn",2000
+0.36672,"08125","Heilbronn",2001
+0.37963,"08125","Heilbronn",2002
+0.39661,"08125","Heilbronn",2003
+0.39994,"08125","Heilbronn",2004
+0.35547,"08125","Heilbronn",2005
+0.35565,"08125","Heilbronn",2006
+0.37311,"08125","Heilbronn",2007
+0.31427,"08125","Heilbronn",2008
+0.38376,"08125","Heilbronn",2009
+0.32837,"08125","Heilbronn",2010
+0.30802,"08125","Heilbronn",2011
+0.35759,"08125","Heilbronn",2012
+0.36129,"08125","Heilbronn",2013
+0.32547,"08125","Heilbronn",2014
+0.32118,"08125","Heilbronn",2015
+0.33105,"08125","Heilbronn",2016
+0.29752,"08125","Heilbronn",2017
+0.32998,"08125","Heilbronn",2018
+0.3059,"08125","Heilbronn",2019
+0.45011,"08126","Hohenlohekreis",1998
+0.46846,"08126","Hohenlohekreis",1999
+0.57923,"08126","Hohenlohekreis",2000
+0.58815,"08126","Hohenlohekreis",2001
+0.58794,"08126","Hohenlohekreis",2002
+0.56924,"08126","Hohenlohekreis",2003
+0.58138,"08126","Hohenlohekreis",2004
+0.47207,"08126","Hohenlohekreis",2005
+0.50276,"08126","Hohenlohekreis",2006
+0.52104,"08126","Hohenlohekreis",2007
+0.52625,"08126","Hohenlohekreis",2008
+0.61182,"08126","Hohenlohekreis",2009
+0.5042,"08126","Hohenlohekreis",2010
+0.47735,"08126","Hohenlohekreis",2011
+0.52605,"08126","Hohenlohekreis",2012
+0.51979,"08126","Hohenlohekreis",2013
+0.46711,"08126","Hohenlohekreis",2014
+0.45877,"08126","Hohenlohekreis",2015
+0.45544,"08126","Hohenlohekreis",2016
+0.35573,"08126","Hohenlohekreis",2017
+0.45241,"08126","Hohenlohekreis",2018
+0.42511,"08126","Hohenlohekreis",2019
+0.57608,"08127","Schwäbisch Hall",1998
+0.66064,"08127","Schwäbisch Hall",1999
+0.68663,"08127","Schwäbisch Hall",2000
+0.72977,"08127","Schwäbisch Hall",2001
+0.77121,"08127","Schwäbisch Hall",2002
+0.71686,"08127","Schwäbisch Hall",2003
+0.71327,"08127","Schwäbisch Hall",2004
+0.70907,"08127","Schwäbisch Hall",2005
+0.71843,"08127","Schwäbisch Hall",2006
+0.71957,"08127","Schwäbisch Hall",2007
+0.68576,"08127","Schwäbisch Hall",2008
+0.72086,"08127","Schwäbisch Hall",2009
+0.66096,"08127","Schwäbisch Hall",2010
+0.67883,"08127","Schwäbisch Hall",2011
+0.6083,"08127","Schwäbisch Hall",2012
+0.60952,"08127","Schwäbisch Hall",2013
+0.55551,"08127","Schwäbisch Hall",2014
+0.57148,"08127","Schwäbisch Hall",2015
+0.55121,"08127","Schwäbisch Hall",2016
+0.50943,"08127","Schwäbisch Hall",2017
+0.57299,"08127","Schwäbisch Hall",2018
+0.54007,"08127","Schwäbisch Hall",2019
+0.5762,"08128","Main-Tauber-Kreis",1998
+0.51612,"08128","Main-Tauber-Kreis",1999
+0.56335,"08128","Main-Tauber-Kreis",2000
+0.61232,"08128","Main-Tauber-Kreis",2001
+0.6479,"08128","Main-Tauber-Kreis",2002
+0.63494,"08128","Main-Tauber-Kreis",2003
+0.62678,"08128","Main-Tauber-Kreis",2004
+0.59265,"08128","Main-Tauber-Kreis",2005
+0.5721,"08128","Main-Tauber-Kreis",2006
+0.61505,"08128","Main-Tauber-Kreis",2007
+0.5667,"08128","Main-Tauber-Kreis",2008
+0.57922,"08128","Main-Tauber-Kreis",2009
+0.53387,"08128","Main-Tauber-Kreis",2010
+0.5356,"08128","Main-Tauber-Kreis",2011
+0.57811,"08128","Main-Tauber-Kreis",2012
+0.61098,"08128","Main-Tauber-Kreis",2013
+0.56281,"08128","Main-Tauber-Kreis",2014
+0.5633,"08128","Main-Tauber-Kreis",2015
+0.53705,"08128","Main-Tauber-Kreis",2016
+0.51237,"08128","Main-Tauber-Kreis",2017
+0.54544,"08128","Main-Tauber-Kreis",2018
+0.5025,"08128","Main-Tauber-Kreis",2019
+0.50093,"08135","Heidenheim",1998
+0.5306,"08135","Heidenheim",1999
+0.5851,"08135","Heidenheim",2000
+0.54259,"08135","Heidenheim",2001
+0.62367,"08135","Heidenheim",2002
+0.58656,"08135","Heidenheim",2003
+0.56447,"08135","Heidenheim",2004
+0.53818,"08135","Heidenheim",2005
+0.53093,"08135","Heidenheim",2006
+0.55744,"08135","Heidenheim",2007
+0.47458,"08135","Heidenheim",2008
+0.5365,"08135","Heidenheim",2009
+0.48633,"08135","Heidenheim",2010
+0.49853,"08135","Heidenheim",2011
+0.55974,"08135","Heidenheim",2012
+0.55785,"08135","Heidenheim",2013
+0.55412,"08135","Heidenheim",2014
+0.59871,"08135","Heidenheim",2015
+0.60794,"08135","Heidenheim",2016
+0.59099,"08135","Heidenheim",2017
+0.59519,"08135","Heidenheim",2018
+0.53543,"08135","Heidenheim",2019
+0.35863,"08136","Ostalbkreis",1998
+0.4028,"08136","Ostalbkreis",1999
+0.48681,"08136","Ostalbkreis",2000
+0.4571,"08136","Ostalbkreis",2001
+0.51383,"08136","Ostalbkreis",2002
+0.50191,"08136","Ostalbkreis",2003
+0.49124,"08136","Ostalbkreis",2004
+0.48732,"08136","Ostalbkreis",2005
+0.44886,"08136","Ostalbkreis",2006
+0.45611,"08136","Ostalbkreis",2007
+0.42591,"08136","Ostalbkreis",2008
+0.47298,"08136","Ostalbkreis",2009
+0.42532,"08136","Ostalbkreis",2010
+0.45584,"08136","Ostalbkreis",2011
+0.46425,"08136","Ostalbkreis",2012
+0.44337,"08136","Ostalbkreis",2013
+0.41888,"08136","Ostalbkreis",2014
+0.4168,"08136","Ostalbkreis",2015
+0.4402,"08136","Ostalbkreis",2016
+0.35453,"08136","Ostalbkreis",2017
+0.40686,"08136","Ostalbkreis",2018
+0.3789,"08136","Ostalbkreis",2019
+0.12598,"08211","Baden-Baden, Stadt",1998
+0.16959,"08211","Baden-Baden, Stadt",1999
+0.14914,"08211","Baden-Baden, Stadt",2000
+0.11177,"08211","Baden-Baden, Stadt",2001
+0.22481,"08211","Baden-Baden, Stadt",2002
+0.15202,"08211","Baden-Baden, Stadt",2003
+0.20069,"08211","Baden-Baden, Stadt",2004
+0.18865,"08211","Baden-Baden, Stadt",2005
+0.25802,"08211","Baden-Baden, Stadt",2006
+0.22967,"08211","Baden-Baden, Stadt",2007
+0.20794,"08211","Baden-Baden, Stadt",2008
+0.28018,"08211","Baden-Baden, Stadt",2009
+0.18945,"08211","Baden-Baden, Stadt",2010
+0.18555,"08211","Baden-Baden, Stadt",2011
+0.29693,"08211","Baden-Baden, Stadt",2012
+0.37428,"08211","Baden-Baden, Stadt",2013
+0.33989,"08211","Baden-Baden, Stadt",2014
+0.3431,"08211","Baden-Baden, Stadt",2015
+0.41097,"08211","Baden-Baden, Stadt",2016
+0.34005,"08211","Baden-Baden, Stadt",2017
+0.42988,"08211","Baden-Baden, Stadt",2018
+0.42808,"08211","Baden-Baden, Stadt",2019
+0.28542,"08212","Karlsruhe, Stadt",1998
+0.30242,"08212","Karlsruhe, Stadt",1999
+0.33986,"08212","Karlsruhe, Stadt",2000
+0.24472,"08212","Karlsruhe, Stadt",2001
+0.30825,"08212","Karlsruhe, Stadt",2002
+0.2907,"08212","Karlsruhe, Stadt",2003
+0.26194,"08212","Karlsruhe, Stadt",2004
+0.26818,"08212","Karlsruhe, Stadt",2005
+0.31821,"08212","Karlsruhe, Stadt",2006
+0.32532,"08212","Karlsruhe, Stadt",2007
+0.30763,"08212","Karlsruhe, Stadt",2008
+0.29498,"08212","Karlsruhe, Stadt",2009
+0.29548,"08212","Karlsruhe, Stadt",2010
+0.34818,"08212","Karlsruhe, Stadt",2011
+0.35056,"08212","Karlsruhe, Stadt",2012
+0.37833,"08212","Karlsruhe, Stadt",2013
+0.36462,"08212","Karlsruhe, Stadt",2014
+0.34784,"08212","Karlsruhe, Stadt",2015
+0.30912,"08212","Karlsruhe, Stadt",2016
+0.28173,"08212","Karlsruhe, Stadt",2017
+0.30372,"08212","Karlsruhe, Stadt",2018
+0.25141,"08212","Karlsruhe, Stadt",2019
+0.27296,"08215","Karlsruhe",1998
+0.28759,"08215","Karlsruhe",1999
+0.35477,"08215","Karlsruhe",2000
+0.30535,"08215","Karlsruhe",2001
+0.28369,"08215","Karlsruhe",2002
+0.3638,"08215","Karlsruhe",2003
+0.31474,"08215","Karlsruhe",2004
+0.30401,"08215","Karlsruhe",2005
+0.3307,"08215","Karlsruhe",2006
+0.37097,"08215","Karlsruhe",2007
+0.33684,"08215","Karlsruhe",2008
+0.37173,"08215","Karlsruhe",2009
+0.33014,"08215","Karlsruhe",2010
+0.35661,"08215","Karlsruhe",2011
+0.4079,"08215","Karlsruhe",2012
+0.39893,"08215","Karlsruhe",2013
+0.37232,"08215","Karlsruhe",2014
+0.37528,"08215","Karlsruhe",2015
+0.37743,"08215","Karlsruhe",2016
+0.32101,"08215","Karlsruhe",2017
+0.41817,"08215","Karlsruhe",2018
+0.41888,"08215","Karlsruhe",2019
+0.33654,"08216","Rastatt",1998
+0.33434,"08216","Rastatt",1999
+0.39858,"08216","Rastatt",2000
+0.40809,"08216","Rastatt",2001
+0.37459,"08216","Rastatt",2002
+0.36706,"08216","Rastatt",2003
+0.34642,"08216","Rastatt",2004
+0.29188,"08216","Rastatt",2005
+0.29871,"08216","Rastatt",2006
+0.34433,"08216","Rastatt",2007
+0.32604,"08216","Rastatt",2008
+0.40722,"08216","Rastatt",2009
+0.34073,"08216","Rastatt",2010
+0.38951,"08216","Rastatt",2011
+0.49314,"08216","Rastatt",2012
+0.51263,"08216","Rastatt",2013
+0.47475,"08216","Rastatt",2014
+0.45166,"08216","Rastatt",2015
+0.4568,"08216","Rastatt",2016
+0.42471,"08216","Rastatt",2017
+0.49455,"08216","Rastatt",2018
+0.4178,"08216","Rastatt",2019
+0.0286,"08221","Heidelberg, Stadt",1998
+0,"08221","Heidelberg, Stadt",1999
+0,"08221","Heidelberg, Stadt",2000
+0,"08221","Heidelberg, Stadt",2001
+0,"08221","Heidelberg, Stadt",2002
+0,"08221","Heidelberg, Stadt",2003
+0,"08221","Heidelberg, Stadt",2004
+0.05971,"08221","Heidelberg, Stadt",2005
+0.04587,"08221","Heidelberg, Stadt",2006
+0.06403,"08221","Heidelberg, Stadt",2007
+0.03398,"08221","Heidelberg, Stadt",2008
+0,"08221","Heidelberg, Stadt",2009
+0,"08221","Heidelberg, Stadt",2010
+0.02367,"08221","Heidelberg, Stadt",2011
+0,"08221","Heidelberg, Stadt",2012
+0,"08221","Heidelberg, Stadt",2013
+0,"08221","Heidelberg, Stadt",2014
+0,"08221","Heidelberg, Stadt",2015
+0,"08221","Heidelberg, Stadt",2016
+0.04276,"08221","Heidelberg, Stadt",2017
+0,"08221","Heidelberg, Stadt",2018
+0,"08221","Heidelberg, Stadt",2019
+0.72085,"08222","Mannheim, Stadt",1998
+0.7921,"08222","Mannheim, Stadt",1999
+0.82939,"08222","Mannheim, Stadt",2000
+0.82061,"08222","Mannheim, Stadt",2001
+0.78852,"08222","Mannheim, Stadt",2002
+0.76188,"08222","Mannheim, Stadt",2003
+0.78656,"08222","Mannheim, Stadt",2004
+0.78942,"08222","Mannheim, Stadt",2005
+0.78248,"08222","Mannheim, Stadt",2006
+0.81039,"08222","Mannheim, Stadt",2007
+0.73138,"08222","Mannheim, Stadt",2008
+0.71001,"08222","Mannheim, Stadt",2009
+0.63291,"08222","Mannheim, Stadt",2010
+0.63064,"08222","Mannheim, Stadt",2011
+0.58666,"08222","Mannheim, Stadt",2012
+0.6197,"08222","Mannheim, Stadt",2013
+0.61881,"08222","Mannheim, Stadt",2014
+0.58817,"08222","Mannheim, Stadt",2015
+0.57054,"08222","Mannheim, Stadt",2016
+0.54478,"08222","Mannheim, Stadt",2017
+0.58855,"08222","Mannheim, Stadt",2018
+0.56463,"08222","Mannheim, Stadt",2019
+0.76152,"08225","Neckar-Odenwald-Kreis",1998
+0.71503,"08225","Neckar-Odenwald-Kreis",1999
+0.84765,"08225","Neckar-Odenwald-Kreis",2000
+0.85489,"08225","Neckar-Odenwald-Kreis",2001
+0.85221,"08225","Neckar-Odenwald-Kreis",2002
+0.84024,"08225","Neckar-Odenwald-Kreis",2003
+0.83396,"08225","Neckar-Odenwald-Kreis",2004
+0.85171,"08225","Neckar-Odenwald-Kreis",2005
+0.84807,"08225","Neckar-Odenwald-Kreis",2006
+0.88727,"08225","Neckar-Odenwald-Kreis",2007
+0.8431,"08225","Neckar-Odenwald-Kreis",2008
+0.85604,"08225","Neckar-Odenwald-Kreis",2009
+0.73079,"08225","Neckar-Odenwald-Kreis",2010
+0.85539,"08225","Neckar-Odenwald-Kreis",2011
+0.79505,"08225","Neckar-Odenwald-Kreis",2012
+0.75056,"08225","Neckar-Odenwald-Kreis",2013
+0.76899,"08225","Neckar-Odenwald-Kreis",2014
+0.73199,"08225","Neckar-Odenwald-Kreis",2015
+0.75141,"08225","Neckar-Odenwald-Kreis",2016
+0.68177,"08225","Neckar-Odenwald-Kreis",2017
+0.76563,"08225","Neckar-Odenwald-Kreis",2018
+0.6932,"08225","Neckar-Odenwald-Kreis",2019
+0.2507,"08226","Rhein-Neckar-Kreis",1998
+0.26936,"08226","Rhein-Neckar-Kreis",1999
+0.30807,"08226","Rhein-Neckar-Kreis",2000
+0.27704,"08226","Rhein-Neckar-Kreis",2001
+0.26982,"08226","Rhein-Neckar-Kreis",2002
+0.28285,"08226","Rhein-Neckar-Kreis",2003
+0.24064,"08226","Rhein-Neckar-Kreis",2004
+0.2472,"08226","Rhein-Neckar-Kreis",2005
+0.25095,"08226","Rhein-Neckar-Kreis",2006
+0.28505,"08226","Rhein-Neckar-Kreis",2007
+0.25965,"08226","Rhein-Neckar-Kreis",2008
+0.29198,"08226","Rhein-Neckar-Kreis",2009
+0.2804,"08226","Rhein-Neckar-Kreis",2010
+0.29442,"08226","Rhein-Neckar-Kreis",2011
+0.33207,"08226","Rhein-Neckar-Kreis",2012
+0.36378,"08226","Rhein-Neckar-Kreis",2013
+0.36377,"08226","Rhein-Neckar-Kreis",2014
+0.33124,"08226","Rhein-Neckar-Kreis",2015
+0.35001,"08226","Rhein-Neckar-Kreis",2016
+0.28453,"08226","Rhein-Neckar-Kreis",2017
+0.37429,"08226","Rhein-Neckar-Kreis",2018
+0.30374,"08226","Rhein-Neckar-Kreis",2019
+1,"08231","Pforzheim, Stadt",1998
+1,"08231","Pforzheim, Stadt",1999
+0.92304,"08231","Pforzheim, Stadt",2000
+0.83365,"08231","Pforzheim, Stadt",2001
+0.94857,"08231","Pforzheim, Stadt",2002
+1,"08231","Pforzheim, Stadt",2003
+0.96308,"08231","Pforzheim, Stadt",2004
+0.99166,"08231","Pforzheim, Stadt",2005
+1,"08231","Pforzheim, Stadt",2006
+0.99286,"08231","Pforzheim, Stadt",2007
+0.98124,"08231","Pforzheim, Stadt",2008
+1,"08231","Pforzheim, Stadt",2009
+1,"08231","Pforzheim, Stadt",2010
+1,"08231","Pforzheim, Stadt",2011
+1,"08231","Pforzheim, Stadt",2012
+1,"08231","Pforzheim, Stadt",2013
+1,"08231","Pforzheim, Stadt",2014
+1,"08231","Pforzheim, Stadt",2015
+1,"08231","Pforzheim, Stadt",2016
+1,"08231","Pforzheim, Stadt",2017
+1,"08231","Pforzheim, Stadt",2018
+1,"08231","Pforzheim, Stadt",2019
+0.54168,"08235","Calw",1998
+0.57691,"08235","Calw",1999
+0.63101,"08235","Calw",2000
+0.58471,"08235","Calw",2001
+0.68068,"08235","Calw",2002
+0.64229,"08235","Calw",2003
+0.61868,"08235","Calw",2004
+0.60234,"08235","Calw",2005
+0.63961,"08235","Calw",2006
+0.57905,"08235","Calw",2007
+0.5831,"08235","Calw",2008
+0.61799,"08235","Calw",2009
+0.54508,"08235","Calw",2010
+0.55361,"08235","Calw",2011
+0.59959,"08235","Calw",2012
+0.63019,"08235","Calw",2013
+0.62376,"08235","Calw",2014
+0.60306,"08235","Calw",2015
+0.5805,"08235","Calw",2016
+0.57277,"08235","Calw",2017
+0.59472,"08235","Calw",2018
+0.56215,"08235","Calw",2019
+0.21609,"08236","Enzkreis",1998
+0.22784,"08236","Enzkreis",1999
+0.28514,"08236","Enzkreis",2000
+0.27692,"08236","Enzkreis",2001
+0.30919,"08236","Enzkreis",2002
+0.30012,"08236","Enzkreis",2003
+0.26776,"08236","Enzkreis",2004
+0.25448,"08236","Enzkreis",2005
+0.26124,"08236","Enzkreis",2006
+0.26826,"08236","Enzkreis",2007
+0.33095,"08236","Enzkreis",2008
+0.30903,"08236","Enzkreis",2009
+0.31444,"08236","Enzkreis",2010
+0.3123,"08236","Enzkreis",2011
+0.39225,"08236","Enzkreis",2012
+0.41885,"08236","Enzkreis",2013
+0.34889,"08236","Enzkreis",2014
+0.36876,"08236","Enzkreis",2015
+0.3967,"08236","Enzkreis",2016
+0.46013,"08236","Enzkreis",2017
+0.43953,"08236","Enzkreis",2018
+0.41217,"08236","Enzkreis",2019
+0.47555,"08237","Freudenstadt",1998
+0.48862,"08237","Freudenstadt",1999
+0.55823,"08237","Freudenstadt",2000
+0.57018,"08237","Freudenstadt",2001
+0.6374,"08237","Freudenstadt",2002
+0.60866,"08237","Freudenstadt",2003
+0.6142,"08237","Freudenstadt",2004
+0.71683,"08237","Freudenstadt",2005
+0.66711,"08237","Freudenstadt",2006
+0.59112,"08237","Freudenstadt",2007
+0.6065,"08237","Freudenstadt",2008
+0.63803,"08237","Freudenstadt",2009
+0.55566,"08237","Freudenstadt",2010
+0.56119,"08237","Freudenstadt",2011
+0.58793,"08237","Freudenstadt",2012
+0.63928,"08237","Freudenstadt",2013
+0.55469,"08237","Freudenstadt",2014
+0.53944,"08237","Freudenstadt",2015
+0.57244,"08237","Freudenstadt",2016
+0.4765,"08237","Freudenstadt",2017
+0.55068,"08237","Freudenstadt",2018
+0.53213,"08237","Freudenstadt",2019
+0.42073,"08311","Freiburg im Breisgau, Stadt",1998
+0.47995,"08311","Freiburg im Breisgau, Stadt",1999
+0.47125,"08311","Freiburg im Breisgau, Stadt",2000
+0.51653,"08311","Freiburg im Breisgau, Stadt",2001
+0.47073,"08311","Freiburg im Breisgau, Stadt",2002
+0.45696,"08311","Freiburg im Breisgau, Stadt",2003
+0.50723,"08311","Freiburg im Breisgau, Stadt",2004
+0.55852,"08311","Freiburg im Breisgau, Stadt",2005
+0.5525,"08311","Freiburg im Breisgau, Stadt",2006
+0.60751,"08311","Freiburg im Breisgau, Stadt",2007
+0.53243,"08311","Freiburg im Breisgau, Stadt",2008
+0.50186,"08311","Freiburg im Breisgau, Stadt",2009
+0.4341,"08311","Freiburg im Breisgau, Stadt",2010
+0.44956,"08311","Freiburg im Breisgau, Stadt",2011
+0.42874,"08311","Freiburg im Breisgau, Stadt",2012
+0.47124,"08311","Freiburg im Breisgau, Stadt",2013
+0.43331,"08311","Freiburg im Breisgau, Stadt",2014
+0.41138,"08311","Freiburg im Breisgau, Stadt",2015
+0.41694,"08311","Freiburg im Breisgau, Stadt",2016
+0.4378,"08311","Freiburg im Breisgau, Stadt",2017
+0.37306,"08311","Freiburg im Breisgau, Stadt",2018
+0.37261,"08311","Freiburg im Breisgau, Stadt",2019
+0.43043,"08315","Breisgau-Hochschwarzwald",1998
+0.44793,"08315","Breisgau-Hochschwarzwald",1999
+0.49237,"08315","Breisgau-Hochschwarzwald",2000
+0.49564,"08315","Breisgau-Hochschwarzwald",2001
+0.51609,"08315","Breisgau-Hochschwarzwald",2002
+0.48724,"08315","Breisgau-Hochschwarzwald",2003
+0.43564,"08315","Breisgau-Hochschwarzwald",2004
+0.43814,"08315","Breisgau-Hochschwarzwald",2005
+0.48715,"08315","Breisgau-Hochschwarzwald",2006
+0.54646,"08315","Breisgau-Hochschwarzwald",2007
+0.4901,"08315","Breisgau-Hochschwarzwald",2008
+0.50732,"08315","Breisgau-Hochschwarzwald",2009
+0.47718,"08315","Breisgau-Hochschwarzwald",2010
+0.48828,"08315","Breisgau-Hochschwarzwald",2011
+0.56074,"08315","Breisgau-Hochschwarzwald",2012
+0.57192,"08315","Breisgau-Hochschwarzwald",2013
+0.51525,"08315","Breisgau-Hochschwarzwald",2014
+0.52221,"08315","Breisgau-Hochschwarzwald",2015
+0.50586,"08315","Breisgau-Hochschwarzwald",2016
+0.50583,"08315","Breisgau-Hochschwarzwald",2017
+0.50183,"08315","Breisgau-Hochschwarzwald",2018
+0.47273,"08315","Breisgau-Hochschwarzwald",2019
+0.48041,"08316","Emmendingen",1998
+0.55398,"08316","Emmendingen",1999
+0.53793,"08316","Emmendingen",2000
+0.55001,"08316","Emmendingen",2001
+0.55316,"08316","Emmendingen",2002
+0.5534,"08316","Emmendingen",2003
+0.59663,"08316","Emmendingen",2004
+0.57069,"08316","Emmendingen",2005
+0.56756,"08316","Emmendingen",2006
+0.6168,"08316","Emmendingen",2007
+0.55717,"08316","Emmendingen",2008
+0.61241,"08316","Emmendingen",2009
+0.54394,"08316","Emmendingen",2010
+0.62621,"08316","Emmendingen",2011
+0.61168,"08316","Emmendingen",2012
+0.63272,"08316","Emmendingen",2013
+0.59432,"08316","Emmendingen",2014
+0.54782,"08316","Emmendingen",2015
+0.56636,"08316","Emmendingen",2016
+0.51175,"08316","Emmendingen",2017
+0.57864,"08316","Emmendingen",2018
+0.52235,"08316","Emmendingen",2019
+0.57972,"08317","Ortenaukreis",1998
+0.61343,"08317","Ortenaukreis",1999
+0.64907,"08317","Ortenaukreis",2000
+0.66048,"08317","Ortenaukreis",2001
+0.70614,"08317","Ortenaukreis",2002
+0.67121,"08317","Ortenaukreis",2003
+0.64225,"08317","Ortenaukreis",2004
+0.629,"08317","Ortenaukreis",2005
+0.647,"08317","Ortenaukreis",2006
+0.65536,"08317","Ortenaukreis",2007
+0.62889,"08317","Ortenaukreis",2008
+0.6646,"08317","Ortenaukreis",2009
+0.61444,"08317","Ortenaukreis",2010
+0.62325,"08317","Ortenaukreis",2011
+0.63541,"08317","Ortenaukreis",2012
+0.64676,"08317","Ortenaukreis",2013
+0.62066,"08317","Ortenaukreis",2014
+0.59911,"08317","Ortenaukreis",2015
+0.56494,"08317","Ortenaukreis",2016
+0.54917,"08317","Ortenaukreis",2017
+0.59256,"08317","Ortenaukreis",2018
+0.57787,"08317","Ortenaukreis",2019
+0.51819,"08325","Rottweil",1998
+0.56935,"08325","Rottweil",1999
+0.63739,"08325","Rottweil",2000
+0.67531,"08325","Rottweil",2001
+0.69523,"08325","Rottweil",2002
+0.61523,"08325","Rottweil",2003
+0.62428,"08325","Rottweil",2004
+0.5504,"08325","Rottweil",2005
+0.5868,"08325","Rottweil",2006
+0.59616,"08325","Rottweil",2007
+0.55272,"08325","Rottweil",2008
+0.62529,"08325","Rottweil",2009
+0.56595,"08325","Rottweil",2010
+0.55328,"08325","Rottweil",2011
+0.62777,"08325","Rottweil",2012
+0.61817,"08325","Rottweil",2013
+0.64492,"08325","Rottweil",2014
+0.55164,"08325","Rottweil",2015
+0.57794,"08325","Rottweil",2016
+0.52235,"08325","Rottweil",2017
+0.55908,"08325","Rottweil",2018
+0.51199,"08325","Rottweil",2019
+0.60941,"08326","Schwarzwald-Baar-Kreis",1998
+0.60215,"08326","Schwarzwald-Baar-Kreis",1999
+0.68106,"08326","Schwarzwald-Baar-Kreis",2000
+0.6026,"08326","Schwarzwald-Baar-Kreis",2001
+0.69908,"08326","Schwarzwald-Baar-Kreis",2002
+0.68349,"08326","Schwarzwald-Baar-Kreis",2003
+0.68609,"08326","Schwarzwald-Baar-Kreis",2004
+0.65015,"08326","Schwarzwald-Baar-Kreis",2005
+0.63201,"08326","Schwarzwald-Baar-Kreis",2006
+0.64395,"08326","Schwarzwald-Baar-Kreis",2007
+0.61218,"08326","Schwarzwald-Baar-Kreis",2008
+0.65103,"08326","Schwarzwald-Baar-Kreis",2009
+0.6224,"08326","Schwarzwald-Baar-Kreis",2010
+0.62419,"08326","Schwarzwald-Baar-Kreis",2011
+0.66017,"08326","Schwarzwald-Baar-Kreis",2012
+0.72469,"08326","Schwarzwald-Baar-Kreis",2013
+0.66311,"08326","Schwarzwald-Baar-Kreis",2014
+0.63245,"08326","Schwarzwald-Baar-Kreis",2015
+0.62108,"08326","Schwarzwald-Baar-Kreis",2016
+0.64298,"08326","Schwarzwald-Baar-Kreis",2017
+0.61109,"08326","Schwarzwald-Baar-Kreis",2018
+0.594,"08326","Schwarzwald-Baar-Kreis",2019
+0.70706,"08327","Tuttlingen",1998
+0.72943,"08327","Tuttlingen",1999
+0.82013,"08327","Tuttlingen",2000
+0.79146,"08327","Tuttlingen",2001
+0.84745,"08327","Tuttlingen",2002
+0.82923,"08327","Tuttlingen",2003
+0.85006,"08327","Tuttlingen",2004
+0.85566,"08327","Tuttlingen",2005
+0.75108,"08327","Tuttlingen",2006
+0.77568,"08327","Tuttlingen",2007
+0.72909,"08327","Tuttlingen",2008
+0.77085,"08327","Tuttlingen",2009
+0.68686,"08327","Tuttlingen",2010
+0.72984,"08327","Tuttlingen",2011
+0.69089,"08327","Tuttlingen",2012
+0.72106,"08327","Tuttlingen",2013
+0.67079,"08327","Tuttlingen",2014
+0.65295,"08327","Tuttlingen",2015
+0.67636,"08327","Tuttlingen",2016
+0.63265,"08327","Tuttlingen",2017
+0.70406,"08327","Tuttlingen",2018
+0.63338,"08327","Tuttlingen",2019
+0.67079,"08335","Konstanz",1998
+0.69691,"08335","Konstanz",1999
+0.74367,"08335","Konstanz",2000
+0.74143,"08335","Konstanz",2001
+0.75264,"08335","Konstanz",2002
+0.70677,"08335","Konstanz",2003
+0.67756,"08335","Konstanz",2004
+0.65521,"08335","Konstanz",2005
+0.68704,"08335","Konstanz",2006
+0.75708,"08335","Konstanz",2007
+0.69288,"08335","Konstanz",2008
+0.70537,"08335","Konstanz",2009
+0.64295,"08335","Konstanz",2010
+0.65838,"08335","Konstanz",2011
+0.67051,"08335","Konstanz",2012
+0.70111,"08335","Konstanz",2013
+0.69665,"08335","Konstanz",2014
+0.64015,"08335","Konstanz",2015
+0.60833,"08335","Konstanz",2016
+0.6006,"08335","Konstanz",2017
+0.61271,"08335","Konstanz",2018
+0.58909,"08335","Konstanz",2019
+0.73371,"08336","Lörrach",1998
+0.79961,"08336","Lörrach",1999
+0.83008,"08336","Lörrach",2000
+0.85588,"08336","Lörrach",2001
+0.82124,"08336","Lörrach",2002
+0.74351,"08336","Lörrach",2003
+0.80123,"08336","Lörrach",2004
+0.73141,"08336","Lörrach",2005
+0.75871,"08336","Lörrach",2006
+0.8409,"08336","Lörrach",2007
+0.78554,"08336","Lörrach",2008
+0.81661,"08336","Lörrach",2009
+0.73759,"08336","Lörrach",2010
+0.79208,"08336","Lörrach",2011
+0.79376,"08336","Lörrach",2012
+0.75648,"08336","Lörrach",2013
+0.80359,"08336","Lörrach",2014
+0.70285,"08336","Lörrach",2015
+0.70315,"08336","Lörrach",2016
+0.68001,"08336","Lörrach",2017
+0.72612,"08336","Lörrach",2018
+0.68267,"08336","Lörrach",2019
+0.92779,"08337","Waldshut",1998
+0.99466,"08337","Waldshut",1999
+1,"08337","Waldshut",2000
+1,"08337","Waldshut",2001
+0.972,"08337","Waldshut",2002
+0.96658,"08337","Waldshut",2003
+0.98042,"08337","Waldshut",2004
+1,"08337","Waldshut",2005
+0.9596,"08337","Waldshut",2006
+1,"08337","Waldshut",2007
+1,"08337","Waldshut",2008
+0.9821,"08337","Waldshut",2009
+0.89902,"08337","Waldshut",2010
+0.95423,"08337","Waldshut",2011
+0.92763,"08337","Waldshut",2012
+0.93385,"08337","Waldshut",2013
+0.93358,"08337","Waldshut",2014
+0.84706,"08337","Waldshut",2015
+0.83456,"08337","Waldshut",2016
+0.85869,"08337","Waldshut",2017
+0.87086,"08337","Waldshut",2018
+0.8521,"08337","Waldshut",2019
+0.42074,"08415","Reutlingen",1998
+0.43625,"08415","Reutlingen",1999
+0.50766,"08415","Reutlingen",2000
+0.4299,"08415","Reutlingen",2001
+0.47828,"08415","Reutlingen",2002
+0.46655,"08415","Reutlingen",2003
+0.42615,"08415","Reutlingen",2004
+0.39461,"08415","Reutlingen",2005
+0.44588,"08415","Reutlingen",2006
+0.45629,"08415","Reutlingen",2007
+0.44138,"08415","Reutlingen",2008
+0.48413,"08415","Reutlingen",2009
+0.43789,"08415","Reutlingen",2010
+0.43937,"08415","Reutlingen",2011
+0.46245,"08415","Reutlingen",2012
+0.5002,"08415","Reutlingen",2013
+0.45478,"08415","Reutlingen",2014
+0.43543,"08415","Reutlingen",2015
+0.42802,"08415","Reutlingen",2016
+0.39341,"08415","Reutlingen",2017
+0.46825,"08415","Reutlingen",2018
+0.43465,"08415","Reutlingen",2019
+0.26221,"08416","Tübingen",1998
+0.27551,"08416","Tübingen",1999
+0.36693,"08416","Tübingen",2000
+0.31659,"08416","Tübingen",2001
+0.34524,"08416","Tübingen",2002
+0.3432,"08416","Tübingen",2003
+0.32117,"08416","Tübingen",2004
+0.28042,"08416","Tübingen",2005
+0.31273,"08416","Tübingen",2006
+0.37215,"08416","Tübingen",2007
+0.31432,"08416","Tübingen",2008
+0.34352,"08416","Tübingen",2009
+0.28214,"08416","Tübingen",2010
+0.28269,"08416","Tübingen",2011
+0.35045,"08416","Tübingen",2012
+0.37827,"08416","Tübingen",2013
+0.30196,"08416","Tübingen",2014
+0.29111,"08416","Tübingen",2015
+0.28219,"08416","Tübingen",2016
+0.22107,"08416","Tübingen",2017
+0.26568,"08416","Tübingen",2018
+0.26506,"08416","Tübingen",2019
+0.69266,"08417","Zollernalbkreis",1998
+0.65808,"08417","Zollernalbkreis",1999
+0.6706,"08417","Zollernalbkreis",2000
+0.7011,"08417","Zollernalbkreis",2001
+0.83709,"08417","Zollernalbkreis",2002
+0.80386,"08417","Zollernalbkreis",2003
+0.81933,"08417","Zollernalbkreis",2004
+0.79759,"08417","Zollernalbkreis",2005
+0.77433,"08417","Zollernalbkreis",2006
+0.75936,"08417","Zollernalbkreis",2007
+0.6964,"08417","Zollernalbkreis",2008
+0.72147,"08417","Zollernalbkreis",2009
+0.69686,"08417","Zollernalbkreis",2010
+0.70834,"08417","Zollernalbkreis",2011
+0.68606,"08417","Zollernalbkreis",2012
+0.70932,"08417","Zollernalbkreis",2013
+0.67419,"08417","Zollernalbkreis",2014
+0.65766,"08417","Zollernalbkreis",2015
+0.64364,"08417","Zollernalbkreis",2016
+0.62228,"08417","Zollernalbkreis",2017
+0.61869,"08417","Zollernalbkreis",2018
+0.60073,"08417","Zollernalbkreis",2019
+0.23936,"08421","Ulm, Stadt",1998
+0.29113,"08421","Ulm, Stadt",1999
+0.32504,"08421","Ulm, Stadt",2000
+0.40006,"08421","Ulm, Stadt",2001
+0.39017,"08421","Ulm, Stadt",2002
+0.34085,"08421","Ulm, Stadt",2003
+0.35457,"08421","Ulm, Stadt",2004
+0.30018,"08421","Ulm, Stadt",2005
+0.36283,"08421","Ulm, Stadt",2006
+0.34362,"08421","Ulm, Stadt",2007
+0.28665,"08421","Ulm, Stadt",2008
+0.25601,"08421","Ulm, Stadt",2009
+0.16864,"08421","Ulm, Stadt",2010
+0.19707,"08421","Ulm, Stadt",2011
+0.20958,"08421","Ulm, Stadt",2012
+0.25765,"08421","Ulm, Stadt",2013
+0.15646,"08421","Ulm, Stadt",2014
+0.28413,"08421","Ulm, Stadt",2015
+0.24086,"08421","Ulm, Stadt",2016
+0.18855,"08421","Ulm, Stadt",2017
+0.22159,"08421","Ulm, Stadt",2018
+0.18596,"08421","Ulm, Stadt",2019
+0.32573,"08425","Alb-Donau-Kreis",1998
+0.35025,"08425","Alb-Donau-Kreis",1999
+0.37416,"08425","Alb-Donau-Kreis",2000
+0.33002,"08425","Alb-Donau-Kreis",2001
+0.38099,"08425","Alb-Donau-Kreis",2002
+0.39869,"08425","Alb-Donau-Kreis",2003
+0.36202,"08425","Alb-Donau-Kreis",2004
+0.33768,"08425","Alb-Donau-Kreis",2005
+0.37565,"08425","Alb-Donau-Kreis",2006
+0.41307,"08425","Alb-Donau-Kreis",2007
+0.41824,"08425","Alb-Donau-Kreis",2008
+0.42575,"08425","Alb-Donau-Kreis",2009
+0.35943,"08425","Alb-Donau-Kreis",2010
+0.36295,"08425","Alb-Donau-Kreis",2011
+0.44882,"08425","Alb-Donau-Kreis",2012
+0.47626,"08425","Alb-Donau-Kreis",2013
+0.4349,"08425","Alb-Donau-Kreis",2014
+0.43653,"08425","Alb-Donau-Kreis",2015
+0.46201,"08425","Alb-Donau-Kreis",2016
+0.40836,"08425","Alb-Donau-Kreis",2017
+0.44732,"08425","Alb-Donau-Kreis",2018
+0.44005,"08425","Alb-Donau-Kreis",2019
+0.28642,"08426","Biberach",1998
+0.26856,"08426","Biberach",1999
+0.44783,"08426","Biberach",2000
+0.39245,"08426","Biberach",2001
+0.43449,"08426","Biberach",2002
+0.40588,"08426","Biberach",2003
+0.38373,"08426","Biberach",2004
+0.36919,"08426","Biberach",2005
+0.37474,"08426","Biberach",2006
+0.40387,"08426","Biberach",2007
+0.31981,"08426","Biberach",2008
+0.36088,"08426","Biberach",2009
+0.34124,"08426","Biberach",2010
+0.34511,"08426","Biberach",2011
+0.35828,"08426","Biberach",2012
+0.39983,"08426","Biberach",2013
+0.3548,"08426","Biberach",2014
+0.37325,"08426","Biberach",2015
+0.37561,"08426","Biberach",2016
+0.33352,"08426","Biberach",2017
+0.4036,"08426","Biberach",2018
+0.40108,"08426","Biberach",2019
+0.1302,"08435","Bodenseekreis",1998
+0.09813,"08435","Bodenseekreis",1999
+0.29808,"08435","Bodenseekreis",2000
+0.23036,"08435","Bodenseekreis",2001
+0.21739,"08435","Bodenseekreis",2002
+0.20912,"08435","Bodenseekreis",2003
+0.17079,"08435","Bodenseekreis",2004
+0.17744,"08435","Bodenseekreis",2005
+0.18165,"08435","Bodenseekreis",2006
+0.21209,"08435","Bodenseekreis",2007
+0.17333,"08435","Bodenseekreis",2008
+0.18062,"08435","Bodenseekreis",2009
+0.1465,"08435","Bodenseekreis",2010
+0.13123,"08435","Bodenseekreis",2011
+0.21481,"08435","Bodenseekreis",2012
+0.22296,"08435","Bodenseekreis",2013
+0.14497,"08435","Bodenseekreis",2014
+0.1956,"08435","Bodenseekreis",2015
+0.2055,"08435","Bodenseekreis",2016
+0.1968,"08435","Bodenseekreis",2017
+0.23128,"08435","Bodenseekreis",2018
+0.21155,"08435","Bodenseekreis",2019
+0.4247,"08436","Ravensburg",1998
+0.44288,"08436","Ravensburg",1999
+0.53454,"08436","Ravensburg",2000
+0.50339,"08436","Ravensburg",2001
+0.55525,"08436","Ravensburg",2002
+0.54457,"08436","Ravensburg",2003
+0.54017,"08436","Ravensburg",2004
+0.47687,"08436","Ravensburg",2005
+0.50005,"08436","Ravensburg",2006
+0.5224,"08436","Ravensburg",2007
+0.49753,"08436","Ravensburg",2008
+0.51906,"08436","Ravensburg",2009
+0.46352,"08436","Ravensburg",2010
+0.46823,"08436","Ravensburg",2011
+0.53278,"08436","Ravensburg",2012
+0.53987,"08436","Ravensburg",2013
+0.50295,"08436","Ravensburg",2014
+0.57107,"08436","Ravensburg",2015
+0.47122,"08436","Ravensburg",2016
+0.45934,"08436","Ravensburg",2017
+0.48747,"08436","Ravensburg",2018
+0.47306,"08436","Ravensburg",2019
+0.81242,"08437","Sigmaringen",1998
+0.82507,"08437","Sigmaringen",1999
+0.91976,"08437","Sigmaringen",2000
+0.90773,"08437","Sigmaringen",2001
+1,"08437","Sigmaringen",2002
+0.93645,"08437","Sigmaringen",2003
+1,"08437","Sigmaringen",2004
+0.96608,"08437","Sigmaringen",2005
+0.92379,"08437","Sigmaringen",2006
+0.89284,"08437","Sigmaringen",2007
+0.83687,"08437","Sigmaringen",2008
+0.85837,"08437","Sigmaringen",2009
+0.81767,"08437","Sigmaringen",2010
+0.80702,"08437","Sigmaringen",2011
+0.80378,"08437","Sigmaringen",2012
+0.80145,"08437","Sigmaringen",2013
+0.78811,"08437","Sigmaringen",2014
+0.79703,"08437","Sigmaringen",2015
+0.7529,"08437","Sigmaringen",2016
+0.71881,"08437","Sigmaringen",2017
+0.73253,"08437","Sigmaringen",2018
+0.69987,"08437","Sigmaringen",2019
