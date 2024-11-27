@@ -1012,67 +1012,56 @@ GISD_Components <- rbind(Components_A,
 
 # Prediction der Scores
 Results_raw <- Impdata %>%
-  mutate(TS_Arbeitswelt = c(predict(TS_Arbeitswelt.pca, newdata = Impdata)),
-         TS_Einkommen = c(predict(TS_Einkommen.pca , newdata = Impdata)),
-         TS_Bildung = c(predict(TS_Bildung.pca , newdata = Impdata)))
-
-rm(Impdata)
+  mutate(TS_Arbeitswelt_raw = c(predict(TS_Arbeitswelt.pca, newdata = Impdata)),
+         TS_Einkommen_raw = c(predict(TS_Einkommen.pca , newdata = Impdata)),
+         TS_Bildung_raw = c(predict(TS_Bildung.pca , newdata = Impdata)))
 
 # Übersicht über Teildimensionen
-summary(Results_raw %>% select(TS_Arbeitswelt,
-                               TS_Einkommen,
-                               TS_Bildung))
+summary(Results_raw %>% select(TS_Arbeitswelt_raw,
+                               TS_Einkommen_raw,
+                               TS_Bildung_raw))
 
 # Korrelationsmatrix der Teildimensionen + Arbeitslosigkeit
 cor(Results_raw %>% select(Arbeitslosigkeit,
-                           TS_Arbeitswelt,
-                           TS_Einkommen,
-                           TS_Bildung))
+                           TS_Arbeitswelt_raw,
+                           TS_Einkommen_raw,
+                           TS_Bildung_raw))
 
 # Dimensionen so polen, dass sie positiv mit Arbeitslosigkeit korrelieren, um Deprivation abzubilden
 # (= "wenn Korrelation negativ, dann multipliziere mit -1")
-if (cor(Results_raw$Arbeitslosigkeit, Results_raw$TS_Bildung) < 0) {
-  Results_raw$TS_Bildung <- Results_raw$TS_Bildung*-1
+if (cor(Results_raw$Arbeitslosigkeit, Results_raw$TS_Bildung_raw) < 0) {
+  Results_raw$TS_Bildung_raw <- Results_raw$TS_Bildung_raw*-1
 }
-if (cor(Results_raw$Arbeitslosigkeit, Results_raw$TS_Arbeitswelt) < 0) {
-  Results_raw$TS_Arbeitswelt <- Results_raw$TS_Arbeitswelt*-1
+if (cor(Results_raw$Arbeitslosigkeit, Results_raw$TS_Arbeitswelt_raw) < 0) {
+  Results_raw$TS_Arbeitswelt_raw <- Results_raw$TS_Arbeitswelt_raw*-1
 }
-if (cor(Results_raw$Arbeitslosigkeit, Results_raw$TS_Einkommen) < 0) {
-  Results_raw$TS_Einkommen <- Results_raw$TS_Einkommen*-1
+if (cor(Results_raw$Arbeitslosigkeit, Results_raw$TS_Einkommen_raw) < 0) {
+  Results_raw$TS_Einkommen_raw <- Results_raw$TS_Einkommen_raw*-1
 }
 
 # Korrelationsmatrix der Teildimensionen + Arbeitslosigkeit nach Umpolung
 cor(Results_raw %>% select(Arbeitslosigkeit,
-                           TS_Arbeitswelt,
-                           TS_Einkommen,
-                           TS_Bildung))
+                           TS_Arbeitswelt_raw,
+                           TS_Einkommen_raw,
+                           TS_Bildung_raw))
 
 print(GISD_Components)
 
 # Normieren
-Results_nrm <- Results_raw %>%
+Results_raw <- Results_raw %>%
   group_by(Jahr) %>%
   mutate(
     # Teildimensionen normieren (neu: jahresweise statt über gesamte Zeitreihe)
-    TS_Arbeitswelt_nrm = rescale(TS_Arbeitswelt),
-    TS_Einkommen_nrm = rescale(TS_Einkommen),
-    TS_Bildung_nrm = rescale(TS_Bildung),
+    TS_Arbeitswelt_nrm = rescale(TS_Arbeitswelt_raw),
+    TS_Einkommen_nrm = rescale(TS_Einkommen_raw),
+    TS_Bildung_nrm = rescale(TS_Bildung_raw),
     # Zu Gesamtscore aufaddieren und noch mal jahresweise normieren
     GISD_Score = rescale(TS_Arbeitswelt_nrm + TS_Einkommen_nrm + TS_Bildung_nrm),
     GISD_Score = round(GISD_Score, digits=5)) %>%
-  ungroup() %>% 
-  select(Gemeindekennziffer,
-         Jahr,
-         Bevoelkerung,
-         Bundesland,
-         TS_Arbeitswelt_raw = TS_Arbeitswelt,
-         TS_Einkommen_raw = TS_Einkommen,
-         TS_Bildung_raw = TS_Bildung,
-         contains("_nrm"),
-         GISD_Score)
+  ungroup()
 
 # Übersicht über Gesamt- und Teilscores nach Normierung
-summary(Results_nrm %>% select(TS_Arbeitswelt_nrm,
+summary(Results_raw %>% select(TS_Arbeitswelt_nrm,
                                TS_Einkommen_nrm,
                                TS_Bildung_nrm,
                                GISD_Score))
@@ -1092,21 +1081,14 @@ rm(TS_Arbeitswelt,
 
 ```{r maintenance faktoren, include=FALSE}
 
-# R-Kopie der rohen Scores für internes Verzeichnis
-write_rds(Results_nrm, paste0(check_dir,"Results_nrm.rds"))
+# Ausschreiben der Scorewerte für weitere Überprüfungen
+write_rds(Results_raw, paste0(outfiles_dir,"Results_raw.rds"))
 
-# # Stata-Kopie der rohen Scores für internes Verzeichnis
-# write_dta(Results_raw, paste0(check_dir,"Results_raw.dta"))
+# R-Kopie der rohen Scores für internes Verzeichnis
+write_rds(Results_raw, paste0(check_dir,"Results_raw.rds"))
 
 # # Tabelle der Komponenten mit den Anteilen für internes Verzeichnis
 # save(GISD_Components, file=paste0(check_dir,"/GISD_Components.RData"))
-
-# # Ausschreiben des normierten Scores zur Überprüfung
-# write_rds(Results_nrm, paste0(outfiles_dir,"Results_nrm.rds"))
-
-### Notiz: Vielleicht obsolet, check noch mal Ausreißer Skript
-# # R-Kopie der rohen Scores für internes Verzeichnis
-# write_rds(Results_raw, paste0(check_dir,"Results_raw.rds"))
 
 ```
 
@@ -1116,9 +1098,8 @@ Auswahl der Ausreißer basiert auf manueller, visueller Auslese anhand von z-Sco
 
 ```{r ausreißer, fig.align='center', message=FALSE, warning=FALSE, out.width="100%"}
 
-## Vorbereitung
-# Teilscores aufbereiten (Basis: rohe Teilscores vor Normierung)
-Scores_raw_long <- Results_nrm %>% 
+# Jahresnormierte Teilscores für Inspektion und Selektion
+Scores_raw_long <- Results_raw %>% 
   select(Gemeindekennziffer, Jahr, Bundesland,
          Gesamtscore = GISD_Score,
          Arbeitswelt = TS_Arbeitswelt_nrm,
@@ -1133,7 +1114,7 @@ Scores_raw_long <- Results_nrm %>%
   
 
 # Z (relativ zu Gemeindezeitreihe) aufbereiten
-Z_ts <- Results_nrm %>% 
+Z_ts <- Results_raw %>% 
   # Datenbasis für Z: zeitreihennormierte Teilscores
   group_by(Gemeindekennziffer) %>% 
   mutate(Arbeitswelt = rescale(TS_Arbeitswelt_raw),
@@ -1171,7 +1152,7 @@ plot_scores <- ggplot(Scores_raw_long,
                           group = Gemeindekennziffer)) +
   geom_line(alpha = 0.3, linewidth = 0.1) +
   labs(subtitle = "Teilscores des GISD vor Imputation",
-       y = "Scores (jahresweise normiert)") +
+       y = "Score (jahresweise normiert)") +
   plotComponents
 
 # Genauerer Blick auf Arbeitswelt und Einkommen
@@ -1183,7 +1164,7 @@ plot_ae <- ggplot(Scores_raw_long %>% filter(Dimension == c("Einkommen",
                       color = Bundesland)) +
   geom_line(alpha = 0.15, linewidth = 0.5) +
   labs(subtitle = "Einkommens- und Arbeitswelt-Scores vor Imputation",
-       y = "Scores (jahresweise normiert)") +
+       y = "Score (jahresweise normiert)") +
   plotComponents
 
 
@@ -1292,7 +1273,7 @@ ausreisser_e <- bind_rows(aus.eink.bw,
 
 
 ## Erste Runde Imputation
-Results_imp1 <- Results_nrm %>% 
+Results_imp1 <- Results_raw %>% 
   # Gemeinde-Jahr-String für Zuordnung
   mutate(gkz_j = paste0(Gemeindekennziffer,"_",as.character(Jahr))) %>% 
   # Interpolieren (Reminder: Es geht um die rohen Scores)
@@ -1488,7 +1469,7 @@ plot_ae_imp2 <- ggplot(Scores_imp2 %>% filter(Dimension == c("Einkommen",
 
 
 ## Ergebnisse in den Arbeitsdatensatz übernehmen
-Results <- Results_imp2 %>%
+Results_adj <- Results_imp2 %>%
   select(Gemeindekennziffer, Jahr, Bevoelkerung,
          TS_Arbeitswelt_adj = TS_Arbeitswelt_imp2,
          TS_Einkommen_adj = TS_Einkommen_imp2,
@@ -1512,7 +1493,7 @@ plot_ae_imp2
 rm(ausreisser_a, ausreisser_a_imp1,
    ausreisser_e, ausreisser_e_imp1,
    Scores_raw_long, Scores_imp1, Scores_imp2,
-   Results_nrm, Results_adj, Results_imp1, Results_imp2,
+   Results_imp1, Results_imp2,
    bl_zuordnung, plotComponents,
    plot_ae, plot_ae_imp1, plot_ae_imp2,
    plot_scores, plot_scores_imp1, plot_scores_imp2)
@@ -1526,7 +1507,7 @@ Ausschreiben des GISD-Scores in den Outfiles-Ordner (für Bund und Bundesland; j
 ```{r Export,  message=FALSE, warning=FALSE}
 
 # Datensatz für die Schleife aufbereiten
-RawResult <- Results %>%
+RawResult <- Results_adj %>%
    # Verbinde IDs mit Results
   left_join(id_dataset, by=c("Gemeindekennziffer", "Bevoelkerung")) %>%
   rename(year          = Jahr, 
@@ -1725,7 +1706,7 @@ for (mykennziffer in c("PLZ2","PLZ3","PLZ4","PLZ5")) {
   print(paste("Level:",myname,"Label:",mylabel))
   
   # Datensatzerstellung
-  outputdata.plz <- Results %>%
+  outputdata.plz <- Results_adj %>%
     select(AGS = Gemeindekennziffer,
            year= Jahr,
            gisd_score = GISD_Score) %>%

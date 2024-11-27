@@ -11,7 +11,7 @@
 
 <meta name="author" content="Lola Omar Soliman" />
 
-<meta name="date" content="2024-11-14" />
+<meta name="date" content="2024-11-22" />
 
 <title>GISD - German Index of Socio-Economic Deprivation - Revision 2024</title>
 
@@ -427,7 +427,7 @@ display: none;
 
 <h1 class="title toc-ignore">GISD - German Index of Socio-Economic Deprivation - Revision 2024</h1>
 <h4 class="author">Lola Omar Soliman</h4>
-<h4 class="date">2024-11-14</h4>
+<h4 class="date">2024-11-22</h4>
 
 </div>
 
@@ -1401,17 +1401,15 @@ GISD_Components &lt;- rbind(Components_A,
 
 # Prediction der Scores
 Results_raw &lt;- Impdata %&gt;%
-  mutate(TS_Arbeitswelt = c(predict(TS_Arbeitswelt.pca, newdata = Impdata)),
-         TS_Einkommen = c(predict(TS_Einkommen.pca , newdata = Impdata)),
-         TS_Bildung = c(predict(TS_Bildung.pca , newdata = Impdata)))
-
-rm(Impdata)
+  mutate(TS_Arbeitswelt_raw = c(predict(TS_Arbeitswelt.pca, newdata = Impdata)),
+         TS_Einkommen_raw = c(predict(TS_Einkommen.pca , newdata = Impdata)),
+         TS_Bildung_raw = c(predict(TS_Bildung.pca , newdata = Impdata)))
 
 # Übersicht über Teildimensionen
-summary(Results_raw %&gt;% select(TS_Arbeitswelt,
-                               TS_Einkommen,
-                               TS_Bildung))</code></pre>
-<pre><code>##  TS_Arbeitswelt      TS_Einkommen        TS_Bildung     
+summary(Results_raw %&gt;% select(TS_Arbeitswelt_raw,
+                               TS_Einkommen_raw,
+                               TS_Bildung_raw))</code></pre>
+<pre><code>##  TS_Arbeitswelt_raw TS_Einkommen_raw   TS_Bildung_raw   
 ##  Min.   :-5.86323   Min.   :-5.81807   Min.   :-4.9638  
 ##  1st Qu.:-0.82248   1st Qu.:-0.91492   1st Qu.:-0.9849  
 ##  Median : 0.04589   Median :-0.02762   Median :-0.1126  
@@ -1420,36 +1418,46 @@ summary(Results_raw %&gt;% select(TS_Arbeitswelt,
 ##  Max.   : 4.83505   Max.   : 7.96472   Max.   : 7.1846</code></pre>
 <pre class="r"><code># Korrelationsmatrix der Teildimensionen + Arbeitslosigkeit
 cor(Results_raw %&gt;% select(Arbeitslosigkeit,
-                           TS_Arbeitswelt,
-                           TS_Einkommen,
-                           TS_Bildung))</code></pre>
-<pre><code>##                  Arbeitslosigkeit TS_Arbeitswelt TS_Einkommen TS_Bildung
-## Arbeitslosigkeit        1.0000000     -0.8410278    0.8589081 -0.4597368
-## TS_Arbeitswelt         -0.8410278      1.0000000   -0.8828157  0.5341646
-## TS_Einkommen            0.8589081     -0.8828157    1.0000000 -0.6222292
-## TS_Bildung             -0.4597368      0.5341646   -0.6222292  1.0000000</code></pre>
+                           TS_Arbeitswelt_raw,
+                           TS_Einkommen_raw,
+                           TS_Bildung_raw))</code></pre>
+<pre><code>##                    Arbeitslosigkeit TS_Arbeitswelt_raw TS_Einkommen_raw
+## Arbeitslosigkeit          1.0000000         -0.8410278        0.8589081
+## TS_Arbeitswelt_raw       -0.8410278          1.0000000       -0.8828157
+## TS_Einkommen_raw          0.8589081         -0.8828157        1.0000000
+## TS_Bildung_raw           -0.4597368          0.5341646       -0.6222292
+##                    TS_Bildung_raw
+## Arbeitslosigkeit       -0.4597368
+## TS_Arbeitswelt_raw      0.5341646
+## TS_Einkommen_raw       -0.6222292
+## TS_Bildung_raw          1.0000000</code></pre>
 <pre class="r"><code># Dimensionen so polen, dass sie positiv mit Arbeitslosigkeit korrelieren, um Deprivation abzubilden
 # (= &quot;wenn Korrelation negativ, dann multipliziere mit -1&quot;)
-if (cor(Results_raw$Arbeitslosigkeit, Results_raw$TS_Bildung) &lt; 0) {
-  Results_raw$TS_Bildung &lt;- Results_raw$TS_Bildung*-1
+if (cor(Results_raw$Arbeitslosigkeit, Results_raw$TS_Bildung_raw) &lt; 0) {
+  Results_raw$TS_Bildung_raw &lt;- Results_raw$TS_Bildung_raw*-1
 }
-if (cor(Results_raw$Arbeitslosigkeit, Results_raw$TS_Arbeitswelt) &lt; 0) {
-  Results_raw$TS_Arbeitswelt &lt;- Results_raw$TS_Arbeitswelt*-1
+if (cor(Results_raw$Arbeitslosigkeit, Results_raw$TS_Arbeitswelt_raw) &lt; 0) {
+  Results_raw$TS_Arbeitswelt_raw &lt;- Results_raw$TS_Arbeitswelt_raw*-1
 }
-if (cor(Results_raw$Arbeitslosigkeit, Results_raw$TS_Einkommen) &lt; 0) {
-  Results_raw$TS_Einkommen &lt;- Results_raw$TS_Einkommen*-1
+if (cor(Results_raw$Arbeitslosigkeit, Results_raw$TS_Einkommen_raw) &lt; 0) {
+  Results_raw$TS_Einkommen_raw &lt;- Results_raw$TS_Einkommen_raw*-1
 }
 
 # Korrelationsmatrix der Teildimensionen + Arbeitslosigkeit nach Umpolung
 cor(Results_raw %&gt;% select(Arbeitslosigkeit,
-                           TS_Arbeitswelt,
-                           TS_Einkommen,
-                           TS_Bildung))</code></pre>
-<pre><code>##                  Arbeitslosigkeit TS_Arbeitswelt TS_Einkommen TS_Bildung
-## Arbeitslosigkeit        1.0000000      0.8410278    0.8589081  0.4597368
-## TS_Arbeitswelt          0.8410278      1.0000000    0.8828157  0.5341646
-## TS_Einkommen            0.8589081      0.8828157    1.0000000  0.6222292
-## TS_Bildung              0.4597368      0.5341646    0.6222292  1.0000000</code></pre>
+                           TS_Arbeitswelt_raw,
+                           TS_Einkommen_raw,
+                           TS_Bildung_raw))</code></pre>
+<pre><code>##                    Arbeitslosigkeit TS_Arbeitswelt_raw TS_Einkommen_raw
+## Arbeitslosigkeit          1.0000000          0.8410278        0.8589081
+## TS_Arbeitswelt_raw        0.8410278          1.0000000        0.8828157
+## TS_Einkommen_raw          0.8589081          0.8828157        1.0000000
+## TS_Bildung_raw            0.4597368          0.5341646        0.6222292
+##                    TS_Bildung_raw
+## Arbeitslosigkeit        0.4597368
+## TS_Arbeitswelt_raw      0.5341646
+## TS_Einkommen_raw        0.6222292
+## TS_Bildung_raw          1.0000000</code></pre>
 <pre class="r"><code>print(GISD_Components)</code></pre>
 <pre><code>## # A tibble: 9 × 5
 ##   Variable                          Dimension Proportion  Score `Anteil am GISD`
@@ -1464,29 +1472,20 @@ cor(Results_raw %&gt;% select(Arbeitslosigkeit,
 ## 8 Haushaltseinkommen_ln             Einkommen       40.9 -0.921             13.6
 ## 9 Schuldnerquote                    Einkommen       18.7  0.624              6.2</code></pre>
 <pre class="r"><code># Normieren
-Results_nrm &lt;- Results_raw %&gt;%
+Results_raw &lt;- Results_raw %&gt;%
   group_by(Jahr) %&gt;%
   mutate(
     # Teildimensionen normieren (neu: jahresweise statt über gesamte Zeitreihe)
-    TS_Arbeitswelt_nrm = rescale(TS_Arbeitswelt),
-    TS_Einkommen_nrm = rescale(TS_Einkommen),
-    TS_Bildung_nrm = rescale(TS_Bildung),
+    TS_Arbeitswelt_nrm = rescale(TS_Arbeitswelt_raw),
+    TS_Einkommen_nrm = rescale(TS_Einkommen_raw),
+    TS_Bildung_nrm = rescale(TS_Bildung_raw),
     # Zu Gesamtscore aufaddieren und noch mal jahresweise normieren
     GISD_Score = rescale(TS_Arbeitswelt_nrm + TS_Einkommen_nrm + TS_Bildung_nrm),
     GISD_Score = round(GISD_Score, digits=5)) %&gt;%
-  ungroup() %&gt;% 
-  select(Gemeindekennziffer,
-         Jahr,
-         Bevoelkerung,
-         Bundesland,
-         TS_Arbeitswelt_raw = TS_Arbeitswelt,
-         TS_Einkommen_raw = TS_Einkommen,
-         TS_Bildung_raw = TS_Bildung,
-         contains(&quot;_nrm&quot;),
-         GISD_Score)
+  ungroup()
 
 # Übersicht über Gesamt- und Teilscores nach Normierung
-summary(Results_nrm %&gt;% select(TS_Arbeitswelt_nrm,
+summary(Results_raw %&gt;% select(TS_Arbeitswelt_nrm,
                                TS_Einkommen_nrm,
                                TS_Bildung_nrm,
                                GISD_Score))</code></pre>
@@ -1512,9 +1511,8 @@ summary(Results_nrm %&gt;% select(TS_Arbeitswelt_nrm,
 <div id="vi.-korrektur-ausgewählter-ausreißer" class="section level2">
 <h2>VI. Korrektur ausgewählter Ausreißer</h2>
 <p>Auswahl der Ausreißer basiert auf manueller, visueller Auslese anhand von z-Scores und jahresweise normierten Teilscores. Es geht spezifisch um die Teildimensionen Arbeitswelt und Einkommen. Aus der Selektion werden die rohen (=nicht normierten) Scores in zwei Runden neu imputiert durch Interpolation des Vor- und Nachjahres. (für einen tieferen Einblick siehe Ausreißer_Teildimensionen_[Jahr].Rmd).</p>
-<pre class="r"><code>## Vorbereitung
-# Teilscores aufbereiten (Basis: rohe Teilscores vor Normierung)
-Scores_raw_long &lt;- Results_nrm %&gt;% 
+<pre class="r"><code># Jahresnormierte Teilscores für Inspektion und Selektion
+Scores_raw_long &lt;- Results_raw %&gt;% 
   select(Gemeindekennziffer, Jahr, Bundesland,
          Gesamtscore = GISD_Score,
          Arbeitswelt = TS_Arbeitswelt_nrm,
@@ -1529,7 +1527,7 @@ Scores_raw_long &lt;- Results_nrm %&gt;%
   
 
 # Z (relativ zu Gemeindezeitreihe) aufbereiten
-Z_ts &lt;- Results_nrm %&gt;% 
+Z_ts &lt;- Results_raw %&gt;% 
   # Datenbasis für Z: zeitreihennormierte Teilscores
   group_by(Gemeindekennziffer) %&gt;% 
   mutate(Arbeitswelt = rescale(TS_Arbeitswelt_raw),
@@ -1688,7 +1686,7 @@ ausreisser_e &lt;- bind_rows(aus.eink.bw,
 
 
 ## Erste Runde Imputation
-Results_imp1 &lt;- Results_nrm %&gt;% 
+Results_imp1 &lt;- Results_raw %&gt;% 
   # Gemeinde-Jahr-String für Zuordnung
   mutate(gkz_j = paste0(Gemeindekennziffer,&quot;_&quot;,as.character(Jahr))) %&gt;% 
   # Interpolieren (Reminder: Es geht um die rohen Scores)
@@ -1884,7 +1882,7 @@ plot_ae_imp2 &lt;- ggplot(Scores_imp2 %&gt;% filter(Dimension == c(&quot;Einkomm
 
 
 ## Ergebnisse in den Arbeitsdatensatz übernehmen
-Results &lt;- Results_imp2 %&gt;%
+Results_adj &lt;- Results_imp2 %&gt;%
   select(Gemeindekennziffer, Jahr, Bevoelkerung,
          TS_Arbeitswelt_adj = TS_Arbeitswelt_imp2,
          TS_Einkommen_adj = TS_Einkommen_imp2,
@@ -1913,7 +1911,7 @@ plot_scores</code></pre>
 <pre class="r"><code>rm(ausreisser_a, ausreisser_a_imp1,
    ausreisser_e, ausreisser_e_imp1,
    Scores_raw_long, Scores_imp1, Scores_imp2,
-   Results_nrm, Results_adj, Results_imp1, Results_imp2,
+   Results_imp1, Results_imp2,
    bl_zuordnung, plotComponents,
    plot_ae, plot_ae_imp1, plot_ae_imp2,
    plot_scores, plot_scores_imp1, plot_scores_imp2)</code></pre>
@@ -1922,7 +1920,7 @@ plot_scores</code></pre>
 <h2>VII. Datenexport - Erstellung der Datensätze</h2>
 <p>Ausschreiben des GISD-Scores in den Outfiles-Ordner (für Bund und Bundesland; jeweils als .csv oder .dta für Stata)</p>
 <pre class="r"><code># Datensatz für die Schleife aufbereiten
-RawResult &lt;- Results %&gt;%
+RawResult &lt;- Results_adj %&gt;%
    # Verbinde IDs mit Results
   left_join(id_dataset, by=c(&quot;Gemeindekennziffer&quot;, &quot;Bevoelkerung&quot;)) %&gt;%
   rename(year          = Jahr, 
@@ -2122,7 +2120,7 @@ for (mykennziffer in c(&quot;PLZ2&quot;,&quot;PLZ3&quot;,&quot;PLZ4&quot;,&quot;
   print(paste(&quot;Level:&quot;,myname,&quot;Label:&quot;,mylabel))
   
   # Datensatzerstellung
-  outputdata.plz &lt;- Results %&gt;%
+  outputdata.plz &lt;- Results_adj %&gt;%
     select(AGS = Gemeindekennziffer,
            year= Jahr,
            gisd_score = GISD_Score) %&gt;%

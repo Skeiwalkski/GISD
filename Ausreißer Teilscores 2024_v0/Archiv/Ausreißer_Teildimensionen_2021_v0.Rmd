@@ -1,0 +1,762 @@
+---
+title:  "Check Ausreißer Teildimensionen 2021"
+author: "Lola Omar Soliman"
+date:   "13 11 2024"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+
+library("bookdown") # Tools für RMarkdown
+knitr::opts_chunk$set(echo = TRUE)
+options(scipen=999) #Dezimal-Zahlendarstellung erzwingen
+
+```
+
+- Erstellen von Plots zu den Teildimensionen, um Ausreißer zu identifizieren
+- Selektion der zu imputierenden Ausreißer anhand visueller Begutachtung
+- Imputieren der selektierten Datenpunkte anhand des Mittelwerts von Vorjahr und Nachjahr
+- Neu normieren und Ergebnisse überprüfen
+- Manche Gemeinden reißen zwei Jahre in Folge aus, daher in einer zweiten Runde erneut imputieren
+- Finale Normierung und Prüfung
+
+## 0. Benötigte Pakete und Dateipfadsetzung
+
+```{r libraries, message=FALSE, warning=FALSE}
+
+# Pakete laden
+library("tidyverse") # Tidyverse Methods
+library("scales") # Scale functions
+
+# Skriptpfad als Arbeitspfad setzen
+setwd(dirname(rstudioapi::getSourceEditorContext()$path))
+
+# Pfaddefinitionen
+infiles_dir <- "S:/OE/FG28/205 Regionale Unterschiede/GISD/Plausibilitätschecks/2024_v1/"
+
+```
+
+
+## I. Datenaufbereitung
+
+```{r prepare, message=FALSE, warning=FALSE}
+
+# Zuordnungstabelle für die ersten 2 Stellen der Gemeindekennziffer
+bl_zuordnung <- tibble(gkz_prefix = c("01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16"),
+                       Bundesland = c("Schleswig-Holstein", "Hamburg", "Niedersachsen", "Bremen",
+                                      "Nordrhein-Westfalen", "Hessen", "Rheinland-Pfalz", "Baden-Württemberg",
+                                      "Bayern", "Saarland", "Berlin", "Brandenburg", "Mecklenburg-Vorpommern",
+                                      "Sachsen", "Sachsen-Anhalt", "Thüringen"))
+
+# Rohe Teilscores laden (Dimensionen noch nicht normiert)
+Results_raw <- readRDS(paste0(infiles_dir, "Results_raw.rds")) %>%
+  # Erste zwei Stellen der GKZ extrahieren und Bundesland zuordnen
+  mutate(gkz_prefix = substr(str_pad(Gemeindekennziffer, width = 8, pad = "0"), 1, 2)) %>%
+  left_join(bl_zuordnung, by = "gkz_prefix") %>% 
+  select(Gemeindekennziffer,
+         Jahr,
+         Bevoelkerung,
+         Bundesland,
+         Beschaeftigtenquote,
+         Arbeitslosigkeit,
+         Bruttoverdienst_ln,
+         Einkommensteuer_ln,
+         Haushaltseinkommen_ln,
+         Schuldnerquote,
+         BeschaeftigtemitakadAbschluss_adj,
+         BeschaeftigteohneAbschluss_adj,
+         SchulabgaengerohneAbschluss_adj,
+         contains("TS_")) %>% 
+  # Für alternative Darstellung Teilscores über gesamte Zeitreihe normieren (kommt so im Hauptskript nicht vor)
+  mutate(TS_Arbeitswelt_ts = (TS_Arbeitswelt_adj-min(TS_Arbeitswelt_adj))/(max(TS_Arbeitswelt_adj)-min(TS_Arbeitswelt_adj)),
+         TS_Einkommen_ts   = (TS_Einkommen_adj  -min(TS_Einkommen_adj))  /(max(TS_Einkommen_adj)  -min(TS_Einkommen_adj)),
+         TS_Bildung_ts     = (TS_Bildung_adj    -min(TS_Bildung_adj))    /(max(TS_Bildung_adj)    -min(TS_Bildung_adj))) %>%
+  # Normierung analog zum Hauptskript (also jahresweise), um Gesamtscore daraus zu berechnen
+  group_by(Jahr) %>% 
+  mutate(
+    # Teildimensionen jahresweise normieren
+    TS_Arbeitswelt_ynrm = (TS_Arbeitswelt_adj-min(TS_Arbeitswelt_adj))/(max(TS_Arbeitswelt_adj)-min(TS_Arbeitswelt_adj)),
+    TS_Einkommen_ynrm   = (TS_Einkommen_adj  -min(TS_Einkommen_adj))  /(max(TS_Einkommen_adj)  -min(TS_Einkommen_adj)),
+    TS_Bildung_ynrm     = (TS_Bildung_adj    -min(TS_Bildung_adj))    /(max(TS_Bildung_adj)    -min(TS_Bildung_adj)),
+    # Zu Gesamtscore aufaddieren
+    GISD_Score         = TS_Arbeitswelt_ynrm + TS_Einkommen_ynrm + TS_Bildung_ynrm,
+    # Gesamtscore noch mal jahresweise normieren (und runden)
+    GISD_Score         = (GISD_Score        -min(GISD_Score))        /(max(GISD_Score)        -min(GISD_Score)),
+    GISD_Score         = round(GISD_Score, digits=5)) %>%
+  ungroup()
+
+# adj-Suffix = Rohe Teilscores - noch gar nicht normiert
+# ts-Suffix = Über Zeitreihe normiert
+# ynrm-Suffix = Über Datenjahr normiert
+
+# Scores zeitreihennormiert aufbereiten
+Scores_ts <- Results_raw %>% 
+  # Reshape auf long vorbereiten (mit den zeitreihen-normierten Teilscores)
+  select(Gemeindekennziffer,
+         Jahr,
+         Bundesland,
+         Gesamtscore = GISD_Score,
+         Arbeitswelt = TS_Arbeitswelt_ts,
+         Einkommen = TS_Einkommen_ts,
+         Bildung = TS_Bildung_ts) %>%
+  # Auf long reshapen
+  pivot_longer(cols = c(Gesamtscore, Arbeitswelt, Einkommen, Bildung),
+               names_to = "Dimension",
+               values_to = "Score") %>%
+  # Z-Score berechnen (Z in Relation zur Gemeindezeitreihe)
+  group_by(Gemeindekennziffer, Dimension) %>%
+  mutate(mean_score = mean(Score, na.rm = TRUE),
+         sd_score = sd(Score, na.rm = TRUE),
+         z = (Score - mean_score) / sd_score) %>%
+  ungroup()
+
+# Scores jahresnormiert aufbereiten
+Scores_ynrm <- Results_raw %>% 
+  # Reshape auf long vorbereiten (mit den jahresweise normierten Teilscores)
+  select(Gemeindekennziffer,
+         Jahr,
+         Bundesland,
+         Gesamtscore = GISD_Score,
+         Arbeitswelt = TS_Arbeitswelt_ynrm,
+         Einkommen = TS_Einkommen_ynrm,
+         Bildung = TS_Bildung_ynrm) %>%
+  # Auf long reshapen
+  pivot_longer(cols = c(Gesamtscore, Arbeitswelt, Einkommen, Bildung),
+               names_to = "Dimension",
+               values_to = "Score") %>%
+  # Z-Score berechnen (Z in Relation zur Gemeindezeitreihe)
+  group_by(Gemeindekennziffer, Dimension) %>%
+  mutate(mean_score = mean(Score, na.rm = TRUE),
+         sd_score = sd(Score, na.rm = TRUE),
+         z = (Score - mean_score) / sd_score) %>%
+  ungroup()
+
+```
+
+
+## II. Erste Übersicht
+
+```{r overview, message=FALSE, warning=FALSE}
+
+# Plotübergreifende Komponente
+plot_components <- list(scale_x_continuous(breaks = seq(1998, 2021, by = 1),
+                                           minor_breaks = NULL),
+                        facet_wrap(~ Dimension, ncol = 1,
+                                   strip.position = "right",
+                                   scales = "free_x"),
+                        guides(color=guide_legend(override.aes=list(alpha=1, linewidth=2))),
+                        theme_bw())
+
+################################################################################
+
+# Erste Übersicht: Teilscores (jahresweise normiert)
+ggplot(Scores_ynrm,
+       aes(x = Jahr,
+           y = Score,
+           group = Gemeindekennziffer)) +
+  geom_line(alpha = 0.3, linewidth = 0.1) +
+  labs(subtitle = "Teilscores des GISD (jahresweise normiert)",
+       y = NULL) +
+  plot_components
+
+  ggsave("Plots/Scores.png", device = "png",
+         width = 210, height = 297, units = "mm")
+
+# Genauerer Blick auf Arbeitswelt und Einkommen
+ggplot(filter(Scores_ynrm, Dimension == c("Einkommen", "Arbeitswelt")),
+       aes(x = Jahr,
+           y = Score,
+           group = Gemeindekennziffer,
+           color = Bundesland)) +
+  geom_line(alpha = 0.15, linewidth = 0.5) +
+  labs(subtitle = "Einkommens- und Arbeitswelt-Scores (jahresweise normiert)",
+       y = NULL) +
+  plot_components
+  
+  ggsave("Plots/AE-Scores.png", device = "png",
+         width = 297, height = 210, units = "mm")
+
+################################################################################
+
+# Z-Tabelle generieren (jahresweise normiert)
+table_ynrm <- Scores_ynrm %>%
+  group_by(Jahr, Dimension) %>%
+  summarize(sd = sd(Score, na.rm = TRUE),
+            zMin = min(z, na.rm = TRUE), 
+            zMax = max(z, na.rm = TRUE)) %>%
+  select(Jahr, Dimension, sd, zMin, zMax)
+
+# Z-Scores plotten (jahresweise normiert)
+ggplot(Scores_ynrm, aes(x = Jahr)) +
+  geom_line(data = Scores_ynrm, aes(y=z, group = Gemeindekennziffer), linewidth = 0.1, alpha = 0.3) +
+  geom_line(data = table_ynrm, aes(y=zMin), linewidth = 0.3, color = "blue") +
+  geom_line(data = table_ynrm, aes(y=zMax), linewidth = 0.3, color = "red") +
+  labs(subtitle = "Z-Werte der GISD-Teilscores (Z relativ zur Gemeindezeitreihe, Teilscores jahresweise normiert)",
+       y = NULL) +
+  plot_components
+
+  ggsave("Plots/Z_ynrm.png", device = "png",
+         width = 210, height = 297, units = "mm")
+
+################################################################################
+
+# Einkommens- und Arbeitswelt-Scores vereinzelt pro Bundesland
+bundeslaender = sort(bl_zuordnung$Bundesland)
+bl_colors <- scales::hue_pal()(16) # Aus Regenbogen 16 Farben ziehen
+i <- 1 # Farb-Iterator
+
+for(bl in bundeslaender) {
+  # Absolutzahlen (jahresweise normiert)
+  ggplot() +
+    # Deutschland in grau
+    geom_line(data = Scores_ynrm %>% filter(Dimension == c("Einkommen", "Arbeitswelt"),
+                                            Bundesland != bl),
+              alpha = 0.1, linewidth = 0.3, color = "grey80",
+              aes(x = Jahr,
+                  y = Score,
+                  group = Gemeindekennziffer)) +
+    # Ziel-Bundesland in Farbe
+    geom_line(data = Scores_ynrm %>% filter(Dimension == c("Einkommen", "Arbeitswelt"),
+                                            Bundesland == bl), # Bundesland durchwechseln
+              alpha = 0.5, linewidth = 0.5, color = paste0(bl_colors[i]), # Farbe durchwechseln
+              aes(x = Jahr,
+                  y = Score,
+                  group = Gemeindekennziffer)) +
+    labs(subtitle = paste0("Einkommens- und Arbeitswelt-Scores (Bundesland: ", bl, ")"),
+         y = "Score (jahresweise normiert)") +
+    ylim(0, 1) +
+    plot_components
+
+    #Plot speichern
+    ggsave(paste0("Plots/Bundeslaender/Teilscores_",bl,".png"), device = "png",
+           width = 297, height = 210, units = "mm")
+  
+  # Z-Werte (zeitreihenweise normiert) (bessere Lesbarkeit als jahresnormiert)
+  ggplot(data = Scores_ts %>% filter(Dimension == c("Einkommen", "Arbeitswelt"),
+                                     Bundesland == bl),
+         aes(x = Jahr,
+             y = z,
+             group = Gemeindekennziffer)) +
+    geom_line(alpha = 0.3, linewidth = 0.5,
+              color = paste0(bl_colors[i])) +
+    labs(subtitle = paste0("Z-Werte relativ zur Gemeindezeitreihe (Bundesland: ", bl, ")"),
+         y = "Z-Score (Scores zeitreihenweise normiert)") +
+    plot_components
+  
+    #Plot speichern
+    ggsave(paste0("Plots/Bundeslaender/Z/Z_",bl,".png"), device = "png",
+           width = 297, height = 210, units = "mm")
+    
+  # Nächste Farbe
+  i <- i + 1 
+}
+
+```
+
+
+## III. Ausreißer identifizieren
+
+Bildungsdimension nicht von Ausreißern betroffen, daher nur Einkommen und Arbeitswelt
+
+```{r select, message=FALSE, warning=FALSE}
+
+# Z-Scores aus dem zeitreihennormierten Datensatz auf jahresnormierten Datensatz übertragen
+Scores_hybrid <- left_join(Scores_ynrm %>% select(-z),
+                           Scores_ts %>% select(Gemeindekennziffer,
+                                                Jahr,
+                                                Dimension,
+                                                z),
+                           by = c("Gemeindekennziffer", "Jahr", "Dimension"))
+
+## Arbeitswelt
+# Optische Begutachtung zeigte folgende Ausreißer auf:
+#   - Baden-Württemberg in 2002
+#   - Mecklenburg-Vorpommern in 2002, 2003, 2011, 2013-2016
+#   - Niedersachsen 2002, 2004
+#   - Rheinland-Pfalz in 2017 sowie Anomalien in 2002
+#   - Sachsen in 2013, 2014
+#   - Sachsen-Anhalt in 2013
+#   - Schleswig-Holstein in 2002, 2018
+#   - Thüringen in 2002, 2005, 2006, 2012, 2018, 2019
+
+# Selektion
+aus.arb.bw <- Scores_hybrid %>% 
+  filter(Dimension == "Arbeitswelt",
+         Bundesland == "Baden-Württemberg",
+          (Jahr == 2002 & Score > 0.5))
+
+aus.arb.mv <- Scores_hybrid %>% 
+  filter(Dimension == "Arbeitswelt",
+         Bundesland == "Mecklenburg-Vorpommern",
+          (Jahr == 2002 & Score > 0.85) |
+          (Jahr %in% c(2011, 2013, 2015, 2016) & Score > 0.95))
+
+aus.arb.ni <- Scores_hybrid %>% 
+  filter(Dimension == "Arbeitswelt",
+         Bundesland == "Niedersachsen",
+          (Jahr %in% c(2002, 2004) & (z > 2 | z < -1)))
+
+aus.arb.nw <- Scores_hybrid %>% 
+  filter(Dimension == "Arbeitswelt",
+         Bundesland == "Nordrhein-Westfalen",
+          (Jahr == 2016 & z < -1.5))
+
+aus.arb.rp <- Scores_hybrid %>% 
+  filter(Dimension == "Arbeitswelt",
+         Bundesland == "Rheinland-Pfalz",
+          (Jahr == 2002 & z > 2) |
+          (Jahr == 2017 & Score > 0.95))
+
+aus.arb.sn <- Scores_hybrid %>% 
+  filter(Dimension == "Arbeitswelt",
+         Bundesland == "Sachsen",
+          (Jahr == 2013 & z > 1))
+
+aus.arb.st <- Scores_hybrid %>% 
+  filter(Dimension == "Arbeitswelt",
+         Bundesland == "Sachsen-Anhalt",
+          (Jahr == 2013 & z > 1) |
+          (Jahr == 2015 & Score > 0.95))
+
+aus.arb.sh <- Scores_hybrid %>% 
+  filter(Dimension == "Arbeitswelt",
+         Bundesland == "Schleswig-Holstein",
+          (Jahr == 2002 & z > 2) |
+          (Jahr == 2018 & Score > 0.9))
+
+aus.arb.th <- Scores_hybrid %>% 
+  filter(Dimension == "Arbeitswelt",
+         Bundesland == "Thüringen",
+          (Jahr == 2002 & z >= 2) |
+          (Jahr == 2005 & z < 0) |
+          (Jahr == 2018 & Score < 0.1) |
+          (Jahr == 2019 & z > 0))
+
+# Bundesländer zusammenlegen
+ausreisser_a <- bind_rows(aus.arb.bw,
+                          aus.arb.mv,
+                          aus.arb.ni,
+                          aus.arb.nw,
+                          aus.arb.rp,
+                          aus.arb.sn,
+                          aus.arb.st,
+                          aus.arb.sh,
+                          aus.arb.th) %>% 
+  # Gemeinde-Jahr-String für Zuordnung erstellen
+  mutate(gkz_j = paste0(Gemeindekennziffer,"_",as.character(Jahr)))
+
+
+## Einkommen
+# Optische Begutachtung zeigte folgende Ausreißer auf:
+#   - Baden-Württemberg in 2001, 2004, 2015 (sowie 2016 und 2017 aber nicht stark)
+#   - Bayern in 2004, 2012, sowie starke Anomalien in 2017
+#   - Brandenburg in 2010
+#   - Niedersachsen in 2005, 2007, 2009, 2012
+#   - Nordrhein-Westfalen in 2004, 2011, 2017 (aber nicht stark)
+
+# Selektion
+aus.eink.bw <- Scores_hybrid %>% 
+  filter(Dimension == "Einkommen",
+         Bundesland == "Baden-Württemberg",
+          (Jahr == 2004 & z < -1) |
+          (Jahr == 2015 & (z < -1.5 | z > 0.8)) |
+          (Jahr == 2016 & Score < 0.2))
+
+aus.eink.by <- Scores_hybrid %>% 
+  filter(Dimension == "Einkommen",
+         Bundesland == "Bayern",
+          (Jahr == 2004 & (z < -1 | z > 4)) |
+          (Jahr == 2012 & (z < -1)) |
+          (Jahr == 2017))
+
+aus.eink.bb <- Scores_hybrid %>% 
+  filter(Dimension == "Einkommen",
+         Bundesland == "Brandenburg",
+         z > 2)
+
+aus.eink.ni <- Scores_hybrid %>% 
+  filter(Dimension == "Einkommen",
+         Bundesland == "Niedersachsen",
+         Jahr %in% c(2005, 2007, 2009, 2012),
+         Score > 0.75)
+
+aus.eink.nw <- Scores_hybrid %>% 
+  filter(Dimension == "Einkommen",
+         Bundesland == "Nordrhein-Westfalen",
+          (Jahr == 2004 & z <= -2) |
+          (Jahr == 2011 & z <= -1) |
+          (Jahr <= 2017 & z <= -1.5))
+
+# Bundesländer zusammenlegen
+ausreisser_e <- bind_rows(aus.eink.bw,
+                          aus.eink.by,
+                          aus.eink.bb,
+                          aus.eink.ni,
+                          aus.eink.nw) %>% 
+  # Gemeinde-Jahr-String für Zuordnung erstellen
+  mutate(gkz_j = paste0(Gemeindekennziffer,"_",as.character(Jahr)))
+
+
+rm(aus.eink.bw,
+   aus.eink.by,
+   aus.eink.bb,
+   aus.eink.ni,
+   aus.eink.nw,
+   aus.arb.bw,
+   aus.arb.mv,
+   aus.arb.ni,
+   aus.arb.rp,
+   aus.arb.sn,
+   aus.arb.st,
+   aus.arb.sh,
+   aus.arb.th)
+
+```
+
+
+## IV. Ausreißer imputieren und Scores neu normieren
+
+```{r impute, message=FALSE, warning=FALSE}
+
+## Imputieren der Ausreißer durch Mittelwert von Vorjahr und Nachjahr
+Results_imp1 <- Results_raw %>% 
+  # Gemeinde-Jahr-String für Zuordnung
+  mutate(gkz_j = paste0(Gemeindekennziffer,"_",Jahr)) %>%
+  # Imputieren
+  arrange(Gemeindekennziffer, Jahr) %>% 
+  group_by(Gemeindekennziffer) %>%
+  mutate(TS_Arbeitswelt_imp = if_else(gkz_j %in% ausreisser_a$gkz_j,
+                                      (lag(TS_Arbeitswelt_adj) + lead(TS_Arbeitswelt_adj)) / 2,
+                                      TS_Arbeitswelt_adj),
+         TS_Einkommen_imp = if_else(gkz_j %in% ausreisser_e$gkz_j,
+                                    (lag(TS_Einkommen_adj) + lead(TS_Einkommen_adj)) / 2,
+                                    TS_Einkommen_adj),
+         Imputed = if_else(gkz_j %in% c(ausreisser_e$gkz_j, ausreisser_a$gkz_j),
+                           1,
+                           0)) %>% 
+  ungroup() %>% 
+  # Für alternative Darstellung Teilscores über gesamte Zeitreihe normieren (kommt so im Hauptskript nicht vor)
+  mutate(TS_Arbeitswelt_ts = (TS_Arbeitswelt_imp-min(TS_Arbeitswelt_imp))/(max(TS_Arbeitswelt_imp)-min(TS_Arbeitswelt_imp)),
+         TS_Einkommen_ts   = (TS_Einkommen_imp  -min(TS_Einkommen_imp))  /(max(TS_Einkommen_imp)  -min(TS_Einkommen_imp)),
+         TS_Bildung_ts     = (TS_Bildung_adj    -min(TS_Bildung_adj))    /(max(TS_Bildung_adj)    -min(TS_Bildung_adj))) %>%
+  # Normierung analog zum Hauptskript (also jahresweise), um Gesamtscore daraus zu berechnen
+  group_by(Jahr) %>% 
+  mutate(
+    # Teildimensionen jahresweise normieren
+    TS_Arbeitswelt_ynrm = (TS_Arbeitswelt_imp-min(TS_Arbeitswelt_imp))/(max(TS_Arbeitswelt_imp)-min(TS_Arbeitswelt_imp)),
+    TS_Einkommen_ynrm   = (TS_Einkommen_imp  -min(TS_Einkommen_imp))  /(max(TS_Einkommen_imp)  -min(TS_Einkommen_imp)),
+    TS_Bildung_ynrm     = (TS_Bildung_adj    -min(TS_Bildung_adj))    /(max(TS_Bildung_adj)    -min(TS_Bildung_adj)),
+    # Zu Gesamtscore aufaddieren
+    GISD_Score         = TS_Arbeitswelt_ynrm + TS_Einkommen_ynrm + TS_Bildung_ynrm,
+    # Gesamtscore noch mal jahresweise normieren (und runden)
+    GISD_Score         = (GISD_Score        -min(GISD_Score))        /(max(GISD_Score)        -min(GISD_Score)),
+    GISD_Score         = round(GISD_Score, digits=5)) %>%
+  ungroup() %>% 
+  select(-gkz_j)
+
+```
+
+
+## V. Nachprüfen
+
+```{r inspect, message=FALSE, warning=FALSE}
+
+# Teilscores zeitreihennormiert aufbereiten
+Scores_ts_imp1 <- Results_imp1 %>% 
+  # Reshape auf long vorbereiten (mit den zeitreihen-normierten Teilscores)
+  select(Gemeindekennziffer,
+         Jahr,
+         Bundesland,
+         Gesamtscore = GISD_Score,
+         Arbeitswelt = TS_Arbeitswelt_ts,
+         Einkommen = TS_Einkommen_ts,
+         Bildung = TS_Bildung_ts) %>%
+  # Auf long reshapen
+  pivot_longer(cols = c(Gesamtscore, Arbeitswelt, Einkommen, Bildung),
+               names_to = "Dimension",
+               values_to = "Score") %>%
+  # Z-Score berechnen (Z in Relation zur Gemeindezeitreihe)
+  group_by(Gemeindekennziffer, Dimension) %>%
+  mutate(mean_score = mean(Score, na.rm = TRUE),
+         sd_score = sd(Score, na.rm = TRUE),
+         z = (Score - mean_score) / sd_score) %>%
+  ungroup()
+
+# Teilscores jahresnormiert aufbereiten
+Scores_ynrm_imp1 <- Results_imp1 %>% 
+  # Reshape auf long vorbereiten (mit den jahresweise normierten Teilscores)
+  select(Gemeindekennziffer,
+         Jahr,
+         Bundesland,
+         Gesamtscore = GISD_Score,
+         Arbeitswelt = TS_Arbeitswelt_ynrm,
+         Einkommen = TS_Einkommen_ynrm,
+         Bildung = TS_Bildung_ynrm) %>%
+  # Auf long reshapen
+  pivot_longer(cols = c(Gesamtscore, Arbeitswelt, Einkommen, Bildung),
+               names_to = "Dimension",
+               values_to = "Score") %>%
+  # Z-Score berechnen (Z in Relation zur Gemeindezeitreihe)
+  group_by(Gemeindekennziffer, Dimension) %>%
+  mutate(mean_score = mean(Score, na.rm = TRUE),
+         sd_score = sd(Score, na.rm = TRUE),
+         z = (Score - mean_score) / sd_score) %>%
+  ungroup()
+
+################################################################################
+
+# Teilscores (jahresweise normiert)
+ggplot(Scores_ynrm_imp1,
+       aes(x = Jahr,
+           y = Score,
+           group = Gemeindekennziffer)) +
+  geom_line(alpha = 0.3, linewidth = 0.1) +
+  labs(subtitle = "Teilscores des GISD nach 1. Imputation (jahresweise normiert)",
+       y = NULL) +
+  plot_components
+
+ggsave("Plots/Scores_imp1.png", device = "png",
+       width = 210, height = 297, units = "mm")
+
+# Genauerer Blick auf Arbeitswelt und Einkommen
+ggplot(filter(Scores_ynrm_imp1, Dimension == c("Einkommen", "Arbeitswelt")),
+       aes(x = Jahr,
+           y = Score,
+           group = Gemeindekennziffer,
+           color = Bundesland)) +
+  geom_line(alpha = 0.15, linewidth = 0.5) +
+  labs(subtitle = "Einkommens- und Arbeitswelt-Scores nach 1. Imputation (jahresweise normiert)",
+       y = NULL) +
+  plot_components
+
+ggsave("Plots/AE-Scores_imp1.png", device = "png",
+       width = 297, height = 210, units = "mm")
+
+################################################################################
+
+# Einkommens- und Arbeitswelt-Scores pro Bundesland (zeitreihenweise normiert)
+i <- 1
+
+for(bl in bundeslaender) {
+  # Absolutzahlen (jahresweise normiert)
+  ggplot() +
+    # Deutschland in grau
+    geom_line(data = Scores_ynrm_imp1 %>% filter(Dimension == c("Einkommen", "Arbeitswelt"),
+                                            Bundesland != bl),
+              alpha = 0.1, linewidth = 0.3, color = "grey80",
+              aes(x = Jahr,
+                  y = Score,
+                  group = Gemeindekennziffer)) +
+    # Ziel-Bundesland in Farbe
+    geom_line(data = Scores_ynrm_imp1 %>% filter(Dimension == c("Einkommen", "Arbeitswelt"),
+                                            Bundesland == bl), # Bundesland durchwechseln
+              alpha = 0.5, linewidth = 0.5, color = paste0(bl_colors[i]), # Farbe durchwechseln
+              aes(x = Jahr,
+                  y = Score,
+                  group = Gemeindekennziffer)) +
+    labs(subtitle = paste0("Einkommens- und Arbeitswelt-Scores nach 1. Imputation (Bundesland: ", bl, ")"),
+         y = "Score (jahresweise normiert)") +
+    ylim(0, 1) +
+    plot_components
+
+    #Plot speichern
+    ggsave(paste0("Plots/Bundeslaender/Teilscores_",bl,"_imp1.png"), device = "png",
+           width = 297, height = 210, units = "mm")
+    
+  # Z-Werte (zeitreihenweise normiert)
+  ggplot(data = Scores_ts_imp1 %>% filter(Dimension == c("Einkommen", "Arbeitswelt"),
+                                          Bundesland == bl),
+         aes(x = Jahr,
+             y = z,
+             group = Gemeindekennziffer)) +
+    geom_line(alpha = 0.3, linewidth = 0.5,
+              color = paste0(bl_colors[i])) +
+    labs(subtitle = paste0("Z-Werte relativ zur Gemeindezeitreihe nach 1. Imputation (Bundesland: ", bl, ")"),
+         y = "Z-Score (Scores zeitreihenweise normiert)") +
+    plot_components
+  
+    #Plot speichern
+    ggsave(paste0("Plots/Bundeslaender/Z/Z_",bl,"_imp1.png"), device = "png",
+           width = 297, height = 210, units = "mm")  
+    
+  # Nächste Farbe
+  i <- i + 1 
+}
+
+```
+
+
+## VI. Zweite Runde Selektion und Imputation 
+
+```{r impute2, message=FALSE, warning=FALSE}
+# Z-Scores aus dem zeitreihennormierten Datensatz auf jahresnormierten Datensatz übertragen
+Scores_hybrid_imp1 <- left_join(Scores_ynrm_imp1 %>% select(-z),
+                                Scores_ts_imp1 %>% select(Gemeindekennziffer,
+                                                          Jahr,
+                                                          Dimension,
+                                                          z),
+                                by = c("Gemeindekennziffer", "Jahr", "Dimension"))
+
+## Arbeitswelt
+aus.arb.bw <- Scores_hybrid_imp1 %>% 
+  filter(Dimension == "Arbeitswelt",
+         Bundesland == "Baden-Württemberg",
+          (Jahr == 2007 & z < -1))
+
+aus.arb.mv <- Scores_hybrid_imp1 %>% 
+  filter(Dimension == "Arbeitswelt",
+         Bundesland == "Mecklenburg-Vorpommern",
+          (Jahr == 2014 & Score > 0.95))
+
+aus.arb.sn <- Scores_hybrid_imp1 %>% 
+  filter(Dimension == "Arbeitswelt",
+         Bundesland == "Sachsen",
+          (Jahr == 2014 & Score > 0.9))
+
+aus.arb.th <- Scores_hybrid_imp1 %>% 
+  filter(Dimension == "Arbeitswelt",
+         Bundesland == "Thüringen",
+          (Jahr == 2006 & Score < 0.25))
+
+# Bundesländer zusammenlegen
+ausreisser_a_imp1 <- bind_rows(aus.arb.bw,
+                               aus.arb.mv,
+                               aus.arb.sn,
+                               aus.arb.th) %>% 
+  # Gemeinde-Jahr-String für Zuordnung erstellen
+  mutate(gkz_j = paste0(Gemeindekennziffer,"_",as.character(Jahr)))
+
+## Einkommen
+ausreisser_e_imp1 <- Scores_hybrid_imp1 %>% 
+  filter(Dimension == "Einkommen",
+         Bundesland == "Baden-Württemberg",
+          (Jahr == 2015 & z > -0.2) |
+          (Jahr == 2017 & Score < 0.2)) %>% 
+  # Gemeinde-Jahr-String für Zuordnung erstellen
+  mutate(gkz_j = paste0(Gemeindekennziffer,"_",as.character(Jahr)))
+
+
+## Imputieren der Ausreißer durch Mittelwert von Vorjahr und Nachjahr
+Results_imp2 <- Results_imp1 %>% 
+  # Gemeinde-Jahr-String für Zuordnung
+  mutate(gkz_j = paste0(Gemeindekennziffer,"_",Jahr)) %>%
+  # Imputieren
+  arrange(Gemeindekennziffer, Jahr) %>% 
+  group_by(Gemeindekennziffer) %>%
+  mutate(TS_Arbeitswelt_imp2 = if_else(gkz_j %in% ausreisser_a_imp1$gkz_j,
+                                      (lag(TS_Arbeitswelt_imp) + lead(TS_Arbeitswelt_imp)) / 2,
+                                      TS_Arbeitswelt_imp),
+         TS_Einkommen_imp2 = if_else(gkz_j %in% ausreisser_e_imp1$gkz_j,
+                                    (lag(TS_Einkommen_imp) + lead(TS_Einkommen_imp)) / 2,
+                                    TS_Einkommen_imp),
+         Imputed = if_else(gkz_j %in% c(ausreisser_e_imp1$gkz_j, ausreisser_a_imp1$gkz_j),
+                           2,
+                           Imputed)) %>% 
+  ungroup() %>% 
+  # Normierung analog zum Hauptskript (also jahresweise), um Gesamtscore daraus zu berechnen
+  group_by(Jahr) %>% 
+  mutate(
+    # Teildimensionen jahresweise normieren
+    TS_Arbeitswelt_ynrm2 = (TS_Arbeitswelt_imp2-min(TS_Arbeitswelt_imp2))/(max(TS_Arbeitswelt_imp2)-min(TS_Arbeitswelt_imp2)),
+    TS_Einkommen_ynrm2   = (TS_Einkommen_imp2  -min(TS_Einkommen_imp2))  /(max(TS_Einkommen_imp2)  -min(TS_Einkommen_imp2)),
+    TS_Bildung_ynrm2     = (TS_Bildung_adj     -min(TS_Bildung_adj))     /(max(TS_Bildung_adj)     -min(TS_Bildung_adj)),
+    # Zu Gesamtscore aufaddieren
+    GISD_Score2         = TS_Arbeitswelt_ynrm2 + TS_Einkommen_ynrm2 + TS_Bildung_ynrm2,
+    # Gesamtscore noch mal jahresweise normieren (und runden)
+    GISD_Score2         = (GISD_Score          -min(GISD_Score))         /(max(GISD_Score)         -min(GISD_Score)),
+    GISD_Score2         = round(GISD_Score, digits=5)) %>%
+  ungroup() %>% 
+  select(-gkz_j)
+
+```
+
+
+## VII. Letzte Prüfung
+```{r inspect2, message=FALSE, warning=FALSE}
+
+# Teilscores jahresnormiert aufbereiten
+Scores_ynrm_imp2 <- Results_imp2 %>% 
+  # Reshape auf long vorbereiten (mit den jahresweise normierten Teilscores)
+  select(Gemeindekennziffer,
+         Jahr,
+         Bundesland,
+         Gesamtscore = GISD_Score2,
+         Arbeitswelt = TS_Arbeitswelt_ynrm2,
+         Einkommen = TS_Einkommen_ynrm2,
+         Bildung = TS_Bildung_ynrm2) %>%
+  # Auf long reshapen
+  pivot_longer(cols = c(Gesamtscore, Arbeitswelt, Einkommen, Bildung),
+               names_to = "Dimension",
+               values_to = "Score") %>%
+  # Z-Score berechnen (Z in Relation zur Gemeindezeitreihe)
+  group_by(Gemeindekennziffer, Dimension) %>%
+  mutate(mean_score = mean(Score, na.rm = TRUE),
+         sd_score = sd(Score, na.rm = TRUE),
+         z = (Score - mean_score) / sd_score) %>%
+  ungroup()
+
+################################################################################
+
+# Teilscores (jahresweise normiert)
+ggplot(Scores_ynrm_imp2,
+       aes(x = Jahr,
+           y = Score,
+           group = Gemeindekennziffer)) +
+  geom_line(alpha = 0.3, linewidth = 0.1) +
+  labs(subtitle = "Teilscores des GISD nach 2. Imputation (jahresweise normiert)",
+       y = NULL) +
+  plot_components
+
+ggsave("Plots/Scores_imp2.png", device = "png",
+       width = 210, height = 297, units = "mm")
+
+# Genauerer Blick auf Arbeitswelt und Einkommen
+ggplot(filter(Scores_ynrm_imp2, Dimension == c("Einkommen", "Arbeitswelt")),
+       aes(x = Jahr,
+           y = Score,
+           group = Gemeindekennziffer,
+           color = Bundesland)) +
+  geom_line(alpha = 0.15, linewidth = 0.5) +
+  labs(subtitle = "Einkommens- und Arbeitswelt-Scores nach 2. Imputation (jahresweise normiert)",
+       y = NULL) +
+  plot_components
+
+ggsave("Plots/AE-Scores_imp2.png", device = "png",
+       width = 297, height = 210, units = "mm")
+
+################################################################################
+
+# Einkommens- und Arbeitswelt-Scores pro Bundesland (zeitreihenweise normiert)
+i <- 1
+
+for(bl in bundeslaender) {
+  # Absolutzahlen (jahresweise normiert)
+  ggplot() +
+    # Deutschland in grau
+    geom_line(data = Scores_ynrm_imp2 %>% filter(Dimension == c("Einkommen", "Arbeitswelt"),
+                                            Bundesland != bl),
+              alpha = 0.1, linewidth = 0.3, color = "grey80",
+              aes(x = Jahr,
+                  y = Score,
+                  group = Gemeindekennziffer)) +
+    # Ziel-Bundesland in Farbe
+    geom_line(data = Scores_ynrm_imp2 %>% filter(Dimension == c("Einkommen", "Arbeitswelt"),
+                                            Bundesland == bl), # Bundesland durchwechseln
+              alpha = 0.5, linewidth = 0.5, color = paste0(bl_colors[i]), # Farbe durchwechseln
+              aes(x = Jahr,
+                  y = Score,
+                  group = Gemeindekennziffer)) +
+    labs(subtitle = paste0("Einkommens- und Arbeitswelt-Scores nach 2. Imputation (Bundesland: ", bl, ")"),
+         y = "Score (jahresweise normiert)") +
+    ylim(0, 1) +
+    plot_components
+
+    #Plot speichern
+    ggsave(paste0("Plots/Bundeslaender/Teilscores_",bl,"_imp2.png"), device = "png",
+           width = 297, height = 210, units = "mm")
+    
+  # Nächste Farbe
+  i <- i + 1 
+}
+
+```
