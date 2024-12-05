@@ -1,0 +1,1273 @@
+"gisd_score","kreis_id","kreis_name","year"
+0.13841,"05111","Düsseldorf, Stadt",1998
+0.12141,"05111","Düsseldorf, Stadt",1999
+0.12109,"05111","Düsseldorf, Stadt",2000
+0.14559,"05111","Düsseldorf, Stadt",2001
+0.15729,"05111","Düsseldorf, Stadt",2002
+0.14815,"05111","Düsseldorf, Stadt",2003
+0.13726,"05111","Düsseldorf, Stadt",2004
+0.1865,"05111","Düsseldorf, Stadt",2005
+0.13609,"05111","Düsseldorf, Stadt",2006
+0.1332,"05111","Düsseldorf, Stadt",2007
+0.11676,"05111","Düsseldorf, Stadt",2008
+0.15688,"05111","Düsseldorf, Stadt",2009
+0.12918,"05111","Düsseldorf, Stadt",2010
+0.13813,"05111","Düsseldorf, Stadt",2011
+0.08577,"05111","Düsseldorf, Stadt",2012
+0.09701,"05111","Düsseldorf, Stadt",2013
+0.09907,"05111","Düsseldorf, Stadt",2014
+0.03992,"05111","Düsseldorf, Stadt",2015
+0.016,"05111","Düsseldorf, Stadt",2016
+0,"05111","Düsseldorf, Stadt",2017
+0.01193,"05111","Düsseldorf, Stadt",2018
+0,"05111","Düsseldorf, Stadt",2019
+0,"05111","Düsseldorf, Stadt",2020
+0,"05111","Düsseldorf, Stadt",2021
+0.99933,"05112","Duisburg, Stadt",1998
+0.92783,"05112","Duisburg, Stadt",1999
+0.88267,"05112","Duisburg, Stadt",2000
+0.91614,"05112","Duisburg, Stadt",2001
+0.95858,"05112","Duisburg, Stadt",2002
+0.90822,"05112","Duisburg, Stadt",2003
+0.84682,"05112","Duisburg, Stadt",2004
+0.87903,"05112","Duisburg, Stadt",2005
+0.89632,"05112","Duisburg, Stadt",2006
+0.88369,"05112","Duisburg, Stadt",2007
+0.88588,"05112","Duisburg, Stadt",2008
+0.90534,"05112","Duisburg, Stadt",2009
+0.88709,"05112","Duisburg, Stadt",2010
+0.89009,"05112","Duisburg, Stadt",2011
+0.89542,"05112","Duisburg, Stadt",2012
+0.87194,"05112","Duisburg, Stadt",2013
+0.83986,"05112","Duisburg, Stadt",2014
+0.82995,"05112","Duisburg, Stadt",2015
+0.78544,"05112","Duisburg, Stadt",2016
+0.84623,"05112","Duisburg, Stadt",2017
+0.87612,"05112","Duisburg, Stadt",2018
+0.86543,"05112","Duisburg, Stadt",2019
+0.85777,"05112","Duisburg, Stadt",2020
+0.8333,"05112","Duisburg, Stadt",2021
+0.47745,"05113","Essen, Stadt",1998
+0.44702,"05113","Essen, Stadt",1999
+0.42675,"05113","Essen, Stadt",2000
+0.43759,"05113","Essen, Stadt",2001
+0.44464,"05113","Essen, Stadt",2002
+0.45064,"05113","Essen, Stadt",2003
+0.46339,"05113","Essen, Stadt",2004
+0.49495,"05113","Essen, Stadt",2005
+0.45794,"05113","Essen, Stadt",2006
+0.4677,"05113","Essen, Stadt",2007
+0.49678,"05113","Essen, Stadt",2008
+0.51892,"05113","Essen, Stadt",2009
+0.49318,"05113","Essen, Stadt",2010
+0.50359,"05113","Essen, Stadt",2011
+0.48841,"05113","Essen, Stadt",2012
+0.5122,"05113","Essen, Stadt",2013
+0.53706,"05113","Essen, Stadt",2014
+0.49381,"05113","Essen, Stadt",2015
+0.47654,"05113","Essen, Stadt",2016
+0.5158,"05113","Essen, Stadt",2017
+0.51099,"05113","Essen, Stadt",2018
+0.50464,"05113","Essen, Stadt",2019
+0.50397,"05113","Essen, Stadt",2020
+0.46822,"05113","Essen, Stadt",2021
+0.61329,"05114","Krefeld, Stadt",1998
+0.55172,"05114","Krefeld, Stadt",1999
+0.55289,"05114","Krefeld, Stadt",2000
+0.59627,"05114","Krefeld, Stadt",2001
+0.58407,"05114","Krefeld, Stadt",2002
+0.5855,"05114","Krefeld, Stadt",2003
+0.54821,"05114","Krefeld, Stadt",2004
+0.54924,"05114","Krefeld, Stadt",2005
+0.57267,"05114","Krefeld, Stadt",2006
+0.59547,"05114","Krefeld, Stadt",2007
+0.63139,"05114","Krefeld, Stadt",2008
+0.58903,"05114","Krefeld, Stadt",2009
+0.58653,"05114","Krefeld, Stadt",2010
+0.54321,"05114","Krefeld, Stadt",2011
+0.57379,"05114","Krefeld, Stadt",2012
+0.57961,"05114","Krefeld, Stadt",2013
+0.57615,"05114","Krefeld, Stadt",2014
+0.5751,"05114","Krefeld, Stadt",2015
+0.53235,"05114","Krefeld, Stadt",2016
+0.56189,"05114","Krefeld, Stadt",2017
+0.62981,"05114","Krefeld, Stadt",2018
+0.57128,"05114","Krefeld, Stadt",2019
+0.60782,"05114","Krefeld, Stadt",2020
+0.58157,"05114","Krefeld, Stadt",2021
+0.73378,"05116","Mönchengladbach, Stadt",1998
+0.6841,"05116","Mönchengladbach, Stadt",1999
+0.63125,"05116","Mönchengladbach, Stadt",2000
+0.69525,"05116","Mönchengladbach, Stadt",2001
+0.67618,"05116","Mönchengladbach, Stadt",2002
+0.67841,"05116","Mönchengladbach, Stadt",2003
+0.63113,"05116","Mönchengladbach, Stadt",2004
+0.65725,"05116","Mönchengladbach, Stadt",2005
+0.70319,"05116","Mönchengladbach, Stadt",2006
+0.72829,"05116","Mönchengladbach, Stadt",2007
+0.7044,"05116","Mönchengladbach, Stadt",2008
+0.73458,"05116","Mönchengladbach, Stadt",2009
+0.7295,"05116","Mönchengladbach, Stadt",2010
+0.7271,"05116","Mönchengladbach, Stadt",2011
+0.73548,"05116","Mönchengladbach, Stadt",2012
+0.77264,"05116","Mönchengladbach, Stadt",2013
+0.71396,"05116","Mönchengladbach, Stadt",2014
+0.72953,"05116","Mönchengladbach, Stadt",2015
+0.65049,"05116","Mönchengladbach, Stadt",2016
+0.69948,"05116","Mönchengladbach, Stadt",2017
+0.7392,"05116","Mönchengladbach, Stadt",2018
+0.70881,"05116","Mönchengladbach, Stadt",2019
+0.71118,"05116","Mönchengladbach, Stadt",2020
+0.67244,"05116","Mönchengladbach, Stadt",2021
+0.25717,"05117","Mülheim an der Ruhr, Stadt",1998
+0.21377,"05117","Mülheim an der Ruhr, Stadt",1999
+0.24982,"05117","Mülheim an der Ruhr, Stadt",2000
+0.23014,"05117","Mülheim an der Ruhr, Stadt",2001
+0.19113,"05117","Mülheim an der Ruhr, Stadt",2002
+0.23206,"05117","Mülheim an der Ruhr, Stadt",2003
+0.23026,"05117","Mülheim an der Ruhr, Stadt",2004
+0.22245,"05117","Mülheim an der Ruhr, Stadt",2005
+0.20468,"05117","Mülheim an der Ruhr, Stadt",2006
+0.27353,"05117","Mülheim an der Ruhr, Stadt",2007
+0.21454,"05117","Mülheim an der Ruhr, Stadt",2008
+0.25468,"05117","Mülheim an der Ruhr, Stadt",2009
+0.27671,"05117","Mülheim an der Ruhr, Stadt",2010
+0.28273,"05117","Mülheim an der Ruhr, Stadt",2011
+0.29317,"05117","Mülheim an der Ruhr, Stadt",2012
+0.29779,"05117","Mülheim an der Ruhr, Stadt",2013
+0.28391,"05117","Mülheim an der Ruhr, Stadt",2014
+0.30956,"05117","Mülheim an der Ruhr, Stadt",2015
+0.28022,"05117","Mülheim an der Ruhr, Stadt",2016
+0.30511,"05117","Mülheim an der Ruhr, Stadt",2017
+0.31797,"05117","Mülheim an der Ruhr, Stadt",2018
+0.31405,"05117","Mülheim an der Ruhr, Stadt",2019
+0.31801,"05117","Mülheim an der Ruhr, Stadt",2020
+0.30594,"05117","Mülheim an der Ruhr, Stadt",2021
+0.7945,"05119","Oberhausen, Stadt",1998
+0.72178,"05119","Oberhausen, Stadt",1999
+0.72529,"05119","Oberhausen, Stadt",2000
+0.75907,"05119","Oberhausen, Stadt",2001
+0.79518,"05119","Oberhausen, Stadt",2002
+0.76667,"05119","Oberhausen, Stadt",2003
+0.73575,"05119","Oberhausen, Stadt",2004
+0.70676,"05119","Oberhausen, Stadt",2005
+0.78486,"05119","Oberhausen, Stadt",2006
+0.7275,"05119","Oberhausen, Stadt",2007
+0.7597,"05119","Oberhausen, Stadt",2008
+0.7686,"05119","Oberhausen, Stadt",2009
+0.74154,"05119","Oberhausen, Stadt",2010
+0.78016,"05119","Oberhausen, Stadt",2011
+0.75567,"05119","Oberhausen, Stadt",2012
+0.75586,"05119","Oberhausen, Stadt",2013
+0.70414,"05119","Oberhausen, Stadt",2014
+0.74258,"05119","Oberhausen, Stadt",2015
+0.68539,"05119","Oberhausen, Stadt",2016
+0.72224,"05119","Oberhausen, Stadt",2017
+0.76471,"05119","Oberhausen, Stadt",2018
+0.73806,"05119","Oberhausen, Stadt",2019
+0.74543,"05119","Oberhausen, Stadt",2020
+0.66689,"05119","Oberhausen, Stadt",2021
+0.62144,"05120","Remscheid, Stadt",1998
+0.54532,"05120","Remscheid, Stadt",1999
+0.5578,"05120","Remscheid, Stadt",2000
+0.60935,"05120","Remscheid, Stadt",2001
+0.51487,"05120","Remscheid, Stadt",2002
+0.52035,"05120","Remscheid, Stadt",2003
+0.52814,"05120","Remscheid, Stadt",2004
+0.55949,"05120","Remscheid, Stadt",2005
+0.58565,"05120","Remscheid, Stadt",2006
+0.54575,"05120","Remscheid, Stadt",2007
+0.59024,"05120","Remscheid, Stadt",2008
+0.60155,"05120","Remscheid, Stadt",2009
+0.60366,"05120","Remscheid, Stadt",2010
+0.59293,"05120","Remscheid, Stadt",2011
+0.59085,"05120","Remscheid, Stadt",2012
+0.57036,"05120","Remscheid, Stadt",2013
+0.62332,"05120","Remscheid, Stadt",2014
+0.59949,"05120","Remscheid, Stadt",2015
+0.5557,"05120","Remscheid, Stadt",2016
+0.58379,"05120","Remscheid, Stadt",2017
+0.55892,"05120","Remscheid, Stadt",2018
+0.59889,"05120","Remscheid, Stadt",2019
+0.59462,"05120","Remscheid, Stadt",2020
+0.55952,"05120","Remscheid, Stadt",2021
+0.72752,"05122","Solingen, Klingenstadt",1998
+0.6488,"05122","Solingen, Klingenstadt",1999
+0.64299,"05122","Solingen, Klingenstadt",2000
+0.64871,"05122","Solingen, Klingenstadt",2001
+0.66135,"05122","Solingen, Klingenstadt",2002
+0.65942,"05122","Solingen, Klingenstadt",2003
+0.61644,"05122","Solingen, Klingenstadt",2004
+0.63206,"05122","Solingen, Klingenstadt",2005
+0.61483,"05122","Solingen, Klingenstadt",2006
+0.63759,"05122","Solingen, Klingenstadt",2007
+0.59961,"05122","Solingen, Klingenstadt",2008
+0.63176,"05122","Solingen, Klingenstadt",2009
+0.63131,"05122","Solingen, Klingenstadt",2010
+0.60979,"05122","Solingen, Klingenstadt",2011
+0.57715,"05122","Solingen, Klingenstadt",2012
+0.62032,"05122","Solingen, Klingenstadt",2013
+0.64292,"05122","Solingen, Klingenstadt",2014
+0.61329,"05122","Solingen, Klingenstadt",2015
+0.55274,"05122","Solingen, Klingenstadt",2016
+0.60913,"05122","Solingen, Klingenstadt",2017
+0.60235,"05122","Solingen, Klingenstadt",2018
+0.60049,"05122","Solingen, Klingenstadt",2019
+0.61042,"05122","Solingen, Klingenstadt",2020
+0.56893,"05122","Solingen, Klingenstadt",2021
+0.75959,"05124","Wuppertal, Stadt",1998
+0.72377,"05124","Wuppertal, Stadt",1999
+0.67655,"05124","Wuppertal, Stadt",2000
+0.73685,"05124","Wuppertal, Stadt",2001
+0.72963,"05124","Wuppertal, Stadt",2002
+0.73898,"05124","Wuppertal, Stadt",2003
+0.72501,"05124","Wuppertal, Stadt",2004
+0.68571,"05124","Wuppertal, Stadt",2005
+0.74239,"05124","Wuppertal, Stadt",2006
+0.74913,"05124","Wuppertal, Stadt",2007
+0.77625,"05124","Wuppertal, Stadt",2008
+0.79129,"05124","Wuppertal, Stadt",2009
+0.75557,"05124","Wuppertal, Stadt",2010
+0.72385,"05124","Wuppertal, Stadt",2011
+0.7917,"05124","Wuppertal, Stadt",2012
+0.7652,"05124","Wuppertal, Stadt",2013
+0.72612,"05124","Wuppertal, Stadt",2014
+0.68946,"05124","Wuppertal, Stadt",2015
+0.6053,"05124","Wuppertal, Stadt",2016
+0.67099,"05124","Wuppertal, Stadt",2017
+0.66607,"05124","Wuppertal, Stadt",2018
+0.67239,"05124","Wuppertal, Stadt",2019
+0.67632,"05124","Wuppertal, Stadt",2020
+0.64324,"05124","Wuppertal, Stadt",2021
+0.62599,"05154","Kleve",1998
+0.61724,"05154","Kleve",1999
+0.55541,"05154","Kleve",2000
+0.5282,"05154","Kleve",2001
+0.54146,"05154","Kleve",2002
+0.59682,"05154","Kleve",2003
+0.56291,"05154","Kleve",2004
+0.57684,"05154","Kleve",2005
+0.57271,"05154","Kleve",2006
+0.5417,"05154","Kleve",2007
+0.56699,"05154","Kleve",2008
+0.60455,"05154","Kleve",2009
+0.58249,"05154","Kleve",2010
+0.58157,"05154","Kleve",2011
+0.59839,"05154","Kleve",2012
+0.62078,"05154","Kleve",2013
+0.60653,"05154","Kleve",2014
+0.59259,"05154","Kleve",2015
+0.56563,"05154","Kleve",2016
+0.58673,"05154","Kleve",2017
+0.56752,"05154","Kleve",2018
+0.53717,"05154","Kleve",2019
+0.55621,"05154","Kleve",2020
+0.50382,"05154","Kleve",2021
+0.15884,"05158","Mettmann",1998
+0.15253,"05158","Mettmann",1999
+0.14837,"05158","Mettmann",2000
+0.17637,"05158","Mettmann",2001
+0.16727,"05158","Mettmann",2002
+0.17257,"05158","Mettmann",2003
+0.17617,"05158","Mettmann",2004
+0.17719,"05158","Mettmann",2005
+0.14804,"05158","Mettmann",2006
+0.16291,"05158","Mettmann",2007
+0.18386,"05158","Mettmann",2008
+0.19718,"05158","Mettmann",2009
+0.19001,"05158","Mettmann",2010
+0.22877,"05158","Mettmann",2011
+0.18983,"05158","Mettmann",2012
+0.23349,"05158","Mettmann",2013
+0.18514,"05158","Mettmann",2014
+0.21208,"05158","Mettmann",2015
+0.16428,"05158","Mettmann",2016
+0.19376,"05158","Mettmann",2017
+0.19384,"05158","Mettmann",2018
+0.17881,"05158","Mettmann",2019
+0.20185,"05158","Mettmann",2020
+0.19747,"05158","Mettmann",2021
+0.18031,"05162","Rhein-Kreis Neuss",1998
+0.15894,"05162","Rhein-Kreis Neuss",1999
+0.17408,"05162","Rhein-Kreis Neuss",2000
+0.20506,"05162","Rhein-Kreis Neuss",2001
+0.21272,"05162","Rhein-Kreis Neuss",2002
+0.20658,"05162","Rhein-Kreis Neuss",2003
+0.21618,"05162","Rhein-Kreis Neuss",2004
+0.18745,"05162","Rhein-Kreis Neuss",2005
+0.1477,"05162","Rhein-Kreis Neuss",2006
+0.15924,"05162","Rhein-Kreis Neuss",2007
+0.18108,"05162","Rhein-Kreis Neuss",2008
+0.19877,"05162","Rhein-Kreis Neuss",2009
+0.19069,"05162","Rhein-Kreis Neuss",2010
+0.22175,"05162","Rhein-Kreis Neuss",2011
+0.20424,"05162","Rhein-Kreis Neuss",2012
+0.23078,"05162","Rhein-Kreis Neuss",2013
+0.22072,"05162","Rhein-Kreis Neuss",2014
+0.18503,"05162","Rhein-Kreis Neuss",2015
+0.15419,"05162","Rhein-Kreis Neuss",2016
+0.17759,"05162","Rhein-Kreis Neuss",2017
+0.19781,"05162","Rhein-Kreis Neuss",2018
+0.18237,"05162","Rhein-Kreis Neuss",2019
+0.21511,"05162","Rhein-Kreis Neuss",2020
+0.18681,"05162","Rhein-Kreis Neuss",2021
+0.48476,"05166","Viersen",1998
+0.40292,"05166","Viersen",1999
+0.37834,"05166","Viersen",2000
+0.39264,"05166","Viersen",2001
+0.4407,"05166","Viersen",2002
+0.40036,"05166","Viersen",2003
+0.37896,"05166","Viersen",2004
+0.40689,"05166","Viersen",2005
+0.36681,"05166","Viersen",2006
+0.36952,"05166","Viersen",2007
+0.38934,"05166","Viersen",2008
+0.40894,"05166","Viersen",2009
+0.40748,"05166","Viersen",2010
+0.4332,"05166","Viersen",2011
+0.42976,"05166","Viersen",2012
+0.4487,"05166","Viersen",2013
+0.40966,"05166","Viersen",2014
+0.38467,"05166","Viersen",2015
+0.36769,"05166","Viersen",2016
+0.39225,"05166","Viersen",2017
+0.37717,"05166","Viersen",2018
+0.38054,"05166","Viersen",2019
+0.39632,"05166","Viersen",2020
+0.35322,"05166","Viersen",2021
+0.49339,"05170","Wesel",1998
+0.46514,"05170","Wesel",1999
+0.44481,"05170","Wesel",2000
+0.46275,"05170","Wesel",2001
+0.4157,"05170","Wesel",2002
+0.43169,"05170","Wesel",2003
+0.42776,"05170","Wesel",2004
+0.41468,"05170","Wesel",2005
+0.41241,"05170","Wesel",2006
+0.42975,"05170","Wesel",2007
+0.43879,"05170","Wesel",2008
+0.46308,"05170","Wesel",2009
+0.4438,"05170","Wesel",2010
+0.46407,"05170","Wesel",2011
+0.47453,"05170","Wesel",2012
+0.48481,"05170","Wesel",2013
+0.46924,"05170","Wesel",2014
+0.46536,"05170","Wesel",2015
+0.41563,"05170","Wesel",2016
+0.44113,"05170","Wesel",2017
+0.45083,"05170","Wesel",2018
+0.43296,"05170","Wesel",2019
+0.43466,"05170","Wesel",2020
+0.41741,"05170","Wesel",2021
+0,"05314","Bonn, Stadt",1998
+0,"05314","Bonn, Stadt",1999
+0,"05314","Bonn, Stadt",2000
+0,"05314","Bonn, Stadt",2001
+0,"05314","Bonn, Stadt",2002
+0,"05314","Bonn, Stadt",2003
+0,"05314","Bonn, Stadt",2004
+0,"05314","Bonn, Stadt",2005
+0,"05314","Bonn, Stadt",2006
+0,"05314","Bonn, Stadt",2007
+0.01424,"05314","Bonn, Stadt",2008
+0,"05314","Bonn, Stadt",2009
+0,"05314","Bonn, Stadt",2010
+0,"05314","Bonn, Stadt",2011
+0,"05314","Bonn, Stadt",2012
+0,"05314","Bonn, Stadt",2013
+0,"05314","Bonn, Stadt",2014
+0,"05314","Bonn, Stadt",2015
+0,"05314","Bonn, Stadt",2016
+0.00643,"05314","Bonn, Stadt",2017
+0,"05314","Bonn, Stadt",2018
+0.01254,"05314","Bonn, Stadt",2019
+0.03366,"05314","Bonn, Stadt",2020
+0.05619,"05314","Bonn, Stadt",2021
+0.34068,"05315","Köln, Stadt",1998
+0.30049,"05315","Köln, Stadt",1999
+0.27045,"05315","Köln, Stadt",2000
+0.27543,"05315","Köln, Stadt",2001
+0.31922,"05315","Köln, Stadt",2002
+0.31441,"05315","Köln, Stadt",2003
+0.30596,"05315","Köln, Stadt",2004
+0.34118,"05315","Köln, Stadt",2005
+0.32013,"05315","Köln, Stadt",2006
+0.32574,"05315","Köln, Stadt",2007
+0.30827,"05315","Köln, Stadt",2008
+0.28782,"05315","Köln, Stadt",2009
+0.30112,"05315","Köln, Stadt",2010
+0.32145,"05315","Köln, Stadt",2011
+0.2709,"05315","Köln, Stadt",2012
+0.27278,"05315","Köln, Stadt",2013
+0.24875,"05315","Köln, Stadt",2014
+0.23759,"05315","Köln, Stadt",2015
+0.19757,"05315","Köln, Stadt",2016
+0.1911,"05315","Köln, Stadt",2017
+0.20078,"05315","Köln, Stadt",2018
+0.19926,"05315","Köln, Stadt",2019
+0.20541,"05315","Köln, Stadt",2020
+0.19384,"05315","Köln, Stadt",2021
+0.25586,"05316","Leverkusen, Stadt",1998
+0.23845,"05316","Leverkusen, Stadt",1999
+0.21216,"05316","Leverkusen, Stadt",2000
+0.22658,"05316","Leverkusen, Stadt",2001
+0.29477,"05316","Leverkusen, Stadt",2002
+0.33967,"05316","Leverkusen, Stadt",2003
+0.30205,"05316","Leverkusen, Stadt",2004
+0.33478,"05316","Leverkusen, Stadt",2005
+0.32411,"05316","Leverkusen, Stadt",2006
+0.3001,"05316","Leverkusen, Stadt",2007
+0.31291,"05316","Leverkusen, Stadt",2008
+0.28871,"05316","Leverkusen, Stadt",2009
+0.30137,"05316","Leverkusen, Stadt",2010
+0.27563,"05316","Leverkusen, Stadt",2011
+0.26423,"05316","Leverkusen, Stadt",2012
+0.36273,"05316","Leverkusen, Stadt",2013
+0.30879,"05316","Leverkusen, Stadt",2014
+0.32855,"05316","Leverkusen, Stadt",2015
+0.27534,"05316","Leverkusen, Stadt",2016
+0.29635,"05316","Leverkusen, Stadt",2017
+0.31534,"05316","Leverkusen, Stadt",2018
+0.30365,"05316","Leverkusen, Stadt",2019
+0.33215,"05316","Leverkusen, Stadt",2020
+0.33941,"05316","Leverkusen, Stadt",2021
+0.58192,"05334","Städteregion Aachen",1998
+0.52244,"05334","Städteregion Aachen",1999
+0.50351,"05334","Städteregion Aachen",2000
+0.5002,"05334","Städteregion Aachen",2001
+0.51888,"05334","Städteregion Aachen",2002
+0.52868,"05334","Städteregion Aachen",2003
+0.51027,"05334","Städteregion Aachen",2004
+0.54518,"05334","Städteregion Aachen",2005
+0.53962,"05334","Städteregion Aachen",2006
+0.53215,"05334","Städteregion Aachen",2007
+0.53253,"05334","Städteregion Aachen",2008
+0.53396,"05334","Städteregion Aachen",2009
+0.52334,"05334","Städteregion Aachen",2010
+0.49917,"05334","Städteregion Aachen",2011
+0.45933,"05334","Städteregion Aachen",2012
+0.47026,"05334","Städteregion Aachen",2013
+0.44301,"05334","Städteregion Aachen",2014
+0.44249,"05334","Städteregion Aachen",2015
+0.39228,"05334","Städteregion Aachen",2016
+0.40507,"05334","Städteregion Aachen",2017
+0.43155,"05334","Städteregion Aachen",2018
+0.42392,"05334","Städteregion Aachen",2019
+0.41634,"05334","Städteregion Aachen",2020
+0.40549,"05334","Städteregion Aachen",2021
+0.58985,"05358","Düren",1998
+0.55577,"05358","Düren",1999
+0.56517,"05358","Düren",2000
+0.60451,"05358","Düren",2001
+0.63292,"05358","Düren",2002
+0.60058,"05358","Düren",2003
+0.59055,"05358","Düren",2004
+0.5962,"05358","Düren",2005
+0.58717,"05358","Düren",2006
+0.55921,"05358","Düren",2007
+0.55737,"05358","Düren",2008
+0.58064,"05358","Düren",2009
+0.60236,"05358","Düren",2010
+0.57624,"05358","Düren",2011
+0.56802,"05358","Düren",2012
+0.58241,"05358","Düren",2013
+0.54693,"05358","Düren",2014
+0.57238,"05358","Düren",2015
+0.50393,"05358","Düren",2016
+0.54483,"05358","Düren",2017
+0.58151,"05358","Düren",2018
+0.53704,"05358","Düren",2019
+0.5564,"05358","Düren",2020
+0.5028,"05358","Düren",2021
+0.34923,"05362","Rhein-Erft-Kreis",1998
+0.32228,"05362","Rhein-Erft-Kreis",1999
+0.31064,"05362","Rhein-Erft-Kreis",2000
+0.34155,"05362","Rhein-Erft-Kreis",2001
+0.33935,"05362","Rhein-Erft-Kreis",2002
+0.34873,"05362","Rhein-Erft-Kreis",2003
+0.34962,"05362","Rhein-Erft-Kreis",2004
+0.35844,"05362","Rhein-Erft-Kreis",2005
+0.36113,"05362","Rhein-Erft-Kreis",2006
+0.37709,"05362","Rhein-Erft-Kreis",2007
+0.36202,"05362","Rhein-Erft-Kreis",2008
+0.40493,"05362","Rhein-Erft-Kreis",2009
+0.38921,"05362","Rhein-Erft-Kreis",2010
+0.40266,"05362","Rhein-Erft-Kreis",2011
+0.39132,"05362","Rhein-Erft-Kreis",2012
+0.38816,"05362","Rhein-Erft-Kreis",2013
+0.38709,"05362","Rhein-Erft-Kreis",2014
+0.3552,"05362","Rhein-Erft-Kreis",2015
+0.33447,"05362","Rhein-Erft-Kreis",2016
+0.34998,"05362","Rhein-Erft-Kreis",2017
+0.35577,"05362","Rhein-Erft-Kreis",2018
+0.33724,"05362","Rhein-Erft-Kreis",2019
+0.34433,"05362","Rhein-Erft-Kreis",2020
+0.32145,"05362","Rhein-Erft-Kreis",2021
+0.54085,"05366","Euskirchen",1998
+0.50889,"05366","Euskirchen",1999
+0.51661,"05366","Euskirchen",2000
+0.48708,"05366","Euskirchen",2001
+0.53134,"05366","Euskirchen",2002
+0.53087,"05366","Euskirchen",2003
+0.50717,"05366","Euskirchen",2004
+0.50352,"05366","Euskirchen",2005
+0.48291,"05366","Euskirchen",2006
+0.51012,"05366","Euskirchen",2007
+0.5195,"05366","Euskirchen",2008
+0.57521,"05366","Euskirchen",2009
+0.515,"05366","Euskirchen",2010
+0.54125,"05366","Euskirchen",2011
+0.5503,"05366","Euskirchen",2012
+0.55846,"05366","Euskirchen",2013
+0.54493,"05366","Euskirchen",2014
+0.53357,"05366","Euskirchen",2015
+0.46941,"05366","Euskirchen",2016
+0.48798,"05366","Euskirchen",2017
+0.52229,"05366","Euskirchen",2018
+0.49965,"05366","Euskirchen",2019
+0.49256,"05366","Euskirchen",2020
+0.46854,"05366","Euskirchen",2021
+0.81854,"05370","Heinsberg",1998
+0.7513,"05370","Heinsberg",1999
+0.77277,"05370","Heinsberg",2000
+0.7744,"05370","Heinsberg",2001
+0.7939,"05370","Heinsberg",2002
+0.78481,"05370","Heinsberg",2003
+0.75874,"05370","Heinsberg",2004
+0.76635,"05370","Heinsberg",2005
+0.75348,"05370","Heinsberg",2006
+0.75459,"05370","Heinsberg",2007
+0.77515,"05370","Heinsberg",2008
+0.79574,"05370","Heinsberg",2009
+0.75322,"05370","Heinsberg",2010
+0.72399,"05370","Heinsberg",2011
+0.74401,"05370","Heinsberg",2012
+0.69739,"05370","Heinsberg",2013
+0.66635,"05370","Heinsberg",2014
+0.65704,"05370","Heinsberg",2015
+0.60703,"05370","Heinsberg",2016
+0.60373,"05370","Heinsberg",2017
+0.60767,"05370","Heinsberg",2018
+0.56585,"05370","Heinsberg",2019
+0.60208,"05370","Heinsberg",2020
+0.5509,"05370","Heinsberg",2021
+0.5271,"05374","Oberbergischer Kreis",1998
+0.48798,"05374","Oberbergischer Kreis",1999
+0.524,"05374","Oberbergischer Kreis",2000
+0.52897,"05374","Oberbergischer Kreis",2001
+0.56034,"05374","Oberbergischer Kreis",2002
+0.54742,"05374","Oberbergischer Kreis",2003
+0.5138,"05374","Oberbergischer Kreis",2004
+0.51303,"05374","Oberbergischer Kreis",2005
+0.48701,"05374","Oberbergischer Kreis",2006
+0.44879,"05374","Oberbergischer Kreis",2007
+0.44821,"05374","Oberbergischer Kreis",2008
+0.49828,"05374","Oberbergischer Kreis",2009
+0.48973,"05374","Oberbergischer Kreis",2010
+0.48126,"05374","Oberbergischer Kreis",2011
+0.41903,"05374","Oberbergischer Kreis",2012
+0.45836,"05374","Oberbergischer Kreis",2013
+0.42009,"05374","Oberbergischer Kreis",2014
+0.4168,"05374","Oberbergischer Kreis",2015
+0.3812,"05374","Oberbergischer Kreis",2016
+0.40052,"05374","Oberbergischer Kreis",2017
+0.3791,"05374","Oberbergischer Kreis",2018
+0.38096,"05374","Oberbergischer Kreis",2019
+0.39355,"05374","Oberbergischer Kreis",2020
+0.38265,"05374","Oberbergischer Kreis",2021
+0.14274,"05378","Rheinisch-Bergischer Kreis",1998
+0.11676,"05378","Rheinisch-Bergischer Kreis",1999
+0.12411,"05378","Rheinisch-Bergischer Kreis",2000
+0.0598,"05378","Rheinisch-Bergischer Kreis",2001
+0.0479,"05378","Rheinisch-Bergischer Kreis",2002
+0.07592,"05378","Rheinisch-Bergischer Kreis",2003
+0.09384,"05378","Rheinisch-Bergischer Kreis",2004
+0.10148,"05378","Rheinisch-Bergischer Kreis",2005
+0.0627,"05378","Rheinisch-Bergischer Kreis",2006
+0.08665,"05378","Rheinisch-Bergischer Kreis",2007
+0.0987,"05378","Rheinisch-Bergischer Kreis",2008
+0.15045,"05378","Rheinisch-Bergischer Kreis",2009
+0.1227,"05378","Rheinisch-Bergischer Kreis",2010
+0.1713,"05378","Rheinisch-Bergischer Kreis",2011
+0.18424,"05378","Rheinisch-Bergischer Kreis",2012
+0.17352,"05378","Rheinisch-Bergischer Kreis",2013
+0.16173,"05378","Rheinisch-Bergischer Kreis",2014
+0.18011,"05378","Rheinisch-Bergischer Kreis",2015
+0.17122,"05378","Rheinisch-Bergischer Kreis",2016
+0.16782,"05378","Rheinisch-Bergischer Kreis",2017
+0.19343,"05378","Rheinisch-Bergischer Kreis",2018
+0.18533,"05378","Rheinisch-Bergischer Kreis",2019
+0.18781,"05378","Rheinisch-Bergischer Kreis",2020
+0.18327,"05378","Rheinisch-Bergischer Kreis",2021
+0.34495,"05382","Rhein-Sieg-Kreis",1998
+0.31472,"05382","Rhein-Sieg-Kreis",1999
+0.33059,"05382","Rhein-Sieg-Kreis",2000
+0.30261,"05382","Rhein-Sieg-Kreis",2001
+0.29698,"05382","Rhein-Sieg-Kreis",2002
+0.3,"05382","Rhein-Sieg-Kreis",2003
+0.31267,"05382","Rhein-Sieg-Kreis",2004
+0.30729,"05382","Rhein-Sieg-Kreis",2005
+0.29384,"05382","Rhein-Sieg-Kreis",2006
+0.28561,"05382","Rhein-Sieg-Kreis",2007
+0.34761,"05382","Rhein-Sieg-Kreis",2008
+0.34342,"05382","Rhein-Sieg-Kreis",2009
+0.30719,"05382","Rhein-Sieg-Kreis",2010
+0.33582,"05382","Rhein-Sieg-Kreis",2011
+0.32704,"05382","Rhein-Sieg-Kreis",2012
+0.3535,"05382","Rhein-Sieg-Kreis",2013
+0.32103,"05382","Rhein-Sieg-Kreis",2014
+0.31354,"05382","Rhein-Sieg-Kreis",2015
+0.26965,"05382","Rhein-Sieg-Kreis",2016
+0.30176,"05382","Rhein-Sieg-Kreis",2017
+0.29312,"05382","Rhein-Sieg-Kreis",2018
+0.29373,"05382","Rhein-Sieg-Kreis",2019
+0.30225,"05382","Rhein-Sieg-Kreis",2020
+0.28123,"05382","Rhein-Sieg-Kreis",2021
+0.66315,"05512","Bottrop, Stadt",1998
+0.62678,"05512","Bottrop, Stadt",1999
+0.58271,"05512","Bottrop, Stadt",2000
+0.6078,"05512","Bottrop, Stadt",2001
+0.64332,"05512","Bottrop, Stadt",2002
+0.63226,"05512","Bottrop, Stadt",2003
+0.63565,"05512","Bottrop, Stadt",2004
+0.63736,"05512","Bottrop, Stadt",2005
+0.56422,"05512","Bottrop, Stadt",2006
+0.60429,"05512","Bottrop, Stadt",2007
+0.66703,"05512","Bottrop, Stadt",2008
+0.63026,"05512","Bottrop, Stadt",2009
+0.59653,"05512","Bottrop, Stadt",2010
+0.60691,"05512","Bottrop, Stadt",2011
+0.6552,"05512","Bottrop, Stadt",2012
+0.58578,"05512","Bottrop, Stadt",2013
+0.54263,"05512","Bottrop, Stadt",2014
+0.5606,"05512","Bottrop, Stadt",2015
+0.50456,"05512","Bottrop, Stadt",2016
+0.55965,"05512","Bottrop, Stadt",2017
+0.54748,"05512","Bottrop, Stadt",2018
+0.5439,"05512","Bottrop, Stadt",2019
+0.53567,"05512","Bottrop, Stadt",2020
+0.52795,"05512","Bottrop, Stadt",2021
+1,"05513","Gelsenkirchen, Stadt",1998
+1,"05513","Gelsenkirchen, Stadt",1999
+1,"05513","Gelsenkirchen, Stadt",2000
+1,"05513","Gelsenkirchen, Stadt",2001
+1,"05513","Gelsenkirchen, Stadt",2002
+1,"05513","Gelsenkirchen, Stadt",2003
+1,"05513","Gelsenkirchen, Stadt",2004
+1,"05513","Gelsenkirchen, Stadt",2005
+1,"05513","Gelsenkirchen, Stadt",2006
+1,"05513","Gelsenkirchen, Stadt",2007
+1,"05513","Gelsenkirchen, Stadt",2008
+1,"05513","Gelsenkirchen, Stadt",2009
+1,"05513","Gelsenkirchen, Stadt",2010
+1,"05513","Gelsenkirchen, Stadt",2011
+1,"05513","Gelsenkirchen, Stadt",2012
+1,"05513","Gelsenkirchen, Stadt",2013
+1,"05513","Gelsenkirchen, Stadt",2014
+1,"05513","Gelsenkirchen, Stadt",2015
+1,"05513","Gelsenkirchen, Stadt",2016
+1,"05513","Gelsenkirchen, Stadt",2017
+1,"05513","Gelsenkirchen, Stadt",2018
+1,"05513","Gelsenkirchen, Stadt",2019
+1,"05513","Gelsenkirchen, Stadt",2020
+1,"05513","Gelsenkirchen, Stadt",2021
+0.04628,"05515","Münster, Stadt",1998
+0.04308,"05515","Münster, Stadt",1999
+0.04783,"05515","Münster, Stadt",2000
+0.0393,"05515","Münster, Stadt",2001
+0.03106,"05515","Münster, Stadt",2002
+0.0274,"05515","Münster, Stadt",2003
+0.0413,"05515","Münster, Stadt",2004
+0.0087,"05515","Münster, Stadt",2005
+0.00318,"05515","Münster, Stadt",2006
+0.02937,"05515","Münster, Stadt",2007
+0,"05515","Münster, Stadt",2008
+0.0673,"05515","Münster, Stadt",2009
+0.02644,"05515","Münster, Stadt",2010
+0.12746,"05515","Münster, Stadt",2011
+0.08718,"05515","Münster, Stadt",2012
+0.09522,"05515","Münster, Stadt",2013
+0.06657,"05515","Münster, Stadt",2014
+0.09669,"05515","Münster, Stadt",2015
+0.07584,"05515","Münster, Stadt",2016
+0.09125,"05515","Münster, Stadt",2017
+0.11987,"05515","Münster, Stadt",2018
+0.11142,"05515","Münster, Stadt",2019
+0.11438,"05515","Münster, Stadt",2020
+0.11151,"05515","Münster, Stadt",2021
+0.43558,"05554","Borken",1998
+0.43787,"05554","Borken",1999
+0.47429,"05554","Borken",2000
+0.48136,"05554","Borken",2001
+0.47495,"05554","Borken",2002
+0.481,"05554","Borken",2003
+0.50034,"05554","Borken",2004
+0.45913,"05554","Borken",2005
+0.44682,"05554","Borken",2006
+0.39159,"05554","Borken",2007
+0.45974,"05554","Borken",2008
+0.49277,"05554","Borken",2009
+0.46211,"05554","Borken",2010
+0.45328,"05554","Borken",2011
+0.46298,"05554","Borken",2012
+0.4688,"05554","Borken",2013
+0.43656,"05554","Borken",2014
+0.43061,"05554","Borken",2015
+0.39442,"05554","Borken",2016
+0.42774,"05554","Borken",2017
+0.39821,"05554","Borken",2018
+0.37978,"05554","Borken",2019
+0.38937,"05554","Borken",2020
+0.3683,"05554","Borken",2021
+0.22239,"05558","Coesfeld",1998
+0.21949,"05558","Coesfeld",1999
+0.25441,"05558","Coesfeld",2000
+0.24107,"05558","Coesfeld",2001
+0.21415,"05558","Coesfeld",2002
+0.23036,"05558","Coesfeld",2003
+0.23499,"05558","Coesfeld",2004
+0.22039,"05558","Coesfeld",2005
+0.21746,"05558","Coesfeld",2006
+0.18598,"05558","Coesfeld",2007
+0.22007,"05558","Coesfeld",2008
+0.23949,"05558","Coesfeld",2009
+0.20168,"05558","Coesfeld",2010
+0.24772,"05558","Coesfeld",2011
+0.24878,"05558","Coesfeld",2012
+0.26012,"05558","Coesfeld",2013
+0.24317,"05558","Coesfeld",2014
+0.27069,"05558","Coesfeld",2015
+0.23188,"05558","Coesfeld",2016
+0.25357,"05558","Coesfeld",2017
+0.24732,"05558","Coesfeld",2018
+0.24997,"05558","Coesfeld",2019
+0.2602,"05558","Coesfeld",2020
+0.23997,"05558","Coesfeld",2021
+0.62404,"05562","Recklinghausen",1998
+0.61136,"05562","Recklinghausen",1999
+0.60664,"05562","Recklinghausen",2000
+0.63279,"05562","Recklinghausen",2001
+0.61317,"05562","Recklinghausen",2002
+0.60196,"05562","Recklinghausen",2003
+0.57368,"05562","Recklinghausen",2004
+0.54346,"05562","Recklinghausen",2005
+0.56484,"05562","Recklinghausen",2006
+0.57841,"05562","Recklinghausen",2007
+0.59627,"05562","Recklinghausen",2008
+0.61119,"05562","Recklinghausen",2009
+0.61878,"05562","Recklinghausen",2010
+0.63401,"05562","Recklinghausen",2011
+0.62662,"05562","Recklinghausen",2012
+0.63891,"05562","Recklinghausen",2013
+0.62623,"05562","Recklinghausen",2014
+0.61891,"05562","Recklinghausen",2015
+0.56274,"05562","Recklinghausen",2016
+0.60324,"05562","Recklinghausen",2017
+0.61617,"05562","Recklinghausen",2018
+0.57259,"05562","Recklinghausen",2019
+0.58223,"05562","Recklinghausen",2020
+0.55874,"05562","Recklinghausen",2021
+0.40034,"05566","Steinfurt",1998
+0.42587,"05566","Steinfurt",1999
+0.46191,"05566","Steinfurt",2000
+0.41569,"05566","Steinfurt",2001
+0.4141,"05566","Steinfurt",2002
+0.41191,"05566","Steinfurt",2003
+0.37188,"05566","Steinfurt",2004
+0.37264,"05566","Steinfurt",2005
+0.34876,"05566","Steinfurt",2006
+0.36359,"05566","Steinfurt",2007
+0.3712,"05566","Steinfurt",2008
+0.40984,"05566","Steinfurt",2009
+0.41023,"05566","Steinfurt",2010
+0.41327,"05566","Steinfurt",2011
+0.44143,"05566","Steinfurt",2012
+0.4349,"05566","Steinfurt",2013
+0.4485,"05566","Steinfurt",2014
+0.42544,"05566","Steinfurt",2015
+0.38906,"05566","Steinfurt",2016
+0.44004,"05566","Steinfurt",2017
+0.40164,"05566","Steinfurt",2018
+0.38123,"05566","Steinfurt",2019
+0.40159,"05566","Steinfurt",2020
+0.36398,"05566","Steinfurt",2021
+0.35544,"05570","Warendorf",1998
+0.34145,"05570","Warendorf",1999
+0.38443,"05570","Warendorf",2000
+0.37936,"05570","Warendorf",2001
+0.41667,"05570","Warendorf",2002
+0.40961,"05570","Warendorf",2003
+0.38331,"05570","Warendorf",2004
+0.36373,"05570","Warendorf",2005
+0.33558,"05570","Warendorf",2006
+0.25385,"05570","Warendorf",2007
+0.29061,"05570","Warendorf",2008
+0.33957,"05570","Warendorf",2009
+0.34094,"05570","Warendorf",2010
+0.35329,"05570","Warendorf",2011
+0.36091,"05570","Warendorf",2012
+0.36099,"05570","Warendorf",2013
+0.33726,"05570","Warendorf",2014
+0.36904,"05570","Warendorf",2015
+0.33513,"05570","Warendorf",2016
+0.37752,"05570","Warendorf",2017
+0.35365,"05570","Warendorf",2018
+0.3428,"05570","Warendorf",2019
+0.34131,"05570","Warendorf",2020
+0.33189,"05570","Warendorf",2021
+0.54422,"05711","Bielefeld, Stadt",1998
+0.50449,"05711","Bielefeld, Stadt",1999
+0.47713,"05711","Bielefeld, Stadt",2000
+0.47691,"05711","Bielefeld, Stadt",2001
+0.44661,"05711","Bielefeld, Stadt",2002
+0.49101,"05711","Bielefeld, Stadt",2003
+0.43412,"05711","Bielefeld, Stadt",2004
+0.47037,"05711","Bielefeld, Stadt",2005
+0.44039,"05711","Bielefeld, Stadt",2006
+0.43896,"05711","Bielefeld, Stadt",2007
+0.45292,"05711","Bielefeld, Stadt",2008
+0.50934,"05711","Bielefeld, Stadt",2009
+0.4677,"05711","Bielefeld, Stadt",2010
+0.48234,"05711","Bielefeld, Stadt",2011
+0.50832,"05711","Bielefeld, Stadt",2012
+0.50151,"05711","Bielefeld, Stadt",2013
+0.45971,"05711","Bielefeld, Stadt",2014
+0.46925,"05711","Bielefeld, Stadt",2015
+0.3936,"05711","Bielefeld, Stadt",2016
+0.46116,"05711","Bielefeld, Stadt",2017
+0.46102,"05711","Bielefeld, Stadt",2018
+0.44826,"05711","Bielefeld, Stadt",2019
+0.46844,"05711","Bielefeld, Stadt",2020
+0.44317,"05711","Bielefeld, Stadt",2021
+0.37537,"05754","Gütersloh",1998
+0.31918,"05754","Gütersloh",1999
+0.34003,"05754","Gütersloh",2000
+0.36068,"05754","Gütersloh",2001
+0.32587,"05754","Gütersloh",2002
+0.33208,"05754","Gütersloh",2003
+0.33899,"05754","Gütersloh",2004
+0.31094,"05754","Gütersloh",2005
+0.25508,"05754","Gütersloh",2006
+0.25811,"05754","Gütersloh",2007
+0.2889,"05754","Gütersloh",2008
+0.32359,"05754","Gütersloh",2009
+0.33064,"05754","Gütersloh",2010
+0.35207,"05754","Gütersloh",2011
+0.33164,"05754","Gütersloh",2012
+0.36439,"05754","Gütersloh",2013
+0.36034,"05754","Gütersloh",2014
+0.33703,"05754","Gütersloh",2015
+0.31027,"05754","Gütersloh",2016
+0.37403,"05754","Gütersloh",2017
+0.34527,"05754","Gütersloh",2018
+0.31743,"05754","Gütersloh",2019
+0.32244,"05754","Gütersloh",2020
+0.29988,"05754","Gütersloh",2021
+0.44979,"05758","Herford",1998
+0.40816,"05758","Herford",1999
+0.37479,"05758","Herford",2000
+0.41287,"05758","Herford",2001
+0.38371,"05758","Herford",2002
+0.39455,"05758","Herford",2003
+0.38048,"05758","Herford",2004
+0.41517,"05758","Herford",2005
+0.38516,"05758","Herford",2006
+0.39374,"05758","Herford",2007
+0.38858,"05758","Herford",2008
+0.44972,"05758","Herford",2009
+0.43039,"05758","Herford",2010
+0.44976,"05758","Herford",2011
+0.47098,"05758","Herford",2012
+0.48114,"05758","Herford",2013
+0.44962,"05758","Herford",2014
+0.4588,"05758","Herford",2015
+0.39434,"05758","Herford",2016
+0.43279,"05758","Herford",2017
+0.43353,"05758","Herford",2018
+0.42402,"05758","Herford",2019
+0.43663,"05758","Herford",2020
+0.4259,"05758","Herford",2021
+0.51619,"05762","Höxter",1998
+0.48869,"05762","Höxter",1999
+0.53496,"05762","Höxter",2000
+0.51556,"05762","Höxter",2001
+0.57232,"05762","Höxter",2002
+0.58116,"05762","Höxter",2003
+0.52221,"05762","Höxter",2004
+0.5098,"05762","Höxter",2005
+0.49981,"05762","Höxter",2006
+0.47791,"05762","Höxter",2007
+0.49527,"05762","Höxter",2008
+0.56775,"05762","Höxter",2009
+0.50386,"05762","Höxter",2010
+0.50297,"05762","Höxter",2011
+0.51043,"05762","Höxter",2012
+0.50178,"05762","Höxter",2013
+0.50507,"05762","Höxter",2014
+0.49123,"05762","Höxter",2015
+0.46085,"05762","Höxter",2016
+0.45747,"05762","Höxter",2017
+0.43528,"05762","Höxter",2018
+0.42475,"05762","Höxter",2019
+0.42191,"05762","Höxter",2020
+0.40065,"05762","Höxter",2021
+0.43782,"05766","Lippe",1998
+0.42628,"05766","Lippe",1999
+0.45475,"05766","Lippe",2000
+0.48874,"05766","Lippe",2001
+0.50573,"05766","Lippe",2002
+0.49638,"05766","Lippe",2003
+0.45775,"05766","Lippe",2004
+0.4551,"05766","Lippe",2005
+0.42023,"05766","Lippe",2006
+0.38254,"05766","Lippe",2007
+0.39624,"05766","Lippe",2008
+0.48727,"05766","Lippe",2009
+0.43946,"05766","Lippe",2010
+0.45855,"05766","Lippe",2011
+0.45715,"05766","Lippe",2012
+0.46884,"05766","Lippe",2013
+0.44199,"05766","Lippe",2014
+0.44572,"05766","Lippe",2015
+0.39217,"05766","Lippe",2016
+0.41222,"05766","Lippe",2017
+0.40634,"05766","Lippe",2018
+0.39822,"05766","Lippe",2019
+0.42737,"05766","Lippe",2020
+0.40397,"05766","Lippe",2021
+0.52671,"05770","Minden-Lübbecke",1998
+0.47822,"05770","Minden-Lübbecke",1999
+0.46987,"05770","Minden-Lübbecke",2000
+0.44633,"05770","Minden-Lübbecke",2001
+0.48894,"05770","Minden-Lübbecke",2002
+0.47882,"05770","Minden-Lübbecke",2003
+0.45554,"05770","Minden-Lübbecke",2004
+0.45357,"05770","Minden-Lübbecke",2005
+0.40846,"05770","Minden-Lübbecke",2006
+0.42329,"05770","Minden-Lübbecke",2007
+0.42704,"05770","Minden-Lübbecke",2008
+0.49156,"05770","Minden-Lübbecke",2009
+0.46579,"05770","Minden-Lübbecke",2010
+0.4804,"05770","Minden-Lübbecke",2011
+0.46971,"05770","Minden-Lübbecke",2012
+0.46015,"05770","Minden-Lübbecke",2013
+0.45563,"05770","Minden-Lübbecke",2014
+0.45305,"05770","Minden-Lübbecke",2015
+0.40444,"05770","Minden-Lübbecke",2016
+0.45236,"05770","Minden-Lübbecke",2017
+0.42158,"05770","Minden-Lübbecke",2018
+0.42412,"05770","Minden-Lübbecke",2019
+0.42706,"05770","Minden-Lübbecke",2020
+0.40588,"05770","Minden-Lübbecke",2021
+0.47235,"05774","Paderborn",1998
+0.46546,"05774","Paderborn",1999
+0.47167,"05774","Paderborn",2000
+0.46624,"05774","Paderborn",2001
+0.49136,"05774","Paderborn",2002
+0.4737,"05774","Paderborn",2003
+0.46367,"05774","Paderborn",2004
+0.44145,"05774","Paderborn",2005
+0.42286,"05774","Paderborn",2006
+0.39631,"05774","Paderborn",2007
+0.39894,"05774","Paderborn",2008
+0.4598,"05774","Paderborn",2009
+0.43306,"05774","Paderborn",2010
+0.4374,"05774","Paderborn",2011
+0.41795,"05774","Paderborn",2012
+0.42731,"05774","Paderborn",2013
+0.43248,"05774","Paderborn",2014
+0.4126,"05774","Paderborn",2015
+0.37978,"05774","Paderborn",2016
+0.37841,"05774","Paderborn",2017
+0.37273,"05774","Paderborn",2018
+0.3689,"05774","Paderborn",2019
+0.38191,"05774","Paderborn",2020
+0.35133,"05774","Paderborn",2021
+0.50171,"05911","Bochum, Stadt",1998
+0.47736,"05911","Bochum, Stadt",1999
+0.46431,"05911","Bochum, Stadt",2000
+0.46708,"05911","Bochum, Stadt",2001
+0.44222,"05911","Bochum, Stadt",2002
+0.46272,"05911","Bochum, Stadt",2003
+0.44989,"05911","Bochum, Stadt",2004
+0.44866,"05911","Bochum, Stadt",2005
+0.4476,"05911","Bochum, Stadt",2006
+0.45289,"05911","Bochum, Stadt",2007
+0.46617,"05911","Bochum, Stadt",2008
+0.50655,"05911","Bochum, Stadt",2009
+0.43487,"05911","Bochum, Stadt",2010
+0.48461,"05911","Bochum, Stadt",2011
+0.49694,"05911","Bochum, Stadt",2012
+0.48638,"05911","Bochum, Stadt",2013
+0.48177,"05911","Bochum, Stadt",2014
+0.47726,"05911","Bochum, Stadt",2015
+0.44774,"05911","Bochum, Stadt",2016
+0.48264,"05911","Bochum, Stadt",2017
+0.48315,"05911","Bochum, Stadt",2018
+0.48571,"05911","Bochum, Stadt",2019
+0.50294,"05911","Bochum, Stadt",2020
+0.45881,"05911","Bochum, Stadt",2021
+0.69369,"05913","Dortmund, Stadt",1998
+0.65145,"05913","Dortmund, Stadt",1999
+0.61323,"05913","Dortmund, Stadt",2000
+0.61675,"05913","Dortmund, Stadt",2001
+0.61146,"05913","Dortmund, Stadt",2002
+0.61465,"05913","Dortmund, Stadt",2003
+0.60356,"05913","Dortmund, Stadt",2004
+0.59596,"05913","Dortmund, Stadt",2005
+0.62738,"05913","Dortmund, Stadt",2006
+0.62233,"05913","Dortmund, Stadt",2007
+0.63203,"05913","Dortmund, Stadt",2008
+0.68094,"05913","Dortmund, Stadt",2009
+0.64895,"05913","Dortmund, Stadt",2010
+0.65451,"05913","Dortmund, Stadt",2011
+0.68275,"05913","Dortmund, Stadt",2012
+0.67145,"05913","Dortmund, Stadt",2013
+0.64403,"05913","Dortmund, Stadt",2014
+0.63431,"05913","Dortmund, Stadt",2015
+0.56232,"05913","Dortmund, Stadt",2016
+0.60245,"05913","Dortmund, Stadt",2017
+0.61573,"05913","Dortmund, Stadt",2018
+0.6049,"05913","Dortmund, Stadt",2019
+0.61732,"05913","Dortmund, Stadt",2020
+0.59145,"05913","Dortmund, Stadt",2021
+0.84209,"05914","Hagen, Stadt der FernUniversität",1998
+0.7738,"05914","Hagen, Stadt der FernUniversität",1999
+0.73705,"05914","Hagen, Stadt der FernUniversität",2000
+0.75368,"05914","Hagen, Stadt der FernUniversität",2001
+0.70831,"05914","Hagen, Stadt der FernUniversität",2002
+0.72598,"05914","Hagen, Stadt der FernUniversität",2003
+0.711,"05914","Hagen, Stadt der FernUniversität",2004
+0.71105,"05914","Hagen, Stadt der FernUniversität",2005
+0.71779,"05914","Hagen, Stadt der FernUniversität",2006
+0.74884,"05914","Hagen, Stadt der FernUniversität",2007
+0.74748,"05914","Hagen, Stadt der FernUniversität",2008
+0.79317,"05914","Hagen, Stadt der FernUniversität",2009
+0.78739,"05914","Hagen, Stadt der FernUniversität",2010
+0.73526,"05914","Hagen, Stadt der FernUniversität",2011
+0.7517,"05914","Hagen, Stadt der FernUniversität",2012
+0.73997,"05914","Hagen, Stadt der FernUniversität",2013
+0.73762,"05914","Hagen, Stadt der FernUniversität",2014
+0.73654,"05914","Hagen, Stadt der FernUniversität",2015
+0.71022,"05914","Hagen, Stadt der FernUniversität",2016
+0.74935,"05914","Hagen, Stadt der FernUniversität",2017
+0.77254,"05914","Hagen, Stadt der FernUniversität",2018
+0.77304,"05914","Hagen, Stadt der FernUniversität",2019
+0.79644,"05914","Hagen, Stadt der FernUniversität",2020
+0.76412,"05914","Hagen, Stadt der FernUniversität",2021
+0.85256,"05915","Hamm, Stadt",1998
+0.84891,"05915","Hamm, Stadt",1999
+0.76732,"05915","Hamm, Stadt",2000
+0.79314,"05915","Hamm, Stadt",2001
+0.81906,"05915","Hamm, Stadt",2002
+0.85225,"05915","Hamm, Stadt",2003
+0.80989,"05915","Hamm, Stadt",2004
+0.78387,"05915","Hamm, Stadt",2005
+0.82943,"05915","Hamm, Stadt",2006
+0.79674,"05915","Hamm, Stadt",2007
+0.81106,"05915","Hamm, Stadt",2008
+0.83909,"05915","Hamm, Stadt",2009
+0.82108,"05915","Hamm, Stadt",2010
+0.80767,"05915","Hamm, Stadt",2011
+0.82454,"05915","Hamm, Stadt",2012
+0.83784,"05915","Hamm, Stadt",2013
+0.79391,"05915","Hamm, Stadt",2014
+0.78769,"05915","Hamm, Stadt",2015
+0.74277,"05915","Hamm, Stadt",2016
+0.76979,"05915","Hamm, Stadt",2017
+0.80125,"05915","Hamm, Stadt",2018
+0.76933,"05915","Hamm, Stadt",2019
+0.73629,"05915","Hamm, Stadt",2020
+0.71239,"05915","Hamm, Stadt",2021
+0.93532,"05916","Herne, Stadt",1998
+0.86358,"05916","Herne, Stadt",1999
+0.82918,"05916","Herne, Stadt",2000
+0.84873,"05916","Herne, Stadt",2001
+0.86555,"05916","Herne, Stadt",2002
+0.88723,"05916","Herne, Stadt",2003
+0.8351,"05916","Herne, Stadt",2004
+0.79674,"05916","Herne, Stadt",2005
+0.81622,"05916","Herne, Stadt",2006
+0.79866,"05916","Herne, Stadt",2007
+0.80776,"05916","Herne, Stadt",2008
+0.85609,"05916","Herne, Stadt",2009
+0.86468,"05916","Herne, Stadt",2010
+0.86591,"05916","Herne, Stadt",2011
+0.89613,"05916","Herne, Stadt",2012
+0.88201,"05916","Herne, Stadt",2013
+0.81651,"05916","Herne, Stadt",2014
+0.86071,"05916","Herne, Stadt",2015
+0.7933,"05916","Herne, Stadt",2016
+0.87139,"05916","Herne, Stadt",2017
+0.89502,"05916","Herne, Stadt",2018
+0.87153,"05916","Herne, Stadt",2019
+0.87194,"05916","Herne, Stadt",2020
+0.87029,"05916","Herne, Stadt",2021
+0.33699,"05954","Ennepe-Ruhr-Kreis",1998
+0.29938,"05954","Ennepe-Ruhr-Kreis",1999
+0.32788,"05954","Ennepe-Ruhr-Kreis",2000
+0.3178,"05954","Ennepe-Ruhr-Kreis",2001
+0.27841,"05954","Ennepe-Ruhr-Kreis",2002
+0.28746,"05954","Ennepe-Ruhr-Kreis",2003
+0.27335,"05954","Ennepe-Ruhr-Kreis",2004
+0.2382,"05954","Ennepe-Ruhr-Kreis",2005
+0.24603,"05954","Ennepe-Ruhr-Kreis",2006
+0.2313,"05954","Ennepe-Ruhr-Kreis",2007
+0.27649,"05954","Ennepe-Ruhr-Kreis",2008
+0.31075,"05954","Ennepe-Ruhr-Kreis",2009
+0.28527,"05954","Ennepe-Ruhr-Kreis",2010
+0.29652,"05954","Ennepe-Ruhr-Kreis",2011
+0.31758,"05954","Ennepe-Ruhr-Kreis",2012
+0.34138,"05954","Ennepe-Ruhr-Kreis",2013
+0.31747,"05954","Ennepe-Ruhr-Kreis",2014
+0.35757,"05954","Ennepe-Ruhr-Kreis",2015
+0.30001,"05954","Ennepe-Ruhr-Kreis",2016
+0.328,"05954","Ennepe-Ruhr-Kreis",2017
+0.34994,"05954","Ennepe-Ruhr-Kreis",2018
+0.32363,"05954","Ennepe-Ruhr-Kreis",2019
+0.37315,"05954","Ennepe-Ruhr-Kreis",2020
+0.35381,"05954","Ennepe-Ruhr-Kreis",2021
+0.54108,"05958","Hochsauerlandkreis",1998
+0.49765,"05958","Hochsauerlandkreis",1999
+0.52034,"05958","Hochsauerlandkreis",2000
+0.57468,"05958","Hochsauerlandkreis",2001
+0.61232,"05958","Hochsauerlandkreis",2002
+0.57981,"05958","Hochsauerlandkreis",2003
+0.54838,"05958","Hochsauerlandkreis",2004
+0.57604,"05958","Hochsauerlandkreis",2005
+0.52164,"05958","Hochsauerlandkreis",2006
+0.48899,"05958","Hochsauerlandkreis",2007
+0.47754,"05958","Hochsauerlandkreis",2008
+0.50653,"05958","Hochsauerlandkreis",2009
+0.49266,"05958","Hochsauerlandkreis",2010
+0.49184,"05958","Hochsauerlandkreis",2011
+0.48976,"05958","Hochsauerlandkreis",2012
+0.45519,"05958","Hochsauerlandkreis",2013
+0.42839,"05958","Hochsauerlandkreis",2014
+0.43494,"05958","Hochsauerlandkreis",2015
+0.41628,"05958","Hochsauerlandkreis",2016
+0.42438,"05958","Hochsauerlandkreis",2017
+0.42723,"05958","Hochsauerlandkreis",2018
+0.37227,"05958","Hochsauerlandkreis",2019
+0.39812,"05958","Hochsauerlandkreis",2020
+0.36923,"05958","Hochsauerlandkreis",2021
+0.75211,"05962","Märkischer Kreis",1998
+0.64753,"05962","Märkischer Kreis",1999
+0.6509,"05962","Märkischer Kreis",2000
+0.69513,"05962","Märkischer Kreis",2001
+0.74577,"05962","Märkischer Kreis",2002
+0.73196,"05962","Märkischer Kreis",2003
+0.68995,"05962","Märkischer Kreis",2004
+0.65365,"05962","Märkischer Kreis",2005
+0.64183,"05962","Märkischer Kreis",2006
+0.57288,"05962","Märkischer Kreis",2007
+0.6226,"05962","Märkischer Kreis",2008
+0.67039,"05962","Märkischer Kreis",2009
+0.63757,"05962","Märkischer Kreis",2010
+0.62928,"05962","Märkischer Kreis",2011
+0.59051,"05962","Märkischer Kreis",2012
+0.60777,"05962","Märkischer Kreis",2013
+0.5705,"05962","Märkischer Kreis",2014
+0.54075,"05962","Märkischer Kreis",2015
+0.48523,"05962","Märkischer Kreis",2016
+0.53319,"05962","Märkischer Kreis",2017
+0.55497,"05962","Märkischer Kreis",2018
+0.55035,"05962","Märkischer Kreis",2019
+0.56881,"05962","Märkischer Kreis",2020
+0.52634,"05962","Märkischer Kreis",2021
+0.41027,"05966","Olpe",1998
+0.37889,"05966","Olpe",1999
+0.47673,"05966","Olpe",2000
+0.5169,"05966","Olpe",2001
+0.61143,"05966","Olpe",2002
+0.53747,"05966","Olpe",2003
+0.48743,"05966","Olpe",2004
+0.48985,"05966","Olpe",2005
+0.45291,"05966","Olpe",2006
+0.40779,"05966","Olpe",2007
+0.36823,"05966","Olpe",2008
+0.40751,"05966","Olpe",2009
+0.40541,"05966","Olpe",2010
+0.39451,"05966","Olpe",2011
+0.33542,"05966","Olpe",2012
+0.39445,"05966","Olpe",2013
+0.31688,"05966","Olpe",2014
+0.33124,"05966","Olpe",2015
+0.25898,"05966","Olpe",2016
+0.30497,"05966","Olpe",2017
+0.32136,"05966","Olpe",2018
+0.30236,"05966","Olpe",2019
+0.34019,"05966","Olpe",2020
+0.27538,"05966","Olpe",2021
+0.33573,"05970","Siegen-Wittgenstein",1998
+0.30274,"05970","Siegen-Wittgenstein",1999
+0.34207,"05970","Siegen-Wittgenstein",2000
+0.34655,"05970","Siegen-Wittgenstein",2001
+0.3451,"05970","Siegen-Wittgenstein",2002
+0.34176,"05970","Siegen-Wittgenstein",2003
+0.33853,"05970","Siegen-Wittgenstein",2004
+0.3441,"05970","Siegen-Wittgenstein",2005
+0.25931,"05970","Siegen-Wittgenstein",2006
+0.254,"05970","Siegen-Wittgenstein",2007
+0.26681,"05970","Siegen-Wittgenstein",2008
+0.31549,"05970","Siegen-Wittgenstein",2009
+0.32873,"05970","Siegen-Wittgenstein",2010
+0.31639,"05970","Siegen-Wittgenstein",2011
+0.31343,"05970","Siegen-Wittgenstein",2012
+0.33635,"05970","Siegen-Wittgenstein",2013
+0.30879,"05970","Siegen-Wittgenstein",2014
+0.34426,"05970","Siegen-Wittgenstein",2015
+0.29449,"05970","Siegen-Wittgenstein",2016
+0.29956,"05970","Siegen-Wittgenstein",2017
+0.29659,"05970","Siegen-Wittgenstein",2018
+0.29383,"05970","Siegen-Wittgenstein",2019
+0.31796,"05970","Siegen-Wittgenstein",2020
+0.31448,"05970","Siegen-Wittgenstein",2021
+0.45492,"05974","Soest",1998
+0.45551,"05974","Soest",1999
+0.48505,"05974","Soest",2000
+0.47406,"05974","Soest",2001
+0.53642,"05974","Soest",2002
+0.52025,"05974","Soest",2003
+0.50305,"05974","Soest",2004
+0.49055,"05974","Soest",2005
+0.46337,"05974","Soest",2006
+0.46655,"05974","Soest",2007
+0.45106,"05974","Soest",2008
+0.48086,"05974","Soest",2009
+0.46082,"05974","Soest",2010
+0.46971,"05974","Soest",2011
+0.47292,"05974","Soest",2012
+0.4482,"05974","Soest",2013
+0.41432,"05974","Soest",2014
+0.41843,"05974","Soest",2015
+0.39633,"05974","Soest",2016
+0.42384,"05974","Soest",2017
+0.38988,"05974","Soest",2018
+0.38892,"05974","Soest",2019
+0.38323,"05974","Soest",2020
+0.35121,"05974","Soest",2021
+0.59065,"05978","Unna",1998
+0.57118,"05978","Unna",1999
+0.58893,"05978","Unna",2000
+0.56589,"05978","Unna",2001
+0.55637,"05978","Unna",2002
+0.58422,"05978","Unna",2003
+0.58802,"05978","Unna",2004
+0.55869,"05978","Unna",2005
+0.5758,"05978","Unna",2006
+0.5473,"05978","Unna",2007
+0.5695,"05978","Unna",2008
+0.59755,"05978","Unna",2009
+0.59917,"05978","Unna",2010
+0.59798,"05978","Unna",2011
+0.58391,"05978","Unna",2012
+0.58409,"05978","Unna",2013
+0.553,"05978","Unna",2014
+0.54429,"05978","Unna",2015
+0.50268,"05978","Unna",2016
+0.54866,"05978","Unna",2017
+0.54777,"05978","Unna",2018
+0.53287,"05978","Unna",2019
+0.52679,"05978","Unna",2020
+0.50625,"05978","Unna",2021
