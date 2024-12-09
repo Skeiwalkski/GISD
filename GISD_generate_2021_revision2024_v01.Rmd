@@ -59,7 +59,9 @@ outfiles_dir <- "../../GISD_Release_aktuell/"
 
 # ACHTUNG: Für das Knitten bitte vorher eval auf FALSE setzen
 
-# Änderung zu 2024_v0: Führende Null bei den GVB-Kennziffern weil eine Ziffer dazukam
+# Änderungen zu 2024_v0:
+# - Für die Faktorenanalyse fallen nur noch die letzten 20 Datenjahre mit rein
+# - Führende Null bei den GVB-Kennziffern weil eine Ziffer dazukam
 currentrevision <- "2024_v01"
 
 # Pfaddefinitonen (für intern)
@@ -911,24 +913,24 @@ rm(i, listofdeterminants, hist_over_year)
 
 ## V. Faktorenanalyse (Hauptkomponentenanalyse) und Generierung der Faktorscores
 
-Die Indikatoren werden den einzelnen Teildimensionen des GISD zugewiesen. Datenjahre vor 2000 fallen nicht mit rein.
+Die Indikatoren werden den einzelnen Teildimensionen des GISD zugewiesen. Für die Faktorenanalysen fallen nur die letzten 20 Datenjahre mit rein.
 
 ```{r teildimensionen, message=FALSE, warning=FALSE}
 
 TS_Arbeitswelt <- Impdata %>% 
-  filter(Jahr > 1999) %>% 
+  filter(Jahr > (latestyear - 20)) %>% 
   select(Beschaeftigtenquote,
          Arbeitslosigkeit,
          Bruttoverdienst_ln)
 
 TS_Einkommen <- Impdata %>%
-  filter(Jahr > 1999) %>% 
+  filter(Jahr > (latestyear - 20)) %>% 
   select(Einkommensteuer_ln,
          Haushaltseinkommen_ln,
          Schuldnerquote)
 
 TS_Bildung <- Impdata %>%
-  filter(Jahr > 1999) %>% 
+  filter(Jahr > (latestyear - 20)) %>% 
   select(BeschaeftigtemitakadAbschluss_adj,
          BeschaeftigteohneAbschluss_adj,
          SchulabgaengerohneAbschluss_adj)
