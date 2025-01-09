@@ -1,0 +1,300 @@
+"gisd_score","kreis_id","kreis_name","year"
+0.54335,"14511","Chemnitz, Stadt",1998
+0.57434,"14511","Chemnitz, Stadt",1999
+0.47612,"14511","Chemnitz, Stadt",2000
+0.45982,"14511","Chemnitz, Stadt",2001
+0.46504,"14511","Chemnitz, Stadt",2002
+0.45236,"14511","Chemnitz, Stadt",2003
+0.45309,"14511","Chemnitz, Stadt",2004
+0.49042,"14511","Chemnitz, Stadt",2005
+0.40706,"14511","Chemnitz, Stadt",2006
+0.42774,"14511","Chemnitz, Stadt",2007
+0.46127,"14511","Chemnitz, Stadt",2008
+0.47915,"14511","Chemnitz, Stadt",2009
+0.50326,"14511","Chemnitz, Stadt",2010
+0.50394,"14511","Chemnitz, Stadt",2011
+0.53172,"14511","Chemnitz, Stadt",2012
+0.58401,"14511","Chemnitz, Stadt",2013
+0.60195,"14511","Chemnitz, Stadt",2014
+0.60953,"14511","Chemnitz, Stadt",2015
+0.61118,"14511","Chemnitz, Stadt",2016
+0.75568,"14511","Chemnitz, Stadt",2017
+0.67387,"14511","Chemnitz, Stadt",2018
+0.69762,"14511","Chemnitz, Stadt",2019
+0.74732,"14511","Chemnitz, Stadt",2020
+0.82744,"14521","Erzgebirgskreis",1998
+0.81961,"14521","Erzgebirgskreis",1999
+0.84836,"14521","Erzgebirgskreis",2000
+0.78367,"14521","Erzgebirgskreis",2001
+0.83279,"14521","Erzgebirgskreis",2002
+0.83853,"14521","Erzgebirgskreis",2003
+0.77377,"14521","Erzgebirgskreis",2004
+0.77464,"14521","Erzgebirgskreis",2005
+0.80034,"14521","Erzgebirgskreis",2006
+0.72028,"14521","Erzgebirgskreis",2007
+0.69794,"14521","Erzgebirgskreis",2008
+0.74674,"14521","Erzgebirgskreis",2009
+0.6919,"14521","Erzgebirgskreis",2010
+0.65089,"14521","Erzgebirgskreis",2011
+0.64829,"14521","Erzgebirgskreis",2012
+0.69759,"14521","Erzgebirgskreis",2013
+0.72223,"14521","Erzgebirgskreis",2014
+0.72548,"14521","Erzgebirgskreis",2015
+0.72039,"14521","Erzgebirgskreis",2016
+0.68587,"14521","Erzgebirgskreis",2017
+0.70601,"14521","Erzgebirgskreis",2018
+0.68936,"14521","Erzgebirgskreis",2019
+0.71463,"14521","Erzgebirgskreis",2020
+0.75048,"14522","Mittelsachsen",1998
+0.75777,"14522","Mittelsachsen",1999
+0.68378,"14522","Mittelsachsen",2000
+0.71536,"14522","Mittelsachsen",2001
+0.70879,"14522","Mittelsachsen",2002
+0.68841,"14522","Mittelsachsen",2003
+0.64443,"14522","Mittelsachsen",2004
+0.67172,"14522","Mittelsachsen",2005
+0.59216,"14522","Mittelsachsen",2006
+0.58071,"14522","Mittelsachsen",2007
+0.56775,"14522","Mittelsachsen",2008
+0.58015,"14522","Mittelsachsen",2009
+0.58646,"14522","Mittelsachsen",2010
+0.48738,"14522","Mittelsachsen",2011
+0.52111,"14522","Mittelsachsen",2012
+0.59094,"14522","Mittelsachsen",2013
+0.65609,"14522","Mittelsachsen",2014
+0.63618,"14522","Mittelsachsen",2015
+0.65347,"14522","Mittelsachsen",2016
+0.69894,"14522","Mittelsachsen",2017
+0.65673,"14522","Mittelsachsen",2018
+0.67254,"14522","Mittelsachsen",2019
+0.70357,"14522","Mittelsachsen",2020
+0.57325,"14523","Vogtlandkreis",1998
+0.76791,"14523","Vogtlandkreis",1999
+0.55184,"14523","Vogtlandkreis",2000
+0.6194,"14523","Vogtlandkreis",2001
+0.63823,"14523","Vogtlandkreis",2002
+0.66847,"14523","Vogtlandkreis",2003
+0.57239,"14523","Vogtlandkreis",2004
+0.6173,"14523","Vogtlandkreis",2005
+0.62687,"14523","Vogtlandkreis",2006
+0.58455,"14523","Vogtlandkreis",2007
+0.5883,"14523","Vogtlandkreis",2008
+0.68448,"14523","Vogtlandkreis",2009
+0.64615,"14523","Vogtlandkreis",2010
+0.58205,"14523","Vogtlandkreis",2011
+0.5413,"14523","Vogtlandkreis",2012
+0.68032,"14523","Vogtlandkreis",2013
+0.64757,"14523","Vogtlandkreis",2014
+0.68032,"14523","Vogtlandkreis",2015
+0.74043,"14523","Vogtlandkreis",2016
+0.70392,"14523","Vogtlandkreis",2017
+0.75077,"14523","Vogtlandkreis",2018
+0.74852,"14523","Vogtlandkreis",2019
+0.80544,"14523","Vogtlandkreis",2020
+0.70551,"14524","Zwickau",1998
+0.83911,"14524","Zwickau",1999
+0.72187,"14524","Zwickau",2000
+0.74314,"14524","Zwickau",2001
+0.75376,"14524","Zwickau",2002
+0.70892,"14524","Zwickau",2003
+0.64929,"14524","Zwickau",2004
+0.69274,"14524","Zwickau",2005
+0.66468,"14524","Zwickau",2006
+0.65634,"14524","Zwickau",2007
+0.58531,"14524","Zwickau",2008
+0.63885,"14524","Zwickau",2009
+0.63533,"14524","Zwickau",2010
+0.53605,"14524","Zwickau",2011
+0.51757,"14524","Zwickau",2012
+0.49106,"14524","Zwickau",2013
+0.53064,"14524","Zwickau",2014
+0.52724,"14524","Zwickau",2015
+0.51177,"14524","Zwickau",2016
+0.53808,"14524","Zwickau",2017
+0.51391,"14524","Zwickau",2018
+0.62645,"14524","Zwickau",2019
+0.5775,"14524","Zwickau",2020
+0,"14612","Dresden, Stadt",1998
+0,"14612","Dresden, Stadt",1999
+0,"14612","Dresden, Stadt",2000
+0,"14612","Dresden, Stadt",2001
+0,"14612","Dresden, Stadt",2002
+0,"14612","Dresden, Stadt",2003
+0,"14612","Dresden, Stadt",2004
+0,"14612","Dresden, Stadt",2005
+0,"14612","Dresden, Stadt",2006
+0,"14612","Dresden, Stadt",2007
+0,"14612","Dresden, Stadt",2008
+0,"14612","Dresden, Stadt",2009
+0,"14612","Dresden, Stadt",2010
+0,"14612","Dresden, Stadt",2011
+0,"14612","Dresden, Stadt",2012
+0,"14612","Dresden, Stadt",2013
+0,"14612","Dresden, Stadt",2014
+0,"14612","Dresden, Stadt",2015
+0,"14612","Dresden, Stadt",2016
+0,"14612","Dresden, Stadt",2017
+0,"14612","Dresden, Stadt",2018
+0,"14612","Dresden, Stadt",2019
+0,"14612","Dresden, Stadt",2020
+0.77054,"14625","Bautzen",1998
+0.78379,"14625","Bautzen",1999
+0.73428,"14625","Bautzen",2000
+0.6946,"14625","Bautzen",2001
+0.77046,"14625","Bautzen",2002
+0.74044,"14625","Bautzen",2003
+0.70924,"14625","Bautzen",2004
+0.69488,"14625","Bautzen",2005
+0.70126,"14625","Bautzen",2006
+0.6274,"14625","Bautzen",2007
+0.60676,"14625","Bautzen",2008
+0.64821,"14625","Bautzen",2009
+0.59714,"14625","Bautzen",2010
+0.56057,"14625","Bautzen",2011
+0.5955,"14625","Bautzen",2012
+0.54905,"14625","Bautzen",2013
+0.48051,"14625","Bautzen",2014
+0.59592,"14625","Bautzen",2015
+0.61804,"14625","Bautzen",2016
+0.5553,"14625","Bautzen",2017
+0.54973,"14625","Bautzen",2018
+0.53549,"14625","Bautzen",2019
+0.56704,"14625","Bautzen",2020
+0.9277,"14626","Görlitz",1998
+1,"14626","Görlitz",1999
+1,"14626","Görlitz",2000
+1,"14626","Görlitz",2001
+1,"14626","Görlitz",2002
+1,"14626","Görlitz",2003
+1,"14626","Görlitz",2004
+0.97979,"14626","Görlitz",2005
+1,"14626","Görlitz",2006
+1,"14626","Görlitz",2007
+1,"14626","Görlitz",2008
+1,"14626","Görlitz",2009
+0.9849,"14626","Görlitz",2010
+0.93469,"14626","Görlitz",2011
+1,"14626","Görlitz",2012
+1,"14626","Görlitz",2013
+1,"14626","Görlitz",2014
+1,"14626","Görlitz",2015
+1,"14626","Görlitz",2016
+1,"14626","Görlitz",2017
+1,"14626","Görlitz",2018
+1,"14626","Görlitz",2019
+1,"14626","Görlitz",2020
+0.63502,"14627","Meißen",1998
+0.5584,"14627","Meißen",1999
+0.70493,"14627","Meißen",2000
+0.60082,"14627","Meißen",2001
+0.61982,"14627","Meißen",2002
+0.51229,"14627","Meißen",2003
+0.51716,"14627","Meißen",2004
+0.53832,"14627","Meißen",2005
+0.49052,"14627","Meißen",2006
+0.43996,"14627","Meißen",2007
+0.4034,"14627","Meißen",2008
+0.44263,"14627","Meißen",2009
+0.46676,"14627","Meißen",2010
+0.36701,"14627","Meißen",2011
+0.41487,"14627","Meißen",2012
+0.40919,"14627","Meißen",2013
+0.44649,"14627","Meißen",2014
+0.35333,"14627","Meißen",2015
+0.46914,"14627","Meißen",2016
+0.45413,"14627","Meißen",2017
+0.40735,"14627","Meißen",2018
+0.41445,"14627","Meißen",2019
+0.50185,"14627","Meißen",2020
+0.54764,"14628","Sächsische Schweiz-Osterzgebirge",1998
+0.58969,"14628","Sächsische Schweiz-Osterzgebirge",1999
+0.60052,"14628","Sächsische Schweiz-Osterzgebirge",2000
+0.60621,"14628","Sächsische Schweiz-Osterzgebirge",2001
+0.61505,"14628","Sächsische Schweiz-Osterzgebirge",2002
+0.57432,"14628","Sächsische Schweiz-Osterzgebirge",2003
+0.51641,"14628","Sächsische Schweiz-Osterzgebirge",2004
+0.5179,"14628","Sächsische Schweiz-Osterzgebirge",2005
+0.57647,"14628","Sächsische Schweiz-Osterzgebirge",2006
+0.50445,"14628","Sächsische Schweiz-Osterzgebirge",2007
+0.5301,"14628","Sächsische Schweiz-Osterzgebirge",2008
+0.53284,"14628","Sächsische Schweiz-Osterzgebirge",2009
+0.60953,"14628","Sächsische Schweiz-Osterzgebirge",2010
+0.55652,"14628","Sächsische Schweiz-Osterzgebirge",2011
+0.50577,"14628","Sächsische Schweiz-Osterzgebirge",2012
+0.55622,"14628","Sächsische Schweiz-Osterzgebirge",2013
+0.46736,"14628","Sächsische Schweiz-Osterzgebirge",2014
+0.61491,"14628","Sächsische Schweiz-Osterzgebirge",2015
+0.57499,"14628","Sächsische Schweiz-Osterzgebirge",2016
+0.66039,"14628","Sächsische Schweiz-Osterzgebirge",2017
+0.55545,"14628","Sächsische Schweiz-Osterzgebirge",2018
+0.61698,"14628","Sächsische Schweiz-Osterzgebirge",2019
+0.6508,"14628","Sächsische Schweiz-Osterzgebirge",2020
+0.71133,"14713","Leipzig, Stadt",1998
+0.68082,"14713","Leipzig, Stadt",1999
+0.63662,"14713","Leipzig, Stadt",2000
+0.68123,"14713","Leipzig, Stadt",2001
+0.68956,"14713","Leipzig, Stadt",2002
+0.67767,"14713","Leipzig, Stadt",2003
+0.67386,"14713","Leipzig, Stadt",2004
+0.72201,"14713","Leipzig, Stadt",2005
+0.76558,"14713","Leipzig, Stadt",2006
+0.76833,"14713","Leipzig, Stadt",2007
+0.75019,"14713","Leipzig, Stadt",2008
+0.68697,"14713","Leipzig, Stadt",2009
+0.82731,"14713","Leipzig, Stadt",2010
+0.77318,"14713","Leipzig, Stadt",2011
+0.65025,"14713","Leipzig, Stadt",2012
+0.73108,"14713","Leipzig, Stadt",2013
+0.69267,"14713","Leipzig, Stadt",2014
+0.61148,"14713","Leipzig, Stadt",2015
+0.60047,"14713","Leipzig, Stadt",2016
+0.56342,"14713","Leipzig, Stadt",2017
+0.55777,"14713","Leipzig, Stadt",2018
+0.57981,"14713","Leipzig, Stadt",2019
+0.56903,"14713","Leipzig, Stadt",2020
+0.794,"14729","Leipzig",1998
+0.84659,"14729","Leipzig",1999
+0.75459,"14729","Leipzig",2000
+0.77774,"14729","Leipzig",2001
+0.74192,"14729","Leipzig",2002
+0.74453,"14729","Leipzig",2003
+0.73987,"14729","Leipzig",2004
+0.68039,"14729","Leipzig",2005
+0.71774,"14729","Leipzig",2006
+0.6512,"14729","Leipzig",2007
+0.59739,"14729","Leipzig",2008
+0.66177,"14729","Leipzig",2009
+0.65027,"14729","Leipzig",2010
+0.55878,"14729","Leipzig",2011
+0.55242,"14729","Leipzig",2012
+0.5397,"14729","Leipzig",2013
+0.51315,"14729","Leipzig",2014
+0.53407,"14729","Leipzig",2015
+0.55651,"14729","Leipzig",2016
+0.50134,"14729","Leipzig",2017
+0.4952,"14729","Leipzig",2018
+0.50864,"14729","Leipzig",2019
+0.53331,"14729","Leipzig",2020
+1,"14730","Nordsachsen",1998
+0.9279,"14730","Nordsachsen",1999
+0.95481,"14730","Nordsachsen",2000
+0.94809,"14730","Nordsachsen",2001
+0.90248,"14730","Nordsachsen",2002
+0.8888,"14730","Nordsachsen",2003
+0.88462,"14730","Nordsachsen",2004
+1,"14730","Nordsachsen",2005
+0.93839,"14730","Nordsachsen",2006
+0.88642,"14730","Nordsachsen",2007
+0.90939,"14730","Nordsachsen",2008
+0.95261,"14730","Nordsachsen",2009
+1,"14730","Nordsachsen",2010
+1,"14730","Nordsachsen",2011
+0.93552,"14730","Nordsachsen",2012
+0.85193,"14730","Nordsachsen",2013
+0.94525,"14730","Nordsachsen",2014
+0.80976,"14730","Nordsachsen",2015
+0.89263,"14730","Nordsachsen",2016
+0.88443,"14730","Nordsachsen",2017
+0.93642,"14730","Nordsachsen",2018
+0.91984,"14730","Nordsachsen",2019
+0.89945,"14730","Nordsachsen",2020

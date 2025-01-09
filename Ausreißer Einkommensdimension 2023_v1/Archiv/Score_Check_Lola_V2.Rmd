@@ -1,0 +1,350 @@
+---
+title:  "Check Ausreißer Einkommensdimension 2020"
+author: "Lola Omar Soliman"
+date:   "15 02 2024"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+
+knitr::opts_chunk$set(echo = TRUE)
+library("bookdown") # Tools for RMarkdown
+
+```
+
+
+## 0. Benötigte Pakete und Dateipfadsetzung
+
+```{r libraries, message=FALSE, warning=FALSE}
+
+library("tidyverse") # Tidyverse Methods
+
+home <- getwd()
+gisdpath <- "P:/Git/GISD/"
+
+```
+
+
+## I. Datenaufbereitung
+
+```{r prepare, message=FALSE, warning=FALSE}
+
+# Zuordnungstabelle für die ersten 2 Stellen der Gemeindekennziffer
+bl_zuordnung <- tibble(gkz_prefix = c("01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16"),
+                       Bundesland = c("Schleswig-Holstein", "Freie und Hansestadt Hamburg", "Niedersachsen", "Freie Hansestadt Bremen",
+                                      "Nordrhein-Westfalen", "Hessen", "Rheinland-Pfalz", "Baden-Württemberg", "Freistaat Bayern", "Saarland",
+                                      "Berlin", "Brandenburg", "Mecklenburg-Vorpommern", "Freistaat Sachsen", "Sachsen-Anhalt", "Freistaat Thüringen"))
+
+# Teilscores laden
+scores.raw <- readRDS(paste0(gisdpath, "Outfiles/2023_v1/Resultdataset.rds")) %>% 
+    #Leading Zero nachtragen
+  mutate(Gemeindekennziffer = as.character(Gemeindekennziffer)) %>% 
+  mutate(Gemeindekennziffer = if_else(str_length(Gemeindekennziffer) == 7,
+                              str_pad(Gemeindekennziffer, 8, pad = "0"),
+                              Gemeindekennziffer))
+
+# Teilscores aufbereiten
+scores <- scores.raw %>%
+  rename(Gesamtscore = GISD_Score,
+         Arbeitswelt = TS_Arbeitswelt_adj,
+         Einkommen = TS_Einkommen_adj,
+         Bildung = TS_Bildung_adj) %>% 
+    #Auf wide reshapen
+  pivot_longer(cols = c(Gesamtscore, Arbeitswelt, Einkommen, Bildung),
+               names_to = "Dimension",
+               values_to = "Score") %>% 
+    #Erste zwei Stellen der GKZ extrahieren und Bundesland zuordnen
+  mutate(gkz_prefix = substr(Gemeindekennziffer, 1, 2)) %>%
+  left_join(bl_zuordnung, by = "gkz_prefix") %>% 
+  select(-gkz_prefix)
+
+```
+
+
+## II. Erste Übersicht
+
+```{r overview, message=FALSE, warning=FALSE}
+
+plot_components <- list(scale_x_continuous(breaks = seq(1998, 2020, by = 1), minor_breaks = NULL),
+                        facet_wrap(~Dimension, ncol = 1, strip.position = "right", scales = "free_x"),
+                        theme_bw())
+
+# Rohdaten plotten
+ggplot(scores, aes(x = Jahr, y = Score, group = Gemeindekennziffer)) +
+  geom_line(alpha = 0.3, linewidth = 0.1) +
+  labs(subtitle = "Teilscores Übersicht",
+       y = NULL) +
+  plot_components
+
+ggsave("Teilscores.png", device = "png",
+       width = 210, height = 297, units = "mm")
+
+# Scores pro Jahr und Dimension standardisieren
+scores <- scores %>% 
+  group_by(Jahr, Dimension) %>% 
+  mutate(Score_std = scales::rescale(Score, to = c(0, 1))) %>% 
+  ungroup()
+
+ggplot(scores, aes(x = Jahr, y = Score_std, group = Gemeindekennziffer)) +
+  geom_line(alpha = 0.3, linewidth = 0.1) +
+  labs(subtitle = "Teilscores Übersicht (pro Jahr und Dimension standardisiert)",
+       y = NULL) +
+  plot_components
+
+ggsave("Teilscores_std.png", device = "png",
+       width = 210, height = 297, units = "mm")
+
+# Z-Score berechnen und plotten (Jährliche Z-Werte innerhalb jeder einzelnen Gemeinde)
+zscores <- scores %>%
+  group_by(Gemeindekennziffer, Dimension) %>%
+  mutate(mean_score = mean(Score, na.rm = TRUE),
+         sd_score = sd(Score, na.rm = TRUE),
+         z = (Score - mean_score) / sd_score) %>%
+  ungroup()
+  
+ggplot(zscores, aes(x = Jahr, y = z, group = Gemeindekennziffer)) +
+  geom_line(alpha = 0.3, linewidth = 0.1) +
+  labs(subtitle = "Z-Scores (Referenzrahmen: Gemeinde)",
+       y = NULL) +
+  plot_components
+ggsave("Z_inner.png", device = "png",
+       width = 210, height = 297, units = "mm")
+
+# Z-Tabelle generieren
+table <- zscores %>%
+  group_by(Jahr, Dimension) %>%
+  summarize(sd = sd(Score, na.rm = TRUE),
+            zMin = min(z, na.rm = TRUE),
+            zMax = max(z, na.rm = TRUE)) %>%
+  select(Jahr, Dimension, sd, zMin, zMax) 
+
+# Z-Tabelle plotten
+ggplot(table, aes(x=Jahr)) +
+  geom_line(data = zscores, aes(y=z, group = Gemeindekennziffer),
+            color = "grey75", alpha = 0.8, linewidth = 1) +
+  geom_line(aes(y=zMin), color = "blue") +
+  geom_line(aes(y=zMax), color = "red") +
+  labs(subtitle = "zMin und zMax pro Dimension", y = NULL) +
+  plot_components
+ggsave("zMin_zMax.png", device = "png",
+       width = 210, height = 297, units = "mm")
+
+# Standardabweichung plotten
+ggplot(table, aes(x=Jahr)) +
+  geom_line(aes(y=sd)) +
+  labs(subtitle = "Standardabweichung jeder Dimension",
+       y = NULL) +
+  plot_components
+ggsave("Standardabweichung.png", device = "png",
+       width = 210, height = 297, units = "mm")
+
+```
+
+
+## III. Ausreißer identifizieren
+
+```{r main, message=FALSE, warning=FALSE}
+
+## Z-Score-basiert (|z| >= 2)
+rausstecher <- zscores %>%
+  filter((z <= -2 | z >= 2) & Dimension == "Einkommen")
+
+rs.z.inc.zeitreihe <- zscores %>%
+  filter(Gemeindekennziffer %in% rausstecher$Gemeindekennziffer)
+
+# Plot
+ggplot(rs.z.inc.zeitreihe,
+       aes(x = Jahr, y = z, group = Gemeindekennziffer,
+           color = as.factor(Bundesland))) +
+  geom_line(alpha = 0.2) +
+  labs(subtitle = "Gemeinden mit |z| >= 2 (in der Einkommensdimension) (N = 1469)",
+       y = NULL, color = "Bundesland") +
+  plot_components +
+  theme(legend.position=c(0.87, 0.75)) +
+  guides(color=guide_legend(override.aes=list(alpha=1, linewidth=2)))
+
+ggsave("Rausstecher(innerZ_Einkommen).png", device = "png",
+       width = 210, height = 297, units = "mm")
+
+  # Scheint sehr von Bayern aus zu gehen in 2004 und 2017
+ggplot(rs.z.inc.zeitreihe %>% filter(Bundesland == "Freistaat Bayern"),
+       aes(x = Jahr, y = z, group = Gemeindekennziffer,
+           color = as.factor(Gemeindekennziffer))) +
+  geom_line(alpha = 0.3) +
+  labs(subtitle = "Gemeinden mit |z| >= 2 (in der Einkommensdimension) (nur Bayern)",
+       y = NULL, color = NULL) +
+  plot_components +
+  theme(legend.position="none")
+ggsave("Rausstecher(innerZ_Einkommen)_nurBayern.png", device = "png",
+       width = 210, height = 297, units = "mm")
+
+  # Wie ist Restdeutschland?
+ggplot(rs.z.inc.zeitreihe %>% filter(!Bundesland == "Freistaat Bayern"),
+       aes(x = Jahr, y = z, group = Gemeindekennziffer,
+           color = as.factor(Bundesland))) +
+  geom_line(alpha = 0.3) +
+  labs(subtitle = "Gemeinden mit |z| >= 2 (in der Einkommensdimension) (ohne Bayern)",
+       y = NULL, color = "Bundesland") +
+  plot_components +
+  theme(legend.position=c(0.87, 0.75)) +
+  guides(color=guide_legend(override.aes=list(alpha=1, linewidth=2)))
+ggsave("Rausstecher(innerZ_Einkommen)_ohneBayern.png", device = "png",
+       width = 210, height = 297, units = "mm")
+  #Okay, nicht nur Bayern
+
+ggplot(rs.z.inc.zeitreihe %>% filter(Bundesland == "Nordrhein-Westfalen" |
+                                       Bundesland == "Schleswig-Holstein"),
+       aes(x = Jahr, y = z, group = Gemeindekennziffer,
+           color = as.factor(Bundesland))) +
+  geom_line(alpha = 0.3) +
+  labs(subtitle = "Gemeinden mit |z| >= 2 (in der Einkommensdimension) (Nur NRW und Schleswig-Holstein)",
+       y = NULL, color = "Bundesland") +
+  plot_components +
+  theme(legend.position=c(0.87, 0.5)) +
+  guides(color=guide_legend(override.aes=list(alpha=1, linewidth=2)))
+ggsave("Rausstecher(innerZ_Einkommen)_NRW_SchleHo.png", device = "png",
+       width = 210, height = 297, units = "mm")
+
+ggplot(rs.z.inc.zeitreihe %>% filter(Bundesland == "Niedersachsen"),
+       aes(x = Jahr, y = z, group = Gemeindekennziffer,
+           color = as.factor(Gemeindekennziffer))) +
+  geom_line(alpha = 0.7) +
+  labs(subtitle = "Gemeinden mit |z| >= 2 (in der Einkommensdimension) (nur Niedersachsen)",
+       y = NULL, color = NULL) +
+  plot_components +
+  theme(legend.position="none")
+  # Es sind in Wahrheit nur 3 Gemeinden in Niedersachsen die verzerrend wirken
+ggsave("Rausstecher(innerZ_Einkommen)_nurNiedersachsen.png", device = "png",
+       width = 210, height = 297, units = "mm")
+
+# Subset mit allen zu imputierenden Gemeinde-Jahren berechnen
+rs.niedersachsen <- zscores %>%
+  filter(z >= 2 & Bundesland == "Niedersachsen",
+         Dimension == "Einkommen", 
+         !Jahr == 1998) #1998 kann nicht imputiert werden
+
+rs.bayern <- zscores %>% 
+  filter(Jahr == 2017 & Bundesland == "Freistaat Bayern" |
+           Jahr == 2012 & Bundesland == "Freistaat Bayern" & z <= -1.5 |
+           Jahr == 2004 & (Gemeindekennziffer == "09189145" |
+                             Gemeindekennziffer == "09163000"),
+         Dimension == "Einkommen")
+
+rs.nrw_schleho <- zscores %>%
+  filter(Jahr == 2004 & Bundesland == "Nordrhein-Westfalen" |
+          Jahr == 2017 & (Bundesland == "Nordrhein-Westfalen" |
+                            Bundesland == "Schleswig-Holstein") & z <= -2,
+         Dimension == "Einkommen")
+
+rs.imp <- bind_rows(rs.niedersachsen,
+                    rs.bayern,
+                    rs.nrw_schleho) %>% 
+  mutate(gkz_j = paste0(Gemeindekennziffer,"_",as.character(Jahr)))
+
+```
+
+
+## IV. Ausreißer neu imputieren und Scores renormalisieren (Einkommens-Dimension)
+
+```{r recalculate, message=FALSE, warning=FALSE}
+
+# Imputieren von Mittelwert Vorjahr und Nachjahr
+scores.imp <- scores %>%
+  mutate(gkz_j = paste0(Gemeindekennziffer,"_",as.character(Jahr))) %>% 
+  arrange(Gemeindekennziffer, Jahr) %>%
+  group_by(Gemeindekennziffer) %>%
+  mutate(Score = if_else(gkz_j %in% rs.imp$gkz_j & Dimension == "Einkommen",
+                         (lag(Score, 1) + lead(Score, 1)) / 2,
+                         Score),
+         Imputed = if_else(gkz_j %in% rs.imp$gkz_j & Dimension == "Einkommen",
+                           1,
+                           0))
+
+scores.imp <- scores.imp %>% 
+  filter(Imputed == 1) %>% 
+  select(Gemeindekennziffer, Jahr, newscore = Score)
+
+rm(rs.imp, rs.niedersachsen, rs.bayern, rs.nrw_schleho)
+
+# Score im Datensatz austauschen
+scores.temp <- scores.raw %>%
+  left_join(scores.imp, by = c("Gemeindekennziffer", "Jahr")) %>% 
+  mutate(oldscore = if_else(is.na(newscore),
+                            NA,
+                            TS_Einkommen_adj),
+         TS_Einkommen_adj = if_else(is.na(newscore),
+                                    TS_Einkommen_adj,
+                                    newscore),
+         Imputed = if_else(is.na(newscore), 0, 1))
+
+# Komponenten renormalisieren
+scores.adj <- scores.temp %>%
+  mutate(TS_Arbeitswelt_adj=(TS_Arbeitswelt_adj-min(TS_Arbeitswelt_adj))/(max(TS_Arbeitswelt_adj)-min(TS_Arbeitswelt_adj)),
+         TS_Einkommen_adj  =(TS_Einkommen_adj  -min(TS_Einkommen_adj))  /(max(TS_Einkommen_adj)  -min(TS_Einkommen_adj)),
+         TS_Bildung_adj    =(TS_Bildung_adj    -min(TS_Bildung_adj))    /(max(TS_Bildung_adj)    -min(TS_Bildung_adj)),
+         GISD_Score=TS_Arbeitswelt_adj + TS_Einkommen_adj + TS_Bildung_adj) %>%
+  group_by(Jahr) %>%
+  mutate(GISD_Score=(GISD_Score-min(GISD_Score)) / (max(GISD_Score)-min(GISD_Score)),
+         GISD_Score=round(GISD_Score, digits=5)) %>%
+  ungroup()
+
+rm(scores.imp, scores.temp)
+
+```
+
+
+## V. Nachprüfen
+
+```{r recalculate, message=FALSE, warning=FALSE}
+
+scores.adj.prepped <- scores.adj %>%
+  rename(Gesamtscore = GISD_Score,
+         Arbeitswelt = TS_Arbeitswelt_adj,
+         Einkommen = TS_Einkommen_adj,
+         Bildung = TS_Bildung_adj) %>% 
+    #Auf wide reshapen
+  pivot_longer(cols = c(Gesamtscore, Arbeitswelt, Einkommen, Bildung),
+               names_to = "Dimension",
+               values_to = "Score") %>% 
+    #Erste zwei Stellen der GKZ extrahieren und Bundesland zuordnen
+  mutate(gkz_prefix = substr(Gemeindekennziffer, 1, 2)) %>%
+  left_join(bl_zuordnung, by = "gkz_prefix") %>% 
+  select(-gkz_prefix)
+
+# Adjusted Scores roh plotten
+ggplot(scores.adj.prepped, aes(x = Jahr, y = Score, group = Gemeindekennziffer)) +
+  geom_line(alpha = 0.3, linewidth = 0.1) +
+  labs(subtitle = "Adjusted Teilscores Übersicht",
+       y = NULL) +
+  plot_components
+ggsave("Teilscores_adj.png", device = "png",
+       width = 210, height = 297, units = "mm")
+
+# Scores pro Jahr und Dimension standardisieren
+scores.adj.prepped <- scores.adj.prepped %>% 
+  group_by(Jahr, Dimension) %>% 
+  mutate(Score_std = scales::rescale(Score, to = c(0, 1))) %>% 
+  ungroup()
+
+ggplot(scores, aes(x = Jahr, y = Score_std, group = Gemeindekennziffer)) +
+  geom_line(alpha = 0.3, linewidth = 0.1) +
+  labs(subtitle = "Adjusted Teilscores (pro Jahr und Dimension standardisiert)",
+       y = NULL) +
+  plot_components
+ggsave("Teilscores_std_adj.png", device = "png",
+       width = 210, height = 297, units = "mm")
+
+ggplot(scores.adj.prepped, aes(x = Jahr, y = Score_std, group = Gemeindekennziffer,
+                   color = as.factor(Bundesland))) +
+  geom_line(alpha = 0.3, linewidth = 0.1) +
+  labs(subtitle = "Adjusted Teilscores (pro Jahr und Dimension standardisiert)",
+       y = NULL, color = "Bundesland") +
+  plot_components +
+  theme(legend.position=c(0.87, 0.5)) +
+  guides(color=guide_legend(override.aes=list(alpha=1, linewidth=2)))
+ggsave("Teilscores_std_adj_bl.png", device = "png",
+       width = 210, height = 297, units = "mm")
+
+
+
+```

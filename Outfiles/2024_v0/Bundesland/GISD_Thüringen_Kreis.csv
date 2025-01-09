@@ -1,0 +1,529 @@
+"gisd_score","kreis_id","kreis_name","year"
+0.66717,"16051","Erfurt, Stadt",1998
+0.65284,"16051","Erfurt, Stadt",1999
+0.63006,"16051","Erfurt, Stadt",2000
+0.62226,"16051","Erfurt, Stadt",2001
+0.58306,"16051","Erfurt, Stadt",2002
+0.55883,"16051","Erfurt, Stadt",2003
+0.64429,"16051","Erfurt, Stadt",2004
+0.66656,"16051","Erfurt, Stadt",2005
+0.63841,"16051","Erfurt, Stadt",2006
+0.68086,"16051","Erfurt, Stadt",2007
+0.69601,"16051","Erfurt, Stadt",2008
+0.67075,"16051","Erfurt, Stadt",2009
+0.68416,"16051","Erfurt, Stadt",2010
+0.65503,"16051","Erfurt, Stadt",2011
+0.62448,"16051","Erfurt, Stadt",2012
+0.59353,"16051","Erfurt, Stadt",2013
+0.59007,"16051","Erfurt, Stadt",2014
+0.6436,"16051","Erfurt, Stadt",2015
+0.56159,"16051","Erfurt, Stadt",2016
+0.73869,"16051","Erfurt, Stadt",2017
+0.67631,"16051","Erfurt, Stadt",2018
+0.63878,"16051","Erfurt, Stadt",2019
+0.63925,"16051","Erfurt, Stadt",2020
+0.6589,"16051","Erfurt, Stadt",2021
+0.814,"16052","Gera, Stadt",1998
+0.78325,"16052","Gera, Stadt",1999
+0.72664,"16052","Gera, Stadt",2000
+0.76827,"16052","Gera, Stadt",2001
+0.67517,"16052","Gera, Stadt",2002
+0.69544,"16052","Gera, Stadt",2003
+0.72745,"16052","Gera, Stadt",2004
+0.78036,"16052","Gera, Stadt",2005
+0.78142,"16052","Gera, Stadt",2006
+0.84134,"16052","Gera, Stadt",2007
+0.85964,"16052","Gera, Stadt",2008
+1,"16052","Gera, Stadt",2009
+0.90055,"16052","Gera, Stadt",2010
+0.91188,"16052","Gera, Stadt",2011
+0.85422,"16052","Gera, Stadt",2012
+0.80096,"16052","Gera, Stadt",2013
+0.8144,"16052","Gera, Stadt",2014
+0.85232,"16052","Gera, Stadt",2015
+0.81694,"16052","Gera, Stadt",2016
+0.90771,"16052","Gera, Stadt",2017
+0.97744,"16052","Gera, Stadt",2018
+1,"16052","Gera, Stadt",2019
+0.97808,"16052","Gera, Stadt",2020
+0.98179,"16052","Gera, Stadt",2021
+0,"16053","Jena, Stadt",1998
+0,"16053","Jena, Stadt",1999
+0,"16053","Jena, Stadt",2000
+0,"16053","Jena, Stadt",2001
+0,"16053","Jena, Stadt",2002
+0,"16053","Jena, Stadt",2003
+0,"16053","Jena, Stadt",2004
+0,"16053","Jena, Stadt",2005
+0,"16053","Jena, Stadt",2006
+0,"16053","Jena, Stadt",2007
+0,"16053","Jena, Stadt",2008
+0,"16053","Jena, Stadt",2009
+0,"16053","Jena, Stadt",2010
+0,"16053","Jena, Stadt",2011
+0,"16053","Jena, Stadt",2012
+0,"16053","Jena, Stadt",2013
+0,"16053","Jena, Stadt",2014
+0,"16053","Jena, Stadt",2015
+0,"16053","Jena, Stadt",2016
+0,"16053","Jena, Stadt",2017
+0,"16053","Jena, Stadt",2018
+0,"16053","Jena, Stadt",2019
+0,"16053","Jena, Stadt",2020
+0,"16053","Jena, Stadt",2021
+0.7029,"16054","Suhl, Stadt",1998
+0.63148,"16054","Suhl, Stadt",1999
+0.75886,"16054","Suhl, Stadt",2000
+0.633,"16054","Suhl, Stadt",2001
+0.56544,"16054","Suhl, Stadt",2002
+0.48218,"16054","Suhl, Stadt",2003
+0.52821,"16054","Suhl, Stadt",2004
+0.58863,"16054","Suhl, Stadt",2005
+0.73473,"16054","Suhl, Stadt",2006
+0.67486,"16054","Suhl, Stadt",2007
+0.64971,"16054","Suhl, Stadt",2008
+0.68766,"16054","Suhl, Stadt",2009
+0.66922,"16054","Suhl, Stadt",2010
+0.63405,"16054","Suhl, Stadt",2011
+0.55587,"16054","Suhl, Stadt",2012
+0.56962,"16054","Suhl, Stadt",2013
+0.70496,"16054","Suhl, Stadt",2014
+0.60553,"16054","Suhl, Stadt",2015
+0.68294,"16054","Suhl, Stadt",2016
+0.71907,"16054","Suhl, Stadt",2017
+0.68683,"16054","Suhl, Stadt",2018
+0.79192,"16054","Suhl, Stadt",2019
+0.72216,"16054","Suhl, Stadt",2020
+0.86438,"16054","Suhl, Stadt",2021
+0.62155,"16055","Weimar, Stadt",1998
+0.62862,"16055","Weimar, Stadt",1999
+0.60696,"16055","Weimar, Stadt",2000
+0.55777,"16055","Weimar, Stadt",2001
+0.4332,"16055","Weimar, Stadt",2002
+0.54415,"16055","Weimar, Stadt",2003
+0.54333,"16055","Weimar, Stadt",2004
+0.54032,"16055","Weimar, Stadt",2005
+0.693,"16055","Weimar, Stadt",2006
+0.60668,"16055","Weimar, Stadt",2007
+0.61915,"16055","Weimar, Stadt",2008
+0.57555,"16055","Weimar, Stadt",2009
+0.62696,"16055","Weimar, Stadt",2010
+0.62642,"16055","Weimar, Stadt",2011
+0.50986,"16055","Weimar, Stadt",2012
+0.48232,"16055","Weimar, Stadt",2013
+0.43364,"16055","Weimar, Stadt",2014
+0.54089,"16055","Weimar, Stadt",2015
+0.48273,"16055","Weimar, Stadt",2016
+0.60747,"16055","Weimar, Stadt",2017
+0.60127,"16055","Weimar, Stadt",2018
+0.56349,"16055","Weimar, Stadt",2019
+0.55327,"16055","Weimar, Stadt",2020
+0.52272,"16055","Weimar, Stadt",2021
+0.62424,"16061","Eichsfeld",1998
+0.55272,"16061","Eichsfeld",1999
+0.57883,"16061","Eichsfeld",2000
+0.62191,"16061","Eichsfeld",2001
+0.69501,"16061","Eichsfeld",2002
+0.66156,"16061","Eichsfeld",2003
+0.64705,"16061","Eichsfeld",2004
+0.70287,"16061","Eichsfeld",2005
+0.70373,"16061","Eichsfeld",2006
+0.68335,"16061","Eichsfeld",2007
+0.65185,"16061","Eichsfeld",2008
+0.75013,"16061","Eichsfeld",2009
+0.70524,"16061","Eichsfeld",2010
+0.66514,"16061","Eichsfeld",2011
+0.63922,"16061","Eichsfeld",2012
+0.60079,"16061","Eichsfeld",2013
+0.63705,"16061","Eichsfeld",2014
+0.65059,"16061","Eichsfeld",2015
+0.59561,"16061","Eichsfeld",2016
+0.68582,"16061","Eichsfeld",2017
+0.59586,"16061","Eichsfeld",2018
+0.63193,"16061","Eichsfeld",2019
+0.63037,"16061","Eichsfeld",2020
+0.63596,"16061","Eichsfeld",2021
+0.99524,"16062","Nordhausen",1998
+0.94019,"16062","Nordhausen",1999
+0.82575,"16062","Nordhausen",2000
+0.87868,"16062","Nordhausen",2001
+0.8569,"16062","Nordhausen",2002
+0.80417,"16062","Nordhausen",2003
+0.82984,"16062","Nordhausen",2004
+0.84776,"16062","Nordhausen",2005
+0.90488,"16062","Nordhausen",2006
+0.92479,"16062","Nordhausen",2007
+0.91787,"16062","Nordhausen",2008
+0.94365,"16062","Nordhausen",2009
+0.97139,"16062","Nordhausen",2010
+0.9269,"16062","Nordhausen",2011
+0.90256,"16062","Nordhausen",2012
+0.88279,"16062","Nordhausen",2013
+0.85187,"16062","Nordhausen",2014
+0.8532,"16062","Nordhausen",2015
+0.85799,"16062","Nordhausen",2016
+0.92562,"16062","Nordhausen",2017
+0.95232,"16062","Nordhausen",2018
+0.96581,"16062","Nordhausen",2019
+0.98988,"16062","Nordhausen",2020
+0.88145,"16062","Nordhausen",2021
+0.49473,"16063","Wartburgkreis",1998
+0.5024,"16063","Wartburgkreis",1999
+0.56491,"16063","Wartburgkreis",2000
+0.5753,"16063","Wartburgkreis",2001
+0.58434,"16063","Wartburgkreis",2002
+0.54503,"16063","Wartburgkreis",2003
+0.55466,"16063","Wartburgkreis",2004
+0.61397,"16063","Wartburgkreis",2005
+0.60266,"16063","Wartburgkreis",2006
+0.57994,"16063","Wartburgkreis",2007
+0.62111,"16063","Wartburgkreis",2008
+0.62526,"16063","Wartburgkreis",2009
+0.61132,"16063","Wartburgkreis",2010
+0.55228,"16063","Wartburgkreis",2011
+0.57459,"16063","Wartburgkreis",2012
+0.52408,"16063","Wartburgkreis",2013
+0.64625,"16063","Wartburgkreis",2014
+0.60491,"16063","Wartburgkreis",2015
+0.55258,"16063","Wartburgkreis",2016
+0.70708,"16063","Wartburgkreis",2017
+0.34612,"16063","Wartburgkreis",2018
+0.34991,"16063","Wartburgkreis",2019
+0.33335,"16063","Wartburgkreis",2020
+0.50307,"16063","Wartburgkreis",2021
+0.77324,"16064","Unstrut-Hainich-Kreis",1998
+0.77554,"16064","Unstrut-Hainich-Kreis",1999
+0.72998,"16064","Unstrut-Hainich-Kreis",2000
+0.75829,"16064","Unstrut-Hainich-Kreis",2001
+0.80846,"16064","Unstrut-Hainich-Kreis",2002
+0.76887,"16064","Unstrut-Hainich-Kreis",2003
+0.80515,"16064","Unstrut-Hainich-Kreis",2004
+0.80219,"16064","Unstrut-Hainich-Kreis",2005
+0.8417,"16064","Unstrut-Hainich-Kreis",2006
+0.93899,"16064","Unstrut-Hainich-Kreis",2007
+0.93641,"16064","Unstrut-Hainich-Kreis",2008
+0.97472,"16064","Unstrut-Hainich-Kreis",2009
+1,"16064","Unstrut-Hainich-Kreis",2010
+1,"16064","Unstrut-Hainich-Kreis",2011
+0.92679,"16064","Unstrut-Hainich-Kreis",2012
+0.88829,"16064","Unstrut-Hainich-Kreis",2013
+0.99816,"16064","Unstrut-Hainich-Kreis",2014
+0.97243,"16064","Unstrut-Hainich-Kreis",2015
+0.91394,"16064","Unstrut-Hainich-Kreis",2016
+0.99685,"16064","Unstrut-Hainich-Kreis",2017
+0.98112,"16064","Unstrut-Hainich-Kreis",2018
+0.9664,"16064","Unstrut-Hainich-Kreis",2019
+1,"16064","Unstrut-Hainich-Kreis",2020
+0.97399,"16064","Unstrut-Hainich-Kreis",2021
+1,"16065","Kyffhäuserkreis",1998
+1,"16065","Kyffhäuserkreis",1999
+1,"16065","Kyffhäuserkreis",2000
+1,"16065","Kyffhäuserkreis",2001
+1,"16065","Kyffhäuserkreis",2002
+1,"16065","Kyffhäuserkreis",2003
+1,"16065","Kyffhäuserkreis",2004
+1,"16065","Kyffhäuserkreis",2005
+1,"16065","Kyffhäuserkreis",2006
+1,"16065","Kyffhäuserkreis",2007
+1,"16065","Kyffhäuserkreis",2008
+0.97349,"16065","Kyffhäuserkreis",2009
+0.98452,"16065","Kyffhäuserkreis",2010
+0.8735,"16065","Kyffhäuserkreis",2011
+1,"16065","Kyffhäuserkreis",2012
+1,"16065","Kyffhäuserkreis",2013
+1,"16065","Kyffhäuserkreis",2014
+1,"16065","Kyffhäuserkreis",2015
+1,"16065","Kyffhäuserkreis",2016
+1,"16065","Kyffhäuserkreis",2017
+1,"16065","Kyffhäuserkreis",2018
+0.97187,"16065","Kyffhäuserkreis",2019
+0.92813,"16065","Kyffhäuserkreis",2020
+0.92288,"16065","Kyffhäuserkreis",2021
+0.71023,"16066","Schmalkalden-Meiningen",1998
+0.68658,"16066","Schmalkalden-Meiningen",1999
+0.68741,"16066","Schmalkalden-Meiningen",2000
+0.73173,"16066","Schmalkalden-Meiningen",2001
+0.67948,"16066","Schmalkalden-Meiningen",2002
+0.66117,"16066","Schmalkalden-Meiningen",2003
+0.66129,"16066","Schmalkalden-Meiningen",2004
+0.7142,"16066","Schmalkalden-Meiningen",2005
+0.70777,"16066","Schmalkalden-Meiningen",2006
+0.65823,"16066","Schmalkalden-Meiningen",2007
+0.75028,"16066","Schmalkalden-Meiningen",2008
+0.80366,"16066","Schmalkalden-Meiningen",2009
+0.73915,"16066","Schmalkalden-Meiningen",2010
+0.67435,"16066","Schmalkalden-Meiningen",2011
+0.71558,"16066","Schmalkalden-Meiningen",2012
+0.68674,"16066","Schmalkalden-Meiningen",2013
+0.71864,"16066","Schmalkalden-Meiningen",2014
+0.70955,"16066","Schmalkalden-Meiningen",2015
+0.67766,"16066","Schmalkalden-Meiningen",2016
+0.77307,"16066","Schmalkalden-Meiningen",2017
+0.73444,"16066","Schmalkalden-Meiningen",2018
+0.71973,"16066","Schmalkalden-Meiningen",2019
+0.78149,"16066","Schmalkalden-Meiningen",2020
+0.73955,"16066","Schmalkalden-Meiningen",2021
+0.7103,"16067","Gotha",1998
+0.72353,"16067","Gotha",1999
+0.674,"16067","Gotha",2000
+0.69385,"16067","Gotha",2001
+0.69851,"16067","Gotha",2002
+0.65092,"16067","Gotha",2003
+0.68107,"16067","Gotha",2004
+0.67263,"16067","Gotha",2005
+0.70309,"16067","Gotha",2006
+0.60786,"16067","Gotha",2007
+0.64785,"16067","Gotha",2008
+0.72154,"16067","Gotha",2009
+0.68266,"16067","Gotha",2010
+0.66912,"16067","Gotha",2011
+0.69443,"16067","Gotha",2012
+0.63489,"16067","Gotha",2013
+0.66871,"16067","Gotha",2014
+0.69163,"16067","Gotha",2015
+0.68177,"16067","Gotha",2016
+0.7975,"16067","Gotha",2017
+0.77545,"16067","Gotha",2018
+0.79583,"16067","Gotha",2019
+0.8175,"16067","Gotha",2020
+0.80684,"16067","Gotha",2021
+0.87547,"16068","Sömmerda",1998
+0.80714,"16068","Sömmerda",1999
+0.78317,"16068","Sömmerda",2000
+0.75881,"16068","Sömmerda",2001
+0.78718,"16068","Sömmerda",2002
+0.73219,"16068","Sömmerda",2003
+0.85588,"16068","Sömmerda",2004
+0.80612,"16068","Sömmerda",2005
+0.81003,"16068","Sömmerda",2006
+0.82431,"16068","Sömmerda",2007
+0.84328,"16068","Sömmerda",2008
+0.88576,"16068","Sömmerda",2009
+0.89544,"16068","Sömmerda",2010
+0.83233,"16068","Sömmerda",2011
+0.91958,"16068","Sömmerda",2012
+0.81176,"16068","Sömmerda",2013
+0.94628,"16068","Sömmerda",2014
+0.89935,"16068","Sömmerda",2015
+0.83892,"16068","Sömmerda",2016
+0.92125,"16068","Sömmerda",2017
+0.85415,"16068","Sömmerda",2018
+0.8365,"16068","Sömmerda",2019
+0.90361,"16068","Sömmerda",2020
+1,"16068","Sömmerda",2021
+0.62435,"16069","Hildburghausen",1998
+0.61945,"16069","Hildburghausen",1999
+0.6319,"16069","Hildburghausen",2000
+0.64874,"16069","Hildburghausen",2001
+0.6423,"16069","Hildburghausen",2002
+0.62906,"16069","Hildburghausen",2003
+0.66772,"16069","Hildburghausen",2004
+0.66655,"16069","Hildburghausen",2005
+0.7013,"16069","Hildburghausen",2006
+0.67976,"16069","Hildburghausen",2007
+0.6757,"16069","Hildburghausen",2008
+0.64525,"16069","Hildburghausen",2009
+0.65851,"16069","Hildburghausen",2010
+0.63767,"16069","Hildburghausen",2011
+0.57328,"16069","Hildburghausen",2012
+0.54368,"16069","Hildburghausen",2013
+0.56614,"16069","Hildburghausen",2014
+0.60633,"16069","Hildburghausen",2015
+0.55315,"16069","Hildburghausen",2016
+0.71726,"16069","Hildburghausen",2017
+0.72601,"16069","Hildburghausen",2018
+0.66367,"16069","Hildburghausen",2019
+0.69221,"16069","Hildburghausen",2020
+0.72209,"16069","Hildburghausen",2021
+0.68275,"16070","Ilm-Kreis",1998
+0.63998,"16070","Ilm-Kreis",1999
+0.64418,"16070","Ilm-Kreis",2000
+0.68402,"16070","Ilm-Kreis",2001
+0.65891,"16070","Ilm-Kreis",2002
+0.68051,"16070","Ilm-Kreis",2003
+0.69157,"16070","Ilm-Kreis",2004
+0.7078,"16070","Ilm-Kreis",2005
+0.69677,"16070","Ilm-Kreis",2006
+0.74809,"16070","Ilm-Kreis",2007
+0.67784,"16070","Ilm-Kreis",2008
+0.71558,"16070","Ilm-Kreis",2009
+0.7014,"16070","Ilm-Kreis",2010
+0.74435,"16070","Ilm-Kreis",2011
+0.67128,"16070","Ilm-Kreis",2012
+0.59627,"16070","Ilm-Kreis",2013
+0.6506,"16070","Ilm-Kreis",2014
+0.63487,"16070","Ilm-Kreis",2015
+0.61357,"16070","Ilm-Kreis",2016
+0.74212,"16070","Ilm-Kreis",2017
+0.71833,"16070","Ilm-Kreis",2018
+0.70069,"16070","Ilm-Kreis",2019
+0.71289,"16070","Ilm-Kreis",2020
+0.68979,"16070","Ilm-Kreis",2021
+0.81303,"16071","Weimarer Land",1998
+0.70161,"16071","Weimarer Land",1999
+0.69368,"16071","Weimarer Land",2000
+0.76292,"16071","Weimarer Land",2001
+0.69608,"16071","Weimarer Land",2002
+0.63486,"16071","Weimarer Land",2003
+0.68069,"16071","Weimarer Land",2004
+0.65555,"16071","Weimarer Land",2005
+0.71086,"16071","Weimarer Land",2006
+0.68587,"16071","Weimarer Land",2007
+0.66371,"16071","Weimarer Land",2008
+0.60592,"16071","Weimarer Land",2009
+0.71143,"16071","Weimarer Land",2010
+0.66231,"16071","Weimarer Land",2011
+0.62405,"16071","Weimarer Land",2012
+0.57375,"16071","Weimarer Land",2013
+0.67456,"16071","Weimarer Land",2014
+0.59475,"16071","Weimarer Land",2015
+0.60505,"16071","Weimarer Land",2016
+0.71477,"16071","Weimarer Land",2017
+0.70463,"16071","Weimarer Land",2018
+0.64125,"16071","Weimarer Land",2019
+0.71797,"16071","Weimarer Land",2020
+0.66307,"16071","Weimarer Land",2021
+0.71818,"16072","Sonneberg",1998
+0.69065,"16072","Sonneberg",1999
+0.66749,"16072","Sonneberg",2000
+0.67427,"16072","Sonneberg",2001
+0.67268,"16072","Sonneberg",2002
+0.72384,"16072","Sonneberg",2003
+0.76044,"16072","Sonneberg",2004
+0.7386,"16072","Sonneberg",2005
+0.78041,"16072","Sonneberg",2006
+0.71435,"16072","Sonneberg",2007
+0.74398,"16072","Sonneberg",2008
+0.78644,"16072","Sonneberg",2009
+0.72519,"16072","Sonneberg",2010
+0.71417,"16072","Sonneberg",2011
+0.60442,"16072","Sonneberg",2012
+0.70474,"16072","Sonneberg",2013
+0.65726,"16072","Sonneberg",2014
+0.71666,"16072","Sonneberg",2015
+0.75706,"16072","Sonneberg",2016
+0.95711,"16072","Sonneberg",2017
+0.86782,"16072","Sonneberg",2018
+0.85614,"16072","Sonneberg",2019
+0.93263,"16072","Sonneberg",2020
+0.87066,"16072","Sonneberg",2021
+0.64474,"16073","Saalfeld-Rudolstadt",1998
+0.66321,"16073","Saalfeld-Rudolstadt",1999
+0.67468,"16073","Saalfeld-Rudolstadt",2000
+0.6147,"16073","Saalfeld-Rudolstadt",2001
+0.63311,"16073","Saalfeld-Rudolstadt",2002
+0.62404,"16073","Saalfeld-Rudolstadt",2003
+0.58111,"16073","Saalfeld-Rudolstadt",2004
+0.65496,"16073","Saalfeld-Rudolstadt",2005
+0.66652,"16073","Saalfeld-Rudolstadt",2006
+0.68783,"16073","Saalfeld-Rudolstadt",2007
+0.7609,"16073","Saalfeld-Rudolstadt",2008
+0.72565,"16073","Saalfeld-Rudolstadt",2009
+0.70558,"16073","Saalfeld-Rudolstadt",2010
+0.61549,"16073","Saalfeld-Rudolstadt",2011
+0.69936,"16073","Saalfeld-Rudolstadt",2012
+0.66512,"16073","Saalfeld-Rudolstadt",2013
+0.77665,"16073","Saalfeld-Rudolstadt",2014
+0.73338,"16073","Saalfeld-Rudolstadt",2015
+0.66694,"16073","Saalfeld-Rudolstadt",2016
+0.74883,"16073","Saalfeld-Rudolstadt",2017
+0.71815,"16073","Saalfeld-Rudolstadt",2018
+0.68102,"16073","Saalfeld-Rudolstadt",2019
+0.72989,"16073","Saalfeld-Rudolstadt",2020
+0.79541,"16073","Saalfeld-Rudolstadt",2021
+0.59195,"16074","Saale-Holzland-Kreis",1998
+0.57365,"16074","Saale-Holzland-Kreis",1999
+0.56713,"16074","Saale-Holzland-Kreis",2000
+0.61946,"16074","Saale-Holzland-Kreis",2001
+0.6413,"16074","Saale-Holzland-Kreis",2002
+0.5635,"16074","Saale-Holzland-Kreis",2003
+0.5657,"16074","Saale-Holzland-Kreis",2004
+0.5672,"16074","Saale-Holzland-Kreis",2005
+0.57172,"16074","Saale-Holzland-Kreis",2006
+0.51496,"16074","Saale-Holzland-Kreis",2007
+0.61871,"16074","Saale-Holzland-Kreis",2008
+0.58227,"16074","Saale-Holzland-Kreis",2009
+0.55459,"16074","Saale-Holzland-Kreis",2010
+0.72713,"16074","Saale-Holzland-Kreis",2011
+0.58378,"16074","Saale-Holzland-Kreis",2012
+0.49696,"16074","Saale-Holzland-Kreis",2013
+0.55785,"16074","Saale-Holzland-Kreis",2014
+0.57521,"16074","Saale-Holzland-Kreis",2015
+0.46877,"16074","Saale-Holzland-Kreis",2016
+0.64401,"16074","Saale-Holzland-Kreis",2017
+0.52272,"16074","Saale-Holzland-Kreis",2018
+0.53094,"16074","Saale-Holzland-Kreis",2019
+0.54145,"16074","Saale-Holzland-Kreis",2020
+0.55931,"16074","Saale-Holzland-Kreis",2021
+0.71823,"16075","Saale-Orla-Kreis",1998
+0.6831,"16075","Saale-Orla-Kreis",1999
+0.63234,"16075","Saale-Orla-Kreis",2000
+0.68636,"16075","Saale-Orla-Kreis",2001
+0.70819,"16075","Saale-Orla-Kreis",2002
+0.64373,"16075","Saale-Orla-Kreis",2003
+0.62919,"16075","Saale-Orla-Kreis",2004
+0.68318,"16075","Saale-Orla-Kreis",2005
+0.66483,"16075","Saale-Orla-Kreis",2006
+0.6885,"16075","Saale-Orla-Kreis",2007
+0.70328,"16075","Saale-Orla-Kreis",2008
+0.76892,"16075","Saale-Orla-Kreis",2009
+0.74553,"16075","Saale-Orla-Kreis",2010
+0.68761,"16075","Saale-Orla-Kreis",2011
+0.65142,"16075","Saale-Orla-Kreis",2012
+0.63422,"16075","Saale-Orla-Kreis",2013
+0.6638,"16075","Saale-Orla-Kreis",2014
+0.70562,"16075","Saale-Orla-Kreis",2015
+0.74873,"16075","Saale-Orla-Kreis",2016
+0.80734,"16075","Saale-Orla-Kreis",2017
+0.73246,"16075","Saale-Orla-Kreis",2018
+0.71478,"16075","Saale-Orla-Kreis",2019
+0.7341,"16075","Saale-Orla-Kreis",2020
+0.7796,"16075","Saale-Orla-Kreis",2021
+0.67788,"16076","Greiz",1998
+0.61934,"16076","Greiz",1999
+0.59169,"16076","Greiz",2000
+0.68231,"16076","Greiz",2001
+0.6139,"16076","Greiz",2002
+0.71062,"16076","Greiz",2003
+0.64116,"16076","Greiz",2004
+0.69685,"16076","Greiz",2005
+0.63695,"16076","Greiz",2006
+0.64335,"16076","Greiz",2007
+0.7367,"16076","Greiz",2008
+0.68611,"16076","Greiz",2009
+0.65689,"16076","Greiz",2010
+0.60723,"16076","Greiz",2011
+0.70816,"16076","Greiz",2012
+0.58954,"16076","Greiz",2013
+0.69233,"16076","Greiz",2014
+0.66842,"16076","Greiz",2015
+0.69363,"16076","Greiz",2016
+0.67746,"16076","Greiz",2017
+0.71218,"16076","Greiz",2018
+0.70418,"16076","Greiz",2019
+0.71003,"16076","Greiz",2020
+0.6725,"16076","Greiz",2021
+0.78958,"16077","Altenburger Land",1998
+0.85994,"16077","Altenburger Land",1999
+0.77253,"16077","Altenburger Land",2000
+0.75933,"16077","Altenburger Land",2001
+0.79337,"16077","Altenburger Land",2002
+0.7476,"16077","Altenburger Land",2003
+0.74082,"16077","Altenburger Land",2004
+0.78631,"16077","Altenburger Land",2005
+0.7798,"16077","Altenburger Land",2006
+0.82839,"16077","Altenburger Land",2007
+0.88683,"16077","Altenburger Land",2008
+0.91917,"16077","Altenburger Land",2009
+0.90512,"16077","Altenburger Land",2010
+0.87918,"16077","Altenburger Land",2011
+0.83503,"16077","Altenburger Land",2012
+0.7693,"16077","Altenburger Land",2013
+0.87572,"16077","Altenburger Land",2014
+0.84711,"16077","Altenburger Land",2015
+0.77188,"16077","Altenburger Land",2016
+0.87497,"16077","Altenburger Land",2017
+0.81582,"16077","Altenburger Land",2018
+0.83616,"16077","Altenburger Land",2019
+0.85941,"16077","Altenburger Land",2020
+0.83403,"16077","Altenburger Land",2021

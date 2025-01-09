@@ -1,6 +1,6 @@
-.Rproj
+*.RData
+*.Rhistory
+*.lnk
+.RData
+.Rhistory
 .Rproj.user
-
-# MyExclusions
-.csv
-.dta

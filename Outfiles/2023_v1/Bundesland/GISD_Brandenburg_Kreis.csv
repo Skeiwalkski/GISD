@@ -1,0 +1,415 @@
+"gisd_score","kreis_id","kreis_name","year"
+1,"12051","Brandenburg an der Havel, Stadt",1998
+1,"12051","Brandenburg an der Havel, Stadt",1999
+1,"12051","Brandenburg an der Havel, Stadt",2000
+0.9405,"12051","Brandenburg an der Havel, Stadt",2001
+0.96232,"12051","Brandenburg an der Havel, Stadt",2002
+0.92029,"12051","Brandenburg an der Havel, Stadt",2003
+0.83973,"12051","Brandenburg an der Havel, Stadt",2004
+0.83609,"12051","Brandenburg an der Havel, Stadt",2005
+0.90785,"12051","Brandenburg an der Havel, Stadt",2006
+1,"12051","Brandenburg an der Havel, Stadt",2007
+0.87745,"12051","Brandenburg an der Havel, Stadt",2008
+0.9278,"12051","Brandenburg an der Havel, Stadt",2009
+0.92601,"12051","Brandenburg an der Havel, Stadt",2010
+0.94114,"12051","Brandenburg an der Havel, Stadt",2011
+0.8593,"12051","Brandenburg an der Havel, Stadt",2012
+0.89628,"12051","Brandenburg an der Havel, Stadt",2013
+0.88755,"12051","Brandenburg an der Havel, Stadt",2014
+0.98468,"12051","Brandenburg an der Havel, Stadt",2015
+0.89681,"12051","Brandenburg an der Havel, Stadt",2016
+0.93035,"12051","Brandenburg an der Havel, Stadt",2017
+0.92085,"12051","Brandenburg an der Havel, Stadt",2018
+0.89196,"12051","Brandenburg an der Havel, Stadt",2019
+0.89689,"12051","Brandenburg an der Havel, Stadt",2020
+0.48322,"12052","Cottbus, Stadt",1998
+0.41401,"12052","Cottbus, Stadt",1999
+0.42885,"12052","Cottbus, Stadt",2000
+0.41791,"12052","Cottbus, Stadt",2001
+0.33044,"12052","Cottbus, Stadt",2002
+0.33137,"12052","Cottbus, Stadt",2003
+0.30026,"12052","Cottbus, Stadt",2004
+0.34597,"12052","Cottbus, Stadt",2005
+0.38534,"12052","Cottbus, Stadt",2006
+0.49958,"12052","Cottbus, Stadt",2007
+0.45298,"12052","Cottbus, Stadt",2008
+0.44955,"12052","Cottbus, Stadt",2009
+0.42373,"12052","Cottbus, Stadt",2010
+0.43009,"12052","Cottbus, Stadt",2011
+0.53565,"12052","Cottbus, Stadt",2012
+0.5828,"12052","Cottbus, Stadt",2013
+0.54304,"12052","Cottbus, Stadt",2014
+0.59151,"12052","Cottbus, Stadt",2015
+0.56444,"12052","Cottbus, Stadt",2016
+0.62889,"12052","Cottbus, Stadt",2017
+0.6496,"12052","Cottbus, Stadt",2018
+0.52102,"12052","Cottbus, Stadt",2019
+0.49907,"12052","Cottbus, Stadt",2020
+0.69911,"12053","Frankfurt (Oder), Stadt",1998
+0.6756,"12053","Frankfurt (Oder), Stadt",1999
+0.71054,"12053","Frankfurt (Oder), Stadt",2000
+0.78229,"12053","Frankfurt (Oder), Stadt",2001
+0.66574,"12053","Frankfurt (Oder), Stadt",2002
+0.69159,"12053","Frankfurt (Oder), Stadt",2003
+0.71533,"12053","Frankfurt (Oder), Stadt",2004
+0.66179,"12053","Frankfurt (Oder), Stadt",2005
+0.65223,"12053","Frankfurt (Oder), Stadt",2006
+0.68094,"12053","Frankfurt (Oder), Stadt",2007
+0.71301,"12053","Frankfurt (Oder), Stadt",2008
+0.72825,"12053","Frankfurt (Oder), Stadt",2009
+0.66519,"12053","Frankfurt (Oder), Stadt",2010
+0.63308,"12053","Frankfurt (Oder), Stadt",2011
+0.75103,"12053","Frankfurt (Oder), Stadt",2012
+0.77239,"12053","Frankfurt (Oder), Stadt",2013
+0.74542,"12053","Frankfurt (Oder), Stadt",2014
+0.68566,"12053","Frankfurt (Oder), Stadt",2015
+0.64579,"12053","Frankfurt (Oder), Stadt",2016
+0.72866,"12053","Frankfurt (Oder), Stadt",2017
+0.77665,"12053","Frankfurt (Oder), Stadt",2018
+0.73937,"12053","Frankfurt (Oder), Stadt",2019
+0.65243,"12053","Frankfurt (Oder), Stadt",2020
+0,"12054","Potsdam, Stadt",1998
+0,"12054","Potsdam, Stadt",1999
+0,"12054","Potsdam, Stadt",2000
+0,"12054","Potsdam, Stadt",2001
+0,"12054","Potsdam, Stadt",2002
+0,"12054","Potsdam, Stadt",2003
+0,"12054","Potsdam, Stadt",2004
+0,"12054","Potsdam, Stadt",2005
+0,"12054","Potsdam, Stadt",2006
+0,"12054","Potsdam, Stadt",2007
+0,"12054","Potsdam, Stadt",2008
+0,"12054","Potsdam, Stadt",2009
+0,"12054","Potsdam, Stadt",2010
+0,"12054","Potsdam, Stadt",2011
+0,"12054","Potsdam, Stadt",2012
+0,"12054","Potsdam, Stadt",2013
+0,"12054","Potsdam, Stadt",2014
+0,"12054","Potsdam, Stadt",2015
+0,"12054","Potsdam, Stadt",2016
+0,"12054","Potsdam, Stadt",2017
+0,"12054","Potsdam, Stadt",2018
+0,"12054","Potsdam, Stadt",2019
+0,"12054","Potsdam, Stadt",2020
+0.71596,"12060","Barnim",1998
+0.72059,"12060","Barnim",1999
+0.70352,"12060","Barnim",2000
+0.64886,"12060","Barnim",2001
+0.68377,"12060","Barnim",2002
+0.58302,"12060","Barnim",2003
+0.5544,"12060","Barnim",2004
+0.49869,"12060","Barnim",2005
+0.49883,"12060","Barnim",2006
+0.54792,"12060","Barnim",2007
+0.54335,"12060","Barnim",2008
+0.51323,"12060","Barnim",2009
+0.40107,"12060","Barnim",2010
+0.46704,"12060","Barnim",2011
+0.53894,"12060","Barnim",2012
+0.50243,"12060","Barnim",2013
+0.49163,"12060","Barnim",2014
+0.48389,"12060","Barnim",2015
+0.45906,"12060","Barnim",2016
+0.4996,"12060","Barnim",2017
+0.51119,"12060","Barnim",2018
+0.46125,"12060","Barnim",2019
+0.48204,"12060","Barnim",2020
+0.39751,"12061","Dahme-Spreewald",1998
+0.40465,"12061","Dahme-Spreewald",1999
+0.31998,"12061","Dahme-Spreewald",2000
+0.31373,"12061","Dahme-Spreewald",2001
+0.34952,"12061","Dahme-Spreewald",2002
+0.31426,"12061","Dahme-Spreewald",2003
+0.2758,"12061","Dahme-Spreewald",2004
+0.27441,"12061","Dahme-Spreewald",2005
+0.24737,"12061","Dahme-Spreewald",2006
+0.28849,"12061","Dahme-Spreewald",2007
+0.28182,"12061","Dahme-Spreewald",2008
+0.29002,"12061","Dahme-Spreewald",2009
+0.2447,"12061","Dahme-Spreewald",2010
+0.19945,"12061","Dahme-Spreewald",2011
+0.29442,"12061","Dahme-Spreewald",2012
+0.35343,"12061","Dahme-Spreewald",2013
+0.30361,"12061","Dahme-Spreewald",2014
+0.34488,"12061","Dahme-Spreewald",2015
+0.31609,"12061","Dahme-Spreewald",2016
+0.30583,"12061","Dahme-Spreewald",2017
+0.33402,"12061","Dahme-Spreewald",2018
+0.2865,"12061","Dahme-Spreewald",2019
+0.2928,"12061","Dahme-Spreewald",2020
+0.68774,"12062","Elbe-Elster",1998
+0.67855,"12062","Elbe-Elster",1999
+0.6847,"12062","Elbe-Elster",2000
+0.75284,"12062","Elbe-Elster",2001
+0.76983,"12062","Elbe-Elster",2002
+0.79948,"12062","Elbe-Elster",2003
+0.77549,"12062","Elbe-Elster",2004
+0.73632,"12062","Elbe-Elster",2005
+0.77464,"12062","Elbe-Elster",2006
+0.78949,"12062","Elbe-Elster",2007
+0.89908,"12062","Elbe-Elster",2008
+0.85192,"12062","Elbe-Elster",2009
+0.69858,"12062","Elbe-Elster",2010
+0.76175,"12062","Elbe-Elster",2011
+0.7575,"12062","Elbe-Elster",2012
+0.78882,"12062","Elbe-Elster",2013
+0.7146,"12062","Elbe-Elster",2014
+0.69749,"12062","Elbe-Elster",2015
+0.64226,"12062","Elbe-Elster",2016
+0.71937,"12062","Elbe-Elster",2017
+0.65723,"12062","Elbe-Elster",2018
+0.61795,"12062","Elbe-Elster",2019
+0.61075,"12062","Elbe-Elster",2020
+0.84206,"12063","Havelland",1998
+0.81241,"12063","Havelland",1999
+0.79226,"12063","Havelland",2000
+0.71021,"12063","Havelland",2001
+0.72613,"12063","Havelland",2002
+0.67344,"12063","Havelland",2003
+0.72047,"12063","Havelland",2004
+0.68647,"12063","Havelland",2005
+0.65105,"12063","Havelland",2006
+0.67146,"12063","Havelland",2007
+0.72367,"12063","Havelland",2008
+0.76931,"12063","Havelland",2009
+0.67639,"12063","Havelland",2010
+0.6128,"12063","Havelland",2011
+0.68221,"12063","Havelland",2012
+0.70449,"12063","Havelland",2013
+0.67343,"12063","Havelland",2014
+0.61653,"12063","Havelland",2015
+0.56249,"12063","Havelland",2016
+0.6062,"12063","Havelland",2017
+0.59611,"12063","Havelland",2018
+0.55503,"12063","Havelland",2019
+0.58052,"12063","Havelland",2020
+0.66796,"12064","Märkisch-Oderland",1998
+0.67945,"12064","Märkisch-Oderland",1999
+0.69142,"12064","Märkisch-Oderland",2000
+0.6908,"12064","Märkisch-Oderland",2001
+0.68307,"12064","Märkisch-Oderland",2002
+0.62613,"12064","Märkisch-Oderland",2003
+0.6126,"12064","Märkisch-Oderland",2004
+0.6003,"12064","Märkisch-Oderland",2005
+0.57571,"12064","Märkisch-Oderland",2006
+0.60894,"12064","Märkisch-Oderland",2007
+0.61665,"12064","Märkisch-Oderland",2008
+0.58023,"12064","Märkisch-Oderland",2009
+0.56881,"12064","Märkisch-Oderland",2010
+0.51105,"12064","Märkisch-Oderland",2011
+0.57261,"12064","Märkisch-Oderland",2012
+0.60019,"12064","Märkisch-Oderland",2013
+0.53421,"12064","Märkisch-Oderland",2014
+0.62676,"12064","Märkisch-Oderland",2015
+0.5539,"12064","Märkisch-Oderland",2016
+0.56476,"12064","Märkisch-Oderland",2017
+0.58937,"12064","Märkisch-Oderland",2018
+0.56904,"12064","Märkisch-Oderland",2019
+0.51589,"12064","Märkisch-Oderland",2020
+0.57916,"12065","Oberhavel",1998
+0.55688,"12065","Oberhavel",1999
+0.51879,"12065","Oberhavel",2000
+0.51698,"12065","Oberhavel",2001
+0.50199,"12065","Oberhavel",2002
+0.45856,"12065","Oberhavel",2003
+0.43775,"12065","Oberhavel",2004
+0.41724,"12065","Oberhavel",2005
+0.42129,"12065","Oberhavel",2006
+0.43782,"12065","Oberhavel",2007
+0.50448,"12065","Oberhavel",2008
+0.50306,"12065","Oberhavel",2009
+0.43648,"12065","Oberhavel",2010
+0.48088,"12065","Oberhavel",2011
+0.44865,"12065","Oberhavel",2012
+0.46555,"12065","Oberhavel",2013
+0.46467,"12065","Oberhavel",2014
+0.4515,"12065","Oberhavel",2015
+0.44896,"12065","Oberhavel",2016
+0.46848,"12065","Oberhavel",2017
+0.41431,"12065","Oberhavel",2018
+0.4118,"12065","Oberhavel",2019
+0.38961,"12065","Oberhavel",2020
+0.71542,"12066","Oberspreewald-Lausitz",1998
+0.7294,"12066","Oberspreewald-Lausitz",1999
+0.73144,"12066","Oberspreewald-Lausitz",2000
+0.81978,"12066","Oberspreewald-Lausitz",2001
+0.75958,"12066","Oberspreewald-Lausitz",2002
+0.72614,"12066","Oberspreewald-Lausitz",2003
+0.70412,"12066","Oberspreewald-Lausitz",2004
+0.73307,"12066","Oberspreewald-Lausitz",2005
+0.74243,"12066","Oberspreewald-Lausitz",2006
+0.70924,"12066","Oberspreewald-Lausitz",2007
+0.80485,"12066","Oberspreewald-Lausitz",2008
+0.8031,"12066","Oberspreewald-Lausitz",2009
+0.78985,"12066","Oberspreewald-Lausitz",2010
+0.71636,"12066","Oberspreewald-Lausitz",2011
+0.73341,"12066","Oberspreewald-Lausitz",2012
+0.71768,"12066","Oberspreewald-Lausitz",2013
+0.69806,"12066","Oberspreewald-Lausitz",2014
+0.69515,"12066","Oberspreewald-Lausitz",2015
+0.66797,"12066","Oberspreewald-Lausitz",2016
+0.66391,"12066","Oberspreewald-Lausitz",2017
+0.64271,"12066","Oberspreewald-Lausitz",2018
+0.63496,"12066","Oberspreewald-Lausitz",2019
+0.562,"12066","Oberspreewald-Lausitz",2020
+0.58759,"12067","Oder-Spree",1998
+0.56639,"12067","Oder-Spree",1999
+0.55798,"12067","Oder-Spree",2000
+0.5637,"12067","Oder-Spree",2001
+0.54636,"12067","Oder-Spree",2002
+0.53362,"12067","Oder-Spree",2003
+0.50692,"12067","Oder-Spree",2004
+0.53411,"12067","Oder-Spree",2005
+0.50985,"12067","Oder-Spree",2006
+0.53885,"12067","Oder-Spree",2007
+0.57344,"12067","Oder-Spree",2008
+0.58193,"12067","Oder-Spree",2009
+0.47448,"12067","Oder-Spree",2010
+0.44792,"12067","Oder-Spree",2011
+0.49867,"12067","Oder-Spree",2012
+0.53359,"12067","Oder-Spree",2013
+0.52796,"12067","Oder-Spree",2014
+0.58803,"12067","Oder-Spree",2015
+0.52014,"12067","Oder-Spree",2016
+0.55645,"12067","Oder-Spree",2017
+0.58708,"12067","Oder-Spree",2018
+0.52569,"12067","Oder-Spree",2019
+0.50427,"12067","Oder-Spree",2020
+0.9705,"12068","Ostprignitz-Ruppin",1998
+0.94326,"12068","Ostprignitz-Ruppin",1999
+0.92354,"12068","Ostprignitz-Ruppin",2000
+0.95219,"12068","Ostprignitz-Ruppin",2001
+0.92608,"12068","Ostprignitz-Ruppin",2002
+0.88637,"12068","Ostprignitz-Ruppin",2003
+0.90166,"12068","Ostprignitz-Ruppin",2004
+0.84134,"12068","Ostprignitz-Ruppin",2005
+0.88823,"12068","Ostprignitz-Ruppin",2006
+0.9445,"12068","Ostprignitz-Ruppin",2007
+0.95748,"12068","Ostprignitz-Ruppin",2008
+0.90495,"12068","Ostprignitz-Ruppin",2009
+0.87876,"12068","Ostprignitz-Ruppin",2010
+0.8791,"12068","Ostprignitz-Ruppin",2011
+0.85739,"12068","Ostprignitz-Ruppin",2012
+0.87896,"12068","Ostprignitz-Ruppin",2013
+0.82668,"12068","Ostprignitz-Ruppin",2014
+0.88945,"12068","Ostprignitz-Ruppin",2015
+0.8813,"12068","Ostprignitz-Ruppin",2016
+0.93396,"12068","Ostprignitz-Ruppin",2017
+0.90773,"12068","Ostprignitz-Ruppin",2018
+0.88253,"12068","Ostprignitz-Ruppin",2019
+0.80078,"12068","Ostprignitz-Ruppin",2020
+0.19966,"12069","Potsdam-Mittelmark",1998
+0.2028,"12069","Potsdam-Mittelmark",1999
+0.19389,"12069","Potsdam-Mittelmark",2000
+0.20311,"12069","Potsdam-Mittelmark",2001
+0.20762,"12069","Potsdam-Mittelmark",2002
+0.17097,"12069","Potsdam-Mittelmark",2003
+0.13339,"12069","Potsdam-Mittelmark",2004
+0.15167,"12069","Potsdam-Mittelmark",2005
+0.10584,"12069","Potsdam-Mittelmark",2006
+0.11092,"12069","Potsdam-Mittelmark",2007
+0.12395,"12069","Potsdam-Mittelmark",2008
+0.10739,"12069","Potsdam-Mittelmark",2009
+0.07477,"12069","Potsdam-Mittelmark",2010
+0.02565,"12069","Potsdam-Mittelmark",2011
+0.1024,"12069","Potsdam-Mittelmark",2012
+0.10637,"12069","Potsdam-Mittelmark",2013
+0.11458,"12069","Potsdam-Mittelmark",2014
+0.17247,"12069","Potsdam-Mittelmark",2015
+0.1926,"12069","Potsdam-Mittelmark",2016
+0.16882,"12069","Potsdam-Mittelmark",2017
+0.11687,"12069","Potsdam-Mittelmark",2018
+0.1397,"12069","Potsdam-Mittelmark",2019
+0.15068,"12069","Potsdam-Mittelmark",2020
+0.90208,"12070","Prignitz",1998
+0.93166,"12070","Prignitz",1999
+0.97296,"12070","Prignitz",2000
+1,"12070","Prignitz",2001
+0.98298,"12070","Prignitz",2002
+1,"12070","Prignitz",2003
+1,"12070","Prignitz",2004
+1,"12070","Prignitz",2005
+1,"12070","Prignitz",2006
+0.94821,"12070","Prignitz",2007
+1,"12070","Prignitz",2008
+1,"12070","Prignitz",2009
+1,"12070","Prignitz",2010
+1,"12070","Prignitz",2011
+1,"12070","Prignitz",2012
+0.99767,"12070","Prignitz",2013
+0.86698,"12070","Prignitz",2014
+1,"12070","Prignitz",2015
+1,"12070","Prignitz",2016
+0.97054,"12070","Prignitz",2017
+0.99805,"12070","Prignitz",2018
+1,"12070","Prignitz",2019
+1,"12070","Prignitz",2020
+0.63568,"12071","Spree-Neiße",1998
+0.61684,"12071","Spree-Neiße",1999
+0.61112,"12071","Spree-Neiße",2000
+0.62983,"12071","Spree-Neiße",2001
+0.59978,"12071","Spree-Neiße",2002
+0.56654,"12071","Spree-Neiße",2003
+0.56077,"12071","Spree-Neiße",2004
+0.57808,"12071","Spree-Neiße",2005
+0.543,"12071","Spree-Neiße",2006
+0.51541,"12071","Spree-Neiße",2007
+0.5914,"12071","Spree-Neiße",2008
+0.50643,"12071","Spree-Neiße",2009
+0.43136,"12071","Spree-Neiße",2010
+0.44174,"12071","Spree-Neiße",2011
+0.50126,"12071","Spree-Neiße",2012
+0.5937,"12071","Spree-Neiße",2013
+0.65342,"12071","Spree-Neiße",2014
+0.59626,"12071","Spree-Neiße",2015
+0.53748,"12071","Spree-Neiße",2016
+0.60314,"12071","Spree-Neiße",2017
+0.68249,"12071","Spree-Neiße",2018
+0.63554,"12071","Spree-Neiße",2019
+0.58346,"12071","Spree-Neiße",2020
+0.53698,"12072","Teltow-Fläming",1998
+0.57229,"12072","Teltow-Fläming",1999
+0.63681,"12072","Teltow-Fläming",2000
+0.62442,"12072","Teltow-Fläming",2001
+0.51609,"12072","Teltow-Fläming",2002
+0.48592,"12072","Teltow-Fläming",2003
+0.46135,"12072","Teltow-Fläming",2004
+0.45129,"12072","Teltow-Fläming",2005
+0.46454,"12072","Teltow-Fläming",2006
+0.4601,"12072","Teltow-Fläming",2007
+0.45812,"12072","Teltow-Fläming",2008
+0.50342,"12072","Teltow-Fläming",2009
+0.45316,"12072","Teltow-Fläming",2010
+0.44929,"12072","Teltow-Fläming",2011
+0.45317,"12072","Teltow-Fläming",2012
+0.51463,"12072","Teltow-Fläming",2013
+0.52021,"12072","Teltow-Fläming",2014
+0.52291,"12072","Teltow-Fläming",2015
+0.50406,"12072","Teltow-Fläming",2016
+0.56046,"12072","Teltow-Fläming",2017
+0.52329,"12072","Teltow-Fläming",2018
+0.50377,"12072","Teltow-Fläming",2019
+0.4898,"12072","Teltow-Fläming",2020
+0.94923,"12073","Uckermark",1998
+0.94825,"12073","Uckermark",1999
+0.95772,"12073","Uckermark",2000
+0.96107,"12073","Uckermark",2001
+1,"12073","Uckermark",2002
+0.99919,"12073","Uckermark",2003
+0.97306,"12073","Uckermark",2004
+0.94605,"12073","Uckermark",2005
+0.94323,"12073","Uckermark",2006
+0.98665,"12073","Uckermark",2007
+0.99781,"12073","Uckermark",2008
+0.98963,"12073","Uckermark",2009
+0.90848,"12073","Uckermark",2010
+0.99503,"12073","Uckermark",2011
+0.97012,"12073","Uckermark",2012
+1,"12073","Uckermark",2013
+1,"12073","Uckermark",2014
+0.99216,"12073","Uckermark",2015
+0.94639,"12073","Uckermark",2016
+1,"12073","Uckermark",2017
+1,"12073","Uckermark",2018
+0.93399,"12073","Uckermark",2019
+0.86849,"12073","Uckermark",2020
